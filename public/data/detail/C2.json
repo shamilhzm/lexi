@@ -610,6 +610,20 @@
       }
     ]
   },
+  "voc:C2:der Meineid": {
+    "ex": [
+      {
+        "de": "Er wurde wegen Meineid verurteilt.",
+        "en": "He was convicted of perjury.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Meineid ist eine schwere Straftat.",
+        "en": "Perjury is a serious offence.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:der Redefluss": {
     "def": "The smooth, uninterrupted flow of spoken language.",
     "ex": [

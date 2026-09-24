@@ -4504,6 +4504,20 @@
       }
     ]
   },
+  "voc:B1:das Diagramm": {
+    "ex": [
+      {
+        "de": "Das Diagramm zeigt die Entwicklung der Mieten.",
+        "en": "The chart shows how rents have developed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beschreibe das Diagramm in zwei Sätzen.",
+        "en": "Describe the diagram in two sentences.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Diplom": {
     "def": "diploma (higher education only, e.g., Master’s degree).",
     "ex": [
@@ -5977,6 +5991,20 @@
       {
         "de": "Auf dem Laufband kann man das Tempo einstellen.",
         "en": "On the treadmill you can set the pace.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Lehrbuch": {
+    "ex": [
+      {
+        "de": "Im Kurs arbeiten wir mit einem Lehrbuch.",
+        "en": "In the course we work with a textbook.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Lehrbuch hat auch Audiodateien.",
+        "en": "The textbook also has audio files.",
         "lvl": "B1"
       }
     ]
@@ -8730,6 +8758,20 @@
       }
     ]
   },
+  "voc:B1:der Afrikaner": {
+    "ex": [
+      {
+        "de": "Der Afrikaner hat den Marathon gewonnen.",
+        "en": "The African man won the marathon.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Afrikaner studieren in Deutschland.",
+        "en": "Many Africans study in Germany.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Aktenkoffer": {
     "def": "attaché case (briefcase with a hard, rectangular surface)",
     "ex": [
@@ -9578,6 +9620,20 @@
       {
         "de": "Schreibt man das Wort mit Bindestrich?",
         "en": "Is the word written with a hyphen?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Blinker": {
+    "ex": [
+      {
+        "de": "Er fährt ab, ohne den Blinker zu setzen.",
+        "en": "He pulls away without indicating.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Blinker links ist kaputt.",
+        "en": "The left indicator is broken.",
         "lvl": "B1"
       }
     ]
@@ -12454,6 +12510,20 @@
         "de": "Mit Kopfhörern schottet man sich von der Umgebung ab.",
         "en": "With headphones you cut yourself off from your surroundings.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Koreaner": {
+    "ex": [
+      {
+        "de": "Der Koreaner hat das Turnier gewonnen.",
+        "en": "The Korean won the tournament.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Kollege ist Koreaner.",
+        "en": "My colleague is Korean.",
+        "lvl": "B1"
       }
     ]
   },
@@ -20495,6 +20565,20 @@
       }
     ]
   },
+  "voc:B1:die Fliese": {
+    "ex": [
+      {
+        "de": "Im Bad ist eine Fliese gesprungen.",
+        "en": "A tile has cracked in the bathroom.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir wollen neue Fliesen in der Küche.",
+        "en": "We want new tiles in the kitchen.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Flucht": {
     "def": "line, alignment (vertical or horizontal line along which houses, walls, windows or other building elements are arranged); suite, line of rooms, number of rooms interconnected by doors",
     "ex": [
@@ -20958,6 +21042,20 @@
         "de": "Die Fähigkeit, zuzuhören, wird im Berufsleben oft unterschätzt.",
         "en": "The ability to listen is often underestimated in working life.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Füllung": {
+    "ex": [
+      {
+        "de": "Der Kuchen hat eine Füllung aus Äpfeln.",
+        "en": "The cake has an apple filling.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Zahnarzt erneuert die Füllung.",
+        "en": "The dentist is replacing the filling.",
+        "lvl": "B1"
       }
     ]
   },
@@ -27522,6 +27620,20 @@
       }
     ]
   },
+  "voc:B1:die Tapete": {
+    "ex": [
+      {
+        "de": "Beim Auszug muss die Tapete runter.",
+        "en": "The wallpaper has to come off when we move out.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Tapete im Flur ist hässlich.",
+        "en": "The wallpaper in the hall is ugly.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Tastatur": {
     "def": "keyboard (on a computer, typewriter, etc.)",
     "ex": [
@@ -27617,6 +27729,20 @@
       {
         "de": "Die Therapie zeigte schnell Wirkung.",
         "en": "The therapy quickly showed an effect.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Therme": {
+    "ex": [
+      {
+        "de": "Am Sonntag fahren wir in die Therme.",
+        "en": "On Sunday we're going to the thermal baths.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Therme hat auch eine Sauna.",
+        "en": "The spa also has a sauna.",
         "lvl": "B1"
       }
     ]
@@ -30066,6 +30192,20 @@
       {
         "de": "Sie kann als Weiße durchgehen.",
         "en": "She can pass for white.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:durchlesen": {
+    "ex": [
+      {
+        "de": "Bitte den Vertrag vor dem Unterschreiben durchlesen.",
+        "en": "Please read through the contract before signing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du meinen Text kurz durchlesen?",
+        "en": "Can you quickly read through my text?",
         "lvl": "B1"
       }
     ]
@@ -34811,6 +34951,20 @@
       {
         "de": "Vor dem Spiel muss man die Karten mischen.",
         "en": "Before the game you have to shuffle the cards.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:mitarbeiten": {
+    "ex": [
+      {
+        "de": "Möchtest du an dem Projekt mitarbeiten?",
+        "en": "Would you like to work on the project?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Unterricht soll jeder mitarbeiten.",
+        "en": "Everyone should participate in class.",
         "lvl": "B1"
       }
     ]
@@ -42547,6 +42701,20 @@
       {
         "de": "Wir fahren zum Skifahren nach Österreich.",
         "en": "We're going to Austria to ski.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:ärztlich": {
+    "ex": [
+      {
+        "de": "Sie brauchen ein ärztliches Attest.",
+        "en": "You need a doctor's certificate.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist in ärztlicher Behandlung.",
+        "en": "He is under medical treatment.",
         "lvl": "B1"
       }
     ]

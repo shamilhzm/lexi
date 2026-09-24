@@ -22945,6 +22945,20 @@
       }
     ]
   },
+  "voc:A2:mündlich": {
+    "ex": [
+      {
+        "de": "Morgen habe ich die mündliche Prüfung.",
+        "en": "I have the oral exam tomorrow.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir haben das nur mündlich vereinbart.",
+        "en": "We only agreed that verbally.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:na": {
     "def": "An informal exclamation used to open or react in speech.",
     "ex": [

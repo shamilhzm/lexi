@@ -115,6 +115,20 @@
       }
     ]
   },
+  "voc:B2:abfragen": {
+    "ex": [
+      {
+        "de": "Die App will meinen Standort abfragen.",
+        "en": "The app wants to query my location.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Kannst du mich die Vokabeln abfragen?",
+        "en": "Can you test me on the vocabulary?",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:abhalten": {
     "def": "to keep off, away, or out; to hold off; to stop (someone from doing something); to block; to hold back or up",
     "ex": [
@@ -854,6 +868,20 @@
       {
         "de": "Solche Kommentare können mich wirklich aufregen.",
         "en": "Comments like that can really annoy me.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:aufschließen": {
+    "ex": [
+      {
+        "de": "Kannst du bitte die Tür aufschließen?",
+        "en": "Can you unlock the door, please?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Team will zur Spitze aufschließen.",
+        "en": "The team wants to close the gap to the top.",
         "lvl": "B2"
       }
     ]
@@ -2251,6 +2279,20 @@
       {
         "de": "Auf dem alten Fabrik-Areal entstehen neue Wohnungen.",
         "en": "On the old factory site new flats are being built.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Armaturenbrett": {
+    "ex": [
+      {
+        "de": "Auf dem Armaturenbrett leuchtet eine Warnlampe.",
+        "en": "A warning light is on on the dashboard.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Leg das Handy nicht aufs Armaturenbrett.",
+        "en": "Don't put your phone on the dashboard.",
         "lvl": "B2"
       }
     ]
@@ -4044,6 +4086,20 @@
       }
     ]
   },
+  "voc:B2:dazugehören": {
+    "ex": [
+      {
+        "de": "Nach zwei Jahren fühle ich mich, als würde ich dazugehören.",
+        "en": "After two years I feel as if I belong.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Dazugehören ist für viele Migranten schwer.",
+        "en": "Belonging is hard for many migrants.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:deaktivieren": {
     "ex": [
       {
@@ -5462,6 +5518,20 @@
       }
     ]
   },
+  "voc:B2:der Einsteiger": {
+    "ex": [
+      {
+        "de": "Der Kurs ist für Einsteiger geeignet.",
+        "en": "The course is suitable for beginners.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für Einsteiger gibt es ein günstiges Modell.",
+        "en": "There's an inexpensive model for beginners.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Einzelfall": {
     "ex": [
       {
@@ -5954,6 +6024,20 @@
       }
     ]
   },
+  "voc:B2:der Heimatort": {
+    "ex": [
+      {
+        "de": "Er kehrt in seinen Heimatort zurück.",
+        "en": "He is returning to his home town.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mein Heimatort liegt in der Karibik.",
+        "en": "My home town is in the Caribbean.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Herzinfarkt": {
     "def": "myocardial infarction (necrosis of heart muscle), heart attack",
     "ex": [
@@ -6067,6 +6151,20 @@
       {
         "de": "Ausländische Investoren zogen sich wegen regionaler politischer Unruhen zurück.",
         "en": "Foreign investors backed off because of regional political unrest.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Iraker": {
+    "ex": [
+      {
+        "de": "Der Iraker lebt seit zehn Jahren in Köln.",
+        "en": "The Iraqi man has lived in Cologne for ten years.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mein Kollege ist Iraker.",
+        "en": "My colleague is Iraqi.",
         "lvl": "B2"
       }
     ]
@@ -6417,6 +6515,20 @@
       }
     ]
   },
+  "voc:B2:der Lebensgefährte": {
+    "ex": [
+      {
+        "de": "Sie kam mit ihrem Lebensgefährten.",
+        "en": "She came with her partner.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auch der Lebensgefährte kann eine Aufenthaltserlaubnis bekommen.",
+        "en": "A partner can also get a residence permit.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Lebensraum": {
     "def": "living space",
     "ex": [
@@ -6586,6 +6698,20 @@
       {
         "de": "Nach dem langen Marsch waren alle müde.",
         "en": "After the long march everyone was tired.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Mathematiker": {
+    "ex": [
+      {
+        "de": "Der Mathematiker hat ein altes Problem gelöst.",
+        "en": "The mathematician solved an old problem.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie arbeitet als Mathematikerin bei einer Versicherung.",
+        "en": "She works as a mathematician at an insurance company.",
         "lvl": "B2"
       }
     ]
@@ -7004,6 +7130,20 @@
       }
     ]
   },
+  "voc:B2:der Prozentsatz": {
+    "ex": [
+      {
+        "de": "Ein hoher Prozentsatz der Mitarbeiter arbeitet im Homeoffice.",
+        "en": "A high percentage of staff work from home.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Prozentsatz ist leicht gestiegen.",
+        "en": "The percentage has risen slightly.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Prüfer": {
     "def": "The person who sets and marks an examination.",
     "ex": [
@@ -7015,6 +7155,20 @@
       {
         "de": "Zwei Prüfer bewerten die mündliche Leistung.",
         "en": "Two examiners assess the oral performance.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Radsport": {
+    "ex": [
+      {
+        "de": "Im Radsport gab es viele Dopingfälle.",
+        "en": "There have been many doping cases in cycling.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er interessiert sich für Radsport und Formel 1.",
+        "en": "He's interested in cycling and Formula 1.",
         "lvl": "B2"
       }
     ]
@@ -12082,6 +12236,20 @@
       }
     ]
   },
+  "voc:B2:die Konserve": {
+    "ex": [
+      {
+        "de": "Im Keller haben wir Konserven für den Notfall.",
+        "en": "We have tinned food in the cellar for emergencies.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Musik kommt nur aus der Konserve.",
+        "en": "The music is only pre-recorded.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Kostprobe": {
     "ex": [
       {
@@ -12558,6 +12726,20 @@
       }
     ]
   },
+  "voc:B2:die Mehrzahl": {
+    "ex": [
+      {
+        "de": "Die Mehrzahl der Befragten ist dagegen.",
+        "en": "The majority of those surveyed are against it.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wie heißt die Mehrzahl von Haus?",
+        "en": "What's the plural of house?",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Messung": {
     "ex": [
       {
@@ -12841,6 +13023,20 @@
       {
         "de": "Die Stadt will die Obdachlosigkeit bis 2030 beenden.",
         "en": "The city wants to end homelessness by 2030.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Oberschule": {
+    "ex": [
+      {
+        "de": "Sie geht auf eine Oberschule in Berlin.",
+        "en": "She goes to a secondary school in Berlin.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach der Oberschule will er studieren.",
+        "en": "After secondary school he wants to go to university.",
         "lvl": "B2"
       }
     ]
@@ -13644,6 +13840,20 @@
       {
         "de": "Solarenergie ist inzwischen überraschend günstig.",
         "en": "Solar energy is now surprisingly cheap.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Sozialversicherung": {
+    "ex": [
+      {
+        "de": "Die Sozialversicherung wird vom Lohn abgezogen.",
+        "en": "Social insurance is deducted from wages.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Als Minijobber zahlt man kaum Sozialversicherung.",
+        "en": "With a mini-job you pay hardly any social insurance.",
         "lvl": "B2"
       }
     ]
@@ -15101,6 +15311,20 @@
       }
     ]
   },
+  "voc:B2:diszipliniert": {
+    "ex": [
+      {
+        "de": "Sie lernt sehr diszipliniert jeden Tag.",
+        "en": "She studies in a very disciplined way every day.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Team spielte diszipliniert.",
+        "en": "The team played with discipline.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:divers": {
     "ex": [
       {
@@ -15140,6 +15364,20 @@
       {
         "de": "Die Nachricht dringt an die Öffentlichkeit.",
         "en": "The news is reaching the public.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:durchblicken": {
+    "ex": [
+      {
+        "de": "Bei den Formularen kann ich nicht mehr durchblicken.",
+        "en": "I can't make sense of these forms any more.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie lässt durchblicken, dass sie kündigen will.",
+        "en": "She's hinting that she wants to quit.",
         "lvl": "B2"
       }
     ]
@@ -17262,6 +17500,20 @@
       }
     ]
   },
+  "voc:B2:hingehören": {
+    "ex": [
+      {
+        "de": "Wo soll das Buch hingehören?",
+        "en": "Where does this book belong?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Stell die Tassen dahin, wo sie hingehören.",
+        "en": "Put the cups back where they belong.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:hinnehmen": {
     "def": "to accept (with resignation or reluctance, e.g. loss, etc); to take",
     "ex": [
@@ -18201,6 +18453,20 @@
       }
     ]
   },
+  "voc:B2:lehrreich": {
+    "ex": [
+      {
+        "de": "Der Kurs war sehr lehrreich.",
+        "en": "The course was very instructive.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das war eine lehrreiche Erfahrung.",
+        "en": "That was an educational experience.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:leiden (unter)": {
     "def": "To experience pain, illness, or hardship.",
     "ex": [
@@ -18660,6 +18926,20 @@
       {
         "de": "So kann man sich nebenbei etwas hinzuverdienen.",
         "en": "It's a way to make a little extra on the side.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:nebenher": {
+    "ex": [
+      {
+        "de": "Nebenher arbeitet sie als Übersetzerin.",
+        "en": "On the side she works as a translator.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich höre nebenher einen Podcast.",
+        "en": "I listen to a podcast at the same time.",
         "lvl": "B2"
       }
     ]
@@ -19464,6 +19744,20 @@
       }
     ]
   },
+  "voc:B2:senkrecht": {
+    "ex": [
+      {
+        "de": "Die Wand ist nicht ganz senkrecht.",
+        "en": "The wall isn't quite vertical.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Zeichne eine senkrechte Linie.",
+        "en": "Draw a vertical line.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:sensibel": {
     "ex": [
       {
@@ -20147,6 +20441,20 @@
       }
     ]
   },
+  "voc:B2:stöbern": {
+    "ex": [
+      {
+        "de": "Ich stöbere gern auf dem Flohmarkt.",
+        "en": "I like browsing at the flea market.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat in alten Fotos gestöbert.",
+        "en": "She was rummaging through old photos.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:stöhnen": {
     "def": "to moan, to groan, to grunt (to vocalize in a low, unarticulated manner, typically as an extension of exhaling); to moan, to groan (to say in a manner involving moaning or reminiscent thereof)",
     "ex": [
@@ -20172,6 +20480,20 @@
       {
         "de": "Die Zahlen stützen seine These.",
         "en": "The figures support his thesis.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:säen": {
+    "ex": [
+      {
+        "de": "Im Frühling säen die Bauern das Getreide.",
+        "en": "In spring the farmers sow the grain.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Kampagne soll Misstrauen säen.",
+        "en": "The campaign is meant to sow distrust.",
         "lvl": "B2"
       }
     ]
@@ -20549,6 +20871,20 @@
       }
     ]
   },
+  "voc:B2:unbezahlt": {
+    "ex": [
+      {
+        "de": "Das Praktikum ist leider unbezahlt.",
+        "en": "Unfortunately the internship is unpaid.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Überstunden bleiben unbezahlt.",
+        "en": "A lot of overtime goes unpaid.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:unbrauchbar": {
     "ex": [
       {
@@ -20749,6 +21085,20 @@
       }
     ]
   },
+  "voc:B2:unscharf": {
+    "ex": [
+      {
+        "de": "Das Foto ist leider unscharf.",
+        "en": "Unfortunately the photo is blurred.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Definition ist ziemlich unscharf.",
+        "en": "The definition is rather fuzzy.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:unterdessen": {
     "def": "In the time between; meanwhile.",
     "ex": [
@@ -20833,6 +21183,20 @@
       {
         "de": "Seine Meinung blieb über Jahre unverändert.",
         "en": "His opinion remained unchanged for years.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:unvollständig": {
+    "ex": [
+      {
+        "de": "Ihr Antrag ist leider unvollständig.",
+        "en": "Unfortunately your application is incomplete.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Unterlagen sind unvollständig.",
+        "en": "The documents are incomplete.",
         "lvl": "B2"
       }
     ]
@@ -21157,6 +21521,20 @@
       {
         "de": "Wir verleihen kein weiteres Geld mehr.",
         "en": "We're not lending any more money.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:verlernen": {
+    "ex": [
+      {
+        "de": "Ohne Übung kann man eine Sprache verlernen.",
+        "en": "Without practice you can forget a language.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Radfahren kann man nicht verlernen.",
+        "en": "You never forget how to ride a bike.",
         "lvl": "B2"
       }
     ]
@@ -22791,6 +23169,20 @@
       {
         "de": "Das gehört überprüft.",
         "en": "That needs to be checked.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:überraschenderweise": {
+    "ex": [
+      {
+        "de": "Überraschenderweise war das Amt pünktlich.",
+        "en": "Surprisingly the office was on time.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Test war überraschenderweise leicht.",
+        "en": "The test was surprisingly easy.",
         "lvl": "B2"
       }
     ]
