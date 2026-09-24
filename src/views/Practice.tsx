@@ -31,10 +31,11 @@
 //
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, BookOpen, Check, ChevronDown, ChevronRight, ClipboardList, Keyboard, Loader2, MessagesSquare, Play, Printer, Search, Trophy, X } from 'lucide-react';
+import { ArrowLeft, BookOpen, Check, ChevronDown, ChevronRight, ClipboardList, Keyboard, Loader2, MessagesSquare, Mic, Play, Printer, Search, Trophy, X } from 'lucide-react';
 import { studyLevel, placementLevel, pointStats } from '../store.ts';
 import { raceBests } from '../lib/exam-store.ts';
 import Race from './games/Race.tsx';
+import Sprechen from './games/Sprechen.tsx';
 import { current as examInProgress } from '../lib/exam-store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
@@ -53,7 +54,7 @@ import { ALL_LEVELS, type CEFR } from '../types.ts';
 
 type Route = { kind: 'mode'; mode: Mode } | { kind: 'point'; scope: PointScope } | { kind: 'bank' }
   | { kind: 'lesson'; level: CEFR; pi: number; point: GPoint }
-  | { kind: 'race'; level: CEFR } | null;
+  | { kind: 'race'; level: CEFR } | { kind: 'sprechen'; level: CEFR } | null;
 
 /** How the page can be entered: a word-drill mode, the mixed bank, or a named
  *  concept (a grammar blind spot, which is logged by point title alone). */
@@ -92,6 +93,7 @@ export default function Practice({ initial = null, onExam, onPrint, onRedemittel
   if (route?.kind === 'point') return <GrammarDrill scope={route.scope} onExit={back} />;
   if (route?.kind === 'bank') return <GrammarDrill onExit={back} />;
   if (route?.kind === 'race') return <Race level={route.level} onExit={back} />;
+  if (route?.kind === 'sprechen') return <Sprechen level={route.level} onExit={back} />;
   if (route?.kind === 'lesson') {
     return (
       <Lesson level={route.level} pi={route.pi} point={route.point} onExit={back}
@@ -209,7 +211,7 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
           need to compete with the syllabus for a first glance. */}
       <section aria-labelledby="more-practice" className="mt-8">
         <h2 id="more-practice" className="text-lg font-bold mb-1">Also here</h2>
-        <p className="text-dim text-xs mb-3">Everything that isn’t the path: a full exam paper, generated drills, speaking phrases, worksheets, and one game.</p>
+        <p className="text-dim text-xs mb-3">Everything that isn’t the path: a full exam paper, generated drills, speaking phrases, worksheets, and two games.</p>
         {onExam && <ExamCard onExam={onExam} />}
         <QuickDrills onPick={(m) => onRoute({ kind: 'mode', mode: m })} />
         {/* The mixed bank: the journey is for working *a* concept, this is for
@@ -226,6 +228,7 @@ function Syllabus({ onRoute, onExam, onPrint, onRedemittel }: { onRoute: (r: Rou
         {onRedemittel && <RedemittelCardEntry onStudy={onRedemittel} />}
         {onPrint && <PrintCard onPrint={onPrint} />}
         <RaceCard onPlay={(level) => onRoute({ kind: 'race', level })} />
+        <SprechenCard onPlay={(level) => onRoute({ kind: 'sprechen', level })} />
       </section>
     </div>
   );
@@ -270,6 +273,42 @@ function RaceCard({ onPlay }: { onPlay: (level: CEFR) => void }) {
               </button>
             ))}
             <Button size="sm" className="ml-auto" onClick={() => onPlay(level)}><Play size={13} /> Race</Button>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
+/** Sprechen — the pronunciation game. Same level-picker rule as the race: local,
+ *  so playing at A2 never re-scopes the session waiting on Today. */
+function SprechenCard({ onPlay }: { onPlay: (level: CEFR) => void }) {
+  useStore();
+  const start = (placementLevel() as CEFR | null) ?? (studyLevel() as CEFR | null) ?? 'A1';
+  const [level, setLevel] = useState<CEFR>(start);
+
+  return (
+    <Card pad="none" className="px-4 py-3.5 mt-4">
+      <div className="flex items-start gap-3">
+        <span className="grid place-items-center w-9 h-9 rounded-md bg-panel2 text-accent flex-shrink-0">
+          <Mic size={18} />
+        </span>
+        <div className="flex-1 min-w-0">
+          <span lang="de" className="block text-base font-semibold mb-0.5">Sprechen</span>
+          <p className="text-2xs text-dim leading-relaxed">
+            Say eight words at your level. The closer the recogniser’s transcript is to the word, the
+            closer the print comes into register. It is a prompt to listen again, not a mark.
+          </p>
+          <div className="flex items-center gap-1 flex-wrap mt-2.5">
+            {ALL_LEVELS.map((l) => (
+              <button key={l} onClick={() => setLevel(l as CEFR)} aria-pressed={level === l}
+                className={`tap-44-sq inline-flex items-center justify-center font-mono text-2xs px-2 py-1
+                  rounded-md border transition-colors ${
+                    level === l ? 'border-accent text-accent bg-panel2' : 'border-line text-dim hover:text-txt'}`}>
+                {l}
+              </button>
+            ))}
+            <Button size="sm" className="ml-auto" onClick={() => onPlay(level)}><Mic size={13} /> Sprechen</Button>
           </div>
         </div>
       </div>

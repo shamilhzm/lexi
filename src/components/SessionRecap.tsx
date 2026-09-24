@@ -11,6 +11,7 @@ import { useStore } from '../useStore.ts';
 import CountUp from './CountUp.tsx';
 import Card from './ui/Card.tsx';
 import Kicker from './ui/Kicker.tsx';
+import RisoStamp from './RisoStamp.tsx';
 
 /** The evening slot most people can actually keep. Offered, never imposed —
  *  the profile picker owns the real choice. */
@@ -47,10 +48,8 @@ export default function SessionRecap({ data, title = 'Session complete', childre
 
   return (
     <Card pad="none" className="text-center px-8 sm:px-10 py-12 max-w-md w-full">
-      <motion.div initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 420, damping: 18 }}
-        className="grid place-items-center w-14 h-14 rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></motion.div>
-      <h2 className="text-2xl font-bold mb-1 cursor-blink">{title}</h2>
+      <RisoStamp />
+      <h2 className="display text-3xl mb-1 cursor-blink">{title}</h2>
       <p className="text-dim mb-5 flex items-center justify-center gap-1.5">
         streak secured
         <motion.span initial={{ scale: 0.5, rotate: -14 }} animate={{ scale: 1, rotate: 0 }}

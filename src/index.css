@@ -48,7 +48,7 @@
 }
 
 /* ============================================================
-   THE ATLAS — theme tokens.
+   THE ATLAS, PRINTED IN RISO — theme tokens.
    @theme color tokens auto-generate Tailwind utilities
    (bg-bg, text-accent, border-line, …). LIGHT by default;
    `html.dark` overrides below.
@@ -62,14 +62,14 @@
    Aicher/Ulm, cartography, and the printed lexicon — are all
    light-ground. See docs/DESIGN.md §1.
 
-   The accent is Aicher's light blue, the "colour of peace" he made
-   the official hue of Munich 1972, darkened here to clear AA both
-   as ink on white and as a ground under white text.
+   The accent was Aicher's light blue until 2026-09-17. It is now
+   riso Medium Blue, darkened to clear AA on every ground: the app
+   is printed, not lit. See docs/DESIGN.md §1 "Riso" for the call.
    ============================================================ */
 @theme {
   /* "amber" is the legacy token NAME for the accent (kept so every
      text-accent/bg-accent/border-accent utility doesn't churn); its value has been
-     Glacier cyan and is now Atlas blue. Rename is tracked in the backlog. */
+     Glacier cyan, then Atlas blue, and is now riso Medium Blue. Rename is tracked in the backlog. */
   /* Warmed to paper 2026-08-26. These were a cool grey-blue "biased toward the
      accent", which is a screen colour: it made the instrument read as a
      dashboard, and a dashboard is the one thing §1 spent a whole section
@@ -101,12 +101,22 @@
   --color-line:    #d2cabc;   /* hairlines */
   --color-txt:     #1e2226;   /* primary ink */
   --color-dim:     #5b5952;   /* secondary ink — AA on paper and on white */
-  --color-accent:   #1d6a8c;   /* brand / accent / focus (Atlas blue) */
-  --color-green:   #3f7a3a;   /* gains / mastered */
-  --color-green-d: #dfeddc;
-  --color-red:     #a3402f;   /* losses / weak */
-  --color-red-d:   #f6e3de;
-  --color-red-txt: #96351f;
+  --color-accent:   #3255a4;   /* brand / accent / focus (riso Medium Blue) */
+  --color-green:   #237a45;   /* gains / mastered (riso Green, darkened for AA) */
+  --color-green-d: #dcefe2;
+  --color-red:     #b02a41;   /* losses / weak (riso Bright Red, darkened) */
+  --color-red-d:   #f8e0e4;
+  --color-red-txt: #9c2438;
+
+  /* Riso inks — DECORATION ONLY. Fluorescent pink and yellow cannot carry text
+     on paper at any size (pink 2.37–3.09:1, yellow 1.04–1.25:1 across
+     bg/panel/panel2/card, measured 2026-09-17), so they are never ink for
+     words: they are the misregistered second and third passes behind a title,
+     the halftone in the ground, the offset under a button. A text use of these
+     is a bug. */
+  --color-riso-pink:   #ff48b0;
+  --color-riso-yellow: #ffe800;
+  --color-riso-blue:   #0078bf;
 
   /* NB: the coverage ramp (--heat-*) is deliberately NOT declared here — see
      the :root block just below this @theme for why. */
@@ -188,11 +198,12 @@
    Ink is paired to its class so contrast is decided here, once, rather than
    guessed from a luminance threshold at paint time. */
 :root {
-  --heat-0: #dbe4e8;  --heat-ink-0: #3d4d55;
-  --heat-1: #b4ccd8;  --heat-ink-1: #1c2e37;
-  --heat-2: #7fadc2;  --heat-ink-2: #10222b;
-  --heat-3: #4a89a8;  --heat-ink-3: #ffffff;
-  --heat-4: #1d6a8c;  --heat-ink-4: #ffffff;
+  /* Riso blue at five screen densities (2026-09-17); class 4 is the accent. */
+  --heat-0: #dfe4ef;  --heat-ink-0: #3d4760;
+  --heat-1: #b8c4e0;  --heat-ink-1: #1c2540;
+  --heat-2: #869bcf;  --heat-ink-2: #0f1a33;
+  --heat-3: #5470b8;  --heat-ink-3: #ffffff;
+  --heat-4: #3255a4;  --heat-ink-4: #ffffff;
 
   /* The observatory. Declared here for exactly the reason above — these are not
      --color-* tokens, so inside @theme Tailwind would drop them silently.
@@ -252,6 +263,12 @@
   font-optical-sizing: auto;
   font-weight: 600;
   letter-spacing: -0.015em;
+  /* Riso misregistration: the pink and yellow passes landed a hair off the
+     key plate. text-shadow paints *under* the glyphs, so the word itself is
+     never tinted — the offset only shows at the edges. */
+  text-shadow:
+    -0.06em 0.02em 0 color-mix(in srgb, var(--color-riso-pink) 55%, transparent),
+    0.05em 0.04em 0 color-mix(in srgb, var(--color-riso-yellow) 85%, transparent);
 }
 
 /* ============================================================
@@ -269,21 +286,23 @@ html.dark {
   --color-line:    #2c3b41;
   --color-txt:     #e6edef;
   --color-dim:     #93a5ac;   /* AA on every dark surface */
-  --color-accent:   #63b3d4;   /* Atlas blue, lifted for a dark ground */
-  --color-green:   #7bb36a;
-  --color-green-d: #17301a;
-  --color-red:     #e0705c;
-  --color-red-d:   #3a1712;
-  --color-red-txt: #ef8571;
+  --color-accent:   #8ea9ff;   /* riso blue, lifted for a dark ground */
+  --color-green:   #5fd08f;
+  --color-green-d: #123222;
+  --color-red:     #ff7a86;
+  --color-red-d:   #3a1219;
+  --color-red-txt: #ff8f99;
+  /* Fluorescent ink glows on black stock; only the blue needs lifting. */
+  --color-riso-blue:   #3d9be0;
 
   /* The ramp inverts direction: on a dark ground the *unlearned* end must
      recede into the page, not glow off it. Same five classes, same pairing
      rule — ink is decided here, per class, not guessed at paint time. */
-  --heat-0: #1c2a30;  --heat-ink-0: #8fa3ac;
-  --heat-1: #244a5c;  --heat-ink-1: #cfe2ea;
-  --heat-2: #2e6c86;  --heat-ink-2: #eaf4f8;
-  --heat-3: #3d90ae;  --heat-ink-3: #06181f;
-  --heat-4: #63b3d4;  --heat-ink-4: #06181f;
+  --heat-0: #1a2033;  --heat-ink-0: #8f9bb8;
+  --heat-1: #26345c;  --heat-ink-1: #d3dcf2;
+  --heat-2: #34488a;  --heat-ink-2: #eef2fb;
+  --heat-3: #6a86d4;  --heat-ink-3: #070d1f;
+  --heat-4: #8ea9ff;  --heat-ink-4: #070d1f;
 
   --color-der: #7fa5ff;
   --color-die: #f472b6;
@@ -298,8 +317,9 @@ html.dark {
 /* Dark-surface field: a soft top glow + a faint light grid (mirrors light). */
 html.dark body {
   background-image:
-    radial-gradient(130% 80% at 50% -12%, #16323f 0%, rgba(16,22,25,0) 55%),
-    radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
+    radial-gradient(130% 80% at 50% -12%, color-mix(in srgb, var(--color-riso-blue) 18%, transparent) 0%, rgba(16,22,25,0) 55%),
+    radial-gradient(color-mix(in srgb, var(--color-riso-pink) 7%, transparent) 1px, transparent 1.4px),
+    radial-gradient(color-mix(in srgb, var(--color-riso-blue) 9%, transparent) 1px, transparent 1.4px);
 }
 /* On dark the panel/card material highlight is a light wash rather than the
    soft dark one the light theme uses. */
@@ -320,7 +340,8 @@ html.dark .bg-card {
 }
 html.dark .bg-card,
 html.dark .flip-face {
-  box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 24px 50px -24px rgba(0,0,0,0.9);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset,
+    4px 5px 0 color-mix(in srgb, var(--color-riso-blue) 30%, transparent);
 }
 
 * { box-sizing: border-box; }
@@ -411,13 +432,16 @@ body {
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;
-  /* The sheet: a soft top wash + a faint dotted grid — the register of a map
-     sheet under daylight rather than a trading floor in the dark. */
+  /* The sheet: a soft top wash over a two-ink halftone. The pink screen is
+     offset half a cell from the blue one — the map grid this replaced, printed
+     in two passes that did not quite line up. */
   background-color: var(--color-bg);
   background-image:
     radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(238,234,227,0) 55%),
-    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: auto, 24px 24px;
+    radial-gradient(color-mix(in srgb, var(--color-riso-pink) 16%, transparent) 1px, transparent 1.4px),
+    radial-gradient(color-mix(in srgb, var(--color-riso-blue) 14%, transparent) 1px, transparent 1.4px);
+  background-size: auto, 24px 24px, 24px 24px;
+  background-position: 0 0, 0 0, 13px 11px;
   background-attachment: fixed;
 }
 
@@ -448,10 +472,47 @@ body {
     linear-gradient(180deg, rgba(16,32,48,0.02), rgba(0,0,0,0) 46%);
   background-size: 140px 140px, auto;
   background-blend-mode: soft-light, normal;
-  box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6);
+  /* Riso: elevation is a hard offset in blue ink, not a soft blur — a sheet
+     laid on a sheet. */
+  box-shadow: 0 1px 0 rgba(255,255,255,1) inset,
+    4px 5px 0 color-mix(in srgb, var(--color-riso-blue) 22%, transparent);
 }
 /* Raise the flip-card faces too. */
-.flip-face { box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6); }
+.flip-face { box-shadow: 0 1px 0 rgba(255,255,255,1) inset,
+  4px 5px 0 color-mix(in srgb, var(--color-riso-blue) 22%, transparent); }
+
+/* The primary button carries a pink offset pass. Pressing it lands the button
+   on its own shadow — registration as the press. */
+.riso-press { box-shadow: 3px 3px 0 var(--color-riso-pink); transition: box-shadow .1s cubic-bezier(.32,.72,0,1), transform .1s cubic-bezier(.32,.72,0,1); }
+.riso-press:active { box-shadow: 0 0 0 var(--color-riso-pink); transform: translate(3px, 3px); }
+
+/* ── Riso animation ─────────────────────────────────────────────────────────
+   Riso animation is printed a frame at a time, and each colour pass lands a
+   little differently on each sheet. `.riso-plate` layers sit on top of each
+   other (mix-blend-mode multiply, so overlaps darken like ink) and `boil`
+   steps them through a few hand-picked offsets. steps(), never easing: a
+   printed frame does not tween.
+
+   Decoration only, per §7: the resting state is the registered frame, so a
+   stalled or disabled animation shows the finished print. */
+.riso-plate { mix-blend-mode: multiply; }
+html.dark .riso-plate { mix-blend-mode: screen; }
+@keyframes boil {
+  0%   { transform: translate(var(--bx, 2px), var(--by, -1px)) rotate(var(--br, .6deg)); }
+  25%  { transform: translate(calc(var(--bx, 2px) * -1), var(--by, -1px)) rotate(calc(var(--br, .6deg) * -1)); }
+  50%  { transform: translate(var(--by, -1px), var(--bx, 2px)); }
+  75%  { transform: translate(calc(var(--by, -1px) * -1), calc(var(--bx, 2px) * -.5)) rotate(var(--br, .6deg)); }
+}
+.riso-boil { animation: boil .5s steps(1, end) infinite; }
+
+/* The recap stamp (components/RisoStamp.tsx). Narrative tier: each pass steps
+   into register over 0.7s, the dots are thrown out over 0.56s, then the sheet
+   boils three times and holds still. Transform-only; resting = registered. */
+@keyframes riso-register { from { transform: translate(var(--rx, 6px), var(--ry, -6px)); } }
+.riso-register { animation: riso-register .7s steps(6, end); }
+@keyframes riso-burst { from { transform: translate(var(--dx, 0), var(--dy, 0)); } }
+.riso-burst { animation: riso-burst .56s steps(5, end) .1s; }
+.riso-stamp svg { animation: boil .5s steps(1, end) .7s 3; }
 
 /* Live status dot */
 .live-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); }
@@ -612,7 +673,9 @@ input[type='search']::-webkit-search-decoration { -webkit-appearance: none; appe
 
 @media (prefers-reduced-motion: reduce) {
   .tile-in, .route-in, .desk-in, .card-in, .ack-in, .tip-hit,
-  .live-dot::after, .cursor-blink::after, .bar-grow, .node-in { animation: none; }
+  .live-dot::after, .cursor-blink::after, .bar-grow, .node-in, .riso-boil,
+  .riso-register, .riso-burst, .riso-stamp svg { animation: none; }
+  .riso-press, .riso-press:active { transition: none; transform: none; }
   .tile { transition: none; }
   .tile-in, .route-in, .desk-in, .card-in, .ack-in { opacity: 1; transform: none; }
   * { scroll-behavior: auto; }

@@ -245,8 +245,10 @@ describe('the warm ground beats the palette it replaced', () => {
     expect(contrast(now.dim, now.bg)).toBeCloseTo(5.85, 1);
     expect(contrast(COOL.dim, COOL.panel2)).toBeCloseTo(4.74, 1);
     expect(contrast(now.dim, now.panel2)).toBeCloseTo(5.38, 1);
-    // And the pair that the guard caught at 4.49 before panel2 was corrected:
-    // the shipped value must match what the cool palette scored, not beat it.
-    expect(contrast(now.accent, now.panel2)).toBeCloseTo(4.62, 1);
+    // And the pair that the guard caught at 4.49 before panel2 was corrected.
+    // It read 4.62 with Atlas blue (#1d6a8c); the riso restyle (2026-09-17)
+    // moved the accent to riso Medium Blue (#3255a4), which scores 5.43 here —
+    // the tightest accent pair got looser, not tighter.
+    expect(contrast(now.accent, now.panel2)).toBeCloseTo(5.43, 1);
   });
 });

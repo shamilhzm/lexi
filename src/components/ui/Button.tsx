@@ -14,7 +14,8 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 
 const VARIANT: Record<ButtonVariant, string> = {
   // The single call to action on a surface.
-  primary: 'bg-accent text-bg font-bold hover:brightness-105',
+  // `riso-press` is the pink offset pass; the press lands the button on it.
+  primary: 'riso-press bg-accent text-bg font-bold hover:brightness-105',
   // Everything else that is still a real action.
   secondary: 'bg-panel2 border border-line font-semibold hover:border-accent',
   // Tertiary — present, but never competing.
@@ -57,7 +58,9 @@ export default function Button({
   return (
     <motion.button
       // A press should be felt. Guarded, because a scale is still motion.
-      whileTap={reduce ? undefined : { scale: 0.97 }}
+      // Primary presses by translating onto its riso offset (CSS), and an
+      // inline scale here would overwrite that transform.
+      whileTap={reduce || variant === 'primary' ? undefined : { scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 600, damping: 30 }}
       className={buttonClass(variant, size, `${block ? 'w-full' : ''} ${className}`)}
       {...rest}
