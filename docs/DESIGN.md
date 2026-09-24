@@ -799,6 +799,24 @@ lapse takes the card out of Review but cannot take back what you finished — us
 the same high-water-mark pattern as `checkMilestones`, and measured across all
 levels so narrowing the CEFR filter can't manufacture one.
 
+## 8d. Progress you can see *(added 2026-09-25)*
+
+Fortschritt leads with **Dein Deutsch**, a sky of every word, and the recap ends with a
+small one. Rules it keeps, so a later change does not quietly turn it into decoration:
+
+- **Every visual variable is a fact.** Position is frequency rank; lit is "FSRS has
+  seen it"; brightness is recall today; size is stability; the breathing ring is
+  "below your retention target"; a glint is "reviewed in the last day". Nothing
+  twinkles for its own sake. A new effect needs a fact to carry, or it does not go in.
+- **The resting frame is the truth.** Motion (replay, flares, glints, breathing) is
+  added on top of a sky that is already complete, per §7. The replay ends on the same
+  frame the page rests on.
+- **Night glows, paper prints.** Dark mode uses additive light (bloom, `lighter`
+  compositing, white-hot cores in the longest-lasting words); light mode draws ink
+  on paper — no cores (a white centre reads as a hole), a quieter bloom.
+- **The painter is one module** (`components/skyPaint.ts`) and the model is one
+  (`components/skyModel.ts`), shared by both skies, so they cannot disagree.
+
 ## 9. Voice
 
 - **German nouns for surfaces, English for actions.** *Karte*, *Wortkarte*,

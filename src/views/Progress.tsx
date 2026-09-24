@@ -35,6 +35,7 @@ import Karte from './Karte.tsx';
 import Stats from './Stats.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
 import CountUp from '../components/CountUp.tsx';
+import WordSky from '../components/WordSky.tsx';
 import { BandRow, Section } from '../components/ui/Band.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import type { Target } from '../types.ts';
@@ -69,6 +70,10 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
           numbers twice over — Known, coverage, seen, due, streak — separated
           only by having lived on different screens. The headline says it once. */}
       <Headline />
+
+      {/* The picture of it: every word, the commonest at the centre, lit as brightly
+          as you would remember it today. See components/WordSky.tsx. */}
+      <WordSky onStudy={onStudy} />
 
       {/* The two minutes that calibrate everything above and below it. Shown
           until taken, and never again after. */}

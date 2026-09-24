@@ -11,6 +11,45 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-25 — Dein Deutsch: progress you can see
+
+**Why.** The owner asked for the app to be far more beautiful and animated, and for a
+picture that lets a learner *experience* their progress and the process of learning.
+Fortschritt answered "how am I doing?" with a number, a treemap and a table — all true,
+none of them looking like a language being learned.
+
+- **The sky** (`components/WordSky.tsx`, `lib/sky.ts`, `components/skyPaint.ts`).
+  Every word Lexi teaches — 6,844 today — is a point, sown like sunflower seeds
+  (golden angle, radius ∝ √i) in order of frequency, so the centre is the German in
+  every sentence and the rim is the German met once a year. A studied word is lit.
+  In the memory lens a known word is **as bright as FSRS says you'd recall it today**
+  and **as large as how long it will last** (stability, log-scaled to a year); words
+  below the retention target breathe, and "Relight the N fading words" studies them.
+  Words reviewed in the last day glint. Level and der·die·das lenses recolour it — the
+  gender lens shows, honestly, that the commonest German is not nouns.
+- **Coverage rings.** The 100 · 500 · 1k · 3k commonest words are rings, each with an
+  arc that closes as its words are lit and a label (`1k · 91%`) — the number a reader
+  actually cares about, drawn where it lives. Floored, so 99.6% never says 100.
+- **Replay.** Your review history as a seven-second time-lapse: each word lights on
+  the day you first met it, the camera starts close on your first words and pulls back
+  as the vocabulary widens (framed on the 92nd-percentile radius, so one rare word met
+  early does not throw it out), and it ends on the whole sky, dark part included.
+  Plays once a day on its own, when the sky is first on screen; a tap skips it.
+- **One word's memory.** Tap a star: its gloss, rank, recall today, and the sawtooth —
+  its memory curve rebuilt from your own reviews, falling between them, jumping back
+  at each, each fall slower than the last. That is the spacing effect, drawn from the
+  learner's own data. The axis runs from 100% to just under the lowest point reached,
+  labelled, because on a 0–100 axis FSRS's ~90% reviews make the whole thing a flat line.
+- **The recap sky** (`components/MiniSky.tsx`). The session recap now shows the same
+  sky, small, with every word from the session ringed; each flares in the order met,
+  then they glint. The study loop and the progress picture finally touch.
+
+**Held to DESIGN §7.** Nothing animates content into view: every frame is a correct
+sky, flares and glints are additive, the replay is timestamp-driven with a timer
+backstop, and all of it is still under reduced motion. The finished sky is cached, so
+idle frames are a blit plus a few hundred arcs; a full repaint measured 17 ms at
+560 px / 2× DPR and 8.5 ms at phone size.
+
 ### Shipped 2026-09-24 — Stories in the feed
 
 **Why.** The owner reached B1 and stopped opening the app. The feed made meeting words

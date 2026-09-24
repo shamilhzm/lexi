@@ -34,6 +34,7 @@ import { WORDS } from '../data/index.ts';
 import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
+import MiniSky from '../components/MiniSky.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import BackupNudge from '../components/BackupNudge.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
@@ -1157,6 +1158,7 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
             Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.
           </p>
         )}
+        <MiniSky ids={met.map((w) => w.id)} />
         <PocketList words={met} />
         {firstRun && newLearned > 0 && (
           <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>

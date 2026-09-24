@@ -633,6 +633,10 @@ body {
   border: 1.5px solid var(--color-green); opacity: .6; animation: livepulse 1.8s ease-out infinite;
 }
 @keyframes livepulse { 0% { transform: scale(.7); opacity: .7; } 100% { transform: scale(1.9); opacity: 0; } }
+/* The "today" point on a word's memory curve (WordSky): the same ring, in SVG.
+   Additive — the point itself is drawn still, so nothing waits on a frame. */
+.sky-now { transform-box: fill-box; transform-origin: center; animation: livepulse 1.8s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .sky-now { animation: none; opacity: 0; } }
 
 /* ── Route entrance ─────────────────────────────────────────────────────────
    This replaces a Framer `initial={{ opacity: 0 }}` on the route container,

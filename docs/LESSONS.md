@@ -1505,3 +1505,31 @@ so the track does not move and nothing looks wrong. The pane also reported
 `clientWidth: 0` for the accessibility-size check in the same session, which is the
 false negative already on this list. **Two instruments, one session, both blind in the
 same direction: flattering.**
+
+---
+
+## A frame that waits for visibility is a frame that never comes *(added 2026-09-25)*
+
+**Believed:** the sky's paint loop could skip work while `document.hidden`, since
+nobody is looking. **True:** the first paint was *inside* that gate, so a sky mounted
+in a background tab — or in the browser pane, which runs hidden — painted nothing at
+all: a blank 300×150 canvas with a correct `aria-label` over it. It looked like a data
+bug and was chased as one.
+
+**Rule: paint one correct frame unconditionally, at mount and on `visibilitychange`;
+gate only the *loop*.** rAF already throttles itself in a hidden tab; your code must
+not add a second, stricter throttle on the first frame. This is §7's safety rule
+applied to canvas: an animation may not hide content, and "not yet painted" is hidden.
+
+**Corollary — seeding test data into a running app.** A synthetic learner written to
+IndexedDB from the app's own page was overwritten within a second by the app's
+persist of its in-memory state. Write test state from a page on the same origin where
+the app is *not* running (e.g. open `/lexi/data/freq.json`, then dynamic-`import()`
+the idb and ledger modules), then navigate to the app.
+
+**And one the tests caught first.** The replay camera frames on a quantile of the lit
+stars' radii so one outlier cannot throw it out. Rounding the rank to nearest made the
+0.92-quantile of six items the *maximum* — the outlier itself. A robust statistic on a
+small sample degenerates to the extreme; take the floor rank, and test it at small n,
+which is where the camera spends its first second.
+
