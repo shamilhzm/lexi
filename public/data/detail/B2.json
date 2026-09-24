@@ -632,6 +632,20 @@
       }
     ]
   },
+  "voc:B2:aufkommen": {
+    "ex": [
+      {
+        "de": "Die Versicherung muss für den Schaden aufkommen.",
+        "en": "The insurance has to pay for the damage.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Sitzung ist eine neue Frage aufgekommen.",
+        "en": "A new question came up in the meeting.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:auflösen": {
     "def": "To clear out and give up a home, or to make something come apart.",
     "ex": [
@@ -688,6 +702,20 @@
       {
         "de": "Das Kostüm war aufwendig von Hand bestickt.",
         "en": "The costume was elaborately embroidered by hand.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:aufzeigen": {
+    "ex": [
+      {
+        "de": "Der Bericht zeigt die Probleme deutlich auf.",
+        "en": "The report clearly points out the problems.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat mehrere Lösungen aufgezeigt.",
+        "en": "She showed several solutions.",
         "lvl": "B2"
       }
     ]
@@ -892,6 +920,20 @@
       {
         "de": "Das Radio ist ausgeschaltet.",
         "en": "The radio is powered off.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:ausscheiden": {
+    "ex": [
+      {
+        "de": "Deutschland ist in der Vorrunde ausgeschieden.",
+        "en": "Germany was knocked out in the group stage.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Chef wird Ende des Jahres aus der Firma ausscheiden.",
+        "en": "The boss will leave the company at the end of the year.",
         "lvl": "B2"
       }
     ]
@@ -1224,6 +1266,34 @@
       }
     ]
   },
+  "voc:B2:berechtigen": {
+    "ex": [
+      {
+        "de": "Die Aufenthaltskarte berechtigt zur Arbeit in Deutschland.",
+        "en": "The residence card entitles you to work in Germany.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Ticket berechtigt zur freien Fahrt mit allen Bussen.",
+        "en": "The ticket entitles you to free travel on all buses.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:bereitstellen": {
+    "ex": [
+      {
+        "de": "Die Stadt will mehr Geld für Kitas bereitstellen.",
+        "en": "The city wants to make more money available for nurseries.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Firma muss uns neue Laptops bereitstellen.",
+        "en": "The company has to provide us with new laptops.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:berücksichtigen": {
     "def": "to consider, regard, take into account or consideration",
     "ex": [
@@ -1235,6 +1305,20 @@
       {
         "de": "Wir werden Ihre Wünsche gern berücksichtigen.",
         "en": "We will gladly take your wishes into account.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:beschränkt": {
+    "ex": [
+      {
+        "de": "Die Plätze sind beschränkt.",
+        "en": "Places are limited.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er hat eine ziemlich beschränkte Sicht auf die Dinge.",
+        "en": "He has a rather narrow view of things.",
         "lvl": "B2"
       }
     ]
@@ -1532,6 +1616,20 @@
       }
     ]
   },
+  "voc:B2:boomen": {
+    "ex": [
+      {
+        "de": "Der Markt für E-Bikes boomt.",
+        "en": "The e-bike market is booming.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Branche hat jahrelang geboomt.",
+        "en": "The sector boomed for years.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:brutal": {
     "def": "Cruel and violent.",
     "ex": [
@@ -1645,6 +1743,20 @@
       {
         "de": "Sein Allgemeinwissen hat mich wirklich beeindruckt.",
         "en": "His general knowledge really impressed me.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Amtsgericht": {
+    "ex": [
+      {
+        "de": "Der Fall wird vor dem Amtsgericht verhandelt.",
+        "en": "The case is being heard at the local court.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Amtsgericht hat den Antrag abgelehnt.",
+        "en": "The district court rejected the application.",
         "lvl": "B2"
       }
     ]
@@ -2301,6 +2413,20 @@
       }
     ]
   },
+  "voc:B2:das Limit": {
+    "ex": [
+      {
+        "de": "Meine Karte hat ein Limit von tausend Euro.",
+        "en": "My card has a limit of a thousand euros.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er geht beim Training oft ans Limit.",
+        "en": "He often pushes himself to the limit in training.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Lob": {
     "def": "Words expressing approval of what someone has done.",
     "ex": [
@@ -2605,6 +2731,20 @@
       }
     ]
   },
+  "voc:B2:das Statement": {
+    "ex": [
+      {
+        "de": "Der Konzern hat ein kurzes Statement veröffentlicht.",
+        "en": "The corporation published a short statement.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit dem Kleid setzt sie ein Statement.",
+        "en": "She is making a statement with the dress.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Stromnetz": {
     "ex": [
       {
@@ -2821,6 +2961,20 @@
       {
         "de": "Viele Arbeitgeber verlangen solche Zertifikate.",
         "en": "Many employers ask for certificates like these.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Zusammenspiel": {
+    "ex": [
+      {
+        "de": "Das Zusammenspiel im Team klappt gut.",
+        "en": "The teamwork in the team works well.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es kommt auf das Zusammenspiel vieler Faktoren an.",
+        "en": "It depends on the interplay of many factors.",
         "lvl": "B2"
       }
     ]
@@ -3074,6 +3228,20 @@
       }
     ]
   },
+  "voc:B2:der Anreiz": {
+    "ex": [
+      {
+        "de": "Die Förderung soll einen Anreiz für E-Autos schaffen.",
+        "en": "The subsidy is meant to create an incentive for electric cars.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ohne finanziellen Anreiz macht das niemand.",
+        "en": "Nobody does that without a financial incentive.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Anschlag": {
     "def": "attack (terror attack or assassination)",
     "ex": [
@@ -3115,6 +3283,20 @@
       {
         "de": "Ein plötzlicher Anstieg der Nachfrage überraschte die Firma.",
         "en": "A sudden rise in demand surprised the company.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Anstoß": {
+    "ex": [
+      {
+        "de": "Der Anstoß ist um 18 Uhr.",
+        "en": "Kick-off is at 6 p.m.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Gespräch gab den Anstoß für das Projekt.",
+        "en": "The conversation provided the impetus for the project.",
         "lvl": "B2"
       }
     ]
@@ -3213,6 +3395,20 @@
       {
         "de": "Bringen Sie bitte den Aufenthaltstitel mit.",
         "en": "Please bring your residence permit with you.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Aufschlag": {
+    "ex": [
+      {
+        "de": "Für Kartenzahlung gibt es einen Aufschlag.",
+        "en": "There is a surcharge for card payment.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat einen sehr starken Aufschlag.",
+        "en": "She has a very powerful serve.",
         "lvl": "B2"
       }
     ]
@@ -3526,6 +3722,20 @@
       }
     ]
   },
+  "voc:B2:der Boom": {
+    "ex": [
+      {
+        "de": "Der Boom der KI-Aktien hält an.",
+        "en": "The boom in AI stocks is continuing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Boom kam die Krise.",
+        "en": "After the boom came the crisis.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Botschafter": {
     "def": "ambassador, emissary, head of mission; messenger (male or of unspecified gender)",
     "ex": [
@@ -3567,6 +3777,20 @@
       {
         "de": "Es kam zum Bruch zwischen den beiden Freunden.",
         "en": "The two friends fell out.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Bug": {
+    "ex": [
+      {
+        "de": "Das Update behebt einen kritischen Bug.",
+        "en": "The update fixes a critical bug.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Spiel gibt es noch einen nervigen Bug.",
+        "en": "There is still an annoying bug in the game.",
         "lvl": "B2"
       }
     ]
@@ -3806,6 +4030,20 @@
       {
         "de": "Kein Einspruch.",
         "en": "No objection.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Einzelfall": {
+    "ex": [
+      {
+        "de": "Das ist leider kein Einzelfall.",
+        "en": "Unfortunately this is not an isolated case.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Behörde prüft jeden Einzelfall.",
+        "en": "The authority examines each individual case.",
         "lvl": "B2"
       }
     ]
@@ -4105,6 +4343,20 @@
       }
     ]
   },
+  "voc:B2:der Grundsatz": {
+    "ex": [
+      {
+        "de": "Das ist für mich eine Frage des Grundsatzes.",
+        "en": "For me that's a matter of principle.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Grundsatz sind wir uns einig.",
+        "en": "In principle we agree.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Haftbefehl": {
     "def": "A legal order allowing the police to arrest someone.",
     "ex": [
@@ -4116,6 +4368,20 @@
       {
         "de": "Es liegt ein Haftbefehl gegen Sie vor.",
         "en": "There's a warrant out for your arrest.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Hebel": {
+    "ex": [
+      {
+        "de": "Zieh den Hebel nach unten.",
+        "en": "Pull the lever down.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit dem Hebel steigt auch das Risiko.",
+        "en": "The risk rises with the leverage.",
         "lvl": "B2"
       }
     ]
@@ -4161,6 +4427,34 @@
       {
         "de": "Frischer Hummer ist eine teure Delikatesse.",
         "en": "Fresh lobster is an expensive delicacy.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Import": {
+    "ex": [
+      {
+        "de": "Der Import von Gas aus Russland ist gesunken.",
+        "en": "Gas imports from Russia have fallen.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Firma lebt vom Import.",
+        "en": "The company lives off imports.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Impuls": {
+    "ex": [
+      {
+        "de": "Die Konferenz hat wichtige Impulse gegeben.",
+        "en": "The conference provided important stimuli.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich hatte den Impuls, sofort zu kündigen.",
+        "en": "I had the impulse to quit immediately.",
         "lvl": "B2"
       }
     ]
@@ -4749,6 +5043,20 @@
       }
     ]
   },
+  "voc:B2:der Pol": {
+    "ex": [
+      {
+        "de": "Am Pol ist es auch im Sommer kalt.",
+        "en": "It is cold at the pole even in summer.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Am Pol scheint im Sommer die Sonne auch nachts.",
+        "en": "In summer the sun shines at the pole even at night.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Produzent": {
     "ex": [
       {
@@ -4774,6 +5082,20 @@
       {
         "de": "Ich bin ein Profi.",
         "en": "I'm a pro.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Profit": {
+    "ex": [
+      {
+        "de": "Die Firma macht kaum noch Profit.",
+        "en": "The company hardly makes any profit any more.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für manche zählt nur der Profit.",
+        "en": "For some people only profit counts.",
         "lvl": "B2"
       }
     ]
@@ -4863,6 +5185,20 @@
       {
         "de": "Der Regisseur wollte für die Szene echten Schnee.",
         "en": "The director wanted real snow for the scene.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Reichtum": {
+    "ex": [
+      {
+        "de": "Der Reichtum ist sehr ungleich verteilt.",
+        "en": "Wealth is distributed very unequally.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Land lebt vom Reichtum an Rohstoffen.",
+        "en": "The country lives off its wealth of raw materials.",
         "lvl": "B2"
       }
     ]
@@ -5000,6 +5336,20 @@
       }
     ]
   },
+  "voc:B2:der Samen": {
+    "ex": [
+      {
+        "de": "Im Frühling säen wir die Samen aus.",
+        "en": "We sow the seeds in spring.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Samen braucht Wasser und Licht.",
+        "en": "The seed needs water and light.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Sarg": {
     "def": "A box in which a dead body is buried or cremated.",
     "ex": [
@@ -5083,6 +5433,20 @@
       {
         "de": "Du bist ein Segen.",
         "en": "You are a blessing.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Server": {
+    "ex": [
+      {
+        "de": "Der Server ist heute Morgen abgestürzt.",
+        "en": "The server crashed this morning.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Daten liegen auf einem Server in Frankfurt.",
+        "en": "The data are on a server in Frankfurt.",
         "lvl": "B2"
       }
     ]
@@ -5336,6 +5700,20 @@
       }
     ]
   },
+  "voc:B2:der Tarif": {
+    "ex": [
+      {
+        "de": "Die Gewerkschaft verhandelt über einen neuen Tarif.",
+        "en": "The union is negotiating a new pay agreement.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe meinen Tarif beim Stromanbieter gewechselt.",
+        "en": "I switched my rate with the electricity provider.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Tau": {
     "def": "Tao people",
     "ex": [
@@ -5505,6 +5883,20 @@
       {
         "de": "Spanien ist 1992 Veranstalter der olympischen Spiele.",
         "en": "Spain is the host country for the Olympics in 1992.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Verbrauch": {
+    "ex": [
+      {
+        "de": "Der Verbrauch von Strom ist im Winter höher.",
+        "en": "Electricity consumption is higher in winter.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Auto hat einen niedrigen Verbrauch.",
+        "en": "The car has low fuel consumption.",
         "lvl": "B2"
       }
     ]
@@ -5752,6 +6144,20 @@
       }
     ]
   },
+  "voc:B2:der Wohnsitz": {
+    "ex": [
+      {
+        "de": "Ihr Wohnsitz muss bei der Stadt angemeldet sein.",
+        "en": "Your place of residence must be registered with the city.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er hat seinen Wohnsitz nach Köln verlegt.",
+        "en": "He moved his residence to Cologne.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Wohnungsmarkt": {
     "def": "The buying, selling, and renting of homes in an area.",
     "ex": [
@@ -5822,6 +6228,20 @@
       {
         "de": "Die beiden Zugänge zum Gebäude sind gesperrt.",
         "en": "Both entrances to the building are closed.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Zusammenbruch": {
+    "ex": [
+      {
+        "de": "Der Zusammenbruch der Bank schockierte die Märkte.",
+        "en": "The collapse of the bank shocked the markets.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er stand kurz vor einem Zusammenbruch.",
+        "en": "He was on the verge of a breakdown.",
         "lvl": "B2"
       }
     ]
@@ -6017,6 +6437,20 @@
       {
         "de": "Blutabnahme.",
         "en": "Blood collection.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Abrechnung": {
+    "ex": [
+      {
+        "de": "Die Abrechnung für die Nebenkosten kommt im Frühjahr.",
+        "en": "The utility bill statement comes in spring.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf der Abrechnung fehlt eine Überstunde.",
+        "en": "One hour of overtime is missing from the pay slip.",
         "lvl": "B2"
       }
     ]
@@ -6523,6 +6957,20 @@
       }
     ]
   },
+  "voc:B2:die Balance": {
+    "ex": [
+      {
+        "de": "Die Balance zwischen Arbeit und Freizeit ist wichtig.",
+        "en": "The balance between work and free time is important.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf dem Brett verliert er schnell die Balance.",
+        "en": "He quickly loses his balance on the board.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Bedrohung": {
     "def": "threat (indication of imminent danger)",
     "ex": [
@@ -6837,6 +7285,20 @@
       }
     ]
   },
+  "voc:B2:die Bestimmung": {
+    "ex": [
+      {
+        "de": "Nach den neuen Bestimmungen braucht man ein Visum.",
+        "en": "Under the new regulations you need a visa.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie glaubt, dass das ihre Bestimmung ist.",
+        "en": "She believes that this is her destiny.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Beteiligung": {
     "def": "participation (act of participating)",
     "ex": [
@@ -6986,6 +7448,20 @@
       }
     ]
   },
+  "voc:B2:die Community": {
+    "ex": [
+      {
+        "de": "Die Community hat das Spiel sofort geliebt.",
+        "en": "The community loved the game immediately.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er ist in der Community sehr bekannt.",
+        "en": "He is very well known in the community.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Darstellung": {
     "def": "The way something is shown, described, or represented.",
     "ex": [
@@ -7045,6 +7521,20 @@
       }
     ]
   },
+  "voc:B2:die Definition": {
+    "ex": [
+      {
+        "de": "Gibt es eine klare Definition dafür?",
+        "en": "Is there a clear definition of it?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dieser Definition ist er kein Selbstständiger.",
+        "en": "By this definition he is not self-employed.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Demo": {
     "ex": [
       {
@@ -7085,6 +7575,20 @@
       {
         "de": "Von der Dienstreise brachte er neue Ideen mit.",
         "en": "From the business trip he brought back new ideas.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Dimension": {
+    "ex": [
+      {
+        "de": "Die Krise hat eine globale Dimension.",
+        "en": "The crisis has a global dimension.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Projekt nimmt ganz neue Dimensionen an.",
+        "en": "The project is taking on entirely new dimensions.",
         "lvl": "B2"
       }
     ]
@@ -8208,6 +8712,20 @@
       }
     ]
   },
+  "voc:B2:die Hardware": {
+    "ex": [
+      {
+        "de": "Die Hardware ist schon fünf Jahre alt.",
+        "en": "The hardware is already five years old.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Spiel braucht starke Hardware.",
+        "en": "The game needs powerful hardware.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Hausverwaltung": {
     "def": "The running and upkeep of buildings on behalf of owners.",
     "ex": [
@@ -8743,6 +9261,20 @@
       }
     ]
   },
+  "voc:B2:die Laufzeit": {
+    "ex": [
+      {
+        "de": "Der Kredit hat eine Laufzeit von zehn Jahren.",
+        "en": "The loan has a term of ten years.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Handyvertrag hat eine Laufzeit von 24 Monaten.",
+        "en": "The phone contract runs for 24 months.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Lebensdauer": {
     "ex": [
       {
@@ -8928,6 +9460,20 @@
       {
         "de": "Zuwanderer und Mehrheitsgesellschaft profitieren voneinander.",
         "en": "Immigrants and mainstream society benefit from each other.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Messung": {
+    "ex": [
+      {
+        "de": "Die Messung hat einen hohen Wert ergeben.",
+        "en": "The measurement showed a high value.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Messung der Luftqualität erfolgt täglich.",
+        "en": "Air quality is measured daily.",
         "lvl": "B2"
       }
     ]
@@ -9177,6 +9723,20 @@
       }
     ]
   },
+  "voc:B2:die Offenheit": {
+    "ex": [
+      {
+        "de": "Ich schätze ihre Offenheit sehr.",
+        "en": "I really appreciate her openness.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Stadt ist für ihre Offenheit bekannt.",
+        "en": "The city is known for its openness.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Offensive": {
     "def": "offensive (posture of attacking or being able to attack); attack, offensive",
     "ex": [
@@ -9207,6 +9767,20 @@
       }
     ]
   },
+  "voc:B2:die Palette": {
+    "ex": [
+      {
+        "de": "Wir bieten eine breite Palette an Dienstleistungen.",
+        "en": "We offer a wide range of services.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Lkw bringt zwanzig Paletten Wasser.",
+        "en": "The lorry is bringing twenty pallets of water.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Pandemie": {
     "def": "pandemic (pandemic disease)",
     "ex": [
@@ -9233,6 +9807,20 @@
       {
         "de": "Die Pendlerin liest im Zug jeden Morgen die Zeitung.",
         "en": "The commuter reads the newspaper on the train every morning.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Performance": {
+    "ex": [
+      {
+        "de": "Die Performance des Fonds war im letzten Jahr schwach.",
+        "en": "The fund's performance was weak last year.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Update verbessert die Performance der App.",
+        "en": "The update improves the app's performance.",
         "lvl": "B2"
       }
     ]
@@ -9511,6 +10099,20 @@
       }
     ]
   },
+  "voc:B2:die Routine": {
+    "ex": [
+      {
+        "de": "Nach dem Umzug fehlt mir die Routine.",
+        "en": "After the move I miss my routine.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das ist für ihn reine Routine.",
+        "en": "For him that is pure routine.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Sanierung": {
     "def": "The repair and improvement of a building or area.",
     "ex": [
@@ -9591,6 +10193,20 @@
       {
         "de": "Die Schutzbrille liegt im Schrank.",
         "en": "The safety goggles are in the cupboard.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Schwachstelle": {
+    "ex": [
+      {
+        "de": "Die Hacker haben eine Schwachstelle im System gefunden.",
+        "en": "The hackers found a vulnerability in the system.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Abwehr ist die Schwachstelle des Teams.",
+        "en": "The defence is the team's weak point.",
         "lvl": "B2"
       }
     ]
@@ -9714,6 +10330,20 @@
       }
     ]
   },
+  "voc:B2:die Spalte": {
+    "ex": [
+      {
+        "de": "Trag die Summe in die letzte Spalte ein.",
+        "en": "Enter the total in the last column.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Wand ist eine Spalte.",
+        "en": "There is a crack in the wall.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Spedition": {
     "def": "A company that transports goods for other people.",
     "ex": [
@@ -9740,6 +10370,20 @@
       {
         "de": "Gegen die Sperrung gab es Widerspruch.",
         "en": "There was opposition to the closure.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Stabilität": {
+    "ex": [
+      {
+        "de": "Die Zentralbank sorgt für die Stabilität der Preise.",
+        "en": "The central bank ensures price stability.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Regal hat keine gute Stabilität.",
+        "en": "The shelf is not very stable.",
         "lvl": "B2"
       }
     ]
@@ -9785,6 +10429,20 @@
       {
         "de": "Für den Antrag ist die Stadtverwaltung zuständig.",
         "en": "The city council is responsible for the application.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Steuerung": {
+    "ex": [
+      {
+        "de": "Die Steuerung im Spiel ist sehr intuitiv.",
+        "en": "The controls in the game are very intuitive.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Steuerung der Heizung funktioniert per App.",
+        "en": "The heating is controlled by an app.",
         "lvl": "B2"
       }
     ]
@@ -10073,6 +10731,20 @@
       }
     ]
   },
+  "voc:B2:die Urkunde": {
+    "ex": [
+      {
+        "de": "Für den Antrag brauchen Sie die Urkunde im Original.",
+        "en": "You need the original certificate for the application.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Kurs bekommt jeder eine Urkunde.",
+        "en": "Everyone gets a certificate after the course.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Verarbeitung": {
     "def": "The working of raw material or data into a finished form.",
     "ex": [
@@ -10180,6 +10852,20 @@
       {
         "de": "Andere konnten der religiösen Verfolgung entfliehen.",
         "en": "Others came to escape religious persecution.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Verfügbarkeit": {
+    "ex": [
+      {
+        "de": "Die Verfügbarkeit hängt vom Lager ab.",
+        "en": "Availability depends on the warehouse.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Prüfen Sie die Verfügbarkeit online.",
+        "en": "Check availability online.",
         "lvl": "B2"
       }
     ]
@@ -10413,6 +11099,20 @@
       }
     ]
   },
+  "voc:B2:die Volkswirtschaft": {
+    "ex": [
+      {
+        "de": "Deutschland ist die größte Volkswirtschaft Europas.",
+        "en": "Germany is the largest economy in Europe.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat Volkswirtschaft studiert.",
+        "en": "She studied economics.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Voraussage": {
     "def": "A statement about what will happen in the future.",
     "ex": [
@@ -10563,6 +11263,20 @@
       {
         "de": "In der Wegwerfgesellschaft landet vieles zu schnell im Müll.",
         "en": "In the throwaway society many things end up in the bin too quickly.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Weiterentwicklung": {
+    "ex": [
+      {
+        "de": "Die Firma bietet Kurse zur beruflichen Weiterentwicklung an.",
+        "en": "The company offers courses for professional development.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Weiterentwicklung der Software kostet viel Geld.",
+        "en": "The further development of the software costs a lot of money.",
         "lvl": "B2"
       }
     ]
@@ -11990,6 +12704,20 @@
       }
     ]
   },
+  "voc:B2:filtern": {
+    "ex": [
+      {
+        "de": "Das Programm filtert Spam automatisch.",
+        "en": "The program filters spam automatically.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Du kannst die Liste nach Datum filtern.",
+        "en": "You can filter the list by date.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:finanziell": {
     "def": "Relating to money and its management.",
     "ex": [
@@ -12630,6 +13358,20 @@
       }
     ]
   },
+  "voc:B2:herausgeben": {
+    "ex": [
+      {
+        "de": "Der Verlag will das Buch im Herbst herausgeben.",
+        "en": "The publisher wants to publish the book in the autumn.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Bank muss die Daten nicht herausgeben.",
+        "en": "The bank does not have to hand over the data.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:hervor": {
     "def": "forth (in the direction of the speaker)",
     "ex": [
@@ -12681,6 +13423,20 @@
       {
         "de": "Tom hat hiermit recht.",
         "en": "Tom is right about this.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:hierzu": {
+    "ex": [
+      {
+        "de": "Hierzu habe ich noch eine Frage.",
+        "en": "I have one more question about this.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Weitere Informationen hierzu finden Sie im Anhang.",
+        "en": "You will find more information on this in the attachment.",
         "lvl": "B2"
       }
     ]
@@ -12835,6 +13591,20 @@
       {
         "de": "Identifizieren Sie Tom.",
         "en": "Identify Tom.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:indirekt": {
+    "ex": [
+      {
+        "de": "Er hat die Kritik nur indirekt geäußert.",
+        "en": "He only voiced the criticism indirectly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die indirekten Kosten sind hoch.",
+        "en": "The indirect costs are high.",
         "lvl": "B2"
       }
     ]
@@ -13281,6 +14051,20 @@
       }
     ]
   },
+  "voc:B2:konstant": {
+    "ex": [
+      {
+        "de": "Die Temperatur bleibt konstant bei zwanzig Grad.",
+        "en": "The temperature stays constant at twenty degrees.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er liefert konstant gute Ergebnisse.",
+        "en": "He delivers consistently good results.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:kontinuierlich": {
     "def": "Going on steadily without a break.",
     "ex": [
@@ -13351,6 +14135,20 @@
       {
         "de": "Ich war kürzlich in Boston.",
         "en": "I was in Boston recently.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:landwirtschaftlich": {
+    "ex": [
+      {
+        "de": "Die landwirtschaftlichen Betriebe leiden unter der Dürre.",
+        "en": "The farms are suffering from the drought.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Diese Fläche wird landwirtschaftlich genutzt.",
+        "en": "This land is used for agriculture.",
         "lvl": "B2"
       }
     ]
@@ -13475,6 +14273,34 @@
       }
     ]
   },
+  "voc:B2:loyal": {
+    "ex": [
+      {
+        "de": "Er ist seinem Arbeitgeber gegenüber sehr loyal.",
+        "en": "He is very loyal to his employer.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Marke hat viele loyale Kunden.",
+        "en": "The brand has many loyal customers.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:manuell": {
+    "ex": [
+      {
+        "de": "Die Daten muss man leider manuell eingeben.",
+        "en": "Unfortunately the data have to be entered manually.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das ist eine manuelle Kontrolle.",
+        "en": "That is a manual check.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:massiv": {
     "ex": [
       {
@@ -13575,6 +14401,20 @@
       {
         "de": "Der Unterschied ist kaum messbar.",
         "en": "The difference is barely measurable.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:minimal": {
+    "ex": [
+      {
+        "de": "Der Unterschied ist minimal.",
+        "en": "The difference is minimal.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die App hat ein minimales Design.",
+        "en": "The app has a minimal design.",
         "lvl": "B2"
       }
     ]
@@ -13747,6 +14587,20 @@
       {
         "de": "Ein großer Teil unserer Verständigung ist nonverbal.",
         "en": "A large part of our communication is non-verbal.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:nutzbar": {
+    "ex": [
+      {
+        "de": "Die Fläche ist nicht mehr nutzbar.",
+        "en": "The area is no longer usable.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir wollen die Daten nutzbar machen.",
+        "en": "We want to make the data usable.",
         "lvl": "B2"
       }
     ]
@@ -13931,6 +14785,20 @@
       }
     ]
   },
+  "voc:B2:problematisch": {
+    "ex": [
+      {
+        "de": "Diese Regel finde ich problematisch.",
+        "en": "I find this rule problematic.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das ist eine problematische Entwicklung.",
+        "en": "That is a problematic development.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:prägen": {
     "def": "(Druckwesen, Münzwesen, Textilindustrie:",
     "ex": [
@@ -13967,6 +14835,20 @@
       {
         "de": "Wir sind quasi eine Familie.",
         "en": "We're practically family.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:rasant": {
+    "ex": [
+      {
+        "de": "Die Preise steigen rasant.",
+        "en": "Prices are rising rapidly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Branche erlebt einen rasanten Wandel.",
+        "en": "The industry is going through rapid change.",
         "lvl": "B2"
       }
     ]
@@ -14314,6 +15196,20 @@
       }
     ]
   },
+  "voc:B2:sich auseinandersetzen": {
+    "ex": [
+      {
+        "de": "Man muss sich mit dem Thema intensiv auseinandersetzen.",
+        "en": "You have to engage with the topic intensively.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir müssen uns mit der Kritik auseinandersetzen.",
+        "en": "We have to engage with the criticism.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:sich erweisen": {
     "ex": [
       {
@@ -14531,6 +15427,20 @@
       {
         "de": "Die Gäste speisen um acht im großen Saal.",
         "en": "The guests dine at eight in the great hall.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:spekulieren": {
+    "ex": [
+      {
+        "de": "Viele Anleger spekulieren auf fallende Zinsen.",
+        "en": "Many investors are speculating on falling interest rates.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Medien spekulieren über einen Rücktritt.",
+        "en": "The media are speculating about a resignation.",
         "lvl": "B2"
       }
     ]
@@ -14889,6 +15799,20 @@
       }
     ]
   },
+  "voc:B2:transparent": {
+    "ex": [
+      {
+        "de": "Die Kosten müssen transparent sein.",
+        "en": "The costs must be transparent.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir wünschen uns eine transparente Kommunikation.",
+        "en": "We would like transparent communication.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:umfangreich": {
     "def": "extensive, wide",
     "ex": [
@@ -15133,6 +16057,20 @@
       }
     ]
   },
+  "voc:B2:unkompliziert": {
+    "ex": [
+      {
+        "de": "Die Anmeldung war erstaunlich unkompliziert.",
+        "en": "The registration was surprisingly straightforward.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie ist ein unkomplizierter Mensch.",
+        "en": "She is an easy-going person.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:unmittelbar": {
     "def": "Happening at once or with nothing in between.",
     "ex": [
@@ -15174,6 +16112,20 @@
       {
         "de": "Unterdessen hatte sich die Lage völlig verändert.",
         "en": "Meanwhile the situation had changed completely.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:untereinander": {
+    "ex": [
+      {
+        "de": "Die Kollegen helfen sich untereinander.",
+        "en": "The colleagues help one another.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das müsst ihr untereinander klären.",
+        "en": "You'll have to sort that out among yourselves.",
         "lvl": "B2"
       }
     ]
@@ -15249,6 +16201,20 @@
       {
         "de": "Die Proteste veranlassten die Regierung, ihre Einschränkungen der Meinungsfreiheit zu lockern.",
         "en": "The protests caused the government to relax its restrictions on free speech.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:verantwortungsvoll": {
+    "ex": [
+      {
+        "de": "Das ist eine sehr verantwortungsvolle Aufgabe.",
+        "en": "That is a very responsible task.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir müssen verantwortungsvoll mit den Daten umgehen.",
+        "en": "We have to handle the data responsibly.",
         "lvl": "B2"
       }
     ]
@@ -15747,6 +16713,20 @@
       }
     ]
   },
+  "voc:B2:voneinander": {
+    "ex": [
+      {
+        "de": "Die beiden Firmen sind unabhängig voneinander.",
+        "en": "The two companies are independent of each other.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir haben lange nichts voneinander gehört.",
+        "en": "We haven't heard from each other in a long time.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:vorab": {
     "def": "In advance; before anything else.",
     "ex": [
@@ -15773,6 +16753,20 @@
       {
         "de": "Geh du voran.",
         "en": "You lead the way.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:vorantreiben": {
+    "ex": [
+      {
+        "de": "Die Regierung will den Ausbau der Netze vorantreiben.",
+        "en": "The government wants to push ahead with expanding the grids.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat das Projekt mit viel Energie vorangetrieben.",
+        "en": "She drove the project forward with a lot of energy.",
         "lvl": "B2"
       }
     ]
@@ -15948,6 +16942,20 @@
         "de": "Die Zahlen sind vorläufig und werden im Mai korrigiert.",
         "en": "The figures are provisional and will be corrected in May.",
         "lvl": "C2"
+      }
+    ]
+  },
+  "voc:B2:vorschreiben": {
+    "ex": [
+      {
+        "de": "Das Gesetz schreibt eine Kündigungsfrist vor.",
+        "en": "The law prescribes a notice period.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Du kannst mir nicht vorschreiben, was ich anziehe.",
+        "en": "You can't dictate what I wear.",
+        "lvl": "B2"
       }
     ]
   },
@@ -16307,6 +17315,20 @@
       }
     ]
   },
+  "voc:B2:zulässig": {
+    "ex": [
+      {
+        "de": "Auf der Autobahn ist hier Tempo 120 zulässig.",
+        "en": "120 km/h is permitted on the motorway here.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Diese Klausel im Mietvertrag ist nicht zulässig.",
+        "en": "This clause in the tenancy agreement is not permissible.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:zumal": {
     "def": "especially",
     "ex": [
@@ -16333,6 +17355,20 @@
       {
         "de": "Zunehmend arbeiten Menschen von zu Hause aus.",
         "en": "Increasingly people work from home.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:zuordnen": {
+    "ex": [
+      {
+        "de": "Ordne die Wörter den Bildern zu.",
+        "en": "Match the words to the pictures.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Kosten kann man keinem Projekt zuordnen.",
+        "en": "The costs cannot be assigned to any project.",
         "lvl": "B2"
       }
     ]

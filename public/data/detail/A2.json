@@ -6333,6 +6333,20 @@
       }
     ]
   },
+  "voc:A2:der Chat": {
+    "ex": [
+      {
+        "de": "Ich schreibe dir gleich im Chat.",
+        "en": "I'll write to you in the chat in a moment.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Chat mit dem Kundenservice war hilfreich.",
+        "en": "The chat with customer service was helpful.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Chirurg": {
     "def": "surgeon (kind of doctor, male or of unspecified sex)",
     "ex": [
@@ -15646,6 +15660,20 @@
       }
     ]
   },
+  "voc:A2:die Olive": {
+    "ex": [
+      {
+        "de": "Möchtest du eine Olive?",
+        "en": "Would you like an olive?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf der Pizza ist eine Olive.",
+        "en": "There's an olive on the pizza.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Operation": {
     "def": "operation",
     "ex": [
@@ -17315,6 +17343,20 @@
       }
     ]
   },
+  "voc:A2:die Taste": {
+    "ex": [
+      {
+        "de": "Drück die rote Taste.",
+        "en": "Press the red button.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf meiner Tastatur klemmt eine Taste.",
+        "en": "One key on my keyboard is sticking.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Tat": {
     "def": "Something that a person does; an action.",
     "ex": [
@@ -17806,6 +17848,20 @@
         "de": "Mit seiner Unterschrift übernahm er die volle Verantwortung.",
         "en": "With his signature he took on full responsibility.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Vase": {
+    "ex": [
+      {
+        "de": "Stell die Blumen in die Vase.",
+        "en": "Put the flowers in the vase.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Vase ist leider kaputtgegangen.",
+        "en": "Unfortunately the vase broke.",
+        "lvl": "A2"
       }
     ]
   },

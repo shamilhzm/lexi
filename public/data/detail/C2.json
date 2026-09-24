@@ -270,6 +270,20 @@
       }
     ]
   },
+  "voc:C2:das Maschinengewehr": {
+    "ex": [
+      {
+        "de": "Der Soldat trägt ein Maschinengewehr.",
+        "en": "The soldier is carrying a machine gun.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Man hörte Schüsse aus einem Maschinengewehr.",
+        "en": "Shots from a machine gun could be heard.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:das Narrativ": {
     "def": "A story, or a way of framing events to convey a viewpoint.",
     "ex": [

@@ -1178,6 +1178,20 @@
       }
     ]
   },
+  "voc:B1:afrikanisch": {
+    "ex": [
+      {
+        "de": "Sie kocht gern afrikanische Gerichte.",
+        "en": "She likes cooking African dishes.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele afrikanische Länder wachsen wirtschaftlich schnell.",
+        "en": "Many African countries are growing fast economically.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:aggressiv": {
     "def": "Ready to attack or act forcefully.",
     "ex": [
@@ -1847,6 +1861,20 @@
       {
         "de": "Das Brot ist schon aufgetaut.",
         "en": "The bread has already thawed.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:aufteilen": {
+    "ex": [
+      {
+        "de": "Wir können die Rechnung aufteilen.",
+        "en": "We can split the bill.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Arbeit wurde auf drei Teams aufgeteilt.",
+        "en": "The work was divided among three teams.",
         "lvl": "B1"
       }
     ]
@@ -3457,6 +3485,20 @@
       }
     ]
   },
+  "voc:B1:brasilianisch": {
+    "ex": [
+      {
+        "de": "Der brasilianische Fahrer hat das Rennen gewonnen.",
+        "en": "The Brazilian driver won the race.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir tanzen gern zu brasilianischer Musik.",
+        "en": "We like dancing to Brazilian music.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:bremsen": {
     "def": "To slow a vehicle down; also to hold back something that is gathering pace.",
     "defDe": "die Geschwindigkeit, das Tempo verringern, vermindern, verlangsamen",
@@ -4252,6 +4294,20 @@
       }
     ]
   },
+  "voc:B1:das Dessert": {
+    "ex": [
+      {
+        "de": "Als Dessert nehme ich ein Eis.",
+        "en": "I'll have an ice cream for dessert.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Dessert war das Beste am ganzen Essen.",
+        "en": "The dessert was the best part of the whole meal.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Diplom": {
     "def": "diploma (higher education only, e.g., Master’s degree).",
     "ex": [
@@ -4597,6 +4653,20 @@
       {
         "de": "Fass dich!",
         "en": "Compose yourself!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Feedback": {
+    "ex": [
+      {
+        "de": "Danke für dein ehrliches Feedback.",
+        "en": "Thanks for your honest feedback.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Feedback der Kunden war positiv.",
+        "en": "The customers' feedback was positive.",
         "lvl": "B1"
       }
     ]
@@ -5666,6 +5736,20 @@
       }
     ]
   },
+  "voc:B1:das Level": {
+    "ex": [
+      {
+        "de": "Ich hänge seit Tagen im dritten Level fest.",
+        "en": "I've been stuck on the third level for days.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das letzte Level ist extrem schwer.",
+        "en": "The last level is extremely hard.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Malen": {
     "def": "to paint (do paintwork); to paint (create a painting)",
     "ex": [
@@ -6642,6 +6726,20 @@
       {
         "de": "Das Sammeln alter Münzen ist sein Hobby.",
         "en": "Collecting old coins is his hobby.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Schach": {
+    "ex": [
+      {
+        "de": "Spielst du gern Schach?",
+        "en": "Do you like playing chess?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Opa hat mir Schach beigebracht.",
+        "en": "My grandpa taught me chess.",
         "lvl": "B1"
       }
     ]
@@ -8329,6 +8427,20 @@
       }
     ]
   },
+  "voc:B1:der Anrufer": {
+    "ex": [
+      {
+        "de": "Der Anrufer hat seinen Namen nicht genannt.",
+        "en": "The caller didn't give his name.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ein unbekannter Anrufer hat dreimal angerufen.",
+        "en": "An unknown caller has rung three times.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Anspruch": {
     "def": "entitlement, demand, expectation of what should come from someone or something",
     "ex": [
@@ -9538,6 +9650,20 @@
       }
     ]
   },
+  "voc:B1:der Download": {
+    "ex": [
+      {
+        "de": "Der Download dauert noch zehn Minuten.",
+        "en": "The download will take another ten minutes.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die App steht zum kostenlosen Download bereit.",
+        "en": "The app is available as a free download.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Dozent": {
     "def": "lecturer, instructor (at the university level; male or of unspecified sex)",
     "ex": [
@@ -10042,6 +10168,20 @@
       {
         "de": "Kinder sollten ihren Fernsehkonsum reduzieren.",
         "en": "Children should reduce their TV consumption.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Filter": {
+    "ex": [
+      {
+        "de": "Der Filter der Kaffeemaschine muss gewechselt werden.",
+        "en": "The coffee machine's filter needs changing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Foto ist ein Filter.",
+        "en": "There is a filter on the photo.",
         "lvl": "B1"
       }
     ]
@@ -11916,6 +12056,20 @@
       }
     ]
   },
+  "voc:B1:der Marathon": {
+    "ex": [
+      {
+        "de": "Sie läuft im Oktober ihren ersten Marathon.",
+        "en": "She is running her first marathon in October.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Sitzung war ein echter Marathon.",
+        "en": "The meeting was a real marathon.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Mauerfall": {
     "def": "The 1989 opening of the Berlin Wall.",
     "ex": [
@@ -12567,6 +12721,20 @@
       {
         "de": "Sie hat schon über hundert Podcasts aufgenommen.",
         "en": "She has already recorded over a hundred podcasts.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Pole": {
+    "ex": [
+      {
+        "de": "Mein Kollege ist Pole.",
+        "en": "My colleague is Polish.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Pole hat das Rennen in Monaco gewonnen.",
+        "en": "The Pole won the race in Monaco.",
         "lvl": "B1"
       }
     ]
@@ -14262,6 +14430,20 @@
       {
         "de": "Anar war Taxifahrer und sucht eine neue Stelle.",
         "en": "Anar was a taxi driver and is looking for a new job.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Techniker": {
+    "ex": [
+      {
+        "de": "Morgen kommt ein Techniker für das Internet.",
+        "en": "A technician is coming tomorrow for the internet.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Techniker hat die Heizung repariert.",
+        "en": "The technician repaired the heating.",
         "lvl": "B1"
       }
     ]
@@ -16167,6 +16349,20 @@
       }
     ]
   },
+  "voc:B1:die Antenne": {
+    "ex": [
+      {
+        "de": "Die Antenne auf dem Dach ist kaputt.",
+        "en": "The aerial on the roof is broken.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Für so etwas hat sie eine gute Antenne.",
+        "en": "She has a good feel for that kind of thing.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Anwendung": {
     "def": "application",
     "ex": [
@@ -16907,6 +17103,20 @@
       }
     ]
   },
+  "voc:B1:die Beere": {
+    "ex": [
+      {
+        "de": "Im Wald haben wir Beeren gesammelt.",
+        "en": "We gathered berries in the woods.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Diese Beere ist giftig.",
+        "en": "This berry is poisonous.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Begabung": {
     "def": "angeborene überdurchschnittliche, besondere Fähigkeiten",
     "ex": [
@@ -17144,6 +17354,20 @@
       {
         "de": "Such dir eine andere Beschäftigung!",
         "en": "Go find something else to do.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Besserung": {
+    "ex": [
+      {
+        "de": "Gute Besserung!",
+        "en": "Get well soon!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bei der Wirtschaft ist keine Besserung in Sicht.",
+        "en": "There is no improvement in sight for the economy.",
         "lvl": "B1"
       }
     ]
@@ -25900,6 +26124,20 @@
       }
     ]
   },
+  "voc:B1:die Tinte": {
+    "ex": [
+      {
+        "de": "Dem Drucker ist die Tinte ausgegangen.",
+        "en": "The printer has run out of ink.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Unterschreiben Sie bitte mit blauer Tinte.",
+        "en": "Please sign in blue ink.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Tischdecke": {
     "def": "A cloth spread over a table.",
     "ex": [
@@ -29695,6 +29933,20 @@
       }
     ]
   },
+  "voc:B1:finnisch": {
+    "ex": [
+      {
+        "de": "Die finnische Sprache ist schwer zu lernen.",
+        "en": "The Finnish language is hard to learn.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er fährt für ein finnisches Team.",
+        "en": "He drives for a Finnish team.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:fit": {
     "def": "fit (in good overall physical shape)",
     "ex": [
@@ -29722,6 +29974,20 @@
         "de": "Er fixierte das Regal mit Schrauben an der Wand.",
         "en": "He fixed the shelf to the wall with screws.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:flexibel": {
+    "ex": [
+      {
+        "de": "Meine Arbeitszeiten sind ziemlich flexibel.",
+        "en": "My working hours are fairly flexible.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Unser Team arbeitet sehr flexibel.",
+        "en": "Our team works very flexibly.",
+        "lvl": "B1"
       }
     ]
   },
@@ -32397,6 +32663,20 @@
       }
     ]
   },
+  "voc:B1:liken": {
+    "ex": [
+      {
+        "de": "Sie hat mein Foto gelikt.",
+        "en": "She liked my photo.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Nutzer liken den Post, ohne ihn zu lesen.",
+        "en": "Many users like the post without reading it.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:locken": {
     "def": "to lure, to entice, to tempt; to be lured",
     "ex": [
@@ -32808,6 +33088,20 @@
       }
     ]
   },
+  "voc:B1:mixen": {
+    "ex": [
+      {
+        "de": "Der Barkeeper mixt einen Cocktail.",
+        "en": "The bartender is mixing a cocktail.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie mixt die Songs live auf der Party.",
+        "en": "She mixes the songs live at the party.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:mobil": {
     "ex": [
       {
@@ -33207,6 +33501,20 @@
       {
         "de": "Er hat einen nervigen Klingelton.",
         "en": "He has an annoying ringtone.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:netto": {
+    "ex": [
+      {
+        "de": "Wie viel verdienst du netto?",
+        "en": "How much do you earn net?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach Steuern bleiben netto 2.400 Euro.",
+        "en": "After tax 2,400 euros net remain.",
         "lvl": "B1"
       }
     ]
@@ -34372,6 +34680,20 @@
       {
         "de": "Das Baby saugt an der Flasche.",
         "en": "The baby is sucking on the bottle.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:scannen": {
+    "ex": [
+      {
+        "de": "Bitte scannen Sie den QR-Code.",
+        "en": "Please scan the QR code.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe den Mietvertrag gescannt und geschickt.",
+        "en": "I scanned the tenancy agreement and sent it.",
         "lvl": "B1"
       }
     ]
@@ -39694,6 +40016,20 @@
       {
         "de": "Nach dem Studium zog er nach Berlin.",
         "en": "After his studies he moved to Berlin.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:zoomen": {
+    "ex": [
+      {
+        "de": "Du kannst auf der Karte ins Bild zoomen.",
+        "en": "You can zoom into the picture on the map.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er zoomt auf das Gesicht des Fahrers.",
+        "en": "He zooms in on the driver's face.",
         "lvl": "B1"
       }
     ]
