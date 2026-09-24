@@ -1,0 +1,1879 @@
+[
+ {
+  "term": "der Boxenstopp",
+  "en": "pit stop",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Boxenstopp dauerte nur zwei Sekunden.",
+    "en": "The pit stop took only two seconds."
+   },
+   {
+    "de": "Nach dem Boxenstopp lag er auf Platz drei.",
+    "en": "After the pit stop he was in third place."
+   }
+  ]
+ },
+ {
+  "term": "die Boxengasse",
+  "en": "pit lane",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "In der Boxengasse gilt ein Tempolimit.",
+    "en": "There's a speed limit in the pit lane."
+   },
+   {
+    "de": "Er startet aus der Boxengasse.",
+    "en": "He is starting from the pit lane."
+   }
+  ]
+ },
+ {
+  "term": "das Qualifying",
+  "en": "qualifying (session)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Im Qualifying war sie die Schnellste.",
+    "en": "She was fastest in qualifying."
+   },
+   {
+    "de": "Das Qualifying beginnt um 16 Uhr.",
+    "en": "Qualifying starts at 4 p.m."
+   }
+  ]
+ },
+ {
+  "term": "der Rennstall",
+  "en": "racing team",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Rennstall hat einen neuen Fahrer verpflichtet.",
+    "en": "The racing team has signed a new driver."
+   },
+   {
+    "de": "Ferrari ist der älteste Rennstall der Formel 1.",
+    "en": "Ferrari is the oldest team in Formula 1."
+   }
+  ]
+ },
+ {
+  "term": "der Reifenwechsel",
+  "en": "tyre change",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Im Herbst steht der Reifenwechsel an.",
+    "en": "The tyre change is due in autumn."
+   },
+   {
+    "de": "Beim Reifenwechsel verlor das Team Zeit.",
+    "en": "The team lost time on the tyre change."
+   }
+  ]
+ },
+ {
+  "term": "die Rennstrecke",
+  "en": "racetrack, circuit",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Die Rennstrecke in Monaco ist sehr eng.",
+    "en": "The circuit in Monaco is very narrow."
+   },
+   {
+    "de": "Am Wochenende fahre ich auf der Rennstrecke.",
+    "en": "At the weekend I'm driving on the racetrack."
+   }
+  ]
+ },
+ {
+  "term": "der Frontflügel",
+  "en": "front wing",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Nach dem Kontakt war der Frontflügel kaputt.",
+    "en": "The front wing was broken after the contact."
+   },
+   {
+    "de": "Das Team wechselt den Frontflügel.",
+    "en": "The team is changing the front wing."
+   }
+  ]
+ },
+ {
+  "term": "der Abtrieb",
+  "en": "downforce",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Mit mehr Abtrieb ist das Auto in den Kurven schneller.",
+    "en": "With more downforce the car is faster in the corners."
+   },
+   {
+    "de": "Das neue Reglement reduziert den Abtrieb.",
+    "en": "The new regulations reduce downforce."
+   }
+  ]
+ },
+ {
+  "term": "die Aerodynamik",
+  "en": "aerodynamics",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Aerodynamik entscheidet über die Geschwindigkeit.",
+    "en": "Aerodynamics determine the speed."
+   },
+   {
+    "de": "Das Team hat die Aerodynamik verbessert.",
+    "en": "The team has improved the aerodynamics."
+   }
+  ]
+ },
+ {
+  "term": "das Reglement",
+  "en": "regulations, rules (of a sport)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Das neue Reglement gilt ab nächster Saison.",
+    "en": "The new regulations apply from next season."
+   },
+   {
+    "de": "Das Auto entspricht nicht dem Reglement.",
+    "en": "The car does not comply with the regulations."
+   }
+  ]
+ },
+ {
+  "term": "die Rennleitung",
+  "en": "race control, stewards",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Die Rennleitung hat eine Strafe verhängt.",
+    "en": "Race control has imposed a penalty."
+   },
+   {
+    "de": "Die Rennleitung untersucht den Unfall.",
+    "en": "The stewards are investigating the crash."
+   }
+  ]
+ },
+ {
+  "term": "das Überholmanöver",
+  "en": "overtaking manoeuvre",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Das Überholmanöver in der letzten Runde war spektakulär.",
+    "en": "The overtaking move on the last lap was spectacular."
+   },
+   {
+    "de": "Ein riskantes Überholmanöver führte zum Unfall.",
+    "en": "A risky overtaking manoeuvre led to the crash."
+   }
+  ]
+ },
+ {
+  "term": "der Windschatten",
+  "en": "slipstream",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Im Windschatten kommt er näher heran.",
+    "en": "He's getting closer in the slipstream."
+   },
+   {
+    "de": "Der Radfahrer fährt im Windschatten des Lkws.",
+    "en": "The cyclist is riding in the lorry's slipstream."
+   }
+  ]
+ },
+ {
+  "term": "die Schikane",
+  "en": "chicane; harassment",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "In der Schikane hat er abgekürzt.",
+    "en": "He cut the chicane."
+   },
+   {
+    "de": "Die neuen Regeln sind reine Schikane.",
+    "en": "The new rules are pure harassment."
+   }
+  ]
+ },
+ {
+  "term": "die Pole-Position",
+  "en": "pole position",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Sie startet morgen von der Pole-Position.",
+    "en": "She starts from pole position tomorrow."
+   },
+   {
+    "de": "Die Firma hat die Pole-Position auf dem Markt.",
+    "en": "The company is in pole position in the market."
+   }
+  ]
+ },
+ {
+  "term": "die Siegerehrung",
+  "en": "award ceremony, podium ceremony",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Bei der Siegerehrung spritzen sie mit Champagner.",
+    "en": "At the podium ceremony they spray champagne."
+   },
+   {
+    "de": "Die Siegerehrung findet nach dem Rennen statt.",
+    "en": "The award ceremony takes place after the race."
+   }
+  ]
+ },
+ {
+  "term": "der Rennwagen",
+  "en": "racing car",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Rennwagen erreicht über 300 km/h.",
+    "en": "The racing car reaches over 300 km/h."
+   },
+   {
+    "de": "Im Museum steht ein alter Rennwagen.",
+    "en": "There's an old racing car in the museum."
+   }
+  ]
+ },
+ {
+  "term": "der Rennfahrer",
+  "en": "racing driver",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Er wollte schon als Kind Rennfahrer werden.",
+    "en": "He wanted to be a racing driver even as a child."
+   },
+   {
+    "de": "Die Rennfahrerin hat ihren ersten Sieg geholt.",
+    "en": "The racing driver took her first win."
+   }
+  ]
+ },
+ {
+  "term": "der Teamchef",
+  "en": "team principal, team boss",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Teamchef kritisiert die Strategie.",
+    "en": "The team principal is criticising the strategy."
+   },
+   {
+    "de": "Der neue Teamchef kommt von einem Konkurrenten.",
+    "en": "The new team boss comes from a rival."
+   }
+  ]
+ },
+ {
+  "term": "die Leitplanke",
+  "en": "crash barrier, guardrail",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Das Auto prallte gegen die Leitplanke.",
+    "en": "The car hit the crash barrier."
+   },
+   {
+    "de": "Die Leitplanke hat Schlimmeres verhindert.",
+    "en": "The guardrail prevented anything worse."
+   }
+  ]
+ },
+ {
+  "term": "das Kiesbett",
+  "en": "gravel trap",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Er landete im Kiesbett.",
+    "en": "He ended up in the gravel trap."
+   },
+   {
+    "de": "Das Kiesbett bremst die Autos ab.",
+    "en": "The gravel trap slows the cars down."
+   }
+  ]
+ },
+ {
+  "term": "das Getriebe",
+  "en": "gearbox, transmission",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Das Getriebe ist kaputt.",
+    "en": "The gearbox is broken."
+   },
+   {
+    "de": "Sand im Getriebe bremst die Verwaltung.",
+    "en": "A spanner in the works is slowing down the administration."
+   }
+  ]
+ },
+ {
+  "term": "der Teamkollege",
+  "en": "teammate",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Er hat seinen Teamkollegen überholt.",
+    "en": "He overtook his teammate."
+   },
+   {
+    "de": "Meine Teamkollegin hilft mir immer.",
+    "en": "My teammate always helps me."
+   }
+  ]
+ },
+ {
+  "term": "die Vertragsverlängerung",
+  "en": "contract extension",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Employment contract",
+  "ex": [
+   {
+    "de": "Der Fahrer wartet auf eine Vertragsverlängerung.",
+    "en": "The driver is waiting for a contract extension."
+   },
+   {
+    "de": "Die Vertragsverlängerung ist unterschrieben.",
+    "en": "The contract extension has been signed."
+   }
+  ]
+ },
+ {
+  "term": "der Sponsor",
+  "en": "sponsor",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Verein sucht einen neuen Sponsor.",
+    "en": "The club is looking for a new sponsor."
+   },
+   {
+    "de": "Der Sponsor zahlt Millionen für das Logo.",
+    "en": "The sponsor pays millions for the logo."
+   }
+  ]
+ },
+ {
+  "term": "die Spielkonsole",
+  "en": "games console",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Er wünscht sich eine neue Spielkonsole.",
+    "en": "He wants a new games console."
+   },
+   {
+    "de": "Die Spielkonsole ist an den Fernseher angeschlossen.",
+    "en": "The games console is connected to the TV."
+   }
+  ]
+ },
+ {
+  "term": "die Spielfigur",
+  "en": "game character; playing piece",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Die Spielfigur springt über den Abgrund.",
+    "en": "The character jumps over the chasm."
+   },
+   {
+    "de": "Jeder Spieler bekommt vier Spielfiguren.",
+    "en": "Each player gets four pieces."
+   }
+  ]
+ },
+ {
+  "term": "der Endgegner",
+  "en": "final boss",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Der Endgegner ist fast unbesiegbar.",
+    "en": "The final boss is almost invincible."
+   },
+   {
+    "de": "Das Finanzamt ist mein persönlicher Endgegner.",
+    "en": "The tax office is my personal final boss."
+   }
+  ]
+ },
+ {
+  "term": "der Spielstand",
+  "en": "score; saved game",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Wie ist der Spielstand?",
+    "en": "What's the score?"
+   },
+   {
+    "de": "Mein Spielstand wurde gelöscht.",
+    "en": "My saved game was deleted."
+   }
+  ]
+ },
+ {
+  "term": "der Spieleentwickler",
+  "en": "game developer",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Der Spieleentwickler arbeitet an einem neuen Titel.",
+    "en": "The game developer is working on a new title."
+   },
+   {
+    "de": "Viele Spieleentwickler sitzen in Berlin.",
+    "en": "Many game developers are based in Berlin."
+   }
+  ]
+ },
+ {
+  "term": "die Grafikkarte",
+  "en": "graphics card",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Für das Spiel braucht man eine starke Grafikkarte.",
+    "en": "You need a powerful graphics card for the game."
+   },
+   {
+    "de": "Die Grafikkarte kostet über tausend Euro.",
+    "en": "The graphics card costs over a thousand euros."
+   }
+  ]
+ },
+ {
+  "term": "die Spielwelt",
+  "en": "game world",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Die Spielwelt ist riesig und offen.",
+    "en": "The game world is huge and open."
+   },
+   {
+    "de": "In der Spielwelt kann man alles erkunden.",
+    "en": "You can explore everything in the game world."
+   }
+  ]
+ },
+ {
+  "term": "die Neuauflage",
+  "en": "new edition; remake",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Die Neuauflage des Klassikers erscheint im Mai.",
+    "en": "The remake of the classic comes out in May."
+   },
+   {
+    "de": "Das Buch hat eine Neuauflage bekommen.",
+    "en": "The book has had a new edition."
+   }
+  ]
+ },
+ {
+  "term": "der Zocker",
+  "en": "gamer; gambler (colloquial)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Auf der Gamescom treffen sich tausende Zocker.",
+    "en": "Thousands of gamers meet at Gamescom."
+   },
+   {
+    "de": "Er ist ein leidenschaftlicher Zocker.",
+    "en": "He is a passionate gamer."
+   }
+  ]
+ },
+ {
+  "term": "zocken",
+  "en": "to play video games; to gamble (colloquial)",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Am Wochenende zocke ich gern mit Freunden.",
+    "en": "At the weekend I like playing games with friends."
+   },
+   {
+    "de": "Er hat die ganze Nacht gezockt.",
+    "en": "He was gaming all night."
+   }
+  ]
+ },
+ {
+  "term": "der Controller",
+  "en": "(game) controller; financial controller",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Der Controller hat keinen Akku mehr.",
+    "en": "The controller's battery is flat."
+   },
+   {
+    "de": "Sie arbeitet als Controllerin in einem Konzern.",
+    "en": "She works as a financial controller in a corporation."
+   }
+  ]
+ },
+ {
+  "term": "das Headset",
+  "en": "headset",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "gender": "das",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Für Videocalls brauche ich ein Headset.",
+    "en": "I need a headset for video calls."
+   },
+   {
+    "de": "Das Headset hat ein gutes Mikrofon.",
+    "en": "The headset has a good microphone."
+   }
+  ]
+ },
+ {
+  "term": "der Schwierigkeitsgrad",
+  "en": "difficulty level",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Ich spiele auf dem höchsten Schwierigkeitsgrad.",
+    "en": "I play on the highest difficulty level."
+   },
+   {
+    "de": "Der Schwierigkeitsgrad der Prüfung ist hoch.",
+    "en": "The exam's level of difficulty is high."
+   }
+  ]
+ },
+ {
+  "term": "der Aktienkurs",
+  "en": "share price",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Der Aktienkurs ist um zehn Prozent gefallen.",
+    "en": "The share price has fallen by ten per cent."
+   },
+   {
+    "de": "Ich schaue jeden Morgen auf den Aktienkurs.",
+    "en": "I check the share price every morning."
+   }
+  ]
+ },
+ {
+  "term": "der Leerverkauf",
+  "en": "short sale, short selling",
+  "pos": "noun",
+  "level": "C2",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Mit einem Leerverkauf wettet man auf fallende Kurse.",
+    "en": "With a short sale you bet on falling prices."
+   },
+   {
+    "de": "Die Aufsicht hat den Leerverkauf verboten.",
+    "en": "The regulator has banned short selling."
+   }
+  ]
+ },
+ {
+  "term": "der Anlageberater",
+  "en": "investment adviser",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Der Anlageberater empfiehlt einen Fonds.",
+    "en": "The investment adviser recommends a fund."
+   },
+   {
+    "de": "Ich brauche keinen Anlageberater für ETFs.",
+    "en": "I don't need an investment adviser for ETFs."
+   }
+  ]
+ },
+ {
+  "term": "der Zinseszins",
+  "en": "compound interest",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Der Zinseszins macht langfristig viel aus.",
+    "en": "Compound interest makes a big difference in the long run."
+   },
+   {
+    "de": "Mit Zinseszins wächst das Geld schneller.",
+    "en": "Money grows faster with compound interest."
+   }
+  ]
+ },
+ {
+  "term": "das Tagesgeld",
+  "en": "instant-access savings (account)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "At the bank",
+  "ex": [
+   {
+    "de": "Mein Notgroschen liegt auf dem Tagesgeld.",
+    "en": "My emergency fund is in an instant-access account."
+   },
+   {
+    "de": "Für Tagesgeld gibt es zwei Prozent Zinsen.",
+    "en": "Instant-access savings earn two per cent interest."
+   }
+  ]
+ },
+ {
+  "term": "das Festgeld",
+  "en": "fixed-term deposit",
+  "pos": "noun",
+  "level": "C1",
+  "field": "At the bank",
+  "ex": [
+   {
+    "de": "Das Festgeld ist für zwei Jahre angelegt.",
+    "en": "The fixed-term deposit is invested for two years."
+   },
+   {
+    "de": "Beim Festgeld kommt man nicht sofort an das Geld.",
+    "en": "With a fixed-term deposit you can't get at the money straight away."
+   }
+  ]
+ },
+ {
+  "term": "die Einlagensicherung",
+  "en": "deposit protection",
+  "pos": "noun",
+  "level": "C2",
+  "field": "At the bank",
+  "ex": [
+   {
+    "de": "Die Einlagensicherung schützt bis 100.000 Euro.",
+    "en": "Deposit protection covers up to 100,000 euros."
+   },
+   {
+    "de": "Prüfen Sie die Einlagensicherung der Bank.",
+    "en": "Check the bank's deposit protection."
+   }
+  ]
+ },
+ {
+  "term": "der Sparplan",
+  "en": "savings plan",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Ich habe einen Sparplan für einen ETF.",
+    "en": "I have a savings plan for an ETF."
+   },
+   {
+    "de": "Der Sparplan läuft jeden Monat automatisch.",
+    "en": "The savings plan runs automatically every month."
+   }
+  ]
+ },
+ {
+  "term": "der Indexfonds",
+  "en": "index fund",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Ein Indexfonds bildet einen Aktienindex ab.",
+    "en": "An index fund tracks a share index."
+   },
+   {
+    "de": "Der Indexfonds hat niedrige Kosten.",
+    "en": "The index fund has low costs."
+   }
+  ]
+ },
+ {
+  "term": "die Kryptowährung",
+  "en": "cryptocurrency",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Bitcoin ist die bekannteste Kryptowährung.",
+    "en": "Bitcoin is the best-known cryptocurrency."
+   },
+   {
+    "de": "Er hat sein Erspartes in Kryptowährung angelegt.",
+    "en": "He invested his savings in cryptocurrency."
+   }
+  ]
+ },
+ {
+  "term": "die Blockchain",
+  "en": "blockchain",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Die Blockchain speichert alle Transaktionen.",
+    "en": "The blockchain stores all transactions."
+   },
+   {
+    "de": "Die Bank testet eine eigene Blockchain.",
+    "en": "The bank is testing its own blockchain."
+   }
+  ]
+ },
+ {
+  "term": "die Zentralbank",
+  "en": "central bank",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Die Zentralbank hat die Zinsen gesenkt.",
+    "en": "The central bank has cut interest rates."
+   },
+   {
+    "de": "Die Europäische Zentralbank sitzt in Frankfurt.",
+    "en": "The European Central Bank is based in Frankfurt."
+   }
+  ]
+ },
+ {
+  "term": "das Haushaltsdefizit",
+  "en": "budget deficit",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Das Haushaltsdefizit ist größer als erwartet.",
+    "en": "The budget deficit is bigger than expected."
+   },
+   {
+    "de": "Die EU kritisiert das hohe Haushaltsdefizit.",
+    "en": "The EU criticises the high budget deficit."
+   }
+  ]
+ },
+ {
+  "term": "die Staatsverschuldung",
+  "en": "national debt",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Staatsverschuldung ist stark gestiegen.",
+    "en": "National debt has risen sharply."
+   },
+   {
+    "de": "Italien hat eine hohe Staatsverschuldung.",
+    "en": "Italy has a high national debt."
+   }
+  ]
+ },
+ {
+  "term": "die Schuldenbremse",
+  "en": "debt brake",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Schuldenbremse begrenzt neue Kredite des Staates.",
+    "en": "The debt brake limits new state borrowing."
+   },
+   {
+    "de": "Über die Schuldenbremse wird heftig gestritten.",
+    "en": "There's a fierce argument about the debt brake."
+   }
+  ]
+ },
+ {
+  "term": "die Handelsbilanz",
+  "en": "balance of trade",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Global Economy",
+  "ex": [
+   {
+    "de": "Deutschland hat eine positive Handelsbilanz.",
+    "en": "Germany has a positive balance of trade."
+   },
+   {
+    "de": "Die Handelsbilanz mit China ist negativ.",
+    "en": "The trade balance with China is negative."
+   }
+  ]
+ },
+ {
+  "term": "der Handelskrieg",
+  "en": "trade war",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Global Economy",
+  "ex": [
+   {
+    "de": "Der Handelskrieg schadet beiden Ländern.",
+    "en": "The trade war harms both countries."
+   },
+   {
+    "de": "Experten warnen vor einem Handelskrieg.",
+    "en": "Experts warn of a trade war."
+   }
+  ]
+ },
+ {
+  "term": "die Einbürgerung",
+  "en": "naturalisation",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Für die Einbürgerung braucht man Deutsch auf B1.",
+    "en": "You need B1 German for naturalisation."
+   },
+   {
+    "de": "Die Einbürgerung dauert oft über ein Jahr.",
+    "en": "Naturalisation often takes more than a year."
+   }
+  ]
+ },
+ {
+  "term": "die Freizügigkeit",
+  "en": "freedom of movement",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "In der EU gilt die Freizügigkeit für Arbeitnehmer.",
+    "en": "Freedom of movement for workers applies in the EU."
+   },
+   {
+    "de": "Die Freizügigkeit gilt auch für Familienangehörige.",
+    "en": "Freedom of movement also applies to family members."
+   }
+  ]
+ },
+ {
+  "term": "der Integrationskurs",
+  "en": "integration course",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Im Integrationskurs lernt man Deutsch und Landeskunde.",
+    "en": "In the integration course you learn German and about the country."
+   },
+   {
+    "de": "Der Integrationskurs endet mit einer Prüfung.",
+    "en": "The integration course ends with an exam."
+   }
+  ]
+ },
+ {
+  "term": "der Einbürgerungstest",
+  "en": "naturalisation test",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Der Einbürgerungstest hat 33 Fragen.",
+    "en": "The naturalisation test has 33 questions."
+   },
+   {
+    "de": "Sie hat den Einbürgerungstest bestanden.",
+    "en": "She passed the naturalisation test."
+   }
+  ]
+ },
+ {
+  "term": "der Doppelpass",
+  "en": "dual citizenship; one-two (football)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Seit der Reform ist der Doppelpass erlaubt.",
+    "en": "Since the reform dual citizenship has been allowed."
+   },
+   {
+    "de": "Nach einem Doppelpass schießt er das Tor.",
+    "en": "After a one-two he scores."
+   }
+  ]
+ },
+ {
+  "term": "die Aufenthaltserlaubnis",
+  "en": "residence permit",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Meine Aufenthaltserlaubnis läuft im März ab.",
+    "en": "My residence permit expires in March."
+   },
+   {
+    "de": "Die Aufenthaltserlaubnis muss verlängert werden.",
+    "en": "The residence permit has to be extended."
+   }
+  ]
+ },
+ {
+  "term": "der Sachbearbeiter",
+  "en": "case worker, clerk (handling a case)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Sachbearbeiter hat meinen Antrag noch nicht bearbeitet.",
+    "en": "The case worker hasn't processed my application yet."
+   },
+   {
+    "de": "Meine Sachbearbeiterin ist diese Woche im Urlaub.",
+    "en": "My case worker is on holiday this week."
+   }
+  ]
+ },
+ {
+  "term": "der Antragsteller",
+  "en": "applicant",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Antragsteller muss persönlich erscheinen.",
+    "en": "The applicant has to appear in person."
+   },
+   {
+    "de": "Jeder Antragsteller bekommt eine Nummer.",
+    "en": "Every applicant gets a number."
+   }
+  ]
+ },
+ {
+  "term": "die Beglaubigung",
+  "en": "certification (of a copy)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Für die Beglaubigung der Kopie zahlt man Gebühren.",
+    "en": "You pay a fee for certifying the copy."
+   },
+   {
+    "de": "Die Behörde verlangt eine Beglaubigung.",
+    "en": "The authority requires a certified copy."
+   }
+  ]
+ },
+ {
+  "term": "die Rentenversicherung",
+  "en": "pension insurance",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Ein Teil des Lohns geht an die Rentenversicherung.",
+    "en": "Part of the wage goes to pension insurance."
+   },
+   {
+    "de": "Die Rentenversicherung schickt jedes Jahr einen Brief.",
+    "en": "The pension insurance fund sends a letter every year."
+   }
+  ]
+ },
+ {
+  "term": "die Sozialversicherungsnummer",
+  "en": "social security number",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Der Arbeitgeber braucht Ihre Sozialversicherungsnummer.",
+    "en": "The employer needs your social security number."
+   },
+   {
+    "de": "Die Sozialversicherungsnummer steht auf dem Ausweis der Rentenversicherung.",
+    "en": "The social security number is on the pension insurance card."
+   }
+  ]
+ },
+ {
+  "term": "die Steueridentifikationsnummer",
+  "en": "tax identification number",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Finance & Taxes",
+  "ex": [
+   {
+    "de": "Die Steueridentifikationsnummer kommt per Post.",
+    "en": "The tax identification number comes by post."
+   },
+   {
+    "de": "Ohne Steueridentifikationsnummer zahlt man mehr Steuern.",
+    "en": "Without a tax ID you pay more tax."
+   }
+  ]
+ },
+ {
+  "term": "die Steuerklasse",
+  "en": "tax bracket (class)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Finance & Taxes",
+  "ex": [
+   {
+    "de": "Nach der Hochzeit haben wir die Steuerklasse gewechselt.",
+    "en": "We changed tax class after the wedding."
+   },
+   {
+    "de": "In Steuerklasse drei zahlt man weniger.",
+    "en": "You pay less in tax class three."
+   }
+  ]
+ },
+ {
+  "term": "die Lohnsteuer",
+  "en": "income tax (on wages)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Finance & Taxes",
+  "ex": [
+   {
+    "de": "Die Lohnsteuer wird direkt vom Gehalt abgezogen.",
+    "en": "Income tax is deducted directly from the salary."
+   },
+   {
+    "de": "Auf der Abrechnung steht die Lohnsteuer.",
+    "en": "The income tax is shown on the payslip."
+   }
+  ]
+ },
+ {
+  "term": "die Kirchensteuer",
+  "en": "church tax",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Finance & Taxes",
+  "ex": [
+   {
+    "de": "Wer in der Kirche ist, zahlt Kirchensteuer.",
+    "en": "If you're a church member you pay church tax."
+   },
+   {
+    "de": "Viele treten aus, um die Kirchensteuer zu sparen.",
+    "en": "Many leave to save the church tax."
+   }
+  ]
+ },
+ {
+  "term": "der Rundfunkbeitrag",
+  "en": "TV and radio licence fee",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Jede Wohnung zahlt den Rundfunkbeitrag.",
+    "en": "Every household pays the broadcasting fee."
+   },
+   {
+    "de": "Der Rundfunkbeitrag kostet etwa achtzehn Euro im Monat.",
+    "en": "The licence fee costs about eighteen euros a month."
+   }
+  ]
+ },
+ {
+  "term": "das Bewerbungsgespräch",
+  "en": "job interview",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Applying for Jobs",
+  "ex": [
+   {
+    "de": "Morgen habe ich ein Bewerbungsgespräch.",
+    "en": "I have a job interview tomorrow."
+   },
+   {
+    "de": "Das Bewerbungsgespräch lief sehr gut.",
+    "en": "The job interview went very well."
+   }
+  ]
+ },
+ {
+  "term": "der Quereinsteiger",
+  "en": "career changer, lateral entrant",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Die Firma sucht auch Quereinsteiger.",
+    "en": "The company is also looking for career changers."
+   },
+   {
+    "de": "Als Quereinsteigerin hat sie es schwer.",
+    "en": "As someone changing careers, she's finding it hard."
+   }
+  ]
+ },
+ {
+  "term": "das Empfehlungsschreiben",
+  "en": "letter of recommendation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Applying for Jobs",
+  "ex": [
+   {
+    "de": "Mein alter Chef schreibt mir ein Empfehlungsschreiben.",
+    "en": "My old boss is writing me a letter of recommendation."
+   },
+   {
+    "de": "Für die Bewerbung brauche ich zwei Empfehlungsschreiben.",
+    "en": "I need two letters of recommendation for the application."
+   }
+  ]
+ },
+ {
+  "term": "die Jobbörse",
+  "en": "job board, jobs fair",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Applying for Jobs",
+  "ex": [
+   {
+    "de": "Ich suche Stellen auf einer Jobbörse im Internet.",
+    "en": "I'm looking for jobs on an online job board."
+   },
+   {
+    "de": "Die Jobbörse findet in der Messehalle statt.",
+    "en": "The jobs fair takes place in the exhibition hall."
+   }
+  ]
+ },
+ {
+  "term": "die Befristung",
+  "en": "fixed term (of a contract)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Employment contract",
+  "ex": [
+   {
+    "de": "Die Befristung des Vertrags endet im Juni.",
+    "en": "The fixed term of the contract ends in June."
+   },
+   {
+    "de": "Ohne Sachgrund ist eine Befristung nur zwei Jahre möglich.",
+    "en": "Without an objective reason a fixed term is only possible for two years."
+   }
+  ]
+ },
+ {
+  "term": "befristet",
+  "en": "fixed-term, temporary",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Employment contract",
+  "ex": [
+   {
+    "de": "Mein Vertrag ist auf ein Jahr befristet.",
+    "en": "My contract is fixed-term for one year."
+   },
+   {
+    "de": "Viele junge Leute haben nur befristete Stellen.",
+    "en": "Many young people only have temporary jobs."
+   }
+  ]
+ },
+ {
+  "term": "die Teilzeit",
+  "en": "part-time",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Sie arbeitet in Teilzeit, zwanzig Stunden pro Woche.",
+    "en": "She works part-time, twenty hours a week."
+   },
+   {
+    "de": "Nach der Elternzeit möchte er in Teilzeit gehen.",
+    "en": "After parental leave he wants to go part-time."
+   }
+  ]
+ },
+ {
+  "term": "die Vollzeit",
+  "en": "full-time",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Die Stelle ist in Vollzeit.",
+    "en": "The position is full-time."
+   },
+   {
+    "de": "In Vollzeit arbeitet man hier vierzig Stunden.",
+    "en": "Full-time here means forty hours."
+   }
+  ]
+ },
+ {
+  "term": "die Elternzeit",
+  "en": "parental leave",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Er nimmt ein Jahr Elternzeit.",
+    "en": "He's taking a year of parental leave."
+   },
+   {
+    "de": "Während der Elternzeit gibt es Elterngeld.",
+    "en": "There's parental allowance during parental leave."
+   }
+  ]
+ },
+ {
+  "term": "der Freiberufler",
+  "en": "freelancer",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Als Freiberufler muss ich mich selbst versichern.",
+    "en": "As a freelancer I have to insure myself."
+   },
+   {
+    "de": "Sie arbeitet als Freiberuflerin für mehrere Kunden.",
+    "en": "She works as a freelancer for several clients."
+   }
+  ]
+ },
+ {
+  "term": "das Geschäftsmodell",
+  "en": "business model",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Das Geschäftsmodell funktioniert nicht mehr.",
+    "en": "The business model no longer works."
+   },
+   {
+    "de": "Die App hat ein Geschäftsmodell mit Abos.",
+    "en": "The app has a subscription business model."
+   }
+  ]
+ },
+ {
+  "term": "das Risikokapital",
+  "en": "venture capital",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Das Start-up hat zehn Millionen Risikokapital bekommen.",
+    "en": "The start-up got ten million in venture capital."
+   },
+   {
+    "de": "In Europa gibt es weniger Risikokapital als in den USA.",
+    "en": "There's less venture capital in Europe than in the US."
+   }
+  ]
+ },
+ {
+  "term": "das Rechenzentrum",
+  "en": "data centre",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Das Rechenzentrum braucht so viel Strom wie eine Stadt.",
+    "en": "The data centre uses as much electricity as a city."
+   },
+   {
+    "de": "Ein neues Rechenzentrum entsteht bei Frankfurt.",
+    "en": "A new data centre is being built near Frankfurt."
+   }
+  ]
+ },
+ {
+  "term": "der Chatbot",
+  "en": "chatbot",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Artificial Intelligence",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Chatbot beantwortet Fragen rund um die Uhr.",
+    "en": "The chatbot answers questions around the clock."
+   },
+   {
+    "de": "Der Chatbot hat eine falsche Antwort gegeben.",
+    "en": "The chatbot gave a wrong answer."
+   }
+  ]
+ },
+ {
+  "term": "der Halbleiter",
+  "en": "semiconductor",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Europa will mehr Halbleiter selbst herstellen.",
+    "en": "Europe wants to make more semiconductors itself."
+   },
+   {
+    "de": "Ohne Halbleiter gibt es keine Autos.",
+    "en": "Without semiconductors there are no cars."
+   }
+  ]
+ },
+ {
+  "term": "die Cybersicherheit",
+  "en": "cybersecurity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Die Firma investiert in Cybersicherheit.",
+    "en": "The company is investing in cybersecurity."
+   },
+   {
+    "de": "Cybersicherheit ist ein wachsender Markt.",
+    "en": "Cybersecurity is a growing market."
+   }
+  ]
+ },
+ {
+  "term": "der Hackerangriff",
+  "en": "cyberattack, hack",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Nach dem Hackerangriff war die Stadtverwaltung offline.",
+    "en": "After the cyberattack the city administration was offline."
+   },
+   {
+    "de": "Bei dem Hackerangriff wurden Daten gestohlen.",
+    "en": "Data was stolen in the hack."
+   }
+  ]
+ },
+ {
+  "term": "die Schadsoftware",
+  "en": "malware",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Die Mail enthielt Schadsoftware.",
+    "en": "The email contained malware."
+   },
+   {
+    "de": "Das Programm erkennt Schadsoftware.",
+    "en": "The program detects malware."
+   }
+  ]
+ },
+ {
+  "term": "das Datenleck",
+  "en": "data leak, data breach",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Durch ein Datenleck wurden Kundendaten öffentlich.",
+    "en": "Customer data was made public through a data breach."
+   },
+   {
+    "de": "Die Firma muss das Datenleck melden.",
+    "en": "The company has to report the data breach."
+   }
+  ]
+ },
+ {
+  "term": "die Programmiersprache",
+  "en": "programming language",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Python ist eine beliebte Programmiersprache.",
+    "en": "Python is a popular programming language."
+   },
+   {
+    "de": "Welche Programmiersprache sollte ich lernen?",
+    "en": "Which programming language should I learn?"
+   }
+  ]
+ },
+ {
+  "term": "der Softwarefehler",
+  "en": "software bug",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Ein Softwarefehler legte die Kassen lahm.",
+    "en": "A software bug brought the tills to a standstill."
+   },
+   {
+    "de": "Der Softwarefehler wurde schnell behoben.",
+    "en": "The software bug was fixed quickly."
+   }
+  ]
+ },
+ {
+  "term": "die Aktualisierung",
+  "en": "update",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Die Aktualisierung dauert zehn Minuten.",
+    "en": "The update takes ten minutes."
+   },
+   {
+    "de": "Nach der Aktualisierung funktioniert alles wieder.",
+    "en": "After the update everything works again."
+   }
+  ]
+ },
+ {
+  "term": "die Vernissage",
+  "en": "exhibition opening, vernissage",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Zur Vernissage kommt auch die Künstlerin.",
+    "en": "The artist is also coming to the exhibition opening."
+   },
+   {
+    "de": "Bei der Vernissage gab es Wein.",
+    "en": "There was wine at the opening."
+   }
+  ]
+ },
+ {
+  "term": "der Kurator",
+  "en": "curator",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Der Kurator hat die Werke ausgewählt.",
+    "en": "The curator selected the works."
+   },
+   {
+    "de": "Sie arbeitet als Kuratorin im Museum Ludwig.",
+    "en": "She works as a curator at the Museum Ludwig."
+   }
+  ]
+ },
+ {
+  "term": "der Kunstmarkt",
+  "en": "art market",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Der Kunstmarkt ist in diesem Jahr eingebrochen.",
+    "en": "The art market collapsed this year."
+   },
+   {
+    "de": "Auf dem Kunstmarkt zählen vor allem Namen.",
+    "en": "Names are what count most in the art market."
+   }
+  ]
+ },
+ {
+  "term": "das Auktionshaus",
+  "en": "auction house",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Das Gemälde wird im Auktionshaus versteigert.",
+    "en": "The painting is being auctioned at the auction house."
+   },
+   {
+    "de": "Das Auktionshaus erwartet Rekordpreise.",
+    "en": "The auction house expects record prices."
+   }
+  ]
+ },
+ {
+  "term": "der Sammler",
+  "en": "collector",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Ein privater Sammler hat das Bild gekauft.",
+    "en": "A private collector bought the picture."
+   },
+   {
+    "de": "Er ist ein Sammler von alten Spielen.",
+    "en": "He's a collector of old games."
+   }
+  ]
+ },
+ {
+  "term": "der Designer",
+  "en": "designer",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Arts and culture",
+  "sameAsGerman": true,
+  "ex": [
+   {
+    "de": "Der Designer hat das Logo entworfen.",
+    "en": "The designer created the logo."
+   },
+   {
+    "de": "Sie arbeitet als Designerin bei einer Agentur.",
+    "en": "She works as a designer at an agency."
+   }
+  ]
+ },
+ {
+  "term": "der Wahlkampf",
+  "en": "election campaign",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Elections",
+  "ex": [
+   {
+    "de": "Im Wahlkampf geht es vor allem um Migration.",
+    "en": "The election campaign is mainly about migration."
+   },
+   {
+    "de": "Der Wahlkampf wird immer härter.",
+    "en": "The election campaign is getting tougher."
+   }
+  ]
+ },
+ {
+  "term": "das Misstrauensvotum",
+  "en": "vote of no confidence",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Democratic Structures",
+  "ex": [
+   {
+    "de": "Die Opposition plant ein Misstrauensvotum.",
+    "en": "The opposition is planning a vote of no confidence."
+   },
+   {
+    "de": "Der Kanzler hat das Misstrauensvotum überstanden.",
+    "en": "The chancellor survived the vote of no confidence."
+   }
+  ]
+ },
+ {
+  "term": "der Volksentscheid",
+  "en": "referendum",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Democratic Structures",
+  "ex": [
+   {
+    "de": "In Berlin gab es einen Volksentscheid über Wohnungen.",
+    "en": "There was a referendum on housing in Berlin."
+   },
+   {
+    "de": "Der Volksentscheid ist gescheitert.",
+    "en": "The referendum failed."
+   }
+  ]
+ },
+ {
+  "term": "der Spitzenkandidat",
+  "en": "lead candidate",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Elections",
+  "ex": [
+   {
+    "de": "Der Spitzenkandidat der Partei gibt ein Interview.",
+    "en": "The party's lead candidate is giving an interview."
+   },
+   {
+    "de": "Sie ist Spitzenkandidatin für die Wahl in NRW.",
+    "en": "She is lead candidate for the election in North Rhine-Westphalia."
+   }
+  ]
+ },
+ {
+  "term": "der Lobbyismus",
+  "en": "lobbying",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Der Lobbyismus in Brüssel ist enorm.",
+    "en": "The lobbying in Brussels is enormous."
+   },
+   {
+    "de": "Die Partei will den Lobbyismus stärker regulieren.",
+    "en": "The party wants to regulate lobbying more strictly."
+   }
+  ]
+ },
+ {
+  "term": "der Rechtsextremismus",
+  "en": "right-wing extremism",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Tausende demonstrieren gegen Rechtsextremismus.",
+    "en": "Thousands are demonstrating against right-wing extremism."
+   },
+   {
+    "de": "Der Verfassungsschutz beobachtet den Rechtsextremismus.",
+    "en": "The domestic intelligence service monitors right-wing extremism."
+   }
+  ]
+ },
+ {
+  "term": "die Tarifverhandlung",
+  "en": "collective wage negotiation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Die Tarifverhandlung ist gescheitert.",
+    "en": "The pay negotiations have failed."
+   },
+   {
+    "de": "In der Tarifverhandlung fordert die Gewerkschaft acht Prozent.",
+    "en": "In the wage talks the union is demanding eight per cent."
+   }
+  ]
+ },
+ {
+  "term": "der Mindestlohn",
+  "en": "minimum wage",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Der Mindestlohn steigt im Januar.",
+    "en": "The minimum wage is rising in January."
+   },
+   {
+    "de": "Viele Aushilfen verdienen nur den Mindestlohn.",
+    "en": "Many temps only earn the minimum wage."
+   }
+  ]
+ },
+ {
+  "term": "der Eigenbedarf",
+  "en": "personal use (landlord's own need)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Der Vermieter hat wegen Eigenbedarf gekündigt.",
+    "en": "The landlord has given notice because he needs the flat himself."
+   },
+   {
+    "de": "Die Kündigung wegen Eigenbedarf muss begründet sein.",
+    "en": "Notice for the landlord's own use must be justified."
+   }
+  ]
+ },
+ {
+  "term": "das Kölsch",
+  "en": "Kölsch (Cologne beer; Cologne dialect)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Ein Kölsch, bitte!",
+    "en": "A Kölsch, please!"
+   },
+   {
+    "de": "Mein Nachbar spricht nur Kölsch.",
+    "en": "My neighbour only speaks the Cologne dialect."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "das Brauhaus",
+  "en": "brewpub, brewery tavern",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Restaurant & Dining",
+  "ex": [
+   {
+    "de": "Im Brauhaus gibt es Kölsch und Schnitzel.",
+    "en": "There's Kölsch and schnitzel at the brewpub."
+   },
+   {
+    "de": "Der Köbes im Brauhaus bringt sofort ein neues Glas.",
+    "en": "The waiter at the brewpub brings a new glass straight away."
+   }
+  ]
+ }
+]

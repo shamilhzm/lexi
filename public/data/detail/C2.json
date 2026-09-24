@@ -566,6 +566,20 @@
       }
     ]
   },
+  "voc:C2:der Leerverkauf": {
+    "ex": [
+      {
+        "de": "Mit einem Leerverkauf wettet man auf fallende Kurse.",
+        "en": "With a short sale you bet on falling prices.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Aufsicht hat den Leerverkauf verboten.",
+        "en": "The regulator has banned short selling.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:der Leichnam": {
     "def": "The dead body of a person, especially in formal use.",
     "ex": [
@@ -1068,6 +1082,20 @@
       {
         "de": "Mit großer Eindringlichkeit warnte er vor den Folgen.",
         "en": "With great urgency he warned of the consequences.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Einlagensicherung": {
+    "ex": [
+      {
+        "de": "Die Einlagensicherung schützt bis 100.000 Euro.",
+        "en": "Deposit protection covers up to 100,000 euros.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Prüfen Sie die Einlagensicherung der Bank.",
+        "en": "Check the bank's deposit protection.",
         "lvl": "C2"
       }
     ]

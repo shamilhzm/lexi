@@ -1438,6 +1438,20 @@
       }
     ]
   },
+  "voc:B2:befristet": {
+    "ex": [
+      {
+        "de": "Mein Vertrag ist auf ein Jahr befristet.",
+        "en": "My contract is fixed-term for one year.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele junge Leute haben nur befristete Stellen.",
+        "en": "Many young people only have temporary jobs.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:begehen": {
     "def": "to commit, perpetrate (a crime, an offense); to walk, to walk on, to use",
     "ex": [
@@ -2559,6 +2573,20 @@
       }
     ]
   },
+  "voc:B2:das Geschäftsmodell": {
+    "ex": [
+      {
+        "de": "Das Geschäftsmodell funktioniert nicht mehr.",
+        "en": "The business model no longer works.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die App hat ein Geschäftsmodell mit Abos.",
+        "en": "The app has a subscription business model.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Gespenst": {
     "ex": [
       {
@@ -2584,6 +2612,20 @@
       {
         "de": "Er muss ein Geständnis machen.",
         "en": "He has a confession to make.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Getriebe": {
+    "ex": [
+      {
+        "de": "Das Getriebe ist kaputt.",
+        "en": "The gearbox is broken.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sand im Getriebe bremst die Verwaltung.",
+        "en": "A spanner in the works is slowing down the administration.",
         "lvl": "B2"
       }
     ]
@@ -2687,6 +2729,20 @@
       {
         "de": "Das Hauptquartier gab den Befehl zum Rückzug.",
         "en": "Headquarters gave the order to retreat.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Headset": {
+    "ex": [
+      {
+        "de": "Für Videocalls brauche ich ein Headset.",
+        "en": "I need a headset for video calls.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Headset hat ein gutes Mikrofon.",
+        "en": "The headset has a good microphone.",
         "lvl": "B2"
       }
     ]
@@ -3469,6 +3525,20 @@
       }
     ]
   },
+  "voc:B2:das Qualifying": {
+    "ex": [
+      {
+        "de": "Im Qualifying war sie die Schnellste.",
+        "en": "She was fastest in qualifying.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Qualifying beginnt um 16 Uhr.",
+        "en": "Qualifying starts at 4 p.m.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Raumschiff": {
     "def": "A vehicle for travelling in space.",
     "ex": [
@@ -4207,6 +4277,20 @@
       }
     ]
   },
+  "voc:B2:der Aktienkurs": {
+    "ex": [
+      {
+        "de": "Der Aktienkurs ist um zehn Prozent gefallen.",
+        "en": "The share price has fallen by ten per cent.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich schaue jeden Morgen auf den Aktienkurs.",
+        "en": "I check the share price every morning.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Aktienmarkt": {
     "def": "The place where shares in companies are bought and sold.",
     "ex": [
@@ -4941,6 +5025,20 @@
       }
     ]
   },
+  "voc:B2:der Boxenstopp": {
+    "ex": [
+      {
+        "de": "Der Boxenstopp dauerte nur zwei Sekunden.",
+        "en": "The pit stop took only two seconds.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Boxenstopp lag er auf Platz drei.",
+        "en": "After the pit stop he was in third place.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Brand": {
     "def": "A destructive fire, especially one in a building.",
     "ex": [
@@ -5050,6 +5148,34 @@
       {
         "de": "Die beiden Romane haben einen ganz unterschiedlichen Charakter.",
         "en": "The two novels have a quite different character.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Chatbot": {
+    "ex": [
+      {
+        "de": "Der Chatbot beantwortet Fragen rund um die Uhr.",
+        "en": "The chatbot answers questions around the clock.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Chatbot hat eine falsche Antwort gegeben.",
+        "en": "The chatbot gave a wrong answer.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Controller": {
+    "ex": [
+      {
+        "de": "Der Controller hat keinen Akku mehr.",
+        "en": "The controller's battery is flat.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie arbeitet als Controllerin in einem Konzern.",
+        "en": "She works as a financial controller in a corporation.",
         "lvl": "B2"
       }
     ]
@@ -5307,6 +5433,20 @@
       }
     ]
   },
+  "voc:B2:der Einbürgerungstest": {
+    "ex": [
+      {
+        "de": "Der Einbürgerungstest hat 33 Fragen.",
+        "en": "The naturalisation test has 33 questions.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat den Einbürgerungstest bestanden.",
+        "en": "She passed the naturalisation test.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Einspruch": {
     "def": "A formal statement of disagreement or a legal appeal.",
     "ex": [
@@ -5360,6 +5500,20 @@
       {
         "de": "Das Kind lebt bei einem Elternteil.",
         "en": "The child lives with one parent.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Endgegner": {
+    "ex": [
+      {
+        "de": "Der Endgegner ist fast unbesiegbar.",
+        "en": "The final boss is almost invincible.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Finanzamt ist mein persönlicher Endgegner.",
+        "en": "The tax office is my personal final boss.",
         "lvl": "B2"
       }
     ]
@@ -5507,6 +5661,20 @@
       {
         "de": "Für die Rückgabe des Geldes gab es einen Finderlohn.",
         "en": "There was a finder's reward for returning the money.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Freiberufler": {
+    "ex": [
+      {
+        "de": "Als Freiberufler muss ich mich selbst versichern.",
+        "en": "As a freelancer I have to insure myself.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie arbeitet als Freiberuflerin für mehrere Kunden.",
+        "en": "She works as a freelancer for several clients.",
         "lvl": "B2"
       }
     ]
@@ -5715,6 +5883,20 @@
       }
     ]
   },
+  "voc:B2:der Hackerangriff": {
+    "ex": [
+      {
+        "de": "Nach dem Hackerangriff war die Stadtverwaltung offline.",
+        "en": "After the cyberattack the city administration was offline.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei dem Hackerangriff wurden Daten gestohlen.",
+        "en": "Data was stolen in the hack.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Haftbefehl": {
     "def": "A legal order allowing the police to arrest someone.",
     "ex": [
@@ -5726,6 +5908,20 @@
       {
         "de": "Es liegt ein Haftbefehl gegen Sie vor.",
         "en": "There's a warrant out for your arrest.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Handelskrieg": {
+    "ex": [
+      {
+        "de": "Der Handelskrieg schadet beiden Ländern.",
+        "en": "The trade war harms both countries.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Experten warnen vor einem Handelskrieg.",
+        "en": "Experts warn of a trade war.",
         "lvl": "B2"
       }
     ]
@@ -6925,6 +7121,20 @@
       }
     ]
   },
+  "voc:B2:der Reifenwechsel": {
+    "ex": [
+      {
+        "de": "Im Herbst steht der Reifenwechsel an.",
+        "en": "The tyre change is due in autumn.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beim Reifenwechsel verlor das Team Zeit.",
+        "en": "The team lost time on the tyre change.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Reiseveranstalter": {
     "def": "A company that plans and sells package holidays.",
     "ex": [
@@ -6936,6 +7146,20 @@
       {
         "de": "Der Reiseveranstalter bot eine kostenlose Umbuchung an.",
         "en": "The tour operator offered a free rebooking.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Rennwagen": {
+    "ex": [
+      {
+        "de": "Der Rennwagen erreicht über 300 km/h.",
+        "en": "The racing car reaches over 300 km/h.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Museum steht ein alter Rennwagen.",
+        "en": "There's an old racing car in the museum.",
         "lvl": "B2"
       }
     ]
@@ -7010,6 +7234,20 @@
       {
         "de": "Leg das Fleisch auf den Rost.",
         "en": "Put the meat on the grill.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Rundfunkbeitrag": {
+    "ex": [
+      {
+        "de": "Jede Wohnung zahlt den Rundfunkbeitrag.",
+        "en": "Every household pays the broadcasting fee.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rundfunkbeitrag kostet etwa achtzehn Euro im Monat.",
+        "en": "The licence fee costs about eighteen euros a month.",
         "lvl": "B2"
       }
     ]
@@ -7100,6 +7338,20 @@
       }
     ]
   },
+  "voc:B2:der Sachbearbeiter": {
+    "ex": [
+      {
+        "de": "Der Sachbearbeiter hat meinen Antrag noch nicht bearbeitet.",
+        "en": "The case worker hasn't processed my application yet.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Meine Sachbearbeiterin ist diese Woche im Urlaub.",
+        "en": "My case worker is on holiday this week.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Sachschaden": {
     "ex": [
       {
@@ -7124,6 +7376,20 @@
       {
         "de": "Der Samen braucht Wasser und Licht.",
         "en": "The seed needs water and light.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Sammler": {
+    "ex": [
+      {
+        "de": "Ein privater Sammler hat das Bild gekauft.",
+        "en": "A private collector bought the picture.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er ist ein Sammler von alten Spielen.",
+        "en": "He's a collector of old games.",
         "lvl": "B2"
       }
     ]
@@ -7242,6 +7508,20 @@
       }
     ]
   },
+  "voc:B2:der Schwierigkeitsgrad": {
+    "ex": [
+      {
+        "de": "Ich spiele auf dem höchsten Schwierigkeitsgrad.",
+        "en": "I play on the highest difficulty level.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Schwierigkeitsgrad der Prüfung ist hoch.",
+        "en": "The exam's level of difficulty is high.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Segen": {
     "def": "A wish for God's favour; also something that brings good.",
     "ex": [
@@ -7285,6 +7565,34 @@
       }
     ]
   },
+  "voc:B2:der Softwarefehler": {
+    "ex": [
+      {
+        "de": "Ein Softwarefehler legte die Kassen lahm.",
+        "en": "A software bug brought the tills to a standstill.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Softwarefehler wurde schnell behoben.",
+        "en": "The software bug was fixed quickly.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Sparplan": {
+    "ex": [
+      {
+        "de": "Ich habe einen Sparplan für einen ETF.",
+        "en": "I have a savings plan for an ETF.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Sparplan läuft jeden Monat automatisch.",
+        "en": "The savings plan runs automatically every month.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Speisewagen": {
     "def": "The carriage of a train where meals are served.",
     "ex": [
@@ -7310,6 +7618,20 @@
       {
         "de": "Der Spieltag beginnt um halb vier.",
         "en": "The matchday starts at half past three.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Sponsor": {
+    "ex": [
+      {
+        "de": "Der Verein sucht einen neuen Sponsor.",
+        "en": "The club is looking for a new sponsor.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Sponsor zahlt Millionen für das Logo.",
+        "en": "The sponsor pays millions for the logo.",
         "lvl": "B2"
       }
     ]
@@ -7601,6 +7923,20 @@
       {
         "de": "Der Tau glitzerte in der Morgensonne.",
         "en": "The dew glittered in the morning sun.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Teamchef": {
+    "ex": [
+      {
+        "de": "Der Teamchef kritisiert die Strategie.",
+        "en": "The team principal is criticising the strategy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der neue Teamchef kommt von einem Konkurrenten.",
+        "en": "The new team boss comes from a rival.",
         "lvl": "B2"
       }
     ]
@@ -7979,6 +8315,20 @@
       }
     ]
   },
+  "voc:B2:der Wahlkampf": {
+    "ex": [
+      {
+        "de": "Im Wahlkampf geht es vor allem um Migration.",
+        "en": "The election campaign is mainly about migration.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Wahlkampf wird immer härter.",
+        "en": "The election campaign is getting tougher.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Wandel": {
     "def": "transformation, change",
     "ex": [
@@ -8215,6 +8565,20 @@
       {
         "de": "Was soll der ganze Zirkus?",
         "en": "What is all the fuss about?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Zocker": {
+    "ex": [
+      {
+        "de": "Auf der Gamescom treffen sich tausende Zocker.",
+        "en": "Thousands of gamers meet at Gamescom.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er ist ein leidenschaftlicher Zocker.",
+        "en": "He is a passionate gamer.",
         "lvl": "B2"
       }
     ]
@@ -8629,6 +8993,20 @@
       }
     ]
   },
+  "voc:B2:die Aktualisierung": {
+    "ex": [
+      {
+        "de": "Die Aktualisierung dauert zehn Minuten.",
+        "en": "The update takes ten minutes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach der Aktualisierung funktioniert alles wieder.",
+        "en": "After the update everything works again.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Allianz": {
     "def": "A union formed between groups or countries for a shared aim.",
     "ex": [
@@ -8911,6 +9289,20 @@
       {
         "de": "Hecken und Wiesen erhöhen die Artenvielfalt.",
         "en": "Hedges and meadows increase biodiversity.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Aufenthaltserlaubnis": {
+    "ex": [
+      {
+        "de": "Meine Aufenthaltserlaubnis läuft im März ab.",
+        "en": "My residence permit expires in March.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Aufenthaltserlaubnis muss verlängert werden.",
+        "en": "The residence permit has to be extended.",
         "lvl": "B2"
       }
     ]
@@ -10025,6 +10417,20 @@
       }
     ]
   },
+  "voc:B2:die Einbürgerung": {
+    "ex": [
+      {
+        "de": "Für die Einbürgerung braucht man Deutsch auf B1.",
+        "en": "You need B1 German for naturalisation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Einbürgerung dauert oft über ein Jahr.",
+        "en": "Naturalisation often takes more than a year.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Einhaltung": {
     "def": "adherence, compliance (with a law, etc.)",
     "ex": [
@@ -10126,6 +10532,20 @@
       {
         "de": "„Die Regierung hat die Konzerne dabei gewähren lassen und sie nicht zum Einstieg in die Elektromobilität gedrängt.“",
         "en": "„The government let the corporations have their way on electric mobility.“",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Elternzeit": {
+    "ex": [
+      {
+        "de": "Er nimmt ein Jahr Elternzeit.",
+        "en": "He's taking a year of parental leave.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Während der Elternzeit gibt es Elterngeld.",
+        "en": "There's parental allowance during parental leave.",
         "lvl": "B2"
       }
     ]
@@ -10975,6 +11395,20 @@
       }
     ]
   },
+  "voc:B2:die Grafikkarte": {
+    "ex": [
+      {
+        "de": "Für das Spiel braucht man eine starke Grafikkarte.",
+        "en": "You need a powerful graphics card for the game.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Grafikkarte kostet über tausend Euro.",
+        "en": "The graphics card costs over a thousand euros.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Grundlage": {
     "def": "foundation",
     "ex": [
@@ -11413,6 +11847,20 @@
       }
     ]
   },
+  "voc:B2:die Jobbörse": {
+    "ex": [
+      {
+        "de": "Ich suche Stellen auf einer Jobbörse im Internet.",
+        "en": "I'm looking for jobs on an online job board.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Jobbörse findet in der Messehalle statt.",
+        "en": "The jobs fair takes place in the exhibition hall.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Jury": {
     "ex": [
       {
@@ -11496,6 +11944,20 @@
       {
         "de": "Auf dem Bahnsteig liegt überall eine Kippe.",
         "en": "There are cigarette butts everywhere on the platform.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Kirchensteuer": {
+    "ex": [
+      {
+        "de": "Wer in der Kirche ist, zahlt Kirchensteuer.",
+        "en": "If you're a church member you pay church tax.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele treten aus, um die Kirchensteuer zu sparen.",
+        "en": "Many leave to save the church tax.",
         "lvl": "B2"
       }
     ]
@@ -11679,6 +12141,20 @@
       }
     ]
   },
+  "voc:B2:die Kryptowährung": {
+    "ex": [
+      {
+        "de": "Bitcoin ist die bekannteste Kryptowährung.",
+        "en": "Bitcoin is the best-known cryptocurrency.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er hat sein Erspartes in Kryptowährung angelegt.",
+        "en": "He invested his savings in cryptocurrency.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Kulisse": {
     "def": "scenery; set; flat; scenery; setting; background (place or context in which something happens)",
     "ex": [
@@ -11855,6 +12331,20 @@
       }
     ]
   },
+  "voc:B2:die Leitplanke": {
+    "ex": [
+      {
+        "de": "Das Auto prallte gegen die Leitplanke.",
+        "en": "The car hit the crash barrier.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Leitplanke hat Schlimmeres verhindert.",
+        "en": "The guardrail prevented anything worse.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Lieferkette": {
     "def": "The whole chain of steps that brings a product from source to buyer.",
     "ex": [
@@ -11918,6 +12408,20 @@
       {
         "de": "Die Logik des Algorithmus ist geheim.",
         "en": "The algorithm's logic is secret.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Lohnsteuer": {
+    "ex": [
+      {
+        "de": "Die Lohnsteuer wird direkt vom Gehalt abgezogen.",
+        "en": "Income tax is deducted directly from the salary.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf der Abrechnung steht die Lohnsteuer.",
+        "en": "The income tax is shown on the payslip.",
         "lvl": "B2"
       }
     ]
@@ -12457,6 +12961,20 @@
       }
     ]
   },
+  "voc:B2:die Pole-Position": {
+    "ex": [
+      {
+        "de": "Sie startet morgen von der Pole-Position.",
+        "en": "She starts from pole position tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Firma hat die Pole-Position auf dem Markt.",
+        "en": "The company is in pole position in the market.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Preiserhöhung": {
     "ex": [
       {
@@ -12536,6 +13054,20 @@
       {
         "de": "Die Produktivität hat sich kaum verändert.",
         "en": "Productivity has barely changed.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Programmiersprache": {
+    "ex": [
+      {
+        "de": "Python ist eine beliebte Programmiersprache.",
+        "en": "Python is a popular programming language.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Welche Programmiersprache sollte ich lernen?",
+        "en": "Which programming language should I learn?",
         "lvl": "B2"
       }
     ]
@@ -12752,6 +13284,34 @@
       {
         "de": "Sichere Anlagen bringen meist eine geringe Rendite.",
         "en": "Safe investments usually bring a low return.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Rennstrecke": {
+    "ex": [
+      {
+        "de": "Die Rennstrecke in Monaco ist sehr eng.",
+        "en": "The circuit in Monaco is very narrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Am Wochenende fahre ich auf der Rennstrecke.",
+        "en": "At the weekend I'm driving on the racetrack.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Rentenversicherung": {
+    "ex": [
+      {
+        "de": "Ein Teil des Lohns geht an die Rentenversicherung.",
+        "en": "Part of the wage goes to pension insurance.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Rentenversicherung schickt jedes Jahr einen Brief.",
+        "en": "The pension insurance fund sends a letter every year.",
         "lvl": "B2"
       }
     ]
@@ -13029,6 +13589,20 @@
       }
     ]
   },
+  "voc:B2:die Siegerehrung": {
+    "ex": [
+      {
+        "de": "Bei der Siegerehrung spritzen sie mit Champagner.",
+        "en": "At the podium ceremony they spray champagne.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Siegerehrung findet nach dem Rennen statt.",
+        "en": "The award ceremony takes place after the race.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Sitzung": {
     "def": "A formal gathering to discuss or decide matters.",
     "ex": [
@@ -13074,6 +13648,20 @@
       }
     ]
   },
+  "voc:B2:die Sozialversicherungsnummer": {
+    "ex": [
+      {
+        "de": "Der Arbeitgeber braucht Ihre Sozialversicherungsnummer.",
+        "en": "The employer needs your social security number.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Sozialversicherungsnummer steht auf dem Ausweis der Rentenversicherung.",
+        "en": "The social security number is on the pension insurance card.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Spalte": {
     "ex": [
       {
@@ -13114,6 +13702,20 @@
       {
         "de": "Gegen die Sperrung gab es Widerspruch.",
         "en": "There was opposition to the closure.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Spielwelt": {
+    "ex": [
+      {
+        "de": "Die Spielwelt ist riesig und offen.",
+        "en": "The game world is huge and open.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Spielwelt kann man alles erkunden.",
+        "en": "You can explore everything in the game world.",
         "lvl": "B2"
       }
     ]
@@ -13173,6 +13775,20 @@
       {
         "de": "Für den Antrag ist die Stadtverwaltung zuständig.",
         "en": "The city council is responsible for the application.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Steuerklasse": {
+    "ex": [
+      {
+        "de": "Nach der Hochzeit haben wir die Steuerklasse gewechselt.",
+        "en": "We changed tax class after the wedding.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In Steuerklasse drei zahlt man weniger.",
+        "en": "You pay less in tax class three.",
         "lvl": "B2"
       }
     ]
@@ -14209,6 +14825,20 @@
       {
         "de": "Home-Office kann die Work-Life-Balance verbessern.",
         "en": "Working from home can improve the work-life balance.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Zentralbank": {
+    "ex": [
+      {
+        "de": "Die Zentralbank hat die Zinsen gesenkt.",
+        "en": "The central bank has cut interest rates.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Europäische Zentralbank sitzt in Frankfurt.",
+        "en": "The European Central Bank is based in Frankfurt.",
         "lvl": "B2"
       }
     ]

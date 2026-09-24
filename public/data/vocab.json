@@ -254763,5 +254763,2975 @@
     ],
     "field": "Transport & Mobility",
     "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Boxenstopp",
+    "term": "der Boxenstopp",
+    "en": "pit stop",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Boxenstopps",
+    "ipa": "ˈbɔksn̩ˌʃtɔp",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Boxenstopp dauerte nur zwei Sekunden.",
+        "en": "The pit stop took only two seconds.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Boxenstopp lag er auf Platz drei.",
+        "en": "After the pit stop he was in third place.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Boxengasse",
+    "term": "die Boxengasse",
+    "en": "pit lane",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Boxengassen",
+    "ipa": "ˈbɔksn̩ˌɡasə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Boxengasse gilt ein Tempolimit.",
+        "en": "There's a speed limit in the pit lane.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er startet aus der Boxengasse.",
+        "en": "He is starting from the pit lane.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Qualifying",
+    "term": "das Qualifying",
+    "en": "qualifying (session)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Qualifyings",
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Qualifying war sie die Schnellste.",
+        "en": "She was fastest in qualifying.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Qualifying beginnt um 16 Uhr.",
+        "en": "Qualifying starts at 4 p.m.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Rennstall",
+    "term": "der Rennstall",
+    "en": "racing team",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Rennställe",
+    "ipa": "ˈʁɛnˌʃtal",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Rennstall hat einen neuen Fahrer verpflichtet.",
+        "en": "The racing team has signed a new driver.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ferrari ist der älteste Rennstall der Formel 1.",
+        "en": "Ferrari is the oldest team in Formula 1.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Reifenwechsel",
+    "term": "der Reifenwechsel",
+    "en": "tyre change",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Reifenwechsel",
+    "ipa": "ˈʁaɪ̯fn̩ˌvɛksl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Herbst steht der Reifenwechsel an.",
+        "en": "The tyre change is due in autumn.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Beim Reifenwechsel verlor das Team Zeit.",
+        "en": "The team lost time on the tyre change.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Rennstrecke",
+    "term": "die Rennstrecke",
+    "en": "racetrack, circuit",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Rennstrecken",
+    "ipa": "ˈʁɛnˌʃtʁɛkə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Rennstrecke in Monaco ist sehr eng.",
+        "en": "The circuit in Monaco is very narrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Am Wochenende fahre ich auf der Rennstrecke.",
+        "en": "At the weekend I'm driving on the racetrack.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Frontflügel",
+    "term": "der Frontflügel",
+    "en": "front wing",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Frontflügel",
+    "ipa": "ˈfʁɔntˌflyːɡl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach dem Kontakt war der Frontflügel kaputt.",
+        "en": "The front wing was broken after the contact.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Team wechselt den Frontflügel.",
+        "en": "The team is changing the front wing.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Abtrieb",
+    "term": "der Abtrieb",
+    "en": "downforce",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Abtriebe",
+    "ipa": "ˈapˌtʁiːp",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit mehr Abtrieb ist das Auto in den Kurven schneller.",
+        "en": "With more downforce the car is faster in the corners.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das neue Reglement reduziert den Abtrieb.",
+        "en": "The new regulations reduce downforce.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Aerodynamik",
+    "term": "die Aerodynamik",
+    "en": "aerodynamics",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "aeʁodyˈnaːmɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Aerodynamik entscheidet über die Geschwindigkeit.",
+        "en": "Aerodynamics determine the speed.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Team hat die Aerodynamik verbessert.",
+        "en": "The team has improved the aerodynamics.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Reglement",
+    "term": "das Reglement",
+    "en": "regulations, rules (of a sport)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ʁeɡləˈmɑ̃ː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das neue Reglement gilt ab nächster Saison.",
+        "en": "The new regulations apply from next season.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Auto entspricht nicht dem Reglement.",
+        "en": "The car does not comply with the regulations.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Rennleitung",
+    "term": "die Rennleitung",
+    "en": "race control, stewards",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Rennleitungen",
+    "ipa": "ˈʁɛnˌlaɪ̯tʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Rennleitung hat eine Strafe verhängt.",
+        "en": "Race control has imposed a penalty.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Rennleitung untersucht den Unfall.",
+        "en": "The stewards are investigating the crash.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Überholmanöver",
+    "term": "das Überholmanöver",
+    "en": "overtaking manoeuvre",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Überholmanöver",
+    "ipa": "yːbɐˈhoːlmaˌnøːvɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Überholmanöver in der letzten Runde war spektakulär.",
+        "en": "The overtaking move on the last lap was spectacular.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein riskantes Überholmanöver führte zum Unfall.",
+        "en": "A risky overtaking manoeuvre led to the crash.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Windschatten",
+    "term": "der Windschatten",
+    "en": "slipstream",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Windschatten",
+    "ipa": "ˈvɪntˌʃatn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Windschatten kommt er näher heran.",
+        "en": "He's getting closer in the slipstream.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Radfahrer fährt im Windschatten des Lkws.",
+        "en": "The cyclist is riding in the lorry's slipstream.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Schikane",
+    "term": "die Schikane",
+    "en": "chicane; harassment",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Schikanen",
+    "ipa": "ʃiˈkaːnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Schikane hat er abgekürzt.",
+        "en": "He cut the chicane.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die neuen Regeln sind reine Schikane.",
+        "en": "The new rules are pure harassment.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Pole-Position",
+    "term": "die Pole-Position",
+    "en": "pole position",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈpɔʊ̯lpəˌzɪʃn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie startet morgen von der Pole-Position.",
+        "en": "She starts from pole position tomorrow.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Firma hat die Pole-Position auf dem Markt.",
+        "en": "The company is in pole position in the market.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Siegerehrung",
+    "term": "die Siegerehrung",
+    "en": "award ceremony, podium ceremony",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Siegerehrungen",
+    "ipa": "ˈziːɡɐˌʔeːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bei der Siegerehrung spritzen sie mit Champagner.",
+        "en": "At the podium ceremony they spray champagne.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Siegerehrung findet nach dem Rennen statt.",
+        "en": "The award ceremony takes place after the race.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Rennwagen",
+    "term": "der Rennwagen",
+    "en": "racing car",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈʁɛnˌvaːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Rennwagen erreicht über 300 km/h.",
+        "en": "The racing car reaches over 300 km/h.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Museum steht ein alter Rennwagen.",
+        "en": "There's an old racing car in the museum.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Rennfahrer",
+    "term": "der Rennfahrer",
+    "en": "racing driver",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Rennfahrer",
+    "ipa": "ˈʁɛnˌfaːʁɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er wollte schon als Kind Rennfahrer werden.",
+        "en": "He wanted to be a racing driver even as a child.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Rennfahrerin hat ihren ersten Sieg geholt.",
+        "en": "The racing driver took her first win.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Teamchef",
+    "term": "der Teamchef",
+    "en": "team principal, team boss",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Teamchefs",
+    "ipa": "ˈtiːmˌʃɛf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Teamchef kritisiert die Strategie.",
+        "en": "The team principal is criticising the strategy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der neue Teamchef kommt von einem Konkurrenten.",
+        "en": "The new team boss comes from a rival.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Leitplanke",
+    "term": "die Leitplanke",
+    "en": "crash barrier, guardrail",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Leitplanken",
+    "ipa": "ˈlaɪ̯tˌplaŋkə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Auto prallte gegen die Leitplanke.",
+        "en": "The car hit the crash barrier.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Leitplanke hat Schlimmeres verhindert.",
+        "en": "The guardrail prevented anything worse.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Kiesbett",
+    "term": "das Kiesbett",
+    "en": "gravel trap",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈkiːsˌbɛt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er landete im Kiesbett.",
+        "en": "He ended up in the gravel trap.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Kiesbett bremst die Autos ab.",
+        "en": "The gravel trap slows the cars down.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Getriebe",
+    "term": "das Getriebe",
+    "en": "gearbox, transmission",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Getriebe",
+    "ipa": "ɡəˈtʁiːbə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Getriebe ist kaputt.",
+        "en": "The gearbox is broken.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sand im Getriebe bremst die Verwaltung.",
+        "en": "A spanner in the works is slowing down the administration.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Teamkollege",
+    "term": "der Teamkollege",
+    "en": "teammate",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Teamkollegen",
+    "ipa": "ˈtiːmkɔˌleːɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat seinen Teamkollegen überholt.",
+        "en": "He overtook his teammate.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Meine Teamkollegin hilft mir immer.",
+        "en": "My teammate always helps me.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Vertragsverlängerung",
+    "term": "die Vertragsverlängerung",
+    "en": "contract extension",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Vertragsverlängerungen",
+    "ipa": "fɛɐ̯ˈtʁaːksfɛɐ̯ˌlɛŋəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Fahrer wartet auf eine Vertragsverlängerung.",
+        "en": "The driver is waiting for a contract extension.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Vertragsverlängerung ist unterschrieben.",
+        "en": "The contract extension has been signed.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Employment contract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Sponsor",
+    "term": "der Sponsor",
+    "en": "sponsor",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Sponsoren",
+    "ipa": "ˈʃpɔnzoːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Verein sucht einen neuen Sponsor.",
+        "en": "The club is looking for a new sponsor.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Sponsor zahlt Millionen für das Logo.",
+        "en": "The sponsor pays millions for the logo.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Spielkonsole",
+    "term": "die Spielkonsole",
+    "en": "games console",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Spielkonsolen",
+    "ipa": "ˈʃpiːlkɔnˌzoːlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er wünscht sich eine neue Spielkonsole.",
+        "en": "He wants a new games console.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Spielkonsole ist an den Fernseher angeschlossen.",
+        "en": "The games console is connected to the TV.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Spielfigur",
+    "term": "die Spielfigur",
+    "en": "game character; playing piece",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Spielfiguren",
+    "ipa": "ˈʃpiːlfiˌɡuːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Spielfigur springt über den Abgrund.",
+        "en": "The character jumps over the chasm.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jeder Spieler bekommt vier Spielfiguren.",
+        "en": "Each player gets four pieces.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Endgegner",
+    "term": "der Endgegner",
+    "en": "final boss",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Endgegner",
+    "ipa": "ˈɛntˌɡeːɡnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Endgegner ist fast unbesiegbar.",
+        "en": "The final boss is almost invincible.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Finanzamt ist mein persönlicher Endgegner.",
+        "en": "The tax office is my personal final boss.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Spielstand",
+    "term": "der Spielstand",
+    "en": "score; saved game",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Spielstände",
+    "ipa": "ˈʃpiːlˌʃtant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie ist der Spielstand?",
+        "en": "What's the score?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Spielstand wurde gelöscht.",
+        "en": "My saved game was deleted.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Spieleentwickler",
+    "term": "der Spieleentwickler",
+    "en": "game developer",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Spieleentwickler",
+    "ipa": "ˈʃpiːləʔɛntˌvɪklɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Spieleentwickler arbeitet an einem neuen Titel.",
+        "en": "The game developer is working on a new title.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Spieleentwickler sitzen in Berlin.",
+        "en": "Many game developers are based in Berlin.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Grafikkarte",
+    "term": "die Grafikkarte",
+    "en": "graphics card",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Grafikkarten",
+    "ipa": "ˈɡʁaːfɪkˌkaʁtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für das Spiel braucht man eine starke Grafikkarte.",
+        "en": "You need a powerful graphics card for the game.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Grafikkarte kostet über tausend Euro.",
+        "en": "The graphics card costs over a thousand euros.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Spielwelt",
+    "term": "die Spielwelt",
+    "en": "game world",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Spielwelten",
+    "ipa": "ˈʃpiːlˌvɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Spielwelt ist riesig und offen.",
+        "en": "The game world is huge and open.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In der Spielwelt kann man alles erkunden.",
+        "en": "You can explore everything in the game world.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Neuauflage",
+    "term": "die Neuauflage",
+    "en": "new edition; remake",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Neuauflagen",
+    "ipa": "ˈnɔɪ̯ʔaʊ̯fˌlaːɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Neuauflage des Klassikers erscheint im Mai.",
+        "en": "The remake of the classic comes out in May.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Buch hat eine Neuauflage bekommen.",
+        "en": "The book has had a new edition.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Zocker",
+    "term": "der Zocker",
+    "en": "gamer; gambler (colloquial)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Zocker",
+    "ipa": "ˈt͡sɔkɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auf der Gamescom treffen sich tausende Zocker.",
+        "en": "Thousands of gamers meet at Gamescom.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er ist ein leidenschaftlicher Zocker.",
+        "en": "He is a passionate gamer.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zocken",
+    "term": "zocken",
+    "en": "to play video games; to gamble (colloquial)",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡sɔkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Wochenende zocke ich gern mit Freunden.",
+        "en": "At the weekend I like playing games with friends.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat die ganze Nacht gezockt.",
+        "en": "He was gaming all night.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Controller",
+    "term": "der Controller",
+    "en": "(game) controller; financial controller",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Controller",
+    "ipa": "kɔnˈtʁɔʊ̯lɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Controller hat keinen Akku mehr.",
+        "en": "The controller's battery is flat.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie arbeitet als Controllerin in einem Konzern.",
+        "en": "She works as a financial controller in a corporation.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Headset",
+    "term": "das Headset",
+    "en": "headset",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Headsets",
+    "ipa": "ˈhɛdˌsɛt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für Videocalls brauche ich ein Headset.",
+        "en": "I need a headset for video calls.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Headset hat ein gutes Mikrofon.",
+        "en": "The headset has a good microphone.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Schwierigkeitsgrad",
+    "term": "der Schwierigkeitsgrad",
+    "en": "difficulty level",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Schwierigkeitsgrade",
+    "ipa": "ˈʃviːʁɪçkaɪ̯t͡sˌɡʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich spiele auf dem höchsten Schwierigkeitsgrad.",
+        "en": "I play on the highest difficulty level.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Schwierigkeitsgrad der Prüfung ist hoch.",
+        "en": "The exam's level of difficulty is high.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Games",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Aktienkurs",
+    "term": "der Aktienkurs",
+    "en": "share price",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Aktienkurse",
+    "ipa": "ˈakt͡si̯ənˌkʊʁs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Aktienkurs ist um zehn Prozent gefallen.",
+        "en": "The share price has fallen by ten per cent.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich schaue jeden Morgen auf den Aktienkurs.",
+        "en": "I check the share price every morning.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:der Leerverkauf",
+    "term": "der Leerverkauf",
+    "en": "short sale, short selling",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "der",
+    "plural": "die Leerverkäufe",
+    "ipa": "ˈleːɐ̯fɛɐ̯ˌkaʊ̯f",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit einem Leerverkauf wettet man auf fallende Kurse.",
+        "en": "With a short sale you bet on falling prices.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Aufsicht hat den Leerverkauf verboten.",
+        "en": "The regulator has banned short selling.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Anlageberater",
+    "term": "der Anlageberater",
+    "en": "investment adviser",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Anlageberater",
+    "ipa": "ˈanlaːɡəbəˌʁaːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Anlageberater empfiehlt einen Fonds.",
+        "en": "The investment adviser recommends a fund.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich brauche keinen Anlageberater für ETFs.",
+        "en": "I don't need an investment adviser for ETFs.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Zinseszins",
+    "term": "der Zinseszins",
+    "en": "compound interest",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Zinseszinsen",
+    "ipa": "ˈt͡sɪnzəsˌt͡sɪns",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Zinseszins macht langfristig viel aus.",
+        "en": "Compound interest makes a big difference in the long run.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit Zinseszins wächst das Geld schneller.",
+        "en": "Money grows faster with compound interest.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Personal finance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Tagesgeld",
+    "term": "das Tagesgeld",
+    "en": "instant-access savings (account)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Tagesgelder",
+    "ipa": "ˈtaːɡəsˌɡɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Notgroschen liegt auf dem Tagesgeld.",
+        "en": "My emergency fund is in an instant-access account.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für Tagesgeld gibt es zwei Prozent Zinsen.",
+        "en": "Instant-access savings earn two per cent interest.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "At the bank",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Festgeld",
+    "term": "das Festgeld",
+    "en": "fixed-term deposit",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Festgelder",
+    "ipa": "ˈfɛstˌɡɛlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Festgeld ist für zwei Jahre angelegt.",
+        "en": "The fixed-term deposit is invested for two years.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beim Festgeld kommt man nicht sofort an das Geld.",
+        "en": "With a fixed-term deposit you can't get at the money straight away.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "At the bank",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:die Einlagensicherung",
+    "term": "die Einlagensicherung",
+    "en": "deposit protection",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "die",
+    "plural": "die Einlagensicherungen",
+    "ipa": "ˈaɪ̯nlaːɡn̩ˌzɪçəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Einlagensicherung schützt bis 100.000 Euro.",
+        "en": "Deposit protection covers up to 100,000 euros.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Prüfen Sie die Einlagensicherung der Bank.",
+        "en": "Check the bank's deposit protection.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "At the bank",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Sparplan",
+    "term": "der Sparplan",
+    "en": "savings plan",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Sparpläne",
+    "ipa": "ˈʃpaːɐ̯ˌplaːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe einen Sparplan für einen ETF.",
+        "en": "I have a savings plan for an ETF.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Sparplan läuft jeden Monat automatisch.",
+        "en": "The savings plan runs automatically every month.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Personal finance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Indexfonds",
+    "term": "der Indexfonds",
+    "en": "index fund",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Indexfonds",
+    "ipa": "ˈɪndɛksˌfɔ̃ː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Indexfonds bildet einen Aktienindex ab.",
+        "en": "An index fund tracks a share index.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Indexfonds hat niedrige Kosten.",
+        "en": "The index fund has low costs.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Kryptowährung",
+    "term": "die Kryptowährung",
+    "en": "cryptocurrency",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Kryptowährungen",
+    "ipa": "ˈkʁʏptoˌvɛːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitcoin ist die bekannteste Kryptowährung.",
+        "en": "Bitcoin is the best-known cryptocurrency.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er hat sein Erspartes in Kryptowährung angelegt.",
+        "en": "He invested his savings in cryptocurrency.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Blockchain",
+    "term": "die Blockchain",
+    "en": "blockchain",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Blockchains",
+    "ipa": "ˈblɔkˌt͡ʃɛɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Blockchain speichert alle Transaktionen.",
+        "en": "The blockchain stores all transactions.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Bank testet eine eigene Blockchain.",
+        "en": "The bank is testing its own blockchain.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Zentralbank",
+    "term": "die Zentralbank",
+    "en": "central bank",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Zentralbanken",
+    "ipa": "t͡sɛnˈtʁaːlˌbaŋk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Zentralbank hat die Zinsen gesenkt.",
+        "en": "The central bank has cut interest rates.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Europäische Zentralbank sitzt in Frankfurt.",
+        "en": "The European Central Bank is based in Frankfurt.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Haushaltsdefizit",
+    "term": "das Haushaltsdefizit",
+    "en": "budget deficit",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Haushaltsdefizite",
+    "ipa": "ˈhaʊ̯shalt͡sˌdeːfit͡sɪt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Haushaltsdefizit ist größer als erwartet.",
+        "en": "The budget deficit is bigger than expected.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die EU kritisiert das hohe Haushaltsdefizit.",
+        "en": "The EU criticises the high budget deficit.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Staatsverschuldung",
+    "term": "die Staatsverschuldung",
+    "en": "national debt",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Staatsverschuldungen",
+    "ipa": "ˈʃtaːt͡sfɛɐ̯ˌʃʊldʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Staatsverschuldung ist stark gestiegen.",
+        "en": "National debt has risen sharply.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Italien hat eine hohe Staatsverschuldung.",
+        "en": "Italy has a high national debt.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Schuldenbremse",
+    "term": "die Schuldenbremse",
+    "en": "debt brake",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Schuldenbremsen",
+    "ipa": "ˈʃʊldn̩ˌbʁɛmzə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Schuldenbremse begrenzt neue Kredite des Staates.",
+        "en": "The debt brake limits new state borrowing.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Über die Schuldenbremse wird heftig gestritten.",
+        "en": "There's a fierce argument about the debt brake.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Handelsbilanz",
+    "term": "die Handelsbilanz",
+    "en": "balance of trade",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Handelsbilanzen",
+    "ipa": "ˈhandl̩sbiˌlant͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Deutschland hat eine positive Handelsbilanz.",
+        "en": "Germany has a positive balance of trade.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Handelsbilanz mit China ist negativ.",
+        "en": "The trade balance with China is negative.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Global Economy",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Handelskrieg",
+    "term": "der Handelskrieg",
+    "en": "trade war",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Handelskriege",
+    "ipa": "ˈhandl̩sˌkʁiːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Handelskrieg schadet beiden Ländern.",
+        "en": "The trade war harms both countries.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Experten warnen vor einem Handelskrieg.",
+        "en": "Experts warn of a trade war.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Global Economy",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Einbürgerung",
+    "term": "die Einbürgerung",
+    "en": "naturalisation",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Einbürgerungen",
+    "ipa": "ˈaɪ̯nˌbʏʁɡəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für die Einbürgerung braucht man Deutsch auf B1.",
+        "en": "You need B1 German for naturalisation.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Einbürgerung dauert oft über ein Jahr.",
+        "en": "Naturalisation often takes more than a year.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Freizügigkeit",
+    "term": "die Freizügigkeit",
+    "en": "freedom of movement",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈfʁaɪ̯ˌt͡syːɡɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der EU gilt die Freizügigkeit für Arbeitnehmer.",
+        "en": "Freedom of movement for workers applies in the EU.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Freizügigkeit gilt auch für Familienangehörige.",
+        "en": "Freedom of movement also applies to family members.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Integrationskurs",
+    "term": "der Integrationskurs",
+    "en": "integration course",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Integrationskurse",
+    "ipa": "ɪnteɡʁaˈt͡si̯oːnsˌkʊʁs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Integrationskurs lernt man Deutsch und Landeskunde.",
+        "en": "In the integration course you learn German and about the country.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Integrationskurs endet mit einer Prüfung.",
+        "en": "The integration course ends with an exam.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Einbürgerungstest",
+    "term": "der Einbürgerungstest",
+    "en": "naturalisation test",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Einbürgerungstests",
+    "ipa": "ˈaɪ̯nbʏʁɡəʁʊŋsˌtɛst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Einbürgerungstest hat 33 Fragen.",
+        "en": "The naturalisation test has 33 questions.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat den Einbürgerungstest bestanden.",
+        "en": "She passed the naturalisation test.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Doppelpass",
+    "term": "der Doppelpass",
+    "en": "dual citizenship; one-two (football)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Doppelpässe",
+    "ipa": "ˈdɔpl̩ˌpas",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Seit der Reform ist der Doppelpass erlaubt.",
+        "en": "Since the reform dual citizenship has been allowed.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach einem Doppelpass schießt er das Tor.",
+        "en": "After a one-two he scores.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Aufenthaltserlaubnis",
+    "term": "die Aufenthaltserlaubnis",
+    "en": "residence permit",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Aufenthaltserlaubnisse",
+    "ipa": "ˈaʊ̯fʔɛnthalt͡sʔɛɐ̯ˌlaʊ̯pnɪs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Aufenthaltserlaubnis läuft im März ab.",
+        "en": "My residence permit expires in March.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Aufenthaltserlaubnis muss verlängert werden.",
+        "en": "The residence permit has to be extended.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Sachbearbeiter",
+    "term": "der Sachbearbeiter",
+    "en": "case worker, clerk (handling a case)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Sachbearbeiter",
+    "ipa": "ˈzaxbəˌʔaʁbaɪ̯tɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Sachbearbeiter hat meinen Antrag noch nicht bearbeitet.",
+        "en": "The case worker hasn't processed my application yet.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Meine Sachbearbeiterin ist diese Woche im Urlaub.",
+        "en": "My case worker is on holiday this week.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Antragsteller",
+    "term": "der Antragsteller",
+    "en": "applicant",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Antragsteller",
+    "ipa": "ˈantʁaːkˌʃtɛlɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Antragsteller muss persönlich erscheinen.",
+        "en": "The applicant has to appear in person.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Jeder Antragsteller bekommt eine Nummer.",
+        "en": "Every applicant gets a number.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Beglaubigung",
+    "term": "die Beglaubigung",
+    "en": "certification (of a copy)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Beglaubigungen",
+    "ipa": "bəˈɡlaʊ̯bɪɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für die Beglaubigung der Kopie zahlt man Gebühren.",
+        "en": "You pay a fee for certifying the copy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Behörde verlangt eine Beglaubigung.",
+        "en": "The authority requires a certified copy.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Rentenversicherung",
+    "term": "die Rentenversicherung",
+    "en": "pension insurance",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Rentenversicherungen",
+    "ipa": "ˈʁɛntn̩fɛɐ̯ˌzɪçəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Teil des Lohns geht an die Rentenversicherung.",
+        "en": "Part of the wage goes to pension insurance.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Rentenversicherung schickt jedes Jahr einen Brief.",
+        "en": "The pension insurance fund sends a letter every year.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Personal finance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Sozialversicherungsnummer",
+    "term": "die Sozialversicherungsnummer",
+    "en": "social security number",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Sozialversicherungsnummern",
+    "ipa": "zoˈt͡si̯aːlfɛɐ̯zɪçəʁʊŋsˌnʊmɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Arbeitgeber braucht Ihre Sozialversicherungsnummer.",
+        "en": "The employer needs your social security number.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Sozialversicherungsnummer steht auf dem Ausweis der Rentenversicherung.",
+        "en": "The social security number is on the pension insurance card.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Steueridentifikationsnummer",
+    "term": "die Steueridentifikationsnummer",
+    "en": "tax identification number",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Steueridentifikationsnummern",
+    "ipa": "ˈʃtɔɪ̯ɐʔidɛntifikaˌt͡si̯oːnsnʊmɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Steueridentifikationsnummer kommt per Post.",
+        "en": "The tax identification number comes by post.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ohne Steueridentifikationsnummer zahlt man mehr Steuern.",
+        "en": "Without a tax ID you pay more tax.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Steuerklasse",
+    "term": "die Steuerklasse",
+    "en": "tax bracket (class)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Steuerklassen",
+    "ipa": "ˈʃtɔɪ̯ɐˌklasə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach der Hochzeit haben wir die Steuerklasse gewechselt.",
+        "en": "We changed tax class after the wedding.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In Steuerklasse drei zahlt man weniger.",
+        "en": "You pay less in tax class three.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Lohnsteuer",
+    "term": "die Lohnsteuer",
+    "en": "income tax (on wages)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Lohnsteuern",
+    "ipa": "ˈloːnˌʃtɔɪ̯ɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Lohnsteuer wird direkt vom Gehalt abgezogen.",
+        "en": "Income tax is deducted directly from the salary.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf der Abrechnung steht die Lohnsteuer.",
+        "en": "The income tax is shown on the payslip.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Kirchensteuer",
+    "term": "die Kirchensteuer",
+    "en": "church tax",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Kirchensteuern",
+    "ipa": "ˈkɪʁçn̩ˌʃtɔɪ̯ɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wer in der Kirche ist, zahlt Kirchensteuer.",
+        "en": "If you're a church member you pay church tax.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele treten aus, um die Kirchensteuer zu sparen.",
+        "en": "Many leave to save the church tax.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Rundfunkbeitrag",
+    "term": "der Rundfunkbeitrag",
+    "en": "TV and radio licence fee",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Rundfunkbeiträge",
+    "ipa": "ˈʁʊntfʊŋkˌbaɪ̯tʁaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Jede Wohnung zahlt den Rundfunkbeitrag.",
+        "en": "Every household pays the broadcasting fee.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rundfunkbeitrag kostet etwa achtzehn Euro im Monat.",
+        "en": "The licence fee costs about eighteen euros a month.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Bewerbungsgespräch",
+    "term": "das Bewerbungsgespräch",
+    "en": "job interview",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Bewerbungsgespräche",
+    "ipa": "bəˈvɛʁbʊŋsɡəˌʃpʁɛːç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Morgen habe ich ein Bewerbungsgespräch.",
+        "en": "I have a job interview tomorrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Bewerbungsgespräch lief sehr gut.",
+        "en": "The job interview went very well.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Quereinsteiger",
+    "term": "der Quereinsteiger",
+    "en": "career changer, lateral entrant",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Quereinsteiger",
+    "ipa": "ˈkveːɐ̯ʔaɪ̯nˌʃtaɪ̯ɡɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma sucht auch Quereinsteiger.",
+        "en": "The company is also looking for career changers.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Als Quereinsteigerin hat sie es schwer.",
+        "en": "As someone changing careers, she's finding it hard.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Empfehlungsschreiben",
+    "term": "das Empfehlungsschreiben",
+    "en": "letter of recommendation",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Empfehlungsschreiben",
+    "ipa": "ɛmˈp͡feːlʊŋsˌʃʁaɪ̯bn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein alter Chef schreibt mir ein Empfehlungsschreiben.",
+        "en": "My old boss is writing me a letter of recommendation.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für die Bewerbung brauche ich zwei Empfehlungsschreiben.",
+        "en": "I need two letters of recommendation for the application.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Jobbörse",
+    "term": "die Jobbörse",
+    "en": "job board, jobs fair",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Jobbörsen",
+    "ipa": "ˈd͡ʒɔpˌbœʁzə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich suche Stellen auf einer Jobbörse im Internet.",
+        "en": "I'm looking for jobs on an online job board.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Jobbörse findet in der Messehalle statt.",
+        "en": "The jobs fair takes place in the exhibition hall.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Befristung",
+    "term": "die Befristung",
+    "en": "fixed term (of a contract)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Befristungen",
+    "ipa": "bəˈfʁɪstʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Befristung des Vertrags endet im Juni.",
+        "en": "The fixed term of the contract ends in June.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ohne Sachgrund ist eine Befristung nur zwei Jahre möglich.",
+        "en": "Without an objective reason a fixed term is only possible for two years.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Employment contract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:befristet",
+    "term": "befristet",
+    "en": "fixed-term, temporary",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈfʁɪstət",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Vertrag ist auf ein Jahr befristet.",
+        "en": "My contract is fixed-term for one year.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele junge Leute haben nur befristete Stellen.",
+        "en": "Many young people only have temporary jobs.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Employment contract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Teilzeit",
+    "term": "die Teilzeit",
+    "en": "part-time",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Teilzeiten",
+    "ipa": "ˈtaɪ̯lˌt͡saɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie arbeitet in Teilzeit, zwanzig Stunden pro Woche.",
+        "en": "She works part-time, twenty hours a week.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach der Elternzeit möchte er in Teilzeit gehen.",
+        "en": "After parental leave he wants to go part-time.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Vollzeit",
+    "term": "die Vollzeit",
+    "en": "full-time",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈfɔlˌt͡saɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Stelle ist in Vollzeit.",
+        "en": "The position is full-time.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In Vollzeit arbeitet man hier vierzig Stunden.",
+        "en": "Full-time here means forty hours.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Elternzeit",
+    "term": "die Elternzeit",
+    "en": "parental leave",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Elternzeiten",
+    "ipa": "ˈɛltɐnˌt͡saɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er nimmt ein Jahr Elternzeit.",
+        "en": "He's taking a year of parental leave.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Während der Elternzeit gibt es Elterngeld.",
+        "en": "There's parental allowance during parental leave.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Family",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Freiberufler",
+    "term": "der Freiberufler",
+    "en": "freelancer",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Freiberufler",
+    "ipa": "ˈfʁaɪ̯bəˌʁuːflɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Als Freiberufler muss ich mich selbst versichern.",
+        "en": "As a freelancer I have to insure myself.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie arbeitet als Freiberuflerin für mehrere Kunden.",
+        "en": "She works as a freelancer for several clients.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Work & profession",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Geschäftsmodell",
+    "term": "das Geschäftsmodell",
+    "en": "business model",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Geschäftsmodelle",
+    "ipa": "ɡəˈʃɛft͡smoˌdɛl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Geschäftsmodell funktioniert nicht mehr.",
+        "en": "The business model no longer works.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die App hat ein Geschäftsmodell mit Abos.",
+        "en": "The app has a subscription business model.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Risikokapital",
+    "term": "das Risikokapital",
+    "en": "venture capital",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈʁiːzikokapiˌtaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Start-up hat zehn Millionen Risikokapital bekommen.",
+        "en": "The start-up got ten million in venture capital.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In Europa gibt es weniger Risikokapital als in den USA.",
+        "en": "There's less venture capital in Europe than in the US.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Rechenzentrum",
+    "term": "das Rechenzentrum",
+    "en": "data centre",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Rechenzentren",
+    "ipa": "ˈʁɛçn̩ˌt͡sɛntʁʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Rechenzentrum braucht so viel Strom wie eine Stadt.",
+        "en": "The data centre uses as much electricity as a city.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein neues Rechenzentrum entsteht bei Frankfurt.",
+        "en": "A new data centre is being built near Frankfurt.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Chatbot",
+    "term": "der Chatbot",
+    "en": "chatbot",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Chatbots",
+    "ipa": "ˈt͡ʃɛtˌbɔt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Chatbot beantwortet Fragen rund um die Uhr.",
+        "en": "The chatbot answers questions around the clock.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Chatbot hat eine falsche Antwort gegeben.",
+        "en": "The chatbot gave a wrong answer.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Artificial Intelligence",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Halbleiter",
+    "term": "der Halbleiter",
+    "en": "semiconductor",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Halbleiter",
+    "ipa": "ˈhalpˌlaɪ̯tɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Europa will mehr Halbleiter selbst herstellen.",
+        "en": "Europe wants to make more semiconductors itself.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ohne Halbleiter gibt es keine Autos.",
+        "en": "Without semiconductors there are no cars.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Cybersicherheit",
+    "term": "die Cybersicherheit",
+    "en": "cybersecurity",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈsaɪ̯bɐˌzɪçɐhaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma investiert in Cybersicherheit.",
+        "en": "The company is investing in cybersecurity.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Cybersicherheit ist ein wachsender Markt.",
+        "en": "Cybersecurity is a growing market.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Hackerangriff",
+    "term": "der Hackerangriff",
+    "en": "cyberattack, hack",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Hackerangriffe",
+    "ipa": "ˈhakɐˌʔanɡʁɪf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach dem Hackerangriff war die Stadtverwaltung offline.",
+        "en": "After the cyberattack the city administration was offline.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei dem Hackerangriff wurden Daten gestohlen.",
+        "en": "Data was stolen in the hack.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Schadsoftware",
+    "term": "die Schadsoftware",
+    "en": "malware",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Schadsoftwares",
+    "ipa": "ˈʃaːtsɔftˌvɛːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Mail enthielt Schadsoftware.",
+        "en": "The email contained malware.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Programm erkennt Schadsoftware.",
+        "en": "The program detects malware.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Datenleck",
+    "term": "das Datenleck",
+    "en": "data leak, data breach",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Datenlecks",
+    "ipa": "ˈdaːtn̩ˌlɛk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Durch ein Datenleck wurden Kundendaten öffentlich.",
+        "en": "Customer data was made public through a data breach.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma muss das Datenleck melden.",
+        "en": "The company has to report the data breach.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Programmiersprache",
+    "term": "die Programmiersprache",
+    "en": "programming language",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Programmiersprachen",
+    "ipa": "pʁoɡʁaˈmiːɐ̯ˌʃpʁaːxə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Python ist eine beliebte Programmiersprache.",
+        "en": "Python is a popular programming language.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Welche Programmiersprache sollte ich lernen?",
+        "en": "Which programming language should I learn?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Softwarefehler",
+    "term": "der Softwarefehler",
+    "en": "software bug",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Softwarefehler",
+    "ipa": "ˈsɔftwɛːɐ̯ˌfeːlɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Softwarefehler legte die Kassen lahm.",
+        "en": "A software bug brought the tills to a standstill.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Softwarefehler wurde schnell behoben.",
+        "en": "The software bug was fixed quickly.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Aktualisierung",
+    "term": "die Aktualisierung",
+    "en": "update",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Aktualisierungen",
+    "ipa": "ˌaktualiˈziːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Aktualisierung dauert zehn Minuten.",
+        "en": "The update takes ten minutes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach der Aktualisierung funktioniert alles wieder.",
+        "en": "After the update everything works again.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Vernissage",
+    "term": "die Vernissage",
+    "en": "exhibition opening, vernissage",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Vernissagen",
+    "ipa": "vɛʁnɪˈsaːʒə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zur Vernissage kommt auch die Künstlerin.",
+        "en": "The artist is also coming to the exhibition opening.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei der Vernissage gab es Wein.",
+        "en": "There was wine at the opening.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Visual Arts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Kurator",
+    "term": "der Kurator",
+    "en": "curator",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Kuratoren",
+    "ipa": "kuˈʁaːtoːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kurator hat die Werke ausgewählt.",
+        "en": "The curator selected the works.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie arbeitet als Kuratorin im Museum Ludwig.",
+        "en": "She works as a curator at the Museum Ludwig.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Visual Arts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Kunstmarkt",
+    "term": "der Kunstmarkt",
+    "en": "art market",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Kunstmärkte",
+    "ipa": "ˈkʊnstˌmaʁkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kunstmarkt ist in diesem Jahr eingebrochen.",
+        "en": "The art market collapsed this year.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Auf dem Kunstmarkt zählen vor allem Namen.",
+        "en": "Names are what count most in the art market.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Visual Arts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Auktionshaus",
+    "term": "das Auktionshaus",
+    "en": "auction house",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Auktionshäuser",
+    "ipa": "aʊ̯kˈt͡si̯oːnsˌhaʊ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Gemälde wird im Auktionshaus versteigert.",
+        "en": "The painting is being auctioned at the auction house.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Auktionshaus erwartet Rekordpreise.",
+        "en": "The auction house expects record prices.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Visual Arts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Sammler",
+    "term": "der Sammler",
+    "en": "collector",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Sammler",
+    "ipa": "ˈzamlɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein privater Sammler hat das Bild gekauft.",
+        "en": "A private collector bought the picture.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er ist ein Sammler von alten Spielen.",
+        "en": "He's a collector of old games.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Visual Arts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Designer",
+    "term": "der Designer",
+    "en": "designer",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Designer",
+    "ipa": "diˈzaɪ̯nɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Designer hat das Logo entworfen.",
+        "en": "The designer created the logo.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie arbeitet als Designerin bei einer Agentur.",
+        "en": "She works as a designer at an agency.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Arts and culture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Wahlkampf",
+    "term": "der Wahlkampf",
+    "en": "election campaign",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Wahlkämpfe",
+    "ipa": "ˈvaːlˌkamp͡f",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Wahlkampf geht es vor allem um Migration.",
+        "en": "The election campaign is mainly about migration.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Wahlkampf wird immer härter.",
+        "en": "The election campaign is getting tougher.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Elections",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Misstrauensvotum",
+    "term": "das Misstrauensvotum",
+    "en": "vote of no confidence",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈmɪstʁaʊ̯ənsˌvoːtʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Opposition plant ein Misstrauensvotum.",
+        "en": "The opposition is planning a vote of no confidence.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Kanzler hat das Misstrauensvotum überstanden.",
+        "en": "The chancellor survived the vote of no confidence.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Volksentscheid",
+    "term": "der Volksentscheid",
+    "en": "referendum",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Volksentscheide",
+    "ipa": "ˈfɔlksʔɛntˌʃaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In Berlin gab es einen Volksentscheid über Wohnungen.",
+        "en": "There was a referendum on housing in Berlin.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Volksentscheid ist gescheitert.",
+        "en": "The referendum failed.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Spitzenkandidat",
+    "term": "der Spitzenkandidat",
+    "en": "lead candidate",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Spitzenkandidaten",
+    "ipa": "ˈʃpɪt͡sn̩kandiˌdaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Spitzenkandidat der Partei gibt ein Interview.",
+        "en": "The party's lead candidate is giving an interview.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie ist Spitzenkandidatin für die Wahl in NRW.",
+        "en": "She is lead candidate for the election in North Rhine-Westphalia.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Elections",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Lobbyismus",
+    "term": "der Lobbyismus",
+    "en": "lobbying",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "lɔbiˈɪsmʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Lobbyismus in Brüssel ist enorm.",
+        "en": "The lobbying in Brussels is enormous.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Partei will den Lobbyismus stärker regulieren.",
+        "en": "The party wants to regulate lobbying more strictly.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Politics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Rechtsextremismus",
+    "term": "der Rechtsextremismus",
+    "en": "right-wing extremism",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈʁɛçt͡sʔɛkstʁeˌmɪsmʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Tausende demonstrieren gegen Rechtsextremismus.",
+        "en": "Thousands are demonstrating against right-wing extremism.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Verfassungsschutz beobachtet den Rechtsextremismus.",
+        "en": "The domestic intelligence service monitors right-wing extremism.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Politics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Tarifverhandlung",
+    "term": "die Tarifverhandlung",
+    "en": "collective wage negotiation",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Tarifverhandlungen",
+    "ipa": "taˈʁiːffɛɐ̯ˌhandlʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Tarifverhandlung ist gescheitert.",
+        "en": "The pay negotiations have failed.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der Tarifverhandlung fordert die Gewerkschaft acht Prozent.",
+        "en": "In the wage talks the union is demanding eight per cent.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Mindestlohn",
+    "term": "der Mindestlohn",
+    "en": "minimum wage",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Mindestlöhne",
+    "ipa": "ˈmɪndəstˌloːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Mindestlohn steigt im Januar.",
+        "en": "The minimum wage is rising in January.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Aushilfen verdienen nur den Mindestlohn.",
+        "en": "Many temps only earn the minimum wage.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Eigenbedarf",
+    "term": "der Eigenbedarf",
+    "en": "personal use (landlord's own need)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈaɪ̯ɡn̩bəˌdaʁf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Vermieter hat wegen Eigenbedarf gekündigt.",
+        "en": "The landlord has given notice because he needs the flat himself.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kündigung wegen Eigenbedarf muss begründet sein.",
+        "en": "Notice for the landlord's own use must be justified.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Real Estate & Moving",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Kölsch",
+    "term": "das Kölsch",
+    "en": "Kölsch (Cologne beer; Cologne dialect)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "kœːɫʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Kölsch, bitte!",
+        "en": "A Kölsch, please!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Nachbar spricht nur Kölsch.",
+        "en": "My neighbour only speaks the Cologne dialect.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Festivals & customs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Brauhaus",
+    "term": "das Brauhaus",
+    "en": "brewpub, brewery tavern",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Brauhäuser",
+    "ipa": "ˈbʁaʊ̯ˌhaʊ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Brauhaus gibt es Kölsch und Schnitzel.",
+        "en": "There's Kölsch and schnitzel at the brewpub.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Köbes im Brauhaus bringt sofort ein neues Glas.",
+        "en": "The waiter at the brewpub brings a new glass straight away.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Restaurant & Dining",
+    "kind": "word"
   }
 ]

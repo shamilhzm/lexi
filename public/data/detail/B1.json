@@ -4338,6 +4338,34 @@
       }
     ]
   },
+  "voc:B1:das Bewerbungsgespräch": {
+    "ex": [
+      {
+        "de": "Morgen habe ich ein Bewerbungsgespräch.",
+        "en": "I have a job interview tomorrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Bewerbungsgespräch lief sehr gut.",
+        "en": "The job interview went very well.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Brauhaus": {
+    "ex": [
+      {
+        "de": "Im Brauhaus gibt es Kölsch und Schnitzel.",
+        "en": "There's Kölsch and schnitzel at the brewpub.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Köbes im Brauhaus bringt sofort ein neues Glas.",
+        "en": "The waiter at the brewpub brings a new glass straight away.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Brettspiel": {
     "def": "A game played by moving pieces on a marked board.",
     "ex": [
@@ -5905,6 +5933,20 @@
       {
         "de": "Das Känguru springt weite Sätze.",
         "en": "The kangaroo jumps in long bounds.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Kölsch": {
+    "ex": [
+      {
+        "de": "Ein Kölsch, bitte!",
+        "en": "A Kölsch, please!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Nachbar spricht nur Kölsch.",
+        "en": "My neighbour only speaks the Cologne dialect.",
         "lvl": "B1"
       }
     ]
@@ -10053,6 +10095,20 @@
       }
     ]
   },
+  "voc:B1:der Designer": {
+    "ex": [
+      {
+        "de": "Der Designer hat das Logo entworfen.",
+        "en": "The designer created the logo.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie arbeitet als Designerin bei einer Agentur.",
+        "en": "She works as a designer at an agency.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Dialog": {
     "ex": [
       {
@@ -11678,6 +11734,20 @@
       }
     ]
   },
+  "voc:B1:der Integrationskurs": {
+    "ex": [
+      {
+        "de": "Im Integrationskurs lernt man Deutsch und Landeskunde.",
+        "en": "In the integration course you learn German and about the country.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Integrationskurs endet mit einer Prüfung.",
+        "en": "The integration course ends with an exam.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Interessent": {
     "def": "A person who is interested in buying or taking part.",
     "ex": [
@@ -12834,6 +12904,20 @@
       }
     ]
   },
+  "voc:B1:der Mindestlohn": {
+    "ex": [
+      {
+        "de": "Der Mindestlohn steigt im Januar.",
+        "en": "The minimum wage is rising in January.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Aushilfen verdienen nur den Mindestlohn.",
+        "en": "Many temps only earn the minimum wage.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Minister": {
     "def": "Leiter eines Ministeriums",
     "ex": [
@@ -13957,6 +14041,20 @@
       }
     ]
   },
+  "voc:B1:der Rennfahrer": {
+    "ex": [
+      {
+        "de": "Er wollte schon als Kind Rennfahrer werden.",
+        "en": "He wanted to be a racing driver even as a child.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Rennfahrerin hat ihren ersten Sieg geholt.",
+        "en": "The racing driver took her first win.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Respekt": {
     "def": "Regard for someone’s worth or authority, shown in how you treat them.",
     "defDe": "Achtung und Wertschätzung gegenüber jemandem/etwas; meist bezogen auf eine andere Person, aber auch Tiere, Gruppen, Institutionen, Länder, Kulturen und Weltanschauungen",
@@ -14820,6 +14918,20 @@
       }
     ]
   },
+  "voc:B1:der Spielstand": {
+    "ex": [
+      {
+        "de": "Wie ist der Spielstand?",
+        "en": "What's the score?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Spielstand wurde gelöscht.",
+        "en": "My saved game was deleted.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Spielzug": {
     "def": "A single action taken on your turn in a game.",
     "defDe": "das Durchführen einer (erlaubten) Handlung bei einem rundenbasierten Spiel während der dem Spieler zustehenden Aktivitätsperiode",
@@ -15298,6 +15410,20 @@
       {
         "de": "Anar war Taxifahrer und sucht eine neue Stelle.",
         "en": "Anar was a taxi driver and is looking for a new job.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Teamkollege": {
+    "ex": [
+      {
+        "de": "Er hat seinen Teamkollegen überholt.",
+        "en": "He overtook his teammate.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Meine Teamkollegin hilft mir immer.",
+        "en": "My teammate always helps me.",
         "lvl": "B1"
       }
     ]
@@ -26753,6 +26879,34 @@
       }
     ]
   },
+  "voc:B1:die Spielfigur": {
+    "ex": [
+      {
+        "de": "Die Spielfigur springt über den Abgrund.",
+        "en": "The character jumps over the chasm.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jeder Spieler bekommt vier Spielfiguren.",
+        "en": "Each player gets four pieces.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Spielkonsole": {
+    "ex": [
+      {
+        "de": "Er wünscht sich eine neue Spielkonsole.",
+        "en": "He wants a new games console.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Spielkonsole ist an den Fernseher angeschlossen.",
+        "en": "The games console is connected to the TV.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Spielregel": {
     "ex": [
       {
@@ -27435,6 +27589,20 @@
         "de": "Die Folgen der Teilung sind bis heute spürbar.",
         "en": "The consequences of the division are still felt today.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Teilzeit": {
+    "ex": [
+      {
+        "de": "Sie arbeitet in Teilzeit, zwanzig Stunden pro Woche.",
+        "en": "She works part-time, twenty hours a week.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach der Elternzeit möchte er in Teilzeit gehen.",
+        "en": "After parental leave he wants to go part-time.",
+        "lvl": "B1"
       }
     ]
   },
@@ -28404,6 +28572,20 @@
         "de": "Vielseitigkeit wird oft höher geschätzt als reine Spezialisierung.",
         "en": "Versatility is often valued more highly than pure specialisation.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Vollzeit": {
+    "ex": [
+      {
+        "de": "Die Stelle ist in Vollzeit.",
+        "en": "The position is full-time.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In Vollzeit arbeitet man hier vierzig Stunden.",
+        "en": "Full-time here means forty hours.",
+        "lvl": "B1"
       }
     ]
   },
@@ -41864,6 +42046,20 @@
       {
         "de": "Nach dem Studium zog er nach Berlin.",
         "en": "After his studies he moved to Berlin.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:zocken": {
+    "ex": [
+      {
+        "de": "Am Wochenende zocke ich gern mit Freunden.",
+        "en": "At the weekend I like playing games with friends.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat die ganze Nacht gezockt.",
+        "en": "He was gaming all night.",
         "lvl": "B1"
       }
     ]
