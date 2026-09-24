@@ -3055,6 +3055,20 @@
       }
     ]
   },
+  "voc:A2:das Feuerzeug": {
+    "ex": [
+      {
+        "de": "Hast du ein Feuerzeug?",
+        "en": "Have you got a lighter?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Feuerzeug funktioniert nicht mehr.",
+        "en": "The lighter doesn't work any more.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Finale": {
     "def": "The last and deciding round of a competition.",
     "ex": [
@@ -3813,6 +3827,20 @@
       }
     ]
   },
+  "voc:A2:das Komma": {
+    "ex": [
+      {
+        "de": "Vor dass steht immer ein Komma.",
+        "en": "There's always a comma before dass.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Hier fehlt ein Komma.",
+        "en": "There's a comma missing here.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Konzert": {
     "def": "concert (musical event)",
     "ex": [
@@ -4248,6 +4276,20 @@
       {
         "de": "Welcher Artikel gehört zu diesem Nomen?",
         "en": "Which article goes with this noun?",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Notizbuch": {
+    "ex": [
+      {
+        "de": "Ich schreibe neue Wörter in mein Notizbuch.",
+        "en": "I write new words in my notebook.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Notizbuch liegt auf dem Tisch.",
+        "en": "The notebook is on the table.",
         "lvl": "A2"
       }
     ]
@@ -7167,6 +7209,20 @@
       }
     ]
   },
+  "voc:A2:der Füller": {
+    "ex": [
+      {
+        "de": "In der Schule schreiben die Kinder mit dem Füller.",
+        "en": "At school the children write with a fountain pen.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mein Füller ist leer.",
+        "en": "My fountain pen is empty.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Gastgeber": {
     "def": "host (a person who allows a guest, particularly into the host's home)",
     "ex": [
@@ -9784,6 +9840,20 @@
       {
         "de": "Im Singular heißt es der Mann.",
         "en": "In the singular it is der Mann.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Sitzplatz": {
+    "ex": [
+      {
+        "de": "Ich habe einen Sitzplatz im Zug reserviert.",
+        "en": "I've reserved a seat on the train.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Bus war kein Sitzplatz mehr frei.",
+        "en": "There wasn't a free seat on the bus.",
         "lvl": "A2"
       }
     ]
@@ -12707,6 +12777,20 @@
       }
     ]
   },
+  "voc:A2:die Bücherei": {
+    "ex": [
+      {
+        "de": "Die Bücherei hat auch deutsche Comics.",
+        "en": "The library also has German comics.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich leihe mir Bücher in der Bücherei aus.",
+        "en": "I borrow books from the library.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Bürgerin": {
     "def": "A woman who is a member of a country or city.",
     "ex": [
@@ -14788,6 +14872,20 @@
       }
     ]
   },
+  "voc:A2:die Kirsche": {
+    "ex": [
+      {
+        "de": "Im Juni sind die Kirschen reif.",
+        "en": "The cherries are ripe in June.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Auf dem Kuchen liegt eine Kirsche.",
+        "en": "There's a cherry on the cake.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Kiste": {
     "def": "A large box, often made of wood, used for storage.",
     "ex": [
@@ -15963,6 +16061,20 @@
         "de": "Die Nebenkosten sind in der Miete nicht enthalten.",
         "en": "The utility costs are not included in the rent.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Nuss": {
+    "ex": [
+      {
+        "de": "Ich esse gern eine Nuss als Snack.",
+        "en": "I like eating a nut as a snack.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Problem ist eine harte Nuss.",
+        "en": "The problem is a tough nut to crack.",
+        "lvl": "A2"
       }
     ]
   },

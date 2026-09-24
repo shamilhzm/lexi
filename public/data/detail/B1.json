@@ -10304,6 +10304,20 @@
       }
     ]
   },
+  "voc:B1:der Einwanderer": {
+    "ex": [
+      {
+        "de": "Der Einwanderer hat hier eine Firma gegründet.",
+        "en": "The immigrant founded a company here.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Einwanderer arbeiten in der Pflege.",
+        "en": "Many immigrants work in care.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Einwohner": {
     "def": "inhabitant (anyone who lives or dwells in something, especially a country, region, settlement); an inhabitant without the full rights of a citizen; now used in the form Inwohner in historic terminology",
     "ex": [
@@ -14377,6 +14391,20 @@
       }
     ]
   },
+  "voc:B1:der Sekretär": {
+    "ex": [
+      {
+        "de": "Der Sekretär vereinbart die Termine.",
+        "en": "The secretary makes the appointments.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sekretär sitzt im Vorzimmer.",
+        "en": "The secretary sits in the outer office.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Sektor": {
     "def": "A distinct part of an economy or area of activity.",
     "ex": [
@@ -14890,6 +14918,20 @@
       {
         "de": "Die Polizei sucht ihn mit einem Steckbrief.",
         "en": "The police are looking for him with a wanted poster.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Stempel": {
+    "ex": [
+      {
+        "de": "Ohne Stempel ist das Formular ungültig.",
+        "en": "The form is invalid without a stamp.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Beamtin drückt einen Stempel auf das Dokument.",
+        "en": "The official stamps the document.",
         "lvl": "B1"
       }
     ]
@@ -17581,6 +17623,20 @@
         "de": "Attraktive Aufstiegschancen binden qualifizierte Mitarbeiter an das Unternehmen.",
         "en": "Attractive promotion prospects keep qualified staff with the company.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Augenbraue": {
+    "ex": [
+      {
+        "de": "Sie zieht die Augenbraue hoch.",
+        "en": "She raises an eyebrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat eine Narbe an der Augenbraue.",
+        "en": "He has a scar on his eyebrow.",
+        "lvl": "B1"
       }
     ]
   },
@@ -21304,6 +21360,20 @@
       }
     ]
   },
+  "voc:B1:die Hafenstadt": {
+    "ex": [
+      {
+        "de": "Hamburg ist eine große Hafenstadt.",
+        "en": "Hamburg is a big port city.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ist in einer kleinen Hafenstadt aufgewachsen.",
+        "en": "She grew up in a small port town.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Halbinsel": {
     "def": "A piece of land almost surrounded by water.",
     "ex": [
@@ -21381,6 +21451,20 @@
         "de": "Als politisches Zentrum zieht die Hauptstadt Menschen aus aller Welt an.",
         "en": "As a political centre, the capital attracts people from all over the world.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Hausarbeit": {
+    "ex": [
+      {
+        "de": "Wir teilen uns die Hausarbeit.",
+        "en": "We share the housework.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich muss bis Montag eine Hausarbeit schreiben.",
+        "en": "I have to write a term paper by Monday.",
+        "lvl": "B1"
       }
     ]
   },
@@ -25785,6 +25869,20 @@
       }
     ]
   },
+  "voc:B1:die Schnur": {
+    "ex": [
+      {
+        "de": "Bind das Paket mit einer Schnur zu.",
+        "en": "Tie up the parcel with string.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Schnur ist zu kurz.",
+        "en": "The cord is too short.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Schrift": {
     "def": "a system of written characters; also handwriting",
     "ex": [
@@ -26750,6 +26848,20 @@
       }
     ]
   },
+  "voc:B1:die Steuererklärung": {
+    "ex": [
+      {
+        "de": "Die Steuererklärung muss bis Juli abgegeben werden.",
+        "en": "The tax return has to be submitted by July.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit der Steuererklärung bekomme ich Geld zurück.",
+        "en": "I get money back with my tax return.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Steuernummer": {
     "ex": [
       {
@@ -27275,6 +27387,20 @@
         "de": "Die Trauer um den Freund war groß.",
         "en": "The grief for the friend was great.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Trauung": {
+    "ex": [
+      {
+        "de": "Die Trauung findet im Standesamt statt.",
+        "en": "The ceremony takes place at the register office.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach der Trauung gab es Sekt.",
+        "en": "There was sparkling wine after the ceremony.",
+        "lvl": "B1"
       }
     ]
   },
@@ -31289,6 +31415,20 @@
       }
     ]
   },
+  "voc:B1:flüssig": {
+    "ex": [
+      {
+        "de": "Sie spricht flüssig Deutsch.",
+        "en": "She speaks fluent German.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Seife ist flüssig.",
+        "en": "The soap is liquid.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:flüstern": {
     "ex": [
       {
@@ -32728,6 +32868,20 @@
         "de": "Wildes Hupen löst keinen Stau auf.",
         "en": "Wild honking doesn’t clear a traffic jam.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:hüpfen": {
+    "ex": [
+      {
+        "de": "Die Kinder hüpfen auf dem Trampolin.",
+        "en": "The children are jumping on the trampoline.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Vogel hüpft über den Rasen.",
+        "en": "The bird hops across the lawn.",
+        "lvl": "B1"
       }
     ]
   },
@@ -35796,6 +35950,20 @@
       }
     ]
   },
+  "voc:B1:religiös": {
+    "ex": [
+      {
+        "de": "Meine Familie ist nicht besonders religiös.",
+        "en": "My family isn't particularly religious.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist ein religiöser Feiertag.",
+        "en": "That is a religious holiday.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:renovieren": {
     "def": "To repair and improve an old building or room.",
     "ex": [
@@ -37524,6 +37692,20 @@
       }
     ]
   },
+  "voc:B1:sparsam": {
+    "ex": [
+      {
+        "de": "Sie lebt sehr sparsam.",
+        "en": "She lives very frugally.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Auto ist sparsam im Verbrauch.",
+        "en": "The car is economical on fuel.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:spenden": {
     "def": "to give money or things to help others",
     "ex": [
@@ -38666,6 +38848,20 @@
       {
         "de": "Das war ein unglücklicher Zufall.",
         "en": "That was an unfortunate coincidence.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:ungültig": {
+    "ex": [
+      {
+        "de": "Ihr Ausweis ist ungültig.",
+        "en": "Your ID card is invalid.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Stimme wurde als ungültig gewertet.",
+        "en": "The vote was counted as invalid.",
         "lvl": "B1"
       }
     ]

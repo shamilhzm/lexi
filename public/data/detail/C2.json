@@ -164,6 +164,20 @@
       }
     ]
   },
+  "voc:C2:beheimaten": {
+    "ex": [
+      {
+        "de": "Die Stadt beheimatet viele Start-ups.",
+        "en": "The city is home to many start-ups.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Gebäude beheimatet heute ein Museum.",
+        "en": "The building now houses a museum.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:behufs": {
     "def": "For the purpose of (archaic, official).",
     "ex": [
@@ -669,6 +683,20 @@
       {
         "de": "Der freundliche Satz hatte einen drohenden Unterton.",
         "en": "The friendly sentence had a threatening undertone.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Vollzug": {
+    "ex": [
+      {
+        "de": "Der Vollzug des Urteils wurde ausgesetzt.",
+        "en": "Enforcement of the verdict was suspended.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er arbeitet im offenen Vollzug.",
+        "en": "He works in the open prison system.",
         "lvl": "C2"
       }
     ]
@@ -1223,6 +1251,20 @@
       {
         "de": "Er übersah die praktische Implikation seines eigenen Vorschlags.",
         "en": "He overlooked the practical implication of his own proposal.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Inbetriebnahme": {
+    "ex": [
+      {
+        "de": "Die Inbetriebnahme des Werks ist für 2027 geplant.",
+        "en": "The plant is scheduled to start operating in 2027.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Vor der Inbetriebnahme wird alles geprüft.",
+        "en": "Everything is checked before commissioning.",
         "lvl": "C2"
       }
     ]
@@ -1913,6 +1955,20 @@
       {
         "de": "Die Restaurierung gilt als exemplarisch gelungen.",
         "en": "The restoration is regarded as exemplary in its success.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:forcieren": {
+    "ex": [
+      {
+        "de": "Die Regierung will den Ausbau der Netze forcieren.",
+        "en": "The government wants to step up grid expansion.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Man sollte die Entscheidung nicht forcieren.",
+        "en": "You shouldn't force the decision.",
         "lvl": "C2"
       }
     ]
@@ -2753,6 +2809,20 @@
       {
         "de": "Seine Antwort war vieldeutig genug, um niemanden festzulegen.",
         "en": "His answer was ambiguous enough not to commit anyone.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:vollstrecken": {
+    "ex": [
+      {
+        "de": "Das Urteil wurde nie vollstreckt.",
+        "en": "The sentence was never carried out.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Behörde will die Forderung vollstrecken.",
+        "en": "The authority wants to enforce the claim.",
         "lvl": "C2"
       }
     ]
