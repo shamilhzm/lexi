@@ -64,6 +64,7 @@ export default function App() {
   const [view, setView] = useState<View>(boot.view);
   const [target, setTarget] = useState<Target>(boot.target ?? ALL);
   const [words, setWords] = useState<WordsRoute>(boot.words);
+  const [article, setArticle] = useState<string | null>(boot.article ?? null);
   const [drillInit, setDrillInit] = useState<PracticeInit>(null);
   // Bumped by every `go()`. It is part of the route container's key, so tapping
   // the tab you are already on remounts that destination — which is how a tab bar
@@ -99,6 +100,7 @@ export default function App() {
       const r = parseHash();
       setView(r.view);
       setWords(r.words);
+      setArticle(r.article ?? null);
       if (r.target) setTarget(r.target);
     };
     window.addEventListener('hashchange', onHash);
@@ -106,14 +108,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const next = toHash(view, target, words);
+    const next = toHash(view, target, words, article);
     if (fromHash.current) { fromHash.current = false; return; }
     if (location.hash === next) return;
     // Today replaces rather than pushes, so Back from Today leaves the app once
     // instead of walking a trail of identical entries.
     if (view === 'today') location.replace(next);
     else location.hash = next;
-  }, [view, target, words]);
+  }, [view, target, words, article]);
 
   const study = (t: Target) => { setExam(false); setTarget(t); setView('session'); };
   const go = (v: View) => {
@@ -122,6 +124,7 @@ export default function App() {
     // Tapping *Words* in the navigation means the index, never whatever deck you
     // were last inside — a destination in a tab bar is a place, not a resume.
     if (v === 'words') setWords({ level: 'index' });
+    if (v === 'read') setArticle(null);
     // Leaving the guided chain by the navigation is still leaving it. Without
     // this the first-run hero came back on the next visit, as though placement
     // and the first session had never happened.
@@ -271,10 +274,10 @@ export default function App() {
           <div key={`${view}:${navTick}`}
             className="route-in max-w-[1280px] w-full min-h-full mx-auto flex flex-col px-3 sm:px-5 py-4 safe-bottom">
               <ErrorBoundary resetKey={view}>
-                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onWords={() => go('words')} onBackup={() => go('profile')} onGrammar={() => go('practice')} onProgress={() => go('progress')} onRead={() => go('read')} />}
+                {view === 'today' && <Today onStart={study} onExam={startExam} onPlacement={() => setView('placement')} onGuidedStart={startFirstRun} onBlindDrill={drillFor} onWords={() => go('words')} onBackup={() => go('profile')} onGrammar={() => go('practice')} onProgress={() => go('progress')} onRead={() => go('read')} onArticle={(id) => { go('read'); setArticle(id); }} />}
                 {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} />}
                 {view === 'practice' && <Practice initial={drillInit} onExam={() => go('exam')} onPrint={() => go('print')} onRedemittel={startRedemittel} />}
-                {view === 'read' && <Read onStudy={study} />}
+                {view === 'read' && <Read onStudy={study} article={article} onArticle={setArticle} onSettings={() => go('profile')} />}
                 {/* The heatmap is a map *of the corpus*, so its drill-down lands in
                     the corpus rather than one level further into a stats page. An
                     empty group name means "the index" — the browse-everything row

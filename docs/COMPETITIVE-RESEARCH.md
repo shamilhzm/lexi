@@ -367,6 +367,36 @@ the matcher is German.)*
 
 ---
 
+## 7. Addendum, 2026-09-24 — what the B1 learner actually needs
+
+*Written when the owner, at B1 after five months, stopped using the app. VISION records
+what was decided; this records what the market says.*
+
+**The plateau is the category's known failure, and the apps that get past it do two
+things.** Reviews of the 2026 field agree that curriculum apps plateau intermediates
+because they lack real content and feedback on output. The two camps that serve B1 are:
+
+- **Content + capture** — LingQ, Readlang, Migaku, and newer browser extensions that
+  build vocabulary "as you browse": import real text, tap to translate, send the word to
+  SRS. Right pedagogy; the counter is still "the mechanical rabbit" (§1), and none of
+  them knows what you know.
+- **Output + correction** — Langua is the reference: in-call corrections, saved words
+  with their conversational context, spaced review, and the AI *weaving saved words back
+  into later conversations and stories*. The loop is the product.
+
+**Narrow reading is the evidence for topic feeds.** Reading many texts on one subject
+recycles its vocabulary — Krashen's *narrow reading* (2004), with experimental support
+(Kang 2015, *RELC Journal*). A feed organised by the learner's own topics is that
+method, delivered daily.
+
+**Where Lexi now sits.** It is the only one of these that can say *how much of this
+article you know* from a forgetting-aware model rather than a click counter, and whose
+saved word arrives with facts looked up (not generated) and the sentence it was met in
+as its example. Its tutor is deliberately narrower than Langua's — no conversation —
+and grounded in the article the learner just read. **The honest gaps:** no
+conversation practice; motorsport and games coverage limited to sources a browser may
+read; the tutor untested with a live key at the time of writing.
+
 ## Sources
 
 Market & incumbents — [Duolingo Q1 2026 results](https://www.stocktitan.net/sec-filings/DUOL/8-k-duolingo-inc-reports-material-event-6974ab47316e.html) · [Q1 2026 transcript](https://www.fool.com/earnings/call-transcripts/2026/05/04/duolingo-duol-q1-2026-earnings-transcript/) · [AI-first backlash](https://www.customerexperiencedive.com/news/duolingo-ai-first-consumer-backlash-lessons/757133/) · [backlash didn't dent growth](https://techcrunch.com/2025/08/07/the-backlash-against-duolingo-going-ai-first-didnt-even-matter/) · [the 2026 reversal](https://edumo.io/blog/duolingo-ai-reversal-language-teachers) · [language-learning market size](https://www.gminsights.com/industry-analysis/language-learning-market)
@@ -378,5 +408,7 @@ AI tutors — [best AI speaking apps 2026](https://lingtuitive.com/blog/best-ai-
 German-specific — [17 German apps tested (Seedlang, Nicos Weg)](https://www.fluentu.com/blog/german/best-apps-for-learning-german/) · [best German apps 2026](https://www.learngermanwithgames.com/blog/best-apps-to-learn-german) · [easy German news sources](https://www.lingoda.com/blog/en/easy-german-news/) · [Goethe-Institut exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
 
 Pedagogy — [Hu & Nation replication, Kremmel et al. 2023](https://onlinelibrary.wiley.com/doi/10.1111/lang.12622) · [Schmitt et al., % of words known and comprehension](https://www.lextutor.ca/cover/papers/schmitt_etal_2011.pdf) · [lexical coverage in L2 processing](https://academic.oup.com/applij/article/45/6/953/7841943) · [why input must be 95–98% comprehensible](https://gianfrancoconti.com/2025/02/27/why-the-input-we-give-our-learners-must-be-95-98-comprehensible-in-order-to-enhance-language-acquisition-the-theory-and-the-research-evidence/) · [input vs output](https://voices.uchicago.edu/triplehelix/2025/05/20/effective-language-learning-focus-on-input-or-output/) · [deliberate practice framework for L2](https://tesl-ej.org/wordpress/issues/volume29/ej115/ej115a5/)
+
+September 2026 addendum — [best German apps 2026 (Clozemaster)](https://blog.clozemaster.com/best-apps-to-learn-german-2026/) · [AI German practice apps, July 2026](https://www.issen.com/blog/ai-german-speaking-practice-apps/) · [best AI language apps, Sept 2026](https://www.unite.ai/best-ai-language-learning-apps/) · [WordByWord](https://wordbyword.io/en/blog/best-ai-language-learning-apps) · [Langua review 2026](https://lingtuitive.com/blog/langua-ai-tutor-review) · [Langua, by a language teacher](https://medium.com/@oh-yeah-sarah/langua-app-review-2026-by-a-qualified-language-teacher-5273e846daf5) · [LingQ vs Readlang 2026](https://languavibe.com/lingq-vs-readlang/) · [Krashen, The Case for Narrow Reading](https://www.sdkrashen.com/content/articles/narrow.pdf) · [Kang 2015, narrow reading and L2 vocabulary](https://journals.sagepub.com/doi/abs/10.1177/0033688215586236) · [tagesschau API terms](https://github.com/bundesAPI/tagesschau-api)
 
 Feasibility — [in-browser LLMs 2026](https://wowdata.science/browser-native-agents-llms-in-browser-ai-guide-2026/) · [Transformers.js + WebGPU](https://huggingface.co/docs/transformers.js/en/guides/webgpu) · [existing generic text-difficulty checker](https://www.lenguia.com/tools/word-frequency-checker)

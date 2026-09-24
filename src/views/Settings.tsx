@@ -17,6 +17,7 @@ import { themePref, setThemePref, type ThemePref } from '../theme.ts';
 import { BUILD, buildLabel, checkForUpdate, updateNow, type UpdateState } from '../lib/build.ts';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
+import AiSettings from '../components/AiSettings.tsx';
 
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
@@ -238,6 +239,8 @@ export default function Settings() {
         )}
         {hdErr && <p className="text-red-txt text-xs mt-2">{hdErr}</p>}
       </Card>
+
+      <AiSettings />
 
       {/* Your data — backup & restore (local-first insurance) */}
       <Card as="section" className="mt-4">

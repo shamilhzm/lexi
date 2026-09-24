@@ -32,6 +32,73 @@ trusting it — the last four times a count was guessed here it was wrong by a t
 
 ---
 
+## Now — after the reader (2026-09-24)
+
+*Lesen became a news reader on 2026-09-24 (CHANGELOG). These are the next steps,
+ranked by how much they serve the learner it was built for: B1, bored by German as a
+subject, interested in economy, tech, politics, immigration, motorsport, games, art —
+and in finding out what to do with a career that stalled after the move.*
+
+**1. Run the tutor with a real key, and tune it.** · S
+*Why:* it is verified end to end with an invalid key (both providers reachable, errors
+mapped) but has never answered a real sentence. *Do:* ten real write-backs at B1 and
+ten tapped sentences; read every answer; check it flags nothing that is correct
+German (the refusal it narrows). *Done when:* the ten are read and any prompt change
+is recorded here with the example that caused it. *Touches:* `lib/ai.ts`.
+
+**2. Beruf — German for the job you want next.** · M–L
+*Why:* the owner named a stalled career as one of the things more interesting than
+German. Reading about work is covered by the *Work & careers* topic; *doing* it is
+not. *Do:* a track of three: read job ads in the learner's field (needs a source a
+browser can fetch — the Bundesagentur's Jobsuche API returned 403 from a probe, so
+this may wait on VISION open decision 2b); write an Anschreiben paragraph and a
+"Über mich" with the tutor's corrections; an interview-question drill that uses
+dictation and the write-back feedback. *Done when:* a learner can go from an ad to a
+corrected paragraph about why they fit it.
+
+**3. Narrow reading — "the words in this week's Wirtschaft".** · M
+*Why:* reading on one topic recycles its vocabulary (Krashen 2004; Kang 2015), and
+the feed already caches the week's texts. *Do:* per topic, the unknown lemmas that
+recur across the week's cached articles (corpus cards and Wiktionary-resolved absent
+words), offered as one study set with a `read` reason. *Done when:* the set exists
+and its words demonstrably recur (≥ 3 articles each).
+
+**4. A news-core authoring batch.** · S–M
+*Why:* `npm run corpus:news` lists the commonest news forms the corpus lacks —
+nationality adjectives (*russischen*, *britische*), *sogenannt*, *ehemalig*,
+*bisherig*, *jeweilig*, *gesamt* — and the article probe found *der Fall*, *der
+Dienst*, *der Journalist*, *das Konzept*, *der Zugang*, *lauten* missing. Those are
+not long tail; they are the next 200 words of a B1 reader's life. *Do:* one
+`authoring:new` batch, measured before and after with `corpus:news`. *Done when:* the
+top-3,000 lowercase-miss list starts at a word nobody would call core.
+
+**5. The relay decision (VISION open decision 2b).** · decision, then S
+Spiegel, Zeit, FAZ, Handelsblatt, t3n, golem, GameStar and the specialist motorsport
+sites cannot be read from a browser. Motorsport and games are exactly the owner's
+interests and are thin today (SRF's motorsport news; games only via keyword matches).
+
+**6. A journal surface.** · S
+The write-backs and their corrections are stored (`lexi.journal.v1`) and shown only
+once. A page in Progress that lists them, with the correction kinds counted, would
+show the learner their own recurring mistakes — *without* feeding any score.
+
+**7. Listen to today.** · M
+DW's slow news already plays its own audio; tagesschau paragraphs can be read by the
+HD voice. A "listen to today's two stories" mode, for the commute, is most of the way
+there.
+
+**Smaller, noted while building:**
+- A mined card's level is the learner's study level, so the level filter cannot hide
+  it. A Leipzig-rank-derived level would be truer; it must never *exclude* the card.
+- `I know it` records a real Easy review. If learners use it to mark forty words at a
+  time, that flatters the daily review count — watch before building a bulk version.
+- The feed's name lookup is a Wiktionary request per 50 new capitalised words; cached
+  forever, but a first visit costs a few requests. Measure before optimising.
+- `npm run corpus:news -- --live` (the article half of the instrument) has not been
+  run since it was written; run it once when the Tagesschau hour allows.
+
+---
+
 ## The 2026-08-05 quality pass — every card, every screen, every action
 
 *Method: a new `npm run corpus:audit` over all 7,389 cards; a DOM harness run against

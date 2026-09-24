@@ -130,3 +130,18 @@ describe('sessions', () => {
       .toBe('#/session');
   });
 });
+
+describe('an open article', () => {
+  // Ids carry the source and a colon — `tagesschau:herbstprognose-100` — and
+  // publisher ids can carry anything, so the round trip must encode.
+  it('round-trips an article id through the hash', () => {
+    const id = 'tagesschau:zinsen-100';
+    const hash = toHash('read', undefined, { level: 'index' }, id);
+    expect(hash).toBe('#/read/a/tagesschau%3Azinsen-100');
+    expect(parseHash(hash)).toMatchObject({ view: 'read', article: id });
+  });
+  it('is the feed when no article is open', () => {
+    expect(parseHash('#/read').article).toBeUndefined();
+    expect(toHash('read', undefined, { level: 'index' }, null)).toBe('#/read');
+  });
+});

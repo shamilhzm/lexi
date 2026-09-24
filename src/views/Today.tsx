@@ -34,6 +34,7 @@ import Button, { buttonClass } from '../components/ui/Button.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import { blindSpotDrills, estimateMinutes, wordsForMinutes, itemsForMinutes } from '../session.ts';
 import SessionWhy from '../components/SessionWhy.tsx';
+import TodayReading from '../components/reader/TodayReading.tsx';
 import { BY_ID, WORDS } from '../data/index.ts';
 import type { Target, Word } from '../types.ts';
 
@@ -41,10 +42,11 @@ import type { Target, Word } from '../types.ts';
  *  gap between classes — the three shapes a real day actually has. */
 const SHORT_MINUTES = [3, 5, 10];
 
-export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onWords, onBackup, onGrammar, onProgress, onRead }:
+export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onBlindDrill, onWords, onBackup, onGrammar, onProgress, onRead, onArticle }:
   { onStart: (t: Target) => void; onExam: () => void; onPlacement: () => void; onGuidedStart: () => void;
     onBlindDrill: (tag?: string) => void; onWords: () => void;
-    onBackup: () => void; onGrammar: () => void; onProgress: () => void; onRead: () => void }) {
+    onBackup: () => void; onGrammar: () => void; onProgress: () => void; onRead: () => void;
+    onArticle: (id: string) => void }) {
   const v = useStore();
   const briefing = useMemo(() => buildBriefing(), [v]);
   const blindDrills = useMemo(() => {
@@ -356,6 +358,10 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
         )}
       </Card>
 
+      {/* The other half of the day: one article, on something the learner chose.
+          Not in week one — a learner three days in has other things to do first. */}
+      {!week1 && <TodayReading onRead={onRead} onArticle={onArticle} />}
+
       {/* Local-first means device-bound: nudge install (durable storage +
           offline) until installed or dismissed. */}
       <InstallNudge onBackup={onBackup} />
@@ -380,7 +386,7 @@ export default function Today({ onStart, onExam, onPlacement, onGuidedStart, onB
           they are orientation, and the learner who most needs to be told the app
           has more in it than one button is the one who arrived on Tuesday. */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-6">
-        <NextThing label="Lesen" sub="German to read, at your level" onClick={onRead} />
+        <NextThing label="Lesen" sub="Today’s news, on your topics" onClick={onRead} />
         <NextThing label="Üben" sub={`${placed ?? 'A1'} grammar, drills and papers`} onClick={onGrammar} />
         <NextThing label="Wortschatz" sub="Look a word up, browse a deck" onClick={onWords} />
       </div>

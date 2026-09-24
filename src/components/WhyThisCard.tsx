@@ -16,7 +16,7 @@
 //
 // `whyLine` is pure and structured rather than returning JSX, so the copy is
 // unit-testable and there is exactly one source of truth for it.
-import { Sparkle, Link2, TrendingDown, Clock, BookOpen } from 'lucide-react';
+import { Sparkle, Link2, TrendingDown, Clock, BookOpen, Newspaper } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { RuleToggle } from './RulePanel.tsx';
 import { modeRulePoint } from '../views/Fundamentals.tsx';
@@ -88,6 +88,14 @@ export function whyLine(reason: SessionReason): WhyLine | null {
       return {
         icon: BookOpen,
         lead: 'Because you want to read ', em: `„${reason.text}“`,
+      };
+
+    case 'read':
+      // A word the learner took from an article. Naming the article is the point:
+      // the card is not "a new word", it is the word from the piece about the DAX.
+      return {
+        icon: Newspaper,
+        lead: 'From your reading — ', em: `„${reason.title}“`, emLang: 'de',
       };
   }
 }

@@ -43,6 +43,9 @@ export interface Route {
   words: WordsRoute;
   /** Present only for scoped sessions (all / group / sector). */
   target?: Target;
+  /** An open article in Lesen — `#/read/a/<id>`. Linkable so the system back
+   *  gesture returns to the feed instead of leaving the app. */
+  article?: string;
 }
 
 // `brain` is a View but deliberately not a nav destination — the same pattern as
@@ -101,11 +104,16 @@ export function parseHash(hash = location.hash): Route {
     return { view, words: INDEX }; // bare #/session → today's session
   }
 
+  if (view === 'read' && parts[1] === 'a' && parts[2]) {
+    return { view, words: INDEX, article: parts.slice(2).join('/') };
+  }
+
   return { view, words: INDEX };
 }
 
 /** Serialise a route to a hash. */
-export function toHash(view: View, target: Target | undefined, words: WordsRoute): string {
+export function toHash(view: View, target: Target | undefined, words: WordsRoute, article?: string | null): string {
+  if (view === 'read' && article) return `#/read/a/${encodeURIComponent(article)}`;
   if (view === 'words') {
     if (words.level === 'map' && words.sector) return `#/words/map/${encodeURIComponent(words.sector)}`;
     if (words.level === 'group' && words.group) return `#/words/g/${encodeURIComponent(words.group)}`;

@@ -90,6 +90,35 @@ terminal: the token architecture (still zero hardcoded palette classes and zero
 hex literals in `src/`), the two-rooms split, the radius hierarchy, §10
 Accessibility in full, and the gotchas in §11.
 
+### Riso *(changed 2026-09-17)*
+
+**The owner chose a full riso restyle**, knowing this section would call a
+wholesale look "the costume". So, stated as what it keeps and what it adds:
+
+- **Kept:** the three traditions, the token architecture (still zero hardcoded
+  palette classes), the paper ground, the type, the radius hierarchy, §7's safety
+  rules, §10 in full. A print is still ink on paper, which is where the lexicon and
+  the map already lived.
+- **Changed:** the accent is riso **Medium Blue** (`#3255a4` light, `#8ea9ff` dark);
+  status inks are riso Green and Bright Red, darkened for AA; the heat ramp is that
+  blue at five densities; the ground carries a two-ink halftone offset half a cell;
+  cards and primary buttons are raised by a **hard offset** in ink rather than a soft
+  blur; page titles show a pink and yellow pass slightly out of register.
+- **Added:** three decoration-only inks — `--color-riso-pink`, `-yellow`, `-blue`.
+  **They never carry text.** Measured 2026-09-17 on bg/panel/panel2/card: pink
+  2.37–3.09:1, yellow 1.04–1.25:1. A text use of either is a bug.
+- **The measured cost/benefit:** accent on panel2 — the tightest accent pair —
+  went from 4.62 to 5.43. Pinned in `palette.test.ts`.
+- **Known:** the light accent and `--color-der` are both blue. They were before
+  (Atlas blue beside der blue); neither is ever the only signal.
+
+**Motion.** Riso animation is a frame at a time, so its keyframes use `steps()`,
+not the curve in §7's scale — a printed frame does not tween. Everything is still
+transform-only with the registered print as the resting frame: `.riso-register`,
+`.riso-burst`, `.riso-boil`, the stamp on the session recap
+(`components/RisoStamp.tsx`) and the plate in *Sprechen*. All are off under
+`prefers-reduced-motion`.
+
 That identity belongs to the **instrument** (Progress, the heatmap, the
 forecast). It is deliberately *not* the whole app: see *Two rooms*.
 
@@ -108,7 +137,8 @@ Tailwind palette classes anywhere in `src/`, and it should stay that way.
 | `--color-card` | **the study surface** — the thing you read from |
 | `--color-line` | hairlines |
 | `--color-txt` / `--color-dim` | primary / secondary ink |
-| `--color-amber` | the brand accent (**Atlas blue** — the name is doubly legacy: not amber, no longer cyan) |
+| `--color-accent` | the brand accent (**riso Medium Blue** since 2026-09-17; formerly Atlas blue) |
+| `--color-riso-pink` / `-yellow` / `-blue` | decoration-only riso inks — halftone, offsets, misregistered passes. **Never text.** |
 | `--color-green` / `--color-red` / `--color-red-txt` | gains / losses / AA-safe small red |
 | `--color-der` / `--color-die` / `--color-das` | grammatical gender |
 | `--color-a1` … `--color-c2` | CEFR ink, deliberately decoupled from status colours |
@@ -523,7 +553,7 @@ place, and the cost lands on the learner who does not know it is there.
 | **Today** | what do I do now? | the briefing, the path, the goal, the one Start button |
 | **Words** | what words are there / what does this one mean? | search, the theme index, decks, the word map |
 | **Practice** | drill me on something specific | **the journey** — six chapters, one node per grammar concept — plus quick drills, Redemittel, the exam paper, worksheets, Tipprennen |
-| **Read** | give me real German | the reading list and the comprehension meter, side by side |
+| **Read** | give me real German | today's news on the learner's topics, the article reader (tap-to-look-up, save-with-sentence, write back), the reading list and the paste meter *(news added 2026-09-24)* |
 | **Progress** | how am I doing? | the heatmap, trends, blind spots, finished sectors, the observatory |
 
 Five is also what the furniture holds: at 375px each tab gets 75px, which fits a 19px

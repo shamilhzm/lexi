@@ -11,6 +11,110 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-24 — Lesen reads the news
+
+**Why.** The owner reached B1 after five months and stopped opening the app: German
+as a subject had lost to everything German could be about. The measurements that
+decided what to build, all from this session:
+
+- **The corpus is the wrong register for the news.** Of the content words in 25
+  Tagesschau articles (5 each from Wirtschaft, Inland, Ausland, Wissen, Sport),
+  **23.2% resolve to no card at all** — and knowing *every* card from A1 to C2 would
+  cover only **76.8%** of them. A simulated B1 learner (all A1–B1 known) covered
+  **68.6%**, and **0 of 25** articles reached 90%. Missing cards include *der Fall*,
+  *der Dienst*, *der Journalist*, *das Konzept*, *der Zugang*, *lauten*, *sogenannt*.
+- **On the Leipzig news list**, the top 1,000 content forms resolved 96.9% of tokens
+  and the top 3,000, 93.9%; the misses were names, Konjunktiv I, *hohe/hohen*,
+  nationality adjectives and B1–B2 news adjectives.
+
+**What shipped.**
+
+- **A news feed in Lesen** (`lib/news/`, `components/reader/NewsFeed.tsx`). Eleven
+  topics — economy, politics, immigration, work, tech & AI, motorsport, games, art,
+  science, sport, and DW's slow news with audio — from tagesschau (API, full text),
+  SRF (RSS + article pages, full text, the motorsport coverage), DW *Langsam
+  gesprochene Nachrichten* (transcript + mp3) and heise (teasers). Chosen because a
+  browser may fetch each directly; see VISION for the terms and the rule. The first
+  eight stories' texts are fetched in the background so each shows how much of it
+  the learner knows, and the list can be sorted *easiest for you*. Tagesschau's
+  60-requests-an-hour limit is enforced client-side at 45.
+- **An article reader** (`ArticleView.tsx`): the meter, read-aloud (HD voice when
+  on; DW's own audio when there is one), every word tinted and tappable — with a
+  roving tabindex so the keyboard can do what a finger can.
+- **Tap any word** (`WordSheet.tsx`). A card Lexi has: gloss, status, *Study this*,
+  *I know it* (a real first review graded Easy — the learner's claim, on the
+  schedule, retracted by a later lapse). A word Lexi does not have: looked up in
+  de.wiktionary (gender, plural, IPA, lemma of an inflected form) and en.wiktionary
+  (gloss), then *Save as a card* — whose example is the sentence it was met in. The
+  sentence can be heard, explained (with a key) or sent to DeepL.
+- **Saved words lead the daily session** and say where they came from: a new
+  `read` session reason renders *From your reading — „headline“*. Deduplicated
+  against their own sector (a test injects the missing guard and watches it fail).
+- **Write back** (`Respond.tsx`): *Was denkst du?* — two to four sentences, typed or
+  dictated, with up to three words from the article to try. Kept in a journal.
+- **The optional tutor** (`lib/ai.ts`, `AiSettings.tsx`): bring-your-own-key,
+  Anthropic (official SDK, browser mode, lazy chunk) or OpenRouter. Explains a
+  sentence; corrects the write-back with minimal edits, each named, a natural
+  version and one thing to practise. No score, no FSRS effect. Default model Claude
+  Opus 5 with server-side refusal fallbacks. Verified end to end with an invalid key
+  (both providers reachable from the browser, errors mapped); **not yet exercised
+  with a live key**.
+- **Heute lesen on Today**: two unread stories from different topics.
+- **Names leave the meter when the dictionary says so.** de.wiktionary categories,
+  batched 50 titles a request and cached forever; a token with no page counts
+  unless it is short, mid-sentence, has no common noun suffix and contains no word
+  the corpus knows. On 11 live articles for the B1 profile: **70.4% → 72.7%**, and
+  all 53 tokens excluded were names (the first version excluded eight real nouns —
+  LESSONS, Class 2).
+- **Matcher, measured on news** — every change diffed token by token against the
+  old matcher on the 25 articles and hand-read: Konjunktiv I of the modals and
+  *wissen* (*könne*, *müsse*); the strong-verb Konjunktiv II (*gäbe*, *käme*,
+  *ginge*), derived in a late first-wins pass so *führe* stays `führen`; *hoch*'s
+  *hoh-* forms; Partizip I (*steigende*, *führenden*); three-letter compound heads
+  from a list (*Wahltag*, *Katzenart*); Swiss *ss* → *ß* (*gross*, *Strasse*); and
+  relative/demonstrative pronouns as function words. **Two existing wrong answers
+  fixed:** lowercase participles were being split as compounds ending in *Ende*
+  (*führenden* credited "das Ende"), and *Bundesamt* read as *Bundes* + *Samt*.
+  Compounds now require a capitalised token. Reader probe unchanged (verb 184/193,
+  plural 199/200, adj 194/200); top-1,000 Leipzig news coverage 96.9% → 97.7%.
+- **URL fragments** (*www.glueckskette.ch*) no longer count as unknown words.
+- **Backups now carry user words and saved texts** — they never had (LESSONS,
+  Class 11) — plus the reader's topics, reading log, mined-word sources, journal and
+  AI provider. Never the AI key.
+- `parseFacts` moved from `scripts/authoring/verify.ts` to `src/lib/wiktionary.ts`;
+  the authoring gate imports it, so the gate and the reader read a page one way.
+
+Tests: 1,062 → 1,113. Main bundle +51 kB (+17 kB gzip); the reader and the AI client
+load on first use.
+
+---
+
+### Shipped 2026-09-17 — printed in riso, and a microphone
+
+Three changes, two of which reopen something this repo had argued and declined. Both
+are recorded as owner decisions in VISION.md, with what changed and what did not.
+
+- **Full riso restyle.** New accent (riso Medium Blue), riso status inks, a blue heat
+  ramp, a two-ink halftone ground, hard offset shadows on cards and the primary
+  button (the press lands it on its pink offset), and misregistered page titles.
+  Three decoration-only inks added; they measure 1.04–3.09:1 on the grounds and so
+  never carry text. `palette.test.ts` re-pinned accent-on-panel2 at 5.43 (was 4.62).
+  See DESIGN §1 *Riso*.
+- **Sprechen**, a pronunciation game in Practice (`views/games/Sprechen.tsx`,
+  `lib/pronounce.ts`, `lib/speech.ts`). Eight words at a chosen level; the word is
+  printed in three passes that come into register as the recogniser's transcript
+  approaches the word. Uses on-device recognition when the browser has it, offers
+  the German pack when it can be downloaded, and otherwise asks before recording
+  because the audio would go to the browser vendor. The score is transcript
+  similarity (best of five alternatives, article optional, umlauts significant),
+  labelled as such under every result, and never stored. 10 tests in
+  `pronounce.test.ts`.
+- **The recap celebrates.** The green check became a riso stamp — a yellow burst, a
+  pink disc and a blue check stepping into register while halftone dots are thrown
+  out, then a short boil. Transform-only; the resting frame is the finished print.
+
+---
+
 ### Shipped 2026-08-27 — the last of the trading floor
 
 A visual pass over all five primary surfaces, done by looking at them. Almost

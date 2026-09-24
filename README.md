@@ -5,8 +5,10 @@ speakers learning German** — spaced repetition over a deep lexicon, grammar dr
 in for the words you are actually seeing, and a scheduler that tells you *why* each card
 is in front of you.
 
-No account, no sign-in, no tracking, and nothing to cancel. It runs entirely on your
-device and works offline.
+No account, no sign-in, no tracking, and nothing to cancel. Your progress lives only on
+your device, and studying works offline. The news reader fetches articles and dictionary
+entries straight from the publishers and Wiktionary into your browser; the optional
+tutor uses your own AI key, directly from your browser. Lexi itself has no server.
 
 > **Scope, stated so the promise never runs ahead of the corpus:** every gloss,
 > definition, rule and exercise prompt is in English. That is a deliberate choice — see
@@ -72,9 +74,13 @@ triangle on the way to it.
   machine-mark what a machine cannot mark; and **Tipprennen**, a typing race over your
   own cards, strict about the two things German actually punishes: capitalisation and
   umlauts.
-- **Read** — *give me real German.* Sentences built from words you already have, and the
-  comprehension meter: paste any German text and it says how much of it you can read,
-  with the count beside the percentage and the words that would get you over the line.
+- **Read** — *give me real German.* Today's news from tagesschau, SRF, DW and heise on
+  the topics you pick — economy, politics, immigration, tech, motorsport, games, art —
+  each marked with how much of it you already know. In an article, tap any word: a card
+  Lexi has, or a Wiktionary lookup you can save as a card whose example is the sentence
+  you met it in. Then write two to four sentences back (checked by the optional tutor if
+  you add a key). Below the feed: sentences built from your own words, and the
+  comprehension meter for any text you paste.
 - **Progress** — *how is it going?* The knowledge heatmap (treemap by theme group,
   area = cards, colour = how much you know); review and recall history, the 7-day due
   forecast, the known-growth curve; blind spots that expand inline into one-tap drills;

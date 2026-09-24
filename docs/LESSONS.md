@@ -51,6 +51,13 @@ the session's own 25 fixes, because the last commit is not the last state. The b
 replayed byte-identically — which is what `fix-authored`'s expect-guard is for — so it
 cost nothing this time, and it will not cost nothing the day the fix was made by hand.
 
+**…add a `localStorage` or IndexedDB key.** Ask whether a learner would miss it after
+a restore; if so, it goes in `SETTING_KEYS` *and* `store-backup.test.ts`. User words
+and saved texts were missing from every backup until 2026-09-24 (Class 11).
+
+**…write a regex over German text.** No `\b` — it treats *ä ö ü ß* as boundaries. Use
+`\p{L}` with the `u` flag, and never compile data into a pattern (Class 12).
+
 **…revert a data file to undo something.** `git checkout` reverts to the last *commit*,
 not to the last *good state*. In a session that has already written to the file, undo
 with the tool that wrote it or with a saved copy.
@@ -836,6 +843,86 @@ missing data.* A wrong query returns nothing, and nothing looks exactly like a g
 The search version returned bad rankings and the IPA version returned an empty
 column; neither ever threw. **Rule, sharpened: when a lookup reports that a source is
 missing a lot of entries, print the keys it actually sent before believing the source.**
+
+
+## Class 10 — running a state-changing git command in a place that cannot clean up after it
+
+### 2026-09-17 — the stash that could not unlink its own lock
+
+**Believed:** `git stash` / `git stash pop` in the working tree was a safe way to
+compare against the clean base mid-change. **True:** the session's sandbox could write
+to the repo but not delete in it, so `git stash` created `.git/index.lock` and a temp
+object, failed to unlink both, and aborted. The working tree survived, but every later
+git command in the repo refused to run until the lock was removed by hand.
+
+**Rule: to look at the base, read it (`git show HEAD:path`, `git diff`) or copy the tree
+elsewhere. Never run a git command that rewrites the index or the working tree from an
+environment you have not proved can delete files.**
+
+### 2026-09-24 — I did it again, with someone else's work in the tree
+
+**Believed:** comparing the matcher, the lint baseline and the bundle size against
+the base was worth a `git stash` / `git stash pop` each. **True:** this entry's rule
+already said not to, and I had not proved this environment could delete files. It
+could, and all three round-trips were clean — the owner's uncommitted riso restyle
+(nine modified files) came back byte-identical, checked against the session-start
+`git diff --stat`. But the risk was not mine to take: a failed pop would have put
+*someone else's* unsaved work in a stash they did not know existed.
+
+**Rule, sharpened: a dirty tree you did not make is a tree you do not stash.** For a
+before/after, `git show HEAD:path > /tmp/x` and import the copy — which is what the
+matcher comparison should have been from the start, and eventually was.
+
+## Class 11 — an allow-list that grows by memory
+
+### 2026-09-24 — the backup never carried the words its schedules point at
+
+**Believed:** the backup export is complete — it is the one thing a local-first app
+must get right. **True:** `SETTING_KEYS` is a hand-kept list, and neither
+`lexi.userwords.v1` (every class-pack and mined word) nor `lexi.texts.v1` (saved
+texts) had ever been added. A restore brought back the FSRS state of those cards and
+dropped the cards themselves, so the schedules pointed at nothing. Found only because
+the reader made user words the centre of the app and I went to check they survived.
+
+**Rule: a list of "what to keep" must be tested by what it must contain, not only by
+what it does.** `store-backup.test.ts` now asserts the user-word and reader keys are
+exported and the AI key never is. When you add a `localStorage` key, the question is
+not "is this a setting?" but "would a learner miss it after a restore?"
+
+## Class 12 — `\b` does not know German
+
+### 2026-09-24 — twice in one afternoon
+
+JavaScript's `\b` is an ASCII word boundary, so it treats **ä, ö, ü and ß as
+non-letters**. Writing the reader's sentence splitter, an "is this an abbreviation?"
+test (`\b[A-Za-zäöü]{1,3}\.$`) matched *llt.* inside *fällt.* and refused to end the
+sentence there. An hour later, a "did the learner use this word?" check built
+`new RegExp(\`\\b${word}\`)` — the same bug, plus unescaped learner-facing text
+compiled as a pattern. Both caught by tests written in German, not English.
+
+**Rule: in this repo, never use `\b` on German text. Use `(?<!\p{L})` / `(?!\p{L})`
+with the `u` flag, or a plain string search. And never compile data into a regex.**
+The matcher's `WORD_RE` already says `\p{L}` for exactly this reason; it is the model.
+
+## Class 2 (additions, 2026-09-24) — pointed at real news
+
+- **The name rule's first eight hits were nouns.** With de.wiktionary answering
+  "surname", "first name" or "place", names can leave the meter's denominator — but
+  for words with no page at all I wrote a suffix rule, and hand-checking the output on
+  11 live articles found *Fachaufsicht*, *Reformagenda*, *Dialogforum*,
+  *Winterrefugium*, *Energydrinks* and a hyphen fragment (*Heiz-*) called names: real
+  words the dictionary lacks, excluded from the count, flattering the learner. The
+  narrowed rule rejects any unlisted token containing a word the corpus knows; the
+  re-run's 53 names were all names. **The direction mattered more than the count: a
+  missed name costs a point of coverage, a noun passed off as a name is the meter
+  lying upward.**
+- **A pre-existing wrong answer, found only by diffing.** Comparing the old and new
+  matcher token by token on 25 Tagesschau articles showed the compound rule had been
+  reading lowercase present participles as nouns ending in *Ende* — *führenden* as
+  `führ` + *das Ende*, *steigenden*, *fehlende*, *folgenden* likewise — so every one
+  credited the learner with "das Ende". A miss shows as a gap; a wrong lemma shows as
+  nothing at all. **Rule: when you change a resolver, diff its output on real text
+  in both directions — newly resolved *and* changed — not only the count.**
 
 ---
 

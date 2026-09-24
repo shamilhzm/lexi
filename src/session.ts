@@ -6,6 +6,7 @@
 // one schedule and past Gym progress carries over.
 import type { Word, Target } from './types.ts';
 import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled } from './store.ts';
+import { minedFrom } from './lib/news/library.ts';
 import { BY_ID } from './data/index.ts';
 import { isDue, State } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, MODE_REMEDY, type Mode } from './views/Fundamentals.tsx';
@@ -40,7 +41,10 @@ export type SessionReason =
   /** Picked because the learner wants to read a specific text and this word is
    *  one of the ones standing between them and it. `text` is the learner's own
    *  label for it, so the scheduler can say "because you want to read this". */
-  | { kind: 'unlock'; text: string };
+  | { kind: 'unlock'; text: string }
+  /** A word the learner saved from an article they read. `title` is that
+   *  article's headline — the scheduler says where the word came from. */
+  | { kind: 'read'; title: string };
 
 export interface SessionItem {
   type: 'flip' | Mode;
@@ -73,7 +77,10 @@ function overdueDays(srsId: string, now = Date.now()): number {
 /** How a plain vocabulary flip got here: never seen, or scheduled and due. */
 function flipReason(w: Word, now = Date.now()): SessionReason {
   const c = cardOf(w.id);
-  if (!c || c.state === State.New) return { kind: 'fresh' };
+  if (!c || c.state === State.New) {
+    const from = w.id.startsWith('usr:read:') ? minedFrom(w.id) : null;
+    return from ? { kind: 'read', title: from.title } : { kind: 'fresh' };
+  }
   return { kind: 'due', overdueDays: overdueDays(w.id, now) };
 }
 
@@ -114,7 +121,8 @@ type PackedReason =
   | { k: 'linked'; t: string }
   | { k: 'remedy'; m: Mode; g: string; n: number }
   | { k: 'blindspot'; m: Mode; g: string; n: number }
-  | { k: 'unlock'; x: string };
+  | { k: 'unlock'; x: string }
+  | { k: 'read'; x: string };
 
 interface PackedItem { t: SessionItem['type']; s: string; w: string; r: PackedReason; e?: 1 }
 interface StoredSession { target: string; at: number; i: number; items: PackedItem[] }
@@ -133,6 +141,7 @@ function packReason(r: SessionReason): PackedReason {
     case 'remedy': return { k: 'remedy', m: r.mode, g: r.tag, n: r.misses };
     case 'blindspot': return { k: 'blindspot', m: r.mode, g: r.tag, n: r.misses };
     case 'unlock': return { k: 'unlock', x: r.text };
+    case 'read': return { k: 'read', x: r.title };
   }
 }
 
@@ -142,6 +151,7 @@ function unpackReason(r: PackedReason): SessionReason | null {
   switch (r.k) {
     case 'fresh': return { kind: 'fresh' };
     case 'unlock': return { kind: 'unlock', text: r.x };
+    case 'read': return { kind: 'read', title: r.x };
     case 'due': return { kind: 'due', overdueDays: r.d };
     case 'orphan': return { kind: 'orphan', overdueDays: r.d, mode: r.m };
     case 'drill': {

@@ -452,10 +452,17 @@ export function buildBriefing(): Briefing {
   const want = Math.min(PACE[pace()].fresh, Math.max(0, MIN_DAILY - served.length));
   const freshIds: string[] = [];
   const weak: string[] = [];
+  // Words the learner saved from their own reading come first, and are not held
+  // back by the top-up rule: they asked for these by name, from something they
+  // chose to read, which is a better reason than any sector ranking. Capped at the
+  // pace's daily fresh allowance so a long reading session cannot flood tomorrow.
+  const minedNew = WORDS.filter((w) => w.id.startsWith('usr:read:') && inLevels(w) && statusOf(w.id) === 'new');
+  for (const w of minedNew.slice(0, PACE[pace()].fresh)) freshIds.push(w.id);
   for (const s of weakestSectors(6)) {
     if (freshIds.length >= want) break;
     const newCards = (WORDS_BY_SECTOR.get(s.name) ?? [])
-      .filter((w) => inLevels(w) && statusOf(w.id) === 'new')
+      // Mined words live in a sector of their own and may already be queued above.
+      .filter((w) => inLevels(w) && statusOf(w.id) === 'new' && !freshIds.includes(w.id))
       // Within a sector, teach the commonest words first. Same reasoning as
       // firstRunIds: the sector and the level are both coarse, and this is the one
       // ordering signal that says which of two equally-eligible A2 nouns the
@@ -1520,6 +1527,15 @@ const SETTING_KEYS = [
   'lexi.focus.v1', 'lexi.pace.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
   'lexi.completions.v1',
+  // Added 2026-09-24. The first two were missing since they existed: a restore
+  // brought back the FSRS schedules of class-pack and mined words while dropping
+  // the words themselves, so the schedules pointed at nothing (LESSONS, class 9).
+  'lexi.userwords.v1', 'lexi.texts.v1',
+  // The reader's own state (lib/news/library.ts, lib/ai.ts). Literal keys, not
+  // imports: library.ts imports this file.
+  'lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.mined.v1', 'lexi.journal.v1', 'lexi.ai.v1',
+  // Deliberately NOT 'lexi.ai.key.v1'. A backup file is meant to be carried
+  // around and handed over; an API key in it would be a secret in plain text.
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

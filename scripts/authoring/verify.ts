@@ -28,6 +28,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildMatcher } from '../../src/lib/matcher.ts';
+import { parseFacts, POS_MAP } from '../../src/lib/wiktionary.ts';
 import { headwordEvidence } from '../corpus/lib.ts';
 import type { CEFR, Word } from '../../src/types.ts';
 
@@ -90,7 +91,6 @@ const lemmaOf = (t: string) => stripArticle(t)
   .replace(/^sich\s+/i, '')
   .trim();
 
-const GENUS: Record<string, 'der' | 'die' | 'das'> = { m: 'der', f: 'die', n: 'das' };
 
 // ---- the authority ---------------------------------------------------------
 
@@ -136,59 +136,11 @@ export async function wikitext(page: string): Promise<string | null> {
 const MISSING = '\0MISSING';
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-export interface Facts {
-  /** *All* genders the page attests, not the first one found.
-   *
-   *  German has real gender pairs — `das Schild` (a sign) beside `der Schild`
-   *  (a shield), `das Alter` (age) beside `der Alter` (colloquial old man),
-   *  `der Teil` (a portion) beside `das Teil` (a component). Reading only the
-   *  first `Genus=` on the page rejected all three of those as contradicting the
-   *  dictionary when they do nothing of the kind. A candidate is contradicted
-   *  only when its gender is attested nowhere. */
-  genders: Set<'der' | 'die' | 'das'>;
-  plurals: string[];
-  ipa: string | null;
-  /** Which German parts of speech the page attests. */
-  pos: Set<string>;
-}
-
-/** Pull the facts out of the German section's structured templates. Deliberately
- *  narrow: only the fields that are unambiguous in the markup are read, because a
- *  half-parsed dictionary is worse than no dictionary. */
-export function parseFacts(wt: string): Facts {
-  // Only the German section. Other languages use the same templates and would
-  // otherwise donate an English noun's gender to a German card.
-  const de = wt.split(/^==\s*[^=]+\s*\(\{\{Sprache\|/m)
-    .find((s) => s.startsWith('Deutsch}}')) ?? wt;
-
-  const genders = new Set<'der' | 'die' | 'das'>();
-  for (const m of de.matchAll(/\|\s*Genus(?:\s*\d*)?\s*=\s*([mfn])\b/g)) genders.add(GENUS[m[1]]);
-
-  const plurals: string[] = [];
-  for (const m of de.matchAll(/\|\s*Nominativ Plural(?:\s*\d+)?\s*=\s*([^\n|}]+)/g)) {
-    const pl = m[1].trim();
-    if (pl && pl !== '—' && pl !== '-' && !plurals.includes(pl)) plurals.push(pl);
-  }
-
-  const ipa = de.match(/\{\{Lautschrift\|([^}|]+)\}\}/);
-
-  const pos = new Set<string>();
-  for (const m of de.matchAll(/\{\{Wortart\|([^|}]+)\|Deutsch\}\}/g)) pos.add(m[1].trim());
-
-  return { genders, plurals, ipa: ipa?.[1]?.trim() || null, pos };
-}
-
-/** de.wiktionary's part-of-speech names → the corpus vocabulary. */
-const POS_MAP: Record<string, string> = {
-  Substantiv: 'noun', Verb: 'verb', Adjektiv: 'adjective', Adverb: 'adverb',
-  Pronomen: 'pronoun', Präposition: 'preposition', Konjunktion: 'conjunction',
-  // de.wiktionary's category is *Numerale*; the corpus has always written `number`
-  // (17 cards, `null` through `zwölf`). The map said 'numeral', which matches no
-  // card and no `ALLOWED_POS` entry, so the gate could not author a single
-  // numeral — caught trying to add `tausend`, which the corpus is missing.
-  Numerale: 'number', Zahlwort: 'number', Interjektion: 'interjection', Partikel: 'particle',
-  Subjunktion: 'conjunction', Artikel: 'article',
-};
+// `Facts`, `parseFacts` and `POS_MAP` moved to `src/lib/wiktionary.ts` on
+// 2026-09-24, when the app started reading de.wiktionary at runtime for words the
+// corpus does not carry. One parser, so the gate and the reader cannot disagree
+// about what a dictionary page says. Re-exported for the scripts that import it here.
+export { parseFacts, type Facts } from '../../src/lib/wiktionary.ts';
 
 // ---- the checks ------------------------------------------------------------
 

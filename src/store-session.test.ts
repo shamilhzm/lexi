@@ -59,6 +59,23 @@ describe('buildBriefing', () => {
     for (const id of b.ids) expect(store.statusOf(id)).toBe('new');
   });
 
+  it('puts words saved from reading first, once each, and says where they came from', async () => {
+    const { data, store, session } = await fresh();
+    data.registerWords([
+      ...Array.from({ length: 4 }, (_, i) => word(`a${i}`, 'Sector A')),
+      word('usr:read:Zugang', 'Aus deiner Lektüre', { term: 'der Zugang' }),
+    ]);
+    localStorage.setItem('lexi.mined.v1', JSON.stringify({
+      'usr:read:Zugang': { title: 'Strom für die Ukraine', url: 'https://example.org', sentence: 'x', at: 1 },
+    }));
+    const b = store.buildBriefing();
+    expect(b.ids[0]).toBe('usr:read:Zugang');
+    expect(b.ids.filter((id) => id === 'usr:read:Zugang')).toHaveLength(1);
+    const items = session.buildMixedSession({ kind: 'custom', name: 'Today', ids: b.ids });
+    const first = items.find((it) => it.word.id === 'usr:read:Zugang');
+    expect(first?.reason).toEqual({ kind: 'read', title: 'Strom für die Ukraine' });
+  });
+
   it('teaches the commonest words in a sector first', async () => {
     // The point of the frequency index: within one sector at one level, every card
     // is equally eligible, and corpus order decided it. Registered deliberately

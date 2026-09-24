@@ -24,8 +24,8 @@ the useful part.
 Not "styled". The app draws on the German design tradition it teaches — Otl Aicher and
 HfG Ulm, cartography, the printed lexicon — because form matching subject is the
 difference between a tool that looks competent and one that feels like its subject.
-The identity is **the Atlas**; the terminal it replaced was borrowed authority from a
-domain Lexi is not in. [DESIGN.md](DESIGN.md) is the system of record.
+The identity is **the Atlas, printed in riso** (since 2026-09-17); the terminal it
+replaced was borrowed authority from a domain Lexi is not in. [DESIGN.md](DESIGN.md) is the system of record.
 
 **Forbids:** a visual language that could belong to any dashboard. Motion that has a
 library instead of a director. Restraint used as a synonym for absence.
@@ -137,11 +137,10 @@ argued and declined on the record — reopening one means writing down what chan
 
 | Refusal | Why |
 |---|---|
-| **AI conversation tutor** | Commoditizing category, needs a backend and keys, breaks the privacy-by-architecture story, six better-funded competitors already there. `lib/ai.ts` survives for **build-time corpus enrichment only**. |
+| **AI conversation tutor** | Commoditizing category, six better-funded competitors already there. *Narrowed 2026-09-24:* the refusal stands for a **chatbot**; an optional, bring-your-own-key tutor that explains a sentence you are reading and corrects what you write back is built — see Settled decisions for what changed. |
 | **Competing on content volume** | Duolingo shipped 20,500 units in a quarter. You lose. Do not enter. |
 | **Leagues, streak-shaming, social pressure** | Four of six teachers and three of six learners in [PEDAGOGY.md](PEDAGOGY.md) named the absence as the reason they would recommend it. |
-| **Machine-marked writing and speaking** | A drill that marks correct German wrong is worse than no drill. Show the examiners' criteria instead. |
-| **Speech-recognition pronunciation scoring** | Consumer ASR marks accented-but-correct German wrong, punishing exactly the learner who most needs encouragement. Minimal-pair *listening* is the honest version. |
+| **Machine-marked writing and speaking** | A drill that marks correct German wrong is worse than no drill. Show the examiners' criteria instead. *Still refused as marking:* the optional tutor's feedback on writing carries no score, no grade, and never touches FSRS, readiness or any number. |
 | **A teacher dashboard** | Needs accounts, which every teacher persona named as the thing they would lose. Print, learner-initiated export and class packs get most of the value at none of the price. |
 | **Saying "you can now …" from a word count** | It would be the most dishonest sentence in the app. |
 
@@ -164,6 +163,53 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   refuses to write a card it cannot verify against de.wiktionary, and every example
   must contain a real inflection proved by the app's own matcher.
 - **Code is MIT** *(2026-08-13)* — see commitment 4.
+- **Speech-recognition pronunciation practice is built** *(2026-09-17, reopening a
+  refusal)*. **What changed:** the owner decided the game is worth building despite
+  the risk, and browsers can now recognise German on the device (`processLocally`),
+  which removes the privacy half of the objection where it is supported. **What did
+  not change:** consumer ASR still mishears accented-but-correct German. So the
+  feature carries the refusal's reasoning as constraints: the score is transcript
+  similarity and is labelled as such under every result, nothing is stored, it is a
+  game in Practice and never feeds FSRS or readiness, and where recognition would
+  run in the browser vendor's cloud it asks before recording. Minimal-pair listening
+  is still the better-evidenced feature and stays on the wishlist.
+- **The Atlas is printed in riso** *(2026-09-17)* — see DESIGN.md §1. The owner's
+  call: the principles of the Atlas stand; the surface is now a two-ink print.
+- **Lesen leads with the news; the learner's browser fetches, Lexi ships nothing**
+  *(2026-09-24, settles open decision #2)*. **Why:** the owner — the app's first and
+  most committed user — reached B1 after five months and stopped opening it.
+  German-as-subject had lost to everything German could be *about*: economy, tech,
+  politics, immigration, motorsport, games, art, a stalled career. And the corpus
+  could not have carried them further: **of the content words in 25 Tagesschau
+  articles, 23% are not in Lexi's corpus at all** — not only names, but *der Fall*,
+  *der Dienst*, *das Konzept*, *lauten*, *sogenannt*. Course-book vocabulary is a
+  different register from the news, and growing the corpus to meet it is the
+  content-volume race refused above. **What was built:** a feed of today's articles
+  from tagesschau, SRF, DW and heise on topics the learner picks; a reader where any
+  word is one tap from its card or a de/en.wiktionary lookup; saving a word makes a
+  card whose example is the sentence it was met in; a write-back prompt after every
+  article. **The rule it keeps:** only publishers whose endpoints a browser may read
+  directly (CORS open) are used; every article is fetched by the learner's own
+  browser for private reading and cached only on their device — the relationship a
+  feed reader has, not a publisher's. Tagesschau's API terms allow private,
+  non-commercial use and forbid republishing, and cap use at 60 requests an hour,
+  which the client enforces. No publisher text is in the repo, the build, or a test
+  fixture. **If Lexi ever charges money, this decision is re-read first.**
+- **An optional tutor, bring-your-own-key** *(2026-09-24, narrowing two refusals)*.
+  **What changed:** (1) at B1 the bottleneck is output with feedback, which no
+  deterministic check can give, and the owner is at B1; (2) "needs a backend and
+  keys" — a learner's own key, used from their browser, needs no backend (verified:
+  Anthropic and OpenRouter both accept browser requests); (3) "breaks the privacy
+  story" — it is off by default, with no key nothing leaves the device, and with one
+  the text goes only to the provider the learner chose, never to Lexi, and the key is
+  never in a backup. **What did not change:** a chatbot is still a commoditizing
+  category, so conversation stays refused; and a machine that marks correct German
+  wrong is still worse than none, so nothing it says is a score. **The constraints,
+  therefore:** it does two jobs about language the learner has already met —
+  explain a sentence they are reading, correct what they wrote back about it — shows
+  its advice once, labels it as AI and fallible, keeps the writing in a journal, and
+  never writes a fact onto a card: card facts stay looked up (Wiktionary) and examples
+  stay observed (the learner's own sentence).
 
 ---
 
@@ -186,11 +232,19 @@ excellent design work and is explicitly unbuilt; it is kept for that reason and 
 as proposal, not policy. **Until this is settled, local-first is the shipping
 behaviour and no doc should promise otherwise.**
 
-### 2. Bundled reading content
+### 2. ~~Bundled reading content~~ — settled 2026-09-24
 
-The comprehension meter's Phase 2 wants a feed, and the obvious fit — DW's *Langsam
-gesprochene Nachrichten* — is not automatically redistributable. Decide whether Lexi
-ever ships someone else's text or stays strictly learner-supplied.
+Lexi ships no one's text; the learner's browser fetches it from the publisher. See
+Settled decisions. What remains open is the next question down:
+
+### 2b. A relay for the sources a browser cannot read
+
+Spiegel, Zeit, FAZ, Handelsblatt, t3n, golem, GameStar and the specialist motorsport
+sites serve their feeds without CORS, so the reader cannot reach them. A stateless,
+allow-listed fetch relay on the existing Vercel deploy would — it stores nothing and
+sees no learner data, but it is a server, and "no backend" has so far meant *none*.
+Decide whether a relay that holds nothing counts. Until then the reader stays
+CORS-only, and motorsport and games coverage is thinner than the learner wants.
 
 ### 3. Billing / the supporter tier
 

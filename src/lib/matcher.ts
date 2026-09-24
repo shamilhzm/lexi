@@ -88,6 +88,18 @@ export const FUNCTION_WORDS = new Set<string>([
   'meinen', 'meinem', 'meiner', 'meines', 'deinen', 'deinem', 'deiner', 'deines',
   'seinen', 'seinem', 'seiner', 'seines', 'ihren', 'ihrem', 'ihrer', 'ihres',
   'unseren', 'unserem', 'unserer', 'unseres', 'unsere', 'euren', 'eurem', 'eurer', 'eures', 'eure',
+
+  // ---- added 2026-09-24, measured against news, not an exam paper -----------
+  // Pointing the meter at 25 Tagesschau articles and the Leipzig *news* list,
+  // these were among the commonest unresolved tokens in both: relative and
+  // demonstrative pronouns, and the determiners news prose leans on. Closed-class
+  // for the same reason as the block above. `deren` is not here because it is a
+  // card (A1) and resolves; excluding it would take it off a learner who has it.
+  'denen', 'dessen', 'derer', 'dies',
+  'derjenige', 'diejenige', 'dasjenige', 'diejenigen', 'denjenigen', 'demjenigen', 'desjenigen', 'derjenigen',
+  'derselbe', 'dieselbe', 'dasselbe', 'dieselben', 'denselben', 'demselben', 'desselben', 'derselben',
+  'mehrere', 'mehreren', 'mehrerer', 'sämtliche', 'sämtlichen', 'sämtlicher',
+  'jenem', 'jenen', 'einiger', 'einigem', 'solcher', 'solchem', 'mancher', 'manchem',
 ]);
 export const isFunctionWord = (tok: string) => FUNCTION_WORDS.has(tok.toLowerCase());
 
@@ -192,17 +204,32 @@ export function pluralForm(term: string, plural: string | null | undefined): str
   return base + suffix;
 }
 
-// High-frequency finite forms the conjugation generator doesn't produce (modal +
-// haben/werden Konjunktiv II, sein's Konjunktiv I/II), keyed by infinitive.
+// High-frequency finite forms the conjugation generator doesn't produce, keyed by
+// infinitive. The strong-verb Konjunktiv II (*gäbe*, *käme*) is derived, not
+// listed — see the pass after the recognition present below.
 const EXTRA_VERB_FORMS: Record<string, string[]> = {
-  dürfen: ['dürfte', 'dürftest', 'dürften', 'dürftet'],
-  können: ['könnte', 'könntest', 'könnten', 'könntet'],
-  müssen: ['müsste', 'müsstest', 'müssten', 'müsstet'],
-  mögen: ['möchte', 'möchtest', 'möchten', 'möchtet'],
+  // Konjunktiv II, then (2026-09-24) Konjunktiv I — the mood of reported speech,
+  // which is to say the mood of the news: «Der Minister sagte, man *könne* nicht
+  // warten.» For every other verb the Konjunktiv I 3rd singular is spelled like
+  // the 1st singular present and is already indexed; the modals and *wissen* have
+  // an irregular present, so they are the only ones that need listing. `könne`
+  // was the commonest unresolved lowercase token in 25 Tagesschau articles.
+  dürfen: ['dürfte', 'dürftest', 'dürften', 'dürftet', 'dürfe', 'dürfest', 'dürfet'],
+  können: ['könnte', 'könntest', 'könnten', 'könntet', 'könne', 'könnest', 'könnet'],
+  müssen: ['müsste', 'müsstest', 'müssten', 'müsstet', 'müsse', 'müssest', 'müsset'],
+  mögen: ['möchte', 'möchtest', 'möchten', 'möchtet', 'möge', 'mögest', 'möget'],
+  sollen: ['solle', 'sollest', 'sollet'],
+  wollen: ['wolle', 'wollest', 'wollet'],
+  wissen: ['wisse', 'wissest', 'wisset', 'wüsste', 'wüsstest', 'wüssten', 'wüsstet'],
   werden: ['würde', 'würdest', 'würden', 'würdet'],
   haben: ['hätte', 'hättest', 'hätten', 'hättet'],
   sein: ['wäre', 'wärest', 'wärst', 'wären', 'wäret', 'sei', 'seist', 'seiest', 'seien', 'seiet'],
 };
+
+/** Mixed verbs: weak endings, but the Konjunktiv II still umlauts —
+ *  *brachte* → *brächte*, *dachte* → *dächte*. The strong-verb rule below keys
+ *  on a Präteritum without *-te*, so these are the ones it cannot reach. */
+const MIXED_KONJ2: Record<string, string> = { bringen: 'brächte', denken: 'dächte' };
 
 /** Suppletive comparison — the handful of adjectives whose comparative and
  *  superlative are different words. `besser` and `besten` cannot be reached from
@@ -213,7 +240,11 @@ const SUPPLETIVE: Record<string, string[]> = {
     'best', 'beste', 'besten', 'bester', 'bestes', 'bestem'],
   viel: ['mehr', 'meist', 'meiste', 'meisten', 'meister', 'meistes', 'meistem'],
   gern: ['lieber', 'liebsten', 'am liebsten'],
-  hoch: ['höher', 'höhere', 'höheren', 'höherer', 'höheres', 'höherem',
+  // *hoch* also drops its *c* whenever it takes an ending — *hohe Kosten*, *die
+  // hohen Preise* — which no ending-stripper can undo. `hohen` and `hohe` were in
+  // the top 100 unresolved forms of the Leipzig news list.
+  hoch: ['hohe', 'hohen', 'hoher', 'hohes', 'hohem',
+    'höher', 'höhere', 'höheren', 'höherer', 'höheres', 'höherem',
     'höchst', 'höchste', 'höchsten', 'höchster', 'höchstes', 'höchstem'],
   nah: ['näher', 'nähere', 'näheren', 'näherer', 'näheres', 'näherem',
     'nächst', 'nächste', 'nächsten', 'nächster', 'nächstes', 'nächstem'],
@@ -509,6 +540,39 @@ export function buildMatcher(corpus: Word[]): Matcher {
     }
   }
 
+  // Konjunktiv II of strong verbs — *gäbe*, *käme*, *ginge*, *läge*, *hielte*.
+  //
+  // The conditional of the news and of every polite request, and the conjugator
+  // emits only the analytic *würde* form, so none of these resolved. They are
+  // derived rather than listed because the rule is exact for the common verbs:
+  // the Präteritum stem, umlauted where it can be, plus the subjunctive endings.
+  // A weak verb's Konjunktiv II *is* its Präteritum and is already indexed, so a
+  // Präteritum in *-te* is skipped — except the mixed verbs, which umlaut anyway.
+  //
+  // **After** every real form, because `add` is first-wins: *fahren* derives
+  // *führe*, which is also `führen`'s 1st singular and must stay `führen`'s.
+  for (const w of corpus) {
+    if (w.pos !== 'verb') continue;
+    const inf = stripArticle(w.term);
+    if (!canConjugate(inf)) continue;
+    let praet: string;
+    try { praet = conjugate(inf).praeteritum[0] ?? ''; } catch { continue; }
+    const [stem, particle] = praet.toLowerCase().split(/\s+/);
+    if (!stem) continue;
+    const mixed = MIXED_KONJ2[inf.toLowerCase()];
+    let forms: string[];
+    if (mixed) forms = [mixed, `${mixed}st`, `${mixed}n`, `${mixed}t`];
+    else if (stem.endsWith('te')) continue;
+    else {
+      const u = umlautStem(stem);
+      forms = stem.endsWith('e') ? [u, `${u}st`, `${u}n`, `${u}t`] : [`${u}e`, `${u}est`, `${u}en`, `${u}et`];
+    }
+    for (const f of forms) {
+      if (particle) { addSep(f, particle, w); add(particle + f, w); addVerb(particle + f, w); }
+      else { add(f, w); addVerb(f, w); }
+    }
+  }
+
   // Feminine derivation — and deliberately the **last** pass over the corpus.
   //
   // Exam texts use paired and Binnen-I forms constantly ("acht Schülerinnen und
@@ -701,21 +765,57 @@ export function buildMatcher(corpus: Word[]): Matcher {
     // Runs last so it can never outrank a real lemma, and is capped at two splits
     // because three-element compounds that are not already covered are rare enough
     // to be worth leaving visible.
-    const compound = splitCompound(lc, 0);
+    // Partizip I, declined as an adjective: *steigende Preise*, *im folgenden
+    // Jahr*, *die führenden Institute*. The infinitive plus *-d* plus an adjective
+    // ending, and news prose is full of it. Before this existed the compound rule
+    // below was quietly claiming these as nouns — *führenden* as `führ` + *Ende*,
+    // so the meter credited a learner with "das Ende" for every one — which is why
+    // this sits in front of it. Resolved only to a verb card.
+    const p1 = /^(\p{L}{2,}?(?:en|ern|eln))d(?:e|en|em|er|es)?$/u.exec(lc);
+    if (p1) {
+      const v = verbIndex.get(p1[1]) ?? index.get(p1[1]);
+      if (v && v.pos === 'verb') return v;
+    }
+    // A noun compound is a noun, and German capitalises every noun — so a
+    // lowercase token is never one. Without this, *zugreifen* split into
+    // *Zug* + *Reifen* and *zugrunde* into *zu* + *Runde* (found reading 25 news
+    // articles against the matcher, 2026-09-24).
+    const compound = capitalised ? splitCompound(lc, 0) : null;
     if (compound) return compound;
+    // Swiss orthography has no ß — *gross*, *Strasse*, *schliesslich* — and SRF,
+    // one of the few broadcasters whose articles a browser may fetch directly,
+    // writes it that way. Only reached after every ordinary route has missed, so it
+    // cannot take a real *ss* word (*Wasser*, *müssen*) away from itself.
+    if (lc.includes('ss')) {
+      for (const alt of [tok.replace(/ss/g, 'ß'), tok.replace('ss', 'ß'), tok.replace(/ss(?!.*ss)/, 'ß')]) {
+        if (alt === tok) continue;
+        const hit = matchWord(alt, after, prev, pos, before);
+        if (hit) return hit;
+      }
+    }
     return null;
   };
 
   /** Linking elements German inserts between compound elements. */
   const FUGEN = ['s', 'es', 'n', 'en', 'er', 'e', ''];
   const MIN_ELEMENT = 4;
+  /** Three-letter nouns that head (or open) compounds constantly — *Wahltag*,
+   *  *Katzenart*, *Stadtrat*, *Finanzamt*, *Wohnungsbau*, *Radweg*. The four-letter
+   *  floor exists because short strings match by accident, so this is a list of
+   *  nouns, not a lower floor: `man` and `ort` in *Altman* or *Sport* must still
+   *  not split. Each is only used when the corpus actually has it as a noun. */
+  const SHORT_ELEMENTS = new Set(['tag', 'art', 'rat', 'amt', 'bau', 'weg', 'zug', 'rad', 'bad', 'see',
+    'arm', 'bus', 'eis', 'uhr', 'hof', 'typ', 'zoo', 'gas', 'tor', 'ziel']);
+  const elementOk = (s: string) => s.length >= MIN_ELEMENT || SHORT_ELEMENTS.has(s);
 
   /** Resolve `lc` as a compound whose every element is known. Returns the head. */
   function splitCompound(lc: string, depth: number): Word | null {
-    if (depth > 1 || lc.length < MIN_ELEMENT * 2) return null;
+    if (depth > 1 || lc.length < 6) return null;
     // Longest head first: prefer *Gruppen|ticket* over *Gruppenti|cket*.
-    for (let cut = lc.length - MIN_ELEMENT; cut >= MIN_ELEMENT; cut--) {
-      const head = index.get(lc.slice(cut));
+    for (let cut = lc.length - 3; cut >= 3; cut--) {
+      const tail = lc.slice(cut);
+      if (!elementOk(tail)) continue;
+      const head = index.get(tail);
       // Only a noun head, and only a noun compound. Verb and adjective compounds
       // change meaning far more freely (`umfahren` is two opposite verbs).
       if (!head || head.pos !== 'noun') continue;
@@ -723,7 +823,7 @@ export function buildMatcher(corpus: Word[]): Matcher {
       for (const fuge of FUGEN) {
         if (fuge && !front.endsWith(fuge)) continue;
         const stem = fuge ? front.slice(0, -fuge.length) : front;
-        if (stem.length < MIN_ELEMENT) continue;
+        if (!elementOk(stem)) continue;
         if (index.get(stem) || adjIndex.get(stem) || splitCompound(stem, depth + 1)) return head;
       }
     }

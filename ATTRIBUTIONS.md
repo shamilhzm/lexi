@@ -179,6 +179,37 @@ imaging data is involved, and the surface says so in a standing caption.
 Per-region citations live in `src/lib/brain/atlas.ts` and are shown to the learner
 alongside a confidence tier. Primary sources are listed in `docs/BRAIN.md`.
 
+## Read at runtime by the learner's browser — never shipped *(added 2026-09-24)*
+
+The reader in *Lesen* fetches articles and dictionary entries **from the learner's own
+browser, for that learner's private reading**, and caches them only on their device.
+None of this text is in the repository, the build, the test fixtures, or any server
+(Lexi runs none). Each source was chosen because its endpoints allow a browser to read
+them directly (CORS open, verified 2026-09-24), and each article links to its original.
+
+| Source | What is read | Terms, as they bear on this use |
+|---|---|---|
+| **tagesschau** (ARD-aktuell) — `tagesschau.de/api2u` | news lists and article text | "Die Nutzung der Inhalte für den privaten, nicht-kommerziellen Gebrauch ist gestattet, die Veröffentlichung hingegen nicht" (bundesAPI/tagesschau-api README); max 60 requests/hour — enforced client-side at 45 (`lib/news/feed.ts`). **Re-read before Lexi ever charges money.** |
+| **SRF** (Schweizer Radio und Fernsehen) — public RSS + article pages | news lists and article text | Public feeds and pages, read in place for private reading with a link back; not republished. |
+| **DW** — *Langsam gesprochene Nachrichten* (RSS + learngerman.dw.com) | transcript and the mp3 (played from DW's server) | DW's free learner programme; read and played in place, linked back; not republished. |
+| **heise online** — public Atom feed | headlines and teasers only | The full article stays on heise.de; the reader links to it. |
+| **de.wiktionary** — MediaWiki API | gender, plural, IPA, part of speech, lemma of an inflected form, and name categories | CC BY-SA 4.0. Facts (gender, plural) are not copyrightable; each lookup links to its entry. |
+| **en.wiktionary** — REST `page/definition` | English glosses for German words | CC BY-SA 4.0. Shown with a link to the entry; when a learner saves a word, the gloss is stored in *their* card on *their* device, with the entry linked from the lookup. |
+
+**Test fixtures** for these parsers (`src/lib/news/parse.test.ts`,
+`src/lib/wiktionary.test.ts`) are hand-written in each source's *shape*; no publisher
+or Wiktionary text is committed.
+
+## Optional AI at runtime *(added 2026-09-24)*
+
+The optional tutor (`src/lib/ai.ts`) runs **only with the learner's own API key**,
+entered in Settings, stored in their browser's localStorage, sent only to the provider
+they choose (Anthropic or OpenRouter), and **never included in the backup export**.
+It sends the sentence or the learner's own writing and the article's title; it
+returns explanations and corrections that are shown to the learner and kept in their
+local journal. It never writes a card field. It adds no licensing obligation to
+anything Lexi ships, because Lexi ships none of its output.
+
 ## License of the shipped corpus
 
 Because of the CC BY-SA obligation from Wiktionary (source 2), the **data files**
@@ -195,10 +226,10 @@ generated card id to the origin of its level, gloss, facts, example, and sector 
 including the layer that decided the CEFR level (`reference` | `frequency` |
 `llm`). This is the machine-readable audit trail behind the attributions above.
 
-## Offline LLM use (build time only)
+## Offline LLM use (build time)
 
 The optional leveling/sector layer calls an OpenAI-compatible API (OpenRouter by
-default) **at build time only**, never in the shipped app. The key is read from
+default) **at build time only** — separate from the learner-keyed runtime tutor above. The key is read from
 `openrouter.key.local` (git-ignored via `*.local`) or the `OPENROUTER_KEY` env
 var, is **never committed**, and is **never `VITE_`-embedded** (which would leak
 it into the client bundle). The LLM contributes level/sector *judgements*, not
