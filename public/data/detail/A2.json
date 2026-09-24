@@ -2173,6 +2173,20 @@
       }
     ]
   },
+  "voc:A2:das Alphabet": {
+    "ex": [
+      {
+        "de": "Das deutsche Alphabet hat auch das ß.",
+        "en": "The German alphabet also has the sharp s.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Kinder lernen das Alphabet.",
+        "en": "The children are learning the alphabet.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Amt": {
     "def": "agency; department; office (state institution responsible for specified concerns); office; post (public function, e.g. of a civil servant)",
     "ex": [
@@ -2673,6 +2687,20 @@
       }
     ]
   },
+  "voc:A2:das Emoji": {
+    "ex": [
+      {
+        "de": "Sie antwortet nur mit einem Emoji.",
+        "en": "She only replies with an emoji.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Welches Emoji benutzt du am meisten?",
+        "en": "Which emoji do you use most?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Erdgeschoss": {
     "def": "first floor (US), ground floor (UK)",
     "ex": [
@@ -2915,6 +2943,20 @@
       }
     ]
   },
+  "voc:A2:das Festnetz": {
+    "ex": [
+      {
+        "de": "Ruf mich lieber auf dem Festnetz an.",
+        "en": "Call me on the landline instead.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Viele junge Leute haben kein Festnetz mehr.",
+        "en": "Many young people no longer have a landline.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Finale": {
     "def": "The last and deciding round of a competition.",
     "ex": [
@@ -3027,6 +3069,20 @@
       {
         "de": "Dieses Gasthaus ist voller junger Paare.",
         "en": "This restaurant is full of young couples.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Geburtsdatum": {
+    "ex": [
+      {
+        "de": "Tragen Sie bitte Ihr Geburtsdatum ein.",
+        "en": "Please enter your date of birth.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Geburtsdatum im Pass ist falsch.",
+        "en": "The date of birth in the passport is wrong.",
         "lvl": "A2"
       }
     ]
@@ -10051,6 +10107,20 @@
       }
     ]
   },
+  "voc:A2:der Superlativ": {
+    "ex": [
+      {
+        "de": "Der Superlativ von gut ist am besten.",
+        "en": "The superlative of good is best.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Werbung arbeitet gern mit dem Superlativ.",
+        "en": "Advertising likes to use the superlative.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Tausch": {
     "def": "exchange, barter (an exchange of one item for another of equal value)",
     "ex": [
@@ -15734,6 +15804,20 @@
       }
     ]
   },
+  "voc:A2:die Pasta": {
+    "ex": [
+      {
+        "de": "Heute Abend gibt es Pasta mit Tomatensoße.",
+        "en": "Tonight there's pasta with tomato sauce.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Pasta ist noch nicht fertig.",
+        "en": "The pasta isn't ready yet.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Patientin": {
     "def": "patient (female)",
     "ex": [
@@ -17340,6 +17424,20 @@
         "de": "Für Touristen ist die Tageskarte meist die günstigste Wahl.",
         "en": "For tourists the day ticket is usually the cheapest option.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Tageszeit": {
+    "ex": [
+      {
+        "de": "Zu dieser Tageszeit ist die Bahn sehr voll.",
+        "en": "The train is very full at this time of day.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du kannst zu jeder Tageszeit anrufen.",
+        "en": "You can call at any time of day.",
+        "lvl": "A2"
       }
     ]
   },

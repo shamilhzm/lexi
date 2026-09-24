@@ -5169,6 +5169,20 @@
       }
     ]
   },
+  "voc:B1:das Guthaben": {
+    "ex": [
+      {
+        "de": "Auf meinem Handy ist kein Guthaben mehr.",
+        "en": "There is no credit left on my phone.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Guthaben wird Ihnen erstattet.",
+        "en": "The credit balance will be refunded to you.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Hallenbad": {
     "def": "A swimming pool inside a building, usable all year round.",
     "ex": [
@@ -5746,6 +5760,20 @@
       {
         "de": "Das letzte Level ist extrem schwer.",
         "en": "The last level is extremely hard.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Lexikon": {
+    "ex": [
+      {
+        "de": "Früher hat man im Lexikon nachgeschlagen.",
+        "en": "People used to look things up in the encyclopaedia.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist ein wandelndes Lexikon.",
+        "en": "He is a walking encyclopaedia.",
         "lvl": "B1"
       }
     ]
@@ -8377,6 +8405,20 @@
       }
     ]
   },
+  "voc:B1:der Anhang": {
+    "ex": [
+      {
+        "de": "Im Anhang finden Sie meinen Lebenslauf.",
+        "en": "Please find my CV attached.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Anhang ist zu groß für die E-Mail.",
+        "en": "The attachment is too big for the email.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Anhänger": {
     "def": "A follower or fan; also a vehicle towed behind another.",
     "ex": [
@@ -9774,6 +9816,20 @@
       {
         "de": "Ihr Ehemann kocht am Wochenende.",
         "en": "Her husband cooks at the weekend.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Ehepartner": {
+    "ex": [
+      {
+        "de": "Der Ehepartner bekommt eine Aufenthaltskarte.",
+        "en": "The spouse receives a residence card.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte geben Sie auch die Daten Ihres Ehepartners an.",
+        "en": "Please also give your spouse's details.",
         "lvl": "B1"
       }
     ]
@@ -11558,6 +11614,20 @@
       }
     ]
   },
+  "voc:B1:der Kompass": {
+    "ex": [
+      {
+        "de": "Ohne Kompass hätten wir uns verlaufen.",
+        "en": "Without a compass we would have got lost.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kompass zeigt nach Norden.",
+        "en": "The compass points north.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Kompromiss": {
     "def": "An agreement reached when each side gives up something.",
     "ex": [
@@ -11853,6 +11923,20 @@
       {
         "de": "Danke, Kumpel!",
         "en": "Thanks, bud!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Kundenservice": {
+    "ex": [
+      {
+        "de": "Ich habe den Kundenservice dreimal angerufen.",
+        "en": "I called customer service three times.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kundenservice antwortet innerhalb von 24 Stunden.",
+        "en": "Customer service replies within 24 hours.",
         "lvl": "B1"
       }
     ]
@@ -12894,6 +12978,20 @@
       }
     ]
   },
+  "voc:B1:der QR-Code": {
+    "ex": [
+      {
+        "de": "Scannen Sie den QR-Code mit Ihrem Handy.",
+        "en": "Scan the QR code with your phone.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der QR-Code auf dem Ticket ist ungültig.",
+        "en": "The QR code on the ticket is invalid.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Quark": {
     "def": "quark (kind of cheese or cream)",
     "ex": [
@@ -13817,6 +13915,20 @@
       {
         "de": "Hab es einen Skandal?",
         "en": "Was there a scandal?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Skifahrer": {
+    "ex": [
+      {
+        "de": "Der Skifahrer ist auf der Piste gestürzt.",
+        "en": "The skier fell on the slope.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Winter kommen viele Skifahrer in das Dorf.",
+        "en": "Many skiers come to the village in winter.",
         "lvl": "B1"
       }
     ]
@@ -14902,6 +15014,20 @@
       }
     ]
   },
+  "voc:B1:der Verkaufspreis": {
+    "ex": [
+      {
+        "de": "Der Verkaufspreis liegt bei neunzehn Euro.",
+        "en": "The selling price is nineteen euros.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben den Verkaufspreis gesenkt.",
+        "en": "We lowered the selling price.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Verkehr": {
     "def": "ellipsis of Straßenverkehr (“road traffic”); ellipsis of Geschlechtsverkehr (“sexual intercourse”)",
     "ex": [
@@ -14979,6 +15105,20 @@
       {
         "de": "Sie sind Verräter.",
         "en": "They're traitors.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Versand": {
+    "ex": [
+      {
+        "de": "Der Versand ist ab fünfzig Euro kostenlos.",
+        "en": "Shipping is free for orders over fifty euros.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Versand dauert drei bis fünf Werktage.",
+        "en": "Delivery takes three to five working days.",
         "lvl": "B1"
       }
     ]
@@ -16315,6 +16455,20 @@
       {
         "de": "Anpassung führt zu Wachstum.",
         "en": "Adaptation leads to growth.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Anschrift": {
+    "ex": [
+      {
+        "de": "Bitte teilen Sie uns Ihre neue Anschrift mit.",
+        "en": "Please tell us your new address.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Anschrift auf dem Brief ist falsch.",
+        "en": "The address on the letter is wrong.",
         "lvl": "B1"
       }
     ]
@@ -17943,6 +18097,20 @@
       {
         "de": "Meine Cousine heiratet nächsten Sommer.",
         "en": "My cousin is getting married next summer.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Dachterrasse": {
+    "ex": [
+      {
+        "de": "Die Wohnung hat eine Dachterrasse mit Blick auf den Dom.",
+        "en": "The flat has a roof terrace with a view of the cathedral.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Sommer frühstücken wir auf der Dachterrasse.",
+        "en": "In summer we have breakfast on the roof terrace.",
         "lvl": "B1"
       }
     ]
@@ -24404,6 +24572,20 @@
       }
     ]
   },
+  "voc:B1:die Rufnummer": {
+    "ex": [
+      {
+        "de": "Bitte geben Sie Ihre Rufnummer an.",
+        "en": "Please give your telephone number.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Rufnummer ist nicht vergeben.",
+        "en": "The number is not in use.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Runde": {
     "def": "round (of drinks); round (circular or repetitious route)",
     "ex": [
@@ -25465,6 +25647,20 @@
       }
     ]
   },
+  "voc:B1:die Spielregel": {
+    "ex": [
+      {
+        "de": "Kannst du mir die Spielregeln erklären?",
+        "en": "Can you explain the rules of the game to me?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hält sich an keine Spielregel.",
+        "en": "He doesn't stick to any rule.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Spielzeit": {
     "def": "The period of a sports or theatre season.",
     "ex": [
@@ -25994,6 +26190,20 @@
       }
     ]
   },
+  "voc:B1:die Säge": {
+    "ex": [
+      {
+        "de": "Die Säge liegt im Keller.",
+        "en": "The saw is in the cellar.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit dieser Säge kann man auch Metall schneiden.",
+        "en": "You can cut metal with this saw too.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Sünde": {
     "def": "An act that breaks a religious or moral law.",
     "ex": [
@@ -26166,6 +26376,20 @@
         "de": "Jede Trainingseinheit dauert eine Stunde.",
         "en": "Each training session lasts an hour.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Tram": {
+    "ex": [
+      {
+        "de": "Ich fahre mit der Tram zur Arbeit.",
+        "en": "I take the tram to work.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Tram kommt alle zehn Minuten.",
+        "en": "The tram comes every ten minutes.",
+        "lvl": "B1"
       }
     ]
   },
@@ -27958,6 +28182,20 @@
       }
     ]
   },
+  "voc:B1:die Ziffer": {
+    "ex": [
+      {
+        "de": "Die PIN hat vier Ziffern.",
+        "en": "The PIN has four digits.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Siehe Ziffer drei im Vertrag.",
+        "en": "See clause three in the contract.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Zitrone": {
     "def": "lemon (fruit)",
     "ex": [
@@ -28724,6 +28962,20 @@
       }
     ]
   },
+  "voc:B1:einfügen": {
+    "ex": [
+      {
+        "de": "Du musst den Text hier einfügen.",
+        "en": "You have to paste the text here.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du ein Foto in die Präsentation einfügen?",
+        "en": "Can you insert a photo into the presentation?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:eingehen": {
     "def": "to enter; to go inside; to arrive (of everything that can be received such postal items, reports, messages and payments)",
     "ex": [
@@ -28786,6 +29038,20 @@
       {
         "de": "Am Abend fühlt sie sich manchmal einsam.",
         "en": "In the evening she sometimes feels lonely.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:einschenken": {
+    "ex": [
+      {
+        "de": "Darf ich dir noch Wein einschenken?",
+        "en": "May I pour you some more wine?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er schenkt allen Kaffee ein.",
+        "en": "He pours everyone coffee.",
         "lvl": "B1"
       }
     ]
@@ -38418,6 +38684,20 @@
       {
         "de": "Das war ein versehentlicher Klick.",
         "en": "That was an accidental click.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:versenden": {
+    "ex": [
+      {
+        "de": "Wir versenden die Ware innerhalb von zwei Tagen.",
+        "en": "We ship the goods within two days.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Einladungen wurden per E-Mail versendet.",
+        "en": "The invitations were sent out by email.",
         "lvl": "B1"
       }
     ]
