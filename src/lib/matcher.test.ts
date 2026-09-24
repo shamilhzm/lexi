@@ -267,3 +267,56 @@ describe('plural notations — every one the corpus actually uses', () => {
     expect(mm.annotate('Vorschläge')[0]?.word?.term).toBe('der Vorschlag');
   });
 });
+
+// Pointing the matcher at real news (25 Tagesschau articles, the Leipzig news
+// list) on 2026-09-24 found forms it could not read and two it read wrongly.
+// Every assertion here is a form that was measured, not imagined.
+describe('news German', () => {
+  const news = buildMatcher([
+    w({ id: 'v:fahren', term: 'fahren', pos: 'verb' }),
+    w({ id: 'v:fuehren', term: 'führen', pos: 'verb' }),
+    w({ id: 'v:steigen', term: 'steigen', pos: 'verb' }),
+    w({ id: 'v:folgen', term: 'folgen', pos: 'verb' }),
+    w({ id: 'v:greifen', term: 'greifen', pos: 'verb' }),
+    w({ id: 'v:hoch', term: 'hoch', pos: 'adjective' }),
+    w({ id: 'v:gross', term: 'groß', pos: 'adjective' }),
+    w({ id: 'v:strasse', term: 'die Straße', pos: 'noun', gender: 'die', plural: 'die Straßen' }),
+    w({ id: 'v:wahl', term: 'die Wahl', pos: 'noun', gender: 'die', plural: 'die Wahlen' }),
+    w({ id: 'v:tag', term: 'der Tag', pos: 'noun', gender: 'der', plural: 'die Tage' }),
+    w({ id: 'v:ende', term: 'das Ende', pos: 'noun', gender: 'das', plural: 'die Enden' }),
+    w({ id: 'v:zug', term: 'der Zug', pos: 'noun', gender: 'der', plural: '¨-e' }),
+    w({ id: 'v:reifen', term: 'der Reifen', pos: 'noun', gender: 'der', plural: '-' }),
+    w({ id: 'v:amt', term: 'das Amt', pos: 'noun', gender: 'das', plural: '¨-er' }),
+    w({ id: 'v:samt', term: 'der Samt', pos: 'noun', gender: 'der', plural: 'nur Singular' }),
+    w({ id: 'v:bund', term: 'der Bund', pos: 'noun', gender: 'der', plural: '¨-e' }),
+    w({ id: 'v:wasser', term: 'das Wasser', pos: 'noun', gender: 'das', plural: '-' }),
+  ]);
+  const at = (text: string, i = 0) => news.annotate(text).filter((s) => s.isWord)[i]?.word?.term ?? null;
+
+  it('reads hoch, which drops its c before an ending', () => {
+    expect(at('hohe')).toBe('hoch');
+    expect(at('hohen')).toBe('hoch');
+  });
+  it('reads Swiss spelling, and never lets it touch a real ss word', () => {
+    expect(at('gross')).toBe('groß');
+    expect(at('Strasse')).toBe('die Straße');
+    expect(at('Wasser')).toBe('das Wasser');
+  });
+  it('treats relative and demonstrative pronouns as grammar, not vocabulary', () => {
+    for (const t of ['denen', 'dessen', 'dies', 'diejenigen']) expect(isNeutralWord(t)).toBe(true);
+  });
+  it('reads a Partizip I as its verb — not as a compound ending in Ende', () => {
+    expect(at('steigende')).toBe('steigen');
+    expect(at('führenden')).toBe('führen');
+    expect(at('folgenden')).toBe('folgen');
+  });
+  it('splits a compound on a short, listed head', () => {
+    expect(at('Wahltag')).toBe('der Tag');
+  });
+  it('prefers the real head over an accidental one', () => {
+    expect(at('Bundesamt')).toBe('das Amt');
+  });
+  it('never splits a lowercase token as a noun compound', () => {
+    expect(at('zugreifen')).not.toBe('der Reifen');
+  });
+});

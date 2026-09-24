@@ -122,6 +122,18 @@ export function excludedReason(tok: string): 'neutral' | 'entity' | null {
   return null;
 }
 
+/** Part of a web or mail address — `www.glueckskette.ch`, `info@dw.com`. Real
+ *  articles end with them, and "glueckskette" is not a German word the learner
+ *  failed to know. Decided from the separators touching the token: a dot, `@`,
+ *  colon or slash with no space, between two word tokens. */
+const ADDRESS_SEP = /^[.@/:]$/;
+function inAddress(segs: { text: string; isWord: boolean }[], i: number): boolean {
+  const prev = segs[i - 1], next = segs[i + 1];
+  if (prev && !prev.isWord && ADDRESS_SEP.test(prev.text) && segs[i - 2]?.isWord) return true;
+  if (next && !next.isWord && ADDRESS_SEP.test(next.text) && segs[i + 2]?.isWord) return true;
+  return false;
+}
+
 /** How many counted tokens short of `target` this text is. */
 const shortfall = (known: number, counted: number, target: number) =>
   Math.max(0, Math.ceil(target * counted - known));
@@ -131,10 +143,17 @@ export interface CoverageOptions {
   stateOf: (w: Word) => WordState;
   /** Tokens shorter than this are skipped, matching the corpus scripts. */
   minLength?: number;
+  /** Surface forms known to be proper names — looked up, not guessed (see
+   *  `lib/news/names.ts`). Excluded like the structural entities above, but only
+   *  when the corpus does not resolve the token: a name that is also a word the
+   *  learner has (*Koch*) stays counted. The capitalised-and-unresolvable rule was
+   *  rejected for sweeping up nouns; a dictionary saying "Nachname" is evidence, a
+   *  capital letter is not. */
+  names?: ReadonlySet<string>;
 }
 
 export function coverageOf(text: string, opts: CoverageOptions): Coverage {
-  const { stateOf, minLength = 3 } = opts;
+  const { stateOf, minLength = 3, names } = opts;
   const tokens: CoverageToken[] = [];
   const excluded = { neutral: 0, entity: 0 };
   let counted = 0, known = 0, learning = 0, fresh = 0, absent = 0;
@@ -142,11 +161,15 @@ export function coverageOf(text: string, opts: CoverageOptions): Coverage {
   // `Vorschläge` in one text are one word to learn, worth two occurrences.
   const occurrences = new Map<string, { word: Word; n: number }>();
 
-  for (const seg of appMatcher().annotate(text)) {
+  const segs = appMatcher().annotate(text);
+  for (let i = 0; i < segs.length; i++) {
+    const seg = segs[i];
     const tok = seg.text;
     if (!seg.isWord) { tokens.push({ text: tok, isWord: false, word: null, counted: false, state: null }); continue; }
 
-    const skip = excludedReason(tok);
+    const skip = excludedReason(tok)
+      ?? (!seg.word && names?.has(tok) ? 'entity' : null)
+      ?? (inAddress(segs, i) ? 'entity' : null);
     if (skip || /^\d/.test(tok) || tok.length < minLength) {
       if (skip) excluded[skip]++;
       tokens.push({ text: tok, isWord: true, word: null, counted: false, state: null });

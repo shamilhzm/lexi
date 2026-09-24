@@ -88,6 +88,18 @@ export const FUNCTION_WORDS = new Set<string>([
   'meinen', 'meinem', 'meiner', 'meines', 'deinen', 'deinem', 'deiner', 'deines',
   'seinen', 'seinem', 'seiner', 'seines', 'ihren', 'ihrem', 'ihrer', 'ihres',
   'unseren', 'unserem', 'unserer', 'unseres', 'unsere', 'euren', 'eurem', 'eurer', 'eures', 'eure',
+
+  // ---- added 2026-09-24, measured against news, not an exam paper -----------
+  // Pointing the meter at 25 Tagesschau articles and the Leipzig *news* list,
+  // these were among the commonest unresolved tokens in both: relative and
+  // demonstrative pronouns and the determiners news prose leans on. Closed-class
+  // for the same reason as the block above. `mehrere` is not here because it is a
+  // card (A2); excluding it would take it off a learner who has it.
+  'denen', 'dessen', 'derer', 'dies',
+  'derjenige', 'diejenige', 'dasjenige', 'diejenigen', 'denjenigen', 'demjenigen', 'desjenigen', 'derjenigen',
+  'derselbe', 'dieselbe', 'dasselbe', 'dieselben', 'denselben', 'demselben', 'desselben', 'derselben',
+  'sämtliche', 'sämtlichen', 'sämtlicher',
+  'jenem', 'jenen', 'einiger', 'einigem', 'solcher', 'solchem', 'mancher', 'manchem',
 ]);
 export const isFunctionWord = (tok: string) => FUNCTION_WORDS.has(tok.toLowerCase());
 
@@ -213,7 +225,11 @@ const SUPPLETIVE: Record<string, string[]> = {
     'best', 'beste', 'besten', 'bester', 'bestes', 'bestem'],
   viel: ['mehr', 'meist', 'meiste', 'meisten', 'meister', 'meistes', 'meistem'],
   gern: ['lieber', 'liebsten', 'am liebsten'],
-  hoch: ['höher', 'höhere', 'höheren', 'höherer', 'höheres', 'höherem',
+  // *hoch* also drops its *c* whenever it takes an ending — *hohe Kosten*, *die
+  // hohen Preise* — which no ending-stripper can undo. `hohen` and `hohe` were in
+  // the top 100 unresolved forms of the Leipzig news list (2026-09-24).
+  hoch: ['hohe', 'hohen', 'hoher', 'hohes', 'hohem',
+    'höher', 'höhere', 'höheren', 'höherer', 'höheres', 'höherem',
     'höchst', 'höchste', 'höchsten', 'höchster', 'höchstes', 'höchstem'],
   nah: ['näher', 'nähere', 'näheren', 'näherer', 'näheres', 'näherem',
     'nächst', 'nächste', 'nächsten', 'nächster', 'nächstes', 'nächstem'],
@@ -765,21 +781,59 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     // Runs last so it can never outrank a real lemma, and is capped at two splits
     // because three-element compounds that are not already covered are rare enough
     // to be worth leaving visible.
-    const compound = splitCompound(lc, 0);
+    //
+    // Partizip I first, declined as an adjective: *steigende Preise*, *im folgenden
+    // Jahr*, *die führenden Institute* — the infinitive plus *-d* plus an ending,
+    // and news prose is full of it. Before this existed the compound rule below
+    // claimed these as nouns: *führenden* was `führ` + *das Ende* (2026-09-24,
+    // found by diffing the matcher on 25 Tagesschau articles). Resolved only to a
+    // verb card.
+    const p1 = /^(\p{L}{2,}?(?:en|ern|eln))d(?:e|en|em|er|es)?$/u.exec(lc);
+    if (p1) {
+      const v = verbIndex.get(p1[1]) ?? index.get(p1[1]);
+      if (v && v.pos === 'verb') return v;
+    }
+    // And a noun compound is a noun, which German always capitalises — so a
+    // lowercase token is never one. Ungated, *zugreifen* split into *Zug* +
+    // *Reifen* and *zugrunde* into *zu* + *Runde*.
+    const compound = capitalised ? splitCompound(lc, 0) : null;
     if (compound) { if (out) out.viaCompound = true; return compound; }
+    // Swiss orthography has no ß — *gross*, *Strasse*, *schliesslich* — and SRF,
+    // one of the few broadcasters whose articles a browser may fetch directly,
+    // writes it that way. Reached only after every ordinary route has missed, so it
+    // cannot take a real *ss* word (*Wasser*, *müssen*) away from itself.
+    if (lc.includes('ss')) {
+      for (const alt of [tok.replace(/ss/g, 'ß'), tok.replace('ss', 'ß'), tok.replace(/ss(?!.*ss)/, 'ß')]) {
+        if (alt === tok) continue;
+        const hit = matchWord(alt, after, prev, pos, before, out);
+        if (hit) return hit;
+      }
+    }
     return null;
   };
 
   /** Linking elements German inserts between compound elements. */
   const FUGEN = ['s', 'es', 'n', 'en', 'er', 'e', ''];
   const MIN_ELEMENT = 4;
+  /** Three-letter nouns that head (or open) compounds constantly — *Wahltag*,
+   *  *Katzenart*, *Stadtrat*, *Finanzamt*, *Wohnungsbau*, *Radweg*. The four-letter
+   *  floor exists because short strings match by accident, so this is a list of
+   *  nouns, not a lower floor: `man` and `ort` in *Altman* or *Sport* must still
+   *  not split. Each is used only when the corpus has it. It also fixes a wrong
+   *  answer: *Bundesamt* used to split as *Bundes* + *Samt*. */
+  const SHORT_ELEMENTS = new Set(['tag', 'art', 'rat', 'amt', 'bau', 'weg', 'zug', 'rad', 'bad', 'see',
+    'arm', 'bus', 'eis', 'uhr', 'hof', 'typ', 'zoo', 'gas', 'tor']);
+  const elementOk = (x: string) => x.length >= MIN_ELEMENT || SHORT_ELEMENTS.has(x);
 
   /** Resolve `lc` as a compound whose every element is known. Returns the head. */
   function splitCompound(lc: string, depth: number): Word | null {
-    if (depth > 1 || lc.length < MIN_ELEMENT * 2) return null;
-    // Longest head first: prefer *Gruppen|ticket* over *Gruppenti|cket*.
-    for (let cut = lc.length - MIN_ELEMENT; cut >= MIN_ELEMENT; cut--) {
-      const head = index.get(lc.slice(cut));
+    if (depth > 1 || lc.length < 6) return null;
+    // Shortest known head first — German puts the head last, and *Bundes|amt* is
+    // right where *Bunde|samt* is not.
+    for (let cut = lc.length - 3; cut >= 3; cut--) {
+      const tail = lc.slice(cut);
+      if (!elementOk(tail)) continue;
+      const head = index.get(tail);
       // Only a noun head, and only a noun compound. Verb and adjective compounds
       // change meaning far more freely (`umfahren` is two opposite verbs).
       if (!head || head.pos !== 'noun') continue;
@@ -787,7 +841,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       for (const fuge of FUGEN) {
         if (fuge && !front.endsWith(fuge)) continue;
         const stem = fuge ? front.slice(0, -fuge.length) : front;
-        if (stem.length < MIN_ELEMENT) continue;
+        if (!elementOk(stem)) continue;
         if (index.get(stem) || adjIndex.get(stem) || splitCompound(stem, depth + 1)) return head;
       }
     }

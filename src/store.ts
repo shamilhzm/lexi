@@ -1148,6 +1148,11 @@ export interface WantedWord {
   at: number;
   /** How many times it has been asked for. The whole point of a log. */
   n: number;
+  /** The sentence it was met in, when it was met in a text — the reader passes it.
+   *  A maintainer authoring the card gets a real, attested context for free. */
+  ex?: string;
+  /** Where that sentence came from (an article's headline). */
+  src?: string;
 }
 
 export function wantedWords(): WantedWord[] {
@@ -1166,13 +1171,13 @@ export function isWanted(term: string): boolean {
 /** Note a word the corpus does not carry. Idempotent on the term, counting
  *  repeats: asking twice is a stronger signal than asking once, and the count is
  *  the only ranking a maintainer needs. */
-export function noteWanted(term: string): void {
+export function noteWanted(term: string, met?: { ex: string; src: string }): void {
   const t = term.trim();
   if (!t) return;
   const cur = wantedWords();
   const at = cur.findIndex((w) => sameWord(w.term, t));
-  if (at >= 0) cur[at] = { ...cur[at], n: cur[at].n + 1, at: Date.now() };
-  else cur.push({ term: t, at: Date.now(), n: 1 });
+  if (at >= 0) cur[at] = { ...cur[at], n: cur[at].n + 1, at: Date.now(), ...(met ?? {}) };
+  else cur.push({ term: t, at: Date.now(), n: 1, ...(met ?? {}) });
   try { localStorage.setItem(WANTED_KEY, JSON.stringify(cur.slice(-500))); } catch { /* quota */ }
   emit();
 }
@@ -1828,6 +1833,15 @@ const SETTING_KEYS = [
   'lexi.wanted.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
   'lexi.completions.v1',
+  // Added 2026-09-24, and the first one was missing since it existed: every
+  // class-pack word lives here, so a restore brought back those cards' FSRS state
+  // and dropped the cards (LESSONS, Class 11).
+  'lexi.userwords.v1',
+  // The reader's own state (lib/news/library.ts, lib/ai.ts). Literal keys, not
+  // imports: library.ts imports this file.
+  'lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1', 'lexi.ai.v1',
+  // Deliberately NOT 'lexi.ai.key.v1'. A backup file is meant to be carried
+  // around and handed over; an API key in it would be a secret in plain text.
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

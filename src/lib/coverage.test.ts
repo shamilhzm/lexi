@@ -184,3 +184,38 @@ describe('the words that get you over the line', () => {
     expect(after.ratio).toBeGreaterThanOrEqual(ASSISTED);
   });
 });
+
+describe('names the dictionary vouches for', () => {
+  // "Klopp" is one capital letter and no corpus card: the structural rule cannot
+  // see it, and the capitalised-and-unresolvable rule was rejected for sweeping up
+  // nouns. A name set from de.wiktionary is the evidence that rule lacked.
+  const text = 'Klopp sagt, der Hund schläft.';
+  it('counts an unresolved capitalised token by default', () => {
+    const c = coverageOf(text, { stateOf: allKnownBut({}) });
+    expect(c.absent).toBe(2);  // Klopp, and sagt — not a card in this corpus
+    expect(c.counted).toBe(4); // Klopp, sagt, Hund, schläft
+  });
+  it('excludes it once it is known to be a name', () => {
+    const c = coverageOf(text, { stateOf: allKnownBut({}), names: new Set(['Klopp']) });
+    expect(c.absent).toBe(1);  // sagt stays: it is a word, just not one Lexi has
+    expect(c.counted).toBe(3);
+    expect(c.excluded.entity).toBe(1);
+  });
+  it('never excludes a token the corpus resolves, even if a dictionary calls it a name too', () => {
+    const c = coverageOf(text, { stateOf: allKnownBut({}), names: new Set(['Hund']) });
+    expect(c.known).toBe(2);
+    expect(c.excluded.entity).toBe(0);
+  });
+});
+
+describe('addresses', () => {
+  it('does not count the parts of a web or mail address as words', () => {
+    const c = coverageOf('Spenden unter www.glueckskette.ch oder hilfe@example.org.', { stateOf: allKnownBut({}) });
+    expect(c.tokens.filter((t) => t.counted).map((t) => t.text)).not.toContain('glueckskette');
+    expect(c.tokens.filter((t) => t.counted).map((t) => t.text)).not.toContain('example');
+  });
+  it('still counts a word at the end of a sentence', () => {
+    const c = coverageOf('Der Hund schläft. Die Katze auch.', { stateOf: allKnownBut({}) });
+    expect(c.tokens.filter((t) => t.counted).map((t) => t.text)).toContain('schläft');
+  });
+});
