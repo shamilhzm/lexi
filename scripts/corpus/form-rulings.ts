@@ -338,6 +338,11 @@ export const FORM_RULINGS: FormRuling[] = [
       + 'collide only because Weste happens to pluralise to Westen.',
   },
   {
+    rule: 'keep', form: 'voc:B1:der Pole', lemma: 'voc:B2:der Pol',
+    why: 'der Pole is a Polish man (weak noun, pl. die Polen); der Pol is a pole, whose '
+      + 'plural happens to be die Pole. Unrelated words.',
+  },
+  {
     rule: 'keep', form: 'voc:B1:das Reisen', lemma: 'voc:A2:die Reise',
     why: 'das Reisen is the nominalised infinitive — travelling, the activity — not the '
       + 'plural of die Reise (a trip). Neuter, as every nominalised infinitive is.',
