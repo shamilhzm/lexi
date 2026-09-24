@@ -159,6 +159,20 @@
       }
     ]
   },
+  "voc:C1:abweichend": {
+    "ex": [
+      {
+        "de": "Abweichende Regelungen müssen schriftlich vereinbart werden.",
+        "en": "Differing arrangements must be agreed in writing.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat eine abweichende Meinung.",
+        "en": "She has a different opinion.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:abwägen": {
     "def": "To consider different factors carefully before deciding.",
     "ex": [
@@ -904,6 +918,20 @@
       }
     ]
   },
+  "voc:C1:befähigen": {
+    "ex": [
+      {
+        "de": "Der Abschluss befähigt zum Studium.",
+        "en": "The qualification entitles you to go to university.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir wollen die Mitarbeiter befähigen, selbst zu entscheiden.",
+        "en": "We want to empower the staff to decide for themselves.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:begleichen": {
     "ex": [
       {
@@ -1356,6 +1384,20 @@
       }
     ]
   },
+  "voc:C1:das Attribut": {
+    "ex": [
+      {
+        "de": "Das Attribut beschreibt das Nomen näher.",
+        "en": "The attribute describes the noun more closely.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mut ist ein typisches Attribut von Helden.",
+        "en": "Courage is a typical attribute of heroes.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Ausmaß": {
     "def": "The size or scale of something.",
     "ex": [
@@ -1439,6 +1481,20 @@
       {
         "de": "Solche Comebacks gelingen selten.",
         "en": "Comebacks like that rarely succeed.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Dashboard": {
+    "ex": [
+      {
+        "de": "Im Dashboard sieht man alle Zahlen auf einen Blick.",
+        "en": "You can see all the figures at a glance on the dashboard.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir bauen ein neues Dashboard für den Vertrieb.",
+        "en": "We are building a new dashboard for sales.",
         "lvl": "C1"
       }
     ]
@@ -1954,6 +2010,20 @@
       }
     ]
   },
+  "voc:C1:das Layout": {
+    "ex": [
+      {
+        "de": "Das Layout der Website ist sehr übersichtlich.",
+        "en": "The website's layout is very clear.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Kannst du das Layout noch einmal ändern?",
+        "en": "Can you change the layout again?",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Medium": {
     "def": "A means of communication; also a substance through which something acts.",
     "ex": [
@@ -1965,6 +2035,20 @@
       {
         "de": "Sie ist ein Medium.",
         "en": "She is a psychic.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Messing": {
+    "ex": [
+      {
+        "de": "Der Türgriff ist aus Messing.",
+        "en": "The door handle is made of brass.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Messing glänzt wie Gold.",
+        "en": "Brass shines like gold.",
         "lvl": "C1"
       }
     ]
@@ -2096,6 +2180,20 @@
       {
         "de": "Es ging ihm nur um Prestige.",
         "en": "He was only interested in prestige.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Privateigentum": {
+    "ex": [
+      {
+        "de": "Das Grundstück ist Privateigentum.",
+        "en": "The land is private property.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Grundgesetz schützt das Privateigentum.",
+        "en": "The Basic Law protects private property.",
         "lvl": "C1"
       }
     ]
@@ -2486,6 +2584,20 @@
       {
         "de": "Das Gehalt ist das Äquivalent von zwei Monatsmieten.",
         "en": "The salary is the equivalent of two months' rent.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Überangebot": {
+    "ex": [
+      {
+        "de": "Es gibt ein Überangebot an Wohnungen im Osten.",
+        "en": "There is an oversupply of flats in the east.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Überangebot drückt die Preise.",
+        "en": "The glut pushes prices down.",
         "lvl": "C1"
       }
     ]
@@ -3072,6 +3184,20 @@
       }
     ]
   },
+  "voc:C1:der Föderalismus": {
+    "ex": [
+      {
+        "de": "Der Föderalismus macht die Bildungspolitik kompliziert.",
+        "en": "Federalism makes education policy complicated.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In Deutschland ist der Föderalismus sehr ausgeprägt.",
+        "en": "Federalism is very pronounced in Germany.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Gehorsam": {
     "ex": [
       {
@@ -3097,6 +3223,20 @@
       {
         "de": "Der Gesetzentwurf geht nun in die zweite Lesung.",
         "en": "The bill now goes into its second reading.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Goldstandard": {
+    "ex": [
+      {
+        "de": "Diese Methode gilt als Goldstandard in der Forschung.",
+        "en": "This method is considered the gold standard in research.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Früher war der Dollar an den Goldstandard gebunden.",
+        "en": "The dollar used to be tied to the gold standard.",
         "lvl": "C1"
       }
     ]
@@ -3243,6 +3383,20 @@
       }
     ]
   },
+  "voc:C1:der Kapitalmarkt": {
+    "ex": [
+      {
+        "de": "Das Unternehmen holt sich Geld am Kapitalmarkt.",
+        "en": "The company raises money on the capital market.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Kapitalmarkt reagiert nervös auf die Wahl.",
+        "en": "The capital market is reacting nervously to the election.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Komfort": {
     "def": "A state of ease and convenience, with modern amenities.",
     "ex": [
@@ -3344,6 +3498,20 @@
       }
     ]
   },
+  "voc:C1:der Leib": {
+    "ex": [
+      {
+        "de": "Er zitterte am ganzen Leib.",
+        "en": "He was trembling all over.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat die Armut am eigenen Leib erfahren.",
+        "en": "She experienced poverty first-hand.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Leisten": {
     "def": "last (tool for shaping or preserving the shape of shoes)",
     "ex": [
@@ -3356,6 +3524,20 @@
         "de": "Schuster, bleib bei deinem Leisten!",
         "en": "Cobbler, stick to your last!",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:C1:der Liberalismus": {
+    "ex": [
+      {
+        "de": "Der Liberalismus betont die Freiheit des Einzelnen.",
+        "en": "Liberalism stresses the freedom of the individual.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Partei steht in der Tradition des Liberalismus.",
+        "en": "The party stands in the tradition of liberalism.",
+        "lvl": "C1"
       }
     ]
   },
@@ -3412,6 +3594,20 @@
       {
         "de": "Im Nahverkehr gilt ein anderes Ticket.",
         "en": "A different ticket applies on local public transport.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Neoliberalismus": {
+    "ex": [
+      {
+        "de": "Der Neoliberalismus prägte die Politik der Neunziger.",
+        "en": "Neoliberalism shaped the politics of the nineties.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat ein Buch gegen den Neoliberalismus geschrieben.",
+        "en": "She wrote a book against neoliberalism.",
         "lvl": "C1"
       }
     ]
@@ -4112,6 +4308,20 @@
       }
     ]
   },
+  "voc:C1:der Vermerk": {
+    "ex": [
+      {
+        "de": "Auf dem Brief steht der Vermerk dringend.",
+        "en": "The letter is marked urgent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Beamtin macht einen Vermerk in der Akte.",
+        "en": "The official makes a note in the file.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Vermögenswert": {
     "def": "Something of value that a person or company owns.",
     "ex": [
@@ -4285,6 +4495,20 @@
       }
     ]
   },
+  "voc:C1:der Wirtschaftswissenschaftler": {
+    "ex": [
+      {
+        "de": "Der Wirtschaftswissenschaftler warnt vor einer Blase.",
+        "en": "The economist warns of a bubble.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie ist eine bekannte Wirtschaftswissenschaftlerin.",
+        "en": "She is a well-known economist.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Wohlstand": {
     "def": "The state of being financially comfortable and well-off.",
     "ex": [
@@ -4443,6 +4667,20 @@
       }
     ]
   },
+  "voc:C1:didaktisch": {
+    "ex": [
+      {
+        "de": "Das Buch ist didaktisch gut aufgebaut.",
+        "en": "The book is well structured for teaching.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat eine didaktische Ausbildung.",
+        "en": "She has teacher training.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Abbildung": {
     "ex": [
       {
@@ -4497,6 +4735,20 @@
       {
         "de": "Er geriet in die Abhängigkeit von Schmerzmitteln.",
         "en": "He fell into dependence on painkillers.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Abmahnung": {
+    "ex": [
+      {
+        "de": "Nach der zweiten Abmahnung droht die Kündigung.",
+        "en": "After the second warning, dismissal looms.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wegen des Fotos bekam er eine Abmahnung vom Anwalt.",
+        "en": "He got a cease-and-desist letter from a lawyer over the photo.",
         "lvl": "C1"
       }
     ]
@@ -4820,6 +5072,20 @@
       {
         "de": "Er wurde bei der Ausübung seiner Pflicht verletzt.",
         "en": "He was injured in the line of duty.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Autokratie": {
+    "ex": [
+      {
+        "de": "Das Land entwickelt sich zur Autokratie.",
+        "en": "The country is turning into an autocracy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In einer Autokratie gibt es keine freien Wahlen.",
+        "en": "There are no free elections in an autocracy.",
         "lvl": "C1"
       }
     ]
@@ -5189,6 +5455,20 @@
       }
     ]
   },
+  "voc:C1:die Datenübertragung": {
+    "ex": [
+      {
+        "de": "Die Datenübertragung läuft über das Mobilfunknetz.",
+        "en": "The data transfer runs over the mobile network.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Datenübertragung ist sehr langsam.",
+        "en": "The data transfer is very slow.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Dekarbonisierung": {
     "ex": [
       {
@@ -5213,6 +5493,20 @@
       {
         "de": "Beide Delegationen sprachen von Fortschritten.",
         "en": "Both delegations spoke of progress.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Deregulierung": {
+    "ex": [
+      {
+        "de": "Die Deregulierung der Banken war ein Fehler.",
+        "en": "Deregulating the banks was a mistake.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Regierung plant eine Deregulierung des Arbeitsmarkts.",
+        "en": "The government is planning to deregulate the labour market.",
         "lvl": "C1"
       }
     ]
@@ -5724,6 +6018,20 @@
       {
         "de": "Toms Frechheit ärgerte mich.",
         "en": "Tom's rudeness made me angry.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Freischaltung": {
+    "ex": [
+      {
+        "de": "Die Freischaltung des Kontos dauert zwei Tage.",
+        "en": "Activating the account takes two days.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für die Freischaltung brauchen Sie einen Code.",
+        "en": "You need a code to unlock it.",
         "lvl": "C1"
       }
     ]
@@ -6276,6 +6584,20 @@
       }
     ]
   },
+  "voc:C1:die Industrialisierung": {
+    "ex": [
+      {
+        "de": "Die Industrialisierung veränderte das Ruhrgebiet.",
+        "en": "Industrialisation changed the Ruhr area.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit der Industrialisierung wuchsen die Städte.",
+        "en": "The cities grew with industrialisation.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Inklusion": {
     "ex": [
       {
@@ -6436,6 +6758,20 @@
       }
     ]
   },
+  "voc:C1:die Kolonialmacht": {
+    "ex": [
+      {
+        "de": "Deutschland war auch eine Kolonialmacht.",
+        "en": "Germany was also a colonial power.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kolonialmacht zog 1960 ab.",
+        "en": "The colonial power withdrew in 1960.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Konfession": {
     "def": "The branch of a religion a person belongs to.",
     "ex": [
@@ -6473,6 +6809,20 @@
         "de": "Im politischen Sprachgebrauch änderte das Wort seine Konnotation.",
         "en": "In political usage the word changed its connotation.",
         "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C1:die Konsolidierung": {
+    "ex": [
+      {
+        "de": "Die Branche steht vor einer Konsolidierung.",
+        "en": "The sector is facing consolidation.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Konsolidierung des Haushalts hat Vorrang.",
+        "en": "Consolidating the budget has priority.",
+        "lvl": "C1"
       }
     ]
   },
@@ -6632,6 +6982,20 @@
       }
     ]
   },
+  "voc:C1:die Liberalisierung": {
+    "ex": [
+      {
+        "de": "Die Liberalisierung des Marktes senkte die Preise.",
+        "en": "Liberalising the market lowered prices.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Partei fordert eine Liberalisierung des Einwanderungsrechts.",
+        "en": "The party is calling for a liberalisation of immigration law.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Liquidität": {
     "def": "The ease with which assets can be turned into cash.",
     "ex": [
@@ -6657,6 +7021,20 @@
       {
         "de": "Die Firma will ihre Marge verbessern.",
         "en": "The company wants to improve its margin.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Marktwirtschaft": {
+    "ex": [
+      {
+        "de": "Deutschland hat eine soziale Marktwirtschaft.",
+        "en": "Germany has a social market economy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In einer Marktwirtschaft bestimmt die Nachfrage den Preis.",
+        "en": "In a market economy demand determines the price.",
         "lvl": "C1"
       }
     ]
@@ -7022,6 +7400,20 @@
       }
     ]
   },
+  "voc:C1:die Privatisierung": {
+    "ex": [
+      {
+        "de": "Die Privatisierung der Bahn ist umstritten.",
+        "en": "Privatising the railway is controversial.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach der Privatisierung stiegen die Preise.",
+        "en": "After privatisation prices rose.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Prognose": {
     "def": "A statement of what is expected to happen in the future.",
     "ex": [
@@ -7316,6 +7708,20 @@
       }
     ]
   },
+  "voc:C1:die Schirmherrschaft": {
+    "ex": [
+      {
+        "de": "Das Festival steht unter der Schirmherrschaft der Bürgermeisterin.",
+        "en": "The festival is under the patronage of the mayor.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat die Schirmherrschaft für die Aktion übernommen.",
+        "en": "He has become patron of the campaign.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Schnittstelle": {
     "def": "A point where two systems meet and interact.",
     "ex": [
@@ -7416,6 +7822,20 @@
       {
         "de": "Der Vorschlag stieß im Kollegium auf breite Skepsis.",
         "en": "The proposal met with widespread scepticism among the staff.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Softwareentwicklung": {
+    "ex": [
+      {
+        "de": "Sie arbeitet seit zehn Jahren in der Softwareentwicklung.",
+        "en": "She has worked in software development for ten years.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Softwareentwicklung dauert länger als geplant.",
+        "en": "The software development is taking longer than planned.",
         "lvl": "C1"
       }
     ]
@@ -7770,6 +8190,20 @@
       }
     ]
   },
+  "voc:C1:die Umsatzsteuer": {
+    "ex": [
+      {
+        "de": "Auf der Rechnung muss die Umsatzsteuer stehen.",
+        "en": "The VAT must be shown on the invoice.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Als Kleinunternehmer zahlt sie keine Umsatzsteuer.",
+        "en": "As a small business she doesn't pay VAT.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Umstellung": {
     "ex": [
       {
@@ -7852,6 +8286,20 @@
       {
         "de": "Der Komponist schrieb eine Variation über das Thema.",
         "en": "The composer wrote a variation on the theme.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Verdopplung": {
+    "ex": [
+      {
+        "de": "Die Verdopplung der Miete ist ein Schock.",
+        "en": "The doubling of the rent is a shock.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Ziel ist eine Verdopplung des Umsatzes.",
+        "en": "The aim is to double turnover.",
         "lvl": "C1"
       }
     ]
@@ -8255,6 +8703,20 @@
       }
     ]
   },
+  "voc:C1:die Weltwirtschaftskrise": {
+    "ex": [
+      {
+        "de": "Die Weltwirtschaftskrise begann 1929.",
+        "en": "The Great Depression began in 1929.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Experten warnen vor einer neuen Weltwirtschaftskrise.",
+        "en": "Experts warn of a new global economic crisis.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Wendung": {
     "ex": [
       {
@@ -8632,6 +9094,34 @@
       {
         "de": "Die Überlastung des Netzes führte zum Stromausfall.",
         "en": "Overloading the grid led to the power cut.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Übermittlung": {
+    "ex": [
+      {
+        "de": "Die Übermittlung der Daten ist verschlüsselt.",
+        "en": "The data transmission is encrypted.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei der Übermittlung ist ein Fehler aufgetreten.",
+        "en": "An error occurred during transmission.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Überproduktion": {
+    "ex": [
+      {
+        "de": "Die Überproduktion führt zu fallenden Preisen.",
+        "en": "Overproduction leads to falling prices.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der Landwirtschaft gibt es eine Überproduktion von Milch.",
+        "en": "There is an overproduction of milk in agriculture.",
         "lvl": "C1"
       }
     ]
@@ -9046,6 +9536,20 @@
       {
         "de": "Nach mehreren erfolglosen Versuchen gab er auf.",
         "en": "After several unsuccessful attempts he gave up.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:erfolgversprechend": {
+    "ex": [
+      {
+        "de": "Das ist ein erfolgversprechender Ansatz.",
+        "en": "That is a promising approach.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die ersten Tests sind erfolgversprechend.",
+        "en": "The first tests are promising.",
         "lvl": "C1"
       }
     ]
@@ -9543,6 +10047,20 @@
       {
         "de": "Das war eine ganz gezielte Frage.",
         "en": "That was a very deliberate question.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:gleichbedeutend": {
+    "ex": [
+      {
+        "de": "Die beiden Wörter sind fast gleichbedeutend.",
+        "en": "The two words are almost synonymous.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Schweigen ist nicht gleichbedeutend mit Zustimmung.",
+        "en": "Silence is not the same as agreement.",
         "lvl": "C1"
       }
     ]
@@ -10072,6 +10590,20 @@
       }
     ]
   },
+  "voc:C1:intervenieren": {
+    "ex": [
+      {
+        "de": "Die Regierung will nicht militärisch intervenieren.",
+        "en": "The government does not want to intervene militarily.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Zentralbank interveniert am Devisenmarkt.",
+        "en": "The central bank intervenes on the foreign exchange market.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:inwiefern": {
     "ex": [
       {
@@ -10112,6 +10644,20 @@
       {
         "de": "Das ist jetzt irrelevant.",
         "en": "That's irrelevant now.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:kapitalistisch": {
+    "ex": [
+      {
+        "de": "Er kritisiert das kapitalistische System.",
+        "en": "He criticises the capitalist system.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die USA gelten als sehr kapitalistisch.",
+        "en": "The US is seen as very capitalist.",
         "lvl": "C1"
       }
     ]
@@ -10340,6 +10886,20 @@
       {
         "de": "Es gab eine kurzzeitige Unterbrechung.",
         "en": "There was a brief interruption.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:kündbar": {
+    "ex": [
+      {
+        "de": "Der Vertrag ist monatlich kündbar.",
+        "en": "The contract can be cancelled monthly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach der Probezeit ist er nicht mehr so leicht kündbar.",
+        "en": "After the probation period he can't be dismissed so easily.",
         "lvl": "C1"
       }
     ]
@@ -10578,6 +11138,20 @@
       {
         "de": "Mentale Gesundheit ist genauso wichtig wie körperliche.",
         "en": "Mental health is just as important as physical health.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:methodisch": {
+    "ex": [
+      {
+        "de": "Sie geht sehr methodisch vor.",
+        "en": "She proceeds very methodically.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Studie hat methodische Schwächen.",
+        "en": "The study has methodological weaknesses.",
         "lvl": "C1"
       }
     ]
@@ -10830,6 +11404,20 @@
       {
         "de": "Der Betrieb hat die Grenzwerte nachweislich überschritten.",
         "en": "The plant demonstrably exceeded the limit values.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:neoliberal": {
+    "ex": [
+      {
+        "de": "Die Partei verfolgt eine neoliberale Politik.",
+        "en": "The party pursues neoliberal policies.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Kritiker nennen das Programm neoliberal.",
+        "en": "Critics call the programme neoliberal.",
         "lvl": "C1"
       }
     ]
@@ -11876,6 +12464,20 @@
       }
     ]
   },
+  "voc:C1:unbeschränkt": {
+    "ex": [
+      {
+        "de": "Die Aufenthaltserlaubnis ist unbeschränkt gültig.",
+        "en": "The residence permit is valid indefinitely.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Tarif bietet unbeschränktes Datenvolumen.",
+        "en": "The plan offers unlimited data.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:uneingeschränkt": {
     "ex": [
       {
@@ -11886,6 +12488,20 @@
       {
         "de": "Der Pass erlaubt eine uneingeschränkte Einreise.",
         "en": "The passport allows unrestricted entry.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:unentgeltlich": {
+    "ex": [
+      {
+        "de": "Die Beratung ist unentgeltlich.",
+        "en": "The advice is free of charge.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie arbeitet unentgeltlich für den Verein.",
+        "en": "She works for the association without pay.",
         "lvl": "C1"
       }
     ]
@@ -12996,6 +13612,20 @@
       {
         "de": "Amerika ist das einzige Land, das von der Barbarei zur Dekadenz übergegangen ist, ohne zwischendurch zivilisiert gewesen zu sein.",
         "en": "America is the only country that went from barbarism to decadence without civilization in between.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:zwischenzeitlich": {
+    "ex": [
+      {
+        "de": "Zwischenzeitlich hat sich die Lage beruhigt.",
+        "en": "In the meantime the situation has calmed down.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Kurs ist zwischenzeitlich stark gefallen.",
+        "en": "The price fell sharply in the meantime.",
         "lvl": "C1"
       }
     ]

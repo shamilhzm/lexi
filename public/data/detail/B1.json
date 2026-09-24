@@ -958,6 +958,20 @@
       }
     ]
   },
+  "voc:B1:abbuchen": {
+    "ex": [
+      {
+        "de": "Die Miete wird am Monatsanfang abgebucht.",
+        "en": "The rent is debited at the start of the month.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Firma darf den Betrag von meinem Konto abbuchen.",
+        "en": "The company is allowed to debit the amount from my account.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:abhauen": {
     "def": "to cut off (with a cutting weapon); to leave abruptly, to do a runner",
     "ex": [
@@ -1163,6 +1177,20 @@
       }
     ]
   },
+  "voc:B1:abziehen": {
+    "ex": [
+      {
+        "de": "Von meinem Gehalt werden die Steuern abgezogen.",
+        "en": "Tax is deducted from my salary.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Armee will ihre Truppen abziehen.",
+        "en": "The army wants to withdraw its troops.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:achten auf + A": {
     "def": "To watch or take care about something.",
     "ex": [
@@ -1248,6 +1276,20 @@
       {
         "de": "Ich würde es akzeptieren.",
         "en": "I'd accept.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:alarmieren": {
+    "ex": [
+      {
+        "de": "Die Nachbarn haben die Feuerwehr alarmiert.",
+        "en": "The neighbours alerted the fire brigade.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte alarmieren Sie sofort den Notarzt.",
+        "en": "Please call the emergency doctor immediately.",
         "lvl": "B1"
       }
     ]
@@ -1542,6 +1584,20 @@
       }
     ]
   },
+  "voc:B1:antippen": {
+    "ex": [
+      {
+        "de": "Du musst das Symbol nur antippen.",
+        "en": "You just have to tap the icon.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat mich an der Schulter angetippt.",
+        "en": "He tapped me on the shoulder.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:antun": {
     "def": "to put on, to dress; to do something to someone",
     "ex": [
@@ -1761,6 +1817,20 @@
       }
     ]
   },
+  "voc:B1:auflegen": {
+    "ex": [
+      {
+        "de": "Er hat einfach aufgelegt.",
+        "en": "He just hung up.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Heute Abend will sie Musik auflegen.",
+        "en": "Tonight she wants to DJ.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:aufnehmen": {
     "def": "to pick up, lift up; to receive, to accommodate, to take in (guests), to admit (to a hospital etc.)",
     "ex": [
@@ -1904,6 +1974,20 @@
       }
     ]
   },
+  "voc:B1:ausbilden": {
+    "ex": [
+      {
+        "de": "Der Betrieb will jedes Jahr drei Lehrlinge ausbilden.",
+        "en": "The business wants to train three apprentices every year.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie wurde als Krankenschwester ausgebildet.",
+        "en": "She trained as a nurse.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:ausbreiten": {
     "def": "to spread, spread out; to extend",
     "ex": [
@@ -2005,6 +2089,20 @@
       {
         "de": "Das wäre ausreichend.",
         "en": "That would be sufficient.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:ausrichten": {
+    "ex": [
+      {
+        "de": "Kann ich ihr etwas ausrichten?",
+        "en": "Can I pass on a message to her?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Stadt wird das Turnier ausrichten.",
+        "en": "The city will host the tournament.",
         "lvl": "B1"
       }
     ]
@@ -5169,6 +5267,20 @@
       }
     ]
   },
+  "voc:B1:das Grundstück": {
+    "ex": [
+      {
+        "de": "Sie haben ein Grundstück am Stadtrand gekauft.",
+        "en": "They bought a plot of land on the edge of town.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Grundstück ist tausend Quadratmeter groß.",
+        "en": "The plot is a thousand square metres.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Guthaben": {
     "ex": [
       {
@@ -6468,6 +6580,20 @@
       }
     ]
   },
+  "voc:B1:das Profilbild": {
+    "ex": [
+      {
+        "de": "Er hat sein Profilbild geändert.",
+        "en": "He changed his profile picture.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Profilbild ist schon zehn Jahre alt.",
+        "en": "The profile picture is already ten years old.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Protein": {
     "def": "ein aus Aminosäuren aufgebautes Makromolekül",
     "ex": [
@@ -6649,6 +6775,20 @@
       {
         "de": "Im Sommer wollen wir an das Rote Meer reisen.",
         "en": "We want to travel to the Red Sea in summer.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Rennrad": {
+    "ex": [
+      {
+        "de": "Am Wochenende fährt er mit dem Rennrad in die Eifel.",
+        "en": "At the weekend he rides his road bike into the Eifel.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Rennrad ist sehr leicht.",
+        "en": "The racing bike is very light.",
         "lvl": "B1"
       }
     ]
@@ -7186,6 +7326,20 @@
       }
     ]
   },
+  "voc:B1:das Straßenfest": {
+    "ex": [
+      {
+        "de": "Am Samstag gibt es ein Straßenfest in unserem Viertel.",
+        "en": "There's a street party in our neighbourhood on Saturday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Straßenfest spielt eine Band.",
+        "en": "A band is playing at the street festival.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Studio": {
     "ex": [
       {
@@ -7211,6 +7365,20 @@
       {
         "de": "Das Surfen lernt man nicht an einem Tag.",
         "en": "You don't learn surfing in one day.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Synonym": {
+    "ex": [
+      {
+        "de": "Kennst du ein Synonym für schön?",
+        "en": "Do you know a synonym for beautiful?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Name ist ein Synonym für Qualität.",
+        "en": "The name is a byword for quality.",
         "lvl": "B1"
       }
     ]
@@ -10133,6 +10301,20 @@
       }
     ]
   },
+  "voc:B1:der Fachmann": {
+    "ex": [
+      {
+        "de": "Das sollte ein Fachmann reparieren.",
+        "en": "An expert should repair that.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist ein Fachmann für Steuerrecht.",
+        "en": "He is an expert in tax law.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Farbton": {
     "def": "shade (variety of color)",
     "ex": [
@@ -11153,6 +11335,20 @@
       }
     ]
   },
+  "voc:B1:der Höhepunkt": {
+    "ex": [
+      {
+        "de": "Der Höhepunkt des Abends war das Feuerwerk.",
+        "en": "The highlight of the evening was the fireworks.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Krise hat ihren Höhepunkt erreicht.",
+        "en": "The crisis has reached its peak.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Hörsaal": {
     "def": "lecture theatre, lecture auditorium, lecture hall, lecture room",
     "ex": [
@@ -11200,6 +11396,20 @@
         "de": "Für die Wohnung gibt es schon mehrere Interessenten.",
         "en": "There are already several interested parties for the apartment.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Internetzugang": {
+    "ex": [
+      {
+        "de": "Die Wohnung hat noch keinen Internetzugang.",
+        "en": "The flat doesn't have internet access yet.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Hotel ist der Internetzugang kostenlos.",
+        "en": "Internet access is free in the hotel.",
+        "lvl": "B1"
       }
     ]
   },
@@ -11510,6 +11720,20 @@
       }
     ]
   },
+  "voc:B1:der Knall": {
+    "ex": [
+      {
+        "de": "Plötzlich gab es einen lauten Knall.",
+        "en": "Suddenly there was a loud bang.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit einem Knall platzte der Reifen.",
+        "en": "The tyre burst with a bang.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Knoblauch": {
     "def": "A strong-smelling bulb used to flavour food.",
     "ex": [
@@ -11708,6 +11932,20 @@
       {
         "de": "In Zeitungen steht indirekte Rede oft im Konjunktiv.",
         "en": "In newspapers reported speech is often in the subjunctive.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Konkurrent": {
+    "ex": [
+      {
+        "de": "Der Konkurrent ist billiger.",
+        "en": "The competitor is cheaper.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben einen neuen Konkurrenten auf dem Markt.",
+        "en": "We have a new competitor on the market.",
         "lvl": "B1"
       }
     ]
@@ -12204,6 +12442,20 @@
       }
     ]
   },
+  "voc:B1:der Migrant": {
+    "ex": [
+      {
+        "de": "Der Migrant sucht Arbeit in Deutschland.",
+        "en": "The migrant is looking for work in Germany.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Migranten arbeiten in der Pflege.",
+        "en": "Many migrants work in care.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Minister": {
     "def": "Leiter eines Ministeriums",
     "ex": [
@@ -12426,6 +12678,20 @@
         "de": "Der Nationalstaat betont eine gemeinsame Identität.",
         "en": "The nation-state emphasises a common identity.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Nebensatz": {
+    "ex": [
+      {
+        "de": "Im Nebensatz steht das Verb am Ende.",
+        "en": "In a subordinate clause the verb goes at the end.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Nebensatz beginnt mit weil.",
+        "en": "The subordinate clause begins with weil.",
+        "lvl": "B1"
       }
     ]
   },
@@ -13599,6 +13865,20 @@
       }
     ]
   },
+  "voc:B1:der Schneider": {
+    "ex": [
+      {
+        "de": "Der Schneider kürzt meine Hose.",
+        "en": "The tailor is shortening my trousers.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie bringt das Kleid zum Schneider.",
+        "en": "She is taking the dress to the tailor.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Schnitt": {
     "def": "The result of cutting; also an average or a style of cutting.",
     "ex": [
@@ -14274,6 +14554,20 @@
       {
         "de": "Sie ist ein Star in der Gaming-Szene.",
         "en": "She is a star in the gaming scene.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Steckbrief": {
+    "ex": [
+      {
+        "de": "Schreib einen Steckbrief über dich.",
+        "en": "Write a short profile about yourself.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Polizei sucht ihn mit einem Steckbrief.",
+        "en": "The police are looking for him with a wanted poster.",
         "lvl": "B1"
       }
     ]
@@ -21234,6 +21528,20 @@
       }
     ]
   },
+  "voc:B1:die Kaffeebohne": {
+    "ex": [
+      {
+        "de": "Die Kaffeebohne kommt aus Kolumbien.",
+        "en": "The coffee bean comes from Colombia.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kaffeebohnen werden frisch geröstet.",
+        "en": "The coffee beans are freshly roasted.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Kalorie": {
     "def": "kilocalorie",
     "ex": [
@@ -23186,6 +23494,20 @@
       }
     ]
   },
+  "voc:B1:die Monatsmiete": {
+    "ex": [
+      {
+        "de": "Die Kaution beträgt drei Monatsmieten.",
+        "en": "The deposit is three months' rent.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Monatsmiete liegt bei 950 Euro warm.",
+        "en": "The monthly rent is 950 euros including heating.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Moral": {
     "def": "Ideas about right and wrong behaviour; also team spirit.",
     "ex": [
@@ -23917,6 +24239,20 @@
       }
     ]
   },
+  "voc:B1:die Pille": {
+    "ex": [
+      {
+        "de": "Nimm die Pille mit einem Glas Wasser.",
+        "en": "Take the pill with a glass of water.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war eine bittere Pille für die Fans.",
+        "en": "That was a bitter pill for the fans.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Piste": {
     "def": "piste, ski slope",
     "ex": [
@@ -23943,6 +24279,20 @@
       {
         "de": "Tom kennt Pistolen.",
         "en": "Tom knows guns.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Platte": {
+    "ex": [
+      {
+        "de": "Stell den Topf auf die Platte.",
+        "en": "Put the pot on the hotplate.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er sammelt alte Platten aus den Siebzigern.",
+        "en": "He collects old records from the seventies.",
         "lvl": "B1"
       }
     ]
@@ -25703,6 +26053,20 @@
       {
         "de": "Der Film war Spitze.",
         "en": "That movie was really good.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Sprachkenntnis": {
+    "ex": [
+      {
+        "de": "Für die Stelle sind gute Sprachkenntnisse nötig.",
+        "en": "Good language skills are required for the job.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Seine Sprachkenntnisse reichen für den Alltag.",
+        "en": "His language skills are enough for everyday life.",
         "lvl": "B1"
       }
     ]
@@ -28712,6 +29076,20 @@
       }
     ]
   },
+  "voc:B1:durchstreichen": {
+    "ex": [
+      {
+        "de": "Du kannst die falsche Antwort einfach durchstreichen.",
+        "en": "You can simply cross out the wrong answer.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte das Nichtzutreffende durchstreichen.",
+        "en": "Please delete as appropriate.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:duzen": {
     "def": "to address informally using the pronoun du, to thou; to be on first-name terms",
     "ex": [
@@ -29181,6 +29559,20 @@
       }
     ]
   },
+  "voc:B1:elektronisch": {
+    "ex": [
+      {
+        "de": "Die Rechnung kommt elektronisch per E-Mail.",
+        "en": "The invoice comes electronically by email.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist eine elektronische Unterschrift.",
+        "en": "That is an electronic signature.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:emotional": {
     "def": "Relating to feelings; showing strong emotion.",
     "ex": [
@@ -29624,6 +30016,20 @@
         "de": "Das Internet ermöglicht das Lernen von zu Hause.",
         "en": "The internet makes learning from home possible.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:erneuern": {
+    "ex": [
+      {
+        "de": "Ich muss meinen Pass erneuern.",
+        "en": "I have to renew my passport.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Stadt erneuert die Brücke.",
+        "en": "The city is renovating the bridge.",
+        "lvl": "B1"
       }
     ]
   },
@@ -30924,6 +31330,20 @@
       {
         "de": "Dieses Viertel gilt als besonders sicher.",
         "en": "This district is considered especially safe.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:genehmigen": {
+    "ex": [
+      {
+        "de": "Die Stadt hat den Bau genehmigt.",
+        "en": "The city approved the building.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Chef muss den Urlaub noch genehmigen.",
+        "en": "My boss still has to approve the holiday.",
         "lvl": "B1"
       }
     ]
@@ -33632,6 +34052,20 @@
       }
     ]
   },
+  "voc:B1:nachkaufen": {
+    "ex": [
+      {
+        "de": "Wir müssen Milch nachkaufen.",
+        "en": "We need to buy more milk.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kann man die Teller später nachkaufen?",
+        "en": "Can you buy the plates later to add to the set?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:nachlässig": {
     "def": "negligent, careless",
     "ex": [
@@ -34467,6 +34901,20 @@
       }
     ]
   },
+  "voc:B1:realistisch": {
+    "ex": [
+      {
+        "de": "Ist das Ziel realistisch?",
+        "en": "Is the goal realistic?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir brauchen einen realistischen Plan.",
+        "en": "We need a realistic plan.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:rechnen mit + D": {
     "def": "To expect something or count on it happening.",
     "ex": [
@@ -34767,6 +35215,20 @@
       }
     ]
   },
+  "voc:B1:restlich": {
+    "ex": [
+      {
+        "de": "Den restlichen Kuchen essen wir morgen.",
+        "en": "We'll eat the rest of the cake tomorrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die restlichen Kosten übernimmt die Firma.",
+        "en": "The company covers the remaining costs.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:retten": {
     "def": "to save, to rescue",
     "ex": [
@@ -34858,6 +35320,20 @@
       {
         "de": "Der Ball ist rund.",
         "en": "The ball is round.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:rutschen": {
+    "ex": [
+      {
+        "de": "Die Kinder rutschen im Park.",
+        "en": "The children are sliding in the park.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Auto rutscht auf der glatten Straße.",
+        "en": "The car is sliding on the icy road.",
         "lvl": "B1"
       }
     ]
@@ -37518,6 +37994,20 @@
       {
         "de": "Ich begehe ungern Fehler.",
         "en": "I do not like to make mistakes.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:unglücklich": {
+    "ex": [
+      {
+        "de": "Er ist mit seinem Job unglücklich.",
+        "en": "He is unhappy with his job.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war ein unglücklicher Zufall.",
+        "en": "That was an unfortunate coincidence.",
         "lvl": "B1"
       }
     ]

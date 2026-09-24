@@ -4830,6 +4830,20 @@
       }
     ]
   },
+  "voc:A1:das Radio": {
+    "ex": [
+      {
+        "de": "Im Auto höre ich immer Radio.",
+        "en": "I always listen to the radio in the car.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mach bitte das Radio leiser.",
+        "en": "Please turn the radio down.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Regal": {
     "def": "a rack of shelves, shelving, a shelf (in this collective sense), e.g. an open bookcase",
     "ex": [

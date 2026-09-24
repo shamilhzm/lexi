@@ -1879,6 +1879,20 @@
       }
     ]
   },
+  "voc:A2:britisch": {
+    "ex": [
+      {
+        "de": "Er hat einen britischen Pass.",
+        "en": "He has a British passport.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die britische Regierung hat reagiert.",
+        "en": "The British government has reacted.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:buchen": {
     "def": "attributiv: aus Buchenholz (bestehend, gemacht)",
     "ex": [
@@ -2142,6 +2156,20 @@
         "de": "Das Abitur gilt vielen noch immer als wichtigster Schulabschluss.",
         "en": "The Abitur is still seen by many as the most important school qualification.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Adjektiv": {
+    "ex": [
+      {
+        "de": "Das Adjektiv steht vor dem Nomen.",
+        "en": "The adjective goes before the noun.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Welche Endung hat das Adjektiv hier?",
+        "en": "What ending does the adjective have here?",
+        "lvl": "A2"
       }
     ]
   },
@@ -4266,6 +4294,20 @@
       }
     ]
   },
+  "voc:A2:das Pech": {
+    "ex": [
+      {
+        "de": "So ein Pech! Der Zug ist gerade weg.",
+        "en": "What bad luck! The train has just left.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er hatte Pech mit dem Wetter.",
+        "en": "He was unlucky with the weather.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Pflaster": {
     "def": "specifically the pavement of a street or a street (which is no difference in old towns preceding the automobile), as well as the material from which it is made, cobblestone (Pflasterstein, Kopfsteinpflaster)",
     "ex": [
@@ -4347,6 +4389,20 @@
       {
         "de": "Wir arbeiten zusammen an einem Projekt.",
         "en": "We are working on a project together.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Pronomen": {
+    "ex": [
+      {
+        "de": "Das Pronomen ersetzt das Nomen.",
+        "en": "The pronoun replaces the noun.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Welches Pronomen passt hier?",
+        "en": "Which pronoun fits here?",
         "lvl": "A2"
       }
     ]
@@ -9592,6 +9648,20 @@
       }
     ]
   },
+  "voc:A2:der Singular": {
+    "ex": [
+      {
+        "de": "Das Wort gibt es nur im Singular.",
+        "en": "The word only exists in the singular.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Singular heißt es der Mann.",
+        "en": "In the singular it is der Mann.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Ski": {
     "def": "One of a pair of long narrow boards worn to glide over snow.",
     "ex": [
@@ -14272,6 +14342,20 @@
       }
     ]
   },
+  "voc:A2:die Kaffeetasse": {
+    "ex": [
+      {
+        "de": "Die Kaffeetasse steht noch auf dem Tisch.",
+        "en": "The coffee cup is still on the table.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe eine neue Kaffeetasse gekauft.",
+        "en": "I bought a new coffee cup.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Kaltmiete": {
     "def": "base rent",
     "ex": [
@@ -16519,6 +16603,20 @@
       }
     ]
   },
+  "voc:A2:die SIM-Karte": {
+    "ex": [
+      {
+        "de": "Ich brauche eine deutsche SIM-Karte.",
+        "en": "I need a German SIM card.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die SIM-Karte passt nicht in mein Handy.",
+        "en": "The SIM card doesn't fit my phone.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Sache": {
     "def": "matter, affair, case, question, issue; subject, matter, business",
     "ex": [
@@ -17626,6 +17724,20 @@
       {
         "de": "Die Kunden können nicht in die Tiefgarage.",
         "en": "The customers can't get into the underground car park.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Tonne": {
+    "ex": [
+      {
+        "de": "Der Laster wiegt zwölf Tonnen.",
+        "en": "The lorry weighs twelve tonnes.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Papier kommt in die blaue Tonne.",
+        "en": "Paper goes in the blue bin.",
         "lvl": "A2"
       }
     ]
@@ -19661,6 +19773,20 @@
       }
     ]
   },
+  "voc:A2:elektrisch": {
+    "ex": [
+      {
+        "de": "Ich fahre ein elektrisches Auto.",
+        "en": "I drive an electric car.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Heizung ist elektrisch.",
+        "en": "The heating is electric.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:entdecken": {
     "def": "To find or notice something for the first time.",
     "ex": [
@@ -21571,6 +21697,20 @@
       {
         "de": "Er fährt ein italienisches Auto.",
         "en": "He drives an Italian car.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:japanisch": {
+    "ex": [
+      {
+        "de": "Das Spiel stammt von einem japanischen Studio.",
+        "en": "The game comes from a Japanese studio.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir gehen heute japanisch essen.",
+        "en": "We're going for Japanese food today.",
         "lvl": "A2"
       }
     ]
@@ -23917,6 +24057,20 @@
       }
     ]
   },
+  "voc:A2:servieren": {
+    "ex": [
+      {
+        "de": "Das Essen wird um acht Uhr serviert.",
+        "en": "Dinner is served at eight o'clock.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Kellner serviert den Kaffee.",
+        "en": "The waiter serves the coffee.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:setzen": {
     "def": "to sit down; to settle (precipitate)",
     "ex": [
@@ -24698,6 +24852,20 @@
       {
         "de": "Menschen sind soziale Wesen.",
         "en": "Human beings are social creatures.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:spanisch": {
+    "ex": [
+      {
+        "de": "Wir essen heute spanische Tapas.",
+        "en": "We're eating Spanish tapas today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der spanische Fahrer startet von der Pole.",
+        "en": "The Spanish driver starts from pole.",
         "lvl": "A2"
       }
     ]
