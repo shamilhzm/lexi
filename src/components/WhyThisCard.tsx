@@ -57,7 +57,11 @@ export function whyLine(reason: SessionReason): WhyLine | null {
       // app has. Saying it out loud is also the only thing that makes the guess
       // falsifiable by the one person who can falsify it.
       if (reason.via === 'saved') {
-        return { icon: Bookmark, lead: 'You saved this one' };
+        // Saved from an article: the headline is the reason, in the learner's own
+        // terms — not "a word you saved" but the word from the piece about the DAX.
+        return reason.from
+          ? { icon: Bookmark, lead: 'You saved this from ', em: `„${reason.from}“`, emLang: 'de' }
+          : { icon: Bookmark, lead: 'You saved this one' };
       }
       if (reason.via === 'dwell') {
         return { icon: Eye, lead: 'You kept stopping on this in the feed' };

@@ -16,6 +16,7 @@
 import type { Word, Target } from './types.ts';
 import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled, isSaved, dweltRepeatedly } from './store.ts';
 import { BY_ID } from './data/index.ts';
+import { savedFrom } from './lib/news/library.ts';
 import { isDue, State } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/drills.tsx';
 
@@ -45,7 +46,7 @@ export type SessionReason =
    *  Absent for a card the weakest-sector loop picked, which is the honest state:
    *  "your level and this sector" is not a fact about the learner and the card front
    *  already says *New ·*. */
-  | { kind: 'fresh'; via?: 'saved' | 'dwell' }
+  | { kind: 'fresh'; via?: 'saved' | 'dwell'; from?: string }
   /** A drill for a word whose flip is in this same queue, ~GAP items earlier. */
   | { kind: 'drill'; mode: Mode; parent: Word }
   /** A drill in one of the modes the learner misses most. */
@@ -96,7 +97,12 @@ function overdueDays(srsId: string, now = Date.now()): number {
 function flipReason(w: Word, now = Date.now()): SessionReason {
   const c = cardOf(w.id);
   if (!c || c.state === State.New) {
-    if (isSaved(w.id)) return { kind: 'fresh', via: 'saved' };
+    if (isSaved(w.id)) {
+      // Saved from an article: say which one. The headline is the learner's own
+      // reason, and a better one than "you saved this".
+      const from = savedFrom(w.id)?.title;
+      return from ? { kind: 'fresh', via: 'saved', from } : { kind: 'fresh', via: 'saved' };
+    }
     if (dweltRepeatedly(w.id)) return { kind: 'fresh', via: 'dwell' };
     return { kind: 'fresh' };
   }
@@ -130,7 +136,7 @@ const RESUME_KEY = 'lexi.session.v1';
 
 /** A SessionReason with its Word references reduced to ids. */
 type PackedReason =
-  | { k: 'fresh'; v?: 'saved' | 'dwell' }
+  | { k: 'fresh'; v?: 'saved' | 'dwell'; f?: string }
   | { k: 'due'; d: number }
   | { k: 'orphan'; d: number; m: Mode }
   | { k: 'drill'; m: Mode; p: string }
@@ -146,7 +152,7 @@ const dayKey = (ms: number) => new Date(ms).toISOString().slice(0, 10);
 
 function packReason(r: SessionReason): PackedReason {
   switch (r.kind) {
-    case 'fresh': return r.via ? { k: 'fresh', v: r.via } : { k: 'fresh' };
+    case 'fresh': return r.via ? { k: 'fresh', v: r.via, ...(r.from ? { f: r.from } : {}) } : { k: 'fresh' };
     case 'due': return { k: 'due', d: r.overdueDays };
     case 'orphan': return { k: 'orphan', d: r.overdueDays, m: r.mode };
     case 'drill': return { k: 'drill', m: r.mode, p: r.parent.id };
@@ -159,7 +165,7 @@ function packReason(r: SessionReason): PackedReason {
  *  rather than resuming a queue with holes in it. */
 function unpackReason(r: PackedReason): SessionReason | null {
   switch (r.k) {
-    case 'fresh': return r.v ? { kind: 'fresh', via: r.v } : { kind: 'fresh' };
+    case 'fresh': return r.v ? { kind: 'fresh', via: r.v, ...(r.f ? { from: r.f } : {}) } : { kind: 'fresh' };
     case 'unlock': return { kind: 'unlock', text: r.x };
     case 'due': return { kind: 'due', overdueDays: r.d };
     case 'orphan': return { kind: 'orphan', overdueDays: r.d, mode: r.m };

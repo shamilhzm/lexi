@@ -101,6 +101,22 @@ export async function speakHd(text: string): Promise<void> {
   await audio.play();
 }
 
+/** Speak with Piper and resolve when the audio has *finished* — `speakHd`
+ *  resolves when playback starts, which is right for a word and wrong for reading
+ *  an article aloud paragraph by paragraph. */
+export async function speakHdToEnd(text: string): Promise<void> {
+  await speakHd(text);
+  const a = current;
+  if (!a || a.ended) return;
+  await new Promise<void>((resolve) => {
+    a.addEventListener('ended', () => resolve(), { once: true });
+    a.addEventListener('pause', () => resolve(), { once: true });
+  });
+}
+
+/** Stop whatever the HD voice is saying. */
+export function stopHd(): void { current?.pause(); }
+
 // The HD voice used to be discoverable only by opening Settings, so the learners
 // most in need of it — the ones straining to hear a robotic vowel — were exactly
 // the ones who never found it (UX-PATHS F4). Rather than wire an offer into every

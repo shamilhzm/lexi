@@ -85,6 +85,7 @@
     "vitest": "^2.1.9"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "react": "^19.0.1",
