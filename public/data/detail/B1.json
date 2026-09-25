@@ -1017,6 +1017,20 @@
       }
     ]
   },
+  "voc:B1:ablegen": {
+    "ex": [
+      {
+        "de": "Möchten Sie Ihren Mantel ablegen?",
+        "en": "Would you like to take off your coat?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Juni will ich die B2-Prüfung ablegen.",
+        "en": "I want to take the B2 exam in June.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:ablehnen": {
     "def": "to decline, refuse, reject, turn down",
     "ex": [
@@ -1028,6 +1042,20 @@
       {
         "de": "Das Angebot wurde abgelehnt.",
         "en": "The offer was turned down.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:abmachen": {
+    "ex": [
+      {
+        "de": "Wir haben abgemacht, uns um acht zu treffen.",
+        "en": "We agreed to meet at eight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du das Schild abmachen?",
+        "en": "Can you take the sign off?",
         "lvl": "B1"
       }
     ]
@@ -1555,6 +1583,20 @@
       }
     ]
   },
+  "voc:B1:anlügen": {
+    "ex": [
+      {
+        "de": "Du sollst mich nicht anlügen.",
+        "en": "You mustn't lie to me.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Warum willst du mich anlügen?",
+        "en": "Why do you want to lie to me?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:anpassen": {
     "def": "etwas passend machen, angleichen",
     "ex": [
@@ -1783,6 +1825,20 @@
       {
         "de": "Hier treffen zwei Welten aufeinander.",
         "en": "Two worlds collide.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:auffallen": {
+    "ex": [
+      {
+        "de": "Dein Akzent kann kaum auffallen.",
+        "en": "Your accent is hardly noticeable.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mir ist aufgefallen, dass du müde bist.",
+        "en": "I've noticed that you're tired.",
         "lvl": "B1"
       }
     ]
@@ -2342,6 +2398,20 @@
       {
         "de": "Am Nachmittag basteln wir eine Laterne.",
         "en": "In the afternoon we make a lantern.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:bayrisch": {
+    "ex": [
+      {
+        "de": "Er spricht mit starkem bayrischem Akzent.",
+        "en": "He speaks with a strong Bavarian accent.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die bayrische Küche ist sehr deftig.",
+        "en": "Bavarian cuisine is very hearty.",
         "lvl": "B1"
       }
     ]
@@ -2999,6 +3069,20 @@
       {
         "de": "bescheidener Anfang",
         "en": "modest beginning",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:bescheuert": {
+    "ex": [
+      {
+        "de": "Die Idee ist total bescheuert.",
+        "en": "The idea is totally daft.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bist du bescheuert?",
+        "en": "Are you crazy?",
         "lvl": "B1"
       }
     ]
@@ -5322,6 +5406,20 @@
       }
     ]
   },
+  "voc:B1:das Gift": {
+    "ex": [
+      {
+        "de": "Die Pflanze enthält Gift.",
+        "en": "The plant contains poison.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Stress ist Gift für die Gesundheit.",
+        "en": "Stress is poison for your health.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Gleichgewicht": {
     "def": "equilibrium",
     "ex": [
@@ -7429,6 +7527,20 @@
       }
     ]
   },
+  "voc:B1:das Seil": {
+    "ex": [
+      {
+        "de": "Die Kletterer sichern sich mit einem Seil.",
+        "en": "The climbers secure themselves with a rope.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Seil ist gerissen.",
+        "en": "The rope snapped.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Selbstwertgefühl": {
     "def": "positive Einstellung zu sich selbst",
     "ex": [
@@ -8192,6 +8304,20 @@
       }
     ]
   },
+  "voc:B1:das Virus": {
+    "ex": [
+      {
+        "de": "Das Virus verbreitet sich schnell.",
+        "en": "The virus is spreading quickly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf dem Computer ist ein Virus.",
+        "en": "There's a virus on the computer.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Visum": {
     "def": "visa (permit to enter a country); visa (stamp on a passport)",
     "ex": [
@@ -8841,6 +8967,20 @@
         "de": "Die Aktionäre stimmten über den Plan ab.",
         "en": "The shareholders voted on the plan.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Albtraum": {
+    "ex": [
+      {
+        "de": "Ich hatte heute Nacht einen Albtraum.",
+        "en": "I had a nightmare last night.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Wohnungssuche war ein Albtraum.",
+        "en": "The flat hunt was a nightmare.",
+        "lvl": "B1"
       }
     ]
   },
@@ -10059,6 +10199,20 @@
       }
     ]
   },
+  "voc:B1:der Chinese": {
+    "ex": [
+      {
+        "de": "Der Chinese spricht sehr gut Deutsch.",
+        "en": "The Chinese man speaks very good German.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Heute gehen wir zum Chinesen essen.",
+        "en": "Today we're going to the Chinese restaurant.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Chip": {
     "def": "chip; chip (piece of plastic or metal used as a token for money, entrance tickets, etc.)",
     "ex": [
@@ -10914,6 +11068,20 @@
       }
     ]
   },
+  "voc:B1:der Fischer": {
+    "ex": [
+      {
+        "de": "Der Fischer fährt früh aufs Meer.",
+        "en": "The fisherman goes out to sea early.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Fischer protestieren gegen die neuen Quoten.",
+        "en": "The fishermen are protesting against the new quotas.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Flamingo": {
     "def": "A tall pink water bird with long legs.",
     "ex": [
@@ -10926,6 +11094,20 @@
         "de": "Die rosa Farbe kommt von der Nahrung des Flamingos.",
         "en": "The pink colour comes from the flamingo's food.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Fleck": {
+    "ex": [
+      {
+        "de": "Auf dem Hemd ist ein Fleck.",
+        "en": "There's a stain on the shirt.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Fleck geht nicht raus.",
+        "en": "The stain won't come out.",
+        "lvl": "B1"
       }
     ]
   },
@@ -11540,6 +11722,20 @@
       }
     ]
   },
+  "voc:B1:der Hammer": {
+    "ex": [
+      {
+        "de": "Gib mir bitte mal den Hammer.",
+        "en": "Pass me the hammer, please.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Konzert war der Hammer!",
+        "en": "The concert was amazing!",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Handschlag": {
     "def": "The clasping of hands in greeting, in parting, or to seal an agreement.",
     "defDe": "wechselseitiges Sich-die-Hand-Geben zur Begrüßung, Verabschiedung oder zur Besiegelung einer Abmachung, eines Geschäfts",
@@ -11716,6 +11912,20 @@
       {
         "de": "Was ist der Hintergrund deiner Frage?",
         "en": "What's the point of your question?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Hintern": {
+    "ex": [
+      {
+        "de": "Nach der Radtour tut mir der Hintern weh.",
+        "en": "My backside hurts after the bike ride.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Setz dich auf den Hintern und lern!",
+        "en": "Sit down and study!",
         "lvl": "B1"
       }
     ]
@@ -13280,6 +13490,20 @@
       }
     ]
   },
+  "voc:B1:der Münchner": {
+    "ex": [
+      {
+        "de": "Der Münchner spricht mit bayrischem Akzent.",
+        "en": "The man from Munich speaks with a Bavarian accent.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Chef ist Münchner.",
+        "en": "My boss is from Munich.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Nachforschungsauftrag": {
     "def": "A formal request to search for a lost letter or parcel.",
     "ex": [
@@ -13634,6 +13858,20 @@
       }
     ]
   },
+  "voc:B1:der Palast": {
+    "ex": [
+      {
+        "de": "Der König wohnt in einem Palast.",
+        "en": "The king lives in a palace.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Palast ist heute ein Museum.",
+        "en": "The palace is a museum today.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Panzer": {
     "def": "hartes, dickes, vor Verletzung oder Beschädigung schützendes Kleidungsstück",
     "ex": [
@@ -13690,6 +13928,20 @@
       {
         "de": "Wir fanden keinen Parkplatz auf dem Parkplatz.",
         "en": "We couldn’t find a parking space in the car park.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Passagier": {
+    "ex": [
+      {
+        "de": "Alle Passagiere müssen aussteigen.",
+        "en": "All passengers must get off.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Passagier hat sein Gepäck vergessen.",
+        "en": "The passenger forgot his luggage.",
         "lvl": "B1"
       }
     ]
@@ -14315,6 +14567,20 @@
       }
     ]
   },
+  "voc:B1:der Riese": {
+    "ex": [
+      {
+        "de": "Im Märchen lebt ein Riese auf dem Berg.",
+        "en": "In the fairy tale a giant lives on the mountain.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Konzern ist ein Riese der Branche.",
+        "en": "The group is a giant of the industry.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Ritter": {
     "def": "A noble soldier on horseback in the Middle Ages.",
     "ex": [
@@ -14393,6 +14659,20 @@
       }
     ]
   },
+  "voc:B1:der Russe": {
+    "ex": [
+      {
+        "de": "Der Russe hat das Schachturnier gewonnen.",
+        "en": "The Russian won the chess tournament.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Nachbar ist Russe.",
+        "en": "My neighbour is Russian.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Rückspiegel": {
     "def": "The mirror in a car that shows the road behind.",
     "defDe": "Auto: Der Spiegel im Auto, um das rückwärtige Verkehrsgeschehen zu beobachten",
@@ -14411,6 +14691,20 @@
         "de": "Manche leben zu sehr mit dem Blick in den Rückspiegel.",
         "en": "Some live too much with their eyes on the rear-view mirror.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Sack": {
+    "ex": [
+      {
+        "de": "Der Sack Kartoffeln ist schwer.",
+        "en": "The sack of potatoes is heavy.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat die Katze im Sack gekauft.",
+        "en": "He bought a pig in a poke.",
+        "lvl": "B1"
       }
     ]
   },
@@ -15264,6 +15558,20 @@
       }
     ]
   },
+  "voc:B1:der Spruch": {
+    "ex": [
+      {
+        "de": "Auf der Tasse steht ein lustiger Spruch.",
+        "en": "There's a funny saying on the mug.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Spar dir deine Sprüche!",
+        "en": "Save your clever remarks!",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Stadtteil": {
     "def": "district; suburb (Australia, New Zealand)",
     "ex": [
@@ -15997,6 +16305,20 @@
       }
     ]
   },
+  "voc:B1:der US-Dollar": {
+    "ex": [
+      {
+        "de": "Der Euro ist gegenüber dem US-Dollar gestiegen.",
+        "en": "The euro has risen against the US dollar.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Öl wird in US-Dollar gehandelt.",
+        "en": "Oil is traded in US dollars.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Umgang": {
     "def": "the way people treat and interact with each other",
     "ex": [
@@ -16272,6 +16594,20 @@
       {
         "de": "Radfahrer und Fußgänger sind auch Verkehrsteilnehmer.",
         "en": "Cyclists and pedestrians are road users too.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Verkehrsunfall": {
+    "ex": [
+      {
+        "de": "Bei einem Verkehrsunfall wurden zwei Menschen verletzt.",
+        "en": "Two people were injured in a road accident.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach dem Verkehrsunfall war die Autobahn gesperrt.",
+        "en": "The motorway was closed after the accident.",
         "lvl": "B1"
       }
     ]
@@ -17093,6 +17429,20 @@
         "de": "An ihrer Zuständigkeit besteht kein Zweifel.",
         "en": "There is no doubt about her competence in this matter.",
         "lvl": "C2"
+      }
+    ]
+  },
+  "voc:B1:der Zwilling": {
+    "ex": [
+      {
+        "de": "Mein Bruder und ich sind Zwillinge.",
+        "en": "My brother and I are twins.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat einen Zwilling in Berlin.",
+        "en": "She has a twin in Berlin.",
+        "lvl": "B1"
       }
     ]
   },
@@ -19332,6 +19682,20 @@
       }
     ]
   },
+  "voc:B1:die Corona-Pandemie": {
+    "ex": [
+      {
+        "de": "Während der Corona-Pandemie habe ich im Homeoffice gearbeitet.",
+        "en": "During the coronavirus pandemic I worked from home.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Corona-Pandemie hat viel verändert.",
+        "en": "The coronavirus pandemic changed a lot.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Cousine": {
     "def": "Tochter von Onkel oder Tante",
     "ex": [
@@ -20784,6 +21148,20 @@
       {
         "de": "Regelmäßiges Training verbessert die Fitness.",
         "en": "Regular training improves your fitness.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Flamme": {
+    "ex": [
+      {
+        "de": "Stell die Flamme am Herd kleiner.",
+        "en": "Turn the flame down on the stove.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Haus stand in Flammen.",
+        "en": "The house was in flames.",
         "lvl": "B1"
       }
     ]
@@ -22851,6 +23229,20 @@
       {
         "de": "Ich brauche eine Klammer für die Wäsche.",
         "en": "I need a peg for the washing.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Klamotte": {
+    "ex": [
+      {
+        "de": "Ich brauche neue Klamotten für den Job.",
+        "en": "I need new clothes for the job.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zieh dir alte Klamotten an, wir streichen.",
+        "en": "Put on old clothes, we're painting.",
         "lvl": "B1"
       }
     ]
@@ -30735,6 +31127,20 @@
       }
     ]
   },
+  "voc:B1:einbrechen": {
+    "ex": [
+      {
+        "de": "Diebe wollten in die Wohnung einbrechen.",
+        "en": "Thieves wanted to break into the flat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Umsatz ist stark eingebrochen.",
+        "en": "Sales have collapsed.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:einchecken": {
     "def": "To register your arrival at an airport or hotel.",
     "ex": [
@@ -33013,6 +33419,20 @@
       }
     ]
   },
+  "voc:B1:gesundheitlich": {
+    "ex": [
+      {
+        "de": "Aus gesundheitlichen Gründen hört er auf.",
+        "en": "He's stopping for health reasons.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie geht es dir gesundheitlich?",
+        "en": "How's your health?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:geteilt": {
     "def": "shared, split",
     "ex": [
@@ -34337,6 +34757,20 @@
       }
     ]
   },
+  "voc:B1:jetzig": {
+    "ex": [
+      {
+        "de": "Mein jetziger Job ist langweilig.",
+        "en": "My current job is boring.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der jetzigen Lage kaufen wir nichts.",
+        "en": "We're not buying anything in the current situation.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:jährlich": {
     "def": "Happening once a year or every year.",
     "ex": [
@@ -34397,6 +34831,20 @@
       {
         "de": "Beim Fahren ist mir der Reifen kaputtgegangen.",
         "en": "While riding, my tyre broke.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:katholisch": {
+    "ex": [
+      {
+        "de": "Köln ist eine sehr katholische Stadt.",
+        "en": "Cologne is a very Catholic city.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ist katholisch aufgewachsen.",
+        "en": "She was brought up Catholic.",
         "lvl": "B1"
       }
     ]
@@ -34602,6 +35050,20 @@
       {
         "de": "Lass dich krankschreiben und bleib im Bett.",
         "en": "Get a sick note and stay in bed.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:krass": {
+    "ex": [
+      {
+        "de": "Das ist ja krass!",
+        "en": "That's crazy!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Unterschied ist krass.",
+        "en": "The difference is stark.",
         "lvl": "B1"
       }
     ]
@@ -35273,6 +35735,20 @@
       }
     ]
   },
+  "voc:B1:mies": {
+    "ex": [
+      {
+        "de": "Das Wetter ist heute echt mies.",
+        "en": "The weather is really lousy today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe miese Laune.",
+        "en": "I'm in a rotten mood.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:mild": {
     "def": "nicht stark im Geschmack",
     "ex": [
@@ -35482,6 +35958,20 @@
         "de": "Nach dem Regen war der Weg moorig und rutschig.",
         "en": "After the rain the path was boggy and slippery.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:musikalisch": {
+    "ex": [
+      {
+        "de": "Sie ist sehr musikalisch.",
+        "en": "She is very musical.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Abend hatte ein musikalisches Programm.",
+        "en": "The evening had a musical programme.",
+        "lvl": "B1"
       }
     ]
   },
@@ -36247,6 +36737,20 @@
       }
     ]
   },
+  "voc:B1:pfeifen": {
+    "ex": [
+      {
+        "de": "Der Schiedsrichter muss das Foul pfeifen.",
+        "en": "The referee has to whistle for the foul.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich pfeife auf seine Meinung.",
+        "en": "I couldn't care less about his opinion.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:politisch": {
     "def": "political (concerning or related to politics)",
     "ex": [
@@ -36258,6 +36762,20 @@
       {
         "de": "Im Gefängnis gewesen sein, das ist ein großes Erlebnis, das kein politischer Mensch aus seinem Dasein streichen kann.",
         "en": "Having been in prison, that is a great experience that no political man can eliminate from his existence.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:polnisch": {
+    "ex": [
+      {
+        "de": "Im Laden gibt es polnische Spezialitäten.",
+        "en": "The shop has Polish specialities.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat einen polnischen Pass.",
+        "en": "He has a Polish passport.",
         "lvl": "B1"
       }
     ]
@@ -36383,6 +36901,20 @@
       {
         "de": "Alles klar, lasst uns heute nicht förmlich sein. Prost!",
         "en": "All right, everyone, let's not stand on ceremony tonight. Cheers!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:protestieren": {
+    "ex": [
+      {
+        "de": "Tausende protestieren gegen die Reform.",
+        "en": "Thousands are protesting against the reform.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Mieter haben gegen die Erhöhung protestiert.",
+        "en": "The tenants protested against the increase.",
         "lvl": "B1"
       }
     ]
@@ -36781,6 +37313,20 @@
       }
     ]
   },
+  "voc:B1:reinigen": {
+    "ex": [
+      {
+        "de": "Die Firma reinigt jeden Abend das Büro.",
+        "en": "The company cleans the office every evening.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Den Anzug muss man chemisch reinigen.",
+        "en": "The suit has to be dry-cleaned.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:reizend": {
     "def": "lovely",
     "ex": [
@@ -37150,6 +37696,20 @@
       }
     ]
   },
+  "voc:B1:scheiden": {
+    "ex": [
+      {
+        "de": "Die beiden wollen sich scheiden lassen.",
+        "en": "The two of them want to get divorced.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hier scheiden sich die Geister.",
+        "en": "Opinions differ on this.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:scheinbar": {
     "def": "apparently (seemingly)",
     "ex": [
@@ -37210,6 +37770,20 @@
       }
     ]
   },
+  "voc:B1:schleppen": {
+    "ex": [
+      {
+        "de": "Beim Umzug mussten wir alles in den vierten Stock schleppen.",
+        "en": "During the move we had to haul everything to the fourth floor.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir müssen die Kisten in den Keller schleppen.",
+        "en": "We have to haul the boxes into the cellar.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:schließlich": {
     "def": "in the end, finally, eventually",
     "ex": [
@@ -37221,6 +37795,20 @@
       {
         "de": "Es freut mich, Sie schließlich zu treffen.",
         "en": "I'm glad to finally meet you.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:schlucken": {
+    "ex": [
+      {
+        "de": "Die Tablette ist schwer zu schlucken.",
+        "en": "The tablet is hard to swallow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kritik musste er schlucken.",
+        "en": "He had to swallow the criticism.",
         "lvl": "B1"
       }
     ]
@@ -37281,6 +37869,20 @@
       {
         "de": "Er hat beim Kartenspiel geschummelt.",
         "en": "He cheated at the card game.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:schwedisch": {
+    "ex": [
+      {
+        "de": "Das Regal ist von einer schwedischen Firma.",
+        "en": "The shelf is from a Swedish company.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie liest gern schwedische Krimis.",
+        "en": "She likes reading Swedish crime novels.",
         "lvl": "B1"
       }
     ]
@@ -38784,6 +39386,20 @@
       }
     ]
   },
+  "voc:B1:stechen": {
+    "ex": [
+      {
+        "de": "Pass auf, die Biene kann stechen!",
+        "en": "Careful, the bee can sting!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Sommer stechen die Mücken am Rhein.",
+        "en": "In summer the mosquitoes bite by the Rhine.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:stehlen": {
     "def": "to steal; to skulk, to move secretly",
     "ex": [
@@ -38889,6 +39505,20 @@
       {
         "de": "Sie stoßen auf finanzielle Probleme.",
         "en": "They are facing financial problems.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:strahlen": {
+    "ex": [
+      {
+        "de": "Die Sonne strahlt über dem Rhein.",
+        "en": "The sun is shining over the Rhine.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie strahlt vor Freude.",
+        "en": "She's beaming with joy.",
         "lvl": "B1"
       }
     ]
@@ -42606,6 +43236,20 @@
       {
         "de": "Nach dem Studium zog er nach Berlin.",
         "en": "After his studies he moved to Berlin.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:zittern": {
+    "ex": [
+      {
+        "de": "Vor Kälte zittere ich am ganzen Körper.",
+        "en": "I'm shivering all over with cold.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Fans haben bis zum Schluss gezittert.",
+        "en": "The fans were on tenterhooks until the end.",
         "lvl": "B1"
       }
     ]

@@ -1009,6 +1009,20 @@
       }
     ]
   },
+  "voc:A2:aufwachsen": {
+    "ex": [
+      {
+        "de": "Ich bin in der Karibik aufgewachsen.",
+        "en": "I grew up in the Caribbean.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Unsere Kinder sollen zweisprachig aufwachsen.",
+        "en": "Our children are to grow up bilingual.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:aufzählen": {
     "def": "To name things one after another.",
     "ex": [
@@ -2011,6 +2025,20 @@
         "de": "Nach den Prüfungen will ich erst mal nur chillen.",
         "en": "After the exams I just want to chill for a while.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:chinesisch": {
+    "ex": [
+      {
+        "de": "Wir bestellen heute chinesisches Essen.",
+        "en": "We're ordering Chinese food today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Chinesische Autos werden in Europa beliebter.",
+        "en": "Chinese cars are becoming more popular in Europe.",
+        "lvl": "A2"
       }
     ]
   },
@@ -3472,6 +3500,20 @@
       }
     ]
   },
+  "voc:A2:das Gras": {
+    "ex": [
+      {
+        "de": "Die Kinder sitzen im Gras.",
+        "en": "The children are sitting on the grass.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Über die Sache ist Gras gewachsen.",
+        "en": "The matter has been forgotten.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Gymnasium": {
     "def": "grammar school (UK), prep school (US) (school used to prepare students for university)",
     "ex": [
@@ -3822,6 +3864,20 @@
       {
         "de": "Im Klassenzimmer ist es heute sehr warm.",
         "en": "It is very warm in the classroom today.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Klo": {
+    "ex": [
+      {
+        "de": "Wo ist hier das Klo?",
+        "en": "Where's the loo here?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich muss mal aufs Klo.",
+        "en": "I need to go to the loo.",
         "lvl": "A2"
       }
     ]
@@ -6269,6 +6325,20 @@
       }
     ]
   },
+  "voc:A2:der Bart": {
+    "ex": [
+      {
+        "de": "Er lässt sich einen Bart wachsen.",
+        "en": "He's growing a beard.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Bart steht dir gut.",
+        "en": "The beard suits you.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Berg": {
     "def": "a mountain, hill",
     "ex": [
@@ -7103,6 +7173,20 @@
       }
     ]
   },
+  "voc:A2:der Feuerwehrmann": {
+    "ex": [
+      {
+        "de": "Der Feuerwehrmann hat das Kind gerettet.",
+        "en": "The firefighter rescued the child.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er wollte schon als Kind Feuerwehrmann werden.",
+        "en": "He wanted to be a firefighter even as a child.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Filmemacher": {
     "def": "A person who makes films.",
     "ex": [
@@ -7218,6 +7302,20 @@
       {
         "de": "Heute vor siebzig Jahren erschien die erste Frankfurter Allgemeine Zeitung.",
         "en": "The first Frankfurter Allgemeine Zeitung was published seventy years ago today.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Franzose": {
+    "ex": [
+      {
+        "de": "Der Franzose hat die Tour de France gewonnen.",
+        "en": "The Frenchman won the Tour de France.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mein Mitbewohner ist Franzose.",
+        "en": "My flatmate is French.",
         "lvl": "A2"
       }
     ]
@@ -7832,6 +7930,20 @@
       }
     ]
   },
+  "voc:A2:der Journalist": {
+    "ex": [
+      {
+        "de": "Der Journalist schreibt über Wirtschaft.",
+        "en": "The journalist writes about business.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie arbeitet als Journalistin beim WDR.",
+        "en": "She works as a journalist at the WDR.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Kakao": {
     "def": "cocoa (unsweetened brown powder made from roasted, ground cocoa beans); cocoa, hot chocolate (hot drink made with milk, cocoa powder, and sugar)",
     "ex": [
@@ -7923,6 +8035,20 @@
       {
         "de": "Habt ihr einen Katalog?",
         "en": "Do you have a catalogue?",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Keks": {
+    "ex": [
+      {
+        "de": "Möchtest du einen Keks zum Kaffee?",
+        "en": "Would you like a biscuit with your coffee?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Du gehst mir auf den Keks!",
+        "en": "You're getting on my nerves!",
         "lvl": "A2"
       }
     ]
@@ -8332,6 +8458,20 @@
       {
         "de": "Der Kurzurlaub war leider zu kurz.",
         "en": "The short break was unfortunately too short.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Kölner": {
+    "ex": [
+      {
+        "de": "Der Kölner feiert gern Karneval.",
+        "en": "People from Cologne love celebrating carnival.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie ist echte Kölnerin.",
+        "en": "She's a true Cologne native.",
         "lvl": "A2"
       }
     ]
@@ -10226,6 +10366,20 @@
         "de": "Den allmorgendlichen Stau umgeht er, indem er den Zug nimmt.",
         "en": "He avoids the daily morning jam by taking the train.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:A2:der Staub": {
+    "ex": [
+      {
+        "de": "Auf dem Regal liegt viel Staub.",
+        "en": "There's a lot of dust on the shelf.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Skandal hat viel Staub aufgewirbelt.",
+        "en": "The scandal caused quite a stir.",
+        "lvl": "A2"
       }
     ]
   },
@@ -12804,6 +12958,20 @@
       }
     ]
   },
+  "voc:A2:die Bundesliga": {
+    "ex": [
+      {
+        "de": "Der 1. FC Köln spielt wieder in der Bundesliga.",
+        "en": "1. FC Köln are playing in the Bundesliga again.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Samstag schaue ich immer Bundesliga.",
+        "en": "I always watch the Bundesliga on Saturday.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Bushaltestelle": {
     "def": "A marked place where buses stop to pick up passengers.",
     "ex": [
@@ -14953,6 +15121,20 @@
       {
         "de": "Die Kiste ist voll.",
         "en": "The box is full.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Kita": {
+    "ex": [
+      {
+        "de": "Unsere Tochter geht in die Kita.",
+        "en": "Our daughter goes to nursery.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Einen Platz in der Kita zu finden ist schwer.",
+        "en": "Finding a nursery place is hard.",
         "lvl": "A2"
       }
     ]
@@ -19585,6 +19767,20 @@
       }
     ]
   },
+  "voc:A2:dreckig": {
+    "ex": [
+      {
+        "de": "Deine Schuhe sind ganz dreckig.",
+        "en": "Your shoes are all dirty.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Küche ist dreckig.",
+        "en": "The kitchen is dirty.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:drehen": {
     "def": "to turn; to turn (one’s body), turn around",
     "ex": [
@@ -21408,6 +21604,20 @@
       }
     ]
   },
+  "voc:A2:griechisch": {
+    "ex": [
+      {
+        "de": "Wir gehen in ein griechisches Restaurant.",
+        "en": "We're going to a Greek restaurant.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie hat griechische Wurzeln.",
+        "en": "She has Greek roots.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:großartig": {
     "def": "terrific, superb, etc.",
     "ex": [
@@ -22648,6 +22858,20 @@
       {
         "de": "Lies Bücher, die sich lohnen.",
         "en": "Read books that are worthwhile.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:losgehen": {
+    "ex": [
+      {
+        "de": "Wann soll es losgehen?",
+        "en": "When are we setting off?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Konzert ist um acht losgegangen.",
+        "en": "The concert started at eight.",
         "lvl": "A2"
       }
     ]

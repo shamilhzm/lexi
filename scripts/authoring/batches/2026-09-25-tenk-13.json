@@ -1,0 +1,2920 @@
+[
+ {
+  "term": "die Aue",
+  "en": "floodplain, meadow",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Die Kühe grasen in der Aue am Fluss.",
+    "en": "The cows graze on the floodplain by the river."
+   },
+   {
+    "de": "Die Aue steht im Frühjahr unter Wasser.",
+    "en": "The meadow is under water in spring."
+   }
+  ]
+ },
+ {
+  "term": "auffallen",
+  "en": "to stand out, to be noticed",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Intermediate everyday verbs",
+  "ex": [
+   {
+    "de": "Dein Akzent kann kaum auffallen.",
+    "en": "Your accent is hardly noticeable."
+   },
+   {
+    "de": "Mir ist aufgefallen, dass du müde bist.",
+    "en": "I've noticed that you're tired."
+   }
+  ]
+ },
+ {
+  "term": "einbrechen",
+  "en": "to break in; to collapse (prices)",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Diebe wollten in die Wohnung einbrechen.",
+    "en": "Thieves wanted to break into the flat."
+   },
+   {
+    "de": "Der Umsatz ist stark eingebrochen.",
+    "en": "Sales have collapsed."
+   }
+  ]
+ },
+ {
+  "term": "der Ministerpräsident",
+  "en": "minister-president (head of a German state)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Der Ministerpräsident von NRW sitzt in Düsseldorf.",
+    "en": "The minister-president of NRW is based in Düsseldorf."
+   },
+   {
+    "de": "Der Ministerpräsident hat die Wahl gewonnen.",
+    "en": "The minister-president won the election."
+   }
+  ]
+ },
+ {
+  "term": "der Münchner",
+  "en": "person from Munich",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Der Münchner spricht mit bayrischem Akzent.",
+    "en": "The man from Munich speaks with a Bavarian accent."
+   },
+   {
+    "de": "Mein Chef ist Münchner.",
+    "en": "My boss is from Munich."
+   }
+  ]
+ },
+ {
+  "term": "die Flamme",
+  "en": "flame",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Stell die Flamme am Herd kleiner.",
+    "en": "Turn the flame down on the stove."
+   },
+   {
+    "de": "Das Haus stand in Flammen.",
+    "en": "The house was in flames."
+   }
+  ]
+ },
+ {
+  "term": "durchsuchen",
+  "en": "to search",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Polizei durchsucht die Wohnung.",
+    "en": "The police are searching the flat."
+   },
+   {
+    "de": "Ich habe das ganze Internet durchsucht.",
+    "en": "I've searched the whole internet."
+   }
+  ]
+ },
+ {
+  "term": "ruinieren",
+  "en": "to ruin",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Intermediate everyday verbs",
+  "ex": [
+   {
+    "de": "Der Regen hat meine Schuhe ruiniert.",
+    "en": "The rain has ruined my shoes."
+   },
+   {
+    "de": "Die Krise ruiniert viele kleine Firmen.",
+    "en": "The crisis is ruining many small firms."
+   }
+  ]
+ },
+ {
+  "term": "die Bundesliga",
+  "en": "Bundesliga (German national league)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der 1. FC Köln spielt wieder in der Bundesliga.",
+    "en": "1. FC Köln are playing in the Bundesliga again."
+   },
+   {
+    "de": "Am Samstag schaue ich immer Bundesliga.",
+    "en": "I always watch the Bundesliga on Saturday."
+   }
+  ]
+ },
+ {
+  "term": "chinesisch",
+  "en": "Chinese",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Wir bestellen heute chinesisches Essen.",
+    "en": "We're ordering Chinese food today."
+   },
+   {
+    "de": "Chinesische Autos werden in Europa beliebter.",
+    "en": "Chinese cars are becoming more popular in Europe."
+   }
+  ]
+ },
+ {
+  "term": "der Russe",
+  "en": "Russian (man)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Der Russe hat das Schachturnier gewonnen.",
+    "en": "The Russian won the chess tournament."
+   },
+   {
+    "de": "Mein Nachbar ist Russe.",
+    "en": "My neighbour is Russian."
+   }
+  ]
+ },
+ {
+  "term": "der Journalist",
+  "en": "journalist",
+  "pos": "noun",
+  "level": "A2",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Der Journalist schreibt über Wirtschaft.",
+    "en": "The journalist writes about business."
+   },
+   {
+    "de": "Sie arbeitet als Journalistin beim WDR.",
+    "en": "She works as a journalist at the WDR."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "bayrisch",
+  "en": "Bavarian",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Er spricht mit starkem bayrischem Akzent.",
+    "en": "He speaks with a strong Bavarian accent."
+   },
+   {
+    "de": "Die bayrische Küche ist sehr deftig.",
+    "en": "Bavarian cuisine is very hearty."
+   }
+  ]
+ },
+ {
+  "term": "erfreuen",
+  "en": "to please, to delight",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Nachricht wird alle erfreuen.",
+    "en": "The news will please everyone."
+   },
+   {
+    "de": "Die App erfreut sich großer Beliebtheit.",
+    "en": "The app enjoys great popularity."
+   }
+  ]
+ },
+ {
+  "term": "seufzen",
+  "en": "to sigh",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Sie seufzt, als sie die Rechnung sieht.",
+    "en": "She sighs when she sees the bill."
+   },
+   {
+    "de": "Er hat tief geseufzt.",
+    "en": "He sighed deeply."
+   }
+  ]
+ },
+ {
+  "term": "pfeifen",
+  "en": "to whistle",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Schiedsrichter muss das Foul pfeifen.",
+    "en": "The referee has to whistle for the foul."
+   },
+   {
+    "de": "Ich pfeife auf seine Meinung.",
+    "en": "I couldn't care less about his opinion."
+   }
+  ]
+ },
+ {
+  "term": "musikalisch",
+  "en": "musical",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Sie ist sehr musikalisch.",
+    "en": "She is very musical."
+   },
+   {
+    "de": "Der Abend hatte ein musikalisches Programm.",
+    "en": "The evening had a musical programme."
+   }
+  ]
+ },
+ {
+  "term": "mies",
+  "en": "lousy, rotten",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Das Wetter ist heute echt mies.",
+    "en": "The weather is really lousy today."
+   },
+   {
+    "de": "Ich habe miese Laune.",
+    "en": "I'm in a rotten mood."
+   }
+  ]
+ },
+ {
+  "term": "der Fakt",
+  "en": "fact",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Das ist ein Fakt, keine Meinung.",
+    "en": "That's a fact, not an opinion."
+   },
+   {
+    "de": "Fakt ist, dass die Mieten steigen.",
+    "en": "The fact is that rents are rising."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "der Dämon",
+  "en": "demon",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Fairy Tales & Stories",
+  "ex": [
+   {
+    "de": "Im Spiel kämpft man gegen einen Dämon.",
+    "en": "In the game you fight a demon."
+   },
+   {
+    "de": "Jeder hat seine eigenen Dämonen.",
+    "en": "Everyone has their own demons."
+   }
+  ]
+ },
+ {
+  "term": "die Luke",
+  "en": "hatch",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Die Luke zum Dachboden klemmt.",
+    "en": "The hatch to the attic is stuck."
+   },
+   {
+    "de": "Durch die Luke kommt Licht herein.",
+    "en": "Light comes in through the hatch."
+   }
+  ]
+ },
+ {
+  "term": "der Vampir",
+  "en": "vampire",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Fairy Tales & Stories",
+  "ex": [
+   {
+    "de": "Der Film handelt von einem Vampir.",
+    "en": "The film is about a vampire."
+   },
+   {
+    "de": "Der Vampir schläft am Tag.",
+    "en": "The vampire sleeps during the day."
+   }
+  ]
+ },
+ {
+  "term": "die Meile",
+  "en": "mile",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Eine Meile sind etwa 1,6 Kilometer.",
+    "en": "A mile is about 1.6 kilometres."
+   },
+   {
+    "de": "Er ist eine Meile gerannt.",
+    "en": "He ran a mile."
+   }
+  ]
+ },
+ {
+  "term": "anlügen",
+  "en": "to lie to (someone)",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Du sollst mich nicht anlügen.",
+    "en": "You mustn't lie to me."
+   },
+   {
+    "de": "Warum willst du mich anlügen?",
+    "en": "Why do you want to lie to me?"
+   }
+  ]
+ },
+ {
+  "term": "der Fischer",
+  "en": "fisherman",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Der Fischer fährt früh aufs Meer.",
+    "en": "The fisherman goes out to sea early."
+   },
+   {
+    "de": "Die Fischer protestieren gegen die neuen Quoten.",
+    "en": "The fishermen are protesting against the new quotas."
+   }
+  ]
+ },
+ {
+  "term": "der Hintern",
+  "en": "bottom, backside",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Body parts",
+  "ex": [
+   {
+    "de": "Nach der Radtour tut mir der Hintern weh.",
+    "en": "My backside hurts after the bike ride."
+   },
+   {
+    "de": "Setz dich auf den Hintern und lern!",
+    "en": "Sit down and study!"
+   }
+  ]
+ },
+ {
+  "term": "versetzen",
+  "en": "to transfer, to move; to stand (someone) up",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Die Firma will mich nach Hamburg versetzen.",
+    "en": "The company wants to transfer me to Hamburg."
+   },
+   {
+    "de": "Sie hat mich gestern versetzt.",
+    "en": "She stood me up yesterday."
+   }
+  ]
+ },
+ {
+  "term": "der US-Dollar",
+  "en": "US dollar",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Financial Markets",
+  "ex": [
+   {
+    "de": "Der Euro ist gegenüber dem US-Dollar gestiegen.",
+    "en": "The euro has risen against the US dollar."
+   },
+   {
+    "de": "Öl wird in US-Dollar gehandelt.",
+    "en": "Oil is traded in US dollars."
+   }
+  ]
+ },
+ {
+  "term": "schlucken",
+  "en": "to swallow",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Body & health",
+  "ex": [
+   {
+    "de": "Die Tablette ist schwer zu schlucken.",
+    "en": "The tablet is hard to swallow."
+   },
+   {
+    "de": "Die Kritik musste er schlucken.",
+    "en": "He had to swallow the criticism."
+   }
+  ]
+ },
+ {
+  "term": "das Virus",
+  "en": "virus",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Health",
+  "gender": "das",
+  "ex": [
+   {
+    "de": "Das Virus verbreitet sich schnell.",
+    "en": "The virus is spreading quickly."
+   },
+   {
+    "de": "Auf dem Computer ist ein Virus.",
+    "en": "There's a virus on the computer."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Franzose",
+  "en": "Frenchman",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Der Franzose hat die Tour de France gewonnen.",
+    "en": "The Frenchman won the Tour de France."
+   },
+   {
+    "de": "Mein Mitbewohner ist Franzose.",
+    "en": "My flatmate is French."
+   }
+  ]
+ },
+ {
+  "term": "der Passagier",
+  "en": "passenger",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Alle Passagiere müssen aussteigen.",
+    "en": "All passengers must get off."
+   },
+   {
+    "de": "Der Passagier hat sein Gepäck vergessen.",
+    "en": "The passenger forgot his luggage."
+   }
+  ]
+ },
+ {
+  "term": "die Corona-Pandemie",
+  "en": "coronavirus pandemic",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Während der Corona-Pandemie habe ich im Homeoffice gearbeitet.",
+    "en": "During the coronavirus pandemic I worked from home."
+   },
+   {
+    "de": "Die Corona-Pandemie hat viel verändert.",
+    "en": "The coronavirus pandemic changed a lot."
+   }
+  ]
+ },
+ {
+  "term": "das Gewehr",
+  "en": "rifle, gun",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Der Jäger trägt ein Gewehr.",
+    "en": "The hunter is carrying a rifle."
+   },
+   {
+    "de": "Die Soldaten legen die Gewehre ab.",
+    "en": "The soldiers lay down their rifles."
+   }
+  ]
+ },
+ {
+  "term": "der Sachse",
+  "en": "Saxon (man)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Der Sachse spricht einen starken Dialekt.",
+    "en": "The Saxon speaks a strong dialect."
+   },
+   {
+    "de": "Mein Kollege ist Sachse aus Dresden.",
+    "en": "My colleague is a Saxon from Dresden."
+   }
+  ]
+ },
+ {
+  "term": "stechen",
+  "en": "to sting, to stab, to prick",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Body & health",
+  "ex": [
+   {
+    "de": "Pass auf, die Biene kann stechen!",
+    "en": "Careful, the bee can sting!"
+   },
+   {
+    "de": "Im Sommer stechen die Mücken am Rhein.",
+    "en": "In summer the mosquitoes bite by the Rhine."
+   }
+  ]
+ },
+ {
+  "term": "gebären",
+  "en": "to give birth (to)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Sie soll im Mai ein Kind gebären.",
+    "en": "She is due to give birth in May."
+   },
+   {
+    "de": "Die Frau musste ihr Kind im Taxi gebären.",
+    "en": "The woman had to give birth to her child in a taxi."
+   }
+  ]
+ },
+ {
+  "term": "der Aktivist",
+  "en": "activist",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Civil Society & Engagement",
+  "ex": [
+   {
+    "de": "Der Aktivist protestiert gegen die Kohle.",
+    "en": "The activist is protesting against coal."
+   },
+   {
+    "de": "Die Aktivistinnen blockieren die Straße.",
+    "en": "The activists are blocking the road."
+   }
+  ]
+ },
+ {
+  "term": "der Riese",
+  "en": "giant",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Fairy Tales & Stories",
+  "ex": [
+   {
+    "de": "Im Märchen lebt ein Riese auf dem Berg.",
+    "en": "In the fairy tale a giant lives on the mountain."
+   },
+   {
+    "de": "Der Konzern ist ein Riese der Branche.",
+    "en": "The group is a giant of the industry."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "aufwachsen",
+  "en": "to grow up",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Ich bin in der Karibik aufgewachsen.",
+    "en": "I grew up in the Caribbean."
+   },
+   {
+    "de": "Unsere Kinder sollen zweisprachig aufwachsen.",
+    "en": "Our children are to grow up bilingual."
+   }
+  ]
+ },
+ {
+  "term": "katholisch",
+  "en": "Catholic",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Religion",
+  "ex": [
+   {
+    "de": "Köln ist eine sehr katholische Stadt.",
+    "en": "Cologne is a very Catholic city."
+   },
+   {
+    "de": "Sie ist katholisch aufgewachsen.",
+    "en": "She was brought up Catholic."
+   }
+  ]
+ },
+ {
+  "term": "der Sack",
+  "en": "sack, bag",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Der Sack Kartoffeln ist schwer.",
+    "en": "The sack of potatoes is heavy."
+   },
+   {
+    "de": "Er hat die Katze im Sack gekauft.",
+    "en": "He bought a pig in a poke."
+   }
+  ]
+ },
+ {
+  "term": "tränen",
+  "en": "to water (eyes)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Body & health",
+  "ex": [
+   {
+    "de": "Beim Zwiebelschneiden tränen meine Augen.",
+    "en": "My eyes water when I cut onions."
+   },
+   {
+    "de": "Im Frühling tränen ihm oft die Augen.",
+    "en": "His eyes often water in spring."
+   }
+  ]
+ },
+ {
+  "term": "der Hammer",
+  "en": "hammer; (colloquial) knockout, bombshell",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Gib mir bitte mal den Hammer.",
+    "en": "Pass me the hammer, please."
+   },
+   {
+    "de": "Das Konzert war der Hammer!",
+    "en": "The concert was amazing!"
+   }
+  ]
+ },
+ {
+  "term": "der Albtraum",
+  "en": "nightmare",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Ich hatte heute Nacht einen Albtraum.",
+    "en": "I had a nightmare last night."
+   },
+   {
+    "de": "Die Wohnungssuche war ein Albtraum.",
+    "en": "The flat hunt was a nightmare."
+   }
+  ]
+ },
+ {
+  "term": "der Terrorist",
+  "en": "terrorist",
+  "pos": "noun",
+  "level": "B2",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Die Polizei hat einen Terroristen festgenommen.",
+    "en": "The police have arrested a terrorist."
+   },
+   {
+    "de": "Der Terrorist wurde zu lebenslanger Haft verurteilt.",
+    "en": "The terrorist was sentenced to life imprisonment."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Senator",
+  "en": "senator",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Der Senator aus Texas stimmt dagegen.",
+    "en": "The senator from Texas votes against it."
+   },
+   {
+    "de": "In Berlin ist sie Senatorin für Finanzen.",
+    "en": "In Berlin she's senator for finance."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Narr",
+  "en": "fool; jester (carnival)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Im Karneval sind alle Narren.",
+    "en": "Everyone's a fool at carnival."
+   },
+   {
+    "de": "Er hat mich zum Narren gehalten.",
+    "en": "He made a fool of me."
+   }
+  ]
+ },
+ {
+  "term": "dreckig",
+  "en": "dirty",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Deine Schuhe sind ganz dreckig.",
+    "en": "Your shoes are all dirty."
+   },
+   {
+    "de": "Die Küche ist dreckig.",
+    "en": "The kitchen is dirty."
+   }
+  ]
+ },
+ {
+  "term": "die Nachrichtenagentur",
+  "en": "news agency",
+  "pos": "noun",
+  "level": "C1",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Die Nachrichtenagentur meldet einen Anschlag.",
+    "en": "The news agency is reporting an attack."
+   },
+   {
+    "de": "Nach Angaben der Nachrichtenagentur dpa gibt es Verletzte.",
+    "en": "According to the dpa news agency there are injuries."
+   }
+  ]
+ },
+ {
+  "term": "das Landgericht",
+  "en": "regional court",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Der Fall wird vor dem Landgericht Köln verhandelt.",
+    "en": "The case is being heard at Cologne regional court."
+   },
+   {
+    "de": "Das Landgericht hat das Urteil bestätigt.",
+    "en": "The regional court upheld the verdict."
+   }
+  ]
+ },
+ {
+  "term": "kriminell",
+  "en": "criminal",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Gruppe ist eine kriminelle Vereinigung.",
+    "en": "The group is a criminal organisation."
+   },
+   {
+    "de": "Das ist doch kriminell!",
+    "en": "That's criminal!"
+   }
+  ]
+ },
+ {
+  "term": "heulen",
+  "en": "to howl; to cry, to bawl",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Der Wolf heult in der Nacht.",
+    "en": "The wolf howls in the night."
+   },
+   {
+    "de": "Nach dem Spiel hat er geheult.",
+    "en": "He cried after the match."
+   }
+  ]
+ },
+ {
+  "term": "das Gift",
+  "en": "poison",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Health & Prevention",
+  "ex": [
+   {
+    "de": "Die Pflanze enthält Gift.",
+    "en": "The plant contains poison."
+   },
+   {
+    "de": "Stress ist Gift für die Gesundheit.",
+    "en": "Stress is poison for your health."
+   }
+  ],
+  "gender": "das"
+ },
+ {
+  "term": "der Fleck",
+  "en": "stain, spot",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Laundry",
+  "ex": [
+   {
+    "de": "Auf dem Hemd ist ein Fleck.",
+    "en": "There's a stain on the shirt."
+   },
+   {
+    "de": "Der Fleck geht nicht raus.",
+    "en": "The stain won't come out."
+   }
+  ]
+ },
+ {
+  "term": "losgehen",
+  "en": "to set off; to start",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Intermediate everyday verbs",
+  "ex": [
+   {
+    "de": "Wann soll es losgehen?",
+    "en": "When are we setting off?"
+   },
+   {
+    "de": "Das Konzert ist um acht losgegangen.",
+    "en": "The concert started at eight."
+   }
+  ]
+ },
+ {
+  "term": "der Staatsanwalt",
+  "en": "public prosecutor",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Der Staatsanwalt fordert fünf Jahre Haft.",
+    "en": "The prosecutor is demanding five years in prison."
+   },
+   {
+    "de": "Die Staatsanwältin hat Anklage erhoben.",
+    "en": "The prosecutor has brought charges."
+   }
+  ]
+ },
+ {
+  "term": "die Straftat",
+  "en": "criminal offence",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Betrug ist eine Straftat.",
+    "en": "Fraud is a criminal offence."
+   },
+   {
+    "de": "Die Zahl der Straftaten ist gesunken.",
+    "en": "The number of offences has fallen."
+   }
+  ]
+ },
+ {
+  "term": "unterbringen",
+  "en": "to accommodate, to house",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Migration & Integration",
+  "ex": [
+   {
+    "de": "Die Stadt muss die Geflüchteten unterbringen.",
+    "en": "The city has to accommodate the refugees."
+   },
+   {
+    "de": "Kannst du mich für eine Nacht unterbringen?",
+    "en": "Can you put me up for a night?"
+   }
+  ]
+ },
+ {
+  "term": "segnen",
+  "en": "to bless",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Religion",
+  "ex": [
+   {
+    "de": "Der Priester segnet das Paar.",
+    "en": "The priest blesses the couple."
+   },
+   {
+    "de": "Der Papst hat die Menschen gesegnet.",
+    "en": "The Pope blessed the people."
+   }
+  ]
+ },
+ {
+  "term": "sich weigern",
+  "en": "to refuse",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Negotiation & Argument",
+  "ex": [
+   {
+    "de": "Er weigert sich, die Rechnung zu bezahlen.",
+    "en": "He refuses to pay the bill."
+   },
+   {
+    "de": "Sie hat sich geweigert, mitzukommen.",
+    "en": "She refused to come along."
+   }
+  ]
+ },
+ {
+  "term": "der Verkehrsunfall",
+  "en": "road accident",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Bei einem Verkehrsunfall wurden zwei Menschen verletzt.",
+    "en": "Two people were injured in a road accident."
+   },
+   {
+    "de": "Nach dem Verkehrsunfall war die Autobahn gesperrt.",
+    "en": "The motorway was closed after the accident."
+   }
+  ]
+ },
+ {
+  "term": "unterzeichnen",
+  "en": "to sign",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Beide Seiten unterzeichnen den Vertrag.",
+    "en": "Both sides sign the contract."
+   },
+   {
+    "de": "Das Abkommen wurde in Paris unterzeichnet.",
+    "en": "The agreement was signed in Paris."
+   }
+  ]
+ },
+ {
+  "term": "das Unrecht",
+  "en": "injustice, wrong",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Ihm ist großes Unrecht geschehen.",
+    "en": "He has suffered a great injustice."
+   },
+   {
+    "de": "Du hast zu Unrecht gezahlt.",
+    "en": "You paid wrongly."
+   }
+  ]
+ },
+ {
+  "term": "krachen",
+  "en": "to crash, to bang",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Das Auto kracht gegen einen Baum.",
+    "en": "The car crashes into a tree."
+   },
+   {
+    "de": "Zwischen den beiden hat es gekracht.",
+    "en": "There was a bust-up between the two of them."
+   }
+  ]
+ },
+ {
+  "term": "das Gras",
+  "en": "grass",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Weather & nature",
+  "ex": [
+   {
+    "de": "Die Kinder sitzen im Gras.",
+    "en": "The children are sitting on the grass."
+   },
+   {
+    "de": "Über die Sache ist Gras gewachsen.",
+    "en": "The matter has been forgotten."
+   }
+  ]
+ },
+ {
+  "term": "ausbrechen",
+  "en": "to break out",
+  "pos": "verb",
+  "level": "B2",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Im Keller ist ein Feuer ausgebrochen.",
+    "en": "A fire broke out in the cellar."
+   },
+   {
+    "de": "Zwei Häftlinge konnten ausbrechen.",
+    "en": "Two prisoners were able to break out."
+   }
+  ]
+ },
+ {
+  "term": "ertrinken",
+  "en": "to drown",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Im Rhein kann man leicht ertrinken.",
+    "en": "You can easily drown in the Rhine."
+   },
+   {
+    "de": "Ich ertrinke gerade in Arbeit.",
+    "en": "I'm drowning in work at the moment."
+   }
+  ]
+ },
+ {
+  "term": "der Regierungschef",
+  "en": "head of government",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Der Regierungschef reist nach Brüssel.",
+    "en": "The head of government is travelling to Brussels."
+   },
+   {
+    "de": "Die Regierungschefs treffen sich zum Gipfel.",
+    "en": "The heads of government are meeting for the summit."
+   }
+  ]
+ },
+ {
+  "term": "der Kommandant",
+  "en": "commander",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Der Kommandant gibt den Befehl zum Rückzug.",
+    "en": "The commander gives the order to retreat."
+   },
+   {
+    "de": "Die Feuerwehr hat einen neuen Kommandanten.",
+    "en": "The fire brigade has a new commander."
+   }
+  ]
+ },
+ {
+  "term": "das Kommando",
+  "en": "command, order",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Auf mein Kommando geht es los.",
+    "en": "On my command we go."
+   },
+   {
+    "de": "Sie hat das Kommando übernommen.",
+    "en": "She took command."
+   }
+  ]
+ },
+ {
+  "term": "der Zivilist",
+  "en": "civilian",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Bei dem Angriff starb ein Zivilist.",
+    "en": "A civilian died in the attack."
+   },
+   {
+    "de": "Die Zivilisten fliehen aus der Stadt.",
+    "en": "The civilians are fleeing the city."
+   }
+  ]
+ },
+ {
+  "term": "der Medienbericht",
+  "en": "media report",
+  "pos": "noun",
+  "level": "C1",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Laut einem Medienbericht tritt der Minister zurück.",
+    "en": "According to a media report the minister is resigning."
+   },
+   {
+    "de": "Die Firma dementiert den Medienbericht.",
+    "en": "The company denies the media report."
+   }
+  ]
+ },
+ {
+  "term": "grausam",
+  "en": "cruel",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Das war eine grausame Tat.",
+    "en": "That was a cruel act."
+   },
+   {
+    "de": "Das Leben kann grausam sein.",
+    "en": "Life can be cruel."
+   }
+  ]
+ },
+ {
+  "term": "vergewaltigen",
+  "en": "to rape",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Der Mann wird beschuldigt, eine Frau vergewaltigt zu haben.",
+    "en": "The man is accused of having raped a woman."
+   },
+   {
+    "de": "Das Gericht verurteilte ihn, weil er die Frau vergewaltigt hatte.",
+    "en": "The court convicted him of raping the woman."
+   }
+  ]
+ },
+ {
+  "term": "der Angriffskrieg",
+  "en": "war of aggression",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Russland führt einen Angriffskrieg gegen die Ukraine.",
+    "en": "Russia is waging a war of aggression against Ukraine."
+   },
+   {
+    "de": "Ein Angriffskrieg verstößt gegen das Völkerrecht.",
+    "en": "A war of aggression violates international law."
+   }
+  ]
+ },
+ {
+  "term": "auffordern",
+  "en": "to ask, to call on",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Das Amt fordert Sie auf, die Unterlagen einzureichen.",
+    "en": "The office is asking you to submit the documents."
+   },
+   {
+    "de": "Er hat sie zum Tanzen aufgefordert.",
+    "en": "He asked her to dance."
+   }
+  ]
+ },
+ {
+  "term": "abschneiden",
+  "en": "to cut off; to do (well/badly)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Intermediate everyday verbs",
+  "ex": [
+   {
+    "de": "Kannst du mir ein Stück Brot abschneiden?",
+    "en": "Can you cut me a piece of bread?"
+   },
+   {
+    "de": "Die Partei hat bei der Wahl gut abgeschnitten.",
+    "en": "The party did well in the election."
+   }
+  ]
+ },
+ {
+  "term": "rauben",
+  "en": "to rob, to steal",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Täter haben Schmuck geraubt.",
+    "en": "The perpetrators stole jewellery."
+   },
+   {
+    "de": "Der Lärm raubt mir den Schlaf.",
+    "en": "The noise is robbing me of sleep."
+   }
+  ]
+ },
+ {
+  "term": "der Klient",
+  "en": "client",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Die Beraterin trifft einen neuen Klienten.",
+    "en": "The consultant is meeting a new client."
+   },
+   {
+    "de": "Der Klient zahlt pro Stunde.",
+    "en": "The client pays by the hour."
+   }
+  ]
+ },
+ {
+  "term": "inspirieren",
+  "en": "to inspire",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Arts and culture",
+  "ex": [
+   {
+    "de": "Die Stadt inspiriert viele Künstler.",
+    "en": "The city inspires many artists."
+   },
+   {
+    "de": "Ich wurde von ihrer Geschichte inspiriert.",
+    "en": "I was inspired by her story."
+   }
+  ]
+ },
+ {
+  "term": "tragisch",
+  "en": "tragic",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Das ist eine tragische Geschichte.",
+    "en": "That's a tragic story."
+   },
+   {
+    "de": "Der Unfall endete tragisch.",
+    "en": "The accident ended tragically."
+   }
+  ]
+ },
+ {
+  "term": "polnisch",
+  "en": "Polish",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Im Laden gibt es polnische Spezialitäten.",
+    "en": "The shop has Polish specialities."
+   },
+   {
+    "de": "Er hat einen polnischen Pass.",
+    "en": "He has a Polish passport."
+   }
+  ]
+ },
+ {
+  "term": "die Kita",
+  "en": "day-care centre, nursery",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Unsere Tochter geht in die Kita.",
+    "en": "Our daughter goes to nursery."
+   },
+   {
+    "de": "Einen Platz in der Kita zu finden ist schwer.",
+    "en": "Finding a nursery place is hard."
+   }
+  ]
+ },
+ {
+  "term": "das Genie",
+  "en": "genius",
+  "pos": "noun",
+  "level": "B2",
+  "field": "People",
+  "ex": [
+   {
+    "de": "Er ist ein Genie in Mathe.",
+    "en": "He's a genius at maths."
+   },
+   {
+    "de": "Das Genie hinter der App ist erst zwanzig.",
+    "en": "The genius behind the app is only twenty."
+   }
+  ]
+ },
+ {
+  "term": "knacken",
+  "en": "to crack (open, a code); to creak",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Hacker wollen das Passwort knacken.",
+    "en": "Hackers want to crack the password."
+   },
+   {
+    "de": "Die Aktie hat die Marke von hundert Euro geknackt.",
+    "en": "The share has broken through the hundred-euro mark."
+   }
+  ]
+ },
+ {
+  "term": "magisch",
+  "en": "magical",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Fairy Tales & Stories",
+  "ex": [
+   {
+    "de": "Der Abend am Rhein war magisch.",
+    "en": "The evening by the Rhine was magical."
+   },
+   {
+    "de": "Im Spiel sammelt man magische Steine.",
+    "en": "In the game you collect magic stones."
+   }
+  ]
+ },
+ {
+  "term": "der Bursche",
+  "en": "lad, young fellow",
+  "pos": "noun",
+  "level": "C1",
+  "field": "People",
+  "ex": [
+   {
+    "de": "Der Bursche hat Talent.",
+    "en": "The lad has talent."
+   },
+   {
+    "de": "Ein junger Bursche half mir mit dem Koffer.",
+    "en": "A young fellow helped me with the suitcase."
+   }
+  ]
+ },
+ {
+  "term": "die Sanktion",
+  "en": "sanction",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Die EU verhängt neue Sanktionen gegen Russland.",
+    "en": "The EU is imposing new sanctions on Russia."
+   },
+   {
+    "de": "Die Sanktion trifft vor allem die Banken.",
+    "en": "The sanction hits the banks above all."
+   }
+  ]
+ },
+ {
+  "term": "foltern",
+  "en": "to torture",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Gefangenen wurden gefoltert.",
+    "en": "The prisoners were tortured."
+   },
+   {
+    "de": "Kein Staat darf Menschen foltern.",
+    "en": "No state may torture people."
+   }
+  ]
+ },
+ {
+  "term": "andauern",
+  "en": "to continue, to last",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Die Hitze soll noch eine Woche andauern.",
+    "en": "The heat is expected to last another week."
+   },
+   {
+    "de": "Der Streik kann noch lange andauern.",
+    "en": "The strike can go on for a long time."
+   }
+  ]
+ },
+ {
+  "term": "einfahren",
+  "en": "to pull in (train); to bring in (profit)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Der Zug wird gleich einfahren.",
+    "en": "The train will be pulling in shortly."
+   },
+   {
+    "de": "Die Firma hat Rekordgewinne eingefahren.",
+    "en": "The company has brought in record profits."
+   }
+  ]
+ },
+ {
+  "term": "griechisch",
+  "en": "Greek",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Wir gehen in ein griechisches Restaurant.",
+    "en": "We're going to a Greek restaurant."
+   },
+   {
+    "de": "Sie hat griechische Wurzeln.",
+    "en": "She has Greek roots."
+   }
+  ]
+ },
+ {
+  "term": "der Kölner",
+  "en": "person from Cologne",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Urban life",
+  "ex": [
+   {
+    "de": "Der Kölner feiert gern Karneval.",
+    "en": "People from Cologne love celebrating carnival."
+   },
+   {
+    "de": "Sie ist echte Kölnerin.",
+    "en": "She's a true Cologne native."
+   }
+  ]
+ },
+ {
+  "term": "schrecken",
+  "en": "to frighten, to scare",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die hohen Preise schrecken viele Käufer ab.",
+    "en": "The high prices put off many buyers."
+   },
+   {
+    "de": "Der Lärm hat mich aus dem Schlaf geschreckt.",
+    "en": "The noise startled me awake."
+   }
+  ]
+ },
+ {
+  "term": "der Polizeisprecher",
+  "en": "police spokesperson",
+  "pos": "noun",
+  "level": "C1",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Ein Polizeisprecher bestätigte den Einsatz.",
+    "en": "A police spokesperson confirmed the operation."
+   },
+   {
+    "de": "Laut Polizeisprecher gab es keine Verletzten.",
+    "en": "According to the police spokesperson nobody was injured."
+   }
+  ]
+ },
+ {
+  "term": "bezweifeln",
+  "en": "to doubt",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Ich bezweifle, dass der Zug pünktlich kommt.",
+    "en": "I doubt that the train will be on time."
+   },
+   {
+    "de": "Experten bezweifeln die Zahlen.",
+    "en": "Experts doubt the figures."
+   }
+  ]
+ },
+ {
+  "term": "jetzig",
+  "en": "current, present",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Mein jetziger Job ist langweilig.",
+    "en": "My current job is boring."
+   },
+   {
+    "de": "In der jetzigen Lage kaufen wir nichts.",
+    "en": "We're not buying anything in the current situation."
+   }
+  ]
+ },
+ {
+  "term": "eindringen",
+  "en": "to penetrate, to break in, to intrude",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Täter konnten durch das Fenster eindringen.",
+    "en": "The intruders were able to get in through the window."
+   },
+   {
+    "de": "Wasser kann in den Keller eindringen.",
+    "en": "Water can get into the cellar."
+   }
+  ]
+ },
+ {
+  "term": "ablegen",
+  "en": "to take off (coat); to take (an exam); to file",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Education",
+  "ex": [
+   {
+    "de": "Möchten Sie Ihren Mantel ablegen?",
+    "en": "Would you like to take off your coat?"
+   },
+   {
+    "de": "Im Juni will ich die B2-Prüfung ablegen.",
+    "en": "I want to take the B2 exam in June."
+   }
+  ]
+ },
+ {
+  "term": "strahlen",
+  "en": "to shine, to beam; to radiate",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Sonne strahlt über dem Rhein.",
+    "en": "The sun is shining over the Rhine."
+   },
+   {
+    "de": "Sie strahlt vor Freude.",
+    "en": "She's beaming with joy."
+   }
+  ]
+ },
+ {
+  "term": "schwedisch",
+  "en": "Swedish",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Das Regal ist von einer schwedischen Firma.",
+    "en": "The shelf is from a Swedish company."
+   },
+   {
+    "de": "Sie liest gern schwedische Krimis.",
+    "en": "She likes reading Swedish crime novels."
+   }
+  ]
+ },
+ {
+  "term": "beauftragen",
+  "en": "to commission, to instruct",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Wir beauftragen einen Anwalt.",
+    "en": "We are instructing a lawyer."
+   },
+   {
+    "de": "Die Stadt hat eine Firma mit dem Bau beauftragt.",
+    "en": "The city has commissioned a company to build it."
+   }
+  ]
+ },
+ {
+  "term": "der Bart",
+  "en": "beard",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Body",
+  "ex": [
+   {
+    "de": "Er lässt sich einen Bart wachsen.",
+    "en": "He's growing a beard."
+   },
+   {
+    "de": "Der Bart steht dir gut.",
+    "en": "The beard suits you."
+   }
+  ]
+ },
+ {
+  "term": "sich belaufen",
+  "en": "to amount to (auf + A)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Die Kosten belaufen sich auf zehntausend Euro.",
+    "en": "The costs amount to ten thousand euros."
+   },
+   {
+    "de": "Der Schaden beläuft sich auf eine Million.",
+    "en": "The damage amounts to a million."
+   }
+  ]
+ },
+ {
+  "term": "ansetzen",
+  "en": "to schedule, to set; to start (at)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Wir sollten ein Treffen für Montag ansetzen.",
+    "en": "We should schedule a meeting for Monday."
+   },
+   {
+    "de": "Hier muss die Reform ansetzen.",
+    "en": "This is where the reform has to start."
+   }
+  ]
+ },
+ {
+  "term": "die Pressemitteilung",
+  "en": "press release",
+  "pos": "noun",
+  "level": "B2",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Die Firma hat eine Pressemitteilung veröffentlicht.",
+    "en": "The company has issued a press release."
+   },
+   {
+    "de": "In der Pressemitteilung steht nichts Neues.",
+    "en": "There's nothing new in the press release."
+   }
+  ]
+ },
+ {
+  "term": "die Drohung",
+  "en": "threat",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Politikerin hat Drohungen bekommen.",
+    "en": "The politician has received threats."
+   },
+   {
+    "de": "Das ist eine leere Drohung.",
+    "en": "That's an empty threat."
+   }
+  ]
+ },
+ {
+  "term": "aufbrechen",
+  "en": "to set off; to break open",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Wir wollen früh am Morgen aufbrechen.",
+    "en": "We want to set off early in the morning."
+   },
+   {
+    "de": "Die Diebe haben das Auto aufgebrochen.",
+    "en": "The thieves broke into the car."
+   }
+  ]
+ },
+ {
+  "term": "erarbeiten",
+  "en": "to work out, to develop; to earn",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Das Team soll einen Plan erarbeiten.",
+    "en": "The team is to work out a plan."
+   },
+   {
+    "de": "Sie hat sich ihren Erfolg hart erarbeitet.",
+    "en": "She worked hard for her success."
+   }
+  ]
+ },
+ {
+  "term": "reinigen",
+  "en": "to clean",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Die Firma reinigt jeden Abend das Büro.",
+    "en": "The company cleans the office every evening."
+   },
+   {
+    "de": "Den Anzug muss man chemisch reinigen.",
+    "en": "The suit has to be dry-cleaned."
+   }
+  ]
+ },
+ {
+  "term": "das Revier",
+  "en": "police station; territory, district",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Er muss mit aufs Revier kommen.",
+    "en": "He has to come down to the station."
+   },
+   {
+    "de": "Der Hund verteidigt sein Revier.",
+    "en": "The dog defends its territory."
+   }
+  ]
+ },
+ {
+  "term": "der Inspektor",
+  "en": "inspector",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Der Inspektor untersucht den Fall.",
+    "en": "The inspector is investigating the case."
+   },
+   {
+    "de": "Die Inspektorin prüft die Küche des Restaurants.",
+    "en": "The inspector checks the restaurant's kitchen."
+   }
+  ]
+ },
+ {
+  "term": "der Staub",
+  "en": "dust",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Auf dem Regal liegt viel Staub.",
+    "en": "There's a lot of dust on the shelf."
+   },
+   {
+    "de": "Der Skandal hat viel Staub aufgewirbelt.",
+    "en": "The scandal caused quite a stir."
+   }
+  ]
+ },
+ {
+  "term": "erstatten",
+  "en": "to refund, to reimburse; to file (a report)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Die Firma erstattet die Reisekosten.",
+    "en": "The company reimburses travel costs."
+   },
+   {
+    "de": "Sie hat Anzeige bei der Polizei erstattet.",
+    "en": "She filed a complaint with the police."
+   }
+  ]
+ },
+ {
+  "term": "behindern",
+  "en": "to hinder, to obstruct",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Der Schnee behindert den Verkehr.",
+    "en": "The snow is hindering the traffic."
+   },
+   {
+    "de": "Die Bürokratie behindert Gründer.",
+    "en": "Bureaucracy is hampering founders."
+   }
+  ]
+ },
+ {
+  "term": "das Seil",
+  "en": "rope",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Die Kletterer sichern sich mit einem Seil.",
+    "en": "The climbers secure themselves with a rope."
+   },
+   {
+    "de": "Das Seil ist gerissen.",
+    "en": "The rope snapped."
+   }
+  ]
+ },
+ {
+  "term": "das Klo",
+  "en": "loo, toilet (colloquial)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Wo ist hier das Klo?",
+    "en": "Where's the loo here?"
+   },
+   {
+    "de": "Ich muss mal aufs Klo.",
+    "en": "I need to go to the loo."
+   }
+  ]
+ },
+ {
+  "term": "bewachen",
+  "en": "to guard",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Polizisten bewachen das Gebäude.",
+    "en": "Police officers are guarding the building."
+   },
+   {
+    "de": "Der Hund bewacht das Haus.",
+    "en": "The dog guards the house."
+   }
+  ]
+ },
+ {
+  "term": "der Feuerwehrmann",
+  "en": "firefighter",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Der Feuerwehrmann hat das Kind gerettet.",
+    "en": "The firefighter rescued the child."
+   },
+   {
+    "de": "Er wollte schon als Kind Feuerwehrmann werden.",
+    "en": "He wanted to be a firefighter even as a child."
+   }
+  ]
+ },
+ {
+  "term": "der Spruch",
+  "en": "saying, slogan; line",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Auf der Tasse steht ein lustiger Spruch.",
+    "en": "There's a funny saying on the mug."
+   },
+   {
+    "de": "Spar dir deine Sprüche!",
+    "en": "Save your clever remarks!"
+   }
+  ]
+ },
+ {
+  "term": "der Sklave",
+  "en": "slave",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Er fühlt sich wie ein Sklave seines Handys.",
+    "en": "He feels like a slave to his phone."
+   },
+   {
+    "de": "Viele Sklaven wurden nach Amerika gebracht.",
+    "en": "Many slaves were brought to America."
+   }
+  ]
+ },
+ {
+  "term": "das Halbjahr",
+  "en": "half-year",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Im ersten Halbjahr ist der Umsatz gestiegen.",
+    "en": "Turnover rose in the first half of the year."
+   },
+   {
+    "de": "Das Zeugnis gibt es zum Halbjahr.",
+    "en": "The report comes at the half-year."
+   }
+  ]
+ },
+ {
+  "term": "infizieren",
+  "en": "to infect",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Er hat sich bei der Arbeit infiziert.",
+    "en": "He got infected at work."
+   },
+   {
+    "de": "Das Programm kann den Computer infizieren.",
+    "en": "The program can infect the computer."
+   }
+  ]
+ },
+ {
+  "term": "evakuieren",
+  "en": "to evacuate",
+  "pos": "verb",
+  "level": "B2",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Wegen einer Bombe musste man den Bahnhof evakuieren.",
+    "en": "The station had to be evacuated because of a bomb."
+   },
+   {
+    "de": "Die Stadt evakuiert die Menschen am Fluss.",
+    "en": "The city is evacuating the people by the river."
+   }
+  ]
+ },
+ {
+  "term": "das Bundesamt",
+  "en": "federal office",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Das Bundesamt für Migration entscheidet über den Antrag.",
+    "en": "The Federal Office for Migration decides on the application."
+   },
+   {
+    "de": "Die Zahlen stammen vom Bundesamt für Statistik.",
+    "en": "The figures come from the Federal Statistical Office."
+   }
+  ]
+ },
+ {
+  "term": "zittern",
+  "en": "to tremble, to shiver",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Body & health",
+  "ex": [
+   {
+    "de": "Vor Kälte zittere ich am ganzen Körper.",
+    "en": "I'm shivering all over with cold."
+   },
+   {
+    "de": "Die Fans haben bis zum Schluss gezittert.",
+    "en": "The fans were on tenterhooks until the end."
+   }
+  ]
+ },
+ {
+  "term": "der Chinese",
+  "en": "Chinese man",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Der Chinese spricht sehr gut Deutsch.",
+    "en": "The Chinese man speaks very good German."
+   },
+   {
+    "de": "Heute gehen wir zum Chinesen essen.",
+    "en": "Today we're going to the Chinese restaurant."
+   }
+  ]
+ },
+ {
+  "term": "der Fluch",
+  "en": "curse",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Fairy Tales & Stories",
+  "ex": [
+   {
+    "de": "Auf dem Schloss liegt ein Fluch.",
+    "en": "There's a curse on the castle."
+   },
+   {
+    "de": "Der Erfolg ist Segen und Fluch zugleich.",
+    "en": "Success is a blessing and a curse at the same time."
+   }
+  ]
+ },
+ {
+  "term": "anheben",
+  "en": "to raise, to lift",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Regierung will den Mindestlohn anheben.",
+    "en": "The government wants to raise the minimum wage."
+   },
+   {
+    "de": "Kannst du den Tisch mal anheben?",
+    "en": "Can you lift the table for a moment?"
+   }
+  ]
+ },
+ {
+  "term": "widerlich",
+  "en": "disgusting",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Der Geruch ist widerlich.",
+    "en": "The smell is disgusting."
+   },
+   {
+    "de": "Das war ein widerliches Verhalten.",
+    "en": "That was disgusting behaviour."
+   }
+  ]
+ },
+ {
+  "term": "der Führer",
+  "en": "guide; leader; driver",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Der Führer zeigt uns die Altstadt.",
+    "en": "The guide shows us the old town."
+   },
+   {
+    "de": "Im Laden gibt es einen Führer für Köln.",
+    "en": "There's a guidebook for Cologne in the shop."
+   }
+  ]
+ },
+ {
+  "term": "die Landtagswahl",
+  "en": "state election",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Elections",
+  "ex": [
+   {
+    "de": "Im Mai ist die Landtagswahl in NRW.",
+    "en": "The state election in NRW is in May."
+   },
+   {
+    "de": "Die Partei hat die Landtagswahl gewonnen.",
+    "en": "The party won the state election."
+   }
+  ]
+ },
+ {
+  "term": "der Nazi",
+  "en": "Nazi",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Der Film zeigt, wie ein Nazi denkt.",
+    "en": "The film shows how a Nazi thinks."
+   },
+   {
+    "de": "Tausende demonstrieren gegen Nazis.",
+    "en": "Thousands are demonstrating against Nazis."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "krass",
+  "en": "extreme; (colloquial) awesome, crazy",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Das ist ja krass!",
+    "en": "That's crazy!"
+   },
+   {
+    "de": "Der Unterschied ist krass.",
+    "en": "The difference is stark."
+   }
+  ]
+ },
+ {
+  "term": "freilassen",
+  "en": "to release, to set free",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Polizei musste den Mann wieder freilassen.",
+    "en": "The police had to release the man."
+   },
+   {
+    "de": "Die Geiseln wurden freigelassen.",
+    "en": "The hostages were freed."
+   }
+  ]
+ },
+ {
+  "term": "der Fingerabdruck",
+  "en": "fingerprint",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Für den Ausweis braucht man einen Fingerabdruck.",
+    "en": "You need a fingerprint for the ID card."
+   },
+   {
+    "de": "Das Handy entsperrt man mit dem Fingerabdruck.",
+    "en": "You unlock the phone with your fingerprint."
+   }
+  ]
+ },
+ {
+  "term": "der Palast",
+  "en": "palace",
+  "pos": "noun",
+  "level": "B1",
+  "field": "City sightseeing",
+  "ex": [
+   {
+    "de": "Der König wohnt in einem Palast.",
+    "en": "The king lives in a palace."
+   },
+   {
+    "de": "Der Palast ist heute ein Museum.",
+    "en": "The palace is a museum today."
+   }
+  ]
+ },
+ {
+  "term": "der Zwilling",
+  "en": "twin",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Mein Bruder und ich sind Zwillinge.",
+    "en": "My brother and I are twins."
+   },
+   {
+    "de": "Sie hat einen Zwilling in Berlin.",
+    "en": "She has a twin in Berlin."
+   }
+  ]
+ },
+ {
+  "term": "konfrontieren",
+  "en": "to confront",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Ich will ihn mit den Fakten konfrontieren.",
+    "en": "I want to confront him with the facts."
+   },
+   {
+    "de": "Die Firma wird mit neuen Problemen konfrontiert.",
+    "en": "The company is being confronted with new problems."
+   }
+  ]
+ },
+ {
+  "term": "der Schlager",
+  "en": "hit; German pop song (Schlager)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Auf der Party laufen nur alte Schlager.",
+    "en": "Only old Schlager songs are playing at the party."
+   },
+   {
+    "de": "Das Produkt ist ein echter Schlager.",
+    "en": "The product is a real hit."
+   }
+  ]
+ },
+ {
+  "term": "schleppen",
+  "en": "to drag, to haul, to tow",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Beim Umzug mussten wir alles in den vierten Stock schleppen.",
+    "en": "During the move we had to haul everything to the fourth floor."
+   },
+   {
+    "de": "Wir müssen die Kisten in den Keller schleppen.",
+    "en": "We have to haul the boxes into the cellar."
+   }
+  ]
+ },
+ {
+  "term": "hessisch",
+  "en": "Hessian",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Frankfurt ist die größte hessische Stadt.",
+    "en": "Frankfurt is the biggest city in Hesse."
+   },
+   {
+    "de": "Er spricht mit hessischem Akzent.",
+    "en": "He speaks with a Hessian accent."
+   }
+  ]
+ },
+ {
+  "term": "der Diamant",
+  "en": "diamond",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Der Ring hat einen großen Diamanten.",
+    "en": "The ring has a large diamond."
+   },
+   {
+    "de": "Ein Diamant ist sehr hart.",
+    "en": "A diamond is very hard."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "vergiften",
+  "en": "to poison",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Health & Prevention",
+  "ex": [
+   {
+    "de": "Der Kritiker wurde vergiftet.",
+    "en": "The critic was poisoned."
+   },
+   {
+    "de": "Der Streit vergiftet die Stimmung im Team.",
+    "en": "The argument is poisoning the mood in the team."
+   }
+  ]
+ },
+ {
+  "term": "das Verteidigungsministerium",
+  "en": "ministry of defence",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Das Verteidigungsministerium bestellt neue Panzer.",
+    "en": "The ministry of defence is ordering new tanks."
+   },
+   {
+    "de": "Ein Sprecher des Verteidigungsministeriums bestätigte den Plan.",
+    "en": "A defence ministry spokesperson confirmed the plan."
+   }
+  ]
+ },
+ {
+  "term": "abmachen",
+  "en": "to agree; to take off",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Negotiation & Argument",
+  "ex": [
+   {
+    "de": "Wir haben abgemacht, uns um acht zu treffen.",
+    "en": "We agreed to meet at eight."
+   },
+   {
+    "de": "Kannst du das Schild abmachen?",
+    "en": "Can you take the sign off?"
+   }
+  ]
+ },
+ {
+  "term": "attackieren",
+  "en": "to attack",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Die Opposition attackiert die Ministerin scharf.",
+    "en": "The opposition is attacking the minister sharply."
+   },
+   {
+    "de": "Der Hund hat einen Jogger attackiert.",
+    "en": "The dog attacked a jogger."
+   }
+  ]
+ },
+ {
+  "term": "elend",
+  "en": "miserable, wretched",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Ich fühle mich heute elend.",
+    "en": "I feel wretched today."
+   },
+   {
+    "de": "Sie leben in elenden Verhältnissen.",
+    "en": "They live in miserable conditions."
+   }
+  ]
+ },
+ {
+  "term": "der Keks",
+  "en": "biscuit, cookie",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Möchtest du einen Keks zum Kaffee?",
+    "en": "Would you like a biscuit with your coffee?"
+   },
+   {
+    "de": "Du gehst mir auf den Keks!",
+    "en": "You're getting on my nerves!"
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "vermasseln",
+  "en": "to mess up, to botch",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Ich will die Prüfung nicht vermasseln.",
+    "en": "I don't want to mess up the exam."
+   },
+   {
+    "de": "Er hat den Elfmeter vermasselt.",
+    "en": "He botched the penalty."
+   }
+  ]
+ },
+ {
+  "term": "erkranken",
+  "en": "to fall ill",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Im Winter erkranken viele an Grippe.",
+    "en": "In winter many people fall ill with flu."
+   },
+   {
+    "de": "Er ist schwer erkrankt.",
+    "en": "He has fallen seriously ill."
+   }
+  ]
+ },
+ {
+  "term": "die Pfeife",
+  "en": "pipe; whistle",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Mein Opa raucht Pfeife.",
+    "en": "My grandpa smokes a pipe."
+   },
+   {
+    "de": "Der Schiedsrichter hat eine Pfeife.",
+    "en": "The referee has a whistle."
+   }
+  ]
+ },
+ {
+  "term": "die Untersuchungshaft",
+  "en": "custody on remand",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Der Verdächtige sitzt in Untersuchungshaft.",
+    "en": "The suspect is being held on remand."
+   },
+   {
+    "de": "Der Richter hat Untersuchungshaft angeordnet.",
+    "en": "The judge has ordered remand in custody."
+   }
+  ]
+ },
+ {
+  "term": "olympisch",
+  "en": "Olympic",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Sie hat eine olympische Medaille gewonnen.",
+    "en": "She won an Olympic medal."
+   },
+   {
+    "de": "Die Olympischen Spiele finden in Los Angeles statt.",
+    "en": "The Olympic Games are taking place in Los Angeles."
+   }
+  ]
+ },
+ {
+  "term": "prallen",
+  "en": "to crash, to collide; to blaze (sun)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Das Auto ist gegen eine Wand geprallt.",
+    "en": "The car crashed into a wall."
+   },
+   {
+    "de": "Die Sonne prallt auf den Platz.",
+    "en": "The sun is blazing down on the square."
+   }
+  ]
+ },
+ {
+  "term": "beunruhigen",
+  "en": "to worry, to alarm",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Nachricht beunruhigt mich.",
+    "en": "The news worries me."
+   },
+   {
+    "de": "Die Zahlen beunruhigen die Experten.",
+    "en": "The figures are alarming the experts."
+   }
+  ]
+ },
+ {
+  "term": "der Nationalspieler",
+  "en": "international (player)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Der Nationalspieler wechselt nach England.",
+    "en": "The international is moving to England."
+   },
+   {
+    "de": "Sie ist Nationalspielerin im Handball.",
+    "en": "She's a national handball player."
+   }
+  ]
+ },
+ {
+  "term": "schockieren",
+  "en": "to shock",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Bilder schockieren die Welt.",
+    "en": "The pictures are shocking the world."
+   },
+   {
+    "de": "Ich war von der Miete schockiert.",
+    "en": "I was shocked by the rent."
+   }
+  ]
+ },
+ {
+  "term": "bescheuert",
+  "en": "stupid, daft (colloquial)",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Idioms & Nuance",
+  "ex": [
+   {
+    "de": "Die Idee ist total bescheuert.",
+    "en": "The idea is totally daft."
+   },
+   {
+    "de": "Bist du bescheuert?",
+    "en": "Are you crazy?"
+   }
+  ]
+ },
+ {
+  "term": "missbrauchen",
+  "en": "to abuse, to misuse",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Er hat seine Macht missbraucht.",
+    "en": "He abused his power."
+   },
+   {
+    "de": "Die Daten dürfen nicht missbraucht werden.",
+    "en": "The data must not be misused."
+   }
+  ]
+ },
+ {
+  "term": "die Mine",
+  "en": "mine; refill (pen)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Energy & Resources",
+  "ex": [
+   {
+    "de": "In der Mine wird Kupfer abgebaut.",
+    "en": "Copper is mined in the mine."
+   },
+   {
+    "de": "Der Kuli braucht eine neue Mine.",
+    "en": "The biro needs a new refill."
+   }
+  ]
+ },
+ {
+  "term": "flehen",
+  "en": "to beg, to plead",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Er fleht sie an, zu bleiben.",
+    "en": "He begs her to stay."
+   },
+   {
+    "de": "Die Familie fleht um Hilfe.",
+    "en": "The family is pleading for help."
+   }
+  ]
+ },
+ {
+  "term": "aufbringen",
+  "en": "to raise (money); to muster",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Die Familie kann das Geld nicht aufbringen.",
+    "en": "The family can't raise the money."
+   },
+   {
+    "de": "Ich kann dafür kein Verständnis aufbringen.",
+    "en": "I can't muster any understanding for that."
+   }
+  ]
+ },
+ {
+  "term": "abreißen",
+  "en": "to tear down, to tear off",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Urban Planning & Future",
+  "ex": [
+   {
+    "de": "Die Stadt will das alte Kino abreißen.",
+    "en": "The city wants to tear down the old cinema."
+   },
+   {
+    "de": "Der Kontakt ist leider abgerissen.",
+    "en": "Unfortunately we lost touch."
+   }
+  ]
+ },
+ {
+  "term": "protestieren",
+  "en": "to protest",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Civil Society & Engagement",
+  "ex": [
+   {
+    "de": "Tausende protestieren gegen die Reform.",
+    "en": "Thousands are protesting against the reform."
+   },
+   {
+    "de": "Die Mieter haben gegen die Erhöhung protestiert.",
+    "en": "The tenants protested against the increase."
+   }
+  ]
+ },
+ {
+  "term": "die Klamotte",
+  "en": "(pl.) clothes, gear (colloquial)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Clothing",
+  "ex": [
+   {
+    "de": "Ich brauche neue Klamotten für den Job.",
+    "en": "I need new clothes for the job."
+   },
+   {
+    "de": "Zieh dir alte Klamotten an, wir streichen.",
+    "en": "Put on old clothes, we're painting."
+   }
+  ]
+ },
+ {
+  "term": "gesundheitlich",
+  "en": "health (-related)",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Aus gesundheitlichen Gründen hört er auf.",
+    "en": "He's stopping for health reasons."
+   },
+   {
+    "de": "Wie geht es dir gesundheitlich?",
+    "en": "How's your health?"
+   }
+  ]
+ },
+ {
+  "term": "der Schläger",
+  "en": "racket, bat; thug",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Ich brauche einen neuen Schläger für Tennis.",
+    "en": "I need a new tennis racket."
+   },
+   {
+    "de": "Ein Schläger hat den Mann angegriffen.",
+    "en": "A thug attacked the man."
+   }
+  ]
+ },
+ {
+  "term": "grasen",
+  "en": "to graze",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Farm",
+  "ex": [
+   {
+    "de": "Die Schafe grasen auf dem Deich.",
+    "en": "The sheep are grazing on the dyke."
+   },
+   {
+    "de": "Im Sommer grasen die Kühe auf der Alm.",
+    "en": "In summer the cows graze on the mountain pasture."
+   }
+  ]
+ },
+ {
+  "term": "scheiden",
+  "en": "to divorce (sich scheiden lassen); to separate",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Die beiden wollen sich scheiden lassen.",
+    "en": "The two of them want to get divorced."
+   },
+   {
+    "de": "Hier scheiden sich die Geister.",
+    "en": "Opinions differ on this."
+   }
+  ]
+ }
+]
