@@ -31,6 +31,7 @@ export const FALSE_FRIENDS: Record<string, FalseFriend> = {
   eventuell:   { looksLike: 'eventually', actually: 'possibly, perhaps',  insteadSay: 'schließlich' },
   sympathisch: { looksLike: 'sympathetic', actually: 'likeable, nice',    insteadSay: 'mitfühlend' },
   chef:        { looksLike: 'chef',       actually: 'boss',               insteadSay: 'der Koch' },
+  gift:        { looksLike: 'gift',       actually: 'poison',             insteadSay: 'das Geschenk' },
   rat:         { looksLike: 'rat',        actually: 'advice',             insteadSay: 'die Ratte' },
   rock:        { looksLike: 'rock',       actually: 'skirt',              insteadSay: 'der Fels' },
   handy:       { looksLike: 'handy',      actually: 'mobile phone',       insteadSay: 'praktisch' },
