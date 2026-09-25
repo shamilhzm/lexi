@@ -1,0 +1,316 @@
+{
+ "rows": [
+  {
+   "id": "voc:B1:die Gelatine",
+   "expect": {
+    "plural": "die Gelatinen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:die Immigration",
+   "expect": {
+    "plural": "die Immigrationen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B1:das Schach",
+   "expect": {
+    "plural": "die Schachs"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:die Hardware",
+   "expect": {
+    "plural": "die Hardwares"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:der Einklang",
+   "expect": {
+    "plural": "die Einklänge"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:die Balance",
+   "expect": {
+    "plural": "die Balancen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B1:die Besserung",
+   "expect": {
+    "plural": "die Besserungen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Inklusion",
+   "expect": {
+    "plural": "die Inklusionen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Empathie",
+   "expect": {
+    "plural": "die Empathien"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Rhetorik",
+   "expect": {
+    "plural": "die Rhetoriken"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Kaufkraft",
+   "expect": {
+    "plural": "die Kaufkräfte"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:der Sozialismus",
+   "expect": {
+    "plural": "die Sozialismen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Unfähigkeit",
+   "expect": {
+    "plural": "die Unfähigkeiten"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Richtigkeit",
+   "expect": {
+    "plural": "die Richtigkeiten"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:der Verzug",
+   "expect": {
+    "plural": "die Verzüge"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Ausübung",
+   "expect": {
+    "plural": "die Ausübungen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:die Privatsphäre",
+   "expect": {
+    "plural": "die Privatsphären"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:die Dankbarkeit",
+   "expect": {
+    "plural": "die Dankbarkeiten"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:der Ruß",
+   "expect": {
+    "plural": "die Ruße"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:der Dill",
+   "expect": {
+    "plural": "die Dille"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:A2:das Celsius",
+   "expect": {
+    "plural": "die Celsius"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B1:der Sekt",
+   "expect": {
+    "plural": "die Sekte"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B1:der Speck",
+   "expect": {
+    "plural": "die Specke"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:der Vorsitz",
+   "expect": {
+    "plural": "die Vorsitze"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:der Optimismus",
+   "expect": {
+    "plural": null
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:der Leichtsinn",
+   "expect": {
+    "plural": null
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:der Schlamm",
+   "expect": {
+    "plural": null
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:der Beifall",
+   "expect": {
+    "plural": null
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Menschlichkeit",
+   "expect": {
+    "plural": "die Menschlichkeiten"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B2:die Globalisierung",
+   "expect": {
+    "plural": "die Globalisierungen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Industrialisierung",
+   "expect": {
+    "plural": "die Industrialisierungen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:B1:die Zeitverschwendung",
+   "expect": {
+    "plural": "die Zeitverschwendungen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Staatsverschuldung",
+   "expect": {
+    "plural": "die Staatsverschuldungen"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Logistik",
+   "expect": {
+    "plural": "die Logistiken"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Pädagogik",
+   "expect": {
+    "plural": "die Pädagogiken"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Schnelligkeit",
+   "expect": {
+    "plural": "die Schnelligkeiten"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Verbundenheit",
+   "expect": {
+    "plural": "die Verbundenheiten"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Volljährigkeit",
+   "expect": {
+    "plural": "die –"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  },
+  {
+   "id": "voc:C1:die Beherrschung",
+   "expect": {
+    "plural": "die –"
+   },
+   "plural": "nur Singular",
+   "src": "de.wiktionary lists no plural in this sense, or only a technical one (e.g. Sekte = sorts of Sekt, which a learner reads as \"sects\"); corpus convention for mass and abstract nouns"
+  }
+ ]
+}
