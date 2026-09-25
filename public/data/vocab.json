@@ -272934,5 +272934,3785 @@
     ],
     "field": "Idioms & Nuance",
     "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Knauf",
+    "term": "der Knauf",
+    "en": "knob, handle",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Knäufe",
+    "ipa": "knaʊ̯f",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Knauf an der Schublade ist locker.",
+        "en": "The knob on the drawer is loose.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Dreh den Knauf nach links.",
+        "en": "Turn the knob to the left.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Leerstelle",
+    "term": "die Leerstelle",
+    "en": "gap, blank",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Leerstellen",
+    "ipa": "ˈleːɐ̯ˌʃtɛlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Lebenslauf gibt es eine Leerstelle.",
+        "en": "There's a gap in the CV.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Füll die Leerstelle mit dem richtigen Wort.",
+        "en": "Fill the gap with the right word.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Median",
+    "term": "der Median",
+    "en": "median",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Mediane",
+    "ipa": "meˈdi̯aːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Median der Gehälter liegt bei 3.600 Euro.",
+        "en": "The median salary is 3,600 euros.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Median ist aussagekräftiger als der Durchschnitt.",
+        "en": "The median is more meaningful than the average.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Nahrungsaufnahme",
+    "term": "die Nahrungsaufnahme",
+    "en": "food intake",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Nahrungsaufnahmen",
+    "ipa": "ˈnaːʁʊŋsˌʔaʊ̯fnaːmə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Vor der Operation ist keine Nahrungsaufnahme erlaubt.",
+        "en": "No food may be eaten before the operation.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Nahrungsaufnahme fällt dem Patienten schwer.",
+        "en": "The patient finds it hard to eat.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Replik",
+    "term": "die Replik",
+    "en": "replica; rejoinder",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Repliken",
+    "ipa": "ʁeˈpliːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Statue im Park ist nur eine Replik.",
+        "en": "The statue in the park is only a replica.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Auf die Kritik folgte eine scharfe Replik.",
+        "en": "A sharp rejoinder followed the criticism.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Arts and culture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Zwetschge",
+    "term": "die Zwetschge",
+    "en": "plum (damson type)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Zwetschgen",
+    "ipa": "ˈt͡svɛt͡ʃɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im September backe ich Kuchen mit Zwetschgen.",
+        "en": "In September I bake plum cake.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zwetschge ist schon ganz weich.",
+        "en": "The plum is already very soft.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:absetzbar",
+    "term": "absetzbar",
+    "en": "deductible (tax); saleable",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapz̥ɛt͡sbaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Kosten für das Arbeitszimmer sind steuerlich absetzbar.",
+        "en": "The costs of the home office are tax-deductible.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ist der Sprachkurs von der Steuer absetzbar?",
+        "en": "Is the language course tax-deductible?",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Finance & Taxes",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:charakterlich",
+    "term": "charakterlich",
+    "en": "in terms of character",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "kaˈʁaktɐlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Charakterlich passt er gut ins Team.",
+        "en": "In terms of character he fits well into the team.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das zeigt seine charakterliche Stärke.",
+        "en": "That shows his strength of character.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "People",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:passgenau",
+    "term": "passgenau",
+    "en": "precisely fitting, tailored",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈpasɡəˌnaʊ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir bieten passgenaue Lösungen an.",
+        "en": "We offer tailored solutions.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Teile müssen passgenau sein.",
+        "en": "The parts have to fit precisely.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unsauber",
+    "term": "unsauber",
+    "en": "sloppy, unclean; shady",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnˌzaʊ̯bɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Arbeit ist unsauber gemacht.",
+        "en": "The work has been done sloppily.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das waren unsaubere Geschäfte.",
+        "en": "Those were shady deals.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unwirtschaftlich",
+    "term": "unwirtschaftlich",
+    "en": "uneconomical",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnvɪʁtˌʃaftlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die alte Anlage ist unwirtschaftlich.",
+        "en": "The old plant is uneconomical.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Eine Reparatur wäre unwirtschaftlich.",
+        "en": "A repair would not be economical.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:ausspülen",
+    "term": "ausspülen",
+    "en": "to rinse out",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sˌʃpyːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du musst die Flasche vor dem Recycling ausspülen.",
+        "en": "You have to rinse out the bottle before recycling.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Zahnarzt soll man den Mund ausspülen.",
+        "en": "After the dentist you should rinse your mouth out.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:kodieren",
+    "term": "kodieren",
+    "en": "to encode, to code",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "koˈdiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Daten werden vor dem Senden kodiert.",
+        "en": "The data are encoded before sending.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man muss die Antworten für die Studie kodieren.",
+        "en": "The answers have to be coded for the study.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Klerus",
+    "term": "der Klerus",
+    "en": "clergy",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈkleːʁʊs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Klerus hatte früher viel Macht.",
+        "en": "The clergy used to have a lot of power.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Klerus kritisiert das Gesetz.",
+        "en": "The clergy criticise the law.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Religion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:abändern",
+    "term": "abändern",
+    "en": "to alter, to amend",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌʔɛndɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir müssen den Vertrag leicht abändern.",
+        "en": "We need to amend the contract slightly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Gesetz kann man nur mit Mehrheit abändern.",
+        "en": "The law can only be amended by a majority.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Anreicherung",
+    "term": "die Anreicherung",
+    "en": "enrichment",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Anreicherungen",
+    "ipa": "ˈanˌʁaɪ̯çəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Anreicherung von Uran ist umstritten.",
+        "en": "The enrichment of uranium is controversial.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Anreicherung der Daten verbessert die Analyse.",
+        "en": "Enriching the data improves the analysis.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Archivierung",
+    "term": "die Archivierung",
+    "en": "archiving",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Archivierungen",
+    "ipa": "aʁçiˈviːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Archivierung der Rechnungen ist Pflicht.",
+        "en": "Archiving invoices is compulsory.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für die Archivierung nutzen wir die Cloud.",
+        "en": "We use the cloud for archiving.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Lichtbild",
+    "term": "das Lichtbild",
+    "en": "photograph (official, e.g. passport photo)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Lichtbilder",
+    "ipa": "ˈlɪçtˌbɪlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte legen Sie ein aktuelles Lichtbild bei.",
+        "en": "Please enclose a recent photograph.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Lichtbild muss biometrisch sein.",
+        "en": "The photo must be biometric.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Metrik",
+    "term": "die Metrik",
+    "en": "metric; metre (poetry)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Metriken",
+    "ipa": "ˈmeːtʁɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Welche Metrik zeigt den Erfolg am besten?",
+        "en": "Which metric best shows success?",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Metrik des Gedichts ist sehr streng.",
+        "en": "The poem's metre is very strict.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Schriftart",
+    "term": "die Schriftart",
+    "en": "font, typeface",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Schriftarten",
+    "ipa": "ˈʃʁɪftˌʔaːɐ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Welche Schriftart soll ich nehmen?",
+        "en": "Which font should I use?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Schriftart ist zu klein.",
+        "en": "The font is too small.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Umschlagplatz",
+    "term": "der Umschlagplatz",
+    "en": "hub, transhipment point",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Umschlagplätze",
+    "ipa": "ˈʊmʃlaːkˌplat͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hamburg ist ein wichtiger Umschlagplatz für Waren.",
+        "en": "Hamburg is an important hub for goods.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Park gilt als Umschlagplatz für Drogen.",
+        "en": "The park is regarded as a drug-dealing hotspot.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Global Economy",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Volljährigkeit",
+    "term": "die Volljährigkeit",
+    "en": "legal age, majority",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die –",
+    "ipa": "ˈfɔljɛːʁɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit der Volljährigkeit darf man wählen.",
+        "en": "When you come of age you can vote.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Volljährigkeit beginnt mit achtzehn.",
+        "en": "The age of majority begins at eighteen.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:präparieren",
+    "term": "präparieren",
+    "en": "to prepare; to dissect",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "pʁɛpaˈʁiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich muss mich für die Prüfung präparieren.",
+        "en": "I have to prepare for the exam.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Piste wurde über Nacht präpariert.",
+        "en": "The slope was groomed overnight.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Education",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:vierteljährlich",
+    "term": "vierteljährlich",
+    "en": "quarterly",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfɪʁtl̩ˌjɛːɐ̯lɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Rechnung kommt vierteljährlich.",
+        "en": "The bill comes quarterly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir zahlen vierteljährlich Steuern voraus.",
+        "en": "We make quarterly tax prepayments.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Personal finance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Biegung",
+    "term": "die Biegung",
+    "en": "bend",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Biegungen",
+    "ipa": "ˈbiːɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hinter der Biegung liegt das Dorf.",
+        "en": "The village is round the bend.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Fluss macht eine große Biegung.",
+        "en": "The river makes a big bend.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Directions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:wohltätig",
+    "term": "wohltätig",
+    "en": "charitable",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvoːlˌtɛːtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Erlös geht an einen wohltätigen Zweck.",
+        "en": "The proceeds go to a good cause.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie engagiert sich in einer wohltätigen Stiftung.",
+        "en": "She's involved in a charitable foundation.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Volunteering",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Dominikaner",
+    "term": "der Dominikaner",
+    "en": "Dominican (man)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Dominikaner",
+    "ipa": "dominiˈkaːnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Schwager ist Dominikaner.",
+        "en": "My brother-in-law is Dominican.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Dominikaner spielt Baseball in den USA.",
+        "en": "The Dominican plays baseball in the US.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich zurechtlegen",
+    "term": "sich zurechtlegen",
+    "en": "to work out, to prepare (a plan, words)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡suˈʁɛçtˌleːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe mir schon eine Antwort zurechtgelegt.",
+        "en": "I've already worked out an answer.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er will sich einen Plan zurechtlegen.",
+        "en": "He wants to work out a plan.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Belletristik",
+    "term": "die Belletristik",
+    "en": "fiction, literature",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "bɛleˈtʁɪstɪk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Laden steht die Belletristik im ersten Stock.",
+        "en": "Fiction is on the first floor of the shop.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie liest vor allem Belletristik.",
+        "en": "She mainly reads fiction.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Literature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Beschattung",
+    "term": "die Beschattung",
+    "en": "surveillance, tailing; shade",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Beschattungen",
+    "ipa": "bəˈʃatʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Beschattung des Verdächtigen dauerte Wochen.",
+        "en": "Tailing the suspect took weeks.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Terrasse hat eine Beschattung.",
+        "en": "The terrace has shading.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Deklaration",
+    "term": "die Deklaration",
+    "en": "declaration",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Deklarationen",
+    "ipa": "ˌdeklaʁaˈt͡si̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Deklaration beim Zoll ist Pflicht.",
+        "en": "Declaration at customs is compulsory.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Staaten unterzeichnen eine gemeinsame Deklaration.",
+        "en": "The states sign a joint declaration.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:erwerbslos",
+    "term": "erwerbslos",
+    "en": "unemployed",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈvɛʁpsˌloːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist seit einem Jahr erwerbslos.",
+        "en": "He has been unemployed for a year.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele erwerbslose Menschen suchen Weiterbildung.",
+        "en": "Many unemployed people are looking for further training.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Glosse",
+    "term": "die Glosse",
+    "en": "satirical column",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Glossen",
+    "ipa": "ˈɡlɔsə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Glosse in der Zeitung ist immer lustig.",
+        "en": "The satirical column in the paper is always funny.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie schreibt jede Woche eine Glosse.",
+        "en": "She writes a satirical column every week.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "News Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Herabsetzung",
+    "term": "die Herabsetzung",
+    "en": "reduction; disparagement",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Herabsetzungen",
+    "ipa": "hɛˈʁapˌzɛt͡sʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Gewerkschaft protestiert gegen die Herabsetzung der Löhne.",
+        "en": "The union is protesting against the wage cut.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er empfand die Bemerkung als Herabsetzung.",
+        "en": "He felt the remark was belittling.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Kompression",
+    "term": "die Kompression",
+    "en": "compression",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Kompressionen",
+    "ipa": "kɔmpʁɛˈsi̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Durch Kompression wird die Datei kleiner.",
+        "en": "Compression makes the file smaller.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kompression im Motor ist zu niedrig.",
+        "en": "The compression in the engine is too low.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Lesbarkeit",
+    "term": "die Lesbarkeit",
+    "en": "readability, legibility",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈleːsbaːɐ̯kaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Lesbarkeit des Textes ist schlecht.",
+        "en": "The text's readability is poor.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Größere Schrift verbessert die Lesbarkeit.",
+        "en": "A bigger font improves legibility.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Writing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Liquidation",
+    "term": "die Liquidation",
+    "en": "liquidation",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Liquidationen",
+    "ipa": "likvidaˈt͡si̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach der Pleite folgt die Liquidation.",
+        "en": "Liquidation follows the bankruptcy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma ist in Liquidation.",
+        "en": "The company is in liquidation.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Nummerierung",
+    "term": "die Nummerierung",
+    "en": "numbering",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Nummerierungen",
+    "ipa": "nʊməˈʁiːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Nummerierung der Seiten stimmt nicht.",
+        "en": "The page numbering is wrong.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Häuser haben eine seltsame Nummerierung.",
+        "en": "The houses have strange numbering.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Sachverstand",
+    "term": "der Sachverstand",
+    "en": "expertise",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die –",
+    "ipa": "ˈzaxfɛɐ̯ˌʃtant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Dafür fehlt der Politik der Sachverstand.",
+        "en": "Politicians lack the expertise for that.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie bringt viel Sachverstand mit.",
+        "en": "She brings a lot of expertise.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work & profession",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Schulbuch",
+    "term": "das Schulbuch",
+    "en": "school textbook",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Schulbücher",
+    "ipa": "ˈʃuːlˌbuːx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Schulbuch ist schon zwanzig Jahre alt.",
+        "en": "The textbook is already twenty years old.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Eltern müssen das Schulbuch kaufen.",
+        "en": "The parents have to buy the textbook.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "School",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Tastenkombination",
+    "term": "die Tastenkombination",
+    "en": "keyboard shortcut",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Tastenkombinationen",
+    "ipa": "ˈtastn̩kɔmbinaˌt͡si̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit dieser Tastenkombination geht es schneller.",
+        "en": "This keyboard shortcut makes it quicker.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Welche Tastenkombination kopiert den Text?",
+        "en": "Which shortcut copies the text?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Vorleser",
+    "term": "der Vorleser",
+    "en": "reader (reading aloud)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Vorleser",
+    "ipa": "ˈfoːɐ̯ˌleːzɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Vorleser liest den Kindern Märchen vor.",
+        "en": "The reader reads fairy tales to the children.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie ist Vorleserin in der Bibliothek.",
+        "en": "She reads aloud at the library.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Literature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Widerhall",
+    "term": "der Widerhall",
+    "en": "echo, response",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Widerhalle",
+    "ipa": "ˈviːdɐˌhal",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Rede fand großen Widerhall in den Medien.",
+        "en": "The speech had a big response in the media.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der Halle gibt es einen starken Widerhall.",
+        "en": "There's a strong echo in the hall.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "News Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:altbacken",
+    "term": "altbacken",
+    "en": "old-fashioned, stale",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaltbakn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Design wirkt altbacken.",
+        "en": "The design seems old-fashioned.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Seine Ideen sind ziemlich altbacken.",
+        "en": "His ideas are rather stale.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:aufmunternd",
+    "term": "aufmunternd",
+    "en": "encouraging, cheering",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fˌmʊntɐnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie lächelte mir aufmunternd zu.",
+        "en": "She smiled at me encouragingly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Danke für die aufmunternden Worte!",
+        "en": "Thanks for the words of encouragement!",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:indiskutabel",
+    "term": "indiskutabel",
+    "en": "out of the question, unacceptable",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɪndɪskuˌtaːbl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Angebot ist indiskutabel.",
+        "en": "The offer is out of the question.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Leistung des Teams war indiskutabel.",
+        "en": "The team's performance was unacceptable.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Negotiation & Argument",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:monetär",
+    "term": "monetär",
+    "en": "monetary",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "moneˈtɛːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die monetäre Politik der EZB ist umstritten.",
+        "en": "The ECB's monetary policy is controversial.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es geht nicht nur um monetäre Anreize.",
+        "en": "It's not only about monetary incentives.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:neudeutsch",
+    "term": "neudeutsch",
+    "en": "in modern (anglicised) German",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈnɔɪ̯ˌdɔɪ̯t͡ʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das nennt man neudeutsch Homeoffice.",
+        "en": "In modern German that's called Homeoffice.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er benutzt viele neudeutsche Wörter.",
+        "en": "He uses a lot of anglicised words.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:quartalsweise",
+    "term": "quartalsweise",
+    "en": "quarterly",
+    "pos": "adverb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "kvaʁˈtaːlsˌvaɪ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma berichtet quartalsweise über ihre Zahlen.",
+        "en": "The company reports its figures quarterly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Abrechnung erfolgt quartalsweise.",
+        "en": "Billing is quarterly.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:redaktionell",
+    "term": "redaktionell",
+    "en": "editorial",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʁedakt͡si̯oˈnɛl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Artikel ist nicht redaktionell, sondern Werbung.",
+        "en": "The article isn't editorial but advertising.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die redaktionelle Arbeit dauert länger.",
+        "en": "The editorial work takes longer.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "News Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:repetitiv",
+    "term": "repetitiv",
+    "en": "repetitive",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʁepetiˈtiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Arbeit ist sehr repetitiv.",
+        "en": "The work is very repetitive.",
+        "lvl": "C1"
+      },
+      {
+        "de": "KI übernimmt repetitive Aufgaben.",
+        "en": "AI is taking over repetitive tasks.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unvollendet",
+    "term": "unvollendet",
+    "en": "unfinished",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnfɔlˌʔɛndət",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Sinfonie blieb unvollendet.",
+        "en": "The symphony remained unfinished.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Gebäude ist noch unvollendet.",
+        "en": "The building is still unfinished.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Arts and culture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:urkundlich",
+    "term": "urkundlich",
+    "en": "documented, recorded",
+    "pos": "adjective",
+    "level": "C2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈuːɐ̯ˌkʊntlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Dorf wurde 1150 zum ersten Mal urkundlich erwähnt.",
+        "en": "The village was first documented in 1150.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Rechte sind urkundlich belegt.",
+        "en": "The rights are documented.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Politics & History",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Abänderung",
+    "term": "die Abänderung",
+    "en": "amendment, alteration",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Abänderungen",
+    "ipa": "ˈapˌʔɛndəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Abänderung des Vertrags muss schriftlich erfolgen.",
+        "en": "Amendments to the contract must be in writing.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Antrag auf Abänderung wurde abgelehnt.",
+        "en": "The application for an amendment was rejected.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Aktienkapital",
+    "term": "das Aktienkapital",
+    "en": "share capital",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈakt͡si̯ənkapiˌtaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma erhöht ihr Aktienkapital.",
+        "en": "The company is increasing its share capital.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Aktienkapital liegt bei zehn Millionen.",
+        "en": "The share capital is ten million.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Bankautomat",
+    "term": "der Bankautomat",
+    "en": "cash machine, ATM",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Bankautomaten",
+    "ipa": "ˈbaŋkʔaʊ̯toˌmaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gibt es hier in der Nähe einen Bankautomaten?",
+        "en": "Is there a cash machine near here?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Bankautomat hat meine Karte behalten.",
+        "en": "The cash machine kept my card.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "At the bank",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Belichtung",
+    "term": "die Belichtung",
+    "en": "exposure (photography)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Belichtungen",
+    "ipa": "bəˈlɪçtʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Belichtung des Fotos ist zu hell.",
+        "en": "The photo is overexposed.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei Nacht braucht man eine lange Belichtung.",
+        "en": "At night you need a long exposure.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Hobbies & leisure",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:der Emittent",
+    "term": "der Emittent",
+    "en": "issuer (of securities)",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "der",
+    "plural": "die Emittenten",
+    "ipa": "emɪˈtɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Emittent der Anleihe ist ein Staat.",
+        "en": "The issuer of the bond is a state.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Emittent zahlt die Zinsen jährlich.",
+        "en": "The issuer pays the interest annually.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Fachsprache",
+    "term": "die Fachsprache",
+    "en": "technical language, jargon",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Fachsprachen",
+    "ipa": "ˈfaxˌʃpʁaːxə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Fachsprache der Juristen ist schwer.",
+        "en": "Lawyers' technical language is difficult.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für den Job muss ich die Fachsprache lernen.",
+        "en": "I have to learn the technical language for the job.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Jargon",
+    "term": "der Jargon",
+    "en": "jargon",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Jargons",
+    "ipa": "ʒaʁˈɡɔŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Jargon der Start-ups ist voller Anglizismen.",
+        "en": "Start-up jargon is full of anglicisms.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich verstehe den Jargon der Banker nicht.",
+        "en": "I don't understand bankers' jargon.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Konstrukteur",
+    "term": "der Konstrukteur",
+    "en": "designer, design engineer",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Konstrukteure",
+    "ipa": "kɔnstʁʊkˈtøːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Konstrukteur hat das neue Auto entworfen.",
+        "en": "The design engineer designed the new car.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie arbeitet als Konstrukteurin im Maschinenbau.",
+        "en": "She works as a design engineer in mechanical engineering.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work & profession",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Privathaushalt",
+    "term": "der Privathaushalt",
+    "en": "private household",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Privathaushalte",
+    "ipa": "pʁiˈvaːtˌhaʊ̯shalt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Privathaushalte sparen mehr.",
+        "en": "Private households are saving more.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Stromverbrauch der Privathaushalte sinkt.",
+        "en": "Households' electricity consumption is falling.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Rundschreiben",
+    "term": "das Rundschreiben",
+    "en": "circular (letter)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Rundschreiben",
+    "ipa": "ˈʁʊntˌʃʁaɪ̯bn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Chefin hat ein Rundschreiben an alle geschickt.",
+        "en": "The boss sent a circular to everyone.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Rundschreiben steht die neue Regel.",
+        "en": "The new rule is in the circular.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Schaffenskraft",
+    "term": "die Schaffenskraft",
+    "en": "creative power, creativity",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Schaffenskräfte",
+    "ipa": "ˈʃafn̩sˌkʁaft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit achtzig hat er noch viel Schaffenskraft.",
+        "en": "At eighty he still has a lot of creative energy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Krise hat ihre Schaffenskraft gebremst.",
+        "en": "The crisis slowed her creativity.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Arts and culture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Schlichtheit",
+    "term": "die Schlichtheit",
+    "en": "simplicity, plainness",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈʃlɪçthaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Schlichtheit des Designs gefällt mir.",
+        "en": "I like the simplicity of the design.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kirche ist von großer Schlichtheit.",
+        "en": "The church is very plain.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Aesthetic Concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Unvermögen",
+    "term": "das Unvermögen",
+    "en": "inability, incompetence",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": null,
+    "ipa": "ˈʊnfɛɐ̯ˌmøːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das zeigt das Unvermögen der Regierung.",
+        "en": "That shows the government's incompetence.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Unvermögen zu warten ist bekannt.",
+        "en": "His inability to wait is well known.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:die Vakanz",
+    "term": "die Vakanz",
+    "en": "vacancy",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "die",
+    "plural": "die Vakanzen",
+    "ipa": "vaˈkant͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Vakanz im Vorstand soll schnell besetzt werden.",
+        "en": "The vacancy on the board is to be filled quickly.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Firma hat mehrere Vakanzen.",
+        "en": "The company has several vacancies.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:abflachen",
+    "term": "abflachen",
+    "en": "to level off, to flatten",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌflaxn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Wachstum wird dieses Jahr abflachen.",
+        "en": "Growth will level off this year.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Kurve wird bald abflachen.",
+        "en": "The curve will soon flatten.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:sich einverleiben",
+    "term": "sich einverleiben",
+    "en": "to incorporate, to annex",
+    "pos": "verb",
+    "level": "C2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯nfɛɐ̯ˌlaɪ̯bn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Konzern will sich den Konkurrenten einverleiben.",
+        "en": "The group wants to swallow up its rival.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Land will sich das Gebiet einverleiben.",
+        "en": "The country wants to annex the territory.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Politics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:hingebungsvoll",
+    "term": "hingebungsvoll",
+    "en": "devoted, with dedication",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɪnɡeːbʊŋsˌfɔl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie pflegt ihren Vater hingebungsvoll.",
+        "en": "She cares for her father devotedly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er spielt hingebungsvoll Klavier.",
+        "en": "He plays the piano with dedication.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:postalisch",
+    "term": "postalisch",
+    "en": "postal, by post",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "pɔsˈtaːlɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Unterlagen schicken wir Ihnen postalisch zu.",
+        "en": "We'll send you the documents by post.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die postalische Adresse ist eine andere.",
+        "en": "The postal address is a different one.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Post & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Alltagssprache",
+    "term": "die Alltagssprache",
+    "en": "everyday language",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈaltaːksˌʃpʁaːxə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Alltagssprache sagt man das anders.",
+        "en": "In everyday language you say that differently.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Wort gehört zur Alltagssprache.",
+        "en": "The word is part of everyday language.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Baukunst",
+    "term": "die Baukunst",
+    "en": "architecture (art of building)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Baukünste",
+    "ipa": "ˈbaʊ̯ˌkʊnst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Dom ist ein Meisterwerk der gotischen Baukunst.",
+        "en": "The cathedral is a masterpiece of Gothic architecture.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie interessiert sich für Baukunst.",
+        "en": "She is interested in architecture.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Arts and culture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Berechenbarkeit",
+    "term": "die Berechenbarkeit",
+    "en": "predictability",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Berechenbarkeiten",
+    "ipa": "bəˈʁɛçn̩baːɐ̯kaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Unternehmen wünschen sich Berechenbarkeit.",
+        "en": "Companies want predictability.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Berechenbarkeit der Politik hat gelitten.",
+        "en": "The predictability of politics has suffered.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Politics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Klassenarbeit",
+    "term": "die Klassenarbeit",
+    "en": "class test",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Klassenarbeiten",
+    "ipa": "ˈklasn̩ˌʔaʁbaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Morgen schreiben wir eine Klassenarbeit in Mathe.",
+        "en": "We have a maths test tomorrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Klassenarbeit war sehr schwer.",
+        "en": "The class test was very difficult.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "School",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:die Provenienz",
+    "term": "die Provenienz",
+    "en": "provenance",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "die",
+    "plural": "die Provenienzen",
+    "ipa": "pʁoveˈni̯ɛnt͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Provenienz des Gemäldes ist unklar.",
+        "en": "The painting's provenance is unclear.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Museum erforscht die Provenienz seiner Werke.",
+        "en": "The museum is researching the provenance of its works.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Arts and culture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Rohrleitung",
+    "term": "die Rohrleitung",
+    "en": "pipe, pipeline",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Rohrleitungen",
+    "ipa": "ˈʁoːɐ̯ˌlaɪ̯tʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Rohrleitung unter der Straße ist undicht.",
+        "en": "The pipe under the street is leaking.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Gas kommt über eine Rohrleitung.",
+        "en": "The gas comes through a pipeline.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Energy & Resources",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Tauschbörse",
+    "term": "die Tauschbörse",
+    "en": "swap meet; file-sharing network",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Tauschbörsen",
+    "ipa": "ˈtaʊ̯ʃˌbœʁzə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auf der Tauschbörse gebe ich alte Kleidung ab.",
+        "en": "I hand in old clothes at the swap meet.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat Musik über eine Tauschbörse geladen.",
+        "en": "He downloaded music via a file-sharing network.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Sustainable Lifestyle",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Tausendfüßler",
+    "term": "der Tausendfüßler",
+    "en": "centipede, millipede",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Tausendfüßler",
+    "ipa": "ˈtaʊ̯zn̩tˌfyːslɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Unter dem Stein ist ein Tausendfüßler.",
+        "en": "There's a centipede under the stone.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Tausendfüßler hat viele Beine.",
+        "en": "The millipede has lots of legs.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Animals",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Vokabel",
+    "term": "die Vokabel",
+    "en": "vocabulary item, word (to learn)",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "voˈkaːbl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich lerne jeden Tag zwanzig neue Vokabeln.",
+        "en": "I learn twenty new words every day.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Diese Vokabel vergesse ich immer.",
+        "en": "I always forget this word.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:brandaktuell",
+    "term": "brandaktuell",
+    "en": "very latest, hot off the press",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌbʁantʔaktuˈɛl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Thema ist brandaktuell.",
+        "en": "The subject is very topical.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Hier sind die brandaktuellen Zahlen.",
+        "en": "Here are the very latest figures.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "News Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:diagnostisch",
+    "term": "diagnostisch",
+    "en": "diagnostic",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "diaˈɡnɔstɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die diagnostischen Tests dauern eine Woche.",
+        "en": "The diagnostic tests take a week.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Verfahren ist diagnostisch sehr genau.",
+        "en": "The procedure is very accurate diagnostically.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Doctor & patient",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:elitär",
+    "term": "elitär",
+    "en": "elitist",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌeliˈtɛːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Club ist sehr elitär.",
+        "en": "The club is very elitist.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat ein elitäres Denken.",
+        "en": "He has an elitist way of thinking.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:freimütig",
+    "term": "freimütig",
+    "en": "frank, candid",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfʁaɪ̯ˌmyːtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie gab freimütig zu, dass sie sich geirrt hatte.",
+        "en": "She frankly admitted she had been wrong.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war ein freimütiges Interview.",
+        "en": "That was a candid interview.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:freistellen",
+    "term": "freistellen",
+    "en": "to release (from work), to leave up to",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfʁaɪ̯ˌʃtɛlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma will ihn bis zum Vertragsende freistellen.",
+        "en": "The company wants to put him on garden leave until the contract ends.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich will dir die Entscheidung freistellen.",
+        "en": "I want to leave the decision up to you.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Employment contract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:grazil",
+    "term": "grazil",
+    "en": "graceful, slender",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡʁaˈt͡siːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Tänzerin ist sehr grazil.",
+        "en": "The dancer is very graceful.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Vase hat eine grazile Form.",
+        "en": "The vase has a delicate shape.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "People",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:inkonsistent",
+    "term": "inkonsistent",
+    "en": "inconsistent",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɪnkɔnzɪstɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Seine Argumente sind inkonsistent.",
+        "en": "His arguments are inconsistent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Daten sind leider inkonsistent.",
+        "en": "Unfortunately the data are inconsistent.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Argument & Thesis",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:institutionell",
+    "term": "institutionell",
+    "en": "institutional",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌɪnstitut͡si̯oˈnɛl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Institutionelle Anleger kaufen die Aktie.",
+        "en": "Institutional investors are buying the share.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das ist ein institutionelles Problem.",
+        "en": "That's an institutional problem.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Financial Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:konstituieren",
+    "term": "konstituieren",
+    "en": "to constitute, to form",
+    "pos": "verb",
+    "level": "C2",
+    "gender": null,
+    "plural": null,
+    "ipa": "kɔnstituˈiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der neue Bundestag wird sich im Oktober konstituieren.",
+        "en": "The new Bundestag will convene for the first time in October.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Ausschuss hat sich konstituiert.",
+        "en": "The committee has been formed.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Democratic Structures",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:merkbar",
+    "term": "merkbar",
+    "en": "noticeable; memorable",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈmɛʁkbaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Unterschied ist kaum merkbar.",
+        "en": "The difference is barely noticeable.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Passwort ist leicht merkbar.",
+        "en": "The password is easy to remember.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:programmatisch",
+    "term": "programmatisch",
+    "en": "programmatic",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "pʁoɡʁaˈmaːtɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Partei braucht eine programmatische Erneuerung.",
+        "en": "The party needs a renewal of its programme.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Rede war programmatisch.",
+        "en": "The speech set out an agenda.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Politics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:präzisieren",
+    "term": "präzisieren",
+    "en": "to specify, to clarify",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "pʁɛt͡siˈziːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können Sie Ihre Frage präzisieren?",
+        "en": "Can you be more specific in your question?",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Regierung will die Regeln präzisieren.",
+        "en": "The government wants to clarify the rules.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:semantisch",
+    "term": "semantisch",
+    "en": "semantic",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zeˈmantɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die beiden Wörter haben einen semantischen Unterschied.",
+        "en": "The two words have a semantic difference.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das ist ein rein semantischer Streit.",
+        "en": "That's a purely semantic dispute.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Language Acquisition & Linguistics",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:spendabel",
+    "term": "spendabel",
+    "en": "generous (with money)",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃpɛnˈdaːbl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Heute bin ich spendabel und zahle alles.",
+        "en": "I'm feeling generous today and paying for everything.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Chef war auf der Feier sehr spendabel.",
+        "en": "The boss was very generous at the party.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:südländisch",
+    "term": "südländisch",
+    "en": "southern (European), Mediterranean",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzyːtˌlɛndɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Stadt hat ein südländisches Flair.",
+        "en": "The city has a Mediterranean flair.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat ein südländisches Temperament.",
+        "en": "He has a southern temperament.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unwillkürlich",
+    "term": "unwillkürlich",
+    "en": "involuntary, instinctive",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnvɪlˌkyːɐ̯lɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich musste unwillkürlich lachen.",
+        "en": "I couldn't help laughing.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war eine unwillkürliche Reaktion.",
+        "en": "That was an involuntary reaction.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:validieren",
+    "term": "validieren",
+    "en": "to validate",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "valiˈdiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das System will die Daten validieren.",
+        "en": "The system wants to validate the data.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Ergebnisse müssen wir noch validieren.",
+        "en": "We still have to validate the results.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:verwunschen",
+    "term": "verwunschen",
+    "en": "enchanted; overgrown and romantic",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈvʊnʃn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hinter dem Haus liegt ein verwunschener Garten.",
+        "en": "Behind the house there's an enchanted garden.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Schloss sieht ganz verwunschen aus.",
+        "en": "The castle looks quite enchanted.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Fairy Tales & Stories",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:weitläufig",
+    "term": "weitläufig",
+    "en": "extensive, spacious; distant (relative)",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaɪ̯tˌlɔɪ̯fɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Park ist sehr weitläufig.",
+        "en": "The park is very extensive.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir sind weitläufig verwandt.",
+        "en": "We are distantly related.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Spatial relations",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:zusammenhängend",
+    "term": "zusammenhängend",
+    "en": "coherent, connected",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡suˈzamənˌhɛŋənt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schreib einen zusammenhängenden Text.",
+        "en": "Write a coherent text.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Probleme sind eng zusammenhängend.",
+        "en": "The problems are closely connected.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Academic Writing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Überleitung",
+    "term": "die Überleitung",
+    "en": "transition, segue",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Überleitungen",
+    "ipa": "ˈyːbɐˌlaɪ̯tʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Überleitung zum nächsten Thema war elegant.",
+        "en": "The transition to the next topic was elegant.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mir fehlt eine gute Überleitung.",
+        "en": "I'm missing a good segue.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Oral Presentation",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Baugerüst",
+    "term": "das Baugerüst",
+    "en": "scaffolding",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Baugerüste",
+    "ipa": "ˈbaʊ̯ɡəˌʁʏst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Haus ist seit Monaten hinter einem Baugerüst.",
+        "en": "The building has been behind scaffolding for months.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Arbeiter stehen auf dem Baugerüst.",
+        "en": "The workers are standing on the scaffolding.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Urban life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Benutzername",
+    "term": "der Benutzername",
+    "en": "username",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Benutzernamen",
+    "ipa": "bəˈnʊt͡sɐˌnaːmə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte geben Sie Ihren Benutzernamen ein.",
+        "en": "Please enter your username.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Benutzername ist schon vergeben.",
+        "en": "The username is already taken.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Datenschutzerklärung",
+    "term": "die Datenschutzerklärung",
+    "en": "privacy policy",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Datenschutzerklärungen",
+    "ipa": "ˈdaːtn̩ʃʊt͡sʔɛɐ̯ˌklɛːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Niemand liest die Datenschutzerklärung.",
+        "en": "Nobody reads the privacy policy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bitte akzeptieren Sie die Datenschutzerklärung.",
+        "en": "Please accept the privacy policy.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Digital World & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Empfindlichkeit",
+    "term": "die Empfindlichkeit",
+    "en": "sensitivity",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Empfindlichkeiten",
+    "ipa": "ɛmˈp͡fɪntlɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe eine Empfindlichkeit gegen Laktose.",
+        "en": "I have a sensitivity to lactose.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Empfindlichkeit des Sensors ist hoch.",
+        "en": "The sensor's sensitivity is high.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Body & health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Feldversuch",
+    "term": "der Feldversuch",
+    "en": "field trial",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Feldversuche",
+    "ipa": "ˈfɛltfɛɐ̯ˌzuːx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das autonome Auto ist im Feldversuch.",
+        "en": "The self-driving car is in a field trial.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Feldversuch dauert ein Jahr.",
+        "en": "The field trial lasts a year.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science & Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Fälligkeit",
+    "term": "die Fälligkeit",
+    "en": "due date, maturity",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Fälligkeiten",
+    "ipa": "ˈfɛlɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bei Fälligkeit wird der Betrag abgebucht.",
+        "en": "The amount is debited on the due date.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Fälligkeit der Anleihe ist 2030.",
+        "en": "The bond matures in 2030.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Personal finance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Geduldsfaden",
+    "term": "der Geduldsfaden",
+    "en": "patience (literally: thread of patience)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Geduldsfäden",
+    "ipa": "ɡəˈdʊlt͡sˌfaːdn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Langsam reißt mir der Geduldsfaden.",
+        "en": "I'm slowly losing my patience.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Beim Amt ist mein Geduldsfaden gerissen.",
+        "en": "My patience snapped at the office.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Höchstgrenze",
+    "term": "die Höchstgrenze",
+    "en": "upper limit, ceiling",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Höchstgrenzen",
+    "ipa": null,
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Höchstgrenze liegt bei tausend Euro.",
+        "en": "The upper limit is a thousand euros.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für das Gepäck gibt es eine Höchstgrenze.",
+        "en": "There's a maximum limit for luggage.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Karteikarte",
+    "term": "die Karteikarte",
+    "en": "index card, flashcard",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Karteikarten",
+    "ipa": "kaʁˈtaɪ̯ˌkaʁtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich lerne Vokabeln mit Karteikarten.",
+        "en": "I learn vocabulary with flashcards.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf jeder Karteikarte steht ein Wort.",
+        "en": "There's one word on each index card.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Kurznachricht",
+    "term": "die Kurznachricht",
+    "en": "text message",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Kurznachrichten",
+    "ipa": "ˈkʊʁt͡snaːxˌʁɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schick mir eine Kurznachricht, wenn du da bist.",
+        "en": "Send me a text when you're there.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Bank schickt einen Code per Kurznachricht.",
+        "en": "The bank sends a code by text.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Post & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:die Körperschaft",
+    "term": "die Körperschaft",
+    "en": "corporation, (public) body",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "die",
+    "plural": "die Körperschaften",
+    "ipa": "ˈkœʁpɐʃaft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Kirche ist eine Körperschaft des öffentlichen Rechts.",
+        "en": "The church is a public-law corporation.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Körperschaft zahlt keine Steuern.",
+        "en": "The body pays no taxes.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Lateinamerikaner",
+    "term": "der Lateinamerikaner",
+    "en": "Latin American (man)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Lateinamerikaner",
+    "ipa": "laˈtaɪ̯nʔameʁiˌkaːnɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele Lateinamerikaner leben in Madrid.",
+        "en": "Many Latin Americans live in Madrid.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Lateinamerikaner spricht Spanisch und Deutsch.",
+        "en": "The Latin American speaks Spanish and German.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Lohnfortzahlung",
+    "term": "die Lohnfortzahlung",
+    "en": "continued pay (when ill)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Lohnfortzahlungen",
+    "ipa": "ˈloːnfɔʁtˌt͡saːlʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bei Krankheit gibt es sechs Wochen Lohnfortzahlung.",
+        "en": "There are six weeks of sick pay when you're ill.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Lohnfortzahlung zahlt der Arbeitgeber.",
+        "en": "The employer pays continued wages.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Employment contract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Meerrettich",
+    "term": "der Meerrettich",
+    "en": "horseradish",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Meerrettiche",
+    "ipa": "ˈmeːɐ̯ˌʁɛtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zum Fisch gibt es Meerrettich.",
+        "en": "There's horseradish with the fish.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Meerrettich ist sehr scharf.",
+        "en": "The horseradish is very hot.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Muße",
+    "term": "die Muße",
+    "en": "leisure, time for oneself",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈmuːsə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Urlaub habe ich endlich Muße zum Lesen.",
+        "en": "On holiday I finally have leisure to read.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Kunst braucht Muße.",
+        "en": "Art needs leisure.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Platzhalter",
+    "term": "der Platzhalter",
+    "en": "placeholder",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Platzhalter",
+    "ipa": "ˈplat͡sˌhaltɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Text ist nur ein Platzhalter.",
+        "en": "The text is just a placeholder.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ersetze den Platzhalter durch deinen Namen.",
+        "en": "Replace the placeholder with your name.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Prunk",
+    "term": "der Prunk",
+    "en": "splendour, pomp",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die –",
+    "ipa": "pʁʊŋk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Schloss ist voller Prunk.",
+        "en": "The palace is full of splendour.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Hochzeit wurde mit viel Prunk gefeiert.",
+        "en": "The wedding was celebrated with great pomp.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Arts and culture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Randgebiet",
+    "term": "das Randgebiet",
+    "en": "outskirts, fringe area",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Randgebiete",
+    "ipa": "ˈʁantɡəˌbiːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Randgebiet der Stadt sind die Mieten niedriger.",
+        "en": "Rents are lower on the outskirts of the city.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Thema ist nur ein Randgebiet der Forschung.",
+        "en": "The subject is only a fringe area of research.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Urban life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Rangordnung",
+    "term": "die Rangordnung",
+    "en": "hierarchy, pecking order",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Rangordnungen",
+    "ipa": "ˈʁaŋˌʔɔʁdnʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Team gibt es eine klare Rangordnung.",
+        "en": "There's a clear pecking order in the team.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Rangordnung unter Wölfen ist streng.",
+        "en": "The hierarchy among wolves is strict.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Power & Authority",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Rezensent",
+    "term": "der Rezensent",
+    "en": "reviewer, critic",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Rezensenten",
+    "ipa": "ʁet͡sɛnˈzɛnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Rezensent lobt das Buch.",
+        "en": "The reviewer praises the book.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Rezensentin fand den Film langweilig.",
+        "en": "The reviewer found the film boring.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Media Critique",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Sortierung",
+    "term": "die Sortierung",
+    "en": "sorting, order",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Sortierungen",
+    "ipa": "zɔʁˈtiːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Sortierung nach Preis funktioniert nicht.",
+        "en": "Sorting by price doesn't work.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Sortierung des Mülls ist wichtig.",
+        "en": "Sorting the rubbish is important.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:ehemalig",
+    "term": "ehemalig",
+    "en": "former",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈeːəˌmaːlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein ehemaliger Chef hat mich angerufen.",
+        "en": "My former boss called me.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die ehemalige Fabrik ist jetzt ein Museum.",
+        "en": "The former factory is now a museum.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:ukrainisch",
+    "term": "ukrainisch",
+    "en": "Ukrainian",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ukʁaˈiːnɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele ukrainische Familien leben jetzt in Köln.",
+        "en": "Many Ukrainian families now live in Cologne.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die ukrainische Regierung bittet um Hilfe.",
+        "en": "The Ukrainian government is asking for help.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:russisch",
+    "term": "russisch",
+    "en": "Russian",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁʊsɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Nachbarin spricht fließend Russisch und Deutsch.",
+        "en": "My neighbour speaks fluent Russian and German.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die russische Armee greift weiter an.",
+        "en": "The Russian army continues to attack.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Idiot",
+    "term": "der Idiot",
+    "en": "idiot",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Idioten",
+    "ipa": "iˈdi̯oːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Idiot hat mich einfach überholt.",
+        "en": "The idiot just overtook me.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe mich wie ein Idiot gefühlt.",
+        "en": "I felt like an idiot.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "People",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:heilig",
+    "term": "heilig",
+    "en": "holy, sacred",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhaɪ̯lɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Heiligen Drei Könige liegen im Kölner Dom.",
+        "en": "The Three Kings rest in Cologne Cathedral.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sonntag ist ihm heilig.",
+        "en": "Sunday is sacred to him.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Religion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Boss",
+    "term": "der Boss",
+    "en": "boss",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Bosse",
+    "ipa": "bɔs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Boss will uns morgen sprechen.",
+        "en": "The boss wants to talk to us tomorrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ist hier der Boss.",
+        "en": "She's the boss here.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Mist",
+    "term": "der Mist",
+    "en": "rubbish, nonsense; dung; damn!",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "mɪst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mist, ich habe den Schlüssel vergessen!",
+        "en": "Damn, I've forgotten the key!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Erzähl keinen Mist!",
+        "en": "Don't talk rubbish!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:amerikanisch",
+    "term": "amerikanisch",
+    "en": "American",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ameʁiˈkaːnɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat eine amerikanische Frau.",
+        "en": "He has an American wife.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die amerikanische Regierung erhöht die Zölle.",
+        "en": "The American government is raising tariffs.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:heutig",
+    "term": "heutig",
+    "en": "today's, present-day",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɔɪ̯tɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die heutige Sitzung fällt aus.",
+        "en": "Today's meeting is cancelled.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der heutigen Zeit ist alles digital.",
+        "en": "Nowadays everything is digital.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:bisherig",
+    "term": "bisherig",
+    "en": "previous, (up) to date",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bɪsˈheːʁɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die bisherigen Ergebnisse sind gut.",
+        "en": "The results so far are good.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der bisherige Chef geht in Rente.",
+        "en": "The previous boss is retiring.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Rum",
+    "term": "der Rum",
+    "en": "rum",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ʁʊm",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Rum kommt aus der Karibik.",
+        "en": "The rum comes from the Caribbean.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Kuchen ist ein Schuss Rum.",
+        "en": "There's a dash of rum in the cake.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Food and beverages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:israelisch",
+    "term": "israelisch",
+    "en": "Israeli",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪsʁaˈeːlɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die israelische Regierung hat reagiert.",
+        "en": "The Israeli government has reacted.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir essen in einem israelischen Restaurant.",
+        "en": "We're eating at an Israeli restaurant.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:erleiden",
+    "term": "erleiden",
+    "en": "to suffer (a loss, injury)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈlaɪ̯dn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma kann große Verluste erleiden.",
+        "en": "The company may suffer heavy losses.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Menschen mussten schwere Verletzungen erleiden.",
+        "en": "Many people suffered serious injuries.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "News Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:kapieren",
+    "term": "kapieren",
+    "en": "to get, to understand (colloquial)",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "kaˈpiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich kapiere das einfach nicht.",
+        "en": "I just don't get it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hast du es endlich kapiert?",
+        "en": "Have you finally got it?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Unsinn",
+    "term": "der Unsinn",
+    "en": "nonsense",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈʊnzɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist doch Unsinn!",
+        "en": "That's nonsense!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder machen nur Unsinn.",
+        "en": "The children are just messing about.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Höhenmeter",
+    "term": "der Höhenmeter",
+    "en": "metre of altitude (climb)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Höhenmeter",
+    "ipa": "ˈhøːənˌmeːtɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Etappe hat dreitausend Höhenmeter.",
+        "en": "The stage has three thousand metres of climbing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach tausend Höhenmetern mache ich eine Pause.",
+        "en": "After a thousand metres of climbing I take a break.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Sport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Bayer",
+    "term": "der Bayer",
+    "en": "Bavarian (man)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Bayern",
+    "ipa": "ˈbaɪ̯ɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Kollege ist Bayer und spricht Dialekt.",
+        "en": "My colleague is Bavarian and speaks dialect.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Bayer trägt zum Oktoberfest eine Lederhose.",
+        "en": "The Bavarian wears lederhosen to the Oktoberfest.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Oberst",
+    "term": "der Oberst",
+    "en": "colonel",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": null,
+    "ipa": "ˈoːbɐst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Oberst gibt den Befehl.",
+        "en": "The colonel gives the order.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie ist Oberst bei der Bundeswehr.",
+        "en": "She's a colonel in the Bundeswehr.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Military concepts",
+    "kind": "word"
   }
 ]

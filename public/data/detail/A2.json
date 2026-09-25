@@ -486,6 +486,20 @@
       }
     ]
   },
+  "voc:A2:amerikanisch": {
+    "ex": [
+      {
+        "de": "Er hat eine amerikanische Frau.",
+        "en": "He has an American wife.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die amerikanische Regierung erhöht die Zölle.",
+        "en": "The American government is raising tariffs.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:analysieren": {
     "def": "to analyze",
     "ex": [
@@ -6198,6 +6212,20 @@
         "de": "Nach dem stressigen Jahr war ein Badeurlaub genau richtig.",
         "en": "After the stressful year a beach holiday was just right.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Bankautomat": {
+    "ex": [
+      {
+        "de": "Gibt es hier in der Nähe einen Bankautomaten?",
+        "en": "Is there a cash machine near here?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Bankautomat hat meine Karte behalten.",
+        "en": "The cash machine kept my card.",
+        "lvl": "A2"
       }
     ]
   },
@@ -18732,6 +18760,20 @@
       }
     ]
   },
+  "voc:A2:die Vokabel": {
+    "ex": [
+      {
+        "de": "Ich lerne jeden Tag zwanzig neue Vokabeln.",
+        "en": "I learn twenty new words every day.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Diese Vokabel vergesse ich immer.",
+        "en": "I always forget this word.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Volkshochschule": {
     "def": "a public institute offering courses for adults (VHS)",
     "ex": [
@@ -24029,6 +24071,20 @@
       {
         "de": "Geh runter!",
         "en": "Go downstairs.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:russisch": {
+    "ex": [
+      {
+        "de": "Meine Nachbarin spricht fließend Russisch und Deutsch.",
+        "en": "My neighbour speaks fluent Russian and German.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die russische Armee greift weiter an.",
+        "en": "The Russian army continues to attack.",
         "lvl": "A2"
       }
     ]

@@ -1292,6 +1292,20 @@
       }
     ]
   },
+  "voc:B2:ausspülen": {
+    "ex": [
+      {
+        "de": "Du musst die Flasche vor dem Recycling ausspülen.",
+        "en": "You have to rinse out the bottle before recycling.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach dem Zahnarzt soll man den Mund ausspülen.",
+        "en": "After the dentist you should rinse your mouth out.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:ausstrecken": {
     "ex": [
       {
@@ -1976,6 +1990,20 @@
       }
     ]
   },
+  "voc:B2:bisherig": {
+    "ex": [
+      {
+        "de": "Die bisherigen Ergebnisse sind gut.",
+        "en": "The results so far are good.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der bisherige Chef geht in Rente.",
+        "en": "The previous boss is retiring.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:bislang": {
     "def": "Up to the present time.",
     "ex": [
@@ -2074,6 +2102,20 @@
       {
         "de": "Die Branche hat jahrelang geboomt.",
         "en": "The sector boomed for years.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:brandaktuell": {
+    "ex": [
+      {
+        "de": "Das Thema ist brandaktuell.",
+        "en": "The subject is very topical.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Hier sind die brandaktuellen Zahlen.",
+        "en": "Here are the very latest figures.",
         "lvl": "B2"
       }
     ]
@@ -6237,6 +6279,20 @@
       }
     ]
   },
+  "voc:B2:der Höhenmeter": {
+    "ex": [
+      {
+        "de": "Die Etappe hat dreitausend Höhenmeter.",
+        "en": "The stage has three thousand metres of climbing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach tausend Höhenmetern mache ich eine Pause.",
+        "en": "After a thousand metres of climbing I take a break.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Import": {
     "ex": [
       {
@@ -6697,6 +6753,20 @@
       }
     ]
   },
+  "voc:B2:der Lateinamerikaner": {
+    "ex": [
+      {
+        "de": "Viele Lateinamerikaner leben in Madrid.",
+        "en": "Many Latin Americans live in Madrid.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Lateinamerikaner spricht Spanisch und Deutsch.",
+        "en": "The Latin American speaks Spanish and German.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Lebensgefährte": {
     "ex": [
       {
@@ -6923,6 +6993,20 @@
       {
         "de": "Ein steigender Meeresspiegel bedroht viele Städte.",
         "en": "A rising sea level threatens many cities.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Meerrettich": {
+    "ex": [
+      {
+        "de": "Zum Fisch gibt es Meerrettich.",
+        "en": "There's horseradish with the fish.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Meerrettich ist sehr scharf.",
+        "en": "The horseradish is very hot.",
         "lvl": "B2"
       }
     ]
@@ -8305,6 +8389,20 @@
       }
     ]
   },
+  "voc:B2:der Tausendfüßler": {
+    "ex": [
+      {
+        "de": "Unter dem Stein ist ein Tausendfüßler.",
+        "en": "There's a centipede under the stone.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Tausendfüßler hat viele Beine.",
+        "en": "The millipede has lots of legs.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Teamchef": {
     "ex": [
       {
@@ -9410,6 +9508,20 @@
       {
         "de": "Frankreich, Österreich und Russland bildeten eine Allianz gegen Preußen.",
         "en": "France, Austria and Russia formed an alliance against Prussia.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Alltagssprache": {
+    "ex": [
+      {
+        "de": "In der Alltagssprache sagt man das anders.",
+        "en": "In everyday language you say that differently.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Wort gehört zur Alltagssprache.",
+        "en": "The word is part of everyday language.",
         "lvl": "B2"
       }
     ]
@@ -11370,6 +11482,20 @@
       {
         "de": "Ich glaube nicht an die Existenz Gottes.",
         "en": "I do not believe in the existence of God.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Fachsprache": {
+    "ex": [
+      {
+        "de": "Die Fachsprache der Juristen ist schwer.",
+        "en": "Lawyers' technical language is difficult.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für den Job muss ich die Fachsprache lernen.",
+        "en": "I have to learn the technical language for the job.",
         "lvl": "B2"
       }
     ]
@@ -14005,6 +14131,20 @@
       }
     ]
   },
+  "voc:B2:die Schriftart": {
+    "ex": [
+      {
+        "de": "Welche Schriftart soll ich nehmen?",
+        "en": "Which font should I use?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Schriftart ist zu klein.",
+        "en": "The font is too small.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Schutzbrille": {
     "ex": [
       {
@@ -14495,6 +14635,20 @@
       {
         "de": "Beim Boxenstopp entscheidet oft die Taktik.",
         "en": "Strategy often decides things at the pit stop.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Tastenkombination": {
+    "ex": [
+      {
+        "de": "Mit dieser Tastenkombination geht es schneller.",
+        "en": "This keyboard shortcut makes it quicker.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Welche Tastenkombination kopiert den Text?",
+        "en": "Which shortcut copies the text?",
         "lvl": "B2"
       }
     ]
@@ -15501,6 +15655,20 @@
       {
         "de": "Chefs schätzen vor allem Zuverlässigkeit.",
         "en": "Bosses value reliability above all.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Zwetschge": {
+    "ex": [
+      {
+        "de": "Im September backe ich Kuchen mit Zwetschgen.",
+        "en": "In September I bake plum cake.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zwetschge ist schon ganz weich.",
+        "en": "The plum is already very soft.",
         "lvl": "B2"
       }
     ]
@@ -16671,6 +16839,20 @@
       {
         "de": "Tom ist erleichtert.",
         "en": "Tom is relieved.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:erleiden": {
+    "ex": [
+      {
+        "de": "Die Firma kann große Verluste erleiden.",
+        "en": "The company may suffer heavy losses.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Menschen mussten schwere Verletzungen erleiden.",
+        "en": "Many people suffered serious injuries.",
         "lvl": "B2"
       }
     ]
@@ -18326,6 +18508,20 @@
       {
         "de": "Die Werbung war irreführend und wurde verboten.",
         "en": "The advertisement was misleading and was banned.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:israelisch": {
+    "ex": [
+      {
+        "de": "Die israelische Regierung hat reagiert.",
+        "en": "The Israeli government has reacted.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir essen in einem israelischen Restaurant.",
+        "en": "We're eating at an Israeli restaurant.",
         "lvl": "B2"
       }
     ]
@@ -22475,6 +22671,20 @@
       {
         "de": "Ihre Schönheit brachte sie vielfach in Gefahr.",
         "en": "Her beauty exposed her to many dangers.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:vierteljährlich": {
+    "ex": [
+      {
+        "de": "Die Rechnung kommt vierteljährlich.",
+        "en": "The bill comes quarterly.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir zahlen vierteljährlich Steuern voraus.",
+        "en": "We make quarterly tax prepayments.",
         "lvl": "B2"
       }
     ]

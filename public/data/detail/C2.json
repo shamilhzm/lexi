@@ -590,6 +590,20 @@
       }
     ]
   },
+  "voc:C2:der Emittent": {
+    "ex": [
+      {
+        "de": "Der Emittent der Anleihe ist ein Staat.",
+        "en": "The issuer of the bond is a state.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Emittent zahlt die Zinsen jährlich.",
+        "en": "The issuer pays the interest annually.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:der Erzähler": {
     "def": "The voice that tells a story.",
     "ex": [
@@ -1597,6 +1611,20 @@
       }
     ]
   },
+  "voc:C2:die Körperschaft": {
+    "ex": [
+      {
+        "de": "Die Kirche ist eine Körperschaft des öffentlichen Rechts.",
+        "en": "The church is a public-law corporation.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Körperschaft zahlt keine Steuern.",
+        "en": "The body pays no taxes.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:die Marginalisierung": {
     "def": "The pushing of a group to the edges of society or attention.",
     "ex": [
@@ -1770,6 +1798,20 @@
       {
         "de": "Zwischen Werbung und Propaganda verläuft die Grenze fließend.",
         "en": "The line between advertising and propaganda is a fluid one.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Provenienz": {
+    "ex": [
+      {
+        "de": "Die Provenienz des Gemäldes ist unklar.",
+        "en": "The painting's provenance is unclear.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Museum erforscht die Provenienz seiner Werke.",
+        "en": "The museum is researching the provenance of its works.",
         "lvl": "C2"
       }
     ]
@@ -2025,6 +2067,20 @@
       {
         "de": "Die Ungewissheit zermürbte die Familie mehr als die Nachricht selbst.",
         "en": "The uncertainty wore the family down more than the news itself.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:die Vakanz": {
+    "ex": [
+      {
+        "de": "Die Vakanz im Vorstand soll schnell besetzt werden.",
+        "en": "The vacancy on the board is to be filled quickly.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Firma hat mehrere Vakanzen.",
+        "en": "The company has several vacancies.",
         "lvl": "C2"
       }
     ]
@@ -2607,6 +2663,20 @@
       }
     ]
   },
+  "voc:C2:konstituieren": {
+    "ex": [
+      {
+        "de": "Der neue Bundestag wird sich im Oktober konstituieren.",
+        "en": "The new Bundestag will convene for the first time in October.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Der Ausschuss hat sich konstituiert.",
+        "en": "The committee has been formed.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:konterkarieren": {
     "def": "To work against and frustrate a plan or effect.",
     "ex": [
@@ -2979,6 +3049,20 @@
       }
     ]
   },
+  "voc:C2:sich einverleiben": {
+    "ex": [
+      {
+        "de": "Der Konzern will sich den Konkurrenten einverleiben.",
+        "en": "The group wants to swallow up its rival.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Land will sich das Gebiet einverleiben.",
+        "en": "The country wants to annex the territory.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:sich entledigen": {
     "ex": [
       {
@@ -3168,6 +3252,20 @@
       {
         "de": "Eine Prüfung kann in diesem Fall unterbleiben.",
         "en": "An inspection can be omitted in this case.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:urkundlich": {
+    "ex": [
+      {
+        "de": "Das Dorf wurde 1150 zum ersten Mal urkundlich erwähnt.",
+        "en": "The village was first documented in 1150.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Die Rechte sind urkundlich belegt.",
+        "en": "The rights are documented.",
         "lvl": "C2"
       }
     ]

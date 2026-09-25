@@ -7340,6 +7340,20 @@
       }
     ]
   },
+  "voc:B1:das Schulbuch": {
+    "ex": [
+      {
+        "de": "Das Schulbuch ist schon zwanzig Jahre alt.",
+        "en": "The textbook is already twenty years old.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Eltern müssen das Schulbuch kaufen.",
+        "en": "The parents have to buy the textbook.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Schwein": {
     "def": "swine, pig",
     "ex": [
@@ -9401,6 +9415,20 @@
       }
     ]
   },
+  "voc:B1:der Bayer": {
+    "ex": [
+      {
+        "de": "Mein Kollege ist Bayer und spricht Dialekt.",
+        "en": "My colleague is Bavarian and speaks dialect.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Bayer trägt zum Oktoberfest eine Lederhose.",
+        "en": "The Bavarian wears lederhosen to the Oktoberfest.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Bedarf": {
     "def": "need (that which is desired or required); demand (amount of input that is required for something to function)",
     "ex": [
@@ -9484,6 +9512,20 @@
         "de": "Ihr Beitrag über den Klimawandel wurde vielfach geteilt.",
         "en": "Her article on climate change was widely shared.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Benutzername": {
+    "ex": [
+      {
+        "de": "Bitte geben Sie Ihren Benutzernamen ein.",
+        "en": "Please enter your username.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Benutzername ist schon vergeben.",
+        "en": "The username is already taken.",
+        "lvl": "B1"
       }
     ]
   },
@@ -9736,6 +9778,20 @@
       {
         "de": "Rede keinen Blödsinn!",
         "en": "Don't talk nonsense!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Boss": {
+    "ex": [
+      {
+        "de": "Der Boss will uns morgen sprechen.",
+        "en": "The boss wants to talk to us tomorrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie ist hier der Boss.",
+        "en": "She's the boss here.",
         "lvl": "B1"
       }
     ]
@@ -10247,6 +10303,20 @@
       {
         "de": "Sie arbeitet als Dolmetscherin bei der EU.",
         "en": "She works as an interpreter at the EU.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Dominikaner": {
+    "ex": [
+      {
+        "de": "Mein Schwager ist Dominikaner.",
+        "en": "My brother-in-law is Dominican.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Dominikaner spielt Baseball in den USA.",
+        "en": "The Dominican plays baseball in the US.",
         "lvl": "B1"
       }
     ]
@@ -11817,6 +11887,20 @@
       }
     ]
   },
+  "voc:B1:der Idiot": {
+    "ex": [
+      {
+        "de": "Der Idiot hat mich einfach überholt.",
+        "en": "The idiot just overtook me.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe mich wie ein Idiot gefühlt.",
+        "en": "I felt like an idiot.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Inder": {
     "ex": [
       {
@@ -13064,6 +13148,20 @@
       }
     ]
   },
+  "voc:B1:der Mist": {
+    "ex": [
+      {
+        "de": "Mist, ich habe den Schlüssel vergessen!",
+        "en": "Damn, I've forgotten the key!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Erzähl keinen Mist!",
+        "en": "Don't talk rubbish!",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Mittelpunkt": {
     "ex": [
       {
@@ -14278,6 +14376,20 @@
         "de": "Der Ruhm ist flüchtig; das Werk bleibt.",
         "en": "Fame is fleeting; the work remains.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Rum": {
+    "ex": [
+      {
+        "de": "Der Rum kommt aus der Karibik.",
+        "en": "The rum comes from the Caribbean.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Kuchen ist ein Schuss Rum.",
+        "en": "There's a dash of rum in the cake.",
+        "lvl": "B1"
       }
     ]
   },
@@ -15961,6 +16073,20 @@
       {
         "de": "Er musste den Unfallbericht für die Versicherung ausfüllen.",
         "en": "He had to fill out the accident report for the insurance.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Unsinn": {
+    "ex": [
+      {
+        "de": "Das ist doch Unsinn!",
+        "en": "That's nonsense!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder machen nur Unsinn.",
+        "en": "The children are just messing about.",
         "lvl": "B1"
       }
     ]
@@ -22616,6 +22742,20 @@
       }
     ]
   },
+  "voc:B1:die Karteikarte": {
+    "ex": [
+      {
+        "de": "Ich lerne Vokabeln mit Karteikarten.",
+        "en": "I learn vocabulary with flashcards.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf jeder Karteikarte steht ein Wort.",
+        "en": "There's one word on each index card.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Kassette": {
     "def": "A small case holding tape for recording sound.",
     "ex": [
@@ -22747,6 +22887,20 @@
         "de": "Klarheit im Ausdruck verrät Klarheit im Denken.",
         "en": "Clarity of expression reveals clarity of thought.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Klassenarbeit": {
+    "ex": [
+      {
+        "de": "Morgen schreiben wir eine Klassenarbeit in Mathe.",
+        "en": "We have a maths test tomorrow.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Klassenarbeit war sehr schwer.",
+        "en": "The class test was very difficult.",
+        "lvl": "B1"
       }
     ]
   },
@@ -23302,6 +23456,20 @@
       {
         "de": "Maria ist eine Frau mit Kurven.",
         "en": "Mary is a curvy woman.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Kurznachricht": {
+    "ex": [
+      {
+        "de": "Schick mir eine Kurznachricht, wenn du da bist.",
+        "en": "Send me a text when you're there.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Bank schickt einen Code per Kurznachricht.",
+        "en": "The bank sends a code by text.",
         "lvl": "B1"
       }
     ]
@@ -30443,6 +30611,20 @@
       }
     ]
   },
+  "voc:B1:ehemalig": {
+    "ex": [
+      {
+        "de": "Mein ehemaliger Chef hat mich angerufen.",
+        "en": "My former boss called me.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die ehemalige Fabrik ist jetzt ein Museum.",
+        "en": "The former factory is now a museum.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:eher": {
     "def": "rather",
     "ex": [
@@ -33146,6 +33328,20 @@
       }
     ]
   },
+  "voc:B1:heilig": {
+    "ex": [
+      {
+        "de": "Die Heiligen Drei Könige liegen im Kölner Dom.",
+        "en": "The Three Kings rest in Cologne Cathedral.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sonntag ist ihm heilig.",
+        "en": "Sunday is sacred to him.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:heimlich": {
     "def": "secret, clandestine (done or kept in secret)",
     "ex": [
@@ -33264,6 +33460,20 @@
         "de": "Eine hervorragende Idee allein genügt nicht; sie muss umgesetzt werden.",
         "en": "An outstanding idea alone is not enough; it must be put into practice.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:heutig": {
+    "ex": [
+      {
+        "de": "Die heutige Sitzung fällt aus.",
+        "en": "Today's meeting is cancelled.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der heutigen Zeit ist alles digital.",
+        "en": "Nowadays everything is digital.",
+        "lvl": "B1"
       }
     ]
   },
@@ -34159,6 +34369,20 @@
         "de": "Wer kandidiert, muss bereit sein, sich öffentlicher Kritik zu stellen.",
         "en": "Those who run for office must be ready to face public criticism.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:kapieren": {
+    "ex": [
+      {
+        "de": "Ich kapiere das einfach nicht.",
+        "en": "I just don't get it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hast du es endlich kapiert?",
+        "en": "Have you finally got it?",
+        "lvl": "B1"
       }
     ]
   },
@@ -39203,6 +39427,20 @@
       {
         "de": "Niemand darf einen Menschen töten.",
         "en": "No one may kill a person.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:ukrainisch": {
+    "ex": [
+      {
+        "de": "Viele ukrainische Familien leben jetzt in Köln.",
+        "en": "Many Ukrainian families now live in Cologne.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die ukrainische Regierung bittet um Hilfe.",
+        "en": "The Ukrainian government is asking for help.",
         "lvl": "B1"
       }
     ]
