@@ -2619,6 +2619,20 @@
       }
     ]
   },
+  "voc:A2:das Celsius": {
+    "ex": [
+      {
+        "de": "Es sind heute dreißig Grad Celsius.",
+        "en": "It's thirty degrees Celsius today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "In Deutschland misst man die Temperatur in Celsius.",
+        "en": "In Germany temperature is measured in Celsius.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Dach": {
     "def": "obere Abdeckung eines Gebäudes, eines Fahrzeugs oder eines Zeltes",
     "ex": [
@@ -3668,6 +3682,20 @@
       {
         "de": "Das Honorar wird nach der Arbeit bezahlt.",
         "en": "The fee is paid after the work.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Hühnchen": {
+    "ex": [
+      {
+        "de": "Heute gibt es Hühnchen mit Reis.",
+        "en": "Today there's chicken with rice.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mit dir habe ich noch ein Hühnchen zu rupfen.",
+        "en": "I've got a bone to pick with you.",
         "lvl": "A2"
       }
     ]
@@ -6461,6 +6489,20 @@
       {
         "de": "Der Bart steht dir gut.",
         "en": "The beard suits you.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Basketball": {
+    "ex": [
+      {
+        "de": "Er spielt jeden Montag Basketball.",
+        "en": "He plays basketball every Monday.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Basketball ist zu weich.",
+        "en": "The basketball is too soft.",
         "lvl": "A2"
       }
     ]
@@ -9964,6 +10006,20 @@
       }
     ]
   },
+  "voc:A2:der Schirm": {
+    "ex": [
+      {
+        "de": "Vergiss deinen Schirm nicht!",
+        "en": "Don't forget your umbrella!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Schirm ist im Wind kaputtgegangen.",
+        "en": "The umbrella broke in the wind.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Schlafanzug": {
     "def": "pyjamas (clothes for wearing to bed and sleeping in)",
     "ex": [
@@ -10278,6 +10334,20 @@
       {
         "de": "Haben Sie am Sonnabend geöffnet?",
         "en": "Are you open on Saturday?",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Sonnenuntergang": {
+    "ex": [
+      {
+        "de": "Wir schauen den Sonnenuntergang am Rhein an.",
+        "en": "We're watching the sunset by the Rhine.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Sonnenuntergang war wunderschön.",
+        "en": "The sunset was beautiful.",
         "lvl": "A2"
       }
     ]
@@ -17989,6 +18059,20 @@
       }
     ]
   },
+  "voc:A2:die Sportart": {
+    "ex": [
+      {
+        "de": "Welche Sportart machst du?",
+        "en": "What sport do you do?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Fußball ist die beliebteste Sportart in Deutschland.",
+        "en": "Football is the most popular sport in Germany.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Sporthalle": {
     "def": "gym; sports hall (large room used for indoor sports)",
     "ex": [
@@ -18564,6 +18648,20 @@
       {
         "de": "Das Papier kommt in die blaue Tonne.",
         "en": "Paper goes in the blue bin.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Torte": {
+    "ex": [
+      {
+        "de": "Zum Geburtstag gibt es eine Torte.",
+        "en": "There's a cake for the birthday.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Torte ist mit Sahne.",
+        "en": "The gateau has cream.",
         "lvl": "A2"
       }
     ]
@@ -23553,6 +23651,20 @@
       }
     ]
   },
+  "voc:A2:mitgehen": {
+    "ex": [
+      {
+        "de": "Willst du ins Kino mitgehen?",
+        "en": "Do you want to come to the cinema?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Kinder wollen nicht mitgehen.",
+        "en": "The children don't want to come along.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:monatlich": {
     "def": "Happening once a month or every month.",
     "ex": [
@@ -28402,6 +28514,20 @@
       }
     ]
   },
+  "voc:A2:zubereiten": {
+    "ex": [
+      {
+        "de": "Wie soll ich den Fisch zubereiten?",
+        "en": "How should I prepare the fish?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Essen wurde frisch zubereitet.",
+        "en": "The food was freshly prepared.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:zudem": {
     "def": "moreover, furthermore",
     "ex": [
@@ -28523,6 +28649,20 @@
       {
         "de": "Sie hat zurückgerufen.",
         "en": "She called back.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:zuschauen": {
+    "ex": [
+      {
+        "de": "Ich will beim Training zuschauen.",
+        "en": "I want to watch the training.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Hast du beim Rennen zugeschaut?",
+        "en": "Did you watch the race?",
         "lvl": "A2"
       }
     ]

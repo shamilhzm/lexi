@@ -13500,6 +13500,20 @@
       }
     ]
   },
+  "voc:A1:die Cola": {
+    "ex": [
+      {
+        "de": "Eine Cola, bitte!",
+        "en": "A Coke, please!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Cola ist zu warm.",
+        "en": "The cola is too warm.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Dose": {
     "def": "box (container made from metal or plastic, less often wood); tin, can (air-tight container for food)",
     "ex": [

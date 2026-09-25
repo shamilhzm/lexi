@@ -51,6 +51,10 @@ function covered(lemma: string): boolean {
   // An adjectival noun is carded in its weak form, `der/die Vorsitzende`; the
   // dictionary heads it in the strong one, *Vorsitzender*. Same word.
   if (/^[A-ZÄÖÜ]/.test(lemma) && l.endsWith('er') && heads.has(l.slice(0, -1))) return true;
+  // A noun carded under its plural (`die Ersparnisse`, `die Leute`) covers the
+  // singular too. Caught when `die Ersparnis` was authored beside `die Ersparnisse`
+  // and corpus:validate refused it as a form collision.
+  if (/^[A-ZÄÖÜ]/.test(lemma) && ['e', 'n', 'en', 'se', 's', 'nen', 'er'].some((x) => heads.has(l + x))) return true;
   const seg = matcher.annotate(lemma).find((s) => s.isWord);
   return !!seg?.word && !seg.viaCompound;
 }

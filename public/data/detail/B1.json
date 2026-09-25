@@ -1080,6 +1080,20 @@
       }
     ]
   },
+  "voc:B1:abschleppen": {
+    "ex": [
+      {
+        "de": "Die Stadt kann falsch geparkte Autos abschleppen.",
+        "en": "The city can tow away illegally parked cars.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du mein Auto abschleppen?",
+        "en": "Can you tow my car?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:abschließen": {
     "def": "to end, to finish or complete (one's studies, a task); to shut off",
     "ex": [
@@ -2316,6 +2330,20 @@
       {
         "de": "Bitte teile jedem sieben Karten aus.",
         "en": "Please deal everyone seven cards.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:australisch": {
+    "ex": [
+      {
+        "de": "Der australische Fahrer gewinnt in Melbourne.",
+        "en": "The Australian driver wins in Melbourne.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie trinkt gern australischen Wein.",
+        "en": "She likes Australian wine.",
         "lvl": "B1"
       }
     ]
@@ -3804,6 +3832,20 @@
         "de": "Beim Poker muss man gut bluffen können.",
         "en": "In poker you have to be able to bluff well.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:bohren": {
+    "ex": [
+      {
+        "de": "Darf man sonntags Löcher bohren?",
+        "en": "Are you allowed to drill holes on Sundays?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Nachbar bohrt schon wieder.",
+        "en": "The neighbour is drilling again.",
+        "lvl": "B1"
       }
     ]
   },
@@ -8827,6 +8869,20 @@
       }
     ]
   },
+  "voc:B1:das Zitat": {
+    "ex": [
+      {
+        "de": "Das Zitat stammt von Goethe.",
+        "en": "The quotation is from Goethe.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jedes Zitat braucht eine Quelle.",
+        "en": "Every quotation needs a source.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Zuhause": {
     "ex": [
       {
@@ -9531,6 +9587,20 @@
       }
     ]
   },
+  "voc:B1:der Ast": {
+    "ex": [
+      {
+        "de": "Der Sturm hat einen Ast abgebrochen.",
+        "en": "The storm broke off a branch.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er sägt am eigenen Ast.",
+        "en": "He's cutting the ground from under his own feet.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Atem": {
     "ex": [
       {
@@ -9790,6 +9860,20 @@
         "de": "Die Infrastruktur der Ballungsräume stößt an ihre Grenzen.",
         "en": "The infrastructure of metropolitan areas is reaching its limits.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Baseball": {
+    "ex": [
+      {
+        "de": "In der Karibik ist Baseball sehr beliebt.",
+        "en": "Baseball is very popular in the Caribbean.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er spielt seit der Kindheit Baseball.",
+        "en": "He has played baseball since childhood.",
+        "lvl": "B1"
       }
     ]
   },
@@ -10863,6 +10947,20 @@
       }
     ]
   },
+  "voc:B1:der Duft": {
+    "ex": [
+      {
+        "de": "Der Duft von frischem Brot ist herrlich.",
+        "en": "The smell of fresh bread is wonderful.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Parfüm hat einen leichten Duft.",
+        "en": "The perfume has a light fragrance.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Dummkopf": {
     "ex": [
       {
@@ -11864,6 +11962,20 @@
       }
     ]
   },
+  "voc:B1:der Geschäftsmann": {
+    "ex": [
+      {
+        "de": "Der Geschäftsmann reist viel.",
+        "en": "The businessman travels a lot.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist ein erfolgreicher Geschäftsmann.",
+        "en": "He is a successful businessman.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Gesellschaftsvertrag": {
     "def": "The idea that people give up some freedom to a state in return for order and protection.",
     "defDe": "freiwillige Übereinkunft, durch die der Wille des Einzelnen dem der Mehrheit untergeordnet wird.",
@@ -12174,6 +12286,20 @@
       }
     ]
   },
+  "voc:B1:der Helikopter": {
+    "ex": [
+      {
+        "de": "Der Helikopter landet auf dem Dach.",
+        "en": "The helicopter lands on the roof.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Polizei sucht mit einem Helikopter.",
+        "en": "The police are searching with a helicopter.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Helm": {
     "def": "helmet; helmet, as shown above a coat of arms",
     "ex": [
@@ -12277,6 +12403,20 @@
       {
         "de": "Das neue Spiel ist ein Hit.",
         "en": "The new game is a hit.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Hochzeitstag": {
+    "ex": [
+      {
+        "de": "Morgen ist unser Hochzeitstag.",
+        "en": "Tomorrow is our wedding anniversary.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Am Hochzeitstag hat es geregnet.",
+        "en": "It rained on the wedding day.",
         "lvl": "B1"
       }
     ]
@@ -13237,6 +13377,20 @@
       {
         "de": "Mein Kollege ist Koreaner.",
         "en": "My colleague is Korean.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Krach": {
+    "ex": [
+      {
+        "de": "Die Nachbarn machen viel Krach.",
+        "en": "The neighbours make a lot of noise.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die beiden hatten Krach.",
+        "en": "The two of them had a row.",
         "lvl": "B1"
       }
     ]
@@ -16863,6 +17017,20 @@
       }
     ]
   },
+  "voc:B1:der Umweg": {
+    "ex": [
+      {
+        "de": "Wegen der Baustelle müssen wir einen Umweg fahren.",
+        "en": "We have to take a detour because of the roadworks.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Über Umwege hat er seinen Traumjob gefunden.",
+        "en": "He found his dream job in a roundabout way.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Umweltschutz": {
     "def": "environmentalism, protection of the environment, environmental protection",
     "ex": [
@@ -17361,6 +17529,20 @@
       }
     ]
   },
+  "voc:B1:der Vulkan": {
+    "ex": [
+      {
+        "de": "Der Vulkan ist wieder aktiv.",
+        "en": "The volcano is active again.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der Eifel gibt es alte Vulkane.",
+        "en": "There are old volcanoes in the Eifel.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Waffenstillstand": {
     "def": "armistice (conclusive cessation of combat); ceasefire, truce (agreed temporary cessation of combat)",
     "ex": [
@@ -17426,6 +17608,20 @@
       }
     ]
   },
+  "voc:B1:der Wanderer": {
+    "ex": [
+      {
+        "de": "Der Wanderer hat sich im Nebel verlaufen.",
+        "en": "The hiker got lost in the fog.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Sommer kommen viele Wanderer in die Alpen.",
+        "en": "Many hikers come to the Alps in summer.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Wechsel": {
     "def": "A move from one thing to another; also small change.",
     "ex": [
@@ -17470,6 +17666,20 @@
       }
     ]
   },
+  "voc:B1:der Welpe": {
+    "ex": [
+      {
+        "de": "Der Welpe schläft den ganzen Tag.",
+        "en": "The puppy sleeps all day.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben einen Welpen adoptiert.",
+        "en": "We've adopted a puppy.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Weltkonzern": {
     "def": "A very large company that operates around the world.",
     "ex": [
@@ -17487,6 +17697,20 @@
         "de": "Weltkonzerne entziehen sich oft geschickt der Besteuerung.",
         "en": "Global corporations often skilfully avoid taxation.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Weltraum": {
+    "ex": [
+      {
+        "de": "Die Rakete fliegt in den Weltraum.",
+        "en": "The rocket flies into space.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Weltraum ist es sehr kalt.",
+        "en": "It's very cold in space.",
+        "lvl": "B1"
       }
     ]
   },
@@ -17561,6 +17785,20 @@
       {
         "de": "Ich kenne jeden Winkel der Stadt.",
         "en": "I know every inch of the town.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Wodka": {
+    "ex": [
+      {
+        "de": "Er trinkt Wodka mit Orangensaft.",
+        "en": "He's drinking vodka and orange.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Wodka kommt aus Polen.",
+        "en": "The vodka comes from Poland.",
         "lvl": "B1"
       }
     ]
@@ -18293,6 +18531,20 @@
       }
     ]
   },
+  "voc:B1:die Abwechslung": {
+    "ex": [
+      {
+        "de": "Zur Abwechslung kochen wir heute indisch.",
+        "en": "For a change we're cooking Indian today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Job bietet viel Abwechslung.",
+        "en": "The job offers a lot of variety.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Achtsamkeit": {
     "def": "mindfulness, wariness",
     "ex": [
@@ -18569,6 +18821,20 @@
       {
         "de": "Anpassung führt zu Wachstum.",
         "en": "Adaptation leads to growth.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Anreise": {
+    "ex": [
+      {
+        "de": "Die Anreise mit dem Zug dauert vier Stunden.",
+        "en": "The journey there by train takes four hours.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte planen Sie die Anreise rechtzeitig.",
+        "en": "Please plan your journey in good time.",
         "lvl": "B1"
       }
     ]
@@ -18857,6 +19123,20 @@
         "de": "Die Attacke des Gegners kam völlig überraschend.",
         "en": "The opponent's attack came as a complete surprise.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Attraktion": {
+    "ex": [
+      {
+        "de": "Der Dom ist die größte Attraktion der Stadt.",
+        "en": "The cathedral is the city's biggest attraction.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die neue Achterbahn ist eine Attraktion.",
+        "en": "The new roller coaster is an attraction.",
+        "lvl": "B1"
       }
     ]
   },
@@ -20498,6 +20778,20 @@
       {
         "de": "Die Dokumentation gefiel mir.",
         "en": "I liked the documentary.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Droge": {
+    "ex": [
+      {
+        "de": "Die Polizei fand Drogen im Auto.",
+        "en": "The police found drugs in the car.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Alkohol ist auch eine Droge.",
+        "en": "Alcohol is a drug too.",
         "lvl": "B1"
       }
     ]
@@ -24089,6 +24383,20 @@
         "de": "Für diese Stelle sind soziale Kompetenzen entscheidend.",
         "en": "For this position social skills are decisive.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Komödie": {
+    "ex": [
+      {
+        "de": "Wir schauen heute eine Komödie.",
+        "en": "We're watching a comedy tonight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Komödie läuft im Theater am Dom.",
+        "en": "The comedy is on at the Theater am Dom.",
+        "lvl": "B1"
       }
     ]
   },
@@ -29365,6 +29673,20 @@
         "de": "Umgangsformen verraten oft mehr über einen Menschen als seine Worte.",
         "en": "Manners often reveal more about a person than their words.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Umleitung": {
+    "ex": [
+      {
+        "de": "Wegen Bauarbeiten gibt es eine Umleitung.",
+        "en": "There's a diversion because of roadworks.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Folgen Sie der Umleitung.",
+        "en": "Follow the diversion.",
+        "lvl": "B1"
       }
     ]
   },
@@ -34685,6 +35007,20 @@
       }
     ]
   },
+  "voc:B1:hierhin": {
+    "ex": [
+      {
+        "de": "Stell den Stuhl bitte hierhin.",
+        "en": "Put the chair here, please.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie bist du hierhin gekommen?",
+        "en": "How did you get here?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:hilfreich": {
     "def": "Giving help that is actually of use.",
     "defDe": "von Personen: helfend, unterstützend; von Sachen: Hilfe bietend",
@@ -34747,6 +35083,20 @@
       {
         "de": "Er ging hinein.",
         "en": "He went inside.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:hinkriegen": {
+    "ex": [
+      {
+        "de": "Keine Sorge, das kriegen wir hin.",
+        "en": "Don't worry, we'll manage it.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hast du es hingekriegt?",
+        "en": "Did you manage it?",
         "lvl": "B1"
       }
     ]
@@ -35602,6 +35952,20 @@
       {
         "de": "Tom lernt kaum.",
         "en": "Tom doesn't study a lot.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:kicken": {
+    "ex": [
+      {
+        "de": "Die Jungs kicken im Park.",
+        "en": "The boys are kicking a ball around in the park.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Früher hat er für den FC gekickt.",
+        "en": "He used to play for FC.",
         "lvl": "B1"
       }
     ]
@@ -37866,6 +38230,20 @@
       }
     ]
   },
+  "voc:B1:rau": {
+    "ex": [
+      {
+        "de": "Meine Hände sind im Winter rau.",
+        "en": "My hands are rough in winter.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Ton im Team ist rau.",
+        "en": "The tone in the team is rough.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:rausholen": {
     "def": "To take or pull something out (informal).",
     "ex": [
@@ -38592,6 +38970,20 @@
       {
         "de": "Tom singt schief.",
         "en": "Tom sings off key.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:schimpfen": {
+    "ex": [
+      {
+        "de": "Die Lehrerin schimpft mit den Schülern.",
+        "en": "The teacher is telling the pupils off.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Alle schimpfen über die Bahn.",
+        "en": "Everyone is grumbling about the railway.",
         "lvl": "B1"
       }
     ]
@@ -43184,6 +43576,20 @@
       }
     ]
   },
+  "voc:B1:wackeln": {
+    "ex": [
+      {
+        "de": "Der Tisch wackelt.",
+        "en": "The table wobbles.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Job des Trainers wackelt.",
+        "en": "The coach's job is under threat.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:wahnsinnig": {
     "def": "Crazy; also used informally to mean 'incredibly'.",
     "ex": [
@@ -43255,6 +43661,20 @@
       {
         "de": "Wegen eines Unfalls ist die Straße gesperrt.",
         "en": "The road is closed because of an accident.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:wegkommen": {
+    "ex": [
+      {
+        "de": "Ich muss hier mal wegkommen.",
+        "en": "I need to get away from here.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Fahrrad ist weggekommen.",
+        "en": "My bike has gone missing.",
         "lvl": "B1"
       }
     ]
@@ -43626,6 +44046,20 @@
       }
     ]
   },
+  "voc:B1:wiederfinden": {
+    "ex": [
+      {
+        "de": "Hoffentlich kann ich meinen Schlüssel wiederfinden.",
+        "en": "Hopefully I can find my key again.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er will seinen Weg wiederfinden.",
+        "en": "He wants to find his way again.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:wiederholt": {
     "def": "Done again and again.",
     "ex": [
@@ -43747,6 +44181,20 @@
       {
         "de": "Wobei soll ich Ihnen denn helfen?",
         "en": "What do you want me to help you with?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:wochenlang": {
+    "ex": [
+      {
+        "de": "Ich habe wochenlang auf den Termin gewartet.",
+        "en": "I waited weeks for the appointment.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach wochenlangem Streit gibt es eine Einigung.",
+        "en": "After weeks of argument there's an agreement.",
         "lvl": "B1"
       }
     ]
