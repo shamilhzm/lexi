@@ -11,6 +11,44 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-25 — Ten thousand words
+
+**Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they
+actually read and write rather than from a generic list: "review my Claude history …
+or look through my laptop files for the sort of content I consume and the lexicon I am
+trying to convert."
+
+- **6,844 → 10,023 word cards** (6,954 → 10,133 in all), in 18 gated batches
+  (`scripts/authoring/batches/2026-09-25-tenk-*.json`). Every card went through
+  `authoring:new`; gender, plural, part of speech and IPA are de.wiktionary's, and
+  every example contains a real inflection of its headword by the app's matcher.
+  New cards by level: A1 5 · A2 138 · B1 427 · B2 896 · C1 1,662 · C2 51. By part of
+  speech: 1,814 nouns · 674 verbs · 636 adjectives · 55 adverbs.
+- **The gap miner** (`scripts/authoring/gap-candidates.ts`). Credits every token of the
+  Leipzig top-120k and OpenSubtitles lists, plus any `--list name=path` word list, to a
+  lemma through the dictionary shards; drops what the corpus already resolves (including
+  plural-headed cards like *die Ersparnisse*); filters names, abbreviations and
+  variants; writes a ranked TSV. The queue was tiered: the owner's interests first
+  (motorsport, games, investing, immigration and admin, career, AI, art, Cologne), then
+  words from their history, then their German documents, then an English life lexicon
+  mapped through glosses, then pure frequency — which turned up real everyday holes
+  (*Journalist, aufwachsen, Kita, Virus, Rucksack, Ofen, Zeitschrift, Schere, Torte,
+  Umweg, Feierabend, Wortschatz, Aussprache*).
+- **Sources, and what was not used.** 636 Claude Code messages and 562 Cowork messages
+  from this machine, and word *counts* from ~270 documents on the Desktop, Downloads and
+  Documents. Personal documents (tax, identity, immigration) were read as aggregate
+  counts only; **no text from them is in any card**, which matters because the corpus is
+  open source. **claude.ai web chats are not stored locally** — an account data export
+  (claude.ai → Settings → Privacy → Export data) can be fed to the same miner as a
+  `--list`.
+- **Follow-ups in the same pass.** 39 mass nouns whose Wiktionary plural is technical or
+  misleading (*die Schachs, die Hardwares, die Sekte* for Sekt) are `nur Singular`;
+  `freq.json` re-ranked (7,534 of 10,023 cards, 75.2%; A1 86.4%); *Gift* joined the false
+  friends now that it has a card; one form ruling (*der Pole* / *der Pol*).
+- **Not done.** The level mix is the opposite of what backlog #6 asks for: the A1/A2
+  bands were already nearly full, so the new cards are mostly B2/C1. The per-level
+  done-when was not re-measured.
+
 ### Shipped 2026-09-25 — Dein Deutsch: progress you can see
 
 **Why.** The owner asked for the app to be far more beautiful and animated, and for a

@@ -1959,6 +1959,11 @@ at zero, then `enumeration` (872).
 
 ### 6. Grow the corpus toward ~10k + rebalance A1/A2 · M, ongoing
 
+> ✅ **10,023 word cards, 2026-09-25** (from 6,844; see the CHANGELOG, *Ten thousand
+> words*). `scripts/authoring/gap-candidates.ts` is the queue builder. **Still open:**
+> the rebalance — the new cards are mostly B2/C1 (A1 +5, A2 +138) — and the per-level
+> done-when below, which was not re-measured after the push.
+
 **Why.** Distribution is B1-heavy — backwards for early reading — and core
 high-frequency lemmas are still missing.
 > ✅ **The human gate is gone, 2026-08-11 — replaced, not deleted.**

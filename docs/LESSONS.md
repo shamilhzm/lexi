@@ -29,6 +29,11 @@ or `curl <site>/version.json`) and confirm your tree contains it. On 2026-09-24 
 restore; if so it goes in `SETTING_KEYS` *and* `store-backup.test.ts`. `lexi.userwords.v1`
 — every class-pack word — was missing from every backup until 2026-09-24.
 
+**…land a corpus batch.** Commit only on a `corpus:validate` PASS, and make the thing
+that checks say so when it fails. Then run `corpus:freq` and `npm test`: ranks and
+several tests are derived from the corpus and go stale without a sound (see *Ten
+thousand cards*).
+
 **…write a regex over German text.** No `\b`: it treats *ä ö ü ß* as boundaries. Anchor
 at a word start with `(?<!\p{L})` and the `u` flag, and never compile data into a pattern.
 
@@ -1532,4 +1537,38 @@ stars' radii so one outlier cannot throw it out. Rounding the rank to nearest ma
 0.92-quantile of six items the *maximum* — the outlier itself. A robust statistic on a
 small sample degenerates to the extreme; take the floor rank, and test it at small n,
 which is where the camera spends its first second.
+
+## Ten thousand cards, and what the gate let through *(added 2026-09-25)*
+
+**A FAIL was committed.** Batch 2 of the 10k push was committed with `corpus:validate`
+failing (*der Pole*, a Polish man, collided with *der Pol*, whose plural is *die Pole*).
+The fix was a form ruling; the rule was a land script that commits only on PASS. **Then
+that script failed silently:** under `set -e`, `OUT=$(npm run corpus:validate)` exits the
+script the moment validate exits non-zero, so the else branch that prints the errors never
+ran. Nothing bad was committed, and nothing said why. *Rule: a guard that refuses
+without saying why is half a guard — capture with `|| true`, then branch on the output.*
+
+**"Already in corpus" compares headwords, not lexemes.** *die Ersparnis* passed the gate
+because the existing card is headed by its plural, *die Ersparnisse*. *Rule: a coverage
+check has to know that a card can be headed by a plural, a `der/die` pair or a
+government form; the miner's `covered()` now does.*
+
+**Derived data goes stale without a sound.** After +3,179 cards, `freq.json` covered
+54.7% of the corpus and a rulings test failed. The ranker's input,
+`scripts/corpus/data/kernwortschatz.tsv`, is gitignored and was missing from the main
+checkout (it was in an old worktree). *Rule: run the whole suite after a batch, not
+after the tenth; a corpus change is a code change to everything derived from it.*
+
+**Wiktionary's plural is not always the learner's plural.** The gate filled *die Sekte*
+for *der Sekt* (a real plural, "kinds of sparkling wine", which reads as "sects"), plus
+*die Schachs* and *die Hardwares*. It is right about the dictionary and wrong about the
+question. *Rule: read the gate's plural lines before `--write`, and mark mass nouns
+`nur Singular` through `fix-authored.ts`.*
+
+**The matcher's blind spots are rejections of correct German, not errors.** Separable
+participles (*bereitgestellt, abgeschafft*), irregular strong forms (*verdorben,
+erwiesen*), e-drop adjectives (*flexible, übler*), hyphenated compounds and ambiguous
+plurals are not resolved to their headword, so a correct example is refused. Write the
+infinitive after a modal, or the uninflected form, and the example passes. This is a
+coverage gap in `lib/inflections`, not a reason to loosen the gate.
 

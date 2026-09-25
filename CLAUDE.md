@@ -6,7 +6,7 @@ You're an incredible engineer with a background in languages, pedagogy, computer
 tutor, not an exam prep app — all three existed here and were removed on 2026-09-05.
 `docs/VISION.md` carries the ruling that did it and is the anchor for everything else.
 
-**Two layers, one search box** *(2026-09-05)*. Lexi **teaches** 6,700 cards and
+**Two layers, one search box** *(2026-09-05)*. Lexi **teaches** 10,133 cards *(2026-09-25)* and
 **answers** 93,046 dictionary headwords. They are different things and must never
 wear the same chrome: a card is machine-verified and studiable, an entry is an
 unverified Wiktionary gloss with one action — *note this word*. See

@@ -60,7 +60,7 @@ Four destinations, and the first one is where the app opens.
   is not evidence, so nothing here touches your schedule. The order is the scheduler's,
   though — what's due, then unseen words from your thinnest topics, then the rest by
   frequency.
-- **Themen** — *what words are there?* A search over all 6,520 cards (German or English,
+- **Themen** — *what words are there?* A search over all 10,133 cards (German or English,
   umlauts optional), the nine theme groups with your coverage on each, **Decks**, the
   **Wortkarte** (a semantic map of a sector, with synonym links and node colour by
   learning status), and **Wörter aus einem Text** — paste any German you want to read
