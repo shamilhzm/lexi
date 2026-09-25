@@ -1617,6 +1617,20 @@
       }
     ]
   },
+  "voc:B1:anreisen": {
+    "ex": [
+      {
+        "de": "Die Gäste wollen am Freitag anreisen.",
+        "en": "The guests want to arrive on Friday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Fans wollen mit dem Zug anreisen.",
+        "en": "Many fans want to travel there by train.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:ans Netz gehen": {
     "def": "To be connected to the internet or power grid for the first time.",
     "ex": [
@@ -1860,6 +1874,20 @@
         "de": "Das Theater führt das Stück in einer modernen Inszenierung auf.",
         "en": "The theatre is staging the play in a modern production.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:aufgehen": {
+    "ex": [
+      {
+        "de": "Die Sonne wird um sechs aufgehen.",
+        "en": "The sun will rise at six.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Plan ist aufgegangen.",
+        "en": "The plan worked out.",
+        "lvl": "B1"
       }
     ]
   },
@@ -2898,6 +2926,20 @@
       }
     ]
   },
+  "voc:B1:belohnen": {
+    "ex": [
+      {
+        "de": "Die App belohnt dich für jeden Tag.",
+        "en": "The app rewards you for every day.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ihre harte Arbeit wurde belohnt.",
+        "en": "Her hard work was rewarded.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:bemerkenswert": {
     "def": "Unusual enough to be worth noticing and commenting on.",
     "defDe": "Aufmerksamkeit verdienend; so beschaffen, dass es bemerkt werden sollte",
@@ -3870,6 +3912,20 @@
       }
     ]
   },
+  "voc:B1:checken": {
+    "ex": [
+      {
+        "de": "Ich muss kurz meine Mails checken.",
+        "en": "I need to check my emails quickly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Hast du es endlich gecheckt?",
+        "en": "Have you finally got it?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:chemisch": {
     "def": "Relating to chemistry or to substances and their reactions.",
     "ex": [
@@ -4464,6 +4520,20 @@
       }
     ]
   },
+  "voc:B1:das Brett": {
+    "ex": [
+      {
+        "de": "Er schneidet das Gemüse auf einem Brett.",
+        "en": "He cuts the vegetables on a board.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Brett ist zu kurz für das Regal.",
+        "en": "The plank is too short for the shelf.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Brettspiel": {
     "def": "A game played by moving pieces on a marked board.",
     "ex": [
@@ -4793,6 +4863,20 @@
       {
         "de": "Sportler brauchen viel Eiweiß.",
         "en": "Athletes need a lot of protein.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Elektroauto": {
+    "ex": [
+      {
+        "de": "Unser nächstes Auto ist ein Elektroauto.",
+        "en": "Our next car will be an electric car.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Elektroauto lädt über Nacht.",
+        "en": "The electric car charges overnight.",
         "lvl": "B1"
       }
     ]
@@ -5533,6 +5617,20 @@
       }
     ]
   },
+  "voc:B1:das Halbfinale": {
+    "ex": [
+      {
+        "de": "Deutschland steht im Halbfinale.",
+        "en": "Germany are in the semi-final.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Halbfinale ist am Mittwoch.",
+        "en": "The semi-final is on Wednesday.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Hallenbad": {
     "def": "A swimming pool inside a building, usable all year round.",
     "ex": [
@@ -5813,6 +5911,20 @@
       }
     ]
   },
+  "voc:B1:das Jahresende": {
+    "ex": [
+      {
+        "de": "Bis zum Jahresende muss das Projekt fertig sein.",
+        "en": "The project has to be finished by the end of the year.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zum Jahresende gibt es einen Bonus.",
+        "en": "There's a bonus at the end of the year.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Jahrzehnt": {
     "def": "ein Zeitraum von zehn Jahren (vom 1. 1. xxx1 bis 31. 12. xxx0)",
     "ex": [
@@ -5949,6 +6061,20 @@
       {
         "de": "Das ist ein Klischee.",
         "en": "It's a stereotype.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Kloster": {
+    "ex": [
+      {
+        "de": "Im Kloster brauen die Mönche Bier.",
+        "en": "The monks brew beer in the monastery.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir besichtigen ein altes Kloster.",
+        "en": "We're visiting an old monastery.",
         "lvl": "B1"
       }
     ]
@@ -7852,6 +7978,20 @@
       }
     ]
   },
+  "voc:B1:das Tattoo": {
+    "ex": [
+      {
+        "de": "Er hat ein Tattoo auf dem Arm.",
+        "en": "He has a tattoo on his arm.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Tattoo war teuer.",
+        "en": "The tattoo was expensive.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Tempo": {
     "def": "The speed at which something moves or is done.",
     "ex": [
@@ -8301,6 +8441,20 @@
         "de": "Die Haltung von Vieh steht zunehmend in der Kritik.",
         "en": "The keeping of livestock is increasingly criticised.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:das Viertelfinale": {
+    "ex": [
+      {
+        "de": "Im Viertelfinale ist Schluss.",
+        "en": "It's all over in the quarter-final.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Viertelfinale beginnt um neun.",
+        "en": "The quarter-final starts at nine.",
+        "lvl": "B1"
       }
     ]
   },
@@ -9965,6 +10119,20 @@
       }
     ]
   },
+  "voc:B1:der Brite": {
+    "ex": [
+      {
+        "de": "Der Brite hat das Rennen in Silverstone gewonnen.",
+        "en": "The Briton won the race at Silverstone.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Briten leben in Spanien.",
+        "en": "Many Britons live in Spain.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Brunnen": {
     "def": "well",
     "ex": [
@@ -10244,6 +10412,20 @@
       {
         "de": "Der Chor probt jeden Donnerstagabend.",
         "en": "The choir rehearses every Thursday evening.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Clown": {
+    "ex": [
+      {
+        "de": "Der Clown macht die Kinder glücklich.",
+        "en": "The clown makes the children happy.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er spielt im Büro immer den Clown.",
+        "en": "He always plays the clown in the office.",
         "lvl": "B1"
       }
     ]
@@ -10579,6 +10761,20 @@
       {
         "de": "Die deutsche Bürokratie ist ein Dschungel.",
         "en": "German bureaucracy is a jungle.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Dummkopf": {
+    "ex": [
+      {
+        "de": "Ich Dummkopf habe den Schlüssel vergessen!",
+        "en": "Idiot that I am, I forgot the key!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er ist kein Dummkopf.",
+        "en": "He's no fool.",
         "lvl": "B1"
       }
     ]
@@ -11107,6 +11303,20 @@
       {
         "de": "Der Fleck geht nicht raus.",
         "en": "The stain won't come out.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Flieger": {
+    "ex": [
+      {
+        "de": "Der Flieger nach Madrid hat Verspätung.",
+        "en": "The plane to Madrid is delayed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit dem Flieger ist man in einer Stunde da.",
+        "en": "By plane you're there in an hour.",
         "lvl": "B1"
       }
     ]
@@ -12828,6 +13038,20 @@
       }
     ]
   },
+  "voc:B1:der Kontinent": {
+    "ex": [
+      {
+        "de": "Afrika ist ein riesiger Kontinent.",
+        "en": "Africa is a huge continent.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat jeden Kontinent bereist.",
+        "en": "He has travelled to every continent.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Kontostand": {
     "def": "The amount of money currently in a bank account.",
     "ex": [
@@ -12873,6 +13097,20 @@
       {
         "de": "Mein Kollege ist Koreaner.",
         "en": "My colleague is Korean.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Kram": {
+    "ex": [
+      {
+        "de": "Räum deinen Kram weg!",
+        "en": "Clear your stuff away!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der ganze Kram muss in den Keller.",
+        "en": "All this stuff has to go in the cellar.",
         "lvl": "B1"
       }
     ]
@@ -13036,6 +13274,20 @@
       {
         "de": "Der Marienkäfer ist ein nützlicher Käfer.",
         "en": "The ladybird is a useful beetle.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Käfig": {
+    "ex": [
+      {
+        "de": "Der Vogel sitzt im Käfig.",
+        "en": "The bird is in the cage.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Hühner leben nicht im Käfig.",
+        "en": "The hens don't live in cages.",
         "lvl": "B1"
       }
     ]
@@ -13858,6 +14110,20 @@
       }
     ]
   },
+  "voc:B1:der Ozean": {
+    "ex": [
+      {
+        "de": "Der Atlantische Ozean trennt Europa und Amerika.",
+        "en": "The Atlantic Ocean separates Europe and America.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Ozean ist hier sehr tief.",
+        "en": "The ocean is very deep here.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Palast": {
     "ex": [
       {
@@ -14093,6 +14359,20 @@
       {
         "de": "Die Kinder spielen den ganzen Tag im Pool.",
         "en": "The children play in the pool all day.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Pop": {
+    "ex": [
+      {
+        "de": "Sie hört am liebsten Pop.",
+        "en": "She likes pop best.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der deutsche Pop ist gerade sehr erfolgreich.",
+        "en": "German pop is very successful at the moment.",
         "lvl": "B1"
       }
     ]
@@ -14893,6 +15173,20 @@
       }
     ]
   },
+  "voc:B1:der Schluck": {
+    "ex": [
+      {
+        "de": "Darf ich einen Schluck probieren?",
+        "en": "May I try a sip?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er trank die Cola in einem Schluck.",
+        "en": "He drank the cola in one gulp.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Schmetterling": {
     "def": "butterfly; any insect of the order Lepidoptera, i.e. a butterfly or moth",
     "ex": [
@@ -15380,6 +15674,20 @@
       {
         "de": "Für die Fahrt packe ich ein paar Snacks ein.",
         "en": "For the trip I pack a few snacks.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Softwareentwickler": {
+    "ex": [
+      {
+        "de": "Er arbeitet als Softwareentwickler in Köln.",
+        "en": "He works as a software developer in Cologne.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Firma sucht eine Softwareentwicklerin.",
+        "en": "The company is looking for a software developer.",
         "lvl": "B1"
       }
     ]
@@ -16824,6 +17132,20 @@
       {
         "de": "Vom Vorort pendelt sie täglich ins Zentrum.",
         "en": "From the suburb she commutes into the centre every day.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Vorrat": {
+    "ex": [
+      {
+        "de": "Wir haben einen Vorrat an Wasser im Keller.",
+        "en": "We have a supply of water in the cellar.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Solange der Vorrat reicht.",
+        "en": "While stocks last.",
         "lvl": "B1"
       }
     ]
@@ -21068,6 +21390,20 @@
       {
         "de": "auf eigene Faust",
         "en": "on one's own",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Feder": {
+    "ex": [
+      {
+        "de": "Das Kissen ist mit Federn gefüllt.",
+        "en": "The pillow is filled with feathers.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Text stammt aus der Feder eines Politikers.",
+        "en": "The text was penned by a politician.",
         "lvl": "B1"
       }
     ]
@@ -31127,6 +31463,20 @@
       }
     ]
   },
+  "voc:B1:einbauen": {
+    "ex": [
+      {
+        "de": "Wir lassen eine neue Küche einbauen.",
+        "en": "We're having a new kitchen installed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Kannst du die Änderung noch einbauen?",
+        "en": "Can you still incorporate the change?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:einbrechen": {
     "ex": [
       {
@@ -31459,6 +31809,34 @@
       {
         "de": "eisiger Wind",
         "en": "icy wind",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:eiskalt": {
+    "ex": [
+      {
+        "de": "Das Wasser ist eiskalt.",
+        "en": "The water is ice-cold.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat eiskalt gelogen.",
+        "en": "He lied in cold blood.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:eklig": {
+    "ex": [
+      {
+        "de": "Das Essen sieht eklig aus.",
+        "en": "The food looks disgusting.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Spinnen finde ich eklig.",
+        "en": "I find spiders gross.",
         "lvl": "B1"
       }
     ]
@@ -32299,6 +32677,20 @@
       }
     ]
   },
+  "voc:B1:evangelisch": {
+    "ex": [
+      {
+        "de": "Sie ist evangelisch getauft.",
+        "en": "She was baptised Protestant.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die evangelische Kirche liegt am Markt.",
+        "en": "The Protestant church is on the market square.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:eventuell": {
     "def": "Possibly; it may happen.",
     "ex": [
@@ -32504,6 +32896,20 @@
       {
         "de": "Bei Tom wurde Prostatakrebs festgestellt.",
         "en": "Tom was diagnosed with prostate cancer.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:fies": {
+    "ex": [
+      {
+        "de": "Das war echt fies von dir.",
+        "en": "That was really mean of you.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat einen fiesen Trick benutzt.",
+        "en": "He used a nasty trick.",
         "lvl": "B1"
       }
     ]
@@ -33824,6 +34230,20 @@
         "de": "Die neue Aufgabe ist fachlich herausfordernd.",
         "en": "The new task is professionally challenging.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:herbringen": {
+    "ex": [
+      {
+        "de": "Kannst du die Stühle herbringen?",
+        "en": "Can you bring the chairs over here?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kurier soll das Paket morgen herbringen.",
+        "en": "The courier is to bring the parcel here tomorrow.",
+        "lvl": "B1"
       }
     ]
   },
@@ -35182,6 +35602,20 @@
       }
     ]
   },
+  "voc:B1:köstlich": {
+    "ex": [
+      {
+        "de": "Der Kuchen ist köstlich.",
+        "en": "The cake is delicious.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben uns köstlich amüsiert.",
+        "en": "We had a wonderful time.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:kümmern (sich um)": {
     "def": "To look after someone or deal with something.",
     "ex": [
@@ -35854,6 +36288,20 @@
       {
         "de": "Wir reden miteinander.",
         "en": "We're on speaking terms.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:mitspielen": {
+    "ex": [
+      {
+        "de": "Darf ich mitspielen?",
+        "en": "May I join in?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wenn das Wetter mitspielt, grillen wir.",
+        "en": "If the weather plays along, we'll have a barbecue.",
         "lvl": "B1"
       }
     ]
@@ -36609,6 +37057,20 @@
         "de": "Eine ordentliche Buchführung erspart bei der Prüfung viel Ärger.",
         "en": "Orderly bookkeeping saves a lot of trouble during an audit.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:ordnen": {
+    "ex": [
+      {
+        "de": "Ich muss meine Unterlagen ordnen.",
+        "en": "I need to sort out my documents.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Bücher sind nach Farben geordnet.",
+        "en": "The books are arranged by colour.",
+        "lvl": "B1"
       }
     ]
   },
@@ -37813,6 +38275,20 @@
       }
     ]
   },
+  "voc:B1:schmerzhaft": {
+    "ex": [
+      {
+        "de": "Die Verletzung ist sehr schmerzhaft.",
+        "en": "The injury is very painful.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war eine schmerzhafte Niederlage.",
+        "en": "That was a painful defeat.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:schnappen": {
     "def": "to snap (with one’s mouth); to breathe, gasp",
     "ex": [
@@ -38874,6 +39350,20 @@
       }
     ]
   },
+  "voc:B1:sich verkleiden": {
+    "ex": [
+      {
+        "de": "Im Karneval verkleiden sich alle.",
+        "en": "Everyone dresses up at carnival.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe mich als Pirat verkleidet.",
+        "en": "I dressed up as a pirate.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:sich verlieben in + A": {
     "def": "To begin to feel romantic love for someone.",
     "ex": [
@@ -39382,6 +39872,20 @@
       {
         "de": "Am Samstag staubsauge ich die ganze Wohnung.",
         "en": "On Saturday I vacuum the whole apartment.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:staunen": {
+    "ex": [
+      {
+        "de": "Die Kinder staunen über das Feuerwerk.",
+        "en": "The children are amazed by the fireworks.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Da wirst du staunen!",
+        "en": "You'll be amazed!",
         "lvl": "B1"
       }
     ]
@@ -40599,6 +41103,20 @@
       }
     ]
   },
+  "voc:B1:untergehen": {
+    "ex": [
+      {
+        "de": "Die Sonne wird bald untergehen.",
+        "en": "The sun will set soon.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Firma darf nicht untergehen.",
+        "en": "The company must not go under.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:unterhalb": {
     "def": "Lower than or under something.",
     "ex": [
@@ -41674,6 +42192,20 @@
       }
     ]
   },
+  "voc:B1:verständlich": {
+    "ex": [
+      {
+        "de": "Deine Reaktion ist verständlich.",
+        "en": "Your reaction is understandable.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte erklären Sie es verständlich.",
+        "en": "Please explain it clearly.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:verständnisvoll": {
     "def": "understanding, sympathetic, tolerant",
     "ex": [
@@ -42120,6 +42652,20 @@
       {
         "de": "Vorhin war es noch da.",
         "en": "It was there earlier.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:vorig": {
+    "ex": [
+      {
+        "de": "Voriges Jahr war ich in Spanien.",
+        "en": "Last year I was in Spain.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der vorigen Woche war ich krank.",
+        "en": "I was ill the week before.",
         "lvl": "B1"
       }
     ]

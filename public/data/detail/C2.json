@@ -3403,6 +3403,20 @@
       }
     ]
   },
+  "voc:C2:walten": {
+    "ex": [
+      {
+        "de": "Hier sollte man Vorsicht walten lassen.",
+        "en": "You should exercise caution here.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er ließ Gnade walten.",
+        "en": "He showed mercy.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:würdigen": {
     "def": "To recognise and honour the worth of something.",
     "ex": [

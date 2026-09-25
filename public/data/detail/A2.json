@@ -351,6 +351,20 @@
       }
     ]
   },
+  "voc:A2:abreisen": {
+    "ex": [
+      {
+        "de": "Wir wollen morgen früh abreisen.",
+        "en": "We want to leave early tomorrow.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wann musst du abreisen?",
+        "en": "When do you have to leave?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:abschicken": {
     "def": "to send a letter, parcel or message",
     "ex": [
@@ -3097,6 +3111,20 @@
       }
     ]
   },
+  "voc:A2:das Feuerwerk": {
+    "ex": [
+      {
+        "de": "An Silvester gibt es ein großes Feuerwerk.",
+        "en": "There's a big fireworks display on New Year's Eve.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Feuerwerk über dem Rhein war toll.",
+        "en": "The fireworks over the Rhine were great.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Feuerzeug": {
     "ex": [
       {
@@ -3671,6 +3699,20 @@
         "de": "Dabei ist bekannt, dass das Immunsystem größtenteils im Darm sitzt und nach Antibiose stark beeinträchtigt ist.",
         "en": "It is known that the immune system is largely located in the intestine and is severely impaired after antibiosis.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das Insekt": {
+    "ex": [
+      {
+        "de": "Im Sommer kommen viele Insekten ins Haus.",
+        "en": "Lots of insects come into the house in summer.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Insekt ist sehr klein.",
+        "en": "The insect is very small.",
+        "lvl": "A2"
       }
     ]
   },
@@ -4774,6 +4816,20 @@
       }
     ]
   },
+  "voc:A2:das Sandwich": {
+    "ex": [
+      {
+        "de": "Zum Mittag esse ich ein Sandwich.",
+        "en": "I eat a sandwich for lunch.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Sandwich ist mit Käse.",
+        "en": "The sandwich has cheese in it.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Schlafzimmer": {
     "def": "The room in a home that is used for sleeping.",
     "defDe": "Raum in einem Haus oder einer Wohnung, der zum Schlafen gedacht ist",
@@ -4880,6 +4936,20 @@
       {
         "de": "Das Sekretariat ist am Vormittag geöffnet.",
         "en": "The office is open in the morning.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Silvester": {
+    "ex": [
+      {
+        "de": "Was machst du an Silvester?",
+        "en": "What are you doing on New Year's Eve?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Silvester feiern wir am Rhein.",
+        "en": "We're celebrating New Year's Eve by the Rhine.",
         "lvl": "A2"
       }
     ]
@@ -5154,6 +5224,20 @@
       {
         "de": "Miss mit dem Thermometer deine Temperatur.",
         "en": "Measure your temperature with the thermometer.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Tierheim": {
+    "ex": [
+      {
+        "de": "Wir haben unsere Katze aus dem Tierheim.",
+        "en": "We got our cat from the animal shelter.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Tierheim sucht Helfer.",
+        "en": "The animal shelter is looking for volunteers.",
         "lvl": "A2"
       }
     ]
@@ -9177,6 +9261,20 @@
       }
     ]
   },
+  "voc:A2:der Ofen": {
+    "ex": [
+      {
+        "de": "Der Kuchen ist im Ofen.",
+        "en": "The cake is in the oven.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Winter heizen wir mit einem Ofen.",
+        "en": "In winter we heat with a stove.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Ohrring": {
     "def": "A piece of jewellery worn on the ear.",
     "ex": [
@@ -9279,6 +9377,20 @@
         "de": "Ein Pilot trägt die Verantwortung für hunderte Menschen.",
         "en": "A pilot carries responsibility for hundreds of people.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Pilz": {
+    "ex": [
+      {
+        "de": "Auf der Pizza sind Pilze.",
+        "en": "There are mushrooms on the pizza.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Herbst sammeln wir Pilze im Wald.",
+        "en": "In autumn we pick mushrooms in the woods.",
+        "lvl": "A2"
       }
     ]
   },
@@ -9670,6 +9782,20 @@
       {
         "de": "Ich mag Rotwein.",
         "en": "I like red wine.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Rucksack": {
+    "ex": [
+      {
+        "de": "Pack eine Jacke in den Rucksack.",
+        "en": "Pack a jacket in the rucksack.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mein Rucksack ist zu schwer.",
+        "en": "My backpack is too heavy.",
         "lvl": "A2"
       }
     ]
@@ -10178,6 +10304,20 @@
       }
     ]
   },
+  "voc:A2:der Spielplatz": {
+    "ex": [
+      {
+        "de": "Die Kinder spielen auf dem Spielplatz.",
+        "en": "The children are playing in the playground.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Neben unserem Haus ist ein Spielplatz.",
+        "en": "There's a playground next to our house.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Spitzname": {
     "def": "an informal name given to someone",
     "defDe": "Übername, Beiname, den jemand einer vertrauten Person oder anderweitig verleiht und der einen positiven (freundlichen, scherzhaften) oder auch negativen (abwertenden, spöttischen) Bedeutungsaspekt enthält",
@@ -10594,6 +10734,20 @@
       {
         "de": "Bitte tausche es in ein blaues Exemplar um.",
         "en": "Please change this for a blue one.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Teddybär": {
+    "ex": [
+      {
+        "de": "Das Kind schläft mit einem Teddybär.",
+        "en": "The child sleeps with a teddy bear.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Teddybär ist schon alt.",
+        "en": "The teddy bear is already old.",
         "lvl": "A2"
       }
     ]
@@ -21005,6 +21159,20 @@
       }
     ]
   },
+  "voc:A2:feucht": {
+    "ex": [
+      {
+        "de": "Die Wand im Keller ist feucht.",
+        "en": "The wall in the cellar is damp.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Sommer ist es hier sehr feucht.",
+        "en": "It's very humid here in summer.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:flach": {
     "def": "shallow (wide and not deep); flat (wide and not high)",
     "ex": [
@@ -21101,6 +21269,20 @@
       {
         "de": "Sie kocht sehr gern französisch.",
         "en": "She very much likes cooking French style.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:frech": {
+    "ex": [
+      {
+        "de": "Sei nicht so frech!",
+        "en": "Don't be so cheeky!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das war eine freche Antwort.",
+        "en": "That was a cheeky answer.",
         "lvl": "A2"
       }
     ]
@@ -21555,6 +21737,20 @@
       }
     ]
   },
+  "voc:A2:gießen": {
+    "ex": [
+      {
+        "de": "Kannst du im Urlaub meine Blumen gießen?",
+        "en": "Can you water my plants while I'm on holiday?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Draußen gießt es in Strömen.",
+        "en": "It's pouring with rain outside.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:gleichzeitig": {
     "def": "simultaneous, concurrent, coincident, concomitant",
     "ex": [
@@ -21760,6 +21956,20 @@
         "de": "Die Zeit heilt alle Wunden.",
         "en": "Time heals all wounds.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:heizen": {
+    "ex": [
+      {
+        "de": "Wir heizen mit Gas.",
+        "en": "We heat with gas.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Winter muss man mehr heizen.",
+        "en": "You have to heat more in winter.",
+        "lvl": "A2"
       }
     ]
   },
@@ -21999,6 +22209,20 @@
       {
         "de": "Geh da nicht hinauf.",
         "en": "Don't go up there.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:hinfahren": {
+    "ex": [
+      {
+        "de": "Wir können mit dem Rad hinfahren.",
+        "en": "We can go there by bike.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Soll ich dich hinfahren?",
+        "en": "Shall I drive you there?",
         "lvl": "A2"
       }
     ]
@@ -22275,6 +22499,20 @@
       {
         "de": "Gibt es ein Café in der Nähe von hier?",
         "en": "Is there a café near here?",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:indisch": {
+    "ex": [
+      {
+        "de": "Ich koche gern indisches Curry.",
+        "en": "I like cooking Indian curry.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die indische Wirtschaft wächst schnell.",
+        "en": "The Indian economy is growing fast.",
         "lvl": "A2"
       }
     ]
