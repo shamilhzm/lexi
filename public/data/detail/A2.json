@@ -4076,6 +4076,20 @@
       }
     ]
   },
+  "voc:A2:das Kätzchen": {
+    "ex": [
+      {
+        "de": "Das Kätzchen spielt mit der Wolle.",
+        "en": "The kitten is playing with the wool.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Unsere Katze hat drei Kätzchen bekommen.",
+        "en": "Our cat has had three kittens.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Küchengerät": {
     "def": "an electrical device used in the kitchen",
     "ex": [
@@ -4536,6 +4550,20 @@
       {
         "de": "Sie hat mir ein Parfüm geschenkt.",
         "en": "She gave me a perfume.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Parkhaus": {
+    "ex": [
+      {
+        "de": "Ich parke im Parkhaus am Bahnhof.",
+        "en": "I park in the multi-storey at the station.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Parkhaus ist schon voll.",
+        "en": "The car park is already full.",
         "lvl": "A2"
       }
     ]
@@ -8207,6 +8235,20 @@
       }
     ]
   },
+  "voc:A2:der Kaugummi": {
+    "ex": [
+      {
+        "de": "Hast du einen Kaugummi für mich?",
+        "en": "Have you got a piece of gum for me?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Kaugummi klebt unter dem Tisch.",
+        "en": "The chewing gum is stuck under the table.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Keks": {
     "ex": [
       {
@@ -10338,6 +10380,20 @@
       }
     ]
   },
+  "voc:A2:der Sonnenaufgang": {
+    "ex": [
+      {
+        "de": "Wir stehen früh auf und sehen den Sonnenaufgang.",
+        "en": "We get up early and watch the sunrise.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Sonnenaufgang am Meer ist traumhaft.",
+        "en": "The sunrise by the sea is magical.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Sonnenuntergang": {
     "ex": [
       {
@@ -10362,6 +10418,20 @@
       {
         "de": "Am Sonntagmorgen ist die Stadt sehr ruhig.",
         "en": "On Sunday morning the city is very quiet.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Sonntagnachmittag": {
+    "ex": [
+      {
+        "de": "Am Sonntagnachmittag gehen wir spazieren.",
+        "en": "We go for a walk on Sunday afternoon.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Sonntagnachmittag gehört der Familie.",
+        "en": "Sunday afternoon belongs to the family.",
         "lvl": "A2"
       }
     ]
@@ -12497,6 +12567,20 @@
       }
     ]
   },
+  "voc:A2:die Ausfahrt": {
+    "ex": [
+      {
+        "de": "Nimm die nächste Ausfahrt.",
+        "en": "Take the next exit.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Bitte die Ausfahrt freihalten!",
+        "en": "Please keep the driveway clear!",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Auslandserfahrung": {
     "def": "The experience gained from living or working in another country.",
     "ex": [
@@ -12758,6 +12842,20 @@
         "de": "Dieses Wort hat mehrere Bedeutungen.",
         "en": "This word has several meanings.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:die Bedienung": {
+    "ex": [
+      {
+        "de": "Die Bedienung war sehr freundlich.",
+        "en": "The service was very friendly.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Bedienung der App ist einfach.",
+        "en": "The app is easy to use.",
+        "lvl": "A2"
       }
     ]
   },
@@ -28589,6 +28687,20 @@
       {
         "de": "Heute fährt sie zum ersten Mal allein Auto.",
         "en": "Today she is driving alone for the first time.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:zumachen": {
+    "ex": [
+      {
+        "de": "Kannst du bitte das Fenster zumachen?",
+        "en": "Can you close the window, please?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe die ganze Nacht kein Auge zugemacht.",
+        "en": "I didn't sleep a wink all night.",
         "lvl": "A2"
       }
     ]

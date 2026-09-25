@@ -1247,6 +1247,20 @@
       }
     ]
   },
+  "voc:B1:abwechslungsreich": {
+    "ex": [
+      {
+        "de": "Das Essen in der Kantine ist abwechslungsreich.",
+        "en": "The food in the canteen is varied.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich suche eine abwechslungsreiche Arbeit.",
+        "en": "I'm looking for varied work.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:abziehen": {
     "ex": [
       {
@@ -3967,6 +3981,20 @@
       }
     ]
   },
+  "voc:B1:chaotisch": {
+    "ex": [
+      {
+        "de": "Bei uns zu Hause ist es chaotisch.",
+        "en": "It's chaotic at our place.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Start war etwas chaotisch.",
+        "en": "The start was a bit chaotic.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:charmant": {
     "def": "Pleasant and attractive in manner.",
     "ex": [
@@ -6101,6 +6129,20 @@
         "de": "Er hat ein Grübchen am Kinn.",
         "en": "He has a dimple on his chin.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:das Kleinkind": {
+    "ex": [
+      {
+        "de": "Für Kleinkinder ist der Eintritt frei.",
+        "en": "Entry is free for small children.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit einem Kleinkind reist man anders.",
+        "en": "You travel differently with a toddler.",
+        "lvl": "B1"
       }
     ]
   },
@@ -10854,6 +10896,20 @@
       }
     ]
   },
+  "voc:B1:der Donut": {
+    "ex": [
+      {
+        "de": "Zum Kaffee esse ich einen Donut.",
+        "en": "I'm having a doughnut with my coffee.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Donut ist mit Schokolade.",
+        "en": "The doughnut has chocolate on it.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Download": {
     "ex": [
       {
@@ -12032,6 +12088,20 @@
       }
     ]
   },
+  "voc:B1:der Grieche": {
+    "ex": [
+      {
+        "de": "Heute Abend gehen wir zum Griechen.",
+        "en": "We're going to the Greek restaurant tonight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Grieche an der Ecke ist gut.",
+        "en": "The Greek place on the corner is good.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Griff": {
     "def": "grasp, reach (act of trying to grab)",
     "ex": [
@@ -12773,6 +12843,20 @@
       {
         "de": "Ich bin Jäger.",
         "en": "I'm a hunter.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Kamin": {
+    "ex": [
+      {
+        "de": "Im Winter sitzen wir am Kamin.",
+        "en": "In winter we sit by the fire.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kamin muss gereinigt werden.",
+        "en": "The chimney needs cleaning.",
         "lvl": "B1"
       }
     ]
@@ -13719,6 +13803,20 @@
       }
     ]
   },
+  "voc:B1:der Livestream": {
+    "ex": [
+      {
+        "de": "Das Rennen gibt es auch im Livestream.",
+        "en": "The race is also available as a livestream.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Livestream ist abgebrochen.",
+        "en": "The livestream has cut out.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Luxus": {
     "ex": [
       {
@@ -13870,6 +13968,20 @@
       }
     ]
   },
+  "voc:B1:der Millimeter": {
+    "ex": [
+      {
+        "de": "Der Regen brachte zwanzig Millimeter.",
+        "en": "The rain brought twenty millimetres.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Auto ist nur einen Millimeter zu breit.",
+        "en": "The car is only a millimetre too wide.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Mindestlohn": {
     "ex": [
       {
@@ -13914,6 +14026,20 @@
       {
         "de": "Erzähl keinen Mist!",
         "en": "Don't talk rubbish!",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Mitspieler": {
+    "ex": [
+      {
+        "de": "Er passt den Ball zu seinem Mitspieler.",
+        "en": "He passes the ball to his teammate.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Für das Spiel braucht man vier Mitspieler.",
+        "en": "You need four players for the game.",
         "lvl": "B1"
       }
     ]
@@ -14197,6 +14323,20 @@
         "de": "Im Süden ist mit stärkerem Niederschlag zu rechnen.",
         "en": "In the south heavier precipitation is expected.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Nikolaus": {
+    "ex": [
+      {
+        "de": "Am sechsten Dezember kommt der Nikolaus.",
+        "en": "Saint Nicholas comes on the sixth of December.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder stellen Stiefel für den Nikolaus raus.",
+        "en": "The children put boots out for Saint Nicholas.",
+        "lvl": "B1"
       }
     ]
   },
@@ -15692,6 +15832,20 @@
       }
     ]
   },
+  "voc:B1:der Schwager": {
+    "ex": [
+      {
+        "de": "Mein Schwager hilft uns beim Umzug.",
+        "en": "My brother-in-law is helping us move.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Schwager wohnt in Bonn.",
+        "en": "My brother-in-law lives in Bonn.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Schweiß": {
     "def": "The salty liquid the skin gives off when hot or exerting itself.",
     "ex": [
@@ -15801,6 +15955,20 @@
       {
         "de": "Der Sekretär sitzt im Vorzimmer.",
         "en": "The secretary sits in the outer office.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Sekt": {
+    "ex": [
+      {
+        "de": "Zu Silvester trinken wir Sekt.",
+        "en": "We drink sparkling wine on New Year's Eve.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Sekt ist gut gekühlt.",
+        "en": "The sparkling wine is well chilled.",
         "lvl": "B1"
       }
     ]
@@ -16103,6 +16271,20 @@
         "de": "Der Sozialstaat steht und fällt mit der Solidarität seiner Bürger.",
         "en": "The welfare state stands or falls with the solidarity of its citizens.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Speck": {
+    "ex": [
+      {
+        "de": "Zum Frühstück gibt es Eier mit Speck.",
+        "en": "There's bacon and eggs for breakfast.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich muss den Speck am Bauch loswerden.",
+        "en": "I need to lose the flab round my middle.",
+        "lvl": "B1"
       }
     ]
   },
@@ -19780,6 +19962,20 @@
       }
     ]
   },
+  "voc:B1:die Bemerkung": {
+    "ex": [
+      {
+        "de": "Seine Bemerkung war unfreundlich.",
+        "en": "His remark was unfriendly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Darf ich eine Bemerkung machen?",
+        "en": "May I make a remark?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Beobachtung": {
     "def": "monitoring; surveillance; supervision",
     "ex": [
@@ -21055,6 +21251,20 @@
       }
     ]
   },
+  "voc:B1:die Eisenbahn": {
+    "ex": [
+      {
+        "de": "Die Eisenbahn verbindet die beiden Städte.",
+        "en": "The railway connects the two cities.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Sohn spielt mit der Eisenbahn.",
+        "en": "My son is playing with the train set.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Elektrizität": {
     "def": "A form of energy that powers lights and machines.",
     "ex": [
@@ -22066,6 +22276,20 @@
         "de": "Die Flucht vor der Verantwortung löst kein einziges Problem.",
         "en": "Fleeing from responsibility solves not a single problem.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Fluggesellschaft": {
+    "ex": [
+      {
+        "de": "Die Fluggesellschaft hat meinen Flug gestrichen.",
+        "en": "The airline has cancelled my flight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mit welcher Fluggesellschaft fliegst du?",
+        "en": "Which airline are you flying with?",
+        "lvl": "B1"
       }
     ]
   },
@@ -26673,6 +26897,20 @@
       }
     ]
   },
+  "voc:B1:die Pfote": {
+    "ex": [
+      {
+        "de": "Der Hund gibt mir die Pfote.",
+        "en": "The dog gives me its paw.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Katze leckt sich die Pfote.",
+        "en": "The cat is licking its paw.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Phase": {
     "def": "phase, stage, period; phase (one of the power-carrying conductors); line conductor",
     "ex": [
@@ -27645,6 +27883,20 @@
       {
         "de": "Es ist eine Schande.",
         "en": "It's a shame.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Schaufel": {
+    "ex": [
+      {
+        "de": "Die Schaufel steht im Keller.",
+        "en": "The shovel is in the cellar.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Kind spielt mit Eimer und Schaufel.",
+        "en": "The child is playing with a bucket and spade.",
         "lvl": "B1"
       }
     ]
@@ -31212,6 +31464,20 @@
       }
     ]
   },
+  "voc:B1:die Zeitverschwendung": {
+    "ex": [
+      {
+        "de": "Das Meeting war reine Zeitverschwendung.",
+        "en": "The meeting was a complete waste of time.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Streiten ist Zeitverschwendung.",
+        "en": "Arguing is a waste of time.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Zeitzone": {
     "def": "A band of the earth that keeps the same clock time.",
     "defDe": "Teil der Erdoberfläche, auf dem zu einem gegebenen Zeitpunkt dieselbe Uhrzeit und dasselbe Datum gelten",
@@ -33374,6 +33640,20 @@
       }
     ]
   },
+  "voc:B1:falten": {
+    "ex": [
+      {
+        "de": "Kannst du die Wäsche falten?",
+        "en": "Can you fold the laundry?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie faltet den Brief zweimal.",
+        "en": "She folds the letter twice.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:fangen": {
     "def": "to catch (grab something flying in the air); to catch; to capture (to take hold of a person or an animal)",
     "ex": [
@@ -35101,6 +35381,20 @@
       }
     ]
   },
+  "voc:B1:hintereinander": {
+    "ex": [
+      {
+        "de": "Das Team hat fünf Spiele hintereinander gewonnen.",
+        "en": "The team has won five games in a row.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bitte stellen Sie sich hintereinander auf.",
+        "en": "Please line up one behind the other.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:hinterher": {
     "def": "Coming after in time or place.",
     "ex": [
@@ -35845,6 +36139,20 @@
       {
         "de": "In der jetzigen Lage kaufen wir nichts.",
         "en": "We're not buying anything in the current situation.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:jucken": {
+    "ex": [
+      {
+        "de": "Mein Arm juckt.",
+        "en": "My arm is itching.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das juckt mich nicht.",
+        "en": "I couldn't care less.",
         "lvl": "B1"
       }
     ]
@@ -36625,6 +36933,20 @@
       {
         "de": "Ich habe Toms Hand losgelassen.",
         "en": "I let go of Tom's hand.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:loslegen": {
+    "ex": [
+      {
+        "de": "Alles bereit? Dann können wir loslegen!",
+        "en": "Everything ready? Then we can get started!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er will sofort loslegen.",
+        "en": "He wants to get going right away.",
         "lvl": "B1"
       }
     ]
@@ -37584,6 +37906,20 @@
       }
     ]
   },
+  "voc:B1:norwegisch": {
+    "ex": [
+      {
+        "de": "Die norwegische Küste ist wunderschön.",
+        "en": "The Norwegian coast is beautiful.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er lernt Norwegisch.",
+        "en": "He's learning Norwegian.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:notieren": {
     "def": "To write something down so that it is not forgotten.",
     "ex": [
@@ -37923,6 +38259,20 @@
       {
         "de": "Ich pfeife auf seine Meinung.",
         "en": "I couldn't care less about his opinion.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:platt": {
+    "ex": [
+      {
+        "de": "Der Reifen ist platt.",
+        "en": "The tyre is flat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach der Arbeit bin ich total platt.",
+        "en": "I'm completely worn out after work.",
         "lvl": "B1"
       }
     ]
@@ -38974,6 +39324,20 @@
       }
     ]
   },
+  "voc:B1:schiefgehen": {
+    "ex": [
+      {
+        "de": "Was kann schon schiefgehen?",
+        "en": "What could possibly go wrong?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Keine Sorge, es wird nichts schiefgehen.",
+        "en": "Don't worry, nothing will go wrong.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:schimpfen": {
     "ex": [
       {
@@ -39070,6 +39434,20 @@
       {
         "de": "Er wurde geschnappt.",
         "en": "He was caught.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:schnarchen": {
+    "ex": [
+      {
+        "de": "Mein Mann schnarcht furchtbar.",
+        "en": "My husband snores terribly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich kann nicht schlafen, wenn du schnarchst.",
+        "en": "I can't sleep when you snore.",
         "lvl": "B1"
       }
     ]
@@ -41840,6 +42218,20 @@
       }
     ]
   },
+  "voc:B1:unruhig": {
+    "ex": [
+      {
+        "de": "Ich habe unruhig geschlafen.",
+        "en": "I slept badly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Lage an der Börse ist unruhig.",
+        "en": "The stock market is jittery.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:unschuldig": {
     "def": "Not guilty of a crime or wrongdoing.",
     "ex": [
@@ -42770,6 +43162,20 @@
       }
     ]
   },
+  "voc:B1:verpacken": {
+    "ex": [
+      {
+        "de": "Können Sie das als Geschenk verpacken?",
+        "en": "Can you gift-wrap it?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Ware wird sicher verpackt.",
+        "en": "The goods are packed securely.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:verpassen": {
     "def": "ein Ereignis nicht miterleben",
     "ex": [
@@ -42832,6 +43238,20 @@
       {
         "de": "Meine Stimme versagt.",
         "en": "My voice is failing me.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:verschenken": {
+    "ex": [
+      {
+        "de": "Wir verschenken unsere alten Möbel.",
+        "en": "We're giving away our old furniture.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Team hat den Sieg verschenkt.",
+        "en": "The team threw away the win.",
         "lvl": "B1"
       }
     ]
