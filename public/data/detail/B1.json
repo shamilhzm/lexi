@@ -188,36 +188,6 @@
       }
     ]
   },
-  "voc:B1:China": {
-    "def": "A large country in East Asia with the world's biggest population.",
-    "ex": [
-      {
-        "de": "China hat die meisten Einwohner der Welt.",
-        "en": "China has the largest population in the world.",
-        "lvl": "B1"
-      },
-      {
-        "de": "China ist ein wichtiger Handelspartner.",
-        "en": "China is an important trading partner.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:Deutschland": {
-    "def": "A country in central Europe.",
-    "ex": [
-      {
-        "de": "Deutschland liegt in Mitteleuropa.",
-        "en": "Germany is located in Central Europe.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Deutschland hat rund 84 Millionen Einwohner.",
-        "en": "Germany has around 84 million inhabitants.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:Dänemark": {
     "def": "A Scandinavian country in northern Europe.",
     "ex": [
@@ -233,21 +203,6 @@
       }
     ]
   },
-  "voc:B1:England": {
-    "def": "A country that is part of the United Kingdom.",
-    "ex": [
-      {
-        "de": "In England regnet es oft.",
-        "en": "It often rains in England.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Der Tee gehört in England zur Kultur.",
-        "en": "Tea is part of the culture in England.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:Finnland": {
     "def": "A country in northern Europe known for its lakes and forests.",
     "ex": [
@@ -259,21 +214,6 @@
       {
         "de": "Finnland ist die Heimat der Sauna.",
         "en": "Finland is the home of the sauna.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:Frankreich": {
-    "def": "A country in western Europe.",
-    "ex": [
-      {
-        "de": "Frankreich ist berühmt für seine Küche.",
-        "en": "France is famous for its cuisine.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Von Deutschland nach Frankreich reist man schnell.",
-        "en": "You can travel quickly from Germany to France.",
         "lvl": "B1"
       }
     ]
@@ -635,21 +575,6 @@
         "de": "In Peru wird auch Quechua gesprochen.",
         "en": "In Peru Quechua is also spoken.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B1:Polen": {
-    "def": "A country in central Europe, east of Germany.",
-    "ex": [
-      {
-        "de": "Polen liegt östlich von Deutschland.",
-        "en": "Poland lies to the east of Germany.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Von Berlin nach Polen ist es nicht weit.",
-        "en": "From Berlin to Poland is not far.",
-        "lvl": "B1"
       }
     ]
   },
@@ -4174,21 +4099,6 @@
       }
     ]
   },
-  "voc:B1:damals": {
-    "def": "at that time (in the past); at the time, then",
-    "ex": [
-      {
-        "de": "So war es damals.",
-        "en": "That's the way things were back then.",
-        "lvl": "B1"
-      },
-      {
-        "de": "So war das damals.",
-        "en": "That's how it was back then.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:damit": {
     "def": "therefore, as a result",
     "ex": [
@@ -6390,21 +6300,6 @@
         "de": "In selbstfahrenden Autos könnte das Lenkrad bald überflüssig sein.",
         "en": "In self-driving cars the steering wheel could soon be redundant.",
         "lvl": "C1"
-      }
-    ]
-  },
-  "voc:B1:das Lesen": {
-    "def": "to read (to look at and understand symbols, words, or data); to read (to give off a certain impression while being read; of a text)",
-    "ex": [
-      {
-        "de": "Das Lesen entspannt mich am Abend.",
-        "en": "Reading relaxes me in the evening.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Er kann nicht lesen.",
-        "en": "He doesn't know how to read.",
-        "lvl": "B1"
       }
     ]
   },
@@ -9150,21 +9045,6 @@
         "de": "Unter den denkbar schlechtesten Bedingungen hielt sie durch.",
         "en": "Under the worst conceivable conditions she held out.",
         "lvl": "C1"
-      }
-    ]
-  },
-  "voc:B1:denken an + A": {
-    "def": "To have someone or something in your mind.",
-    "ex": [
-      {
-        "de": "Ich denke oft an meine Familie in Australien.",
-        "en": "I often think of my family in Australia.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Sie hat den ganzen Tag an ihn gedacht.",
-        "en": "She thought about him all day.",
-        "lvl": "B1"
       }
     ]
   },
@@ -13666,20 +13546,6 @@
       {
         "de": "Die Hühner leben nicht im Käfig.",
         "en": "The hens don't live in cages.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:der LKW": {
-    "ex": [
-      {
-        "de": "Der LKW stand mitten auf der Straße.",
-        "en": "The lorry was standing in the middle of the road.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Auf der Autobahn fahren nachts viele LKW.",
-        "en": "Many lorries drive on the motorway at night.",
         "lvl": "B1"
       }
     ]
@@ -18608,21 +18474,6 @@
       }
     ]
   },
-  "voc:B1:deswegen": {
-    "def": "For that reason.",
-    "ex": [
-      {
-        "de": "Deswegen schrie Tom.",
-        "en": "That was why Tom screamed.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Deswegen mag ich Sie.",
-        "en": "That's why I like you.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:dicht": {
     "def": "thick, tight, dense; tight, intoxicated",
     "ex": [
@@ -23366,26 +23217,6 @@
         "de": "In der Gondel haben acht Personen Platz.",
         "en": "Eight people fit in the gondola.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B1:die Grenze": {
-    "def": "border",
-    "ex": [
-      {
-        "de": "Wir haben die Grenze nach Österreich überquert.",
-        "en": "We crossed the border into Austria.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Alles hat seine Grenzen, auch die Geduld.",
-        "en": "Everything has its limits, patience too.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Die Forschung stößt hier an die Grenzen des technisch Machbaren.",
-        "en": "Research here reaches the limits of what is technically feasible.",
-        "lvl": "C1"
       }
     ]
   },
@@ -28195,21 +28026,6 @@
       }
     ]
   },
-  "voc:B1:die Schweiz": {
-    "def": "A mountainous country in central Europe.",
-    "ex": [
-      {
-        "de": "In der Schweiz spricht man vier Sprachen.",
-        "en": "In Switzerland four languages are spoken.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Schweiz ist kein Mitglied der EU.",
-        "en": "Switzerland is not a member of the EU.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:die Schwerkraft": {
     "def": "gravitation, gravity",
     "ex": [
@@ -28653,26 +28469,6 @@
       {
         "de": "Die Gewerkschaft rief zur Solidarität mit den Streikenden auf.",
         "en": "The union called for solidarity with the strikers.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:B1:die Sorge": {
-    "def": "concern, care, responsibility, aid; concern, worry, apprehension, trouble, distress",
-    "ex": [
-      {
-        "de": "Mach dir keine Sorgen!",
-        "en": "Don’t worry!",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die Eltern machten sich große Sorgen um ihr Kind.",
-        "en": "The parents were very worried about their child.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Seine Sorgen um die Zukunft des Betriebs erwiesen sich als berechtigt.",
-        "en": "His concerns about the company’s future proved to be justified.",
         "lvl": "C1"
       }
     ]
@@ -29141,26 +28937,6 @@
         "de": "Die Steuernummer steht oben auf dem Bescheid.",
         "en": "The tax number is at the top of the notice.",
         "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:die Stimme": {
-    "def": "voice (speaking or singing), call of an animal",
-    "ex": [
-      {
-        "de": "Sie hat eine schöne Stimme.",
-        "en": "She has a beautiful voice.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Jede Stimme zählt bei der Wahl.",
-        "en": "Every vote counts in the election.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Er erhob seine Stimme gegen die Ungerechtigkeit.",
-        "en": "He raised his voice against the injustice.",
-        "lvl": "C1"
       }
     ]
   },
@@ -29834,21 +29610,6 @@
       {
         "de": "Die Türkei ist ein beliebtes Urlaubsland.",
         "en": "Turkey is a popular holiday destination.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:die USA": {
-    "def": "The United States of America, a large country in North America.",
-    "ex": [
-      {
-        "de": "Die USA liegen in Nordamerika.",
-        "en": "The USA is in North America.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Die USA bestehen aus fünfzig Bundesstaaten.",
-        "en": "The USA consists of fifty states.",
         "lvl": "B1"
       }
     ]
@@ -31922,21 +31683,6 @@
       }
     ]
   },
-  "voc:B1:diskutieren": {
-    "def": "To talk about a subject with others.",
-    "ex": [
-      {
-        "de": "Wir diskutieren über Politik.",
-        "en": "We're discussing politics.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Über dieses Thema müssen wir diskutieren.",
-        "en": "We need to discuss this issue.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:dramatisch": {
     "def": "Sudden and striking; full of action or emotion.",
     "ex": [
@@ -31949,36 +31695,6 @@
         "de": "Ihr seid immer so dramatisch.",
         "en": "You're always so dramatic.",
         "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:dringend": {
-    "def": "Needing to be dealt with at once.",
-    "ex": [
-      {
-        "de": "Ich muss dringend mit dir sprechen.",
-        "en": "I urgently need to talk to you.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Es gibt ein dringendes Problem.",
-        "en": "There is an urgent problem.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Es besteht dringender Handlungsbedarf, will man Schlimmeres verhindern.",
-        "en": "There is an urgent need for action if worse is to be prevented.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Hier besteht dringender Handlungsbedarf.",
-        "en": "There is an urgent need for action here.",
-        "lvl": "B2"
-      },
-      {
-        "de": "In diesem Bereich besteht dringender Reformbedarf.",
-        "en": "In this area there is an urgent need for reform.",
-        "lvl": "B2"
       }
     ]
   },
@@ -33165,21 +32881,6 @@
       {
         "de": "Die Stadt erneuert die Brücke.",
         "en": "The city is renovating the bridge.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:ernst": {
-    "def": "ohne Spaß, ohne Scherz, ohne Humor, ohne Ironie",
-    "ex": [
-      {
-        "de": "Sie machte ein ernstes Gesicht.",
-        "en": "She made a serious face.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Nimm meine Warnung bitte ernst.",
-        "en": "Please take my warning seriously.",
         "lvl": "B1"
       }
     ]
@@ -38219,21 +37920,6 @@
       }
     ]
   },
-  "voc:B1:persönlich": {
-    "def": "Belonging to or concerning one particular person.",
-    "ex": [
-      {
-        "de": "Ich möchte dir das persönlich sagen.",
-        "en": "I'd like to tell you that in person.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Das ist meine persönliche Meinung.",
-        "en": "That's my personal opinion.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:pessimistisch": {
     "def": "Expecting bad things to happen.",
     "ex": [
@@ -39192,20 +38878,6 @@
       }
     ]
   },
-  "voc:B1:saugen": {
-    "ex": [
-      {
-        "de": "Ich sauge heute den Teppich.",
-        "en": "I'm vacuuming the carpet today.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Das Baby saugt an der Flasche.",
-        "en": "The baby is sucking on the bottle.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:scannen": {
     "ex": [
       {
@@ -39216,21 +38888,6 @@
       {
         "de": "Ich habe den Mietvertrag gescannt und geschickt.",
         "en": "I scanned the tenancy agreement and sent it.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:schaffen": {
-    "def": "to create, to call into being; to create, make, form, shape",
-    "ex": [
-      {
-        "de": "Wir schaffen es.",
-        "en": "We can do that.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Wir schaffen das!",
-        "en": "We can do it.",
         "lvl": "B1"
       }
     ]
@@ -41062,21 +40719,6 @@
       {
         "de": "Im Sommer stechen die Mücken am Rhein.",
         "en": "In summer the mosquitoes bite by the Rhine.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:stehlen": {
-    "def": "to steal; to skulk, to move secretly",
-    "ex": [
-      {
-        "de": "Stehlen ist böse.",
-        "en": "It's bad to steal.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Zu stehlen ist etwas Schlimmes.",
-        "en": "It is bad to steal.",
         "lvl": "B1"
       }
     ]
@@ -42993,22 +42635,6 @@
       }
     ]
   },
-  "voc:B1:verlieren": {
-    "def": "To be left without something you had; also to be beaten in a contest.",
-    "defDe": "etwas irgendwo hinlegen und es später nicht mehr wiederfinden",
-    "ex": [
-      {
-        "de": "Ich habe meinen Autoschlüssel verloren.",
-        "en": "I lost my car key.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Sie haben gerade ihr Taschentuch verloren.",
-        "en": "You've just dropped your handkerchief.",
-        "lvl": "B1"
-      }
-    ]
-  },
   "voc:B1:verlobt": {
     "def": "Having promised to marry someone.",
     "ex": [
@@ -44036,21 +43662,6 @@
       {
         "de": "Er warnte uns.",
         "en": "He warned us.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:warten auf + A": {
-    "def": "To stay where you are until someone or something comes.",
-    "ex": [
-      {
-        "de": "Sie wartet seit Monaten auf ihr Visum.",
-        "en": "She has been waiting for her visa for months.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Wir haben lange auf eine Antwort gewartet.",
-        "en": "We waited a long time for an answer.",
         "lvl": "B1"
       }
     ]
@@ -45584,21 +45195,6 @@
       {
         "de": "Durch Ägypten fließt der Nil.",
         "en": "The Nile flows through Egypt.",
-        "lvl": "B1"
-      }
-    ]
-  },
-  "voc:B1:Österreich": {
-    "def": "A country in central Europe, south of Germany.",
-    "ex": [
-      {
-        "de": "Österreich ist bekannt für seine Berge.",
-        "en": "Austria is known for its mountains.",
-        "lvl": "B1"
-      },
-      {
-        "de": "Wir fahren zum Skifahren nach Österreich.",
-        "en": "We're going to Austria to ski.",
         "lvl": "B1"
       }
     ]

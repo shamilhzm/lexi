@@ -1,0 +1,513 @@
+[
+ {
+  "term": "denn",
+  "en": "because, for; (in questions) then, anyway",
+  "pos": "conjunction",
+  "level": "A1",
+  "field": "Connectors",
+  "ex": [
+   {
+    "de": "Ich bleibe zu Hause, denn ich bin krank.",
+    "en": "I'm staying at home, because I'm ill."
+   },
+   {
+    "de": "Wie heißt du denn?",
+    "en": "So what's your name, then?"
+   }
+  ]
+ },
+ {
+  "term": "seit",
+  "en": "since, for (with present tense)",
+  "pos": "preposition",
+  "level": "A1",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Ich wohne seit zwei Jahren in Köln.",
+    "en": "I've lived in Cologne for two years."
+   },
+   {
+    "de": "Ich lerne seit März Deutsch.",
+    "en": "I've been learning German since March."
+   }
+  ]
+ },
+ {
+  "term": "als",
+  "en": "than; when (in the past); as",
+  "pos": "conjunction",
+  "level": "A2",
+  "field": "Connectors",
+  "ex": [
+   {
+    "de": "Mein Bruder ist größer als ich.",
+    "en": "My brother is taller than me."
+   },
+   {
+    "de": "Ich war müde, als ich nach Hause kam.",
+    "en": "I was tired when I got home."
+   }
+  ]
+ },
+ {
+  "term": "ob",
+  "en": "whether, if",
+  "pos": "conjunction",
+  "level": "A2",
+  "field": "Connectors",
+  "ex": [
+   {
+    "de": "Ich weiß nicht, ob er kommt.",
+    "en": "I don't know whether he's coming."
+   },
+   {
+    "de": "Weißt du, ob der Laden offen ist?",
+    "en": "Do you know if the shop is open?"
+   }
+  ]
+ },
+ {
+  "term": "sondern",
+  "en": "but (rather), after a negative",
+  "pos": "conjunction",
+  "level": "A2",
+  "field": "Connectors",
+  "ex": [
+   {
+    "de": "Das ist nicht rot, sondern blau.",
+    "en": "That's not red but blue."
+   },
+   {
+    "de": "Ich komme nicht heute, sondern morgen.",
+    "en": "I'm not coming today but tomorrow."
+   }
+  ]
+ },
+ {
+  "term": "mehr",
+  "en": "more; (nicht mehr) no longer",
+  "pos": "adverb",
+  "level": "A1",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Ich möchte mehr Zeit haben.",
+    "en": "I'd like to have more time."
+   },
+   {
+    "de": "Ich rauche nicht mehr.",
+    "en": "I don't smoke any more."
+   }
+  ]
+ },
+ {
+  "term": "weiter",
+  "en": "further, on (keep going)",
+  "pos": "adverb",
+  "level": "A1",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Wir fahren morgen weiter.",
+    "en": "We're driving on tomorrow."
+   },
+   {
+    "de": "Und wie geht es jetzt weiter?",
+    "en": "And what happens now?"
+   }
+  ]
+ },
+ {
+  "term": "lange",
+  "en": "(for) a long time",
+  "pos": "adverb",
+  "level": "A1",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Wie lange dauert der Kurs?",
+    "en": "How long does the course last?"
+   },
+   {
+    "de": "Ich warte schon lange auf den Bus.",
+    "en": "I've been waiting for the bus for a long time."
+   }
+  ]
+ },
+ {
+  "term": "dir",
+  "en": "(to/for) you (informal, dative)",
+  "pos": "pronoun",
+  "level": "A1",
+  "field": "English pronouns",
+  "ex": [
+   {
+    "de": "Wie geht es dir?",
+    "en": "How are you?"
+   },
+   {
+    "de": "Ich helfe dir gern.",
+    "en": "I'm happy to help you."
+   }
+  ]
+ },
+ {
+  "term": "der Radiergummi",
+  "en": "eraser, rubber",
+  "pos": "noun",
+  "level": "A1",
+  "field": "School",
+  "ex": [
+   {
+    "de": "Hast du einen Radiergummi für mich?",
+    "en": "Have you got a rubber for me?"
+   },
+   {
+    "de": "Der Radiergummi liegt auf dem Tisch.",
+    "en": "The rubber is on the table."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "der Kursleiter",
+  "en": "course leader, teacher (of a course)",
+  "pos": "noun",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Der Kursleiter erklärt die Grammatik.",
+    "en": "The course leader explains the grammar."
+   },
+   {
+    "de": "Unser Kursleiter kommt aus Hamburg.",
+    "en": "Our teacher comes from Hamburg."
+   }
+  ]
+ },
+ {
+  "term": "ankreuzen",
+  "en": "to tick, to mark with a cross",
+  "pos": "verb",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Bitte die richtige Antwort ankreuzen.",
+    "en": "Please tick the correct answer."
+   },
+   {
+    "de": "Sie müssen hier ankreuzen.",
+    "en": "You have to tick here."
+   }
+  ]
+ },
+ {
+  "term": "die Metzgerei",
+  "en": "butcher's (shop)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Money & shopping",
+  "ex": [
+   {
+    "de": "Die Metzgerei ist neben der Bäckerei.",
+    "en": "The butcher's is next to the bakery."
+   },
+   {
+    "de": "In der Metzgerei kaufe ich Wurst.",
+    "en": "I buy sausage at the butcher's."
+   }
+  ]
+ },
+ {
+  "term": "die Lehrerin",
+  "en": "(female) teacher",
+  "pos": "noun",
+  "level": "A1",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Meine Lehrerin ist sehr nett.",
+    "en": "My teacher is very nice."
+   },
+   {
+    "de": "Sie arbeitet als Lehrerin.",
+    "en": "She works as a teacher."
+   }
+  ]
+ },
+ {
+  "term": "die Studentin",
+  "en": "(female) student",
+  "pos": "noun",
+  "level": "A1",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Sie ist Studentin in Köln.",
+    "en": "She's a student in Cologne."
+   },
+   {
+    "de": "Die Studentin wohnt in einer WG.",
+    "en": "The student lives in a flat share."
+   }
+  ]
+ },
+ {
+  "term": "die Polizistin",
+  "en": "policewoman, police officer",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Work & profession",
+  "ex": [
+   {
+    "de": "Die Polizistin hilft uns.",
+    "en": "The police officer is helping us."
+   },
+   {
+    "de": "Sie ist Polizistin in Bonn.",
+    "en": "She's a police officer in Bonn."
+   }
+  ]
+ },
+ {
+  "term": "die Disco",
+  "en": "disco, club",
+  "pos": "noun",
+  "level": "A1",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Am Samstag gehen wir in die Disco.",
+    "en": "On Saturday we're going to the club."
+   },
+   {
+    "de": "Die Disco ist bis vier Uhr offen.",
+    "en": "The club is open until four."
+   }
+  ]
+ },
+ {
+  "term": "ausländisch",
+  "en": "foreign",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Countries",
+  "ex": [
+   {
+    "de": "Er hat einen ausländischen Pass.",
+    "en": "He has a foreign passport."
+   },
+   {
+    "de": "In Köln gibt es viele ausländische Studenten.",
+    "en": "There are many foreign students in Cologne."
+   }
+  ]
+ },
+ {
+  "term": "abfliegen",
+  "en": "to take off, to fly off",
+  "pos": "verb",
+  "level": "A1",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Wann willst du abfliegen?",
+    "en": "When do you want to fly?"
+   },
+   {
+    "de": "Das Flugzeug soll um acht abfliegen.",
+    "en": "The plane is due to take off at eight."
+   }
+  ]
+ },
+ {
+  "term": "die Fahrt",
+  "en": "journey, drive, ride",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Die Fahrt nach Berlin dauert vier Stunden.",
+    "en": "The journey to Berlin takes four hours."
+   },
+   {
+    "de": "Gute Fahrt!",
+    "en": "Have a good trip!"
+   }
+  ]
+ },
+ {
+  "term": "küssen",
+  "en": "to kiss",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Sie küsst ihn auf die Wange.",
+    "en": "She kisses him on the cheek."
+   },
+   {
+    "de": "Darf ich dich küssen?",
+    "en": "May I kiss you?"
+   }
+  ]
+ },
+ {
+  "term": "die Viertelstunde",
+  "en": "quarter of an hour",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Der Bus kommt in einer Viertelstunde.",
+    "en": "The bus comes in a quarter of an hour."
+   },
+   {
+    "de": "Ich warte schon eine Viertelstunde.",
+    "en": "I've been waiting for a quarter of an hour."
+   }
+  ]
+ },
+ {
+  "term": "der Arbeiter",
+  "en": "worker, labourer",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Die Arbeiter bauen ein neues Haus.",
+    "en": "The workers are building a new house."
+   },
+   {
+    "de": "Er ist Arbeiter bei Ford.",
+    "en": "He's a worker at Ford."
+   }
+  ]
+ },
+ {
+  "term": "die Länge",
+  "en": "length",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Clothes shop",
+  "ex": [
+   {
+    "de": "Die Länge der Hose passt nicht.",
+    "en": "The length of the trousers isn't right."
+   },
+   {
+    "de": "Welche Länge hat der Tisch?",
+    "en": "How long is the table?"
+   }
+  ]
+ },
+ {
+  "term": "der Schwanz",
+  "en": "tail",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Animals",
+  "ex": [
+   {
+    "de": "Der Hund wedelt mit dem Schwanz.",
+    "en": "The dog is wagging its tail."
+   },
+   {
+    "de": "Die Katze hat einen langen Schwanz.",
+    "en": "The cat has a long tail."
+   }
+  ]
+ },
+ {
+  "term": "die Träne",
+  "en": "tear (from crying)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Sie hat eine Träne im Auge.",
+    "en": "She has a tear in her eye."
+   },
+   {
+    "de": "Die Träne läuft über ihr Gesicht.",
+    "en": "The tear runs down her face."
+   }
+  ]
+ },
+ {
+  "term": "die Eile",
+  "en": "hurry",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Ich bin in Eile.",
+    "en": "I'm in a hurry."
+   },
+   {
+    "de": "Keine Eile, wir haben Zeit.",
+    "en": "No hurry, we've got time."
+   }
+  ]
+ },
+ {
+  "term": "der Rauch",
+  "en": "smoke",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Aus dem Fenster kommt Rauch.",
+    "en": "Smoke is coming out of the window."
+   },
+   {
+    "de": "Der Rauch stört mich.",
+    "en": "The smoke bothers me."
+   }
+  ]
+ },
+ {
+  "term": "die Suche",
+  "en": "search, hunt",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Housing & Room Search",
+  "ex": [
+   {
+    "de": "Die Suche nach einer Wohnung ist schwer.",
+    "en": "Looking for a flat is hard."
+   },
+   {
+    "de": "Ich bin auf der Suche nach einem Job.",
+    "en": "I'm looking for a job."
+   }
+  ]
+ },
+ {
+  "term": "loben",
+  "en": "to praise",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Die Lehrerin lobt die Schüler.",
+    "en": "The teacher praises the pupils."
+   },
+   {
+    "de": "Der Chef hat mich gelobt.",
+    "en": "The boss praised me."
+   }
+  ]
+ }
+]

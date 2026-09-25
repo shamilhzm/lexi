@@ -6270,20 +6270,6 @@
       }
     ]
   },
-  "voc:B2:der Bogen": {
-    "ex": [
-      {
-        "de": "Füllen Sie bitte diesen Bogen aus.",
-        "en": "Please fill in this form.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Er hat den Bogen überspannt.",
-        "en": "He overstepped the mark.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B2:der Bonus": {
     "ex": [
       {
@@ -25288,21 +25274,6 @@
       }
     ]
   },
-  "voc:B2:teilen": {
-    "def": "to split, to share; to divide",
-    "ex": [
-      {
-        "de": "Bitte teilen Sie den Artikel nur, wenn Sie die Quelle geprüft haben.",
-        "en": "Please only share the article if you have checked the source.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Sie teilte den Beitrag mit ihren Freunden.",
-        "en": "She shared the post with her friends.",
-        "lvl": "B2"
-      }
-    ]
-  },
   "voc:B2:ticken": {
     "ex": [
       {
@@ -26345,21 +26316,6 @@
       {
         "de": "Verfüge nie über Geld, ehe du es hast.",
         "en": "Never spend your money before you have it.",
-        "lvl": "B2"
-      }
-    ]
-  },
-  "voc:B2:vergangen": {
-    "def": "Belonging to a time that has gone by.",
-    "ex": [
-      {
-        "de": "Zwei Tage waren vergangen.",
-        "en": "Two days had passed.",
-        "lvl": "B2"
-      },
-      {
-        "de": "Vier Tage waren vergangen.",
-        "en": "Four days had passed.",
         "lvl": "B2"
       }
     ]

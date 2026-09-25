@@ -7227,7 +7227,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:damals",
+    "id": "voc:A2:damals",
     "lemma": "damals",
     "level": "B1",
     "levelSource": "reference",
@@ -9196,7 +9196,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:deswegen",
+    "id": "voc:A2:deswegen",
     "lemma": "deswegen",
     "level": "B1",
     "levelSource": "reference",
@@ -13409,7 +13409,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:schaffen",
+    "id": "voc:A2:schaffen",
     "lemma": "schaffen",
     "level": "B1",
     "levelSource": "reference",
@@ -13706,7 +13706,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:stehlen",
+    "id": "voc:A2:stehlen",
     "lemma": "stehlen",
     "level": "B1",
     "levelSource": "reference",
@@ -19723,7 +19723,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:vergangen",
+    "id": "voc:A2:vergangen",
     "lemma": "vergangen",
     "level": "B2",
     "levelSource": "reference",

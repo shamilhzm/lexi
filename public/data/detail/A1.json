@@ -164,6 +164,21 @@
       }
     ]
   },
+  "voc:A1:China": {
+    "def": "A large country in East Asia with the world's biggest population.",
+    "ex": [
+      {
+        "de": "China hat die meisten Einwohner der Welt.",
+        "en": "China has the largest population in the world.",
+        "lvl": "B1"
+      },
+      {
+        "de": "China ist ein wichtiger Handelspartner.",
+        "en": "China is an important trading partner.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A1:Das ist schade.": {
     "def": "Used to express mild disappointment about something.",
     "ex": [
@@ -176,6 +191,21 @@
         "de": "Das Konzert fällt aus. – Das ist schade.",
         "en": "The concert is cancelled. – That's a pity.",
         "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Deutschland": {
+    "def": "A country in central Europe.",
+    "ex": [
+      {
+        "de": "Deutschland liegt in Mitteleuropa.",
+        "en": "Germany is located in Central Europe.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Deutschland hat rund 84 Millionen Einwohner.",
+        "en": "Germany has around 84 million inhabitants.",
+        "lvl": "B1"
       }
     ]
   },
@@ -206,6 +236,21 @@
         "de": "Endlich scheint die Sonne wieder.",
         "en": "Finally the sun is shining again.",
         "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:England": {
+    "def": "A country that is part of the United Kingdom.",
+    "ex": [
+      {
+        "de": "In England regnet es oft.",
+        "en": "It often rains in England.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Tee gehört in England zur Kultur.",
+        "en": "Tea is part of the culture in England.",
+        "lvl": "B1"
       }
     ]
   },
@@ -266,6 +311,21 @@
         "de": "Im Dezember schneit es oft.",
         "en": "It often snows in December.",
         "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Frankreich": {
+    "def": "A country in western Europe.",
+    "ex": [
+      {
+        "de": "Frankreich ist berühmt für seine Küche.",
+        "en": "France is famous for its cuisine.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Von Deutschland nach Frankreich reist man schnell.",
+        "en": "You can travel quickly from Germany to France.",
+        "lvl": "B1"
       }
     ]
   },
@@ -446,6 +506,21 @@
         "de": "Ich höre gern Musik am Abend.",
         "en": "I like listening to music in the evening.",
         "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Polen": {
+    "def": "A country in central Europe, east of Germany.",
+    "ex": [
+      {
+        "de": "Polen liegt östlich von Deutschland.",
+        "en": "Poland lies to the east of Germany.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Von Berlin nach Polen ist es nicht weit.",
+        "en": "From Berlin to Poland is not far.",
+        "lvl": "B1"
       }
     ]
   },
@@ -666,6 +741,20 @@
       {
         "de": "Das Zimmer ist klein, aber sehr hell.",
         "en": "The room is small but very bright.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:abfliegen": {
+    "ex": [
+      {
+        "de": "Wann willst du abfliegen?",
+        "en": "When do you want to fly?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Flugzeug soll um acht abfliegen.",
+        "en": "The plane is due to take off at eight.",
         "lvl": "A1"
       }
     ]
@@ -952,6 +1041,20 @@
         "de": "Ob wir rechtzeitig ankommen, kommt ganz auf den Verkehr an.",
         "en": "Whether we arrive on time depends entirely on the traffic.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:ankreuzen": {
+    "ex": [
+      {
+        "de": "Bitte die richtige Antwort ankreuzen.",
+        "en": "Please tick the correct answer.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie müssen hier ankreuzen.",
+        "en": "You have to tick here.",
+        "lvl": "A1"
       }
     ]
   },
@@ -1372,6 +1475,20 @@
         "de": "Füllen Sie bitte auch das zweite Feld aus.",
         "en": "Please also fill in the second field.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:ausländisch": {
+    "ex": [
+      {
+        "de": "Er hat einen ausländischen Pass.",
+        "en": "He has a foreign passport.",
+        "lvl": "A1"
+      },
+      {
+        "de": "In Köln gibt es viele ausländische Studenten.",
+        "en": "There are many foreign students in Cologne.",
+        "lvl": "A1"
       }
     ]
   },
@@ -5985,6 +6102,20 @@
       }
     ]
   },
+  "voc:A1:denn": {
+    "ex": [
+      {
+        "de": "Ich bleibe zu Hause, denn ich bin krank.",
+        "en": "I'm staying at home, because I'm ill.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie heißt du denn?",
+        "en": "So what's your name, then?",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Abend": {
     "def": "The part of the day between afternoon and night.",
     "defDe": "die Tageszeit nach dem Nachmittag, die beginnt, wenn die Sonne den Horizont erreicht, und bei völliger Dunkelheit endet; dem Abend geht der Tag voran und auf den Abend folgt die Nacht",
@@ -6418,6 +6549,20 @@
       }
     ]
   },
+  "voc:A1:der Ausländer": {
+    "ex": [
+      {
+        "de": "Als Ausländer musste er viele Formulare ausfüllen.",
+        "en": "As a foreigner he had to fill in a lot of forms.",
+        "lvl": "A2"
+      },
+      {
+        "de": "In dieser Firma arbeiten viele Ausländer.",
+        "en": "A lot of foreigners work at this company.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A1:der Ausweis": {
     "def": "identity document; identity card, ID card (a card or badge showing the official identity of the bearer)",
     "ex": [
@@ -6810,6 +6955,20 @@
         "de": "heiliger Boden",
         "en": "hallowed ground",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:der Bogen": {
+    "ex": [
+      {
+        "de": "Füllen Sie bitte diesen Bogen aus.",
+        "en": "Please fill in this form.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er hat den Bogen überspannt.",
+        "en": "He overstepped the mark.",
+        "lvl": "B2"
       }
     ]
   },
@@ -7330,6 +7489,20 @@
         "de": "Hast du einen Euro für mich?",
         "en": "Do you have a euro for me?",
         "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der Europäer": {
+    "ex": [
+      {
+        "de": "Er fühlt sich vor allem als Europäer.",
+        "en": "He feels European above all.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Viele Europäer machen in Spanien Urlaub.",
+        "en": "Many Europeans go on holiday in Spain.",
+        "lvl": "A2"
       }
     ]
   },
@@ -9057,6 +9230,20 @@
       }
     ]
   },
+  "voc:A1:der Kursleiter": {
+    "ex": [
+      {
+        "de": "Der Kursleiter erklärt die Grammatik.",
+        "en": "The course leader explains the grammar.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Unser Kursleiter kommt aus Hamburg.",
+        "en": "Our teacher comes from Hamburg.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:der Käse": {
     "def": "A solid food made from milk, often eaten on bread.",
     "ex": [
@@ -9160,6 +9347,20 @@
         "de": "Der Künstler arbeitet vor allem mit recycelten Materialien.",
         "en": "The artist works mainly with recycled materials.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:der LKW": {
+    "ex": [
+      {
+        "de": "Der LKW stand mitten auf der Straße.",
+        "en": "The lorry was standing in the middle of the road.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf der Autobahn fahren nachts viele LKW.",
+        "en": "Many lorries drive on the motorway at night.",
+        "lvl": "B1"
       }
     ]
   },
@@ -10369,6 +10570,20 @@
         "de": "Als Stammkunde bekommt er einen Rabatt.",
         "en": "As a regular customer he gets a discount.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der Radiergummi": {
+    "ex": [
+      {
+        "de": "Hast du einen Radiergummi für mich?",
+        "en": "Have you got a rubber for me?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Radiergummi liegt auf dem Tisch.",
+        "en": "The rubber is on the table.",
+        "lvl": "A1"
       }
     ]
   },
@@ -13514,6 +13729,20 @@
       }
     ]
   },
+  "voc:A1:die Disco": {
+    "ex": [
+      {
+        "de": "Am Samstag gehen wir in die Disco.",
+        "en": "On Saturday we're going to the club.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Disco ist bis vier Uhr offen.",
+        "en": "The club is open until four.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Dose": {
     "def": "box (container made from metal or plastic, less often wood); tin, can (air-tight container for food)",
     "ex": [
@@ -15214,6 +15443,20 @@
       }
     ]
   },
+  "voc:A1:die Lehrerin": {
+    "ex": [
+      {
+        "de": "Meine Lehrerin ist sehr nett.",
+        "en": "My teacher is very nice.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie arbeitet als Lehrerin.",
+        "en": "She works as a teacher.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Leute": {
     "def": "people (several individual persons, a group of people in general, esp. of one kind or another), folk (folks), peeps (slang), guys (boys and/or girls)",
     "ex": [
@@ -16519,6 +16762,21 @@
       }
     ]
   },
+  "voc:A1:die Schweiz": {
+    "def": "A mountainous country in central Europe.",
+    "ex": [
+      {
+        "de": "In der Schweiz spricht man vier Sprachen.",
+        "en": "In Switzerland four languages are spoken.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Schweiz ist kein Mitglied der EU.",
+        "en": "Switzerland is not a member of the EU.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A1:die Schwester": {
     "def": "A female sibling — and the everyday German word for a nurse.",
     "ex": [
@@ -16985,6 +17243,20 @@
       }
     ]
   },
+  "voc:A1:die Studentin": {
+    "ex": [
+      {
+        "de": "Sie ist Studentin in Köln.",
+        "en": "She's a student in Cologne.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Studentin wohnt in einer WG.",
+        "en": "The student lives in a flat share.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:die Stunde": {
     "def": "hour (unit of time consisting of 60 minutes); hour, moment, time (point in time)",
     "ex": [
@@ -17323,6 +17595,21 @@
       {
         "de": "Die U-Bahn fährt alle drei Minuten.",
         "en": "The subway runs every three minutes.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:die USA": {
+    "def": "The United States of America, a large country in North America.",
+    "ex": [
+      {
+        "de": "Die USA liegen in Nordamerika.",
+        "en": "The USA is in North America.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die USA bestehen aus fünfzig Bundesstaaten.",
+        "en": "The USA consists of fifty states.",
         "lvl": "B1"
       }
     ]
@@ -18022,6 +18309,20 @@
       {
         "de": "Dieses Buch ist sehr interessant.",
         "en": "This book is very interesting.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:dir": {
+    "ex": [
+      {
+        "de": "Wie geht es dir?",
+        "en": "How are you?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich helfe dir gern.",
+        "en": "I'm happy to help you.",
         "lvl": "A1"
       }
     ]
@@ -21474,6 +21775,20 @@
       }
     ]
   },
+  "voc:A1:lange": {
+    "ex": [
+      {
+        "de": "Wie lange dauert der Kurs?",
+        "en": "How long does the course last?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich warte schon lange auf den Bus.",
+        "en": "I've been waiting for the bus for a long time.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:langsam": {
     "def": "slow (taking a long time to move or travel; not happening in a short time)",
     "ex": [
@@ -22056,6 +22371,20 @@
         "de": "Manchmal versteht man eine Entscheidung erst Jahre später.",
         "en": "Sometimes you only understand a decision years later.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:mehr": {
+    "ex": [
+      {
+        "de": "Ich möchte mehr Zeit haben.",
+        "en": "I'd like to have more time.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich rauche nicht mehr.",
+        "en": "I don't smoke any more.",
+        "lvl": "A1"
       }
     ]
   },
@@ -23792,6 +24121,20 @@
         "de": "Es ist wichtig, immer pünktlich zu sein.",
         "en": "It is important to always be on time.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:seit": {
+    "ex": [
+      {
+        "de": "Ich wohne seit zwei Jahren in Köln.",
+        "en": "I've lived in Cologne for two years.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich lerne seit März Deutsch.",
+        "en": "I've been learning German since March.",
+        "lvl": "A1"
       }
     ]
   },
@@ -25641,6 +25984,20 @@
       }
     ]
   },
+  "voc:A1:weiter": {
+    "ex": [
+      {
+        "de": "Wir fahren morgen weiter.",
+        "en": "We're driving on tomorrow.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Und wie geht es jetzt weiter?",
+        "en": "And what happens now?",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:weiß": {
     "def": "Having the color of snow or milk.",
     "ex": [
@@ -26314,6 +26671,21 @@
       {
         "de": "Auf der Uhr stehen die Zahlen eins bis zwölf.",
         "en": "On the clock there are the numbers one to twelve.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:Österreich": {
+    "def": "A country in central Europe, south of Germany.",
+    "ex": [
+      {
+        "de": "Österreich ist bekannt für seine Berge.",
+        "en": "Austria is known for its mountains.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir fahren zum Skifahren nach Österreich.",
+        "en": "We're going to Austria to ski.",
         "lvl": "B1"
       }
     ]

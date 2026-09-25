@@ -1,0 +1,427 @@
+[
+ {
+  "term": "gar nicht",
+  "en": "not at all",
+  "pos": "phrase",
+  "level": "A2",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Das weiß ich gar nicht.",
+    "en": "I really don't know."
+   },
+   {
+    "de": "Der Film war gar nicht schlecht.",
+    "en": "The film wasn't bad at all."
+   }
+  ]
+ },
+ {
+  "term": "zu Hause",
+  "en": "at home",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Ich bin heute Abend zu Hause.",
+    "en": "I'm at home this evening."
+   },
+   {
+    "de": "Wir essen oft zu Hause.",
+    "en": "We often eat at home."
+   }
+  ]
+ },
+ {
+  "term": "nach Hause",
+  "en": "(to) home, homewards",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Ich gehe jetzt nach Hause.",
+    "en": "I'm going home now."
+   },
+   {
+    "de": "Wann kommst du nach Hause?",
+    "en": "When are you coming home?"
+   }
+  ]
+ },
+ {
+  "term": "Ich hätte gern",
+  "en": "I'd like (ordering, shopping)",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Restaurant & Dining",
+  "ex": [
+   {
+    "de": "Ich hätte gern einen Kaffee.",
+    "en": "I'd like a coffee."
+   },
+   {
+    "de": "Ich hätte gern zwei Brötchen, bitte.",
+    "en": "I'd like two rolls, please."
+   }
+  ]
+ },
+ {
+  "term": "Wie viel kostet das?",
+  "en": "How much is that?",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Money & shopping",
+  "ex": [
+   {
+    "de": "Wie viel kostet das? Ich finde es schön.",
+    "en": "How much is that? I think it's nice."
+   },
+   {
+    "de": "Wie viel kostet das? – Fünf Euro.",
+    "en": "How much is that? – Five euros."
+   }
+  ]
+ },
+ {
+  "term": "Wie spät ist es?",
+  "en": "What time is it?",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Wie spät ist es? – Halb neun.",
+    "en": "What time is it? – Half past eight."
+   },
+   {
+    "de": "Wie spät ist es? Ich habe keine Uhr.",
+    "en": "What time is it? I haven't got a watch."
+   }
+  ]
+ },
+ {
+  "term": "Wie alt bist du?",
+  "en": "How old are you?",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Useful Phrases",
+  "ex": [
+   {
+    "de": "Wie alt bist du? – Ich bin dreißig.",
+    "en": "How old are you? – I'm thirty."
+   },
+   {
+    "de": "Wie alt bist du? Ich bin zwanzig Jahre alt.",
+    "en": "How old are you? I'm twenty years old."
+   }
+  ]
+ },
+ {
+  "term": "Wie heißt das auf Deutsch?",
+  "en": "What's that called in German?",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Wie heißt das auf Deutsch? – Das ist ein Löffel.",
+    "en": "What's that called in German? – That's a spoon."
+   },
+   {
+    "de": "Entschuldigung! Wie heißt das auf Deutsch?",
+    "en": "Excuse me! What's that called in German?"
+   }
+  ]
+ },
+ {
+  "term": "Was bedeutet das?",
+  "en": "What does that mean?",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Was bedeutet das? Ich verstehe das Wort nicht.",
+    "en": "What does that mean? I don't understand the word."
+   },
+   {
+    "de": "Was bedeutet das? Kannst du mir helfen?",
+    "en": "What does that mean? Can you help me?"
+   }
+  ]
+ },
+ {
+  "term": "Können Sie das bitte wiederholen?",
+  "en": "Could you repeat that, please?",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Können Sie das bitte wiederholen? Ich habe es nicht verstanden.",
+    "en": "Could you repeat that, please? I didn't understand it."
+   },
+   {
+    "de": "Können Sie das bitte wiederholen? Das war zu schnell.",
+    "en": "Could you repeat that, please? That was too fast."
+   }
+  ]
+ },
+ {
+  "term": "Noch einmal, bitte.",
+  "en": "Once more, please.",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Noch einmal, bitte. Ich habe es nicht gehört.",
+    "en": "Once more, please. I didn't hear it."
+   },
+   {
+    "de": "Noch einmal, bitte. Das war zu leise.",
+    "en": "Once more, please. That was too quiet."
+   }
+  ]
+ },
+ {
+  "term": "Langsamer, bitte.",
+  "en": "More slowly, please.",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Langsamer, bitte. Ich lerne noch Deutsch.",
+    "en": "More slowly, please. I'm still learning German."
+   },
+   {
+    "de": "Langsamer, bitte. Ich verstehe nicht alles.",
+    "en": "More slowly, please. I don't understand everything."
+   }
+  ]
+ },
+ {
+  "term": "Ich verstehe das nicht.",
+  "en": "I don't understand (that).",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Learning Languages",
+  "ex": [
+   {
+    "de": "Ich verstehe das nicht. Können Sie mir helfen?",
+    "en": "I don't understand. Can you help me?"
+   },
+   {
+    "de": "Ich verstehe das nicht. Was bedeutet das Wort?",
+    "en": "I don't understand. What does the word mean?"
+   }
+  ]
+ },
+ {
+  "term": "Können Sie mir helfen?",
+  "en": "Can you help me?",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Useful Phrases",
+  "ex": [
+   {
+    "de": "Können Sie mir helfen? Ich suche den Bahnhof.",
+    "en": "Can you help me? I'm looking for the station."
+   },
+   {
+    "de": "Können Sie mir helfen? Mein Koffer ist so schwer.",
+    "en": "Can you help me? My suitcase is so heavy."
+   }
+  ]
+ },
+ {
+  "term": "Einen Moment, bitte.",
+  "en": "One moment, please.",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Useful Phrases",
+  "ex": [
+   {
+    "de": "Einen Moment, bitte. Ich hole den Chef.",
+    "en": "One moment, please. I'll get the manager."
+   },
+   {
+    "de": "Einen Moment, bitte. Ich suche die Nummer.",
+    "en": "One moment, please. I'm looking for the number."
+   }
+  ]
+ },
+ {
+  "term": "am liebsten",
+  "en": "most of all, best (gern, lieber, am liebsten)",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Free time",
+  "ex": [
+   {
+    "de": "Ich trinke am liebsten Tee.",
+    "en": "I like drinking tea best."
+   },
+   {
+    "de": "Was isst du am liebsten?",
+    "en": "What do you like eating most?"
+   }
+  ]
+ },
+ {
+  "term": "Das stimmt.",
+  "en": "That's right. That's true.",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Useful Phrases",
+  "ex": [
+   {
+    "de": "Das stimmt. Du hast recht.",
+    "en": "That's true. You're right."
+   },
+   {
+    "de": "Das stimmt. Der Zug war zu spät.",
+    "en": "That's right. The train was late."
+   }
+  ]
+ },
+ {
+  "term": "Stimmt so.",
+  "en": "Keep the change.",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Restaurant & Dining",
+  "ex": [
+   {
+    "de": "Das macht 9,50 Euro. – Stimmt so.",
+    "en": "That's 9.50 euros. – Keep the change."
+   },
+   {
+    "de": "Hier sind zehn Euro. Stimmt so.",
+    "en": "Here's ten euros. Keep the change."
+   }
+  ]
+ },
+ {
+  "term": "Das macht nichts.",
+  "en": "Never mind. It doesn't matter.",
+  "pos": "phrase",
+  "level": "A2",
+  "field": "Useful Phrases",
+  "ex": [
+   {
+    "de": "Entschuldigung! – Das macht nichts.",
+    "en": "Sorry! – Never mind."
+   },
+   {
+    "de": "Das macht nichts. Wir fahren später.",
+    "en": "It doesn't matter. We'll go later."
+   }
+  ]
+ },
+ {
+  "term": "Keine Ahnung.",
+  "en": "No idea.",
+  "pos": "phrase",
+  "level": "A2",
+  "field": "Useful Phrases",
+  "ex": [
+   {
+    "de": "Wo ist mein Schlüssel? – Keine Ahnung.",
+    "en": "Where's my key? – No idea."
+   },
+   {
+    "de": "Keine Ahnung. Frag doch den Kellner.",
+    "en": "No idea. Ask the waiter."
+   }
+  ]
+ },
+ {
+  "term": "Was ist los?",
+  "en": "What's up? What's wrong?",
+  "pos": "phrase",
+  "level": "A2",
+  "field": "Useful Phrases",
+  "ex": [
+   {
+    "de": "Was ist los? Du siehst traurig aus.",
+    "en": "What's wrong? You look sad."
+   },
+   {
+    "de": "Was ist los? Warum weinst du?",
+    "en": "What's up? Why are you crying?"
+   }
+  ]
+ },
+ {
+  "term": "Gern geschehen.",
+  "en": "You're welcome.",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Everyday greetings and farewells",
+  "ex": [
+   {
+    "de": "Danke für die Hilfe! – Gern geschehen.",
+    "en": "Thanks for the help! – You're welcome."
+   },
+   {
+    "de": "Gern geschehen. Das war kein Problem.",
+    "en": "You're welcome. It was no problem."
+   }
+  ]
+ },
+ {
+  "term": "Alles Gute!",
+  "en": "All the best!",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Everyday greetings and farewells",
+  "ex": [
+   {
+    "de": "Alles Gute! Bis bald.",
+    "en": "All the best! See you soon."
+   },
+   {
+    "de": "Alles Gute! Und viel Glück im neuen Job.",
+    "en": "All the best! And good luck in the new job."
+   }
+  ]
+ },
+ {
+  "term": "Gute Reise!",
+  "en": "Have a good trip!",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Everyday greetings and farewells",
+  "ex": [
+   {
+    "de": "Gute Reise! Ruf mich an, wenn du ankommst.",
+    "en": "Have a good trip! Call me when you arrive."
+   },
+   {
+    "de": "Gute Reise! Bis nächste Woche.",
+    "en": "Have a good trip! See you next week."
+   }
+  ]
+ },
+ {
+  "term": "Schönes Wochenende!",
+  "en": "Have a nice weekend!",
+  "pos": "phrase",
+  "level": "A1",
+  "field": "Everyday greetings and farewells",
+  "ex": [
+   {
+    "de": "Schönes Wochenende! Bis Montag.",
+    "en": "Have a nice weekend! See you on Monday."
+   },
+   {
+    "de": "Schönes Wochenende! Was machst du am Samstag?",
+    "en": "Have a nice weekend! What are you doing on Saturday?"
+   }
+  ]
+ }
+]

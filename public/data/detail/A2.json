@@ -455,6 +455,20 @@
       }
     ]
   },
+  "voc:A2:als": {
+    "ex": [
+      {
+        "de": "Mein Bruder ist größer als ich.",
+        "en": "My brother is taller than me.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich war müde, als ich nach Hause kam.",
+        "en": "I was tired when I got home.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:altmodisch": {
     "def": "In a style from the past; no longer modern.",
     "ex": [
@@ -2173,6 +2187,21 @@
         "de": "Vorne steht das Haus, dahinter ist der Garten.",
         "en": "The house is at the front, behind it is the garden.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:damals": {
+    "def": "at that time (in the past); at the time, then",
+    "ex": [
+      {
+        "de": "So war es damals.",
+        "en": "That's the way things were back then.",
+        "lvl": "B1"
+      },
+      {
+        "de": "So war das damals.",
+        "en": "That's how it was back then.",
+        "lvl": "B1"
       }
     ]
   },
@@ -4135,6 +4164,21 @@
       }
     ]
   },
+  "voc:A2:das Lesen": {
+    "def": "to read (to look at and understand symbols, words, or data); to read (to give off a certain impression while being read; of a text)",
+    "ex": [
+      {
+        "de": "Das Lesen entspannt mich am Abend.",
+        "en": "Reading relaxes me in the evening.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er kann nicht lesen.",
+        "en": "He doesn't know how to read.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A2:das Loch": {
     "ex": [
       {
@@ -5876,6 +5920,21 @@
       }
     ]
   },
+  "voc:A2:denken an + A": {
+    "def": "To have someone or something in your mind.",
+    "ex": [
+      {
+        "de": "Ich denke oft an meine Familie in Australien.",
+        "en": "I often think of my family in Australia.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat den ganzen Tag an ihn gedacht.",
+        "en": "She thought about him all day.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A2:der Abschluss": {
     "def": "exclusion",
     "ex": [
@@ -6119,6 +6178,20 @@
       }
     ]
   },
+  "voc:A2:der Arbeiter": {
+    "ex": [
+      {
+        "de": "Die Arbeiter bauen ein neues Haus.",
+        "en": "The workers are building a new house.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er ist Arbeiter bei Ford.",
+        "en": "He's a worker at Ford.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Arbeitgeber": {
     "def": "employer (male or of unspecified gender)",
     "ex": [
@@ -6337,20 +6410,6 @@
         "de": "Diese Frage war der Ausgangspunkt der ganzen Diskussion.",
         "en": "This question was the starting point of the whole discussion.",
         "lvl": "B2"
-      }
-    ]
-  },
-  "voc:A2:der Ausländer": {
-    "ex": [
-      {
-        "de": "Als Ausländer musste er viele Formulare ausfüllen.",
-        "en": "As a foreigner he had to fill in a lot of forms.",
-        "lvl": "A2"
-      },
-      {
-        "de": "In dieser Firma arbeiten viele Ausländer.",
-        "en": "A lot of foreigners work at this company.",
-        "lvl": "A2"
       }
     ]
   },
@@ -7246,20 +7305,6 @@
       {
         "de": "Wir decken den Esstisch für das Abendessen.",
         "en": "We set the dining table for dinner.",
-        "lvl": "A2"
-      }
-    ]
-  },
-  "voc:A2:der Europäer": {
-    "ex": [
-      {
-        "de": "Er fühlt sich vor allem als Europäer.",
-        "en": "He feels European above all.",
-        "lvl": "A2"
-      },
-      {
-        "de": "Viele Europäer machen in Spanien Urlaub.",
-        "en": "Many Europeans go on holiday in Spain.",
         "lvl": "A2"
       }
     ]
@@ -9677,6 +9722,20 @@
       }
     ]
   },
+  "voc:A2:der Rauch": {
+    "ex": [
+      {
+        "de": "Aus dem Fenster kommt Rauch.",
+        "en": "Smoke is coming out of the window.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Rauch stört mich.",
+        "en": "The smoke bothers me.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Raum": {
     "def": "space; place, area, field, room, space",
     "ex": [
@@ -10237,6 +10296,20 @@
       {
         "de": "Tom braucht Schutz.",
         "en": "Tom needs protection.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Schwanz": {
+    "ex": [
+      {
+        "de": "Der Hund wedelt mit dem Schwanz.",
+        "en": "The dog is wagging its tail.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Katze hat einen langen Schwanz.",
+        "en": "The cat has a long tail.",
         "lvl": "A2"
       }
     ]
@@ -12002,6 +12075,21 @@
       }
     ]
   },
+  "voc:A2:deswegen": {
+    "def": "For that reason.",
+    "ex": [
+      {
+        "de": "Deswegen schrie Tom.",
+        "en": "That was why Tom screamed.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Deswegen mag ich Sie.",
+        "en": "That's why I like you.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A2:deutlich": {
     "def": "articulate, clear",
     "ex": [
@@ -13732,6 +13820,20 @@
       }
     ]
   },
+  "voc:A2:die Eile": {
+    "ex": [
+      {
+        "de": "Ich bin in Eile.",
+        "en": "I'm in a hurry.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Keine Eile, wir haben Zeit.",
+        "en": "No hurry, we've got time.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Einbauküche": {
     "def": "built-in kitchen, fitted kitchen",
     "ex": [
@@ -14000,6 +14102,20 @@
         "de": "Die alte Fabrik wurde zu Wohnungen umgebaut.",
         "en": "The old factory was converted into flats.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Fahrt": {
+    "ex": [
+      {
+        "de": "Die Fahrt nach Berlin dauert vier Stunden.",
+        "en": "The journey to Berlin takes four hours.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Gute Fahrt!",
+        "en": "Have a good trip!",
+        "lvl": "A2"
       }
     ]
   },
@@ -14566,6 +14682,26 @@
         "de": "Die Grafik veranschaulicht, wie der Körper funktioniert.",
         "en": "The chart illustrates how the body works.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Grenze": {
+    "def": "border",
+    "ex": [
+      {
+        "de": "Wir haben die Grenze nach Österreich überquert.",
+        "en": "We crossed the border into Austria.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Alles hat seine Grenzen, auch die Geduld.",
+        "en": "Everything has its limits, patience too.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Forschung stößt hier an die Grenzen des technisch Machbaren.",
+        "en": "Research here reaches the limits of what is technically feasible.",
+        "lvl": "C1"
       }
     ]
   },
@@ -16228,6 +16364,20 @@
       }
     ]
   },
+  "voc:A2:die Länge": {
+    "ex": [
+      {
+        "de": "Die Länge der Hose passt nicht.",
+        "en": "The length of the trousers isn't right.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Welche Länge hat der Tisch?",
+        "en": "How long is the table?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Mahlzeit": {
     "def": "The food eaten at one time, such as breakfast, lunch, or dinner.",
     "ex": [
@@ -16396,6 +16546,20 @@
         "de": "Das Leben in der Metropole ist teuer, aber spannend.",
         "en": "Life in the metropolis is expensive but exciting.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Metzgerei": {
+    "ex": [
+      {
+        "de": "Die Metzgerei ist neben der Bäckerei.",
+        "en": "The butcher's is next to the bakery.",
+        "lvl": "A2"
+      },
+      {
+        "de": "In der Metzgerei kaufe ich Wurst.",
+        "en": "I buy sausage at the butcher's.",
+        "lvl": "A2"
       }
     ]
   },
@@ -17055,6 +17219,20 @@
         "de": "Den Diebstahl muss man bei der Polizeiwache anzeigen.",
         "en": "You have to report the theft at the police station.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Polizistin": {
+    "ex": [
+      {
+        "de": "Die Polizistin hilft uns.",
+        "en": "The police officer is helping us.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie ist Polizistin in Bonn.",
+        "en": "She's a police officer in Bonn.",
+        "lvl": "A2"
       }
     ]
   },
@@ -18082,6 +18260,26 @@
       }
     ]
   },
+  "voc:A2:die Sorge": {
+    "def": "concern, care, responsibility, aid; concern, worry, apprehension, trouble, distress",
+    "ex": [
+      {
+        "de": "Mach dir keine Sorgen!",
+        "en": "Don’t worry!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Eltern machten sich große Sorgen um ihr Kind.",
+        "en": "The parents were very worried about their child.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Seine Sorgen um die Zukunft des Betriebs erwiesen sich als berechtigt.",
+        "en": "His concerns about the company’s future proved to be justified.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:A2:die Soße": {
     "def": "sauce, gravy",
     "ex": [
@@ -18323,6 +18521,26 @@
       }
     ]
   },
+  "voc:A2:die Stimme": {
+    "def": "voice (speaking or singing), call of an animal",
+    "ex": [
+      {
+        "de": "Sie hat eine schöne Stimme.",
+        "en": "She has a beautiful voice.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Jede Stimme zählt bei der Wahl.",
+        "en": "Every vote counts in the election.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er erhob seine Stimme gegen die Ungerechtigkeit.",
+        "en": "He raised his voice against the injustice.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:A2:die Stimmung": {
     "def": "mood (emotional state); mood (inclination to do something)",
     "ex": [
@@ -18425,6 +18643,20 @@
         "de": "Wer seine Stärken kennt, kann sie gezielt einsetzen.",
         "en": "Whoever knows their strengths can use them deliberately.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Suche": {
+    "ex": [
+      {
+        "de": "Die Suche nach einer Wohnung ist schwer.",
+        "en": "Looking for a flat is hard.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich bin auf der Suche nach einem Job.",
+        "en": "I'm looking for a job.",
+        "lvl": "A2"
       }
     ]
   },
@@ -18849,6 +19081,20 @@
       {
         "de": "Vor dem Laden bildet sich eine Traube von Menschen.",
         "en": "A cluster of people is forming outside the shop.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Träne": {
+    "ex": [
+      {
+        "de": "Sie hat eine Träne im Auge.",
+        "en": "She has a tear in her eye.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Träne läuft über ihr Gesicht.",
+        "en": "The tear runs down her face.",
         "lvl": "A2"
       }
     ]
@@ -19387,6 +19633,20 @@
         "de": "Der Zug hatte über eine Stunde Verspätung.",
         "en": "The train was more than an hour late.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Viertelstunde": {
+    "ex": [
+      {
+        "de": "Der Bus kommt in einer Viertelstunde.",
+        "en": "The bus comes in a quarter of an hour.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich warte schon eine Viertelstunde.",
+        "en": "I've been waiting for a quarter of an hour.",
+        "lvl": "A2"
       }
     ]
   },
@@ -20149,6 +20409,21 @@
       }
     ]
   },
+  "voc:A2:diskutieren": {
+    "def": "To talk about a subject with others.",
+    "ex": [
+      {
+        "de": "Wir diskutieren über Politik.",
+        "en": "We're discussing politics.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Über dieses Thema müssen wir diskutieren.",
+        "en": "We need to discuss this issue.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A2:donnern": {
     "def": "To make the loud rumbling sound that follows lightning.",
     "ex": [
@@ -20299,6 +20574,36 @@
         "de": "Ist er da drin?",
         "en": "Is it in there?",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:dringend": {
+    "def": "Needing to be dealt with at once.",
+    "ex": [
+      {
+        "de": "Ich muss dringend mit dir sprechen.",
+        "en": "I urgently need to talk to you.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es gibt ein dringendes Problem.",
+        "en": "There is an urgent problem.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Es besteht dringender Handlungsbedarf, will man Schlimmeres verhindern.",
+        "en": "There is an urgent need for action if worse is to be prevented.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Hier besteht dringender Handlungsbedarf.",
+        "en": "There is an urgent need for action here.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In diesem Bereich besteht dringender Reformbedarf.",
+        "en": "In this area there is an urgent need for reform.",
+        "lvl": "B2"
       }
     ]
   },
@@ -21222,6 +21527,21 @@
         "de": "Das Erlernen einer Sprache braucht Zeit.",
         "en": "Learning a language takes time.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:ernst": {
+    "def": "ohne Spaß, ohne Scherz, ohne Humor, ohne Ironie",
+    "ex": [
+      {
+        "de": "Sie machte ein ernstes Gesicht.",
+        "en": "She made a serious face.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nimm meine Warnung bitte ernst.",
+        "en": "Please take my warning seriously.",
+        "lvl": "B1"
       }
     ]
   },
@@ -23251,6 +23571,20 @@
       }
     ]
   },
+  "voc:A2:küssen": {
+    "ex": [
+      {
+        "de": "Sie küsst ihn auf die Wange.",
+        "en": "She kisses him on the cheek.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Darf ich dich küssen?",
+        "en": "May I kiss you?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:landen": {
     "def": "mit einem Wasserfahrzeug ans Land gelangen",
     "ex": [
@@ -23417,6 +23751,20 @@
       {
         "de": "Das Auto kam von der linken Seite.",
         "en": "The car came from the left-hand side.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:loben": {
+    "ex": [
+      {
+        "de": "Die Lehrerin lobt die Schüler.",
+        "en": "The teacher praises the pupils.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Chef hat mich gelobt.",
+        "en": "The boss praised me.",
         "lvl": "A2"
       }
     ]
@@ -24162,6 +24510,20 @@
       }
     ]
   },
+  "voc:A2:ob": {
+    "ex": [
+      {
+        "de": "Ich weiß nicht, ob er kommt.",
+        "en": "I don't know whether he's coming.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Weißt du, ob der Laden offen ist?",
+        "en": "Do you know if the shop is open?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:obwohl": {
     "def": "subordinating: sends the verb to the end of the clause",
     "ex": [
@@ -24284,6 +24646,21 @@
         "de": "Die Situation war ihm sehr peinlich.",
         "en": "The situation was very embarrassing for him.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:persönlich": {
+    "def": "Belonging to or concerning one particular person.",
+    "ex": [
+      {
+        "de": "Ich möchte dir das persönlich sagen.",
+        "en": "I'd like to tell you that in person.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist meine persönliche Meinung.",
+        "en": "That's my personal opinion.",
+        "lvl": "B1"
       }
     ]
   },
@@ -24995,6 +25372,20 @@
       }
     ]
   },
+  "voc:A2:saugen": {
+    "ex": [
+      {
+        "de": "Ich sauge heute den Teppich.",
+        "en": "I'm vacuuming the carpet today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Baby saugt an der Flasche.",
+        "en": "The baby is sucking on the bottle.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A2:schade": {
     "def": "a pity, a shame; bummer; unfortunate; disappointing",
     "ex": [
@@ -25007,6 +25398,21 @@
         "de": "Wie schade!",
         "en": "What a pity!",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:schaffen": {
+    "def": "to create, to call into being; to create, make, form, shape",
+    "ex": [
+      {
+        "de": "Wir schaffen es.",
+        "en": "We can do that.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir schaffen das!",
+        "en": "We can do it.",
+        "lvl": "B1"
       }
     ]
   },
@@ -26086,6 +26492,20 @@
       }
     ]
   },
+  "voc:A2:sondern": {
+    "ex": [
+      {
+        "de": "Das ist nicht rot, sondern blau.",
+        "en": "That's not red but blue.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich komme nicht heute, sondern morgen.",
+        "en": "I'm not coming today but tomorrow.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:sonnig": {
     "def": "With the sun shining and few clouds.",
     "defDe": "sich auf die Sonne beziehend, in der Art und Weise der Sonne, von der Sonne beschienen",
@@ -26416,6 +26836,21 @@
       }
     ]
   },
+  "voc:A2:stehlen": {
+    "def": "to steal; to skulk, to move secretly",
+    "ex": [
+      {
+        "de": "Stehlen ist böse.",
+        "en": "It's bad to steal.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Zu stehlen ist etwas Schlimmes.",
+        "en": "It is bad to steal.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:A2:steigen": {
     "def": "to ascend, to climb, to rise; to rise (in value, of commodities etc.)",
     "ex": [
@@ -26608,6 +27043,21 @@
         "de": "Wollen wir die Plätze tauschen?",
         "en": "Shall we swap seats?",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:teilen": {
+    "def": "to split, to share; to divide",
+    "ex": [
+      {
+        "de": "Bitte teilen Sie den Artikel nur, wenn Sie die Quelle geprüft haben.",
+        "en": "Please only share the article if you have checked the source.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie teilte den Beitrag mit ihren Freunden.",
+        "en": "She shared the post with her friends.",
+        "lvl": "B2"
       }
     ]
   },
@@ -27411,6 +27861,21 @@
       }
     ]
   },
+  "voc:A2:vergangen": {
+    "def": "Belonging to a time that has gone by.",
+    "ex": [
+      {
+        "de": "Zwei Tage waren vergangen.",
+        "en": "Two days had passed.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Vier Tage waren vergangen.",
+        "en": "Four days had passed.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:A2:vergleichen": {
     "def": "To look at two or more things to see how they are alike or different.",
     "ex": [
@@ -27477,6 +27942,22 @@
       {
         "de": "Die beiden sind bis über beide Ohren verliebt.",
         "en": "The two are head over heels in love.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:verlieren": {
+    "def": "To be left without something you had; also to be beaten in a contest.",
+    "defDe": "etwas irgendwo hinlegen und es später nicht mehr wiederfinden",
+    "ex": [
+      {
+        "de": "Ich habe meinen Autoschlüssel verloren.",
+        "en": "I lost my car key.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie haben gerade ihr Taschentuch verloren.",
+        "en": "You've just dropped your handkerchief.",
         "lvl": "B1"
       }
     ]
@@ -28069,6 +28550,21 @@
         "de": "Wer regelmäßig wandert, tut Körper und Geist etwas Gutes.",
         "en": "Whoever hikes regularly does something good for body and mind.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:warten auf + A": {
+    "def": "To stay where you are until someone or something comes.",
+    "ex": [
+      {
+        "de": "Sie wartet seit Monaten auf ihr Visum.",
+        "en": "She has been waiting for her visa for months.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben lange auf eine Antwort gewartet.",
+        "en": "We waited a long time for an answer.",
+        "lvl": "B1"
       }
     ]
   },

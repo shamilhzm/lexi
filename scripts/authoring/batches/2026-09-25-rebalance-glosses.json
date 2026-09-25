@@ -1,0 +1,8 @@
+{"rows":[
+ {"id":"voc:A1:Österreich","expect":{"en":"austria"},"en":"Austria"},
+ {"id":"voc:A1:die Schweiz","expect":{"en":"switzerland"},"en":"Switzerland"},
+ {"id":"voc:A1:England","expect":{"en":"england"},"en":"England"},
+ {"id":"voc:A1:Frankreich","expect":{"en":"france"},"en":"France"},
+ {"id":"voc:A1:China","expect":{"en":"china"},"en":"China"},
+ {"id":"voc:B1:schaffen","expect":{"en":"to create, to call into being"},"en":"to manage, to get done; to create"}
+]}

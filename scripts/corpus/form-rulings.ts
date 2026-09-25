@@ -568,11 +568,11 @@ export const FORM_RULINGS: FormRuling[] = [
     why: 'The pattern card is the stray again: füllen in is not a fixed government, it is the verb plus an ordinary directional phrase. füllen is the lemma and keeps A1, the lower level.',
   },
   {
-    rule: 'keep', form: 'voc:A1:denken', lemma: 'voc:B1:denken an + A',
+    rule: 'keep', form: 'voc:A1:denken', lemma: 'voc:A2:denken an + A',
     why: 'denken introduces a thought — «Ich denke, dass …» — while denken an is directed at a person or a thing. Both are needed. (The A1 card\'s example was the governed pattern and is fixed separately.)',
   },
   {
-    rule: 'keep', form: 'voc:A1:warten', lemma: 'voc:B1:warten auf + A',
+    rule: 'keep', form: 'voc:A1:warten', lemma: 'voc:A2:warten auf + A',
     why: 'warten alone is intransitive — «Warte kurz!» — and warten auf takes an accusative object. The pattern is the B1 fact; the bare verb is A1. (The A1 example was the pattern and is fixed separately.)',
   },
   {

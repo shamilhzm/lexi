@@ -51312,11 +51312,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Sorge",
+    "id": "voc:A2:die Sorge",
     "term": "die Sorge",
     "en": "worry, concern",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "gender": "die",
     "plural": "die Sorgen",
     "ipa": "ˈzɔʁɡə",
@@ -53797,11 +53797,11 @@
     "defDe": null
   },
   {
-    "id": "voc:B1:dringend",
+    "id": "voc:A2:dringend",
     "term": "dringend",
     "en": "urgent",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈdʁɪŋənt",
@@ -54983,11 +54983,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Grenze",
+    "id": "voc:A2:die Grenze",
     "term": "die Grenze",
     "en": "border; limit",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "gender": "die",
     "plural": "die Grenzen",
     "ipa": "ˈɡʁɛnt͡sə",
@@ -56922,11 +56922,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Stimme",
+    "id": "voc:A2:die Stimme",
     "term": "die Stimme",
     "en": "voice; vote",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "gender": "die",
     "plural": "die Stimmen",
     "ipa": "ˈʃtɪmə",
@@ -80747,11 +80747,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:teilen",
+    "id": "voc:A2:teilen",
     "term": "teilen",
     "en": "to share",
     "pos": "verb",
-    "level": "B2",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈtaɪ̯lən",
@@ -103470,11 +103470,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:diskutieren",
+    "id": "voc:A2:diskutieren",
     "term": "diskutieren",
     "en": "to discuss",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "dɪskuˈtiːʁən",
@@ -108345,11 +108345,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:ernst",
+    "id": "voc:A2:ernst",
     "term": "ernst",
     "en": "serious, grave",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ɛʁnst",
@@ -110890,11 +110890,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Deutschland",
+    "id": "voc:A1:Deutschland",
     "term": "Deutschland",
     "en": "Germany",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈdɔɪ̯t͡ʃlant",
@@ -110917,11 +110917,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Österreich",
+    "id": "voc:A1:Österreich",
     "term": "Österreich",
-    "en": "austria",
+    "en": "Austria",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈøːstɐʁaɪ̯ç",
@@ -110944,11 +110944,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die Schweiz",
+    "id": "voc:A1:die Schweiz",
     "term": "die Schweiz",
-    "en": "switzerland",
+    "en": "Switzerland",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "nur Singular",
     "ipa": "ʃvaɪ̯t͡s",
@@ -110971,11 +110971,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Frankreich",
+    "id": "voc:A1:Frankreich",
     "term": "Frankreich",
-    "en": "france",
+    "en": "France",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈfʁaŋkʁaɪ̯ç",
@@ -111052,11 +111052,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:England",
+    "id": "voc:A1:England",
     "term": "England",
-    "en": "england",
+    "en": "England",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈɛŋlant",
@@ -111079,11 +111079,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:die USA",
+    "id": "voc:A1:die USA",
     "term": "die USA",
     "en": "the USA",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "die",
     "plural": "die USA",
     "ipa": "diː uːʔɛsˈʔaː",
@@ -111133,11 +111133,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:China",
+    "id": "voc:A1:China",
     "term": "China",
-    "en": "china",
+    "en": "China",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈçiːna",
@@ -111433,11 +111433,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:Polen",
+    "id": "voc:A1:Polen",
     "term": "Polen",
     "en": "Poland",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": null,
     "plural": null,
     "ipa": "ˈpoːlən",
@@ -120579,11 +120579,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:das Lesen",
+    "id": "voc:A2:das Lesen",
     "term": "das Lesen",
     "en": "reading",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "gender": "das",
     "plural": "nur Singular",
     "ipa": "ˈleːzn̩",
@@ -125198,11 +125198,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:verlieren",
+    "id": "voc:A2:verlieren",
     "term": "verlieren",
     "en": "to lose",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈliːʁən",
@@ -128609,11 +128609,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:persönlich",
+    "id": "voc:A2:persönlich",
     "term": "persönlich",
     "en": "personal",
     "pos": "adjective",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "pɛʁˈzøːnlɪç",
@@ -139221,11 +139221,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:damals",
+    "id": "voc:A2:damals",
     "term": "damals",
     "en": "at that time",
     "pos": "adverb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈdaːmaːls",
@@ -140155,11 +140155,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:schaffen",
+    "id": "voc:A2:schaffen",
     "term": "schaffen",
-    "en": "to create, to call into being",
+    "en": "to manage, to get done; to create",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈʃafən",
@@ -142599,11 +142599,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:deswegen",
+    "id": "voc:A2:deswegen",
     "term": "deswegen",
     "en": "therefore, because of that",
     "pos": "adverb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈdɛsˈveːɡn̩",
@@ -165973,11 +165973,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:stehlen",
+    "id": "voc:A2:stehlen",
     "term": "stehlen",
     "en": "to steal",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈʃteːlən",
@@ -178835,11 +178835,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:vergangen",
+    "id": "voc:A2:vergangen",
     "term": "vergangen",
     "en": "past, bygone",
     "pos": "adjective",
-    "level": "B2",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "fɛɐ̯ˈɡaŋən",
@@ -206717,11 +206717,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:denken an + A",
+    "id": "voc:A2:denken an + A",
     "term": "denken an + A",
     "en": "to think of/about",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈdɛŋkn̩",
@@ -206744,11 +206744,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:warten auf + A",
+    "id": "voc:A2:warten auf + A",
     "term": "warten auf + A",
     "en": "to wait for",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈvaʁtn̩",
@@ -207213,11 +207213,11 @@
     "kind": "grammar"
   },
   {
-    "id": "voc:A2:der Ausländer",
+    "id": "voc:A1:der Ausländer",
     "term": "der Ausländer",
     "en": "foreigner",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Ausländer",
     "ipa": "ˈaʊ̯sˌlɛndɐ",
@@ -208406,11 +208406,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:der LKW",
+    "id": "voc:A1:der LKW",
     "term": "der LKW",
     "en": "lorry, truck",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "gender": "der",
     "plural": null,
     "ipa": "ˈɛlkaveː",
@@ -214778,11 +214778,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B1:saugen",
+    "id": "voc:A2:saugen",
     "term": "saugen",
     "en": "to suck; to vacuum",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "ˈzaʊ̯ɡn̩",
@@ -240293,11 +240293,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:A2:der Europäer",
+    "id": "voc:A1:der Europäer",
     "term": "der Europäer",
     "en": "European (man)",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "gender": "der",
     "plural": "die Europäer",
     "ipa": "ˌɔɪ̯ʁoˈpɛːɐ",
@@ -289865,11 +289865,11 @@
     "kind": "word"
   },
   {
-    "id": "voc:B2:der Bogen",
+    "id": "voc:A1:der Bogen",
     "term": "der Bogen",
     "en": "arc, curve; bow; sheet (of paper)",
     "pos": "noun",
-    "level": "B2",
+    "level": "A1",
     "gender": "der",
     "plural": null,
     "ipa": "ˈboːɡn̩",
@@ -302255,6 +302255,816 @@
       }
     ],
     "field": "Doctor & patient",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:denn",
+    "term": "denn",
+    "en": "because, for; (in questions) then, anyway",
+    "pos": "conjunction",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "dɛn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bleibe zu Hause, denn ich bin krank.",
+        "en": "I'm staying at home, because I'm ill.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie heißt du denn?",
+        "en": "So what's your name, then?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:seit",
+    "term": "seit",
+    "en": "since, for (with present tense)",
+    "pos": "preposition",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich wohne seit zwei Jahren in Köln.",
+        "en": "I've lived in Cologne for two years.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich lerne seit März Deutsch.",
+        "en": "I've been learning German since March.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:als",
+    "term": "als",
+    "en": "than; when (in the past); as",
+    "pos": "conjunction",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "als",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Bruder ist größer als ich.",
+        "en": "My brother is taller than me.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich war müde, als ich nach Hause kam.",
+        "en": "I was tired when I got home.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:ob",
+    "term": "ob",
+    "en": "whether, if",
+    "pos": "conjunction",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɔp",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich weiß nicht, ob er kommt.",
+        "en": "I don't know whether he's coming.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Weißt du, ob der Laden offen ist?",
+        "en": "Do you know if the shop is open?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:sondern",
+    "term": "sondern",
+    "en": "but (rather), after a negative",
+    "pos": "conjunction",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɔndɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist nicht rot, sondern blau.",
+        "en": "That's not red but blue.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich komme nicht heute, sondern morgen.",
+        "en": "I'm not coming today but tomorrow.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:mehr",
+    "term": "mehr",
+    "en": "more; (nicht mehr) no longer",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "meːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich möchte mehr Zeit haben.",
+        "en": "I'd like to have more time.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich rauche nicht mehr.",
+        "en": "I don't smoke any more.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:weiter",
+    "term": "weiter",
+    "en": "further, on (keep going)",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvaɪ̯tɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir fahren morgen weiter.",
+        "en": "We're driving on tomorrow.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Und wie geht es jetzt weiter?",
+        "en": "And what happens now?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:lange",
+    "term": "lange",
+    "en": "(for) a long time",
+    "pos": "adverb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈlaŋə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie lange dauert der Kurs?",
+        "en": "How long does the course last?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich warte schon lange auf den Bus.",
+        "en": "I've been waiting for the bus for a long time.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:dir",
+    "term": "dir",
+    "en": "(to/for) you (informal, dative)",
+    "pos": "pronoun",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "diːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie geht es dir?",
+        "en": "How are you?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich helfe dir gern.",
+        "en": "I'm happy to help you.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "English pronouns",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Radiergummi",
+    "term": "der Radiergummi",
+    "en": "eraser, rubber",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Radiergummis",
+    "ipa": "ʁaˈdiːɐ̯ˌɡʊmi",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Hast du einen Radiergummi für mich?",
+        "en": "Have you got a rubber for me?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Radiergummi liegt auf dem Tisch.",
+        "en": "The rubber is on the table.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "School",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:der Kursleiter",
+    "term": "der Kursleiter",
+    "en": "course leader, teacher (of a course)",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "der",
+    "plural": "die Kursleiter",
+    "ipa": "ˈkʊʁsˌlaɪ̯tɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kursleiter erklärt die Grammatik.",
+        "en": "The course leader explains the grammar.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Unser Kursleiter kommt aus Hamburg.",
+        "en": "Our teacher comes from Hamburg.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:ankreuzen",
+    "term": "ankreuzen",
+    "en": "to tick, to mark with a cross",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌkʁɔɪ̯t͡sn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bitte die richtige Antwort ankreuzen.",
+        "en": "Please tick the correct answer.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie müssen hier ankreuzen.",
+        "en": "You have to tick here.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Metzgerei",
+    "term": "die Metzgerei",
+    "en": "butcher's (shop)",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Metzgereien",
+    "ipa": "mɛt͡sɡəˈʁaɪ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Metzgerei ist neben der Bäckerei.",
+        "en": "The butcher's is next to the bakery.",
+        "lvl": "A2"
+      },
+      {
+        "de": "In der Metzgerei kaufe ich Wurst.",
+        "en": "I buy sausage at the butcher's.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Lehrerin",
+    "term": "die Lehrerin",
+    "en": "(female) teacher",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Lehrerinnen",
+    "ipa": "ˈleːʁəʁɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Meine Lehrerin ist sehr nett.",
+        "en": "My teacher is very nice.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie arbeitet als Lehrerin.",
+        "en": "She works as a teacher.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Work & profession",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Studentin",
+    "term": "die Studentin",
+    "en": "(female) student",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Studentinnen",
+    "ipa": "ʃtuˈdɛntɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie ist Studentin in Köln.",
+        "en": "She's a student in Cologne.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Studentin wohnt in einer WG.",
+        "en": "The student lives in a flat share.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Work & profession",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Polizistin",
+    "term": "die Polizistin",
+    "en": "policewoman, police officer",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Polizistinnen",
+    "ipa": "poliˈt͡sɪstɪn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Polizistin hilft uns.",
+        "en": "The police officer is helping us.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie ist Polizistin in Bonn.",
+        "en": "She's a police officer in Bonn.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Work & profession",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:die Disco",
+    "term": "die Disco",
+    "en": "disco, club",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "die",
+    "plural": "die Discos",
+    "ipa": "ˈdɪsko",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Am Samstag gehen wir in die Disco.",
+        "en": "On Saturday we're going to the club.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Disco ist bis vier Uhr offen.",
+        "en": "The club is open until four.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:ausländisch",
+    "term": "ausländisch",
+    "en": "foreign",
+    "pos": "adjective",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯slɛndɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat einen ausländischen Pass.",
+        "en": "He has a foreign passport.",
+        "lvl": "A1"
+      },
+      {
+        "de": "In Köln gibt es viele ausländische Studenten.",
+        "en": "There are many foreign students in Cologne.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Countries",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:abfliegen",
+    "term": "abfliegen",
+    "en": "to take off, to fly off",
+    "pos": "verb",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌfliːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wann willst du abfliegen?",
+        "en": "When do you want to fly?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Flugzeug soll um acht abfliegen.",
+        "en": "The plane is due to take off at eight.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Fahrt",
+    "term": "die Fahrt",
+    "en": "journey, drive, ride",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Fahrten",
+    "ipa": "faːɐ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Fahrt nach Berlin dauert vier Stunden.",
+        "en": "The journey to Berlin takes four hours.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Gute Fahrt!",
+        "en": "Have a good trip!",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:küssen",
+    "term": "küssen",
+    "en": "to kiss",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʏsn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie küsst ihn auf die Wange.",
+        "en": "She kisses him on the cheek.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Darf ich dich küssen?",
+        "en": "May I kiss you?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Relationships",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Viertelstunde",
+    "term": "die Viertelstunde",
+    "en": "quarter of an hour",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Viertelstunden",
+    "ipa": "ˈfɪʁtl̩ˌʃtʊndə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Bus kommt in einer Viertelstunde.",
+        "en": "The bus comes in a quarter of an hour.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich warte schon eine Viertelstunde.",
+        "en": "I've been waiting for a quarter of an hour.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Arbeiter",
+    "term": "der Arbeiter",
+    "en": "worker, labourer",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Arbeiter",
+    "ipa": "ˈaʁbaɪ̯tɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Arbeiter bauen ein neues Haus.",
+        "en": "The workers are building a new house.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er ist Arbeiter bei Ford.",
+        "en": "He's a worker at Ford.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Länge",
+    "term": "die Länge",
+    "en": "length",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Längen",
+    "ipa": "ˈlɛŋə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Länge der Hose passt nicht.",
+        "en": "The length of the trousers isn't right.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Welche Länge hat der Tisch?",
+        "en": "How long is the table?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Clothes shop",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Schwanz",
+    "term": "der Schwanz",
+    "en": "tail",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Schwänze",
+    "ipa": "ʃvant͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Hund wedelt mit dem Schwanz.",
+        "en": "The dog is wagging its tail.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Katze hat einen langen Schwanz.",
+        "en": "The cat has a long tail.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Animals",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Träne",
+    "term": "die Träne",
+    "en": "tear (from crying)",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Tränen",
+    "ipa": "ˈtʁɛːnə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat eine Träne im Auge.",
+        "en": "She has a tear in her eye.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Träne läuft über ihr Gesicht.",
+        "en": "The tear runs down her face.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Eile",
+    "term": "die Eile",
+    "en": "hurry",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": null,
+    "ipa": "ˈaɪ̯lə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin in Eile.",
+        "en": "I'm in a hurry.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Keine Eile, wir haben Zeit.",
+        "en": "No hurry, we've got time.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:der Rauch",
+    "term": "der Rauch",
+    "en": "smoke",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "der",
+    "plural": "die Rauche",
+    "ipa": "ʁaʊ̯x",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Aus dem Fenster kommt Rauch.",
+        "en": "Smoke is coming out of the window.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Rauch stört mich.",
+        "en": "The smoke bothers me.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Suche",
+    "term": "die Suche",
+    "en": "search, hunt",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Suchen",
+    "ipa": "ˈzuːxə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Suche nach einer Wohnung ist schwer.",
+        "en": "Looking for a flat is hard.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich bin auf der Suche nach einem Job.",
+        "en": "I'm looking for a job.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Housing & Room Search",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:loben",
+    "term": "loben",
+    "en": "to praise",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈloːbn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Lehrerin lobt die Schüler.",
+        "en": "The teacher praises the pupils.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Chef hat mich gelobt.",
+        "en": "The boss praised me.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Communication",
     "kind": "word"
   }
 ]

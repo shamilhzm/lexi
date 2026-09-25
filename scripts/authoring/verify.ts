@@ -159,11 +159,24 @@ const GENUS: Record<string, 'der' | 'die' | 'das'> = { m: 'der', f: 'die', n: 'd
  *  gitignored `scripts/corpus/data/`, the same place every other fetched source
  *  goes — this repo redistributes derived facts, never dumps. */
 export async function wikitext(page: string): Promise<string | null> {
-  mkdirSync(CACHE, { recursive: true });
-  const file = join(CACHE, `${encodeURIComponent(page)}.txt`);
+  mkdirSync(join(CACHE, 'v2'), { recursive: true });
+  const file = cacheFile(page);
   if (existsSync(file)) {
     const s = readFileSync(file, 'utf8');
     return s === MISSING ? null : s;
+  }
+  // The pre-2026-09-25 cache named files by the bare title, and macOS's filesystem
+  // is case-insensitive: `Elend.txt` and `elend.txt` were one file, so the noun was
+  // checked against whichever of the two pages was fetched first. That is where the
+  // "homograph clashes" came from (*Kollektiv/kollektiv*, *Schrecken/schrecken*,
+  // *Elend* reported as an adjective) — not from Wiktionary. A legacy file is
+  // reused only when its own heading proves it is this page; anything else,
+  // including a cached miss, is fetched again.
+  const legacy = join(CACHE, `${encodeURIComponent(page)}.txt`);
+  if (existsSync(legacy)) {
+    const s = readFileSync(legacy, 'utf8');
+    const heading = s.match(/^==\s*(.+?)\s*\(\{\{Sprache\|/m)?.[1];
+    if (s !== MISSING && heading === page) { writeFileSync(file, s); return s; }
   }
 
   // Two failures look identical to a caller and must not be treated alike. The
@@ -195,6 +208,12 @@ export async function wikitext(page: string): Promise<string | null> {
 }
 
 const MISSING = '\0MISSING';
+
+/** A cache path that survives a case-insensitive filesystem: every capital is
+ *  marked, so `Noch` and `noch` can never share a file. */
+export function cacheFile(page: string): string {
+  return join(CACHE, 'v2', `${encodeURIComponent(page.replace(/\p{Lu}/gu, (m) => `^${m}`))}.txt`);
+}
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export interface Facts {
@@ -284,6 +303,74 @@ export function exampleTeachesWord(card: Word, de: string, corpus: Word[] = []):
 
 const GLOSS_MAX = 80;
 
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/** A fixed phrase — *Wie spät ist es?*, *Gern geschehen.*, *Stimmt so.*
+ *
+ *  The noun/verb path cannot verify one: it looks the whole phrase up as a single
+ *  de.wiktionary headword, finds nothing, and refuses. That kept every A1 survival
+ *  chunk out of the corpus (2026-09-25 panel: "A1/A2 needs about 100 fixed phrases,
+ *  not more cards"). The facts a phrase has are fewer, and each is still checked
+ *  rather than written:
+ *
+ *    · every word in it has a de.wiktionary page — so no token is invented;
+ *    · its IPA is the words' own transcriptions, joined — attested, never typed;
+ *    · each example contains the phrase **verbatim**, case and all. For one word a
+ *      substring test is the weak check the matcher replaced; for a fixed multi-word
+ *      chunk, verbatim is the strong one — the chunk *is* the surface form.
+ *
+ *  A phrase carries no gender and no plural, and the grammar it hides (hätte,
+ *  einen) is the point of carding it whole. */
+async function verifyPhrase(c: Candidate, reasons: string[], notes: string[], ruled: string[]): Promise<Verdict> {
+  const core = c.term.replace(/[.!?]+$/, '').trim();
+  const words = core.split(/[\s,]+/).filter(Boolean);
+  const ipas: string[] = [];
+  for (const w of words) {
+    // A sentence-initial capital is the sentence's, not the word's: *Was* opens
+    // "Was ist los?" but the page with the pronunciation is *was*. Both spellings
+    // are tried, and the first page that attests a transcription is the one used.
+    const variants = [...new Set([w, w[0].toLowerCase() + w.slice(1)])];
+    let found = false;
+    let ipa: string | null = null;
+    try {
+      for (const v of variants) {
+        const wt = await wikitext(v);
+        if (!wt) continue;
+        found = true;
+        ipa = parseFacts(wt).ipa;
+        if (ipa) break;
+      }
+    } catch (e) { reasons.push((e as Error).message); continue; }
+    if (!found) reasons.push(`no de.wiktionary entry for "${w}"`);
+    else if (ipa) ipas.push(ipa);
+    else reasons.push(`no IPA attested for "${w}"`);
+  }
+  const ipa = ipas.length === words.length ? ipas.join(' ') : null;
+  if (ipa) notes.push('IPA joined from each word\'s own transcription');
+
+  const gloss = (c.en || '').trim();
+  if (!gloss) reasons.push('no English gloss');
+  else if (gloss.length > GLOSS_MAX) reasons.push(`gloss over ${GLOSS_MAX} chars`);
+  if (/[äöüß]/i.test(gloss.replace(/\b[A-ZÄÖÜ][\wäöüß-]*/g, ''))) reasons.push('gloss looks like German, not English');
+  if (c.gender) reasons.push('a phrase carries no gender');
+  if ((c.ex ?? []).length < 2) reasons.push('needs at least two examples (corpus floor)');
+
+  const verbatim = new RegExp(`(?<!\\p{L})${escapeRe(core)}(?!\\p{L})`, 'u');
+  for (const [i, e] of (c.ex ?? []).entries()) {
+    if (!e.de?.trim() || !e.en?.trim()) { reasons.push(`example ${i + 1} is incomplete`); continue; }
+    if (!/[.!?]$/.test(e.de.trim())) reasons.push(`example ${i + 1} has no sentence-final punctuation`);
+    if (!verbatim.test(e.de)) reasons.push(`example ${i + 1} does not contain "${core}" verbatim — "${e.de}"`);
+    if (/[äöüß]/i.test(e.en.replace(/\b[A-ZÄÖÜ][\wäöüß-]*/g, ''))) reasons.push(`example ${i + 1}'s translation looks like German`);
+  }
+
+  const card: Word = {
+    id: `voc:${c.level}:${c.term}`, term: c.term, en: gloss, pos: 'phrase', level: c.level,
+    gender: null, plural: null, ipa, def: c.def ?? null, syn: c.syn ?? [], ant: c.ant ?? [],
+    ex: (c.ex ?? []).map((e) => ({ de: e.de.trim(), en: e.en.trim(), lvl: c.level })), field: c.field, kind: 'word',
+  };
+  return { term: c.term, ok: reasons.length === 0, card: reasons.length ? undefined : card, reasons, notes, ruled };
+}
+
 /** Verify one candidate against the dictionary and the matcher. */
 export async function verify(c: Candidate, existing: Set<string>, corpus: Word[] = [],
                              rulings: Ruling[] = []): Promise<Verdict> {
@@ -309,6 +396,7 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   if (existing.has(c.term.toLowerCase())) {
     return { term: c.term, ok: false, reasons: ['already in the corpus'], notes, ruled };
   }
+  if (c.pos === 'phrase') return verifyPhrase(c, reasons, notes, ruled);
 
   let wt: string | null;
   try { wt = await wikitext(lemma); }
@@ -448,7 +536,7 @@ export async function verifyAll(cands: Candidate[], existing: Set<string>,
   const sectors = new Set(corpus.map((w) => w.field).filter(Boolean));
   const out: Verdict[] = [];
   for (const c of cands) {
-    const cached = existsSync(join(CACHE, `${encodeURIComponent(stripArticle(c.term))}.txt`));
+    const cached = existsSync(cacheFile(stripArticle(c.term)));
     const v = await verify(c, existing, corpus, rulings);
     if (sectors.size && !sectors.has(c.field)) {
       const near = [...sectors].filter((s2) => s2.toLowerCase().includes(c.field.split(/[&,]/)[0].trim().toLowerCase()));
