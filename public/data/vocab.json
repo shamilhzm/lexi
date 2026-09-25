@@ -303066,5 +303066,680 @@
     ],
     "field": "Communication",
     "kind": "word"
+  },
+  {
+    "id": "voc:A2:gar nicht",
+    "term": "gar nicht",
+    "en": "not at all",
+    "pos": "phrase",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡaːɐ̯ nɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das weiß ich gar nicht.",
+        "en": "I really don't know.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Film war gar nicht schlecht.",
+        "en": "The film wasn't bad at all.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adverbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:zu Hause",
+    "term": "zu Hause",
+    "en": "at home",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡suː ˈhaʊ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich bin heute Abend zu Hause.",
+        "en": "I'm at home this evening.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir essen oft zu Hause.",
+        "en": "We often eat at home.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:nach Hause",
+    "term": "nach Hause",
+    "en": "(to) home, homewards",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "naːx ˈhaʊ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich gehe jetzt nach Hause.",
+        "en": "I'm going home now.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann kommst du nach Hause?",
+        "en": "When are you coming home?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Ich hätte gern",
+    "term": "Ich hätte gern",
+    "en": "I'd like (ordering, shopping)",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪç ˈhɛtə ɡɛʁn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich hätte gern einen Kaffee.",
+        "en": "I'd like a coffee.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich hätte gern zwei Brötchen, bitte.",
+        "en": "I'd like two rolls, please.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Restaurant & Dining",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Wie viel kostet das?",
+    "term": "Wie viel kostet das?",
+    "en": "How much is that?",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "viː fiːl ˈkoːstət das",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie viel kostet das? Ich finde es schön.",
+        "en": "How much is that? I think it's nice.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie viel kostet das? – Fünf Euro.",
+        "en": "How much is that? – Five euros.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Money & shopping",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Wie spät ist es?",
+    "term": "Wie spät ist es?",
+    "en": "What time is it?",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "viː ʃpɛːt ɪst ɛs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie spät ist es? – Halb neun.",
+        "en": "What time is it? – Half past eight.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie spät ist es? Ich habe keine Uhr.",
+        "en": "What time is it? I haven't got a watch.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Wie alt bist du?",
+    "term": "Wie alt bist du?",
+    "en": "How old are you?",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "viː alt bɪst duː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie alt bist du? – Ich bin dreißig.",
+        "en": "How old are you? – I'm thirty.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie alt bist du? Ich bin zwanzig Jahre alt.",
+        "en": "How old are you? I'm twenty years old.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Wie heißt das auf Deutsch?",
+    "term": "Wie heißt das auf Deutsch?",
+    "en": "What's that called in German?",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "viː haɪ̯st das aʊ̯f dɔɪ̯t͡ʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie heißt das auf Deutsch? – Das ist ein Löffel.",
+        "en": "What's that called in German? – That's a spoon.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Entschuldigung! Wie heißt das auf Deutsch?",
+        "en": "Excuse me! What's that called in German?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Was bedeutet das?",
+    "term": "Was bedeutet das?",
+    "en": "What does that mean?",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "vas bəˈdɔɪ̯tət das",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was bedeutet das? Ich verstehe das Wort nicht.",
+        "en": "What does that mean? I don't understand the word.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Was bedeutet das? Kannst du mir helfen?",
+        "en": "What does that mean? Can you help me?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Können Sie das bitte wiederholen?",
+    "term": "Können Sie das bitte wiederholen?",
+    "en": "Could you repeat that, please?",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkœnən ziː das ˈbɪtə ˌviːdɐˈhoːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können Sie das bitte wiederholen? Ich habe es nicht verstanden.",
+        "en": "Could you repeat that, please? I didn't understand it.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Können Sie das bitte wiederholen? Das war zu schnell.",
+        "en": "Could you repeat that, please? That was too fast.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Noch einmal, bitte.",
+    "term": "Noch einmal, bitte.",
+    "en": "Once more, please.",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "nɔx ˈaɪ̯nmaːl ˈbɪtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Noch einmal, bitte. Ich habe es nicht gehört.",
+        "en": "Once more, please. I didn't hear it.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Noch einmal, bitte. Das war zu leise.",
+        "en": "Once more, please. That was too quiet.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Langsamer, bitte.",
+    "term": "Langsamer, bitte.",
+    "en": "More slowly, please.",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈlaŋzaːmɐ ˈbɪtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Langsamer, bitte. Ich lerne noch Deutsch.",
+        "en": "More slowly, please. I'm still learning German.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Langsamer, bitte. Ich verstehe nicht alles.",
+        "en": "More slowly, please. I don't understand everything.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Ich verstehe das nicht.",
+    "term": "Ich verstehe das nicht.",
+    "en": "I don't understand (that).",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪç fɛɐ̯ˈʃteːə das nɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich verstehe das nicht. Können Sie mir helfen?",
+        "en": "I don't understand. Can you help me?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich verstehe das nicht. Was bedeutet das Wort?",
+        "en": "I don't understand. What does the word mean?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Learning Languages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Können Sie mir helfen?",
+    "term": "Können Sie mir helfen?",
+    "en": "Can you help me?",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkœnən ziː miːɐ̯ ˈhɛlfn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können Sie mir helfen? Ich suche den Bahnhof.",
+        "en": "Can you help me? I'm looking for the station.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Können Sie mir helfen? Mein Koffer ist so schwer.",
+        "en": "Can you help me? My suitcase is so heavy.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Einen Moment, bitte.",
+    "term": "Einen Moment, bitte.",
+    "en": "One moment, please.",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯nən moˈmɛnt ˈbɪtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Einen Moment, bitte. Ich hole den Chef.",
+        "en": "One moment, please. I'll get the manager.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Einen Moment, bitte. Ich suche die Nummer.",
+        "en": "One moment, please. I'm looking for the number.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:am liebsten",
+    "term": "am liebsten",
+    "en": "most of all, best (gern, lieber, am liebsten)",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "am ˈliːpstn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich trinke am liebsten Tee.",
+        "en": "I like drinking tea best.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Was isst du am liebsten?",
+        "en": "What do you like eating most?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Free time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Das stimmt.",
+    "term": "Das stimmt.",
+    "en": "That's right. That's true.",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "das ʃtɪmt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das stimmt. Du hast recht.",
+        "en": "That's true. You're right.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das stimmt. Der Zug war zu spät.",
+        "en": "That's right. The train was late.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Stimmt so.",
+    "term": "Stimmt so.",
+    "en": "Keep the change.",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʃtɪmt zoː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das macht 9,50 Euro. – Stimmt so.",
+        "en": "That's 9.50 euros. – Keep the change.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hier sind zehn Euro. Stimmt so.",
+        "en": "Here's ten euros. Keep the change.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Restaurant & Dining",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:Das macht nichts.",
+    "term": "Das macht nichts.",
+    "en": "Never mind. It doesn't matter.",
+    "pos": "phrase",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "das maxt nɪçt͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Entschuldigung! – Das macht nichts.",
+        "en": "Sorry! – Never mind.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das macht nichts. Wir fahren später.",
+        "en": "It doesn't matter. We'll go later.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:Keine Ahnung.",
+    "term": "Keine Ahnung.",
+    "en": "No idea.",
+    "pos": "phrase",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkaɪ̯nə ˈaːnʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wo ist mein Schlüssel? – Keine Ahnung.",
+        "en": "Where's my key? – No idea.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Keine Ahnung. Frag doch den Kellner.",
+        "en": "No idea. Ask the waiter.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:Was ist los?",
+    "term": "Was ist los?",
+    "en": "What's up? What's wrong?",
+    "pos": "phrase",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "vas ɪst loːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was ist los? Du siehst traurig aus.",
+        "en": "What's wrong? You look sad.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Was ist los? Warum weinst du?",
+        "en": "What's up? Why are you crying?",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Gern geschehen.",
+    "term": "Gern geschehen.",
+    "en": "You're welcome.",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡɛʁn ɡəˈʃeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Danke für die Hilfe! – Gern geschehen.",
+        "en": "Thanks for the help! – You're welcome.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Gern geschehen. Das war kein Problem.",
+        "en": "You're welcome. It was no problem.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Everyday greetings and farewells",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Alles Gute!",
+    "term": "Alles Gute!",
+    "en": "All the best!",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaləs ˈɡuːtə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Alles Gute! Bis bald.",
+        "en": "All the best! See you soon.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Alles Gute! Und viel Glück im neuen Job.",
+        "en": "All the best! And good luck in the new job.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Everyday greetings and farewells",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Gute Reise!",
+    "term": "Gute Reise!",
+    "en": "Have a good trip!",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɡuːtə ˈʁaɪ̯zə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Gute Reise! Ruf mich an, wenn du ankommst.",
+        "en": "Have a good trip! Call me when you arrive.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Gute Reise! Bis nächste Woche.",
+        "en": "Have a good trip! See you next week.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Everyday greetings and farewells",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:Schönes Wochenende!",
+    "term": "Schönes Wochenende!",
+    "en": "Have a nice weekend!",
+    "pos": "phrase",
+    "level": "A1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃøːnəs ˈvɔxn̩ˌʔɛndə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Schönes Wochenende! Bis Montag.",
+        "en": "Have a nice weekend! See you on Monday.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Schönes Wochenende! Was machst du am Samstag?",
+        "en": "Have a nice weekend! What are you doing on Saturday?",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Everyday greetings and farewells",
+    "kind": "word"
   }
 ]

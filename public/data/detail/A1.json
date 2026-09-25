@@ -74,6 +74,20 @@
   "gram:A1:sein & haben": {
     "def": "sein: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie sind.\nhaben: ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie haben."
   },
+  "voc:A1:Alles Gute!": {
+    "ex": [
+      {
+        "de": "Alles Gute! Bis bald.",
+        "en": "All the best! See you soon.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Alles Gute! Und viel Glück im neuen Job.",
+        "en": "All the best! And good luck in the new job.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:Auf Wiederhören!": {
     "def": "Said to end a phone call politely.",
     "ex": [
@@ -194,6 +208,20 @@
       }
     ]
   },
+  "voc:A1:Das stimmt.": {
+    "ex": [
+      {
+        "de": "Das stimmt. Du hast recht.",
+        "en": "That's true. You're right.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das stimmt. Der Zug war zu spät.",
+        "en": "That's right. The train was late.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:Deutschland": {
     "def": "A country in central Europe.",
     "ex": [
@@ -235,6 +263,20 @@
       {
         "de": "Endlich scheint die Sonne wieder.",
         "en": "Finally the sun is shining again.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Einen Moment, bitte.": {
+    "ex": [
+      {
+        "de": "Einen Moment, bitte. Ich hole den Chef.",
+        "en": "One moment, please. I'll get the manager.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Einen Moment, bitte. Ich suche die Nummer.",
+        "en": "One moment, please. I'm looking for the number.",
         "lvl": "A1"
       }
     ]
@@ -344,6 +386,20 @@
       }
     ]
   },
+  "voc:A1:Gern geschehen.": {
+    "ex": [
+      {
+        "de": "Danke für die Hilfe! – Gern geschehen.",
+        "en": "Thanks for the help! – You're welcome.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Gern geschehen. Das war kein Problem.",
+        "en": "You're welcome. It was no problem.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:Gute Nacht": {
     "def": "A phrase said to wish someone good sleep before bed.",
     "ex": [
@@ -355,6 +411,20 @@
       {
         "de": "Gute Nacht, bis morgen früh!",
         "en": "Good night, see you tomorrow morning!",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Gute Reise!": {
+    "ex": [
+      {
+        "de": "Gute Reise! Ruf mich an, wenn du ankommst.",
+        "en": "Have a good trip! Call me when you arrive.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Gute Reise! Bis nächste Woche.",
+        "en": "Have a good trip! See you next week.",
         "lvl": "A1"
       }
     ]
@@ -449,6 +519,20 @@
       }
     ]
   },
+  "voc:A1:Ich hätte gern": {
+    "ex": [
+      {
+        "de": "Ich hätte gern einen Kaffee.",
+        "en": "I'd like a coffee.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich hätte gern zwei Brötchen, bitte.",
+        "en": "I'd like two rolls, please.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:Ich kann lange schlafen.": {
     "def": "Used to say you can sleep late without needing to get up.",
     "ex": [
@@ -464,6 +548,20 @@
       }
     ]
   },
+  "voc:A1:Ich verstehe das nicht.": {
+    "ex": [
+      {
+        "de": "Ich verstehe das nicht. Können Sie mir helfen?",
+        "en": "I don't understand. Can you help me?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich verstehe das nicht. Was bedeutet das Wort?",
+        "en": "I don't understand. What does the word mean?",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:Klavier spielen": {
     "def": "To play music on the piano.",
     "ex": [
@@ -475,6 +573,48 @@
       {
         "de": "Sie kann sehr gut Klavier spielen.",
         "en": "She can play the piano very well.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Können Sie das bitte wiederholen?": {
+    "ex": [
+      {
+        "de": "Können Sie das bitte wiederholen? Ich habe es nicht verstanden.",
+        "en": "Could you repeat that, please? I didn't understand it.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Können Sie das bitte wiederholen? Das war zu schnell.",
+        "en": "Could you repeat that, please? That was too fast.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Können Sie mir helfen?": {
+    "ex": [
+      {
+        "de": "Können Sie mir helfen? Ich suche den Bahnhof.",
+        "en": "Can you help me? I'm looking for the station.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Können Sie mir helfen? Mein Koffer ist so schwer.",
+        "en": "Can you help me? My suitcase is so heavy.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Langsamer, bitte.": {
+    "ex": [
+      {
+        "de": "Langsamer, bitte. Ich lerne noch Deutsch.",
+        "en": "More slowly, please. I'm still learning German.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Langsamer, bitte. Ich verstehe nicht alles.",
+        "en": "More slowly, please. I don't understand everything.",
         "lvl": "A1"
       }
     ]
@@ -505,6 +645,20 @@
       {
         "de": "Ich höre gern Musik am Abend.",
         "en": "I like listening to music in the evening.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Noch einmal, bitte.": {
+    "ex": [
+      {
+        "de": "Noch einmal, bitte. Ich habe es nicht gehört.",
+        "en": "Once more, please. I didn't hear it.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Noch einmal, bitte. Das war zu leise.",
+        "en": "Once more, please. That was too quiet.",
         "lvl": "A1"
       }
     ]
@@ -589,6 +743,34 @@
       }
     ]
   },
+  "voc:A1:Schönes Wochenende!": {
+    "ex": [
+      {
+        "de": "Schönes Wochenende! Bis Montag.",
+        "en": "Have a nice weekend! See you on Monday.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Schönes Wochenende! Was machst du am Samstag?",
+        "en": "Have a nice weekend! What are you doing on Saturday?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Stimmt so.": {
+    "ex": [
+      {
+        "de": "Das macht 9,50 Euro. – Stimmt so.",
+        "en": "That's 9.50 euros. – Keep the change.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hier sind zehn Euro. Stimmt so.",
+        "en": "Here's ten euros. Keep the change.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:Tut mir leid.": {
     "def": "Used to apologize or express regret.",
     "ex": [
@@ -615,6 +797,34 @@
       {
         "de": "Viel Spaß im Urlaub!",
         "en": "Have fun on holiday!",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Was bedeutet das?": {
+    "ex": [
+      {
+        "de": "Was bedeutet das? Ich verstehe das Wort nicht.",
+        "en": "What does that mean? I don't understand the word.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Was bedeutet das? Kannst du mir helfen?",
+        "en": "What does that mean? Can you help me?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Wie alt bist du?": {
+    "ex": [
+      {
+        "de": "Wie alt bist du? – Ich bin dreißig.",
+        "en": "How old are you? – I'm thirty.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie alt bist du? Ich bin zwanzig Jahre alt.",
+        "en": "How old are you? I'm twenty years old.",
         "lvl": "A1"
       }
     ]
@@ -661,6 +871,48 @@
       {
         "de": "Hallo Tom, wie geht's dir?",
         "en": "Hi Tom, how are you doing?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Wie heißt das auf Deutsch?": {
+    "ex": [
+      {
+        "de": "Wie heißt das auf Deutsch? – Das ist ein Löffel.",
+        "en": "What's that called in German? – That's a spoon.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Entschuldigung! Wie heißt das auf Deutsch?",
+        "en": "Excuse me! What's that called in German?",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Wie spät ist es?": {
+    "ex": [
+      {
+        "de": "Wie spät ist es? – Halb neun.",
+        "en": "What time is it? – Half past eight.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie spät ist es? Ich habe keine Uhr.",
+        "en": "What time is it? I haven't got a watch.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:Wie viel kostet das?": {
+    "ex": [
+      {
+        "de": "Wie viel kostet das? Ich finde es schön.",
+        "en": "How much is that? I think it's nice.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wie viel kostet das? – Fünf Euro.",
+        "en": "How much is that? – Five euros.",
         "lvl": "A1"
       }
     ]
@@ -917,6 +1169,20 @@
         "de": "In der Altstadt stehen viele alte Häuser.",
         "en": "In the old town there are many old houses.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:am liebsten": {
+    "ex": [
+      {
+        "de": "Ich trinke am liebsten Tee.",
+        "en": "I like drinking tea best.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Was isst du am liebsten?",
+        "en": "What do you like eating most?",
+        "lvl": "A1"
       }
     ]
   },
@@ -22794,6 +23060,20 @@
       }
     ]
   },
+  "voc:A1:nach Hause": {
+    "ex": [
+      {
+        "de": "Ich gehe jetzt nach Hause.",
+        "en": "I'm going home now.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wann kommst du nach Hause?",
+        "en": "When are you coming home?",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:nah": {
     "def": "near (in space or time or in an abstract sense), close, nearby",
     "ex": [
@@ -26502,6 +26782,20 @@
         "de": "zu schnell",
         "en": "too fast",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:zu Hause": {
+    "ex": [
+      {
+        "de": "Ich bin heute Abend zu Hause.",
+        "en": "I'm at home this evening.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir essen oft zu Hause.",
+        "en": "We often eat at home.",
+        "lvl": "A1"
       }
     ]
   },
