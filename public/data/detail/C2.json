@@ -178,6 +178,20 @@
       }
     ]
   },
+  "voc:C2:bannen": {
+    "ex": [
+      {
+        "de": "Die Gefahr ist noch nicht gebannt.",
+        "en": "The danger has not been averted yet.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Das Publikum saß wie gebannt vor der Bühne.",
+        "en": "The audience sat spellbound in front of the stage.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:begriffsstutzig": {
     "ex": [
       {

@@ -1276,6 +1276,20 @@
       }
     ]
   },
+  "voc:A1:aufschreiben": {
+    "ex": [
+      {
+        "de": "Kannst du mir die Adresse aufschreiben?",
+        "en": "Can you write down the address for me?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Ich habe mir das Wort aufgeschrieben.",
+        "en": "I wrote the word down.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:aufstehen": {
     "def": "separable verb: ich stehe … auf",
     "ex": [

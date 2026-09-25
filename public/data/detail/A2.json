@@ -4358,6 +4358,20 @@
       }
     ]
   },
+  "voc:A2:das Nest": {
+    "ex": [
+      {
+        "de": "Der Vogel baut ein Nest.",
+        "en": "The bird is building a nest.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mit dreißig verlässt er endlich das Nest.",
+        "en": "At thirty he's finally leaving the nest.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Neujahrsfest": {
     "def": "A celebration marking the start of the new year.",
     "ex": [
@@ -5054,6 +5068,20 @@
       {
         "de": "Mein Sternzeichen ist Löwe.",
         "en": "My star sign is Leo.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Stockwerk": {
+    "ex": [
+      {
+        "de": "Wir wohnen im dritten Stockwerk.",
+        "en": "We live on the third floor.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Haus hat vier Stockwerke.",
+        "en": "The building has four storeys.",
         "lvl": "A2"
       }
     ]
@@ -6296,6 +6324,20 @@
       {
         "de": "Tom ist ein ziemlich guter Automechaniker.",
         "en": "Tom is a pretty good car mechanic.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Autounfall": {
+    "ex": [
+      {
+        "de": "Bei einem Autounfall wurde er verletzt.",
+        "en": "He was injured in a car accident.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Autounfall war auf der A1.",
+        "en": "The car accident was on the A1.",
         "lvl": "A2"
       }
     ]
@@ -8363,6 +8405,20 @@
         "de": "Die ständigen Kopfschmerzen bereiteten dem Arzt einiges Kopfzerbrechen.",
         "en": "The constant headaches gave the doctor quite a puzzle.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Korb": {
+    "ex": [
+      {
+        "de": "Leg das Obst in den Korb.",
+        "en": "Put the fruit in the basket.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie hat ihm einen Korb gegeben.",
+        "en": "She turned him down.",
+        "lvl": "A2"
       }
     ]
   },
@@ -10832,6 +10888,20 @@
       }
     ]
   },
+  "voc:A2:der Toast": {
+    "ex": [
+      {
+        "de": "Zum Frühstück esse ich Toast mit Marmelade.",
+        "en": "I have toast with jam for breakfast.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er bringt einen Toast auf das Paar aus.",
+        "en": "He proposes a toast to the couple.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Tod": {
     "def": "The end of life.",
     "ex": [
@@ -11875,6 +11945,20 @@
         "de": "Zwischen den beiden herrscht eine deutliche Abneigung.",
         "en": "There is a clear aversion between the two of them.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:die Abreise": {
+    "ex": [
+      {
+        "de": "Am Tag der Abreise hat es geregnet.",
+        "en": "It rained on the day of departure.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Vor der Abreise müssen wir packen.",
+        "en": "We have to pack before we leave.",
+        "lvl": "A2"
       }
     ]
   },
@@ -17510,6 +17594,20 @@
       }
     ]
   },
+  "voc:A2:die Schere": {
+    "ex": [
+      {
+        "de": "Gib mir bitte die Schere.",
+        "en": "Pass me the scissors, please.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Schere zwischen Arm und Reich wird größer.",
+        "en": "The gap between rich and poor is widening.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Schicht": {
     "def": "layer, stratum, seam; class, stratum, group of people with a certain social status",
     "ex": [
@@ -19544,6 +19642,20 @@
       }
     ]
   },
+  "voc:A2:die Zeitschrift": {
+    "ex": [
+      {
+        "de": "Beim Arzt lese ich immer eine Zeitschrift.",
+        "en": "I always read a magazine at the doctor's.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Studie erschien in einer Zeitschrift.",
+        "en": "The study appeared in a journal.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Zinsen": {
     "def": "The extra money a bank pays on savings or charges on a loan.",
     "ex": [
@@ -19858,6 +19970,20 @@
         "de": "In der Ferne donnerte es, doch der Regen blieb aus.",
         "en": "In the distance it thundered, but the rain stayed away.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:doof": {
+    "ex": [
+      {
+        "de": "Das ist eine doofe Idee.",
+        "en": "That's a silly idea.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich finde den Film doof.",
+        "en": "I think the film is stupid.",
+        "lvl": "A2"
       }
     ]
   },
@@ -20396,6 +20522,20 @@
       {
         "de": "Ich habe noch einige Fragen.",
         "en": "I still have a few questions.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:einpacken": {
+    "ex": [
+      {
+        "de": "Hast du die Sonnencreme eingepackt?",
+        "en": "Have you packed the sun cream?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Soll ich das Geschenk einpacken?",
+        "en": "Shall I wrap the present?",
         "lvl": "A2"
       }
     ]
@@ -24143,6 +24283,20 @@
       {
         "de": "Ich ging ran.",
         "en": "I answered the phone.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:rasieren": {
+    "ex": [
+      {
+        "de": "Er rasiert sich jeden Morgen.",
+        "en": "He shaves every morning.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Heute habe ich mich nicht rasiert.",
+        "en": "I didn't shave today.",
         "lvl": "A2"
       }
     ]

@@ -1783,6 +1783,20 @@
       }
     ]
   },
+  "voc:B1:asiatisch": {
+    "ex": [
+      {
+        "de": "Wir gehen heute asiatisch essen.",
+        "en": "We're going for Asian food today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die asiatischen Märkte sind gefallen.",
+        "en": "The Asian markets have fallen.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:atmen": {
     "def": "To take air into the lungs and let it out again.",
     "ex": [
@@ -2922,6 +2936,20 @@
       {
         "de": "schriftlich belegt",
         "en": "documented in writing",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:belgisch": {
+    "ex": [
+      {
+        "de": "Belgische Pommes sind berühmt.",
+        "en": "Belgian fries are famous.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Rennen findet an der belgischen Grenze statt.",
+        "en": "The race takes place on the Belgian border.",
         "lvl": "B1"
       }
     ]
@@ -5391,6 +5419,20 @@
       }
     ]
   },
+  "voc:B1:das Gerücht": {
+    "ex": [
+      {
+        "de": "Es gibt ein Gerücht über den Chef.",
+        "en": "There's a rumour about the boss.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist nur ein Gerücht.",
+        "en": "That's just a rumour.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Gerüst": {
     "ex": [
       {
@@ -6645,6 +6687,20 @@
         "de": "Das Motiv der Reise kehrt in allen ihren Romanen wieder.",
         "en": "The motif of the journey recurs in all her novels.",
         "lvl": "C2"
+      }
+    ]
+  },
+  "voc:B1:das Musical": {
+    "ex": [
+      {
+        "de": "Wir gehen heute Abend in ein Musical.",
+        "en": "We're going to a musical tonight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Musical läuft seit zehn Jahren.",
+        "en": "The musical has been running for ten years.",
+        "lvl": "B1"
       }
     ]
   },
@@ -7988,6 +8044,20 @@
       {
         "de": "Das Tattoo war teuer.",
         "en": "The tattoo was expensive.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Telefonat": {
+    "ex": [
+      {
+        "de": "Das Telefonat hat eine Stunde gedauert.",
+        "en": "The phone call lasted an hour.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe gleich ein wichtiges Telefonat.",
+        "en": "I have an important call in a moment.",
         "lvl": "B1"
       }
     ]
@@ -9689,6 +9759,20 @@
       }
     ]
   },
+  "voc:B1:der Ballon": {
+    "ex": [
+      {
+        "de": "Das Kind hält einen roten Ballon.",
+        "en": "The child is holding a red balloon.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir fliegen mit dem Ballon über die Alpen.",
+        "en": "We're flying over the Alps in a balloon.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Ballungsraum": {
     "def": "synonym of Ballungsgebiet",
     "ex": [
@@ -10581,6 +10665,20 @@
       {
         "de": "Sie arbeitet als Designerin bei einer Agentur.",
         "en": "She works as a designer at an agency.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Detektiv": {
+    "ex": [
+      {
+        "de": "Der Detektiv beobachtet das Haus.",
+        "en": "The detective is watching the house.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie liest gern Romane mit einem Detektiv.",
+        "en": "She likes reading novels with a detective.",
         "lvl": "B1"
       }
     ]
@@ -12350,6 +12448,20 @@
       }
     ]
   },
+  "voc:B1:der Influencer": {
+    "ex": [
+      {
+        "de": "Der Influencer hat eine Million Follower.",
+        "en": "The influencer has a million followers.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Firma arbeitet mit Influencern.",
+        "en": "The company works with influencers.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Integrationskurs": {
     "ex": [
       {
@@ -12447,6 +12559,20 @@
       {
         "de": "Mein Nachbar ist Japaner.",
         "en": "My neighbour is Japanese.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Jazz": {
+    "ex": [
+      {
+        "de": "Er hört am liebsten Jazz.",
+        "en": "He likes jazz best.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Club spielen sie jeden Freitag Jazz.",
+        "en": "They play jazz at the club every Friday.",
         "lvl": "B1"
       }
     ]
@@ -12602,6 +12728,20 @@
       {
         "de": "Im Herbst trage ich gern einen Kapuzenpullover.",
         "en": "In autumn I like to wear a hoodie.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Kater": {
+    "ex": [
+      {
+        "de": "Nach der Party hatte ich einen Kater.",
+        "en": "I had a hangover after the party.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Unser Kater heißt Felix.",
+        "en": "Our tomcat is called Felix.",
         "lvl": "B1"
       }
     ]
@@ -14422,6 +14562,20 @@
       }
     ]
   },
+  "voc:B1:der Promi": {
+    "ex": [
+      {
+        "de": "Auf der Party waren viele Promis.",
+        "en": "There were lots of celebrities at the party.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Promi wurde am Flughafen fotografiert.",
+        "en": "The celebrity was photographed at the airport.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Prozess": {
     "def": "A series of steps leading to a result; also a case heard in court.",
     "defDe": "eine durch ein Ereignis ausgelöste Folge von Aktivitäten oder Zuständen, die in einen Endzustand mündet",
@@ -14953,6 +15107,34 @@
       }
     ]
   },
+  "voc:B1:der Räuber": {
+    "ex": [
+      {
+        "de": "Der Räuber ist mit dem Geld geflohen.",
+        "en": "The robber escaped with the money.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder spielen Räuber und Gendarm.",
+        "en": "The children are playing cops and robbers.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Römer": {
+    "ex": [
+      {
+        "de": "Die Römer haben Köln gegründet.",
+        "en": "The Romans founded Cologne.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Museum sieht man, wie ein Römer lebte.",
+        "en": "In the museum you can see how a Roman lived.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Rückspiegel": {
     "def": "The mirror in a car that shows the road behind.",
     "defDe": "Auto: Der Spiegel im Auto, um das rückwärtige Verkehrsgeschehen zu beobachten",
@@ -15218,6 +15400,20 @@
       {
         "de": "Im Treppenhaus liegt viel Schmutz.",
         "en": "There's a lot of dirt in the stairwell.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Schnaps": {
+    "ex": [
+      {
+        "de": "Nach dem Essen gibt es einen Schnaps.",
+        "en": "There's a schnapps after the meal.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schnaps ist Schnaps, und Dienst ist Dienst.",
+        "en": "Business is business.",
         "lvl": "B1"
       }
     ]
@@ -17321,6 +17517,20 @@
       {
         "de": "Der Wettkampf findet nächsten Samstag statt.",
         "en": "The competition takes place next Saturday.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Whiskey": {
+    "ex": [
+      {
+        "de": "Er trinkt gern einen Whiskey am Abend.",
+        "en": "He likes a whiskey in the evening.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Whiskey kommt aus Irland.",
+        "en": "The whiskey comes from Ireland.",
         "lvl": "B1"
       }
     ]
@@ -21152,6 +21362,20 @@
       {
         "de": "Ich bin Toms Ex.",
         "en": "I'm Tom's ex.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Exfrau": {
+    "ex": [
+      {
+        "de": "Er versteht sich gut mit seiner Exfrau.",
+        "en": "He gets on well with his ex-wife.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Exfrau bekommt Unterhalt.",
+        "en": "The ex-wife receives maintenance.",
         "lvl": "B1"
       }
     ]
@@ -28253,6 +28477,20 @@
       }
     ]
   },
+  "voc:B1:die Statue": {
+    "ex": [
+      {
+        "de": "Vor dem Rathaus steht eine Statue.",
+        "en": "There's a statue in front of the town hall.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Statue ist aus Bronze.",
+        "en": "The statue is made of bronze.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Stehlampe": {
     "def": "standard lamp, floor lamp (lamp supported by a tall vertical pole with its base resting on the floor)",
     "ex": [
@@ -30114,6 +30352,20 @@
       }
     ]
   },
+  "voc:B1:die Wartezeit": {
+    "ex": [
+      {
+        "de": "Die Wartezeit beim Amt beträgt drei Monate.",
+        "en": "The waiting time at the office is three months.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Für einen Facharzt gibt es lange Wartezeiten.",
+        "en": "There are long waiting times for a specialist.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Wartung": {
     "def": "Regular care done to keep a machine working well.",
     "ex": [
@@ -31827,6 +32079,20 @@
       }
     ]
   },
+  "voc:B1:ekelhaft": {
+    "ex": [
+      {
+        "de": "Der Geruch ist ekelhaft.",
+        "en": "The smell is disgusting.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war ein ekelhafter Kommentar.",
+        "en": "That was a disgusting comment.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:eklig": {
     "ex": [
       {
@@ -33067,6 +33333,20 @@
       }
     ]
   },
+  "voc:B1:flüchten": {
+    "ex": [
+      {
+        "de": "Viele Menschen flüchten vor dem Krieg.",
+        "en": "Many people are fleeing the war.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Täter ist zu Fuß geflüchtet.",
+        "en": "The perpetrator fled on foot.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:flüssig": {
     "ex": [
       {
@@ -33889,6 +34169,20 @@
       }
     ]
   },
+  "voc:B1:giftig": {
+    "ex": [
+      {
+        "de": "Diese Pflanze ist giftig.",
+        "en": "This plant is poisonous.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Stimmung im Team ist giftig.",
+        "en": "The mood in the team is toxic.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:glatt": {
     "def": "without roughness or unevenness: smooth; sleek, slick; even; clean (of a shave or cut); straight (of hair); smooth (without difficulty, problems, or unexpected consequences or incidents)",
     "ex": [
@@ -34230,6 +34524,20 @@
         "de": "Die neue Aufgabe ist fachlich herausfordernd.",
         "en": "The new task is professionally challenging.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:herauskommen": {
+    "ex": [
+      {
+        "de": "Das neue Spiel soll im Herbst herauskommen.",
+        "en": "The new game is due to come out in autumn.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Was ist bei dem Gespräch herausgekommen?",
+        "en": "What came out of the conversation?",
+        "lvl": "B1"
       }
     ]
   },
@@ -35206,6 +35514,20 @@
       }
     ]
   },
+  "voc:B1:kanadisch": {
+    "ex": [
+      {
+        "de": "Der kanadische Fahrer startet von Platz fünf.",
+        "en": "The Canadian driver starts from fifth.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat einen kanadischen Pass.",
+        "en": "He has a Canadian passport.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:kandidieren": {
     "def": "to be a candidate",
     "ex": [
@@ -36169,6 +36491,20 @@
       }
     ]
   },
+  "voc:B1:mexikanisch": {
+    "ex": [
+      {
+        "de": "Wir kochen heute mexikanisch.",
+        "en": "We're cooking Mexican today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der mexikanische Fahrer holt Platz drei.",
+        "en": "The Mexican driver takes third place.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:mies": {
     "ex": [
       {
@@ -36253,6 +36589,20 @@
       {
         "de": "Im Unterricht soll jeder mitarbeiten.",
         "en": "Everyone should participate in class.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:mitbekommen": {
+    "ex": [
+      {
+        "de": "Hast du die Nachricht mitbekommen?",
+        "en": "Did you catch the news?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe davon nichts mitbekommen.",
+        "en": "I didn't notice any of that.",
         "lvl": "B1"
       }
     ]
@@ -37331,6 +37681,20 @@
       }
     ]
   },
+  "voc:B1:programmieren": {
+    "ex": [
+      {
+        "de": "Ich will programmieren lernen.",
+        "en": "I want to learn to program.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie programmiert Apps für Banken.",
+        "en": "She programs apps for banks.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:promovieren": {
     "def": "To take a doctorate at a university.",
     "defDe": "die Doktorwürde oder Lehrberechtigung an Hochschulen erlangen beziehungsweise erwerben",
@@ -38275,6 +38639,20 @@
       }
     ]
   },
+  "voc:B1:schmelzen": {
+    "ex": [
+      {
+        "de": "Die Gletscher schmelzen immer schneller.",
+        "en": "The glaciers are melting faster and faster.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Eis wird in der Sonne schnell schmelzen.",
+        "en": "The ice will melt quickly in the sun.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:schmerzhaft": {
     "ex": [
       {
@@ -38702,6 +39080,20 @@
         "de": "Phasen der Anspannung und Erholung sollten sich abwechseln.",
         "en": "Phases of tension and recovery should alternate.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:sich amüsieren": {
+    "ex": [
+      {
+        "de": "Wir haben uns auf der Party gut amüsiert.",
+        "en": "We had a great time at the party.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er amüsiert sich über meinen Akzent.",
+        "en": "He's amused by my accent.",
+        "lvl": "B1"
       }
     ]
   },
@@ -40115,6 +40507,20 @@
       }
     ]
   },
+  "voc:B1:stundenlang": {
+    "ex": [
+      {
+        "de": "Ich habe stundenlang auf dem Amt gewartet.",
+        "en": "I waited at the office for hours.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach stundenlangen Verhandlungen gab es eine Einigung.",
+        "en": "After hours of negotiations there was an agreement.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:städtisch": {
     "def": "urban",
     "ex": [
@@ -40856,6 +41262,20 @@
       {
         "de": "Eine Situation, in der diejenigen, die ihres kulturellen Erbes beraubt wurden, unfähig gemacht wurden, die Wahrheit darüber zu verstehen.",
         "en": "A situation, whereby those who have been stripped of their cultural heritage, have been rendered unable to understand the truth about it.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:ungarisch": {
+    "ex": [
+      {
+        "de": "Die ungarische Regierung blockiert den Plan.",
+        "en": "The Hungarian government is blocking the plan.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Gulasch ist ein ungarisches Gericht.",
+        "en": "Goulash is a Hungarian dish.",
         "lvl": "B1"
       }
     ]
@@ -42020,6 +42440,20 @@
       {
         "de": "Meine Stimme versagt.",
         "en": "My voice is failing me.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:verschicken": {
+    "ex": [
+      {
+        "de": "Wir verschicken die Einladungen per Post.",
+        "en": "We're sending out the invitations by post.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Rechnung wurde per E-Mail verschickt.",
+        "en": "The invoice was sent by email.",
         "lvl": "B1"
       }
     ]
