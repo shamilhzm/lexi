@@ -8,6 +8,7 @@ import type { Word } from './types.ts';
 vi.mock('./lib/idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbReady: async () => true,
 }));
 
 /** Reset the module registry so module-global lexicon + card state don't leak

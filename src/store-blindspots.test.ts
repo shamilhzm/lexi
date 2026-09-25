@@ -15,6 +15,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 vi.mock('./lib/idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbReady: async () => true,
 }));
 
 /** Module-global miss/attempt logs, so each test needs its own module graph —

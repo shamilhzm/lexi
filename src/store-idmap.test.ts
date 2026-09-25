@@ -53,6 +53,7 @@ describe('card id migration map', () => {
     vi.doMock('./lib/idb.ts', () => ({
       idbGet: async (key: string) => stored[key],
       idbSet: async (key: string, value: unknown) => { stored[key] = value; },
+      idbReady: async () => true,
     }));
     vi.useFakeTimers();
     const store = await import('./store.ts');

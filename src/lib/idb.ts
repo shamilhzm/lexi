@@ -89,6 +89,17 @@ export async function closeDb(): Promise<void> {
   try { (await p).close(); } catch { /* already gone */ }
 }
 
+/** Whether IndexedDB opens right now. Never throws.
+ *
+ *  `store.hydrate()` asks once, at boot. If the answer is no, what it loaded came
+ *  from the localStorage fallback — usually nothing — and the real history may
+ *  still be sitting in an IndexedDB that a blocking tab will release a second
+ *  later. Writing through `idbSet` from then on would put that near-empty map on
+ *  top of it, so the store writes to localStorage only for the rest of the page. */
+export async function idbReady(): Promise<boolean> {
+  try { await open(); return true; } catch { return false; }
+}
+
 /** Read a value. Falls back to localStorage if IndexedDB is unavailable. */
 export async function idbGet<T>(key: string): Promise<T | undefined> {
   try {

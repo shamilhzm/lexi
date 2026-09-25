@@ -5,6 +5,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 vi.mock('./lib/idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbReady: async () => true,
 }));
 
 beforeEach(() => { localStorage.clear(); vi.resetModules(); });

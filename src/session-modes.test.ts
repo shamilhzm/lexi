@@ -15,6 +15,7 @@ import type { Word } from './types.ts';
 vi.mock('./lib/idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbReady: async () => true,
 }));
 
 async function fresh() {

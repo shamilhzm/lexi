@@ -6,7 +6,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import type { Word } from './types.ts';
 
-vi.mock('./lib/idb.ts', () => ({ idbGet: async () => undefined, idbSet: async () => undefined }));
+vi.mock('./lib/idb.ts', () => ({ idbGet: async () => undefined, idbSet: async () => undefined, idbReady: async () => true }));
 
 async function fresh() {
   vi.resetModules();

@@ -5,7 +5,7 @@ import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_
 import { byFrequency } from './lib/freq.ts';
 import { ID_MAP } from './data/idmap.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, retrievability, State, Rating, type Card, type Grade } from './srs.ts';
-import { idbGet, idbSet } from './lib/idb.ts';
+import { idbGet, idbSet, idbReady } from './lib/idb.ts';
 import { logReview, dropLastReview } from './lib/ledger.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
 import { ALL_LEVELS } from './types.ts';
@@ -86,14 +86,58 @@ function cardsObject(): Record<string, Card> {
 const PERSIST_DEBOUNCE_MS = 400;
 let persistTimer: ReturnType<typeof setTimeout> | null = null;
 
+// ---- the write guard -------------------------------------------------------
+// `live` starts empty and is only the learner's history once hydrate() has read
+// it. Three routine paths used to write it before that, or after it stopped being
+// the truth, and every one of them replaced a real history with a shorter one:
+//
+//   1. **Before hydrate.** The post-deploy auto-reload, or a learner who switches
+//      away during the splash, fires `visibilitychange`/`pagehide` while `live` is
+//      still `{}` — and `flushCards` wrote `{}`.
+//   2. **A boot that could not open IndexedDB.** The read falls back to
+//      localStorage (empty for everyone past the one-time migration), hydrate
+//      succeeds with nothing, and the first grade wrote a one-card map into the
+//      IndexedDB that a blocking tab had just released.
+//   3. **After a restore.** `importData` writes the backup, then the app reloads —
+//      and the reload's `pagehide` flushed the *old* in-memory map over it.
+//
+// Found by reading the code (panel review, 2026-09-25), not by a report — which is
+// the point: a local-first app holds the only copy, and nobody reports a loss they
+// cannot see. The rule is now structural: nothing is written until hydrate() has
+// read, a degraded boot writes to localStorage only, a restore stops all writes
+// until the reload, and a card map smaller than the one hydrate() loaded is never
+// written at all (nothing in the app removes a stored card; undo only removes a
+// card created in the same session).
+let writable = false;
+let localOnly = false;
+let floor = 0;
+
+function writeKV(key: string, value: unknown) {
+  if (!writable) return;
+  if (localOnly) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* quota */ }
+    return;
+  }
+  idbSet(key, value);
+}
+
+function writeCards() {
+  if (!writable) return;
+  if (live.size < floor) {
+    console.warn(`[lexi] refused to write ${live.size} cards over the ${floor} loaded at boot`);
+    return;
+  }
+  writeKV(CARDS_KEY, cardsObject());
+}
+
 function flushCards() {
   if (persistTimer !== null) { clearTimeout(persistTimer); persistTimer = null; }
-  idbSet(CARDS_KEY, cardsObject());
+  writeCards();
 }
 
 function persistCards() {
   if (persistTimer !== null) clearTimeout(persistTimer);
-  persistTimer = setTimeout(() => { persistTimer = null; idbSet(CARDS_KEY, cardsObject()); }, PERSIST_DEBOUNCE_MS);
+  persistTimer = setTimeout(() => { persistTimer = null; writeCards(); }, PERSIST_DEBOUNCE_MS);
 }
 
 // Backgrounding a tab on mobile can be the last code that runs before the page is
@@ -105,9 +149,9 @@ if (typeof document !== 'undefined') {
 if (typeof window !== 'undefined') {
   window.addEventListener('pagehide', flushCards);
 }
-function persistMisses() { idbSet(MISS_KEY, misses); }
-function persistAttempts() { idbSet(ATTEMPT_KEY, attempts); }
-function persistVisits() { idbSet(VISITS_KEY, visits); }
+function persistMisses() { writeKV(MISS_KEY, misses); }
+function persistAttempts() { writeKV(ATTEMPT_KEY, attempts); }
+function persistVisits() { writeKV(VISITS_KEY, visits); }
 
 export function subscribe(fn: () => void) { listeners.add(fn); return () => listeners.delete(fn); }
 export function getVersion() { return version; }
@@ -170,7 +214,7 @@ async function loadKV<T>(key: string, fallback: T): Promise<T> {
  *  would silently reset that card to new. Where both ids carry a schedule the
  *  more-practised one wins. Runs on every hydrate and is a no-op once the old
  *  ids are gone. */
-function migrateIds(): void {
+function migrateIds(): number {
   let moved = 0;
   for (const [from, to] of Object.entries(ID_MAP)) {
     const old = live.get(from);
@@ -180,7 +224,7 @@ function migrateIds(): void {
     if (!cur || old.reps > cur.reps) live.set(to, old);
     moved++;
   }
-  if (moved) persistCards();
+  return moved;
 }
 
 // **`gex:*` and `gram:*` cards are left where they are.** The 2026-09-05 refocus
@@ -195,6 +239,8 @@ let hydrated = false;
  *  Call once, awaited, before the app first renders. Idempotent. */
 export async function hydrate(): Promise<void> {
   if (hydrated) return;
+  // Asked first: `open()` is memoised, so the reads below reuse this connection.
+  localOnly = !(await idbReady());
   const [cards, m, att, vis] = await Promise.all([
     loadKV<Record<string, any>>(CARDS_KEY, {}),
     loadKV<MissEvent[]>(MISS_KEY, []),
@@ -203,7 +249,12 @@ export async function hydrate(): Promise<void> {
   ]);
   live.clear();
   for (const id of Object.keys(cards)) { try { live.set(id, reviveCard(cards[id])); } catch { /* skip corrupt */ } }
-  migrateIds();
+  const moved = migrateIds();
+  // A merge in the id map can legitimately shrink the map, so the floor is taken
+  // after it; from here on the map only grows.
+  floor = live.size;
+  writable = true;
+  if (moved) persistCards();
   misses = Array.isArray(m) ? m : [];
   // Absent for every learner who existed before the attempt log; an empty array
   // is the correct starting state and `missStats` falls back to count ranking
@@ -1874,6 +1925,9 @@ export async function importData(json: string): Promise<void> {
   // land and overwrite the restored cards with the in-memory ones we are
   // replacing — the caller reloads the app, so `live` is about to be discarded.
   if (persistTimer !== null) { clearTimeout(persistTimer); persistTimer = null; }
+  // …and stop every later write too: the reload's own `pagehide` would otherwise
+  // flush the map being replaced straight over the restore.
+  writable = false;
   await Promise.all([
     idbSet(CARDS_KEY, d.cards),
     idbSet(MISS_KEY, Array.isArray(d.misses) ? d.misses : []),
