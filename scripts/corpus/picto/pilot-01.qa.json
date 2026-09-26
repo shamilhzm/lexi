@@ -1,0 +1,471 @@
+{
+ "batch": "pilot-01",
+ "date": "2026-09-26",
+ "method": "Blind recognition (grammar §10.4): each 240 px render shown without the word to a free OpenRouter vision model, ten per request; top 3 guesses recorded.",
+ "prompt": "You will see N simple black line pictograms, numbered 1 to N in order. For each, give your top 3 guesses (short English nouns, verbs or adjectives) of the single word it is meant to illustrate. Reply with JSON only.",
+ "accept": {
+  "voc:A1:die Tasse": "guesses coffee/tea/hot name the cup's contents; reviewer accepts",
+  "voc:A1:groß": "guess 'large' is a synonym of big"
+ },
+ "results": [
+  {
+   "id": "voc:A1:das Auge",
+   "guesses": [
+    "eye",
+    "look",
+    "vision"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:das Auto",
+   "guesses": [
+    "car",
+    "auto",
+    "vehicle"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:das Bett",
+   "guesses": [
+    "bed",
+    "frame",
+    "couch"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:das Buch",
+   "guesses": [
+    "book",
+    "open",
+    "pages"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:das Fahrrad",
+   "guesses": [
+    "bicycle",
+    "bike",
+    "cycle"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:das Fenster",
+   "guesses": [
+    "window",
+    "grid",
+    "windowpane"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:das Flugzeug",
+   "guesses": [
+    "plane",
+    "airplane",
+    "aircraft"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:das Glas",
+   "guesses": [
+    "glass",
+    "wine",
+    "cup"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:das Handy",
+   "guesses": [
+    "phone",
+    "smartphone",
+    "mobile"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:das Haus",
+   "guesses": [
+    "home",
+    "house",
+    "building"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:das Herz",
+   "guesses": [
+    "heart",
+    "love",
+    "care"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:das Schiff",
+   "guesses": [
+    "boat",
+    "ship",
+    "vessel"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Apfel",
+   "guesses": [
+    "apple",
+    "fruit",
+    "peach"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Ball",
+   "guesses": [
+    "ball",
+    "bounce",
+    "roll"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Baum",
+   "guesses": [
+    "tree",
+    "plant",
+    "nature"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:der Brief",
+   "guesses": [
+    "envelope",
+    "mail",
+    "letter"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Bus",
+   "guesses": [
+    "bus",
+    "car",
+    "van"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Fisch",
+   "guesses": [
+    "fish",
+    "swim",
+    "animal"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Hut",
+   "guesses": [
+    "hat",
+    "cap",
+    "helmet"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Koffer",
+   "guesses": [
+    "suitcase",
+    "briefcase",
+    "luggage"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Schlüssel",
+   "guesses": [
+    "key",
+    "unlock",
+    "security"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:der Schuh",
+   "guesses": [
+    "shoe",
+    "slipper",
+    "boot"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Stern",
+   "guesses": [
+    "star",
+    "sparkle",
+    "cross"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Stuhl",
+   "guesses": [
+    "chair",
+    "seat",
+    "furniture"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:der Tisch",
+   "guesses": [
+    "table",
+    "desk",
+    "bench"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:der Vogel",
+   "guesses": [
+    "bird",
+    "chicken",
+    "duck"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Zahn",
+   "guesses": [
+    "tooth",
+    "crown",
+    "molar"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:der Zug",
+   "guesses": [
+    "train",
+    "tram",
+    "locomotive"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:dick",
+   "guesses": [
+    "thin",
+    "thick",
+    "narrow"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:die Blume",
+   "guesses": [
+    "flower",
+    "blossom",
+    "rose"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:die Brille",
+   "guesses": [
+    "glasses",
+    "spectacles",
+    "eyewear"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:die Flasche",
+   "guesses": [
+    "bottle",
+    "wine",
+    "flask"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:die Hose",
+   "guesses": [
+    "pants",
+    "trousers",
+    "jeans"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:die Katze",
+   "guesses": [
+    "cat",
+    "kitten",
+    "feline"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:die Lampe",
+   "guesses": [
+    "lamp",
+    "light",
+    "shade"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:die Sonne",
+   "guesses": [
+    "sun",
+    "sunny",
+    "light"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:die Tasche",
+   "guesses": [
+    "bag",
+    "purse",
+    "lock"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:die Tasse",
+   "guesses": [
+    "coffee",
+    "tea",
+    "hot"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:die Treppe",
+   "guesses": [
+    "stairs",
+    "steps",
+    "staircase"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:die Tür",
+   "guesses": [
+    "door",
+    "gate",
+    "panel"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:die Uhr",
+   "guesses": [
+    "clock",
+    "time",
+    "watch"
+   ],
+   "model": "qwen/qwen3.8-27b:free"
+  },
+  {
+   "id": "voc:A1:groß",
+   "guesses": [
+    "large",
+    "small",
+    "scale"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:laufen",
+   "guesses": [
+    "run",
+    "running",
+    "athlete"
+   ],
+   "model": "google/gemma-4-31b-it:free"
+  },
+  {
+   "id": "voc:A1:schlafen",
+   "guesses": [
+    "bed",
+    "sleep",
+    "rest"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:schwimmen",
+   "guesses": [
+    "swim",
+    "swimming",
+    "water"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:sitzen",
+   "guesses": [
+    "sit",
+    "chair",
+    "seat"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A1:voll",
+   "guesses": [
+    "liquid",
+    "empty",
+    "full"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A2:der Berg",
+   "guesses": [
+    "mountain",
+    "peak",
+    "summit"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A2:der Regenschirm",
+   "guesses": [
+    "umbrella",
+    "parasol",
+    "rain"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A2:die Kerze",
+   "guesses": [
+    "candle",
+    "flame",
+    "light"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  },
+  {
+   "id": "voc:A2:springen",
+   "guesses": [
+    "jump",
+    "leap",
+    "hop"
+   ],
+   "model": "dots-studio/dots-3-note-preview:free"
+  }
+ ]
+}

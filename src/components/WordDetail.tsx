@@ -20,6 +20,7 @@ import { showsGermanDefs } from '../views/Review.tsx';
 import { placementLevel } from '../store.ts';
 import { WORDS } from '../data/index.ts';
 import { GenderTerm, SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, CardSource } from './Reveal.tsx';
+import Picto from './Picto.tsx';
 import Kicker from './ui/Kicker.tsx';
 import ReportFlag from './ReportFlag.tsx';
 import type { Word } from '../types.ts';
@@ -47,6 +48,7 @@ export default function WordDetail({ word, onClose }: { word: Word; onClose: () 
             face, same gender ink — so the sheet reads as the same object opened
             rather than as a different page about it. */}
         <div className="text-center">
+          <Picto id={word.id} size={120} className="mb-2" />
           <GenderTerm term={word.term} gender={word.gender}
             className="headword font-bold leading-tight break-words text-4xl sm:text-5xl" />
           <div className="mt-3 flex items-center justify-center">

@@ -51,6 +51,7 @@ import { byFrequency } from '../lib/freq.ts';
 import { speak, useGermanVoice } from '../lib/tts.ts';
 import { haptic, tick, fmt } from '../lib/ui.ts';
 import { GenderTerm } from '../components/Reveal.tsx';
+import Picto from '../components/Picto.tsx';
 import Button from '../components/ui/Button.tsx';
 import WordDetail from '../components/WordDetail.tsx';
 import WordDrill from '../components/WordDrill.tsx';
@@ -750,6 +751,10 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             </span>
           )}
         </span>
+
+        {/* The pictogram, where a word has one that passed blind recognition —
+            a mnemonic above the word, never a substitute for it (DESIGN §13). */}
+        <Picto id={word.id} className="mb-3" />
 
         {/* The headword. `lang="de"` and gender ink on the article — the single
             most useful mark on a German card, and the reason this is not just a
