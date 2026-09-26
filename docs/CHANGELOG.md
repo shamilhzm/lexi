@@ -11,6 +11,54 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-25 — Panel review
+
+**Mobile (05) — boot, deploy and durability.** *Why:* the review found every way a
+phone could lose the app or the learner's copy of their work that did not need a
+bug report to be real: a splash with no way out, a cache that held the shell but not
+what it named, a chunk that a deploy removed, a policy-free page holding an API key,
+and a storage refusal nobody was told about.
+
+- **The splash can end.** An inline watchdog in `index.html` replaces the splash after
+  20 s if `main.tsx` never ran, with *Reload* and *Reload without the cache* (the second
+  clears the worker and Cache Storage, never progress). The lexicon-failure screen uses
+  tokens — it was light-theme-illegible hex from the retired dark console — and offers
+  the same reset. Checked in a browser with the bundle removed.
+- **A deploy no longer strands a long-lived tab.** `vite:preloadError` reloads once,
+  never twice within a minute and never offline (`lib/chunkReload.ts`), and `sw.js`
+  drops the cached shell when a hashed file 404s, so that reload lands on the live build.
+  Settings — where Backup lives — is one of those lazy chunks.
+- **The service worker keeps one whole build.** Install and every new shell fetch the
+  entry script, stylesheet, its fonts and `cards/sectors/freq.json` (the first offline
+  launch used to find a shell naming files nobody had kept), and everything under
+  `assets/` the new build does not name is deleted (`CACHE` is never bumped, so every
+  build ever launched used to stay).
+- **A CSP, tested against the code.** `vercel.json` pins scripts to this origin, the
+  inline block's hash, jsDelivr and cdnjs (the Piper voice), `wasm-unsafe-eval`; and
+  `connect-src` to the hosts the app fetches (four publishers, Wiktionary, Tatoeba,
+  Anthropic, OpenRouter, the voice's CDNs, huggingface and `*.hf.co`). Media and images
+  stay `https:`/`blob:`/`data:` — walk mode plays a `blob:` WAV. `src/lib/csp.test.ts`
+  fails when the inline script's hash or a new destination drifts. Verified under the
+  real header: clean boot, the Piper voice spoke, news and Wiktionary passed, an unlisted
+  host and an unlisted CDN were refused. `/assets/*` is now `immutable` for a year.
+- **Durability you can see.** Fortschritt gains *On this device*: whether the browser
+  granted persistent storage (`main.tsx` asked on every boot and discarded the answer),
+  the last backup, *Save a backup*, and a deliberate *Ask the browser to keep it*. It
+  never says *protected* unless the browser did (`durability.test.ts`).
+- **Backups carry the history.** `exportBackup` adds the attempt log and the review
+  ledger; a restore replaces the ledger in one transaction, in exported order, only when
+  the file has one. The backup nudge asks after 3 days and 20 words (it waited 7 and 100
+  — longer than Safari's seven-day window) and saves the file itself; the install nudge
+  stops promising the browser will *never* clear an installed app, recognises iPadOS, and
+  sends in-app browsers (Instagram, TikTok…) to the real browser.
+- **CI has a size budget** (`scripts/budget.ts`): ceilings on the entry script, CSS, each
+  lazy chunk, `cards.json` and the pre-paint boot set, plus the devseed-absence grep.
+- **Reviewed, not changed:** the card-map write guard (`writable`/`localOnly`/`floor`,
+  commit 824dfce) covers the three paths the review named.
+- **Not done here:** device checks that no browser pane can make — Safari's seven-day
+  eviction and standalone lock-screen audio on a real iPhone; the service worker could
+  not register in the browser pane, so precache and prune are proved by `sw.test.ts` only.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they
