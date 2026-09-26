@@ -36,7 +36,7 @@ export default function VoiceOffer({ onClose }: { onClose: () => void }) {
               <p className="text-sm font-semibold leading-snug">That was your device’s built-in voice.</p>
               <p className="text-dim text-xs mt-1 leading-relaxed">
                 Lexi can use a native-German neural voice instead — it downloads once
-                (~25 MB, so use wi-fi) and then works offline. Much closer to how the
+                (~75 MB, so use wi-fi) and then works offline. Much closer to how the
                 word actually sounds.
               </p>
             </>

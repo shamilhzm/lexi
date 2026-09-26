@@ -1,7 +1,8 @@
 // German speech. Two engines:
 //  - HD: Piper "Thorsten" neural voice via @diffusionstudio/vits-web, running
 //    fully in-browser (WASM) and cached in the origin private filesystem, so it
-//    works offline after the one-time voice download. Opt-in (it's a ~25 MB DL).
+//    works offline after the one-time voice download. Opt-in: 74.6 MB on the wire
+//    (a 63.2 MB model plus the runtime), measured by `node scripts/costs.ts --live`.
 //  - Fallback: the platform's built-in de-DE speech synthesis (speakDe).
 // speak() routes to HD when the user has enabled it, else the fallback.
 import { hdVoice } from '../store.ts';
@@ -84,7 +85,7 @@ export async function synthesize(text: string, voiceId: string): Promise<Blob> {
 /** Unlock audio playback while a user gesture is still in scope.
  *
  *  iOS only allows sound that *begins* inside a tap. The HD-voice setup awaits a
- *  ~25 MB download before it plays its proof-of-life clip, and after the first
+ *  ~75 MB download before it plays its proof-of-life clip, and after the first
  *  await the tap is over as far as WebKit is concerned — so the play was refused
  *  on exactly the device the voice matters most on. Playing (and immediately
  *  pausing) a silent clip during the tap marks the audio context as user-approved,

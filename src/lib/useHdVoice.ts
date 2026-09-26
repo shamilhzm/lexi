@@ -47,8 +47,11 @@ export interface HdVoiceSetup {
   enable: () => Promise<void>;
 }
 
-/** Generous, but finite. A 25 MB download on a slow connection is legitimately
- *  minutes; a synthesis that has not produced a sound in this long is not coming. */
+/** Generous, but finite — and tighter than it was meant to be. The download is 74.6 MB
+ *  (`node scripts/costs.ts --live`), so five minutes needs about 2 Mbit/s sustained;
+ *  it was sized when the voice was believed to be 25 MB (LESSONS, class 1). A stall
+ *  timer that resets on progress would be the better guard. A synthesis that has not
+ *  produced a sound in this long is not coming. */
 const DOWNLOAD_MS = 5 * 60_000;
 // The *first* synthesis loads and warms the model as well as speaking, and it is
 // the one this flow runs. Measured end to end through `ensureHdVoice` + `speakHd`
