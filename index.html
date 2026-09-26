@@ -22,6 +22,49 @@
           if (m) m.setAttribute('content', '#101619');
         }
       })();
+      // The splash watchdog. `main.tsx` has budgets for the lexicon and the
+      // progress read, but only once it runs — a bundle that never loads (an
+      // offline launch naming a file nobody cached, an engine too old for the
+      // syntax) left this splash pulsing forever with no way out. `main.tsx` sets
+      // the flag first thing; if it has not after 20 s, say so and offer two
+      // exits. Neither touches progress: the second clears only the worker and
+      // Cache Storage. If the bundle does arrive late, React renders over this.
+      // **Edit with care:** vercel.json's CSP pins this block by its sha256, and
+      // src/lib/csp.test.ts fails until the two agree again.
+      setTimeout(function () {
+        if (window.__lexiBooted) return;
+        var boot = document.getElementById('boot');
+        if (!boot) return;
+        var box = document.createElement('div');
+        box.className = 'stack';
+        box.setAttribute('role', 'alert');
+        box.style.cssText = 'max-width:30ch;text-align:center;padding:24px;gap:10px;';
+        var p = document.createElement('p');
+        p.style.cssText = 'margin:0;font-weight:600;';
+        p.textContent = 'Lexi didn’t start.';
+        var q = document.createElement('p');
+        q.style.cssText = 'margin:0;font-size:14px;opacity:.75;';
+        q.textContent = 'Your words are still on this device. Reload, or reload without the app’s cache.';
+        function button(label, onClick) {
+          var b = document.createElement('button');
+          b.textContent = label;
+          b.style.cssText = 'font:inherit;font-weight:700;padding:10px 18px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;';
+          b.onclick = onClick;
+          return b;
+        }
+        var reload = button('Reload', function () { location.reload(); });
+        var reset = button('Reload without the cache', function () {
+          var jobs = [];
+          try {
+            if (window.caches) jobs.push(caches.keys().then(function (ks) { return Promise.all(ks.map(function (k) { return caches.delete(k); })); }));
+            if (navigator.serviceWorker) jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) { return Promise.all(rs.map(function (r) { return r.unregister(); })); }));
+          } catch (e) { /* fall through to the reload */ }
+          Promise.all(jobs).then(function () { location.reload(); }, function () { location.reload(); });
+        });
+        box.appendChild(p); box.appendChild(q); box.appendChild(reload); box.appendChild(reset);
+        boot.textContent = '';
+        boot.appendChild(box);
+      }, 20000);
     </script>
     <meta name="description" content="Lexi — a German vocabulary trainer for English speakers. 6,500 words A1–C2, spaced repetition, and a live map of what you actually know." />
     <!-- Social cards. The app renders a designed 1200×630 progress image and
