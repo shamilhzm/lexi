@@ -314,7 +314,9 @@ describe('the dictionary-sourced long tail', () => {
     ['umkommen',      'kam um',       'umgekommen',     'sein'],
     ['durchgehen',    'ging durch',   'durchgegangen',  'sein'],
     ['anstoßen',      'stieß an',     'angestoßen',     'haben'],
-    ['abbiegen',      'bog ab',       'abgebogen',      'haben'],
+    // de.wiktionary lists both auxiliaries; the card's sense (to turn off) is
+    // intransitive motion — «ich bin links abgebogen». Corrected 2026-09-25.
+    ['abbiegen',      'bog ab',       'abgebogen',      'sein'],
     ['stehlen',       'stahl',        'gestohlen',      'haben'],
     ['zwingen',       'zwang',        'gezwungen',      'haben'],
     ['schweigen',     'schwieg',      'geschwiegen',    'haben'],
@@ -516,6 +518,27 @@ describe('notation in a headword is never drillable', () => {
   it('leaves ordinary verbs drillable', () => {
     for (const v of ['machen', 'arbeiten', 'aufstehen', 'kennenlernen', 'spielen']) {
       expect(conjugate(v).reliable, v).toBe(true);
+    }
+  });
+});
+
+// Panel review, 2026-09-25: the weak generator defaulted every regular verb to
+// *haben*, flagged reliable, so a Perfekt surface would have taught *hat gereist*.
+describe('Perfekt auxiliary — verbs of motion and change of state take sein', () => {
+  it.each([
+    ['reisen', 'bin gereist'], ['passieren', 'ist passiert'], ['begegnen', 'bin begegnet'],
+    ['folgen', 'bin gefolgt'], ['landen', 'bin gelandet'], ['wandern', 'bin gewandert'],
+    ['scheitern', 'bin gescheitert'], ['zurückkehren', 'bin zurückgekehrt'],
+    ['eintreten', 'bin eingetreten'], ['abbiegen', 'bin abgebogen'], ['einziehen', 'bin eingezogen'],
+  ])('%s → ich %s', (verb, perfekt) => {
+    const c = conjugate(verb);
+    expect(c.aux).toBe('sein');
+    expect(c.perfekt[verb === 'passieren' ? 2 : 0].split(' ').slice(-2).join(' ')).toBe(perfekt);
+  });
+
+  it('leaves the verbs Duden gives both ways on haben, and the transitive ones alone', () => {
+    for (const v of ['joggen', 'surfen', 'starten', 'machen', 'kehren', 'treten']) {
+      expect(conjugate(v).aux, v).toBe('haben');
     }
   });
 });
