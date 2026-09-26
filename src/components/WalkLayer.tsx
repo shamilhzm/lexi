@@ -186,8 +186,9 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
               ? <Button onClick={prepare}><Headphones size={14} /> Prepare the walk</Button>
               : <p className="text-sm">This browser can’t make offline audio, so walk mode isn’t available here.</p>}
             <p className="text-dim text-2xs mt-3 max-w-[40ch]">
-              The audio is made on this phone. The first walk downloads a German and an English voice
-              once; after that it works offline.
+              The audio is made on this phone, so Lexi hosts none. The first walk downloads a German
+              and an English voice once — about 138 MB, less if you already use the HD voice — and
+              after that it works offline. Wi-Fi recommended.
             </p>
           </>
         )}
