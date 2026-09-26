@@ -1,0 +1,12 @@
+Lexi pictograms — public/data/picto/*.json
+
+These pictograms are original line drawings made for Lexi by an AI model (an authoring
+session with Anthropic's Claude, following docs/PICTOGRAMS.md), checked by a validator
+and by blind recognition with a second AI model. They are AI-generated; no rights are
+claimed in them.
+
+To the extent possible under law, the Lexi contributors have waived all copyright and
+related or neighbouring rights to these pictograms: CC0 1.0 Universal,
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Provenance per batch: scripts/corpus/picto/<batch>.meta.json and <batch>.qa.json.

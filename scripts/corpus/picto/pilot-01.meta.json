@@ -1,0 +1,9 @@
+{
+  "batch": "pilot-01",
+  "date": "2026-09-26",
+  "author": "Claude (claude-opus-5-5), in an authoring session",
+  "grammar": "docs/PICTOGRAMS.md v1",
+  "prompt": "docs/PICTOGRAMS.md §12 — the grammar's authoring prompt, applied card by card; one redraw round for five nouns after blind QA",
+  "qa": "pilot-01.qa.json",
+  "licence": "CC0 1.0 (public/data/picto/LICENSE.txt)"
+}

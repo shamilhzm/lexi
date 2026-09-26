@@ -1622,3 +1622,71 @@ not absent — which is all the store rule needs, but not what the comment promi
 **Rule:** dead-code elimination is a property of the output, not of the source. Before
 writing "the branch is dropped", build it and grep the chunk for a string only that
 branch contains.
+
+## A cache keyed by file name inherits the filesystem's idea of equal *(added 2026-09-26)*
+
+**Believed:** "the Wiktionary lookup is case-insensitive, so noun/verb homographs clash"
+(*Kollektiv/kollektiv*, *Schrecken/schrecken*, *Elend* reported as an adjective) — a
+property of the dictionary, worked around by dropping cards all through the 10k push.
+
+**True:** de.wiktionary is case-sensitive. The gate cached each page as
+`<title>.txt`, and macOS's filesystem is not: `Elend.txt` and `elend.txt` were one file,
+so whichever page was fetched first answered for both. A phrase gate looking up *Noch*
+and then *noch* found the capitalised miss cached and reported "no entry for noch".
+
+**Rule:** a cache key that goes through a filesystem is only as distinct as that
+filesystem's names. Encode what it would fold (the cache now marks every capital), and
+when migrating an old cache, trust an entry only if it can prove what it is — a page
+whose own heading matches the title is reused, anything else is fetched again.
+
+## A dry run must not write its durable record *(added 2026-09-26)*
+
+**Believed:** `corpus:relevel:a1` was safe to run without `--write` to see what it would do.
+
+**True:** it rewrote `scripts/corpus/a1-rulings.tsv` — "the durable record" of every A1
+promotion — on every run that found something to promote. A second pass over a grown
+corpus found 4 and replaced the 162 recorded rows with those 4, on a dry run. An
+earlier fix had covered only the case where it found nothing.
+
+**Rule:** a script's dry run writes nothing, including its logs of record; and a record
+is merged, never regenerated from one run's findings.
+
+## A card id lives in more places than the corpus *(added 2026-09-26)*
+
+**Believed:** moving a card to another level means changing its id in `vocab.json`,
+`provenance.json` and `src/data/idmap.ts` — the three places `relevel-a1.ts` names.
+
+**True:** `scripts/corpus/form-rulings.ts` names cards by id too (`keep voc:A1:warten`
+beside `voc:B1:warten auf + A`). After the rebalance moved `warten auf + A` to A2 the
+ruling pointed at a retired id, stopped ruling, and validate failed on the collision it
+had settled. And two derived files keyed by id went stale without a sound —
+`inflections.json` (not rebuilt since before 3,200 cards landed) and `freq.json` — until
+tests caught them.
+
+**Rule:** before moving an id, `git grep` for it across the repo, not a list of known
+holders. After any corpus change run `corpus:split`, `corpus:freq`, `corpus:inflections`
+and the whole test suite, not only `corpus:validate`.
+
+## The browser pane is shared with every agent in the session *(added 2026-09-26)*
+
+**Believed:** a `javascript_exec` in the browser pane inspects the app I just started on
+port 5183.
+
+**True:** a reviewer agent working in its own worktree had navigated the same pane to its
+own dev server on port 5197. The check fetched a pictogram file that did not exist in
+that worktree, got the SPA fallback, and "proved" the feature broken.
+
+**Rule:** assert `location.port` (or the origin) at the top of every pane check while
+agents are running, and prefer the simulator for anything that must be *seen*.
+
+## Union-merging code is not resolving a conflict *(added 2026-09-26)*
+
+**Believed:** conflicts where both sides only *added* — CHANGELOG bullets, new
+`describe` blocks — resolve by keeping both sides.
+
+**True:** for prose it did. For `sw.test.ts` the conflict boundary fell inside a block,
+and "ours then theirs" produced a file that ended mid-function ("Unexpected end of
+file"); the suite reported *no tests* rather than a failure, which is easy to read past.
+
+**Rule:** keep-both is for append-only prose. For code, rebuild the file from one side and
+paste the other side's whole unit in, then run that file's tests and read the count.

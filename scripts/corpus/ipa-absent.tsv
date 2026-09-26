@@ -1,0 +1,8 @@
+# Word cards that ship without IPA on purpose — each one looked up and found absent.
+# A transcription is a fact, and facts are never typed in (CLAUDE.md), so a card whose
+# pronunciation no attested source gives stays without one, with the reason here.
+# corpus:validate skips the "no ipa" warning for these ids only; anything else still warns.
+# id	reason	date
+voc:B2:das Qualifying	English loan; de.wiktionary page has no Lautschrift (scripts/authoring/fetch-ipa.ts, 2026-09-26)	2026-09-26
+voc:B2:das Tutorial	English loan; de.wiktionary page has no Lautschrift (fetch-ipa.ts, 2026-09-26)	2026-09-26
+voc:C1:der Vorfahre	de.wiktionary page has no Lautschrift, and it does not compose from attested parts (compose-ipa.ts)	2026-09-26

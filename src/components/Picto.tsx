@@ -33,8 +33,13 @@ function load(): Promise<void> {
   return loading;
 }
 
-/** The pictogram for a card, or nothing — no placeholder, no fallback emblem. */
-export default function Picto({ id, size = 96, className = '' }: { id: string; size?: number; className?: string }) {
+/** The pictogram for a card, or nothing — no placeholder, no fallback emblem.
+ *  `caption` labels it where a learner stops to read (the full entry): the
+ *  pictograms are AI-drawn, and the legal review asked for that to be said where
+ *  they are met, not only on the legal page. */
+export default function Picto({ id, size = 96, className = '', caption }: {
+  id: string; size?: number; className?: string; caption?: string;
+}) {
   const [, bump] = useState(0);
   useEffect(() => {
     if (cache.has(id)) return;
@@ -45,9 +50,16 @@ export default function Picto({ id, size = 96, className = '' }: { id: string; s
   }, [id]);
   const inner = cache.get(id);
   if (!inner) return null;
-  return (
-    <span aria-hidden="true" className={`inline-block text-txt ${className}`}
-      style={{ width: size, height: size }}
+  const art = (
+    <span aria-hidden="true" className="inline-block text-txt" style={{ width: size, height: size }}
       dangerouslySetInnerHTML={{ __html: pictoSvg(inner, size) }} />
+  );
+  if (!caption) return <span className={`inline-block ${className}`}>{art}</span>;
+  return (
+    // Hidden from screen readers with the picture it labels: the word is the content.
+    <figure aria-hidden="true" className={`inline-flex flex-col items-center ${className}`}>
+      {art}
+      <figcaption className="text-2xs text-dim mt-0.5">{caption}</figcaption>
+    </figure>
   );
 }

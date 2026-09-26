@@ -305,6 +305,15 @@ changes. The output is labelled as AI wherever it is shown.
     could pass as real;
   - the HD voice's credit: Piper "Thorsten", trained on Thorsten-Voice by Thorsten
     Müller (CC0) — and never presented as a person reading.
+- **Pictograms, pilot 01** *(2026-09-26)* — shipped under the rules above:
+  `public/data/picto/` with its own `LICENSE.txt` (CC0 1.0, AI-generated, no rights
+  claimed); the batch manifest `scripts/corpus/picto/pilot-01.meta.json` (author model,
+  grammar, prompt, date) beside the per-asset rows and the blind-recognition record; and
+  *AI-drawn* where the learner meets them (the full entry, and the legal page).
+- **Walk mode's audio is not shipped media.** It is synthesised on the learner's device
+  from the words on the walk, with Piper "Thorsten" (German; Thorsten-Voice, CC0) and
+  Piper "Cori" (English; trained on public-domain LibriVox recordings). Nothing is
+  redistributed; both voices are named as synthetic on the legal page.
 
 ## License of the shipped corpus
 

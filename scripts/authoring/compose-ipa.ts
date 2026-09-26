@@ -36,6 +36,10 @@ const SEGMENTS: Record<string, string[]> = {
   'voc:A2:reinkommen':          ['rein', 'kommen'],
   'voc:A2:reingehen':           ['rein', 'gehen'],
   'voc:A2:unpraktisch':         ['un-', 'praktisch'],
+  // 2026-09-26, found when `corpus:validate --strict` was brought back to zero for CI.
+  // (`der Vorfahre` cannot be composed — no part spelling "-fahre" has a transcription —
+  // so it is a ruled absence in scripts/corpus/ipa-absent.tsv, not a guess.)
+  'voc:C1:die Höchstgrenze':     ['höchst', 'Grenze'],
 };
 
 const arg = (n: string): string | undefined => {

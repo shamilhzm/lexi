@@ -1,0 +1,4 @@
+{"rows":[
+ {"id":"voc:A1:die Farbe","expect":{"def":"colour"},"def":"the property of light an object reflects (red, blue, green …); also paint or dye"},
+ {"id":"voc:B1:die Verteidigung","expect":{"def":"defence"},"def":"protecting against attack or criticism; in sport, the defending players; in law, the side of the accused"}
+]}

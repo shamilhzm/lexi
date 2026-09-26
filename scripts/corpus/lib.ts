@@ -340,8 +340,12 @@ const ARCHAIC_STEMS = [
   'läßt', 'laßt', 'laß', 'ißt', 'hißt',
   'häßlich', 'numeriert', 'Weiber', 'itzt', 'beyder', 'seyn', 'thun', 'gerechtfertiget',
 ];
+// *Muße* (leisure) is modern spelling — a long vowel keeps its ß — and the optional
+// `-e` ending turned the stem `muß` into it: `die Muße` was flagged as pre-1996 in both
+// of its examples (2026-09-26). No archaic form of *müssen* ends in `-e`, so the word
+// is excepted outright rather than the ending being dropped for every stem.
 export const ARCHAIC_SPELLING = new RegExp(
-  '(?<![\\p{L}\\p{N}])(' + ARCHAIC_STEMS.join('|') + ')(e|en|em|er|es|te|ten)?(?![\\p{L}\\p{N}])', 'iu');
+  '(?<![\\p{L}\\p{N}])(?!Muße(?![\\p{L}\\p{N}]))(' + ARCHAIC_STEMS.join('|') + ')(e|en|em|er|es|te|ten)?(?![\\p{L}\\p{N}])', 'iu');
 
 // ---- German text in the English definition field ---------------------------
 // 367 cards shipped a German definition inside `def`; they live in `defDe` now

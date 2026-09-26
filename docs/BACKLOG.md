@@ -23,6 +23,51 @@
 >
 > ---
 >
+> ## What is open after 2026-09-26 — the panel review
+>
+> *Ten reviewers critiqued Lexi, argued it out and implemented the consensus
+> (`docs/PANEL-2026-09-25.md`, CHANGELOG "Panel review"). What they could not do:*
+>
+> **Needs the owner** — nothing below can be done from the repo.
+>
+> 1. **A real iPhone, three checks.** Walk mode with the phone locked (does the audio keep
+>    playing, do AirPods double/triple-press grade?); the storage-protection line in
+>    Fortschritt after a week unused; the CSP console on a Vercel preview deploy.
+> 2. **Name and domain before any launch.** At least two App Store vocabulary apps are
+>    called Lexi; progress is stored per origin, so moving domains later strands learners
+>    behind export/import. Check the trademark registers first.
+> 3. **Impressum.** Fill `public/legal.json`; the page says "pending" until then. A lawyer
+>    should read `public/legal.html` once.
+> 4. **Stories' permissions.** Ask SRF, DW and heise in writing (DW is the likeliest yes);
+>    store builds keep stories off until then (`VITE_STORE_BUILD`).
+> 5. **GitHub:** create the labels `card` and `word request` (the report forms use them);
+>    fill `.github/FUNDING.yml` if Sponsors is wanted.
+> 6. **Prototype Fund:** applications 1 Oct – 30 Nov 2026 (`docs/COSTS.md`).
+> 7. **Read the 77 plural rulings** in `scripts/authoring/batches/plural-lookup-07.json`.
+> 8. **Store accounts** when the domain is settled: Play first as a TWA, iOS after an
+>    export/import handoff exists (`docs/STORES.md`).
+>
+> **Engineering, next:**
+>
+> 1. **Capitalised nouns resolve to a same-spelled verb/adjective card.** *das Leben*,
+>    *das Lokal*, *das Elend* cannot pass the gate's example check because the matcher sends
+>    *Leben* to `leben`. A reading-meter bug as much as a gate one. · M, `lib/matcher.ts`
+> 2. **Pictograms, next batch:** ~300 concrete A1–B1 nouns and common verbs under the same
+>    gate; a new adjective recipe (contrast pairs failed blind 5 of 8); the render checks
+>    (§10.3 ink and holes, §10.5 collisions) as a script. · M, `docs/PICTOGRAMS.md`
+> 3. **Walk mode, after the device test:** show which voices are already cached before the
+>    download; a stall timer on voice downloads; UI/UX's proposal that locked-screen grades
+>    be confirmed on next unlock, if the device test shows accidental presses. · S–M
+> 4. **The tutor should keep `usage`** so it can show tokens per call. · XS, `lib/ai.ts`
+> 5. **Tatoeba links for 2,725 matched sentences** that ship without one. · S
+> 6. **Drills the Germanist asked for:** principal parts of strong verbs, verb +
+>    preposition + case, and a redraw of `degree` and `cloze`. · M each
+> 7. **`corpus:validate --strict`:** 8 non-plural warnings left. · XS
+> 8. **UI debts:** Placement's fade-ins from invisible, search's small speaker buttons,
+>    the feed hint's 28px close button. · XS each
+>
+> ---
+>
 > ## What is open after 2026-09-24 — stories in the feed
 >
 > *Stories joined the feed on 2026-09-24 (CHANGELOG). Ranked by how much each serves the

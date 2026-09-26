@@ -13,6 +13,70 @@ it is already built.
 
 ### Shipped 2026-09-25 — Panel review
 
+**How this was made.** The owner asked for ten reviewers — a Germanist, product design,
+UI/UX, engagement, mobile, legal, marketing, finance, app stores and go-to-market — to
+critique Lexi, argue their critiques out with each other, and implement the result. Each
+wrote an independent critique from the code, the docs and eleven phone screenshots of
+seeded learners; each then read the other nine and wrote a reply (co-sign, object,
+revised top five); the consensus became one plan with file ownership per reviewer, and
+each built their rows on a branch that was merged here. Where they disagreed the plan
+records who won and why — see `docs/PANEL-2026-09-25.md`. The bullets below are grouped
+by reviewer; the lead engineer's own work comes first.
+
+**Lead engineer — walk mode, pictograms, the rebalance, and the one bug everyone ranked
+first.**
+
+- **Progress could be overwritten by a shorter copy** (`store.ts`, co-signed as the first
+  fix in all ten reviewers' second rounds). Three routine paths wrote the card map before it had been
+  read or after it stopped being true: a `pagehide` during boot (the post-deploy reload),
+  a boot that could not open IndexedDB, and the reload after a restore. Writes now wait for
+  `hydrate`, go to localStorage only after a degraded boot, stop at a restore, and never
+  write a map smaller than the one loaded. Five tests, each mutation-checked.
+- **Walk mode** (`lib/walk.ts`, `lib/walkAudio.ts`, `components/WalkLayer.tsx`). The
+  owner's request: a 5–60 minute walk or run with the phone in a pocket, hearing the cards
+  and saying them back, counting toward progress. English prompt → a cue tone → a pause to
+  say the German aloud → the German twice. New words are taught first and tested ~40 s,
+  2 min and 5 min later. **Only a deliberate press grades** — headphone *next track* (AirPods
+  double-press) = knew it, *previous* = didn't; one FSRS write per card per walk; silence
+  grades nothing, and speech is never machine-marked, as VISION refuses. Leftover time is a
+  listening lane that never grades; a press there saves the word. The whole walk is rendered
+  **on the phone** with the in-browser Piper voices into one WAV, because a file already
+  playing is the one thing a locked phone lets continue — and pre-rendered audio for the
+  corpus would not fit the host (194.7–710.2 MB, `docs/COSTS.md`). Opened from the Saved
+  sheet, the feed's ready slot, or `?walk` (a home-screen shortcut). Driven on the iPhone
+  simulator; **locked-screen playback on a real iPhone is untested**.
+- **Pictograms, pilot 01** (`lib/picto.ts`, `components/Picto.tsx`,
+  `scripts/corpus/picto-build.ts`, `docs/PICTOGRAMS.md`). The owner wanted a visual of the
+  word, like Karteto's, with no art style chosen. The reviewers converged on single-colour
+  SVG pictograms on a strict grid, drawn by a language model and gated like a gloss — free
+  image generation turned out not to exist (below). 67 cards → **51 shipped, 7.2 KB**: a
+  validator (the same one runs again before render, as the security boundary) plus **blind
+  recognition** — a vision model that never saw the word had to name it. Nouns 38 of 41
+  after one redraw, verbs 5 of 5, contrast-pair adjectives 3 of 8: that recipe does not
+  carry meaning on its own and needs another design before adjectives scale.
+- **A1/A2 rebalance.** 30 cards promoted — 4 by the Goethe A1 list, 26 ruled one by one by
+  the Germanist (countries to A1; *verlieren, teilen, damals, stehlen, schaffen…* to A2) —
+  after a mechanical rule (promote everything ranked ≤ 1,500) was measured and refused: it
+  would have been wrong about 85% of the time. `scripts/corpus/relevel-cards.ts` moves an id
+  in all four places that hold it (vocab, provenance, the id map, form rulings). 30 missing
+  beginner words (*denn, seit, als, ob, sondern, dir, die Lehrerin…*) and **25 fixed
+  phrases** (*Wie spät ist es?, Stimmt so., Gern geschehen.*) through a new gated phrase
+  path: every word must have a de.wiktionary page, the IPA is the words' own transcriptions
+  joined, and each example must contain the phrase verbatim.
+- **The gate's "homograph clashes" were a cache bug.** de.wiktionary pages were cached under
+  the page title on a case-insensitive filesystem, so *Elend* and *elend* shared one file
+  and a noun was checked against an adjective's page. The cache is now case-safe and only
+  reuses a legacy file whose own heading proves which page it is.
+- **Derived data rebuilt.** `inflections.json` had not been rebuilt since before the
+  10k push (now 8,855 of 10,078 cards matched); phrases get a frequency rank from their
+  rarest word (7,644 of 10,078 ranked).
+- **What the free models could do** (the owner's OpenRouter key; free tier). OpenRouter's
+  free catalogue has no image or speech models — 22 free text/vision LLMs, 50 requests a
+  day, frequently rate-limited upstream. They were useful for exactly one job here, blind
+  recognition of the pictograms, batched ten images a request. Audio came from Piper (open
+  voices, run on the phone); images from the model drawing SVG. OpenRouter raises the free
+  daily limit for accounts that hold credit, which would make corpus-wide QA passes practical.
+
 **Germanist (01) — recall grading, several plurals, the sein-auxiliary.**
 
 - **Recall accepts correct German** (`views/drills.tsx`). It accepted only

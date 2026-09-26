@@ -14,6 +14,11 @@ import { join } from 'node:path';
 import { PATHS } from './config.ts';
 import { ALLOWED_POS } from './config.ts';
 import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, exampleKey, PREMODERN_TYPOGRAPHY, tenseItemDefect, LEVELS, type Word } from './lib.ts';
+
+/** Cards ruled to ship without IPA — see the file's header. Read once. */
+const IPA_ABSENT = new Set(
+  (fileExists('scripts/corpus/ipa-absent.tsv') ? readFileSync('scripts/corpus/ipa-absent.tsv', 'utf8') : '')
+    .split('\n').filter((l) => l && !l.startsWith('#')).map((l) => l.split('\t')[0]));
 import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
 import { parseRulings } from '../authoring/verify.ts';
 import { pluralForm, type Matcher } from '../../src/lib/matcher.ts';
@@ -130,7 +135,7 @@ function schemaCheck(cards: Word[]): { errors: Issue[]; warnings: Issue[] } {
     if (w.kind === 'word' && w.pos === 'noun' && !w.plural && !properNoun) {
       warnings.push({ id, msg: 'noun without plural' });
     }
-    if (w.kind === 'word' && !w.ipa) warnings.push({ id, msg: 'no ipa' });
+    if (w.kind === 'word' && !w.ipa && !IPA_ABSENT.has(id)) warnings.push({ id, msg: 'no ipa' });
     // An example-less card is a bare gloss, so it fails outright; one example is
     // a thin connection between word and use, so it only warns.
     if (w.kind === 'word' && (!w.ex || !w.ex.length)) errors.push({ id, msg: 'no example' });
