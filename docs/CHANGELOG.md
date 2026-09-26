@@ -11,6 +11,43 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-25 — Panel review
+
+#### Finance (08) — what Lexi costs, measured, and two money claims that were guesses
+
+**Why.** Lexi had no statement of what it costs or who pays, a "Support Lexi's
+development" link that opened the repo front page, and two numbers about money on screen
+that nothing had measured: the tutor's "a day's reading and writing costs cents", and an
+HD voice that "downloads once (~25 MB)". A local-first app's costs are almost all borne
+by someone other than the owner — the learner's key, the learner's data plan, public
+services — and the page that says so has to be as honest as the app's other numbers.
+
+- **`scripts/costs.ts`**, the instrument, committed first: the first-visit payload (asset
+  and data lists parsed from the build and from the code that fetches), on-demand shards,
+  change-days from `git log`, the deploy upload against Vercel Hobby's CLI limits, and two
+  labelled models. `--live <url>` measures the wire from the host and from the voice CDNs,
+  reading every voice URL out of `lib/tts.ts`.
+- **`docs/COSTS.md`** — who pays for what; 884 KB on the wire before the first word;
+  5.1 MB a month for a learner who opens Lexi daily (modelled), ~19,500 of them inside the
+  free tier; why walk mode renders on the phone (every clip pre-rendered is 194.7–710.2 MB
+  against a deploy with 61 MB of headroom); what would change the bill (any payment
+  needs Vercel Pro; donations do not); the Prototype Fund window (1 Oct – 30 Nov 2026);
+  how to help; the owner's checklist before taking money.
+- **The tutor no longer promises "cents"** (`AiSettings.tsx`); it says the provider bills
+  the key per request and shows the spend. Showing tokens per call needs `ai.ts` to keep
+  `usage` — listed as a gap, not done here.
+- **The HD voice says ~75 MB** (`VoiceOffer.tsx`, `Settings.tsx`): 74.6 MB measured on the
+  wire, a 63.2 MB model plus runtime. Walk mode's English voice is another 63.5 MB. The
+  five-minute download timeout (`useHdVoice.ts`) was sized for 25 MB and is flagged in
+  place, not changed.
+- **The support link says where it goes** — "What Lexi costs, and how to help", to
+  `docs/COSTS.md` — and `.github/FUNDING.yml` is a commented placeholder, so GitHub shows
+  no Sponsor button until an account exists behind it.
+- **A correction to the panel's own review, in LESSONS.** It counted 28 `cards.json`
+  commits as 28 re-downloads; they fell on 4 days, and a learner fetches a changed file at
+  most once a day. The review's ceiling for the free tier (3,000–8,000 daily learners)
+  was low by two to six times.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they

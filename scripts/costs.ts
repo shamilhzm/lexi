@@ -79,7 +79,8 @@ const detail = dir(join(DIST, 'data', 'detail')).map(size);
 const lex = dir(join(DIST, 'data', 'lex')).map((p) => { const b = readFileSync(p); return { path: p, raw: b.length, gz: gz(b), br: 0 }; });
 console.log('\n2 · On demand');
 for (const s of detail) row(basename(s.path), kb(s.gz) + ' gz');
-row(`lexicon shards (${lex.length})`, mb(sum(lex, 'raw')) + ' raw', mb(sum(lex, 'gz')) + ' gz, if every one were opened');
+const shardCount = lex.filter((s) => /\/\d+\.json$/.test(s.path)).length;
+row(`dictionary: ${shardCount} shards + index`, mb(sum(lex, 'raw')) + ' raw', mb(sum(lex, 'gz')) + ' gz, if every one were opened');
 
 // ---- 3. churn: how often a returning learner re-downloads -------------------------
 // A learner downloads a changed file at most once a day, so the unit is *days with a

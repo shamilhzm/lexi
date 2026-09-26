@@ -43,6 +43,7 @@ should be deleted — git history is what history is for.
 |---|---|---|
 | [DESIGN.md](DESIGN.md) | The design system as it actually is: tokens, the elevation ramp, radius/hue/motion rules, the two-rooms principle, and the gotchas that cost time. Living — argue with it. | Touching anything visual. |
 | [BACKEND.md](BACKEND.md) | **Proposal, not policy.** The accounts + sync design: what would sync, what deliberately would not, how two offline devices merge. No code written, and it contradicts the current shipping behaviour — see VISION § open decisions. | Before touching auth, sync or push. |
+| [COSTS.md](COSTS.md) | What Lexi costs to run and who pays each part — measured by `scripts/costs.ts`, not estimated — plus what would change the bill, the grant window, and how to help. | Before adding a server, a download, or any way of taking money. |
 | [../ATTRIBUTIONS.md](../ATTRIBUTIONS.md) | Every corpus source, its licence, what is redistributed and what is only cached. | Adding a data source. Forking. |
 
 ### Standing critiques — one lens each, written to be argued with
