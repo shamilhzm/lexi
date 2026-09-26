@@ -44,6 +44,31 @@ describe('stampPublicCopy', () => {
   });
 });
 
+// README is GitHub's landing page — it is what a search for Lexi actually returns —
+// and it cannot be stamped at build. So its headline counts are checked instead:
+// they must be exactly what `roundedDown` would say today, which fails the day the
+// corpus crosses the next thousand and the README undersells it.
+describe('README — the headline counts', () => {
+  const readme = readFileSync(join(root, 'README.md'), 'utf8');
+  const clean = readme.replace(/\*\*/g, '');
+
+  it('says the taught count the way the meta tags do', () => {
+    const said = [...clean.matchAll(/(\d{1,3}(?:,\d{3})+\+?) (?:words|word cards)\b/g)].map((m) => m[1]);
+    expect(said.length).toBeGreaterThan(0);
+    for (const s of said) expect(s).toBe(roundedDown(countTaught(cards)));
+  });
+
+  it('says the dictionary count the way the meta tags would', () => {
+    const said = [...clean.matchAll(/(\d{1,3}(?:,\d{3})+\+?) (?:dictionary )?headwords\b/g)].map((m) => m[1]);
+    expect(said.length).toBeGreaterThan(0);
+    for (const s of said) expect(s).toBe(roundedDown(dictionary));
+  });
+
+  it('links the live app', () => {
+    expect(readme).toContain(`](${PUBLIC_ORIGIN})`);
+  });
+});
+
 // The guard the old meta description needed. A number typed into index.html went
 // a third stale without a sound; these fail the day someone types one back.
 describe('index.html — the public copy', () => {

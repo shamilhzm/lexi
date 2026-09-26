@@ -1,28 +1,64 @@
 # Lexi
 
-**Your German vocabulary, A1–C2.** A free, open-source, local-first app for **English
-speakers learning German words** — spaced repetition over a deep lexicon, the word-facts
-that make a German word actually yours drilled alongside the meaning, and a scheduler
-that tells you *why* each card is in front of you.
+**Scroll German. Save a word. Lexi makes it stick.**
 
-No account, no sign-in, no tracking, and nothing to cancel. It runs entirely on your
-device and works offline.
+A free, open-source German vocabulary app for English speakers: **10,000+ words** from
+A1 to C2 to learn, and a dictionary of **93,000+** headwords to look things up in. No account,
+no ads, nothing to cancel — and your progress stays on your device.
 
-**Opening the app is a German word.** There is no home screen to get past: the front
-door is a feed you scroll, one word per screen, with the pronunciation, the meaning and
-an example all present.
+**[Open Lexi →](https://lexi-eosin.vercel.app)** — it runs in the browser; add it to your
+home screen and it works offline.
 
-> **Scope, stated so the promise never runs ahead of the corpus:** every gloss,
-> definition and example translation is in English. That is a deliberate choice — see
-> [`docs/VISION.md`](docs/VISION.md). Other language pairs are an architectural goal,
-> not a shipped feature.
->
-> **Lexi does not teach grammar.** *Ruled 2026-09-05, and the ruling is the point:* a
-> drill earns its place if it tests a property of the **word** — gender, plural,
-> spelling, the German you have to produce — and goes if it tests a **rule of the
-> language**. The 140-point grammar syllabus, the exam room and the reading room were
-> all removed. [`docs/VISION.md`](docs/VISION.md) carries the whole argument, including
-> what it would take to reverse it.
+[![Every word Lexi teaches as a night sky, the commonest at the centre, beside the line: Scroll German. Save a word. Lexi makes it stick.](public/og.jpg)](https://lexi-eosin.vercel.app)
+
+## Who it is for
+
+English speakers **living with German** — past the course, somewhere between A2 and B2,
+who want to read the news and the letter from the *Ausländerbehörde* without a
+dictionary open. It works from A1, but Lexi teaches **words, not grammar**: if you are
+starting from zero, use it beside a course, not instead of one.
+
+## What makes it different
+
+- **Nothing to pass.** Lexi opens on a German word, not a quiz: one word per screen,
+  with its sound, its meaning and an example, and nothing is graded until you ask.
+  Every few words there is a German news story on topics you choose (tagesschau, SRF,
+  DW, heise), fetched by your own browser — tap any word in it to save it.
+- **You choose what you learn.** Save a word and **Üben** (practice) brings it back
+  just before you would forget it — FSRS spaced repetition. Cards say *why* they are in
+  front of you, and recognising a word and producing it (typed, article included) are
+  scheduled separately, because recognising is only half of knowing.
+- **Checked, not generated.** Gender, plural, part of speech and pronunciation come
+  from Wiktionary, never from a model, and a new card is refused outright if any of them
+  disagrees with de.wiktionary or its example sentence does not contain the word.
+- **Lexi in your ears.** *Walk* turns a session into audio for a walk or a run, 5 to 60
+  minutes: hear the English, say the German aloud, then hear it. You grade with your
+  headphone buttons; silence grades nothing, and your voice is never scored.
+- **Your German, as a sky.** Every word Lexi teaches is a star, the commonest at the
+  centre, and the ones you know are lit as brightly as you would recall them today.
+  Share it — the picture carries the link.
+- **Yours.** No account, no tracking, no ads. Progress lives in your browser's storage
+  (back it up from Settings). An optional tutor explains sentences on *your own* AI key,
+  and is off until you add one. The code is MIT; the corpus is CC BY-SA, every source
+  recorded in [`ATTRIBUTIONS.md`](ATTRIBUTIONS.md).
+
+## How it compares
+
+Lexi is small on purpose. What the others do better is real, and worth saying:
+
+| If you use… | it is better at… | Lexi is different because… |
+|---|---|---|
+| **Duolingo** | a whole course — grammar, listening, speaking — as a daily game | it is only vocabulary, for adults, with no game to win or lose, and it goes deep at B1–C1 |
+| **Anki** with a shared deck | anything, in any language, exactly your way | there is no deck to build or debug, and every gender and plural is checked |
+| **LingQ, Readlang** | reading any text you bring | a word counts as known when the scheduler's evidence says you would recall it, not when you mark it — and it is free |
+
+> **What Lexi deliberately does not do** — teach grammar, mark your speech, run leagues,
+> or say "you can now…" from a word count. *Ruled 2026-09-05:* a drill earns its place
+> if it tests a property of the **word** (gender, plural, spelling, the German you have
+> to produce) and goes if it tests a **rule of the language**. Every gloss is in
+> English; other language pairs are an architectural goal, not a shipped feature.
+> [`docs/VISION.md`](docs/VISION.md) carries the whole argument, including what it would
+> take to reverse each refusal.
 
 ## Docs
 
@@ -33,16 +69,16 @@ what is still undecided. [`docs/BACKLOG.md`](docs/BACKLOG.md) is what's next;
 
 ## What's inside
 
-Measured against the shipped corpus on 2026-09-05, not estimated.
+Measured against the shipped corpus on 2026-09-26. The two headline counts are
+guarded by `src/lib/publicCopy.test.ts`, which fails when the corpus outgrows them.
 
-- **6,520 vocabulary cards** across all six CEFR levels — **A1 1,159 · A2 1,381 ·
-  B1 2,278 · B2 942 · C1 575 · C2 185**.
-- **Every card carries at least two usage examples**, German and English, graded at or
-  just below the card's level.
-- Cards carry IPA, gloss, gender + plural, synonyms/antonyms, word family and — from B2 —
-  a German-language definition.
-- **273 fine sectors** rolled up into **nine theme groups**, which the heatmap uses so
-  the treemap reads on a phone.
+- **10,000+ word cards** across all six CEFR levels, every one with **at least two
+  usage examples**, German and English, and all but a handful with IPA.
+- Cards carry a gloss, gender and plural, synonyms and antonyms, word family and — from
+  B2 — a German-language definition.
+- **93,000+ dictionary headwords** answer what the cards do not, kept visibly apart:
+  an entry is an unverified Wiktionary gloss you can look up and note, never study.
+- **274 topic sectors**, rolled up into broad theme groups for browsing and the heatmap.
 - **FSRS** scheduling via `ts-fsrs`. Every drill mode is its own track, so *recognising*
   a word and *producing* it are scheduled separately — that split is what makes the
   recall drill honest.
@@ -55,13 +91,13 @@ Four destinations, and the first one is where the app opens.
 
 - **Wörter** — *the feed.* One German word per screen, scrolled: the headword with its
   article inked by gender, the IPA as a pill you press to hear it, the meaning, and one
-  example sentence. Three actions — ⓘ opens everything the corpus knows, ♥ favourites,
-  and **🔖 saves the word to your next session.** The feed does not grade you: scrolling
-  is not evidence, so nothing here touches your schedule. The order is the scheduler's,
+  example sentence. Three actions — ⓘ opens everything the corpus knows, **🔖 saves the
+  word to your next session**, and 🎓 practises it now. The feed does not grade you:
+  scrolling is not evidence, so nothing here touches your schedule. The order is the scheduler's,
   though — what's due, then unseen words from your thinnest topics, then the rest by
   frequency.
-- **Themen** — *what words are there?* A search over all 10,133 cards (German or English,
-  umlauts optional), the nine theme groups with your coverage on each, **Decks**, the
+- **Themen** — *what words are there?* A search over every card (German or English,
+  umlauts optional), the theme groups with your coverage on each, **Decks**, the
   **Wortkarte** (a semantic map of a sector, with synonym links and node colour by
   learning status), and **Wörter aus einem Text** — paste any German you want to read
   and it says how much of it you can read, which words are in the way, and builds a
@@ -72,7 +108,9 @@ Four destinations, and the first one is where the app opens.
   on typed answers, and a line under each item saying *why it is here* ("you flipped
   *anbieten* a few cards ago — now produce it"). Silence when there is nothing
   non-obvious to say.
-- **Fortschritt** — *how is it going?* Words you know, the two-minute placement test, the
+- **Fortschritt** — *how is it going?* **Dein Deutsch**, the sky of every word Lexi
+  teaches with the ones you know lit, a replay of how it filled, and each word's own
+  memory curve; words you know, the two-minute placement test, the
   A1→C2 level path (which is also the control that decides what you are shown), your
   goal, the knowledge heatmap, review and recall history, the 7-day due forecast,
   finished sectors, and **blind spots** — what you keep getting wrong, ranked by rate,
@@ -87,8 +125,13 @@ Four destinations, and the first one is where the app opens.
 
 Bookmarking is the one thing a feed can honestly record, and it is an instruction to the
 scheduler rather than a wishlist: `buildBriefing` serves saved words ahead of the ones it
-would have picked itself. Favourites are separate and change nothing about what you are
-taught.
+would have picked itself.
+
+**Walk** — *On a walk* on the saved-words sheet, or `?walk` — is the day's queue as audio for
+a walk or a run: the English, a cue tone, a pause to say the German aloud, then the
+German. Only a deliberate headphone press grades — next track *knew it*, previous track
+*didn't* — and a word met for the first time is taught before it is tested. See
+`src/lib/walk.ts`.
 
 ### The three drills
 
@@ -125,7 +168,7 @@ Vercel.
 ```bash
 npm run build      # production bundle to dist/
 npm run typecheck  # tsc --noEmit
-npm test           # vitest — 600 tests over the pure logic and the shipped corpus
+npm test           # vitest — the pure logic, the shipped corpus, and the public copy
 npm run lint       # eslint, including jsx-a11y
 ```
 
