@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
+import { publicCopy } from './scripts/marketing/publicCopyPlugin.ts';
 
 /** Which commit this bundle was built from, and when.
  *
@@ -72,7 +73,9 @@ export default defineConfig({
   // '/' there and '/lexi/' everywhere else. Everything (index.html asset URLs, the
   // service worker registration via BASE_URL) derives from this.
   base: process.env.VERCEL ? '/' : '/lexi/',
-  plugins: [react(), tailwindcss(), dropCanonicalCorpus, versionStamp],
+  // `publicCopy` stamps the word counts and the public origin into index.html's
+  // meta tags from the shipped data (see src/lib/publicCopy.ts).
+  plugins: [react(), tailwindcss(), dropCanonicalCorpus, versionStamp, publicCopy()],
   define: {
     __BUILD_SHA__: JSON.stringify(buildSha),
     __BUILD_TIME__: JSON.stringify(buildTime),
