@@ -64,7 +64,7 @@ describe('index.html — the public copy', () => {
   });
 
   it('gives link previews an absolute image and the large card', () => {
-    expect(stamped).toMatch(/property="og:image" content="https:\/\/[^"]+\/og\.png"/);
+    expect(stamped).toMatch(/property="og:image" content="https:\/\/[^"]+\/og\.(jpg|png)"/);
     expect(stamped).toMatch(/name="twitter:card" content="summary_large_image"/);
   });
 
@@ -73,5 +73,22 @@ describe('index.html — the public copy', () => {
     // Comments stripped: the head explains the old claim, and must be allowed to.
     const shipped = head.replace(/<!--[\s\S]*?-->/g, '');
     expect(shipped).not.toMatch(/(never|nothing) leaves (your|this) device/i);
+  });
+
+  it('points og:image at a file that exists, is the size it declares, and unfurls everywhere', () => {
+    const file = /property="og:image" content="[^"]*\/([^"/]+)"/.exec(head)?.[1] ?? '';
+    const jpg = readFileSync(join(root, 'public', file));
+    // Baseline or progressive start-of-frame: height, then width, big-endian.
+    let at = 2, w = 0, h = 0;
+    while (at < jpg.length) {
+      const marker = jpg.readUInt16BE(at);
+      if (marker === 0xffc0 || marker === 0xffc2) { h = jpg.readUInt16BE(at + 5); w = jpg.readUInt16BE(at + 7); break; }
+      at += 2 + jpg.readUInt16BE(at + 2);
+    }
+    expect([w, h]).toEqual([1200, 630]);
+    expect(head).toMatch(/og:image:width" content="1200"/);
+    expect(head).toMatch(/og:image:height" content="630"/);
+    // Link previews are commonly dropped above ~300 KB.
+    expect(jpg.length).toBeLessThan(300_000);
   });
 });
