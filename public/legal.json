@@ -1,0 +1,12 @@
+{
+  "_readme": "Filled by the operator, never by a script or a model. legal.html renders the Impressum from these fields and shows 'Impressum: pending' until name, street, postcode, city and email are all non-empty. See docs/CHANGELOG.md, Panel review 2026-09-25, and have a lawyer confirm before relying on it.",
+  "impressum": {
+    "name": "",
+    "street": "",
+    "postcode": "",
+    "city": "",
+    "country": "",
+    "email": ""
+  },
+  "updated": "2026-09-25"
+}

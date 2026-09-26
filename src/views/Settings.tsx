@@ -216,6 +216,13 @@ export default function Settings({ onExit }: { onExit: () => void }) {
           and progress safe — or to move to another device. Importing replaces what’s
           on this device, so export first if unsure.
         </p>
+        {/* The one page that lists every exception to "lives on this device" —
+            stories, recordings, the voice, the tutor — with credits and the
+            Impressum. Static, so it opens without this bundle (public/legal.html). */}
+        <p className="text-dim text-xs mb-3">
+          <a href="./legal.html" target="_blank" rel="noopener" className="underline decoration-dotted hover:text-accent">
+            What leaves this device, credits and legal notice</a>
+        </p>
         <div className="flex flex-wrap gap-2 items-center">
           <Button onClick={doExport}><Download size={15} /> Export backup</Button>
           <Button variant="secondary" onClick={() => fileRef.current?.click()}>

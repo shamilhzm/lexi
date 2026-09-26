@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eeeae3" />
+  <title>Lexi — privacy, credits and legal notice</title>
+  <!--
+    One static page, deliberately outside the app (panel review, 2026-09-25):
+    it has to be reachable without the JS bundle, from an app-store listing, and
+    from a lawyer's browser, and it must not depend on the thing it describes.
+    `legal.js` fills in two things that live in data rather than prose: the
+    Impressum (from `legal.json`, which only the operator fills — nothing here
+    ever invents a name or an address) and the recording credits (from
+    `data/audio.json`, so a new recording is credited the day it ships).
+    Without JavaScript the page still says everything except those two.
+
+    Keep "Features that contact a third party" in step with the code:
+    `src/lib/legal-page.test.ts` fails when a network host appears in `src/`
+    that this page does not name.
+  -->
+  <style>
+    :root { --bg: #eeeae3; --panel: #f7f5f1; --txt: #1e2226; --dim: #55534d; --line: #d2cabc; --accent: #1d6a8c; --warn: #8a4b00; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #101619; --panel: #16232a; --txt: #e6edef; --dim: #a3b3b9; --line: #2c3b41; --accent: #63b3d4; --warn: #e0a458; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--txt);
+      font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 42rem; margin: 0 auto; padding: max(1rem, env(safe-area-inset-top)) 1rem 4rem; }
+    a { color: var(--accent); }
+    .back { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-decoration: none; }
+    h1 { font-size: 1.6rem; line-height: 1.2; margin: .5rem 0 .25rem; }
+    h2 { font-size: 1.15rem; margin: 2.25rem 0 .5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+    h3 { font-size: 1rem; margin: 1.25rem 0 .25rem; }
+    p, li { color: var(--txt); }
+    .dim { color: var(--dim); font-size: .9rem; }
+    .pending { color: var(--warn); font-weight: 600; }
+    nav ul { padding-left: 1.1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { text-align: left; vertical-align: top; padding: .5rem .5rem .5rem 0; border-bottom: 1px solid var(--line); }
+    th { font-weight: 600; }
+    td:first-child { width: 28%; }
+    code { font-size: .85em; overflow-wrap: anywhere; }
+    address { font-style: normal; }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← Back to Lexi</a>
+  <h1>Privacy, credits and legal notice</h1>
+  <p class="dim">Last updated <span id="updated">2026-09-25</span>. Lexi is a free, open-source German vocabulary app. It runs in your browser, has no accounts and no server of its own, and does not track you.</p>
+
+  <nav aria-label="On this page">
+    <ul>
+      <li><a href="#short">In short</a></li>
+      <li><a href="#impressum">Impressum (legal notice)</a></li>
+      <li><a href="#privacy">Privacy notice (Datenschutzerklärung)</a></li>
+      <li><a href="#flows">Features that contact a third party</a></li>
+      <li><a href="#tutor">The optional AI tutor</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#credits">Credits and licences</a></li>
+      <li><a href="#ai-content">Content written with AI</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="short">In short</h2>
+  <ul>
+    <li><strong>Your progress stays on your device.</strong> Cards, schedule, saved words, journal and settings live in this browser’s storage. Nobody else, including whoever runs Lexi, can see them.</li>
+    <li><strong>No account, no analytics, no ads, no tracking cookies.</strong> That is why there is no cookie banner: nothing here needs your consent to be stored.</li>
+    <li><strong>Some features fetch things from other websites</strong> (news stories, recordings, the HD voice, the AI tutor). Each is listed below with what it sends. Those websites see your IP address, as they would if you visited them.</li>
+  </ul>
+
+  <h2 id="impressum">Impressum <span class="dim">(legal notice)</span></h2>
+  <div id="impressum-body">
+    <p class="pending">Impressum: pending.</p>
+    <p class="dim">The operator has not yet published a name and address here. Until they do, the other sections of this page still apply.</p>
+  </div>
+
+  <h2 id="privacy">Privacy notice <span class="dim">(Datenschutzerklärung)</span></h2>
+  <h3>Who is responsible</h3>
+  <p>The operator named in the <a href="#impressum">Impressum</a> is the controller under the GDPR for the processing described here.</p>
+
+  <h3>What stays on your device</h3>
+  <p>Lexi keeps its data in your browser (IndexedDB, localStorage and, for audio, the origin private file system). That includes your cards and review history, saved and noted words, your reading journal and the tutor’s feedback, cached stories and recordings, your settings and, if you add one, your AI key. This storage is strictly necessary to provide what you asked for (§ 25(2) no. 2 TDDDG). It is never sent to the operator. To delete it, clear this site’s data in your browser or remove the installed app. To keep a copy, use <em>Settings → Your data → Export backup</em>. The backup never contains your AI key.</p>
+
+  <h3>Hosting</h3>
+  <p>The app’s files are served by Vercel Inc. (USA). As with any website, Vercel’s servers log requests (your IP address, the time, the file requested and your browser’s user agent) to deliver the files and keep the service secure. The legal basis is Art. 6(1)(f) GDPR: a website cannot be delivered without it. Vercel processes this as the operator’s processor. The safeguards for the transfer to the USA are set out in <a href="https://vercel.com/legal/dpa">Vercel’s Data Processing Addendum</a>. Aggregate request counts (how often a file was fetched) may be read to see whether Lexi is used. No identifiers are added for that, and nothing in the app measures you.</p>
+
+  <h2 id="flows">Features that contact a third party</h2>
+  <p>These happen only when you use the feature. Your browser connects directly to the company named, which sees your IP address and what is listed. Lexi’s operator receives none of it. The legal basis is Art. 6(1)(f) GDPR: providing the feature you chose.</p>
+  <table>
+    <thead><tr><th>Feature</th><th>Who it contacts</th><th>What is sent</th></tr></thead>
+    <tbody>
+      <tr><td>Stories in the feed <span class="dim">(off until you pick topics)</span></td>
+        <td>tagesschau.de (ARD), srf.ch (SRF), dw.com (Deutsche Welle), heise.de, and the image and audio servers they link</td>
+        <td>A request for the story list, the article you open, its photo and, for DW, its audio</td></tr>
+      <tr><td>Telling names from words in a story</td>
+        <td>de.wiktionary.org (Wikimedia Foundation, USA)</td>
+        <td>The capitalised words of the article you open, to check which are names</td></tr>
+      <tr><td>Human recordings of example sentences</td>
+        <td>tatoeba.org (France)</td>
+        <td>A request for the recording, the first time you play it (kept on your device after that)</td></tr>
+      <tr><td>HD German voice <span class="dim">(off until you turn it on)</span></td>
+        <td>cdn.jsdelivr.net and cdnjs.cloudflare.com (the speech engine), huggingface.co (the voice)</td>
+        <td>A one-time download (~25 MB). After that the voice runs on your device and sends nothing.</td></tr>
+      <tr><td>Speaking (“Say it”, “Sag es”)</td>
+        <td>Your browser’s maker: Apple (Safari) or Google (Chrome)</td>
+        <td>The audio you record, for speech recognition. Lexi asks before the first recording.</td></tr>
+      <tr><td>AI tutor <span class="dim">(off until you add your own key)</span></td>
+        <td>api.anthropic.com (Anthropic, USA) or openrouter.ai (OpenRouter, USA, which forwards to the model’s provider)</td>
+        <td>See <a href="#tutor">the next section</a></td></tr>
+      <tr><td>Links you open</td>
+        <td>The publisher’s article, DeepL, a Tatoeba sentence page, GitHub, your AI provider’s console</td>
+        <td>Ordinary browsing. Lexi adds nothing to the address.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="tutor">The optional AI tutor</h2>
+  <p>The tutor works only with <strong>your own key</strong>, from an account you hold with Anthropic or OpenRouter. The key is stored in this browser and sent only to that provider. Before the first request, Lexi shows what will be sent and waits for your OK. It asks again if you switch provider.</p>
+  <ul>
+    <li><strong>Explain a sentence</strong> sends the sentence, its paragraph, the article’s title and your level.</li>
+    <li><strong>Check my German</strong> sends what you wrote, the article’s title, the words you were trying to use and your level.</li>
+  </ul>
+  <p>Your agreement with the provider governs what happens next, including its privacy policy and any minimum age. OpenRouter passes requests to the company that runs the model you choose. Leave out personal details you would not put in an email. The answer is shown to you and kept in your journal on this device. It is labelled as AI, can be wrong, and never changes your cards, your schedule or any number in Lexi.</p>
+
+  <h2 id="rights">Your rights</h2>
+  <p>Under the GDPR you have the right to access, rectification, erasure, restriction, data portability and objection (Arts. 15–21), and the right to complain to a data protection supervisory authority. Lexi’s operator holds no data about you except the hosting logs above, so a request will usually be answered with “we hold nothing that identifies you”. For the services in the table, ask the company named. Your learning data is on your device, under your control.</p>
+
+  <h2 id="credits">Credits and licences</h2>
+  <p><strong>Code:</strong> MIT licence (<a href="https://github.com/shamilhzm/lexi/blob/main/LICENSE">LICENSE</a>). <strong>Word data</strong> (<code>data/*.json</code>): <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, adapted from the sources below (selected, reformatted, glosses shortened, levels and topics added). The full record, including what is used and how, is <a href="https://github.com/shamilhzm/lexi/blob/main/ATTRIBUTIONS.md">ATTRIBUTIONS.md</a>.</p>
+  <ul>
+    <li>Word facts, glosses and the dictionary: <a href="https://www.wiktionary.org">Wiktionary</a> contributors, via <a href="https://kaikki.org">Wiktextract/kaikki.org</a>. <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</li>
+    <li>Example sentences, where marked: the <a href="https://tatoeba.org">Tatoeba Project</a> contributors. <a href="https://creativecommons.org/licenses/by/2.0/fr/">CC BY 2.0 FR</a>. A card’s <em>Where this came from</em> links its sentence when the link is recorded.</li>
+    <li>Teaching order: Lange, Okamura &amp; Scharloth (2016), <em>Datengeleiteter Kernwortschatz Deutsch</em>, <a href="http://www.basic-german.com">basic-german.com</a>. CC BY-SA 4.0.</li>
+    <li>Frequency: the <a href="https://wortschatz.uni-leipzig.de">Leipzig Corpora Collection</a> (CC BY 4.0), and Hermit Dave’s <a href="https://github.com/hermitdave/FrequencyWords">FrequencyWords</a> (MIT) from OpenSubtitles/OPUS.</li>
+    <li>Gender cross-check: <a href="https://github.com/ynsrc/german-categorized-wordlist">German Categorized Wordlist</a>. CC BY 4.0.</li>
+    <li>Typefaces: Fraunces and IBM Plex Mono, SIL Open Font License 1.1. Icons: Lucide, ISC licence.</li>
+    <li>HD voice, when you turn it on: Piper “Thorsten”, trained on the <a href="https://www.thorsten-voice.de">Thorsten-Voice</a> dataset by Thorsten Müller (CC0). It is a <strong>synthetic voice</strong>, not a person reading.</li>
+  </ul>
+  <h3>Recordings</h3>
+  <p id="recordings" class="dim">Human recordings come from Tatoeba contributors, each under the licence they chose. Each recording is credited by name here and in the card’s <em>Where this came from</em>.</p>
+  <ul id="recording-list"></ul>
+
+  <h3>News stories</h3>
+  <p>Story text, photos and audio are © their publishers (tagesschau/ARD, SRF, Deutsche Welle, heise online). Your browser loads them from the publisher for your own reading, and they are kept only on your device. Every story links to its original. Lexi does not republish them.</p>
+
+  <h2 id="ai-content">Content written with AI</h2>
+  <p>Many of Lexi’s English glosses and German example sentences were written with an AI model and then checked by machine. The <strong>facts</strong> about each word (gender, plural, part of speech, pronunciation) are looked up in Wiktionary and never generated. Every example must contain a real form of its word. Text written only by a machine carries no copyright of its own. It is shared here under the same licence as the rest of the word data so that the set stays one thing.</p>
+  <p>The tutor’s explanations and corrections are AI output and are labelled as such where you see them. Lexi labels AI-generated audio and images, if it adds any, where you meet them.</p>
+</main>
+<script src="./legal.js" defer></script>
+</body>
+</html>
