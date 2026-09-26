@@ -44,6 +44,7 @@ should be deleted — git history is what history is for.
 | [DESIGN.md](DESIGN.md) | The design system as it actually is: tokens, the elevation ramp, radius/hue/motion rules, the two-rooms principle, and the gotchas that cost time. Living — argue with it. | Touching anything visual. |
 | [BACKEND.md](BACKEND.md) | **Proposal, not policy.** The accounts + sync design: what would sync, what deliberately would not, how two offline devices merge. No code written, and it contradicts the current shipping behaviour — see VISION § open decisions. | Before touching auth, sync or push. |
 | [../ATTRIBUTIONS.md](../ATTRIBUTIONS.md) | Every corpus source, its licence, what is redistributed and what is only cached. | Adding a data source. Forking. |
+| [STORES.md](STORES.md) | **Plan, nothing submitted.** Lexi in the App Store and Google Play: web first, a Play TWA next, iOS (Capacitor, bundled) under stated conditions. What a store copy leaves out and why, the listing (`store/listing.json`, tested), the screenshot storyboard, privacy labels, and the owner's steps. | Before packaging, submitting, or changing the manifest or icons. |
 
 ### Standing critiques — one lens each, written to be argued with
 
