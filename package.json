@@ -63,6 +63,7 @@
     "corpus:gloss-vote": "node scripts/corpus/gloss-vote.ts",
     "deploy": "vercel --prod --yes --build-env LEXI_BUILD_SHA=$(git rev-parse --short HEAD)",
     "measure": "node scripts/serve-measured.ts",
+    "icons": "node scripts/icons/build.ts",
     "corpus:homograph": "node scripts/corpus/homograph.ts",
     "corpus:spelling": "node scripts/corpus/spelling.ts"
   },
