@@ -19,6 +19,7 @@ import Button, { buttonClass } from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import AiSettings from '../components/AiSettings.tsx';
 import NewsTopicsSettings from '../components/reader/NewsTopicsSettings.tsx';
+import { storiesAvailable } from '../lib/platform.ts';
 
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
@@ -200,8 +201,10 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         {hdErr && <p className="text-red-txt text-xs mt-2">{hdErr}</p>}
       </Card>
 
-      <NewsTopicsSettings />
-      <AiSettings />
+      {/* Stories and the tutor that only serves them are absent from a store copy
+          (lib/platform.ts). */}
+      {storiesAvailable() && <NewsTopicsSettings />}
+      {storiesAvailable() && <AiSettings />}
 
       {/* Your data — backup & restore (local-first insurance) */}
       <Card as="section" className="mt-4">

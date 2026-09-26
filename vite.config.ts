@@ -66,12 +66,29 @@ const dropCanonicalCorpus = {
   },
 };
 
+/** A build for an app store: `VITE_STORE_BUILD=1 npm run build`.
+ *
+ *  Two things differ, and `docs/STORES.md` says why each one does.
+ *  - **Relative asset URLs.** A native shell (Capacitor) serves the bundle from its
+ *    own scheme and root, not from Vercel's `/` or GitHub Pages' `/lexi/`, so every
+ *    URL in the build has to resolve against the page it sits in.
+ *  - **`import.meta.env.VITE_STORE_BUILD`** reaches the app (Vite exposes any
+ *    `VITE_` variable), where `lib/platform.ts` turns off what a store listing may
+ *    not carry yet: news stories without the publishers' written permission
+ *    (Guideline 5.2.2), and a support link that reads as a donation ask (3.1.1).
+ *    It is a literal after the build, so nothing at launch can switch stories back
+ *    on in a store bundle. The story *code* still ships in it — the checks are
+ *    function calls the minifier does not inline (measured: a store build's main
+ *    chunk still contains the tagesschau endpoint) — it is simply never reached. */
+const storeBuild = process.env.VITE_STORE_BUILD === '1';
+
 export default defineConfig({
   // GitHub Pages serves from https://<user>.github.io/lexi/ (subpath), but Vercel
   // serves from the domain root. Vercel sets VERCEL=1 at build time, so serve from
   // '/' there and '/lexi/' everywhere else. Everything (index.html asset URLs, the
-  // service worker registration via BASE_URL) derives from this.
-  base: process.env.VERCEL ? '/' : '/lexi/',
+  // service worker registration via BASE_URL) derives from this. A store build
+  // takes precedence: see `storeBuild` above.
+  base: storeBuild ? './' : process.env.VERCEL ? '/' : '/lexi/',
   plugins: [react(), tailwindcss(), dropCanonicalCorpus, versionStamp],
   define: {
     __BUILD_SHA__: JSON.stringify(buildSha),
