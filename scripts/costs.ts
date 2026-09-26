@@ -91,7 +91,9 @@ const days = (...paths: string[]) => new Set(
 const cardsDays = days('public/data/cards.json');
 const bundleDays = days('src', 'index.html');
 const cards = boot.find((s) => s.path.endsWith('cards.json'));
-const bundle = boot.filter((s) => s.path.includes('assets/'));
+// Fonts are content-hashed and never change with the code, so a new build re-sends
+// only the script and the stylesheet.
+const bundle = boot.filter((s) => s.path.includes('assets/') && !s.path.endsWith('.woff2'));
 console.log('\n3 · Churn, last 30 days (days with a commit touching…)');
 row('cards.json', cardsDays, `× ${kb(cards?.gz ?? 0)} gz`);
 row('src/ or index.html (new bundle hashes)', bundleDays, `× ${kb(sum(bundle, 'gz'))} gz`);
@@ -165,7 +167,13 @@ if (live) {
   // The live build's own asset names, not the local ones: production is whatever was
   // last deployed, and its hashes are not this tree's.
   const liveHtml = await (await fetch(`${base}/`)).text();
-  const liveAssets = [...new Set([...liveHtml.matchAll(/(?:src|href)="[^"]*?(assets\/[^"]+)"/g)].map((m) => m[1]))];
+  const livePage = [...new Set([...liveHtml.matchAll(/(?:src|href)="[^"]*?(assets\/[^"]+)"/g)].map((m) => m[1]))];
+  const liveFonts: string[] = [];
+  for (const css of livePage.filter((a) => a.endsWith('.css'))) {
+    const text = await (await fetch(`${base}/${css}`)).text();
+    for (const m of text.matchAll(/url\(["']?[^)"']*?([\w.-]+\.woff2)/g)) liveFonts.push(`assets/${m[1]}`);
+  }
+  const liveAssets = [...livePage, ...new Set(liveFonts)];
   let total = 0;
   for (const rel of [...liveAssets, ...bootData.map((d) => `data/${d}`)]) {
     const n = await wire(`${base}/${rel}`);
