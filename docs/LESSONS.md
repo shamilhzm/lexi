@@ -1690,3 +1690,23 @@ file"); the suite reported *no tests* rather than a failure, which is easy to re
 
 **Rule:** keep-both is for append-only prose. For code, rebuild the file from one side and
 paste the other side's whole unit in, then run that file's tests and read the count.
+
+
+## A shared tool is shared *(added 2026-09-26)*
+
+**The Browser pane's tabs are not yours.** During the panel review ten agents worked at
+once. A script run in "the" tab to render the share card landed on a page another agent
+had just navigated to on its own dev server — and moved that page to `#/progress`. No
+harm done, and only noticed because the tab's title and port had changed under the next
+call. *Rule: when several sessions run, open your own tab (`tabs_create`) and pass its
+`tabId` on every call; read the tab's URL before trusting a result from it.*
+
+**A number drawn into a picture is a number nobody re-reads.** The same review found the
+meta description a third stale because a count was typed into `index.html`. The link
+preview it replaced was about to repeat the mistake in pixels. *Rule: public counts
+arrive as build-time tokens (`lib/publicCopy.ts`) and images carry no counts at all.*
+
+**CoreSVG (`sips`) ignores `<tspan>` positions inside a `<text>` that has none of its
+own** — three headline lines rendered on top of each other at y≈0, off the canvas. It
+also drops a quoted family in a `font-family` list (`'New York', Georgia` fell back to
+Helvetica). *Rule: one `<text>` per line, unquoted family names, and look at the PNG.*

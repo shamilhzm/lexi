@@ -457,6 +457,54 @@ services — and the page that says so has to be as honest as the app's other nu
   deploy, not per commit. The review's ceiling for the free tier (3,000–8,000 daily learners)
   was low by two to six times.
 
+**Marketing (panel 07): what a stranger reads first is true, current, and leads back.**
+
+- **Why.** Everything a person meets before opening Lexi described an older product.
+  The meta description said *6,500 words* on a corpus of 10,023, typed by hand and
+  never re-read; the link preview was the app icon — the amber terminal mark retired in
+  July — at a relative URL most unfurlers drop, with alt text describing a third mark;
+  the share card drew the retired treemap in the retired palette under a retired
+  tagline and carried no link at all; and the README, which is what a search for Lexi
+  actually returns, opened on an internal ruling with no link to the app.
+- **Counts stamped, not typed** (`lib/publicCopy.ts`, `scripts/marketing/publicCopyPlugin.ts`).
+  `index.html` carries `LEXI_*` tokens a Vite plugin fills at build from the shipped
+  data — word cards minus the filtered grammar cards, and the dictionary manifest's
+  `n` — rounded *down* to the thousand with a `+` (*10,000+*), which is exactly true
+  and survives every batch until the next thousand. An unknown token fails the build.
+  The origin comes from one constant, `PUBLIC_ORIGIN`, still the Vercel URL:
+  `og:image`/`og:url` are absolute, the card is `summary_large_image`, and there is a
+  canonical link. Tests fail if a count is typed back into the meta tags, if the
+  README's headline counts drift from what the data says, or if the copy claims
+  *nothing leaves your device* — false once stories, the tutor and lookups exist; the
+  claim is now *no account, your progress stays on your device*.
+- **The link preview is the sky** (`public/og.jpg`, `npm run og:image`). Every word
+  Lexi teaches, sown with `lib/sky.ts`'s phyllotaxis in frequency order, brightness by
+  commonness — the caption says so, because there is no learner in a link preview —
+  beside the tagline and the address. No count is drawn into it, so it cannot go stale.
+  Colours are read from `index.css`'s dark block; rasterised with macOS `sips`. JPEG
+  (138 KB), because the PNG was 760 KB and previews are commonly dropped above ~300 KB.
+- **The share card is the learner's sky, at night, with the way back on it**
+  (`lib/sharecard.ts`). WordSky's own model and painter (`paintSky` gains an optional
+  colour resolver; default unchanged), every word known across *all* levels — a
+  filter must not shrink a brag — the recall count as its own line, the tagline and the
+  address; the share payload carries text and `?ref=share`, which GTM's `lib/ref.ts`
+  strips on arrival. No CEFR letter: a brag card cannot carry PathCard's *this is not
+  an exam result*. Closing the share sheet no longer falls through to a download.
+  Shareable from Fortschritt too (*Share your sky*, under the legend), not only the recap.
+- **README and the welcome slot.** The README now opens on the tagline, the two counts,
+  the live link and the sky; says who Lexi is for (English speakers living with German,
+  A2–B2, beside a course rather than instead of one); makes six claims each sized to
+  the code; and compares itself to Duolingo, Anki and LingQ including what each does
+  better. The welcome slot says the feed tests nothing until asked, glosses *Üben* the
+  first time it appears, and makes the privacy promise at its true size.
+- **Owner decisions, not made here.** The name and the domain. "Lexi" is crowded in
+  exactly this category (panel 06, 07, 09), and in a local-first app the origin *is* the
+  learner's account — IndexedDB does not follow a move — so it is cheapest to decide
+  before any public post. When it is decided it is `PUBLIC_ORIGIN` (or
+  `LEXI_PUBLIC_ORIGIN`), `npm run og:image`, and the README link. Phone screenshots for
+  the README and the stores need a real device or the simulator in standalone mode
+  (panel 09's storyboard); the ones from this review show Safari's address bar.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they

@@ -642,11 +642,12 @@ function Welcome({ onStart }: { onStart: () => void }) {
         <p className="text-dim text-sm mb-6">German vocabulary, A1 to C2 — for English speakers.</p>
 
         <p className="text-base leading-relaxed mb-1">
-          {fmt(WORDS.length)} words with pronunciation, meaning and an example. Scroll through them.
+          {fmt(WORDS.length)} German words, one per screen, with the sound, the meaning and an example.
+          Scroll through them — nothing tests you until you ask.
         </p>
         <p className="text-dim text-sm leading-relaxed mb-7 max-w-[38ch] mx-auto">
-          Bookmark the ones you want, and Üben will teach them back to you just before you’d have
-          forgotten — that’s the whole system.
+          Save the ones you want, and <span lang="de">Üben</span> (practice) brings each one back just
+          before you’d forget it — that’s the whole system.
         </p>
 
         <Button onClick={onStart}><Play size={14} /> Learn ten words now</Button>
@@ -654,7 +655,7 @@ function Welcome({ onStart }: { onStart: () => void }) {
           <ChevronDown size={13} aria-hidden /> or just scroll
         </p>
         <p className="text-dim text-2xs mt-6 leading-relaxed max-w-[40ch] mx-auto">
-          No account, no sign-in. Your progress is stored on this device only and never leaves it.
+          Free and open source. No account — your progress stays on this device.
           Every gloss and example is in English.
         </p>
       </div>

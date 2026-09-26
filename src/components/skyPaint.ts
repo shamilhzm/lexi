@@ -67,14 +67,18 @@ export function place(size: number, stars: Star[], scale = 1, rot = 0, into?: Pl
 
 const canFilter = typeof CanvasRenderingContext2D !== 'undefined' && 'filter' in CanvasRenderingContext2D.prototype;
 
-export function paintSky(ctx: CanvasRenderingContext2D, s: Scene, lit: (i: number) => boolean, p: Placed, bloom: HTMLCanvasElement | null) {
+/** `resolve` turns a colour token into a colour. It defaults to the live theme; the
+ *  share card passes the night palette, so a learner on paper still shares the sky
+ *  at night — the same picture the link's preview shows (`lib/sharecard.ts`). */
+export function paintSky(ctx: CanvasRenderingContext2D, s: Scene, lit: (i: number) => boolean, p: Placed, bloom: HTMLCanvasElement | null,
+  resolve: (name: string) => string = token) {
   const { size, looks, dark } = s;
   const n = s.stars.length;
   const { xs, ys, c, R, dot } = p;
   const edge = (R + 9) ** 2;
   const inside = (i: number) => (xs[i] - c) ** 2 + (ys[i] - c) ** 2 <= edge;
   const ink = new Map<string, string>();
-  const inkOf = (name: string) => { let v = ink.get(name); if (!v) { v = token(name); ink.set(name, v); } return v; };
+  const inkOf = (name: string) => { let v = ink.get(name); if (!v) { v = resolve(name); ink.set(name, v); } return v; };
 
   ctx.save();
   // The backdrop: a window a shade apart from the page, fading out at the rim.

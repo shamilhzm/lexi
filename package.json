@@ -10,6 +10,7 @@
     "build": "vite build",
     "preview": "vite preview --host --port 4318",
     "typecheck": "tsc --noEmit",
+    "og:image": "node scripts/marketing/og-image.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "corpus:fetch": "node scripts/corpus/fetch.ts",
