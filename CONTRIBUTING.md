@@ -95,9 +95,15 @@ the relevant doc — not a pull request.
 
 ## Reporting a problem with a card
 
-The app has a flag button on every card, and flagged cards export with your backup. If
-you're filing an issue instead, include the card id (e.g. `voc:A1:die Sprache`) — it is
-shown in the card's provenance line.
+Every word's entry sheet (the ⓘ on the feed) ends in **"Something wrong with this card?"**.
+It flags the card on your device and offers one link per kind of problem — meaning,
+gender, plural, example, pronunciation, level — each opening a GitHub issue with the card
+id and headword already filled in. Profile's *Cards you flagged* and *Words Lexi didn't
+have* open the same kind of issue for a whole list. Lexi sends nothing itself; you see
+the issue before it is posted.
+
+Filing by hand works too: use the **A card looks wrong** issue form and include the card
+id (e.g. `voc:A1:die Sprache`), shown under *Where this came from* on the card.
 
 ## Licence
 
