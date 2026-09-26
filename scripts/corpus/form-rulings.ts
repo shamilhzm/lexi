@@ -342,6 +342,24 @@ export const FORM_RULINGS: FormRuling[] = [
     why: 'der Pole is a Polish man (weak noun, pl. die Polen); der Pol is a pole, whose '
       + 'plural happens to be die Pole. Unrelated words.',
   },
+  // Three collisions surfaced 2026-09-25 by the plural backfill (plural-lookup-07):
+  // a noun that had no plural now has one, and it is another card's headword.
+  {
+    rule: 'keep', form: 'voc:A1:Polen', lemma: 'voc:B1:der Pole',
+    why: 'Polen is the country; die Polen are Polish people. The same string, two words — '
+      + 'the country card has no article and no plural.',
+  },
+  {
+    rule: 'keep', form: 'voc:B1:die Akte', lemma: 'voc:C1:der Akt',
+    why: 'die Akte is a file (pl. die Akten); die Akte is also the plural of der Akt (an act '
+      + 'of a play). Unrelated words that collide in one form.',
+  },
+  {
+    rule: 'keep', form: 'voc:A2:die Zinsen', lemma: 'voc:B2:der Zins',
+    why: 'die Zinsen is the plural of der Zins, and it is the form a learner meets first '
+      + '(die Bank zahlt kaum Zinsen); der Zins is the singular of the rate in finance and law. '
+      + 'Kept as two cards for the same reason as a plural that has become its own word.',
+  },
   {
     rule: 'keep', form: 'voc:B1:das Reisen', lemma: 'voc:A2:die Reise',
     why: 'das Reisen is the nominalised infinitive — travelling, the activity — not the '
