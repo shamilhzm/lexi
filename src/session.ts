@@ -17,7 +17,7 @@ import type { Word, Target } from './types.ts';
 import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled, isSaved, dweltRepeatedly } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { savedFrom } from './lib/news/library.ts';
-import { isDue, State } from './srs.ts';
+import { isDue, State, Rating, type Grade } from './srs.ts';
 import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/drills.tsx';
 
 /** Why an item is in this session.
@@ -56,7 +56,11 @@ export type SessionReason =
   /** Picked because the learner wants to read a specific text and this word is
    *  one of the ones standing between them and it. `text` is the learner's own
    *  label for it, so the scheduler can say "because you want to read this". */
-  | { kind: 'unlock'; text: string };
+  | { kind: 'unlock'; text: string }
+  /** The same flip, back again a few cards later in this session — once. `missed`
+   *  says why: it was graded *Didn't know* (true), or it was a first sight and
+   *  this is the first time it is asked from memory (false). See `withRetry`. */
+  | { kind: 'retry'; missed: boolean };
 
 export interface SessionItem {
   type: 'flip' | Mode;
@@ -141,7 +145,8 @@ type PackedReason =
   | { k: 'orphan'; d: number; m: Mode }
   | { k: 'drill'; m: Mode; p: string }
   | { k: 'blindspot'; m: Mode; g: string; n: number }
-  | { k: 'unlock'; x: string };
+  | { k: 'unlock'; x: string }
+  | { k: 'retry'; m?: 1 };
 
 interface PackedItem { t: SessionItem['type']; s: string; w: string; r: PackedReason; e?: 1 }
 interface StoredSession { target: string; at: number; i: number; items: PackedItem[] }
@@ -158,6 +163,7 @@ function packReason(r: SessionReason): PackedReason {
     case 'drill': return { k: 'drill', m: r.mode, p: r.parent.id };
     case 'blindspot': return { k: 'blindspot', m: r.mode, g: r.tag, n: r.misses };
     case 'unlock': return { k: 'unlock', x: r.text };
+    case 'retry': return r.missed ? { k: 'retry', m: 1 } : { k: 'retry' };
   }
 }
 
@@ -174,6 +180,7 @@ function unpackReason(r: PackedReason): SessionReason | null {
       return parent ? { kind: 'drill', mode: r.m, parent } : null;
     }
     case 'blindspot': return { kind: 'blindspot', mode: r.m, tag: r.g, misses: r.n };
+    case 'retry': return { kind: 'retry', missed: r.m === 1 };
     default: return null;
   }
 }
@@ -440,6 +447,54 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
   return out.length > SESSION_CEILING ? out.slice(0, SESSION_CEILING) : out;
 }
 
+// ---- once more, from memory ------------------------------------------------
+// *2026-09-25, from the panel review.* A grade used to move the session on and
+// nothing else, so two things FSRS itself asks for never happened inside one:
+//
+//   - **A miss was not tried again.** *Didn't know* previews "10 min" on its own
+//     button — the learning step — and the card left the session. The next chance
+//     to get it right was the next time the learner happened to open Üben.
+//   - **A first sight was never asked back.** The very first session is ten
+//     introductions and no retrieval at all, so it ended on a star animation
+//     rather than on the learner producing words they did not know four minutes
+//     earlier — which is the moment that makes somebody believe this works.
+//
+// So a flip graded *Didn't know*, or met for the first time and not marked Easy,
+// comes back **once**, `RETRY_GAP` cards later: long enough that it is retrieval
+// rather than echo, short enough to land inside the same sitting. Once, not until
+// right — relearning to criterion in one sitting is what the schedule is for, and a
+// session that keeps re-serving the hardest card is the rough patch the breather
+// exists to break. The re-grade is an ordinary FSRS review of a card in its
+// learning step, which is exactly the review the scheduler had asked for.
+
+/** Cards between a flip and its second showing. */
+export const RETRY_GAP = 6;
+/** At most this many second showings per session. It is what bounds a session's
+ *  growth: `SESSION_CEILING` is the most the builder serves unasked, and retries
+ *  can add at most this many on top — a first session of ten becomes twenty, a
+ *  full day at most `SESSION_CEILING + MAX_RETRIES`. */
+export const MAX_RETRIES = 10;
+
+/** The queue with the flip at `i` coming back once — and where it went, so an undo
+ *  can take it out again — or null when it should not.
+ *
+ *  `wasNew` is whether the card was new *before* this grade — the caller has to
+ *  read it first, because the grade itself moves the card out of New. Pure, so the
+ *  rule is testable without a session on screen. */
+export function withRetry(queue: SessionItem[], i: number, grade: Grade, wasNew: boolean): { items: SessionItem[]; at: number } | null {
+  const item = queue[i];
+  if (!item || item.type !== 'flip' || item.reason.kind === 'retry') return null;
+  const missed = grade === Rating.Again;
+  // Easy on a first sight is "I knew this already" — nothing to ask back.
+  if (!missed && !(wasNew && grade !== Rating.Easy)) return null;
+  if (queue.filter((it) => it.reason.kind === 'retry').length >= MAX_RETRIES) return null;
+  // Already coming back later in this queue (a resumed session, say): once is once.
+  if (queue.slice(i + 1).some((it) => it.srsId === item.srsId && it.type === 'flip')) return null;
+  const at = Math.min(i + 1 + RETRY_GAP, queue.length);
+  const again: SessionItem = { type: 'flip', word: item.word, srsId: item.srsId, reason: { kind: 'retry', missed } };
+  return { items: [...queue.slice(0, at), again, ...queue.slice(at)], at };
+}
+
 /** The most items a session will put in front of somebody who did not ask for a
  *  longer one.
  *
@@ -451,8 +506,8 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
  *  learner chose and useless as a *limit* on one they did not.
  *
  *  40 is set against the design intent the rest of the file already states:
- *  `NEW_PER_DAY` is 24 and `MIN_DAILY` is 20, so a day of 40 items comfortably
- *  contains a full quota of fresh words plus real review, while the 70-item day
+ *  `NEW_PER_DAY` is 24, so a day of 40 items comfortably contains a full quota of
+ *  fresh words plus real review, while the 70-item day
  *  the backlog persona was served is three times what any other number in this
  *  codebase asks for. A backlog is cleared by turning up, not by one sitting. */
 export const SESSION_CEILING = 40;

@@ -336,15 +336,19 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       <Card pad="none" className="p-4">
         <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><CalendarClock size={16} className="text-accent" /> Daily pace</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
-          How many new words a day, and how much of a backlog one day serves. The scheduler
-          is unaffected — FSRS tolerates delay by design, and a bigger budget only front-loads
-          what it would have shown you anyway.
+          How many new words a day, and how much of a backlog one day serves. The new-word
+          budget is for the whole day, however many times you open Üben; your saved words
+          come first, and a backlog of more than two days closes it to all but five of them.
+          FSRS tolerates delay by design, so this changes your pace, not your schedule.
         </p>
         <div className="flex flex-wrap gap-2">
           {(Object.keys(PACE) as Pace[]).map((p) => (
             <button key={p} onClick={() => pickPace(p)} aria-pressed={pc === p} className={toggle(pc === p)}>
               {PACE[p].label}
-              <span className="font-mono text-2xs opacity-70">{PACE[p].fresh} new · {PACE[p].due} due</span>
+              {/* "Up to", because it is a ceiling for the day and not a quota — the
+                  label used to promise 24 or 50 while the briefing could never serve
+                  more than 20, and none at all past twenty due. */}
+              <span className="font-mono text-2xs opacity-70">up to {PACE[p].fresh} new a day · {PACE[p].due} due</span>
             </button>
           ))}
         </div>

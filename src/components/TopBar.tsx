@@ -203,21 +203,25 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
       {/* The streak, at every width. It used to live in the daily briefing's
           greeting and appear here only from `md`; with the briefing gone, a phone
           had nowhere left to see it at all. Small and beside the person it
-          belongs to — it is a fact about you, not a scoreboard. */}
+          belongs to — it is a fact about you, not a scoreboard.
+          **Absent at zero** (2026-09-25): it counts days with a grade or a save,
+          so a stranger's first screen carries no flame they did nothing for. */}
       <button onClick={onProfile} title="Profile"
-        aria-label={`Profile — ${name || 'you'}${level ? `, ${level}` : ''}, ${streak}-day streak`}
+        aria-label={`Profile — ${name || 'you'}${level ? `, ${level}` : ''}${streak > 0 ? `, ${streak}-day streak` : ''}`}
         aria-current={view === 'profile' ? 'page' : undefined}
         className={`profile-btn tap-44 flex items-center gap-2 ml-1 sm:ml-2 px-1.5 sm:px-2 py-[6px] rounded-full
           hover:bg-panel2/70 transition-colors ${view === 'profile' ? 'bg-panel2/80' : ''}`}>
-        <span aria-hidden className="streak-chip flex items-center gap-1 font-mono font-bold text-sm text-accent md:hidden">
-          <Flame size={14} /> {streak}
-        </span>
+        {streak > 0 && (
+          <span aria-hidden className="streak-chip flex items-center gap-1 font-mono font-bold text-sm text-accent md:hidden">
+            <Flame size={14} /> {streak}
+          </span>
+        )}
         <span className="grid place-items-center w-[32px] h-[32px] rounded-full bg-panel2 text-accent text-[12px] leading-none font-bold flex-shrink-0">{initial}</span>
         <span aria-hidden className="hidden md:block min-w-0 text-left">
           <span className="block text-xs font-semibold truncate max-w-[9rem]">{name || 'Your profile'}</span>
           <span className="flex items-center gap-1 text-2xs text-dim">
             {level && <span>{level} ·</span>}
-            <Flame size={11} className="text-accent" /> {streak}
+            {streak > 0 && <><Flame size={11} className="text-accent" /> {streak}</>}
           </span>
         </span>
       </button>

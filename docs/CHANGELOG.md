@@ -153,6 +153,60 @@ and a storage refusal nobody was told about.
   eviction and standalone lock-screen audio on a real iPhone; the service worker could
   not register in the browser pane, so precache and prune are proved by `sw.test.ts` only.
 
+#### Engagement (panelist 04)
+
+**Why.** Everything *inside* a session was honest; the things *between* sessions were
+not. The streak rewarded opening the app rather than studying, the new-word budget
+was wrong in both directions at once, a miss never came back inside the session it
+was missed in, and the recap's "waiting tomorrow" counted cards nothing would ever
+serve.
+
+- **One new-word budget per day** (`store.freshBudget`, `buildBriefing`). It was
+  `min(pace, 20 − due)` recomputed on every tap of Üben: it reset each time (a second
+  sitting served up to twenty more new words, a third twenty more), and it stalled
+  from twenty due upward — no new words at all, not even saved ones. Now the pace's
+  `fresh` is spent across the whole day, counted from today's first sights of a word
+  (`introducedToday`, an id list so an undo gives back exactly its word; an **Easy**
+  first sight — placement's "I already know this" — spends nothing). A backlog of more
+  than two days of the pace's due serving closes the day to everything except up to
+  `SAVED_BYPASS` (5) saved words. **Saved words now lead the whole queue**, as VISION
+  says they do; behind the reviews, `SESSION_CEILING` sliced them off every day.
+  The "All clear — new-card budget spent" state is reachable for the first time.
+- **The streak counts study days** — a grade or a save — not visits. A stranger's
+  first screen no longer carries a flame (it is hidden at zero), and scrolling the feed
+  no longer keeps a streak alive while the reviews pile up. Nobody loses a streak to
+  the change: on the first boot without the new key every *earlier* visit is carried
+  over once; only today onwards has to be earned. An unsave or undo that leaves a day
+  with nothing deliberate takes the day back out. The recap says "Studied today · N
+  days running" instead of "streak secured" beside a springing flame — copy that only
+  made sense if the streak had been in danger. `lexi.studydays.v1` rides the backup.
+- **Once more, from memory** (`session.withRetry`). A flip graded *Didn't know*, or a
+  first sight not marked Easy, comes back once, `RETRY_GAP` (6) cards later, at most
+  `MAX_RETRIES` (10) per session, with its own reason line. FSRS's learning step had
+  always said "10 min" on the button and the session never served it; the first
+  session was ten introductions and no retrieval. It now ends with the learner
+  recalling the words it introduced — and its recap no longer promises they come back
+  "tomorrow", which the scheduler never said. Undo takes the second showing out with
+  the grade; an interrupted session resumes with it.
+- **The forecast counts only what a session can serve** (`dueForecast`). It walked the
+  whole card map, so the recap and the Stats forecast counted the retired `gex:*` /
+  `gram:*` schedules (kept, inert — for a learner of the old syllabus "waiting" could
+  never reach zero), words outside the level filter, and muted drills. Past
+  `SESSION_CEILING` the recap now says what tomorrow will serve first ("Tomorrow serves
+  40. N are waiting in all — the rest keep"), instead of reintroducing the mountain one
+  screen after the return notice promised the day was bounded.
+- **Settings says what the pace does**: "up to 24 new a day", and that the budget is
+  for the whole day.
+- **Touched outside this row, minimally:** `Review.tsx` (the queue grows by the second
+  showing; undo removes it; one first-run copy line), `TopBar.tsx` (flame hidden at
+  zero), `WhyThisCard.tsx` (the retry reason line), and `Feed.tsx` — `feedOrder` now
+  puts every unseen word before words already met, because with a closed day a
+  backlog learner's overflow reviews had been landing among the unseen and the feed
+  opened on a word marked *known*.
+- `store-budget.test.ts` pins all four; the streak tests now drive a save or a grade.
+  `npx vitest run`: 1,588 pass; the 3 failures (`inflections.test.ts` ×2,
+  `rulings.test.ts` §5) fail identically on the `panel` base without these changes.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they

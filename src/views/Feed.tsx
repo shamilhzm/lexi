@@ -139,9 +139,15 @@ export function feedOrder(): Word[] {
     seen.add(id);
     (statusOf(id) === 'new' ? fresh : due).push(w);
   }
-  const rest = WORDS
-    .filter((w) => levels().has(w.level) && !seen.has(w.id))
-    .sort(byFrequency);
+  // **Unseen first, then the rest of what you have met.** *2026-09-25.* This was one
+  // list, which was right only while every due word fitted inside the briefing.
+  // Past the day's due serving — or once the day's new-word budget is spent — a
+  // backlog learner's overflow reviews landed here among the unseen and the feed
+  // opened on a word marked *known*, the exact first impression the ordering above
+  // exists to prevent. Both halves keep frequency order.
+  const pool = WORDS.filter((w) => levels().has(w.level) && !seen.has(w.id)).sort(byFrequency);
+  const unseen = pool.filter((w) => statusOf(w.id) === 'new');
+  const met = pool.filter((w) => statusOf(w.id) !== 'new');
   // **The opening word varies, and the ranking survives.**
   //
   // It opened on *so* every single time, which makes a surface whose whole
@@ -160,8 +166,11 @@ export function feedOrder(): Word[] {
   // At build time, not per render: the list is rebuilt when the level filter
   // changes and never on a save, so it cannot reshuffle under a thumb.
   shuffle(fresh);
-  for (let i = 0; i < rest.length; i += FREQ_BAND) shuffle(rest, i, Math.min(i + FREQ_BAND, rest.length));
-  return [...fresh, ...rest, ...due];
+  // Each half banded on its own, so a band never straddles the seam between them.
+  for (const part of [unseen, met]) {
+    for (let i = 0; i < part.length; i += FREQ_BAND) shuffle(part, i, Math.min(i + FREQ_BAND, part.length));
+  }
+  return [...fresh, ...unseen, ...met, ...due];
 }
 
 /** How many words count as equally common. Small enough that the ranking still
