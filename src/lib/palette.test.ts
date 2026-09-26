@@ -25,7 +25,7 @@ function palette(theme: 'light' | 'dark'): Record<string, string> {
   const darkAt = css.search(/^html\.dark\s*\{/m);
   const scope = theme === 'light' ? css.slice(0, darkAt) : css.slice(darkAt);
   const out: Record<string, string> = {};
-  for (const m of scope.matchAll(/--color-([a-z0-9]+):\s*(#[0-9a-fA-F]{3,8})/g)) {
+  for (const m of scope.matchAll(/--color-([a-z0-9-]+):\s*(#[0-9a-fA-F]{3,8})/g)) {
     out[m[1]] = m[2].toLowerCase();   // later wins: dark re-declares, light declares once
   }
   return out;
@@ -174,6 +174,40 @@ describe('the core text pairs clear AA', () => {
         }
       }
       expect(failures).toEqual([]);
+    });
+  }
+
+  /** The inks the core check left out *(2026-09-25 panel)*.
+   *
+   *  The three above were the only ones tested, and they are not the only ones set
+   *  as small text. Measured the day this was written, light theme: `green` 4.32 on
+   *  bg and 3.98 on panel2 (the feed's `known`, the session acknowledgment, the
+   *  drill's "Answer:"), `der` 4.34 and `das` 4.20 on panel2 (search's dictionary
+   *  headwords, 15px), `a2` 4.47 on bg. BACKLOG recorded "contrast passes
+   *  everywhere" from a walk of on-screen states; none of those states was on
+   *  screen during it. A pair is tested here if the ink is ever used as text. */
+  const STATUS_INKS = ['green', 'red', 'red-txt', 'der', 'die', 'das', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+
+  for (const theme of ['light', 'dark'] as const) {
+    it(`${theme}: status, gender and CEFR inks on every ground`, () => {
+      const p = palette(theme);
+      const failures: string[] = [];
+      for (const ink of STATUS_INKS) {
+        for (const ground of GROUNDS) {
+          if (!p[ink] || !p[ground]) { failures.push(`${theme}: missing ${ink} or ${ground}`); continue; }
+          const c = contrast(p[ink], p[ground]);
+          if (c < 4.5) failures.push(`${theme}: ${ink} ${p[ink]} on ${ground} ${p[ground]} = ${c.toFixed(2)}:1`);
+        }
+      }
+      expect(failures).toEqual([]);
+    });
+
+    // The status inks also sit on their own tinted fills: the met goal pill is
+    // `text-green` on `bg-green-d`, the swipe/verdict chips `red-txt` on `red-d`.
+    it(`${theme}: status inks on their own tints`, () => {
+      const p = palette(theme);
+      expect(contrast(p.green, p['green-d']), `green on green-d`).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(p['red-txt'], p['red-d']), `red-txt on red-d`).toBeGreaterThanOrEqual(4.5);
     });
   }
 

@@ -103,7 +103,11 @@
   --color-dim:     #5b5952;   /* secondary ink — AA on paper and on white */
   --color-chrome:  #55544e;   /* secondary ink *on glass* — see `.glass-bar` below */
   --color-accent:   #1d6a8c;   /* brand / accent / focus (Atlas blue) */
-  --color-green:   #3f7a3a;   /* gains / mastered */
+  /* #3f7a3a until 2026-09-25: 4.32 on bg and 3.98 on panel2, and it is set as
+     small text — the feed's `known`, the session acknowledgment, the drill's
+     "Answer:", search's "Noted". The guard only checked txt/dim/accent, so no test
+     saw it. Same hue, darker; every ground now clears 4.5 (palette.test.ts). */
+  --color-green:   #387034;   /* gains / mastered */
   --color-green-d: #dfeddc;
   --color-red:     #a3402f;   /* losses / weak */
   --color-red-d:   #f6e3de;
@@ -123,15 +127,20 @@
      `a1` are the identical hex in BOTH themes (#2d5be3 light / #7fa5ff dark) —
      one colour carrying two unrelated meanings. Tracked in the backlog; not
      changed here, because a hue move needs a contrast pass, not a merge. */
-  --color-der: #2d5be3;
+  /* Darkened 2026-09-25, same hues: `der` measured 4.34 and `das` 4.20 on panel2,
+     which is the ground of search's dictionary section, where the whole headword
+     is set in gender ink at 15px (#2d5be3 / #0f766e were the old values). `a1` and
+     `b1` move with them because they are the same hex by design — see the known
+     collisions in palette.test.ts. */
+  --color-der: #2a55d6;
   --color-die: #be185d;
-  --color-das: #0f766e;
+  --color-das: #0d6e66;
 
   /* CEFR ink — its own ramp, decoupled from the green/red/amber status colors
      (blue → teal → violet → fuchsia → coral). No value equals a status color. */
-  --color-a1: #2d5be3;
-  --color-a2: #0e7490;
-  --color-b1: #0f766e;
+  --color-a1: #2a55d6;
+  --color-a2: #0c6c86;   /* was #0e7490: 4.47 on bg */
+  --color-b1: #0d6e66;
   --color-b2: #6d28d9;
   --color-c1: #a21caf;
   --color-c2: #be185d;
@@ -247,6 +256,26 @@
   font-weight: 600;
   letter-spacing: -0.015em;
 }
+
+/* IPA — one face, and not the data face *(2026-09-25 panel).*
+ *
+ * It was `font-mono`, and Plex Mono's `unicode-range` (top of this file) stops at
+ * U+00FF plus a handful of spacing marks: ə ʁ ʊ ŋ ʃ ɛ, and the length mark ː, all
+ * fell back one glyph at a time to whatever monospace the OS had. On an iPhone
+ * "hoːx" drew its ː heavier and offset with a gap after it, and the syllabic mark
+ * in "ˈzaːgn̩" landed beside its n. Mono also meant data here (§4), and a
+ * pronunciation is not a measurement.
+ *
+ * The system sans covers the IPA Extensions block on Apple, Android and Windows,
+ * so the whole transcription comes from one face. The slashes are drawn here so
+ * every surface shows them the same way — the feed's pill had none and every other
+ * surface had them, typed by hand. */
+.ipa {
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+}
+.ipa::before { content: '/'; }
+.ipa::after { content: '/'; }
 
 /* ============================================================
    Dark theme — the alternate, toggled via `html.dark` (see
@@ -1041,6 +1070,33 @@ html[data-scrolled='true'] .glass-bar {
 .flip-inner.is-flipped { transform: rotateY(180deg); }
 .flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 .flip-back { transform: rotateY(180deg); }
+
+/* The end of a flip face, made sticky *(2026-09-25 panel).*
+ *
+ * A face that has more content than room scrolls — and said nothing about it: at
+ * 402×874 in Safari the back cut "Die Beratungsstelle hilft kostenlos" through the
+ * middle of its letters with no hint that more was below. This element *is* the
+ * face's bottom padding (the faces dropped their `pb-*` for it), so when nothing
+ * overflows it is empty paper and changes nothing. When something does, `sticky`
+ * holds it at the bottom of the visible face and its gradient fades what is still
+ * underneath — the conventional "there is more" — until the reader scrolls to the
+ * end, where it is back in its own place, over nothing.
+ *
+ * **40px, not 24.** At 24 the fade could swallow a whole line of body text, so a
+ * face with one more example below the fold looked complete — checked on the
+ * iPhone simulator with a B1 card whose second example vanished entirely. At 40 the
+ * top of the next line always shows through the gradient, which is what says "more".
+ *
+ * The gradient ends in `--color-card`, so it is right in both themes; it covers the
+ * grain for 40px, which is below the threshold of noticing. */
+.face-end {
+  position: sticky;
+  bottom: 0;
+  flex-shrink: 0;
+  height: 40px;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--color-card) 12%, transparent);
+}
 
 /* focus ring */
 :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
