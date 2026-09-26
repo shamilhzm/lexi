@@ -46,16 +46,17 @@ Straight after the first paint, `inflections.json` adds 152 KB (gzip). The live 
 what production (`b186ab4`) serves, which predates this tree's latest corpus and code
 changes, so compare down a column rather than across a row.
 
-**Only when used.** Each level's detail file (the back of the card) loads the first time
-a word at that level is opened: A1 178 KB · A2 198 KB · B1 309 KB · B2 183 KB · C1 203 KB ·
+**Only when used.** Each level's detail file (the back of the card, examples and
+definitions) is fetched once, when the app is about to show a word from that level: A1 178 KB · A2 198 KB · B1 309 KB · B2 183 KB · C1 203 KB ·
 C2 30 KB (gzip). The dictionary is 232 shards and an index, **4.4 MB** gzipped if every one were
 opened; searches fetch only the shards they need.
 
 ## How often it is downloaded again
 
-A changed file is fetched again at most **once a day** — whatever the number of commits
-behind it. So the unit that costs bandwidth is *days on which something changed*. Over
-the last 30 days (from `git log`, an upper bound on days that were actually deployed):
+A learner fetches a changed file again once for each deploy they open the app after —
+not once per commit. Commits here land in batches and deploy together, so the unit that
+costs bandwidth is close to *days on which something changed*. Over the last 30 days
+(from `git log`; the model below assumes one deploy per change-day):
 
 - `cards.json` changed on **4 days** (430 KB gzip each time);
 - the code changed on **9 days** (266 KB of script and stylesheet each time; fonts are
@@ -166,5 +167,6 @@ Sources: [vercel.com/docs/limits/fair-use-guidelines](https://vercel.com/docs/li
 - **Walk mode's copy** says it downloads two voices once, but not how much: 138.1 MB for
   a learner with neither.
 - **`cards.json` is one file**, so any corpus change re-sends all of it, and the host
-  compresses it on the fly: 452 KB on the wire against 312 KB at brotli's best setting.
-  Pre-compressed copies would cut the largest file in the boot by about 30%.
+  compresses it on the fly: production's copy is 452 KB on the wire and 310 KB at
+  brotli's best setting. Pre-compressed copies would cut the largest file in the boot
+  by about 30%.

@@ -44,8 +44,8 @@ services — and the page that says so has to be as honest as the app's other nu
   `docs/COSTS.md` — and `.github/FUNDING.yml` is a commented placeholder, so GitHub shows
   no Sponsor button until an account exists behind it.
 - **A correction to the panel's own review, in LESSONS.** It counted 28 `cards.json`
-  commits as 28 re-downloads; they fell on 4 days, and a learner fetches a changed file at
-  most once a day. The review's ceiling for the free tier (3,000–8,000 daily learners)
+  commits as 28 re-downloads; they fell on 4 days, and a learner re-fetches once per
+  deploy, not per commit. The review's ceiling for the free tier (3,000–8,000 daily learners)
   was low by two to six times.
 
 ### Shipped 2026-09-25 — Ten thousand words

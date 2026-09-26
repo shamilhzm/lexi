@@ -83,8 +83,9 @@ const shardCount = lex.filter((s) => /\/\d+\.json$/.test(s.path)).length;
 row(`dictionary: ${shardCount} shards + index`, mb(sum(lex, 'raw')) + ' raw', mb(sum(lex, 'gz')) + ' gz, if every one were opened');
 
 // ---- 3. churn: how often a returning learner re-downloads -------------------------
-// A learner downloads a changed file at most once a day, so the unit is *days with a
-// change*, not commits. Commit-days are an upper bound on deploy-days.
+// A learner re-downloads once per deploy they open the app after, not once per commit,
+// and commits here land in batches — so the unit is *days with a change*. The model
+// below assumes one deploy per change-day.
 const days = (...paths: string[]) => new Set(
   execFileSync('git', ['log', '--since=30 days ago', '--format=%ad', '--date=short', '--', ...paths], { encoding: 'utf8' })
     .split('\n').filter(Boolean),
@@ -179,7 +180,10 @@ if (live) {
   for (const rel of [...liveAssets, ...bootData.map((d) => `data/${d}`)]) {
     const n = await wire(`${base}/${rel}`);
     total += n;
-    row(rel, kb(n));
+    // The host compresses on the fly; the same bytes at brotli's best setting show
+    // what shipping pre-compressed copies would save.
+    const best = rel.endsWith('.woff2') ? n : br(Buffer.from(await (await fetch(`${base}/${rel}`)).arrayBuffer()));
+    row(rel, kb(n), `${kb(best)} at brotli q11`);
   }
   row('before first paint, on the wire', kb(total));
 
