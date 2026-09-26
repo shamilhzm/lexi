@@ -59,6 +59,7 @@ import { StorySlot, TopicSlot } from '../components/reader/StorySlot.tsx';
 import { loadTopics, type FeedArticle } from '../lib/news/feed.ts';
 import { newsTopics, isRead } from '../lib/news/library.ts';
 import { primaryTopic } from '../lib/news/sources.ts';
+import { storiesAvailable } from '../lib/platform.ts';
 import type { Target, Word } from '../types.ts';
 
 // The reader proper — the word sheet, the write-back, the AI client — is opened
@@ -275,7 +276,8 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onWalk }: {
   const [reading, setReading] = useState<FeedArticle | null>(null);
   useEffect(() => {
     const topics = topicsKey ? topicsKey.split(',') : [];
-    if (!topics.length) return;
+    // A store copy carries no stories until a publisher says it may (lib/platform.ts).
+    if (!topics.length || !storiesAvailable()) return;
     let live = true;
     loadTopics(topics as Parameters<typeof loadTopics>[0])
       .then((f) => { if (live) setStories(storyOrder(f.articles, topics)); })
@@ -285,7 +287,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onWalk }: {
   // Measured once per mount: `totals()` walks the in-scope lexicon, and the feed
   // re-renders on every dwell.
   const [topicsEarned] = useState(() => topicAskAllowed(placementLevel(), totals().known));
-  const askTopics = newsTopics() === null && topicsEarned;
+  const askTopics = storiesAvailable() && newsTopics() === null && topicsEarned;
 
   // ---- the ready slot -------------------------------------------------------
   // See `lib/feedSlots.ts` for why the feed carries one. Placed at `READY_AT` when

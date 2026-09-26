@@ -297,6 +297,67 @@ every scoped session's Back went to Themen whatever had opened it.
   (`replaceState`, so Back does not return to it), never stored, never sent, and so
   never bookmarked, installed or re-shared under the wrong channel.
 
+**App stores (panel 09): store-ready without submitting anything.** *Why:* the plan
+the panel converged on is web first, a Play TWA next, and iOS (Capacitor, with the
+bundle inside it) only under stated conditions (`docs/STORES.md`). Each of those needs
+the same groundwork: one mark, a complete manifest, a way to build a copy that carries
+only what a store may carry, and listing text nobody has to trust by eye.
+- **One mark, derived.** The PNGs iOS puts on the home screen, and that link previews
+  unfurl, were still the amber L of the terminal identity retired on 2026-07-28, under
+  a cyan-on-navy `icon.svg`. `npm run icons` (`scripts/icons/`) now renders every PNG
+  from the SVG. It is a signed-distance rasteriser for the four rounded rects the mark
+  is made of, with no new dependency, and it throws on any element it cannot draw.
+  The set:
+  - a full-bleed opaque apple-touch-icon (iOS masks it, and transparency shows black)
+  - `any` 192/512
+  - maskable 192/512
+  - an opaque 1024 for the App Store
+
+  `raster.test.ts` compares every file's *pixels* with a fresh render, checks the
+  maskable mark sits inside the 80% safe zone, and checks the 1024 has no alpha.
+- **The manifest, completed.**
+  - `id` is pinned to the identity existing installs already have. With no `id`, a
+    browser keys the app on `start_url`, and any other value would make every
+    installed Lexi a different app.
+  - `purpose` is on every icon.
+  - Three labelled narrow screenshots, for Chrome's richer install sheet. They are
+    cropped from the panel's simulator shots, with no Safari chrome.
+  - A **Start a walk** shortcut to `/?walk`, pinned against `App.tsx` by a test.
+- **Store copies** (`lib/platform.ts`, `VITE_STORE_BUILD=1`).
+  - What a store copy leaves out:
+    - Stories, until a publisher grants permission in writing (App Store 5.2.2 asks
+      for proof).
+    - The tutor, which has no surface without stories.
+    - The support heart, which reads as a donation ask (3.1.1).
+  - A bundled build takes relative asset URLs; its `index.html` references
+    `./assets/…`.
+  - A Play TWA *is* the website, so it is recognised at runtime by the
+    `android-app://` referrer of its first navigation, remembered for the session.
+  - The checks sit at three entry points only: the feed's story loader and topic
+    question, Settings' topics and tutor sections, and Profile's link. The web app
+    loses nothing, and no stored choice is touched.
+- **Listing text under test** (`store/listing.json`). `listing.test.ts` fails on:
+  - a field over its store's limit
+  - a keyword repeating the name or subtitle
+  - a competitor or exam brand
+  - any mention of stories or the tutor
+  - "offline" in the Play copy (a TWA's dictionary shards arrive on first use)
+  - any number that is not a floor the corpus in this tree meets
+
+  Measured today: 10,078 taught words and 93,046 dictionary entries. A store build is
+  40.4 MB on disk, 29 MB of it the dictionary shards.
+- **Caught while building:** the first draft said a store bundle would not *contain*
+  the story code. A build showed the minifier keeps it: the checks are calls, and
+  calls are not inlined. The code is unreachable, not absent (LESSONS).
+- **Left for the owner** (`docs/STORES.md`):
+  - the domain and name, before any packaging
+  - the store accounts (US$99 a year, US$25 once) and Play's 14-day, 12-tester closed
+    test
+  - `assetlinks.json` with the signing fingerprint
+  - the privacy and age-rating questionnaires
+  - store screenshots at 6.9", recaptured after the Üben rebuild
+  - publisher permission letters
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they

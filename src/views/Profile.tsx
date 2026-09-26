@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight, Scale } from 'lucide-react';
 import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal } from '../store.ts';
 import { useStore } from '../useStore.ts';
+import { supportLinkShown } from '../lib/platform.ts';
 import { fmt } from '../lib/ui.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 import TopicPicker from '../components/TopicPicker.tsx';
@@ -103,10 +104,13 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
         <ChevronRight size={16} className="text-dim flex-shrink-0" />
       </Card>
 
+      {/* Absent from a store copy, where it reads as a donation ask (lib/platform.ts). */}
+      {supportLinkShown() && (
       <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
         className="tap-44 mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-accent">
         <Heart size={13} /> Support Lexi’s development
       </a>
+      )}
       {/* Privacy notice, credits (CC BY-SA and CC BY ask for them where the data is
           used) and the Impressum — one static page, public/legal.html. */}
       <a href="./legal.html" target="_blank" rel="noopener"

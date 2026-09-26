@@ -1604,3 +1604,18 @@ to ~296pt on the same iPhone 17 Pro in Safari with no other change.
 space, check the rendered height on the simulator — and walk every ancestor up to the
 one with a definite height: each must itself be a growing flex item, or the claim is
 decoration. A test that pins the class string cannot see this.
+
+## "The minifier will drop it" is a claim about a bundle — open the bundle *(added 2026-09-26, panel round 3)*
+
+**Believed:** a `VITE_STORE_BUILD` flag, being a literal after the build, would make the
+store bundle *not contain* the story code — the first draft of `lib/platform.ts` and
+`vite.config.ts` said so in their comments, and the commit message repeated it.
+
+**True:** the checks are calls (`storiesAvailable()`), and the minifier does not inline a
+function's return value into its callers. A `VITE_STORE_BUILD=1` build's main chunk
+still contained the tagesschau endpoint. The stories are unreachable in that bundle,
+not absent — which is all the store rule needs, but not what the comment promised.
+
+**Rule:** dead-code elimination is a property of the output, not of the source. Before
+writing "the branch is dropped", build it and grep the chunk for a string only that
+branch contains.

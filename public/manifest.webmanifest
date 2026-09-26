@@ -1,7 +1,8 @@
 {
+  "id": "./",
   "name": "Lexi — your German vocabulary",
   "short_name": "Lexi",
-  "description": "Learn German words A1–C2 with honest spaced repetition and a live map of what you actually know. Local-first: your progress never leaves your device.",
+  "description": "German vocabulary for English speakers, A1 to C2. Scroll German words, save the ones you want, and spaced repetition brings them back before you forget. No account; your progress stays on your device.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
@@ -10,12 +11,21 @@
   "theme_color": "#eeeae3",
   "categories": ["education", "productivity"],
   "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "shortcuts": [
     {
       "name": "Today's session",
       "short_name": "Üben",
       "description": "Jump straight into the reviews due today.",
       "url": "./#/session",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Start a walk",
+      "short_name": "Walk",
+      "description": "Lexi as audio: hear the English, say the German aloud, grade with your headphones.",
+      "url": "./?walk",
       "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }]
     },
     {
@@ -27,9 +37,25 @@
     }
   ],
   "icons": [
-    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-1024.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
     { "src": "./icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
-    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml" }
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "screenshots": [
+    {
+      "src": "./screenshots/feed-word.jpg", "sizes": "720x1298", "type": "image/jpeg", "form_factor": "narrow",
+      "label": "The feed: one German word per screen, with sound, meaning and an example"
+    },
+    {
+      "src": "./screenshots/search.jpg", "sizes": "720x1298", "type": "image/jpeg", "form_factor": "narrow",
+      "label": "Search: the words Lexi teaches, and the dictionary entries it only answers"
+    },
+    {
+      "src": "./screenshots/progress-sky.jpg", "sizes": "720x1298", "type": "image/jpeg", "form_factor": "narrow",
+      "label": "Fortschritt: every word Lexi teaches, lit as brightly as you'd remember it today"
+    }
   ]
 }
