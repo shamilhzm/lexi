@@ -121,7 +121,6 @@ export function renderShareCard(f: CardFacts = facts()): HTMLCanvasElement {
   const bg = ink('--color-bg'), txt = ink('--color-txt'), dim = ink('--color-dim');
   const accent = ink('--color-accent'), green = ink('--color-green'), panel = ink('--color-panel');
   // The app's own faces, which `shareProgress` has made sure are loaded.
-  const display = token('--font-display') || 'Georgia, serif';
   const sans = token('--font-sans') || 'sans-serif';
   const mono = token('--font-mono') || 'ui-monospace, monospace';
 
@@ -162,9 +161,10 @@ export function renderShareCard(f: CardFacts = facts()): HTMLCanvasElement {
   // The number, what it counts, and the honest second number.
   const lines = cardLines(f);
   const col = sx - PAD - 24;
+  // Plex Mono bold in green — the number exactly as Fortschritt sets it.
   ctx.fillStyle = green;
-  ctx.font = `600 132px ${display}`;
-  ctx.fillText(lines.number, PAD - 4, 292, col);
+  ctx.font = `700 124px ${mono}`;
+  ctx.fillText(lines.number, PAD - 6, 290, col);
   ctx.fillStyle = txt;
   ctx.font = `600 34px ${sans}`;
   ctx.fillText(lines.label, PAD, 346, col);
@@ -186,12 +186,12 @@ export function renderShareCard(f: CardFacts = facts()): HTMLCanvasElement {
 
 /** Share (mobile) or download (desktop) the rendered card. */
 export async function shareProgress(): Promise<void> {
-  // Canvas text does not wait for a web font: drawn before Fraunces has loaded, the
-  // number would silently set in Georgia. Ask for the faces first; if the network
-  // is gone and they never come, the fallbacks are fine.
-  const display = token('--font-display'), sans = token('--font-sans'), mono = token('--font-mono');
+  // Canvas text does not wait for a web font: drawn before Plex Mono has loaded,
+  // the number would silently set in the system mono. Ask for the faces first; if
+  // the network is gone and they never come, the fallbacks are fine.
+  const sans = token('--font-sans'), mono = token('--font-mono');
   await Promise.allSettled([
-    document.fonts.load(`600 132px ${display}`), document.fonts.load(`600 34px ${sans}`), document.fonts.load(`24px ${mono}`),
+    document.fonts.load(`700 124px ${mono}`), document.fonts.load(`600 34px ${sans}`), document.fonts.load(`24px ${mono}`),
   ]);
   const f = facts();
   const canvas = renderShareCard(f);

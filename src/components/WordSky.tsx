@@ -36,7 +36,7 @@
 // the glints cost a blit and a few hundred arcs a frame, not the whole sky.
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as RPointerEvent } from 'react';
 import { AnimatePresence, useReducedMotion } from 'motion/react';
-import { Play, Bookmark, BookmarkCheck, Info } from 'lucide-react';
+import { Play, Bookmark, BookmarkCheck, Info, Share2 } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, statusOf, retention, isSaved, toggleSaved } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -47,6 +47,7 @@ import { firstLight, memoryCurve, reachCurve, type Star, type MemoryCurve } from
 import { paintSky, place, token, type Look, type Placed, type Scene } from './skyPaint.ts';
 import { skyGeometry, looksFor, type Lens } from './skyModel.ts';
 import { fmt, haptic } from '../lib/ui.ts';
+import { shareProgress } from '../lib/sharecard.ts';
 import { GenderTerm } from './Reveal.tsx';
 import WordDetail from './WordDetail.tsx';
 import CountUp from './CountUp.tsx';
@@ -436,6 +437,17 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
           <button onClick={() => onStudy({ kind: 'custom', name: 'Fading words', ids: fadingIds.slice(0, 60) })}
             className="tap-44 inline-flex items-center gap-2 rounded-full bg-accent text-bg font-bold text-sm px-5 h-11 active:scale-95 transition">
             Relight the {fmt(Math.min(60, counts.fading))} fading {counts.fading === 1 ? 'word' : 'words'}
+          </button>
+        </div>
+      )}
+      {/* The sky is the picture people want to show, so it is shareable where it
+          lives — not only from the recap. The card is always the memory lens at
+          night, with the address on it (lib/sharecard.ts). */}
+      {counts.lit > 0 && (
+        <div className="mt-2 flex justify-center">
+          <button onClick={() => void shareProgress()}
+            className="tap-44 inline-flex items-center gap-1.5 text-xs text-dim hover:text-accent underline underline-offset-2">
+            <Share2 size={13} aria-hidden /> Share your sky
           </button>
         </div>
       )}
