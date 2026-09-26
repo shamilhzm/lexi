@@ -33,6 +33,8 @@ class FakeCache {
     this.store.set(this.key(k), v);
   }
   async keys() { return [...this.store.keys()]; }
+  /** Install's required precache. Wired to the harness's `fetch` by `load`. */
+  addAll: (urls: string[]) => Promise<void> = async () => {};
 }
 
 type Handler = (e: FetchEventLike) => void;
@@ -74,6 +76,9 @@ function load(fetchImpl: (req: Request) => Promise<Response>) {
     return cache.store.delete(key);
   };
   (cache as unknown as { delete: typeof del }).delete = del;
+  cache.addAll = async (urls) => {
+    for (const u of urls) cache.store.set(u, await wrappedFetch(new URL(u, `${ORIGIN}/`).href));
+  };
 
   // eslint-disable-next-line no-new-func
   new Function('self', 'caches', 'fetch', SRC)(self, caches, wrappedFetch);
@@ -96,9 +101,18 @@ function load(fetchImpl: (req: Request) => Promise<Response>) {
   }
 
   /** Let every `waitUntil` finish — the background revalidation. */
-  const settle = async () => { await Promise.all(pending.splice(0)); };
+  // Looped: a `waitUntil` may itself call `waitUntil` (a new shell adopting its build).
+  const settle = async () => { while (pending.length) await Promise.all(pending.splice(0)); };
 
-  return { cache, request, settle, fetches, deletes };
+  /** Dispatch `install` and wait for everything it asked to wait for. */
+  async function install() {
+    for (const h of handlers.install ?? []) {
+      h({ waitUntil: (p: Promise<unknown>) => { pending.push(p); } } as unknown as FetchEventLike);
+    }
+    await settle();
+  }
+
+  return { cache, request, settle, install, fetches, deletes };
 }
 
 const body = (etag: string, text = 'x') =>
@@ -285,5 +299,104 @@ describe('an SPA fallback is never mistaken for an asset', () => {
     expect(await res!.text()).toBe('real js');
     await sw.settle();
     expect(sw.cache.puts).toEqual([JS]);
+  });
+});
+
+// Two gaps found in the panel review (2026-09-25), both about which build the
+// cache holds. *The first offline launch*: the worker registers after the first
+// visit has fetched its bundle, so the cache held a shell and nothing it named.
+// *A cache that only grows*: `CACHE` is never bumped and hashed files never
+// expire, so every build a learner ever opened stayed on their phone.
+describe('the cache holds one build, and all of it', () => {
+  const SHELL = (js: string, css: string) =>
+    `<!doctype html><script type="module" crossorigin src="/assets/${js}"></script>` +
+    `<link rel="stylesheet" crossorigin href="/assets/${css}">`;
+  const CSS = 'body{font-family:x}@font-face{src:url(/assets/fraunces-var-DihXLNYH.woff2)}';
+  const ENTRY = 'import("./Settings-zumihNS4.js");const d=["assets/ArticleLayer-D5ZsCXgN.js"];';
+
+  /** A server holding one build: its shell, entry, stylesheet, font and data. */
+  function server(files: Record<string, string>, etag = '"b2"') {
+    return async (req: Request) => {
+      const path = new URL(req.url).pathname;
+      const key = path === '/' || path === '/index.html' ? 'shell' : path;
+      if (!(key in files)) return basic(new Response('', { status: 404 }));
+      const type = key === 'shell' ? 'text/html' : path.endsWith('.css') ? 'text/css' : 'text/javascript';
+      return basic(new Response(files[key], { status: 200, headers: { ETag: etag, 'Content-Type': type } }));
+    };
+  }
+  const BUILD_2 = {
+    shell: SHELL('index-NEWentry.js', 'index-NEWstyle.css'),
+    '/assets/index-NEWentry.js': ENTRY,
+    '/assets/index-NEWstyle.css': CSS,
+    '/assets/fraunces-var-DihXLNYH.woff2': 'font',
+    '/data/cards.json': '[]', '/data/sectors.json': '[]', '/data/freq.json': '{}',
+  };
+
+  it('install keeps what the shell needs to paint — script, style, the fonts it names, the lexicon', async () => {
+    const sw = load(server(BUILD_2));
+    await sw.install();
+    const keys = await sw.cache.keys();
+    for (const f of ['/assets/index-NEWentry.js', '/assets/index-NEWstyle.css',
+      '/assets/fraunces-var-DihXLNYH.woff2', '/data/cards.json', '/data/sectors.json', '/data/freq.json']) {
+      expect(keys).toContain(`${ORIGIN}${f}`);
+    }
+    // Lazy chunks are named but never fetched ahead.
+    expect(sw.fetches).not.toContain(`${ORIGIN}/assets/Settings-zumihNS4.js`);
+  });
+
+  it('an extra that cannot be fetched never fails the install', async () => {
+    const { '/data/freq.json': _gone, ...partial } = BUILD_2;
+    void _gone;
+    const sw = load(server(partial));
+    await expect(sw.install()).resolves.toBeUndefined();
+    expect(await sw.cache.keys()).toContain('./index.html');
+    expect(await sw.cache.keys()).not.toContain(`${ORIGIN}/data/freq.json`);
+  });
+
+  it('a new shell drops the old build and keeps what the new one can still ask for', async () => {
+    const sw = load(server(BUILD_2));
+    sw.cache.store.set('./index.html', basic(new Response(SHELL('index-OLDentry.js', 'index-OLDstyle.css'),
+      { headers: { ETag: '"b1"', 'Content-Type': 'text/html' } })));
+    for (const f of ['index-OLDentry.js', 'index-OLDstyle.css', 'Settings-OLDchunk.js',
+      'Settings-zumihNS4.js', 'fraunces-var-DihXLNYH.woff2']) {
+      sw.cache.store.set(`${ORIGIN}/assets/${f}`, basic(body('"x"')));
+    }
+    await sw.request('/', { mode: 'navigate' });
+    await sw.settle();
+    const assets = (await sw.cache.keys()).filter((k) => k.includes('/assets/'));
+    expect(assets.sort()).toEqual([
+      `${ORIGIN}/assets/Settings-zumihNS4.js`,        // named by the new entry: kept
+      `${ORIGIN}/assets/fraunces-var-DihXLNYH.woff2`, // named by the new stylesheet: kept
+      `${ORIGIN}/assets/index-NEWentry.js`,           // the new boot set: fetched
+      `${ORIGIN}/assets/index-NEWstyle.css`,
+    ].sort());
+  });
+
+  it('an unchanged shell prunes nothing', async () => {
+    const sw = load(server(BUILD_2, '"same"'));
+    sw.cache.store.set('./index.html', basic(new Response(BUILD_2.shell, { headers: { ETag: '"same"' } })));
+    sw.cache.store.set(`${ORIGIN}/assets/index-OLDentry.js`, basic(body('"x"')));
+    await sw.request('/', { mode: 'navigate' });
+    await sw.settle();
+    expect(sw.deletes).toEqual([]);
+  });
+
+  // A page that outlived a deploy asks for a chunk of its own build, and Vercel
+  // answers with a real 404 — not the SPA fallback handled above. Unless the cached
+  // shell goes too, `main.tsx`'s one-shot reload lands on the same build and fails
+  // the same way.
+  it('a hashed file the server no longer has drops the shell that named it', async () => {
+    const sw = load(server(BUILD_2));
+    sw.cache.store.set('./index.html', basic(body('"b1"', 'old shell')));
+    const res = await sw.request('/assets/Settings-OLDchunk.js', { destination: 'script' });
+    expect(res!.status).toBe(404);
+    expect(sw.deletes).toContain('./index.html');
+  });
+
+  it('a stray 404 elsewhere leaves the shell alone', async () => {
+    const sw = load(server(BUILD_2));
+    sw.cache.store.set('./index.html', basic(body('"b1"', 'shell')));
+    await sw.request('/favicon.ico', { destination: 'image' });
+    expect(sw.deletes).not.toContain('./index.html');
   });
 });

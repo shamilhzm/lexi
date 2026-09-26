@@ -55,8 +55,96 @@ const CORE = [
   './icon.svg', './icon-192.png', './icon-512.png', './icon-180.png',
 ];
 
+/** What a first launch needs before it can paint, besides the shell's own files. */
+const BOOT_DATA = ['./data/cards.json', './data/sectors.json', './data/freq.json'];
+
+/** A file Vite emitted: `name-HASH.ext`, flat in `assets/`. The hash may itself
+ *  contain `-` and `_` (`index-C2-rQNTW.js`, `node.browser-DovLY4l_.js`). */
+const HASHED = /[\w.-]+-[\w-]{8}\.(?:js|css|woff2?)/g;
+
+const scopeUrl = () => (self.registration && self.registration.scope) || `${self.location.origin}/`;
+const isAsset = (url) => new URL(url, scopeUrl()).pathname.includes('/assets/');
+
+/** `src="…"`, `href="…"` and `url(…)` references into `assets/`, resolved. */
+function assetRefs(text, base) {
+  const out = new Set();
+  for (const m of text.matchAll(/(?:src=|href=|url\()["']?([^"')\s>]+)/g)) {
+    let u;
+    try { u = new URL(m[1], base); } catch { continue; }
+    if (u.origin === self.location.origin && isAsset(u.href)) out.add(u.href);
+  }
+  return [...out];
+}
+
+/** The cached copy, or a fresh one put into the cache. Null when the network has
+ *  nothing usable — never an SPA fallback page (see `isSpaFallback`). */
+async function cacheCopy(cache, url) {
+  const hit = await cache.match(url);
+  if (hit && !(hit.headers.get('Content-Type') || '').includes('text/html')) return hit;
+  let res;
+  try { res = await fetch(url); } catch { return null; }
+  if (!res.ok || res.type !== 'basic' || (res.headers.get('Content-Type') || '').includes('text/html')) return null;
+  await cache.put(url, res.clone());
+  return res;
+}
+
+/** **Make the build a shell names launchable, and forget every other build.**
+ *
+ *  Two gaps closed here, both found in the panel review (2026-09-25).
+ *
+ *  *The first offline launch.* The worker registers on `load`, after the first
+ *  visit has already fetched its bundle, stylesheet and lexicon outside its
+ *  control — so Cache Storage held the shell and the icons and nothing the shell
+ *  points at. Install to the Home Screen, open it on the U-Bahn, and the cached
+ *  shell asked for a bundle nobody had kept: a splash that never ends. The boot
+ *  set (the shell's entry script and stylesheet, the fonts that stylesheet names)
+ *  is now fetched and kept whenever a shell is adopted.
+ *
+ *  *A cache that only grows.* `CACHE` is never bumped (see above), and hashed files
+ *  are cache-first with no expiry, so every build a learner ever launched stayed —
+ *  roughly 0.9 MB of script and style each. On a phone short of space the biggest
+ *  origin is the one the OS reclaims, and this origin holds the only copy of a
+ *  learner's history. So everything under `assets/` that the new build does not
+ *  name — directly, or from its entry script and stylesheet — is deleted.
+ *
+ *  A lazy chunk of the *outgoing* build that is still running can be pruned out
+ *  from under it. It then misses, the server 404s, `asset()` drops the shell, and
+ *  `main.tsx`'s one-shot `vite:preloadError` reload lands on the new build — the
+ *  same place the version check would have taken it. */
+async function adoptShell(cache, html) {
+  const shellUrl = new URL(INDEX, scopeUrl()).href;
+  const keep = new Set();
+  for (const url of assetRefs(html, shellUrl)) {
+    keep.add(url);
+    const res = await cacheCopy(cache, url);
+    if (!res) continue;
+    const text = await res.clone().text();
+    if (url.endsWith('.css')) {
+      for (const font of assetRefs(text, url)) { keep.add(font); await cacheCopy(cache, font); }
+    }
+    // Chunks this build may ask for later: kept if a copy happens to be cached,
+    // never fetched ahead — a learner who never opens Settings never pays for it.
+    for (const m of text.matchAll(HASHED)) keep.add(new URL(m[0], url).href);
+  }
+  for (const req of await cache.keys()) {
+    const url = typeof req === 'string' ? req : req.url;
+    if (isAsset(url) && !keep.has(url)) await cache.delete(req);
+  }
+}
+
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));
+  e.waitUntil((async () => {
+    const c = await caches.open(CACHE);
+    await c.addAll(CORE);
+    // Best effort, deliberately: an install must never fail because an extra could
+    // not be fetched. Whatever is missing is filled in by the next launch.
+    try {
+      const shell = await c.match(INDEX);
+      if (shell) await adoptShell(c, await shell.clone().text());
+      await Promise.all(BOOT_DATA.map((p) => cacheCopy(c, new URL(p, scopeUrl()).href)));
+    } catch { /* see above */ }
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener('activate', (e) => {
@@ -97,7 +185,7 @@ function isSpaFallback(req, res) {
  *  to stay on what it has. Any other failure (a 500, an opaque response) returns
  *  the response without caching it: serving a cached copy is right, and
  *  overwriting a good copy with an error page is not. */
-async function revalidate(cache, req, key, hit) {
+async function revalidate(cache, req, key, hit, event) {
   let res;
   try { res = await fetch(req); } catch { return null; }
   if (!res.ok || res.type !== 'basic') return res;
@@ -105,7 +193,15 @@ async function revalidate(cache, req, key, hit) {
   const after = res.headers.get('ETag');
   // No ETag on either side means we cannot tell, so we write — a redundant copy
   // is a wasted millisecond and a missed one is a learner stuck on old data.
-  if (!before || !after || before !== after) await cache.put(key, res.clone());
+  if (!before || !after || before !== after) {
+    await cache.put(key, res.clone());
+    // A new shell is a new build: keep what it needs, drop what it doesn't. Off
+    // the response path — a navigation must never wait on 800 KB of script.
+    if (key === INDEX && event) {
+      const copy = res.clone();
+      event.waitUntil(copy.text().then((html) => adoptShell(cache, html)).catch(() => {}));
+    }
+  }
   return res;
 }
 
@@ -118,10 +214,10 @@ async function staleWhileRevalidate(event, req, key) {
   const cache = await caches.open(CACHE);
   const hit = await cache.match(key);
   if (hit) {
-    event.waitUntil(revalidate(cache, req, key, hit));
+    event.waitUntil(revalidate(cache, req, key, hit, event));
     return hit;
   }
-  return (await revalidate(cache, req, key, null)) || Response.error();
+  return (await revalidate(cache, req, key, null, event)) || Response.error();
 }
 
 self.addEventListener('fetch', (e) => {
@@ -181,6 +277,16 @@ async function asset(event, req) {
     // shell that names files which exist.
     await cache.delete(INDEX);
     return new Response('', { status: 404, statusText: 'Not Found' });
+  }
+  // The same, from a host that answers a missing file with a real 404 — which is
+  // what Vercel does. A page that outlived a deploy asks for a chunk of its own
+  // build; the cached shell still names that build, so without this the
+  // `vite:preloadError` reload in `main.tsx` would land on the same shell and fail
+  // the same way. Hashed files only: a stray 404 for some other path (a browser
+  // probing `/favicon.ico`) must not cost every launch its cached shell.
+  if (res.status === 404 && isAsset(req.url)) {
+    await cache.delete(INDEX);
+    return res;
   }
   if (res.ok && res.type === 'basic') event.waitUntil(cache.put(req, res.clone()));
   return res;
