@@ -1,0 +1,28 @@
+Lexi word data — licence and credits
+====================================
+
+The files in this folder are licensed under Creative Commons
+Attribution-ShareAlike 4.0 International (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+They are adapted (selected, reformatted, shortened; levels, topics and teaching
+order added; many glosses and examples written with an AI model and machine-
+checked) from:
+
+- Wiktionary contributors, via Wiktextract / kaikki.org — CC BY-SA 4.0
+  https://www.wiktionary.org  https://kaikki.org
+- Tatoeba Project contributors (example sentences, where recorded in
+  provenance.json; recordings, per contributor in audio.json) — CC BY 2.0 FR for
+  sentences; each recording under the licence its contributor chose
+  https://tatoeba.org
+- Lange, Willi / Okamura, Saburo / Scharloth, Joachim (2016): Datengeleiteter
+  Kernwortschatz Deutsch — CC BY-SA 4.0   http://www.basic-german.com
+- Leipzig Corpora Collection (Goldhahn, Eckart & Quasthoff 2012) — CC BY 4.0
+  https://wortschatz.uni-leipzig.de
+- German Categorized Wordlist (ynsrc) — CC BY 4.0
+  https://github.com/ynsrc/german-categorized-wordlist
+- Hermit Dave, FrequencyWords (OpenSubtitles/OPUS) — MIT
+  https://github.com/hermitdave/FrequencyWords
+
+Full record: https://github.com/shamilhzm/lexi/blob/main/ATTRIBUTIONS.md
+The application code is MIT: https://github.com/shamilhzm/lexi/blob/main/LICENSE
