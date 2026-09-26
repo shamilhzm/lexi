@@ -302,26 +302,6 @@ describe('an SPA fallback is never mistaken for an asset', () => {
   });
 });
 
-// The static legal page is a second document. Answering it with the shell hid it
-// from every installed app, and the revalidation then stored it *as* the shell.
-describe('a page that is not the app', () => {
-  it('is served as itself, and never overwrites the shell', async () => {
-    const sw = load(async () => basic(body('"legal"', 'legal page')));
-    sw.cache.store.set('./index.html', basic(body('"same"', 'shell')));
-    const res = await sw.request('/legal.html', { mode: 'navigate' });
-    expect(await res!.text()).toBe('legal page');
-    await sw.settle();
-    expect(await (await sw.cache.match('./index.html'))!.text()).toBe('shell');
-  });
-
-  it('still answers the app’s own routes from the shell', async () => {
-    const sw = load(async () => basic(body('"same"')));
-    for (const path of ['/', '/index.html', '/lexi/']) {
-      // A fresh body each time: a Response can be read once.
-      sw.cache.store.set('./index.html', basic(body('"same"', 'shell')));
-      expect(await (await sw.request(path, { mode: 'navigate' }))!.text()).toBe('shell');
-    }
-
 // Two gaps found in the panel review (2026-09-25), both about which build the
 // cache holds. *The first offline launch*: the worker registers after the first
 // visit has fetched its bundle, so the cache held a shell and nothing it named.
@@ -418,5 +398,27 @@ describe('the cache holds one build, and all of it', () => {
     sw.cache.store.set('./index.html', basic(body('"b1"', 'shell')));
     await sw.request('/favicon.ico', { destination: 'image' });
     expect(sw.deletes).not.toContain('./index.html');
+  });
+});
+
+// The static legal page is a second document. Answering it with the shell hid it
+// from every installed app, and the revalidation then stored it *as* the shell.
+describe('a page that is not the app', () => {
+  it('is served as itself, and never overwrites the shell', async () => {
+    const sw = load(async () => basic(body('"legal"', 'legal page')));
+    sw.cache.store.set('./index.html', basic(body('"same"', 'shell')));
+    const res = await sw.request('/legal.html', { mode: 'navigate' });
+    expect(await res!.text()).toBe('legal page');
+    await sw.settle();
+    expect(await (await sw.cache.match('./index.html'))!.text()).toBe('shell');
+  });
+
+  it('still answers the app’s own routes from the shell', async () => {
+    const sw = load(async () => basic(body('"same"')));
+    for (const path of ['/', '/index.html', '/lexi/']) {
+      // A fresh body each time: a Response can be read once.
+      sw.cache.store.set('./index.html', basic(body('"same"', 'shell')));
+      expect(await (await sw.request(path, { mode: 'navigate' }))!.text()).toBe('shell');
+    }
   });
 });
