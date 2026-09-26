@@ -158,6 +158,37 @@ export async function loadLedger(): Promise<ReviewEvent[]> {
   } catch { available = false; return []; }
 }
 
+/** Replace the whole ledger — the restore path, and nothing else.
+ *
+ *  A backup restore replaces the card map, so the history that produced *those*
+ *  cards has to replace the device's too: a ledger whose rows describe a different
+ *  schedule is worse than none, because a future replay-merge would trust it. One
+ *  transaction, so a restore that fails half-way leaves the old ledger intact.
+ *  Rows that are not review events are dropped rather than stored. Resolves to
+ *  whether it was written. */
+export async function replaceLedger(rows: unknown[]): Promise<boolean> {
+  const valid = rows.filter((r): r is ReviewEvent =>
+    !!r && typeof r === 'object'
+    && typeof (r as ReviewEvent).id === 'string'
+    && typeof (r as ReviewEvent).g === 'number'
+    && typeof (r as ReviewEvent).at === 'number');
+  try {
+    const db = await open();
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(LEDGER_STORE, 'readwrite');
+      const store = tx.objectStore(LEDGER_STORE);
+      store.clear();
+      // In the order given, which is the order `loadLedger` exported them in: the
+      // auto-increment keys then reproduce it exactly.
+      for (const r of valid.slice(-MAX_EVENTS)) store.add(r);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+    available = true;
+    return true;
+  } catch { available = false; return false; }
+}
+
 /** Drop the oldest rows once the ledger is over `MAX_EVENTS`. */
 async function prune(): Promise<void> {
   try {

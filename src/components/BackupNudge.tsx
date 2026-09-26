@@ -4,21 +4,32 @@
 // setback, it is everything.
 //
 // Deliberately late and quiet. Asking on day one is asking someone to insure a
-// thing they do not own yet — the nudge waits until there is a week of visits and
-// a hundred words behind it, then asks once. Taking a backup, or dismissing it,
-// both end it forever.
+// thing they do not own yet — the nudge waits until there is something behind it,
+// then asks once. Taking a backup, or dismissing it, both end it forever.
+//
+// *"Late" was a week and a hundred words until 2026-09-25* (panel review). Safari
+// may clear a site's storage after seven days without a visit, so a learner who
+// studied for five days and then went on holiday could lose everything before the
+// app ever mentioned a backup — the nudge's own threshold outlived the thing it
+// insures against. Three days and twenty words is still after the learner owns
+// something, and before the first window in which they could lose it.
+//
+// The button saves the file itself (lib/backup.ts) rather than sending the learner
+// to Settings to find it: one tap is the difference between a backup and an
+// intention. `onBackup` stays in the signature for callers that pass it.
 import { useState } from 'react';
 import { X, Archive } from 'lucide-react';
 import { visitCount, lastBackup, totals } from '../store.ts';
+import { downloadBackup } from '../lib/backup.ts';
 import Card from './ui/Card.tsx';
 import Button from './ui/Button.tsx';
 import IconButton from './ui/IconButton.tsx';
 
 const DISMISS_KEY = 'lexi.backupnudge.v1';
-const AFTER_VISITS = 7;   // a week of distinct days, not a streak — a streak resets
-const AFTER_KNOWN = 100;  // and enough words that losing them would actually hurt
+const AFTER_VISITS = 3;   // distinct days, not a streak — a streak resets
+const AFTER_KNOWN = 20;   // enough words that losing them would already hurt
 
-export default function BackupNudge({ onBackup }: { onBackup: () => void }) {
+export default function BackupNudge(_props: { onBackup?: () => void }) {
   const [gone, setGone] = useState(() => {
     try { return localStorage.getItem(DISMISS_KEY) === '1'; } catch { return false; }
   });
@@ -44,7 +55,7 @@ export default function BackupNudge({ onBackup }: { onBackup: () => void }) {
           would take it with it. A backup is one file.
         </p>
         <div className="mt-2.5 flex gap-2 flex-wrap">
-          <Button onClick={() => { onBackup(); dismiss(); }}>Save a backup</Button>
+          <Button onClick={() => { void downloadBackup(); dismiss(); }}>Save a backup</Button>
           <Button variant="quiet" onClick={dismiss}>Not now</Button>
         </div>
       </div>
