@@ -103,9 +103,13 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
         <ChevronRight size={16} className="text-dim flex-shrink-0" />
       </Card>
 
-      <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
+      {/* This said "Support Lexi’s development" and opened the repo front page, which
+          supports nothing: there is no Sponsors page yet (.github/FUNDING.yml is a
+          placeholder the owner fills). A caption has to describe what it does, so it
+          now goes to the page that says what Lexi costs and every way to help. */}
+      <a href="https://github.com/shamilhzm/lexi/blob/main/docs/COSTS.md" target="_blank" rel="noopener noreferrer"
         className="tap-44 mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-accent">
-        <Heart size={13} /> Support Lexi’s development
+        <Heart size={13} /> What Lexi costs, and how to help
       </a>
     </div>
   );

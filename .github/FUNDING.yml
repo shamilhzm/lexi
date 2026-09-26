@@ -1,0 +1,29 @@
+# GitHub's "Sponsor" button — a placeholder, deliberately empty.
+#
+# Every line below is commented out, so GitHub shows no button. That is the honest
+# state today: no sponsorship account exists, and a button that leads nowhere is the
+# same mistake the old "Support Lexi's development" link made (it opened the repo).
+# The app now links to docs/COSTS.md, which says what Lexi costs and how to help.
+#
+# Owner, to switch it on:
+#   1. Enable GitHub Sponsors for your personal account (github.com/sponsors) and
+#      finish its payout and tax-form steps. GitHub charges no fee on sponsorships
+#      from personal accounts (checked 2026-09-25, docs.github.com → Sponsors →
+#      "About sponsorships, fees, and taxes").
+#   2. Uncomment the `github:` line with your username.
+#   3. Update docs/COSTS.md § How to help, and the Profile link if it should point
+#      straight at the Sponsors page.
+#
+# Before you do, read docs/COSTS.md § Before taking any money. The short version:
+#   - Donations are allowed on the free Vercel Hobby plan; anything visitors pay for
+#     is not (Hobby is "non-commercial personal use only").
+#   - Keep tiers reward-free (no perks, no unlocks), so a sponsorship stays a gift and
+#     not payment for something — the distinction VAT turns on. It is still income.
+#     None of this is tax advice; a Steuerberater decides.
+#   - Store builds must not show a donation link: outside in-app purchase that is an
+#     App Review guideline 3.1.1 risk (docs/STORES.md).
+
+# github: [your-github-username]
+# liberapay: # Liberapay username — a European non-profit alternative
+# open_collective: # if Lexi ever gains a fiscal host
+# custom: # any other page you control — never one that publishes your bank details
