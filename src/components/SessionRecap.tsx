@@ -6,7 +6,10 @@
 import { useState, type ReactNode } from 'react';
 import { motion } from 'motion/react';
 import { Bell, CalendarClock, Check, Flame, TrendingDown, Trophy } from 'lucide-react';
-import { dueForecast, reminderTime, setReminderTime } from '../store.ts';
+import { dueForecast, reminderTime, setReminderTime, studiedToday } from '../store.ts';
+// A cycle (session → drills → this file → session), and a harmless one: the
+// constant is only read inside a render, long after every module has evaluated.
+import { SESSION_CEILING } from '../session.ts';
 import { useStore } from '../useStore.ts';
 import CountUp from './CountUp.tsx';
 import Card from './ui/Card.tsx';
@@ -51,16 +54,21 @@ export default function SessionRecap({ data, title = 'Session complete', childre
         transition={{ type: 'spring', stiffness: 420, damping: 18 }}
         className="grid place-items-center w-[56px] h-[56px] rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></motion.div>
       <h2 className="text-2xl font-bold mb-1 cursor-blink">{title}</h2>
-      <p className="text-dim mb-5 flex items-center justify-center gap-1.5">
-        streak secured
-        <motion.span initial={{ scale: 0.5, rotate: -14 }} animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 500, damping: 13 }} className="inline-flex">
-          <Flame size={14} className="text-accent" />
-        </motion.span>
-        <motion.span initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 480, damping: 16, delay: 0.05 }}
-          className="font-mono font-bold text-accent tabular-nums">{data.streak}</motion.span>
-      </p>
+      {/* **A fact, not a rescue.** *2026-09-25, from the panel review.* This read
+          "streak secured" beside a flame that sprang into place — copy that only
+          makes sense if the streak was in danger, which is the loss framing VISION
+          refuses (streak-shaming) wearing a celebration. The streak now counts days
+          with a grade or a save, and the line says that plainly and holds still. */}
+      {/* Only when today really counted — a session skipped end to end graded
+          nothing, and saying "studied today" over it would be the flattery the
+          streak change exists to remove. */}
+      {studiedToday() && <p className="text-dim mb-5 flex items-center justify-center gap-1.5">
+        <Flame size={14} className="text-accent" aria-hidden />
+        <span>
+          Studied today · <span className="font-mono font-bold text-accent tabular-nums">{data.streak}</span>
+          {data.streak === 1 ? ' day' : ' days'} running
+        </span>
+      </p>}
       {data.milestone && (
         <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
           className="flex items-center justify-center gap-1.5 mb-5 text-accent">
@@ -129,6 +137,12 @@ function Tomorrow({ weakest }: { weakest?: string }) {
   //
   // Anything still owed from today is still owed tomorrow, so the honest count is
   // today's bucket plus tomorrow's.
+  //
+  // **And it says what tomorrow will actually serve.** *2026-09-25.* `dueForecast` now
+  // counts only cards a session can reach (no retired grammar rows, nothing outside
+  // the level filter), and past `SESSION_CEILING` the line names the bounded day
+  // first: a learner back from a month away was told "400 cards waiting tomorrow"
+  // one screen after the return notice promised the day was bounded.
   const forecast = dueForecast(2);
   const back = (forecast[0] ?? 0) + (forecast[1] ?? 0);
   const time = reminderTime();
@@ -138,7 +152,9 @@ function Tomorrow({ weakest }: { weakest?: string }) {
       <p className="text-xs text-dim flex items-start gap-2">
         <CalendarClock size={14} className="text-accent flex-shrink-0 mt-0.5" />
         <span>
-          {back > 0
+          {back > SESSION_CEILING
+            ? <><span className="text-txt font-semibold">Tomorrow serves {SESSION_CEILING}.</span> {back} are waiting in all — the rest keep, and come in the days after.</>
+            : back > 0
             ? <><span className="text-txt font-semibold">{back} card{back === 1 ? '' : 's'} waiting tomorrow.</span> That’s the system working — showing up is the whole trick.</>
             : <>Nothing is waiting tomorrow. Come back anyway and Lexi will start something new.</>}
         </span>

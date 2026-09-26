@@ -17,7 +17,6 @@ const ATTEMPT_KEY = 'lexi.attempts.v1';
 const LEVELS_KEY = 'lexi.levels.v1';
 const DRILLMODES_KEY = 'lexi.drillmodes.v1';
 const NEW_PER_DAY = 24;
-const MIN_DAILY = 20; // streak-safe minimum items in a daily briefing
 const PACE_KEY = 'lexi.pace.v1';
 // After a gap, FSRS marks *everything* overdue at once; serving it all in one
 // briefing ("312 cards queued") is the classic SRS rage-quit moment. Cap the
@@ -261,6 +260,7 @@ export async function hydrate(): Promise<void> {
   // until it fills.
   attempts = Array.isArray(att) ? att : [];
   visits = Array.isArray(vis) ? vis : [];
+  migrateStudyDays();
   hydrated = true;
 }
 
@@ -355,7 +355,12 @@ export function review(id: string, grade: Grade) {
   live.set(id, after);
   emitCard({ id, grade, before, after, at: Date.now(), undo: false });
   recordVisit();
+  noteStudyDay();
   bumpReviewLog(grade);
+  if (introduces(id, before, grade)) {
+    const ids = readIntroduced();
+    if (!ids.includes(id)) writeIntroduced([...ids, id]);
+  }
   // The ledger: what was reviewed, when, and how. `bumpReviewLog` above only keeps
   // a daily count, which cannot rebuild a card — see lib/ledger.ts. Fire-and-forget
   // on purpose: a ledger failure must never break a session.
@@ -395,6 +400,14 @@ export function restoreCard(id: string, snap: Card | undefined, wasAgain = false
   // back out — the same reasoning `unbumpReviewLog` applies to the daily counts.
   emitCard({ id, grade: null, before, after: snap, at: Date.now(), undo: true });
   unbumpReviewLog(wasAgain);
+  // An undone first sight gives its word back to today's budget — but only when
+  // the card is new again. Undoing a *second* grade of a word first met today
+  // leaves it met today.
+  if (!snap || snap.state === State.New) {
+    const ids = readIntroduced();
+    if (ids.includes(id)) writeIntroduced(ids.filter((x) => x !== id));
+  }
+  recheckStudyDay();
   // A rewound review did not happen, so it leaves the ledger too — the same
   // reasoning `unbumpReviewLog` applies to the daily counts, for the same reason:
   // this app's whole argument is that its numbers are honest.
@@ -437,10 +450,10 @@ export function buildSession(target: Target, maxNew = PACE[pace()].fresh): Word[
 
 // ---- daily briefing ------------------------------------------------------
 export interface Briefing {
-  ids: string[];        // the assembled queue (due first, then fresh)
+  ids: string[];        // the assembled queue (saved words, due, then other fresh)
   due: number;          // count of due reviews included (≤ DAILY_DUE_CAP)
   dueTotal: number;     // all due reviews in scope — the honest backlog number
-  fresh: number;        // count of new cards included
+  fresh: number;        // count of new cards included (saved ones too)
   /** Where the fresh cards came from, in the order the loops ran.
    *
    *  **No UI reads this, and that is now deliberate rather than an oversight.** It
@@ -475,9 +488,56 @@ export function weakestSectors(n = 4): SectorStat[] {
   return ranked.slice(0, n);
 }
 
+/** Saved words that may still be introduced on a day the backlog has closed the
+ *  budget to everything else. Small on purpose: it keeps the bookmark meaningful
+ *  on the worst day, and it cannot grow a backlog day into a new-word day. */
+export const SAVED_BYPASS = 5;
+
+/** How much of a backlog closes the day to new words. Two days of the pace's own
+ *  due serving: past that, every new word is a card that will be due again inside
+ *  the week, on top of a mountain the learner is already climbing. */
+const BACKLOG_CLOSES_FRESH = 2;
+
+/** The day's new-word budget, after what today has already introduced.
+ *
+ *  **Per day, not per build.** *2026-09-25, from the panel review.* This was
+ *  `min(pace.fresh, MIN_DAILY − due)`, recomputed every time Üben was opened — and
+ *  it was wrong in both directions at once:
+ *
+ *    - **It reset on every tap.** Nothing counted the words already introduced
+ *      today, so a learner who finished a session and tapped Üben again was served
+ *      up to twenty *more* new words, and again after that. The pace said 24 a day
+ *      and meant 24 a visit; the "new-card budget spent" empty state could never be
+ *      reached. Three eager sessions are ~60 new words, which is the week-two
+ *      review load that turns the next lapse into a mountain.
+ *    - **It stalled at twenty due.** New words only *topped up* to a floor of
+ *      twenty items, so from twenty due reviews upward the day served none — not
+ *      even the words the learner had saved — the panel's Germanist simulated a
+ *      perfect daily learner with ts-fsrs and found growth capped far below the
+ *      pace the Settings label promised.
+ *
+ *  So the budget is the pace's `fresh` for the *day*, minus the first sights
+ *  already graded today (`reviewLog().fresh`, which an undo gives back), and it is
+ *  closed to everything but saved words only when the backlog passes
+ *  `BACKLOG_CLOSES_FRESH` days of the pace's due serving. */
+export function freshBudget(dueTotal: number): { saved: number; other: number; introduced: number; closed: boolean } {
+  const p = PACE[pace()];
+  const introduced = introducedToday();
+  const left = Math.max(0, p.fresh - introduced);
+  const closed = dueTotal > BACKLOG_CLOSES_FRESH * p.due;
+  return {
+    // Saved words ride the day's budget; on a closed day they keep a small lane.
+    saved: closed ? Math.min(left, Math.max(0, SAVED_BYPASS - introduced)) : left,
+    other: closed ? 0 : left,
+    introduced,
+    closed,
+  };
+}
+
 /**
- * Assemble the "markets open" session: every due review, topped up with fresh
- * cards from the weakest sectors to a streak-safe minimum (capped per day).
+ * Assemble the day's session: the saved words the learner asked for, the due
+ * reviews oldest first, then fresh words from the weakest sectors — the new words
+ * bounded by a budget for the *day* (`freshBudget`), not for this build.
  */
 export function buildBriefing(): Briefing {
   const now = Date.now();
@@ -492,25 +552,34 @@ export function buildBriefing(): Briefing {
   // Oldest-first slice of the backlog; the rest waits for tomorrow's briefing.
   const served = dueReview.slice(0, PACE[pace()].due);
 
-  const want = Math.min(PACE[pace()].fresh, Math.max(0, MIN_DAILY - served.length));
+  const budget = freshBudget(dueReview.length);
+  const savedIds: string[] = [];
   const freshIds: string[] = [];
   const weak: string[] = [];
+  const want = () => budget.other - freshIds.length;
 
   // Saved words first. This is the whole point of the bookmark in the feed: the
   // learner scrolled past four hundred words, stopped on six, and said *these*.
   // A scheduler that then taught them something else would be telling them their
-  // attention does not count. Still bounded by the same `want` budget — saving
-  // twenty words does not buy a twenty-word session, it buys the front of the
-  // queue for as long as the queue lasts.
+  // attention does not count. Still bounded by the day's budget — saving twenty
+  // words does not buy a twenty-word session, it buys the front of the queue for
+  // as long as the budget lasts.
+  //
+  // **At the front of the whole queue, not behind the reviews.** VISION says the
+  // next session *starts* with them, and `SESSION_CEILING` cuts a session from the
+  // back: behind sixty due reviews they were sliced off every day, which was the
+  // other half of the stall.
   const saved = new Set(savedWords());
   if (saved.size) {
     for (const w of inScope) {
-      if (freshIds.length >= want) break;
+      if (savedIds.length >= budget.saved) break;
       if (!saved.has(w.id) || statusOf(w.id) !== 'new') continue;
-      freshIds.push(w.id);
+      savedIds.push(w.id);
     }
-    if (freshIds.length) weak.push('your saved words');
+    if (savedIds.length) weak.push('your saved words');
   }
+  // What the saved words spent comes off everything else's share.
+  budget.other = Math.max(0, budget.other - savedIds.length);
 
   // Then the words you kept stopping on.
   //
@@ -529,18 +598,18 @@ export function buildBriefing(): Briefing {
   if (repeats.length) {
     const before = freshIds.length;
     for (const id of repeats) {
-      if (freshIds.length >= want) break;
+      if (want() <= 0) break;
       const w = BY_ID.get(id);
-      if (!w || !inLevels(w) || statusOf(id) !== 'new' || freshIds.includes(id)) continue;
+      if (!w || !inLevels(w) || statusOf(id) !== 'new' || freshIds.includes(id) || savedIds.includes(id)) continue;
       freshIds.push(id);
     }
     if (freshIds.length > before) weak.push('words you kept stopping on');
   }
 
   for (const s of weakestSectors(6)) {
-    if (freshIds.length >= want) break;
+    if (want() <= 0) break;
     const newCards = (WORDS_BY_SECTOR.get(s.name) ?? [])
-      .filter((w) => inLevels(w) && statusOf(w.id) === 'new' && !freshIds.includes(w.id))
+      .filter((w) => inLevels(w) && statusOf(w.id) === 'new' && !freshIds.includes(w.id) && !savedIds.includes(w.id))
       // Within a sector, teach the commonest words first. Same reasoning as
       // firstRunIds: the sector and the level are both coarse, and this is the one
       // ordering signal that says which of two equally-eligible A2 nouns the
@@ -550,15 +619,15 @@ export function buildBriefing(): Briefing {
     if (newCards.length === 0) continue;
     weak.push(s.name);
     for (const w of newCards) {
-      if (freshIds.length >= want) break;
+      if (want() <= 0) break;
       freshIds.push(w.id);
     }
   }
   return {
-    ids: [...served.map((d) => d.id), ...freshIds],
+    ids: [...savedIds, ...served.map((d) => d.id), ...freshIds],
     due: served.length,
     dueTotal: dueReview.length,
-    fresh: freshIds.length,
+    fresh: savedIds.length + freshIds.length,
     weakSectors: weak,
   };
 }
@@ -751,15 +820,76 @@ function unbumpReviewLog(wasAgain: boolean) {
   try { localStorage.setItem(REVIEWLOG_KEY, JSON.stringify(log)); } catch { /* quota */ }
 }
 
-/** Scheduled cards due per day for the next `days` days; index 0 = overdue + today. */
+// ---- words introduced today (the new-word budget's meter) -----------------
+// Which words had their first sight today. A list of ids rather than a count, so an
+// undo takes back exactly the word it rewound and nothing else — the count is the
+// list's length.
+//
+// **Deliberately not in the backup**, like the session-resume slot: it is a fact
+// about today's budget, not about what anybody knows. A restore mid-day at worst
+// hands back one day's budget.
+const INTRODUCED_KEY = 'lexi.introduced.v1';
+interface Introduced { day: string; ids: string[] }
+
+function readIntroduced(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(INTRODUCED_KEY) || 'null') as Introduced | null;
+    return v && v.day === todayKey() && Array.isArray(v.ids) ? v.ids : [];
+  } catch { return []; }
+}
+function writeIntroduced(ids: string[]) {
+  try { localStorage.setItem(INTRODUCED_KEY, JSON.stringify({ day: todayKey(), ids })); } catch { /* quota */ }
+}
+
+/** New words introduced today — first sights of a word card, graded anything but
+ *  Easy. Local midnight, like every daily boundary in this file. */
+export function introducedToday(): number { return readIntroduced().length; }
+
+/** Does grading this card now introduce a new *word*?
+ *
+ *  A first sight of a word card — not a drill (`gym:*`), whose word was taught by
+ *  its flip — and not an **Easy** first sight. Easy on a card you have never been
+ *  shown is a claim that you knew it already: that is what placement sends for
+ *  every word it seeds, and it is what an "I already know this" grade means. A word
+ *  you arrived knowing was not taught today, and it must not spend today's budget. */
+function introduces(id: string, before: Card | undefined, grade: Grade): boolean {
+  return (!before || before.state === State.New) && BY_ID.has(id) && grade !== Rating.Easy;
+}
+
+/** Would a session ever serve this card, as things stand?
+ *
+ *  A word card in the level filter, or a drill (`gym:<mode>:<word>`) whose word is
+ *  in the filter and whose mode is switched on. Everything else in the card map is
+ *  real and kept — and never served: the `gex:*` / `gram:*` schedules of the retired
+ *  syllabus (kept on purpose, see the comment above `hydrate`), words outside the
+ *  levels the learner is studying, drills they muted. */
+function servable(id: string): boolean {
+  if (id.startsWith('gym:')) {
+    const parts = id.split(':');
+    const w = BY_ID.get(parts.slice(2).join(':'));   // user words contain ':' (usr:…)
+    return !!w && inLevels(w) && modeEnabled(parts[1]);
+  }
+  const w = BY_ID.get(id);
+  return !!w && inLevels(w);
+}
+
+/** Scheduled cards due per day for the next `days` days; index 0 = overdue + today.
+ *
+ *  **Only cards a session could serve.** *2026-09-25, from the panel review.* This
+ *  walked the whole card map, so the recap's "N waiting tomorrow" and the Stats
+ *  forecast counted the retired grammar schedules — which nothing will ever serve,
+ *  so for a learner who used the old syllabus the number could never reach zero —
+ *  and every word outside the level filter. A forecast is a promise about what the
+ *  app will put in front of you, so it counts what `buildBriefing` and the session
+ *  builder can reach (`servable`). */
 export function dueForecast(days = 7): number[] {
   const out = new Array<number>(days).fill(0);
   // Local midnight: this bucket boundary is compared against real `due`
   // timestamps, so it has to be the learner's midnight or every card lands in
   // the wrong column by up to a day.
   const start = dayStart(todayKey());
-  live.forEach((c) => {
-    if (c.state === State.New) return;
+  live.forEach((c, id) => {
+    if (c.state === State.New || !servable(id)) return;
     const idx = Math.floor((new Date(c.due).getTime() - start) / 86_400_000);
     if (idx < 0) out[0]++; else if (idx < days) out[idx]++;
   });
@@ -1063,8 +1193,18 @@ export function isSaved(id: string): boolean { return readList(SAVED_KEY).some((
 export function toggleSaved(id: string): boolean {
   const cur = readList(SAVED_KEY);
   const at = cur.findIndex((r) => r.id === id);
-  if (at >= 0) { cur.splice(at, 1); writeList(SAVED_KEY, cur); return false; }
+  if (at >= 0) {
+    cur.splice(at, 1);
+    writeList(SAVED_KEY, cur);
+    // After the write, because it reads the saved list; then a second emit so the
+    // bar re-renders with the day re-judged. An unsave that leaves nothing
+    // deliberate in today takes today back out of the streak.
+    recheckStudyDay();
+    emit();
+    return false;
+  }
   cur.push({ id, at: Date.now() });
+  noteStudyDay();
   writeList(SAVED_KEY, cur);
   return true;
 }
@@ -1799,8 +1939,66 @@ export function reviewedToday(): boolean {
  *  I" — a streak resets, and a card count says nothing about elapsed time. */
 export function visitCount(): number { return new Set(visits).size; }
 
+// ---- study days: what the streak counts ------------------------------------
+// **A day counts when the learner did something deliberate** — graded a card or
+// saved a word. *2026-09-25, from the panel review.*
+//
+// The streak used to count *visits*, and a visit is recorded the moment the app
+// mounts. So a stranger's very first screen already carried a flame, and — worse —
+// a learner could keep a thirty-day streak by opening the feed and scrolling while
+// the reviews that actually do the teaching piled up unseen. The one habit signal
+// in the app was rewarding the one surface that never grades. That is the same
+// line the feed draws everywhere else: a thumb moving is not evidence, a press is.
+// Visits stay (`visitCount`, `lastGapDays`): "how new am I" and "how long was I
+// away" are questions about opening the app, and they keep answering them.
+//
+// **Nothing anybody earned is taken away.** Days before the switch cannot be told
+// apart after the fact, so on the first boot that has this key missing every
+// *earlier* visit is carried over as a study day (`migrateStudyDays`). Only today,
+// and every day after, has to be earned by a press.
+const STUDY_KEY = 'lexi.studydays.v1';
+
+function readStudyDays(): string[] {
+  try {
+    const a = JSON.parse(localStorage.getItem(STUDY_KEY) || '[]');
+    return Array.isArray(a) ? a.filter((d): d is string => typeof d === 'string') : [];
+  } catch { return []; }
+}
+function writeStudyDays(days: string[]) {
+  try { localStorage.setItem(STUDY_KEY, JSON.stringify(days)); } catch { /* quota */ }
+}
+
+/** Seed the study days from the visit log, once. Called from `hydrate()`, which is
+ *  the first moment the visits are in memory. Today is left out on purpose: the
+ *  switch happened today, so today is judged by the new rule. */
+function migrateStudyDays() {
+  try { if (localStorage.getItem(STUDY_KEY) !== null) return; } catch { return; }
+  const t = todayKey();
+  writeStudyDays([...new Set(visits)].filter((d) => d < t).sort());
+}
+
+/** Record today as a study day. Called by a grade and by a save — nothing else. */
+function noteStudyDay() {
+  const t = todayKey();
+  const days = readStudyDays();
+  if (!days.includes(t)) { days.push(t); writeStudyDays(days); }
+}
+
+/** Take today back out when an undo or an unsave leaves nothing deliberate in it.
+ *  A day you studied and then undid to nothing reads as unstudied, the same rule
+ *  `unbumpReviewLog` applies to the daily counts. */
+function recheckStudyDay() {
+  if (reviewedToday() || savedToday() > 0) return;
+  const t = todayKey();
+  const days = readStudyDays();
+  if (days.includes(t)) writeStudyDays(days.filter((d) => d !== t));
+}
+
+/** Did the learner do something deliberate today? */
+export function studiedToday(): boolean { return readStudyDays().includes(todayKey()); }
+
 export function streak(): number {
-  const set = new Set(visits);
+  const set = new Set(readStudyDays());
   let n = 0;
   const d = new Date();
   if (!set.has(todayKey(d))) d.setDate(d.getDate() - 1);
@@ -1809,11 +2007,11 @@ export function streak(): number {
 }
 
 // ---- comeback (streaks are memories, not debts) ---------------------------
-/** Longest run of consecutive visit days, ever. A zeroed current streak after a
+/** Longest run of consecutive study days, ever. A zeroed current streak after a
  *  life event shouldn't erase the record — this is what "your 41-day streak is
  *  safe" reads from. */
 export function longestStreak(): number {
-  const days = [...new Set(visits)].sort();
+  const days = [...new Set(readStudyDays())].sort();
   let best = 0, run = 0;
   let prev = 0;
   for (const d of days) {
@@ -1884,6 +2082,9 @@ const SETTING_KEYS = [
   'lexi.wanted.v1',
   'lexi.reviewlog.v1', 'lexi.textscale.v1', 'lexi.sound.v1', 'lexi.reminder.v1',
   'lexi.completions.v1',
+  // The days the streak counts (a grade or a save) — see `STUDY_KEY`. Without it a
+  // restore would re-seed them from visits, which is the rule it replaced.
+  'lexi.studydays.v1',
   // Added 2026-09-24, and the first one was missing since it existed: every
   // class-pack word lives here, so a restore brought back those cards' FSRS state
   // and dropped the cards (LESSONS, Class 11).
@@ -1938,6 +2139,12 @@ export async function importData(json: string): Promise<void> {
       const val = d.settings[k];
       if (typeof val === 'string') localStorage.setItem(k, val);
     }
+  }
+  // A backup from before study days existed carries only visits. Clearing the key
+  // lets the next boot seed it from *those* visits (`migrateStudyDays`) instead of
+  // keeping this device's streak beside somebody else's history.
+  if (typeof d.settings?.['lexi.studydays.v1'] !== 'string') {
+    try { localStorage.removeItem('lexi.studydays.v1'); } catch { /* */ }
   }
   // Two settings are cached in module-level variables that were initialised the
   // moment this file was first imported — long before a restore writes over the

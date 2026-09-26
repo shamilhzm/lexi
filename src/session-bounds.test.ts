@@ -101,8 +101,13 @@ describe('the feed leads with words you have not met', () => {
     // The case the first fix missed. A learner with a backlog gets a briefing
     // with no fresh words in it at all, so promoting fresh *within* the briefing
     // changed nothing and the feed still opened on a known word.
+    //
+    // Since the per-day budget (2026-09-25) a briefing is empty of fresh words
+    // when the backlog closes the day to them — more than two days of the pace's
+    // due serving. Gentle serves 30, so 70 due closes it.
     const { data, store, srs, feed } = await fresh();
-    const due = Array.from({ length: 30 }, (_, i) => word(`d${i}`, 'Zed'));
+    store.setPace('gentle');
+    const due = Array.from({ length: 70 }, (_, i) => word(`d${i}`, 'Zed'));
     const unseen = Array.from({ length: 5 }, (_, i) => word(`u${i}`, 'Zed'));
     data.registerWords([...due, ...unseen]);
     for (const w of due) store.review(w.id, srs.Rating.Easy);
@@ -117,7 +122,7 @@ describe('the feed leads with words you have not met', () => {
 
 describe('the feed does not open on the same word every time', () => {
   it('varies the first slot while keeping common words ahead of rare ones', async () => {
-    const { data, feed } = await fresh();
+    const { data, store, feed } = await fresh();
     // 60 unseen words in corpus-frequency order and nothing due — the state most
     // learners are in, and the one where the first fix changed nothing because
     // the briefing returns no fresh picks at all.
@@ -125,11 +130,13 @@ describe('the feed does not open on the same word every time', () => {
     data.registerWords(words);
     const firsts = new Set(Array.from({ length: 25 }, () => feed.feedOrder()[0].id));
     expect(firsts.size, 'the opening word varies').toBeGreaterThan(1);
-    // …and a word from the second band never jumps the first one.
+    // …and nothing rarer jumps the lead. The lead is the day's fresh picks — as
+    // many as the day's new-word budget, commonest first — shuffled among
+    // themselves; this read `slice(0, 20)` while the budget was capped at 20.
+    const lead = store.buildBriefing().fresh;
     for (let n = 0; n < 10; n++) {
       const order = feed.feedOrder().map((w) => w.id);
-      const firstBand = order.slice(0, 20);
-      expect(firstBand.every((id) => Number(id.slice(1)) < 20), 'bands hold').toBe(true);
+      expect(order.slice(0, lead).every((id) => Number(id.slice(1)) < lead), 'bands hold').toBe(true);
     }
   });
 });

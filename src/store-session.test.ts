@@ -723,33 +723,55 @@ describe('interval preview', () => {
   });
 });
 
-describe('streak / visits', () => {
-  it('is 0 with no visits and 1 after visiting today', async () => {
+describe('streak / study days', () => {
+  // The streak counts days with a deliberate act — a grade or a save — and not
+  // visits (2026-09-25). `study` is the smallest such act: one save.
+  const study = (store: Awaited<ReturnType<typeof fresh>>['store'], id: string) => store.toggleSaved(id);
+
+  it('is 0 for a visitor who has only opened the app', async () => {
     const { store } = await fresh();
-    expect(store.streak()).toBe(0);
     store.recordVisit();
+    expect(store.streak()).toBe(0);        // the stranger's first screen carries no flame
+    expect(store.visitCount()).toBe(1);    // …though the visit is still counted
+  });
+
+  it('is 1 after a save or a grade today, and a second act is idempotent', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('a0', 'S'), word('a1', 'S')]);
+    study(store, 'a0');
     expect(store.streak()).toBe(1);
-    store.recordVisit(); // same day -> idempotent
+    store.review('a1', srs.Rating.Good);
     expect(store.streak()).toBe(1);
+    expect(store.studiedToday()).toBe(true);
+  });
+
+  it('gives the day back when an unsave or an undo leaves nothing deliberate in it', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('a0', 'S'), word('a1', 'S')]);
+    study(store, 'a0');
+    store.toggleSaved('a0');                 // unsaved: nothing left today
+    expect(store.streak()).toBe(0);
+
+    store.review('a1', srs.Rating.Good);
+    store.restoreCard('a1', undefined);      // undone: nothing left today
+    expect(store.studiedToday()).toBe(false);
   });
 
   it('counts consecutive days', async () => {
     const { store } = await fresh();
     vi.useFakeTimers();
     try {
-      vi.setSystemTime(new Date('2026-07-09T12:00:00Z'));
-      store.recordVisit();
-      vi.setSystemTime(new Date('2026-07-10T12:00:00Z'));
-      store.recordVisit();
-      vi.setSystemTime(new Date('2026-07-11T12:00:00Z'));
-      store.recordVisit();
+      for (const [d, id] of [['2026-07-09', 'a'], ['2026-07-10', 'b'], ['2026-07-11', 'c']]) {
+        vi.setSystemTime(new Date(`${d}T12:00:00Z`));
+        study(store, id);
+      }
       expect(store.streak()).toBe(3);
     } finally {
       vi.useRealTimers();
     }
   });
 
-  it('longestStreak survives a broken current streak; lastGapDays measures the gap', async () => {
+  it('longestStreak survives a broken current streak; lastGapDays measures the visit gap', async () => {
     const { store } = await fresh();
     vi.useFakeTimers();
     try {
@@ -757,10 +779,12 @@ describe('streak / visits', () => {
       for (const d of ['2026-06-01', '2026-06-02', '2026-06-03']) {
         vi.setSystemTime(new Date(`${d}T12:00:00Z`));
         store.recordVisit();
+        study(store, d);
       }
       // …then six weeks away
       vi.setSystemTime(new Date('2026-07-15T12:00:00Z'));
       store.recordVisit();
+      study(store, 'back');
       expect(store.streak()).toBe(1);         // current: reset
       expect(store.longestStreak()).toBe(3);  // the record: safe
       expect(store.lastGapDays()).toBe(42);   // the gap, measured honestly
@@ -780,10 +804,32 @@ describe('streak / visits', () => {
     vi.useFakeTimers();
     try {
       vi.setSystemTime(new Date('2026-07-09T12:00:00Z'));
-      store.recordVisit();
+      study(store, 'a');
       vi.setSystemTime(new Date('2026-07-11T12:00:00Z')); // skipped the 10th
-      store.recordVisit();
+      study(store, 'b');
       expect(store.streak()).toBe(1); // only today counts
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('carries every earlier visit over once, and judges today by the new rule', async () => {
+    // Days before the switch cannot be told apart after the fact, so nobody's
+    // streak is taken away by it: earlier visits become study days, once, on the
+    // first boot without the key. Today has to be earned.
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-07-11T12:00:00Z'));
+      // A learner from before the switch: three days of visits, the last one
+      // today, and no study-day key. IDB is mocked empty here, so the visits sit
+      // in localStorage, where `loadKV` finds a pre-IndexedDB store.
+      localStorage.setItem('lexi.visits.v1', JSON.stringify(['2026-07-09', '2026-07-10', '2026-07-11']));
+      const { store } = await fresh();
+      await store.hydrate();
+      expect(store.streak()).toBe(2);           // yesterday's run survives…
+      expect(store.studiedToday()).toBe(false); // …and today is not given away
+      store.toggleSaved('w');
+      expect(store.streak()).toBe(3);           // …until it is earned
     } finally {
       vi.useRealTimers();
     }
@@ -807,12 +853,12 @@ describe('streak / visits', () => {
       // ordinary shape of "I studied yesterday and today". At UTC-7 the first
       // stays on its own UTC date and the second rolls over to the next, so the
       // old key produced 08-04 then 08-06: a one-day hole that reset the streak
-      // to 1. Two visits at the *same* hour would have rolled over together and
+      // to 1. Two acts at the *same* hour would have rolled over together and
       // hidden it, which is why the hours differ.
       vi.setSystemTime(new Date(2026, 7, 4, 16, 0, 0));
-      store.recordVisit();
+      study(store, 'a');
       vi.setSystemTime(new Date(2026, 7, 5, 18, 0, 0));
-      store.recordVisit();
+      study(store, 'b');
       expect(store.streak()).toBe(2);
     } finally {
       vi.useRealTimers();
@@ -826,9 +872,9 @@ describe('streak / visits', () => {
       // 00:30 and 23:30 on the SAME local day. East of Greenwich the old key
       // split these across two UTC dates and inflated the streak to 2.
       vi.setSystemTime(new Date(2026, 7, 4, 0, 30, 0));
-      store.recordVisit();
+      study(store, 'a');
       vi.setSystemTime(new Date(2026, 7, 4, 23, 30, 0));
-      store.recordVisit();
+      study(store, 'b');
       expect(store.streak()).toBe(1);
     } finally {
       vi.useRealTimers();
