@@ -610,16 +610,19 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, watch }: {
             still the point of the pill, so the pill stays and only the offer goes. */}
         {voice ? (
           <button onClick={() => speak(word.term)}
-            aria-label={`Hear ${word.term} in German`}
             className="tap-44 mt-4 inline-flex items-center gap-2 rounded-full glass
               px-4 py-2 hover:brightness-[.98] active:scale-95 transition">
-            {word.ipa && <span className="font-mono text-sm text-dim">{word.ipa}</span>}
-            <Volume2 size={16} className="text-accent flex-shrink-0" />
+            {word.ipa && <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>}
+            <Volume2 size={16} aria-hidden className="text-accent flex-shrink-0" />
+            {/* Named in content, not `aria-label`: the name is English with a German
+                word in it, and only content can carry the word's own `lang` — as an
+                attribute string the German was read in an English voice. */}
+            <span className="sr-only">Hear <span lang="de">{word.term}</span></span>
           </button>
         ) : (
           <span title="No German voice installed on this device"
             className="mt-4 inline-flex items-center gap-2 rounded-full glass px-4 py-2">
-            {word.ipa && <span className="font-mono text-sm text-dim">{word.ipa}</span>}
+            {word.ipa && <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>}
             <VolumeX size={16} aria-label="No German voice is installed on this device"
               className="text-dim/60 flex-shrink-0" />
           </span>
@@ -661,14 +664,15 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, watch }: {
             accelerant for people who already know what is there, and it cannot be
             the only way to reach anything. */}
         <div className="feed-actions mt-8 flex items-center gap-8">
-          <Action label={`What else Lexi knows about ${word.term}`} onClick={onInfo}>
+          <Action label={<>What else Lexi knows about <span lang="de">{word.term}</span></>} onClick={onInfo}>
             <Info size={24} strokeWidth={1.6} />
           </Action>
-          <Action label={saved ? `Stop learning ${word.term}` : `Learn ${word.term} — put it in my next session`}
+          <Action label={saved ? <>Stop learning <span lang="de">{word.term}</span></>
+            : <>Learn <span lang="de">{word.term}</span> — put it in my next session</>}
             pressed={saved} onClick={onSave}>
             <Bookmark size={24} strokeWidth={1.6} className={saved ? 'fill-current' : ''} />
           </Action>
-          <Action label={`Practise ${word.term} now — every drill for this word`} onClick={onDrill}>
+          <Action label={<>Practise <span lang="de">{word.term}</span> now — every drill for this word</>} onClick={onDrill}>
             <GraduationCap size={24} strokeWidth={1.6} />
           </Action>
         </div>
@@ -791,14 +795,19 @@ function Swipeable({ children, onLeft, onRight, term }: {
  *  learner does not experience as different apps. */
 const SWIPE_PX = 90;
 
+/** `label` is content, not an attribute *(2026-09-25 panel)*: each one names a
+ *  German word inside an English sentence, and only content can give the word its
+ *  own `lang` — an `aria-label` string is read in one voice, so the word the feed
+ *  exists to teach was pronounced in English. */
 function Action({ children, label, pressed, onClick }: {
-  children: React.ReactNode; label: string; pressed?: boolean; onClick: () => void;
+  children: React.ReactNode; label: React.ReactNode; pressed?: boolean; onClick: () => void;
 }) {
   return (
-    <button onClick={onClick} aria-label={label} aria-pressed={pressed}
+    <button onClick={onClick} aria-pressed={pressed}
       className={`tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition
         active:scale-90 ${pressed ? 'text-accent' : 'text-txt hover:text-accent'}`}>
       {children}
+      <span className="sr-only">{label}</span>
     </button>
   );
 }

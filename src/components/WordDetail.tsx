@@ -51,11 +51,11 @@ export default function WordDetail({ word, onClose }: { word: Word; onClose: () 
           <div className="mt-3 flex items-center justify-center">
             {word.ipa && (
               <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1.5">
-                <span className="font-mono text-sm text-dim">/{word.ipa}/</span>
-                <SpeakButton text={word.term} label={`Hear ${word.term} in German`} />
+                <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>
+                <SpeakButton text={word.term} />
               </span>
             )}
-            {!word.ipa && <SpeakButton text={word.term} label={`Hear ${word.term} in German`} />}
+            {!word.ipa && <SpeakButton text={word.term} />}
           </div>
           <p className="mt-3.5 text-lg leading-snug">
             <span className="text-dim">({word.pos})</span> {word.en}

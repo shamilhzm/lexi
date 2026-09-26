@@ -164,3 +164,55 @@ describe('Review — the primary action survives the coach', () => {
     expect(src).toMatch(/<ReturnNotice firstRun=\{firstRun\} \/>/);
   });
 });
+
+// ── Motion entrances on content are transform-only (DESIGN §7) ───────────────
+//
+// The CSS keyframes above are guarded; `motion` props were not, and two
+// content-bearing entrances animated from `opacity: 0` (2026-09-25 panel): the
+// recap's streak number and stat tiles, and the typed-answer correction — the
+// one line a wrong answer exists to show. A stalled animation sits on its first
+// frame, so those could render nothing. The recap's check badge is decoration
+// and keeps its fade; everything else in these files may only translate or scale.
+// `Placement.tsx` still has five and is not in this list yet — it is the next
+// file to bring in, not an exemption.
+describe('motion entrances in the study loop never start invisible', () => {
+  for (const file of ['./drills.tsx', '../components/SessionRecap.tsx']) {
+    it(`${file} has no content entrance from opacity 0`, () => {
+      const text = readFileSync(fileURLToPath(new URL(file, import.meta.url)), 'utf8');
+      const lines = text.split('\n');
+      const offenders = lines
+        .map((l, n) => ({ l, n }))
+        .filter(({ l }) => /initial=\{\{[^}]*opacity:\s*0\b/.test(l))
+        // The recap's check badge: an icon on a tinted disc, no text.
+        .filter(({ n }) => !lines.slice(n, n + 3).join('\n').includes('<Check className="text-green" />'));
+      expect(offenders.map(({ l, n }) => `${file}:${n + 1} ${l.trim()}`)).toEqual([]);
+    });
+  }
+});
+
+// ── One swipe grammar (2026-09-25 panel) ──────────────────────────────────────
+//
+// On the feed a horizontal drag opens a word's entry; on this card the same drag
+// used to write `Rating.Good`. It turns the card now, and grading is a button on
+// the back. The card is also no longer `role="button"`, which hid its headword
+// from VoiceOver behind a generic label.
+describe('Review — a swipe turns the card and never grades it', () => {
+  const swipe = src.slice(src.indexOf('function SwipeCard'), src.indexOf('function ReturnNotice'));
+
+  it('the drag handler flips and does not grade', () => {
+    expect(swipe).toMatch(/onDragEnd=/);
+    expect(swipe).toMatch(/onFlip\(\)/);
+    expect(swipe).not.toMatch(/onGrade|Rating\./);
+  });
+
+  it('the card is a group named by its headword, not a button', () => {
+    expect(swipe).toMatch(/role="group"/);
+    expect(swipe).toMatch(/aria-labelledby=\{labelledBy\}/);
+    expect(swipe).not.toMatch(/role="button"/);
+  });
+
+  it('grades render only once the answer is in view (or on a first-sight card)', () => {
+    expect(src).toMatch(/const showGrades = isNew \|\| flipped;/);
+    expect(src).toMatch(/Show answer/);
+  });
+});

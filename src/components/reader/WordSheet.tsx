@@ -117,7 +117,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
                         {e.x ? `${e.x} ${e.w}` : e.w}
                       </span>
                       <span className="text-2xs text-dim">{e.p}</span>
-                      {e.i && <span className="font-mono text-2xs text-dim">/{e.i}/</span>}
+                      {e.i && <span aria-hidden className="ipa text-2xs text-dim">{e.i}</span>}
                     </p>
                     <p className="text-sm text-dim">{e.g.slice(0, 3).join('; ')}</p>
                   </li>

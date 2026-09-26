@@ -40,7 +40,7 @@ import TopBar from './components/TopBar.tsx';
 import BottomNav from './components/BottomNav.tsx';
 import SavedWords from './components/SavedWords.tsx';
 import WalkLayer from './components/WalkLayer.tsx';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, MotionConfig } from 'motion/react';
 import Review from './views/Review.tsx';
 import Feed from './views/Feed.tsx';
 import Words from './views/Words.tsx';
@@ -301,10 +301,14 @@ export default function App() {
   const endGuided = () => { setOnboarded(); setGuided(false); go('session'); };
 
   return (
-    // `relative`, and the bars are `absolute` children of it. That is what makes
-    // the glass real: the material has to have the page behind it to refract, and
-    // a bar that is a flex *sibling* of the content has nothing behind it but the
-    // window. See TopBar and BottomNav.
+    // **`reducedMotion="user"`** *(2026-09-25 panel)*: every `motion` transform and
+    // layout animation follows the OS setting, including the files that never
+    // asked `useReducedMotion` themselves (the recap, the typed-answer correction).
+    <MotionConfig reducedMotion="user">
+    {/* `relative`, and the bars are `absolute` children of it. That is what makes
+        the glass real: the material has to have the page behind it to refract, and
+        a bar that is a flex *sibling* of the content has nothing behind it but the
+        window. See TopBar and BottomNav. */}
     <div className="relative flex flex-col h-[100dvh] w-full overflow-hidden">
       {/* Without this a keyboard user re-tabs the navigation's controls on every
           single view change before reaching any content. */}
@@ -439,5 +443,6 @@ export default function App() {
         {showWalk && <WalkLayer key="walk" onClose={() => setShowWalk(false)} />}
       </AnimatePresence>
     </div>
+    </MotionConfig>
   );
 }

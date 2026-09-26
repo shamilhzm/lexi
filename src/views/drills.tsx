@@ -1084,7 +1084,10 @@ export function TypeItem({ ex, onGrade, promptLang = 'de', noteFor }: {
         </p>
       )}
       {result !== null && (
-        <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+        // Transform-only (DESIGN §7, 2026-09-25 panel): this is the correction —
+        // the one line a wrong answer exists to show — and `opacity: 0` is the frame
+        // a stalled animation sits on.
+        <motion.div initial={{ y: 6 }} animate={{ y: 0 }}
           className="mt-4 text-center" role="status" aria-live="polite">
           {result
             ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>

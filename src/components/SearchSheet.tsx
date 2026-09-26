@@ -199,7 +199,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
                       {e.x ? `${e.x} ${e.w}` : e.w}
                     </span>
                     <span className="text-2xs text-dim">{e.p}</span>
-                    {e.i && <span className="font-mono text-2xs text-dim">/{e.i}/</span>}
+                    {e.i && <span aria-hidden className="ipa text-2xs text-dim">{e.i}</span>}
                     <span onClick={() => speak(e.w)} role="button" tabIndex={-1} aria-hidden
                       className="ml-auto grid place-items-center w-[32px] h-[32px] rounded-full text-dim hover:text-accent">
                       <Volume2 size={15} />

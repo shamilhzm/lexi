@@ -207,6 +207,45 @@ serve.
   `npx vitest run`: 1,588 pass; the 3 failures (`inflections.test.ts` ×2,
   `rulings.test.ts` §5) fail identically on the `panel` base without these changes.
 
+**UI/UX & accessibility (panel 03).**
+- **The Üben card: one swipe grammar.** A horizontal swipe now *turns* the card, in
+  either direction, and never grades. On the feed the same drag opens a word's entry
+  ("show me more"); here it used to write `Rating.Good` — the scheduler's strongest
+  signal from the gesture the feed trains as the weakest.
+- **Grades on the back.** A reviewed card shows one *Show answer* until it is turned; the
+  four verdicts, with their intervals, appear with the answer. First-sight cards keep
+  their two grades on the front, because that front already shows the meaning. Both
+  states share one grid cell, so the card never changes height on the flip; a grade key
+  on an unturned card turns it rather than grading blind.
+- **The card is readable to VoiceOver.** It was `role="button"` with an `aria-label`,
+  which replaced the German headword with "Flashcard — activate to flip" and nested
+  the speakers inside a button. It is a group named by its headword; the turned-away
+  face is `aria-hidden` and `inert` (both faces used to be read).
+- **Room for the card.** The header fits one row (flag moved to the back face, where it
+  is a judgement made after reading), the stray hairline under the tab capsule is gone,
+  and the acknowledgment moved onto the caption line. The card's `flex-1` had never had
+  space to grow into — two content-sized ancestors (see LESSONS) — so it sat on its
+  260pt floor; it now fills what is left (~258 → ~296pt on an iPhone 17 Pro in Safari,
+  simulator-measured) and an overflowing face fades at the bottom instead of cutting a
+  line in half.
+- **Contrast, guarded where it was not.** `palette.test.ts` checked txt/dim/accent only.
+  Light `green` (4.32 on bg, 3.98 on panel2), `der`/`das` on panel2 (4.34/4.20 — search's
+  dictionary headwords) and `a2` (4.47) are darkened on the same hues, and every status,
+  gender and CEFR ink is now tested on every ground, plus green/green-d and
+  red-txt/red-d.
+- **IPA in one face.** Plex Mono's `unicode-range` stops before the IPA block, so ə ʁ ː
+  rendered from a fallback font glyph by glyph. `.ipa` uses the system sans, draws the
+  slashes once for every surface, and is `aria-hidden` (a screen reader spells IPA as
+  glyph names; the speaker is the accessible pronunciation).
+- **Layers give focus back** to what opened them, and `#main` is `inert` while a layer
+  covers it. **Bilingual names** are built from content with an inline `lang="de"`, so
+  the German word in "Hear *Erlaubnis*" is no longer read in an English voice.
+  **Reduced motion:** `MotionConfig reducedMotion="user"` at the root; the recap's
+  numbers and the typed-answer correction no longer enter from `opacity: 0`.
+- *Left for later:* `Placement.tsx` still has five opacity-0 entrances (named in the
+  guard); the search sheet's nested speaker spans (36/32px, `aria-hidden`) and the
+  feed swipe hint's 28px × are unchanged.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they

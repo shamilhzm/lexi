@@ -1,6 +1,6 @@
 // The session player — the desk.
 //
-// FSRS flip cards (swipe right = knew it, swipe left = didn’t know) interleaved
+// FSRS flip cards (tap or swipe to turn; grade on the back) interleaved
 // with the word-fact drills for the same words: the gender, the plural, the
 // German you have to *produce*, the spelling you have to hear. One surface, one
 // grade scale, one queue.
@@ -11,7 +11,7 @@
 // paper. What is left is a vocabulary player, which is what this app is.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Share2, ClipboardList, Mic } from 'lucide-react';
+import { Volume2, VolumeX, ArrowLeft, Check, X, Undo2, SkipForward, Flag, Share2, ClipboardList, Mic } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, visitCount} from '../store.ts';
 import { haptic, tick, fmt} from '../lib/ui.ts';
@@ -48,7 +48,7 @@ import { ALL_LEVELS } from '../types.ts';
 import type { Target, Word, CEFR } from '../types.ts';
 
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', recall: 'Recall' };
-const SWIPE_PX = 90; // horizontal travel that commits a grade
+const SWIPE_PX = 90; // horizontal travel that commits a flip — never a grade
 
 /** The grade scale.
  *
@@ -175,8 +175,9 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
   // or a skip, and rewind counters + position exactly.
   const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number; dDrill?: number; dDrillOk?: number; dRetr?: number; dRetrOk?: number; retryAt?: number }[]>([]);
   // Which way the outgoing card flies: +1 knew it, -1 didn’t, 0 neutral (skip/
-  // prev). Set by every grade path, so swipes, buttons and arrow keys all share
-  // one physical vocabulary: right = knew, left = missed.
+  // prev). Set by every grade path, so buttons and arrow keys share one physical
+  // vocabulary: right = knew, left = missed. (A swipe no longer grades — see
+  // `SwipeCard` — so this is the deck's direction, not the thumb's.)
   const exitDir = useRef(0);
 
   // Feel layer: the comeback of the day (a word you’d missed ≥2 times before
@@ -292,8 +293,9 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
     history.current.push({ i, kind: 'grade', srsId: item.srsId, prevCard: snap ? { ...snap } : undefined, dAgain, dNew, dDrill, dDrillOk, dRetr, dRetrOk });
   };
 
-  // Grade a flip card directly — no reveal required. Flipping stays optional
-  // (Space) for when you want to check the translation first.
+  // Grade a flip card. The *controls* only offer this on the back face (or on a
+  // first-sight front, which already shows the meaning) — see the action area
+  // below; this function stays unconditional so undo and tests can drive it.
   const grade = useCallback((g: Grade) => {
     if (!item || item.type !== 'flip') return;
     const wasNew = statusOf(item.srsId) === 'new';
@@ -401,19 +403,26 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
         if (e.code === 'Space' || e.key === 'Enter') return;
       }
       if (e.code === 'Space') { e.preventDefault(); flip(); }
-      // ←/→ stay as the two-way shortcut the swipe mirrors; 1–4 reach the full
-      // scale, which is otherwise mouse-only. A new card has no 2 or 4 to press.
+      // ←/→ are the two-way shortcut; 1–4 reach the full scale. A new card has no
+      // 2 or 4 to press.
+      //
+      // **A grade key on an unturned card turns it instead of grading it.** The
+      // buttons only exist on the back (2026-09-25 panel), so a verdict is always
+      // given with the answer in view; the keyboard follows the same rule rather
+      // than being the one path that grades blind. The second press grades.
+      const firstSight = !!item && statusOf(item.srsId) === 'new';
+      const isGradeKey = e.key === 'ArrowLeft' || e.key === 'ArrowRight' || (e.key >= '1' && e.key <= '4');
+      if (isGradeKey && item?.type === 'flip' && !firstSight && !flipped) { flip(); return; }
       if (e.key === 'ArrowLeft') grade(Rating.Again);
       if (e.key === 'ArrowRight') grade(Rating.Good);
       if (e.key >= '1' && e.key <= '4') {
         const s = SCALE[Number(e.key) - 1];
-        const firstSight = !!item && statusOf(item.srsId) === 'new';
         if (s && (!firstSight || s.firstSight)) grade(s.rating);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [flip, grade, item]);
+  }, [flip, grade, item, flipped]);
 
   // Before the empty-state check, or a session opened seconds after boot reads as
   // "nothing to study" rather than "one moment".
@@ -437,6 +446,9 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
   // Cheap: a regex over one short string, and only for verbs.
   const valency = valencyOf(card);
   const isNew = statusOf(item.srsId) === 'new';
+  // A reviewed card is judged with the answer in view; a first-sight card already
+  // shows it. See the action area under the card.
+  const showGrades = isNew || flipped;
 
   return (
     <div className="mx-auto w-full max-w-[640px] flex-1 min-h-0 flex flex-col justify-center">
@@ -464,13 +476,28 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
           points, and on an iPhone 17 Pro those eighty were the difference between
           the grade buttons being on screen and being under the tab bar. One
           hairline does the separating. */}
-      <div className="-mx-3 sm:-mx-5 border-b border-line">
-        <div className="flex items-center gap-2.5 px-3 sm:px-5 py-2 flex-wrap">
+      {/* **No border on this wrapper.** It wraps the header *and* the stage, so its
+          `border-b` drew a hairline at the very bottom of the column — which on a
+          phone is behind the floating tab capsule, where it poked out either side
+          of it (shots 07/08, 2026-09-25 panel). The progress track below the header
+          is already the separator.
+          **And it is a flex column that takes the height**: it was a plain block, so
+          the stage's `flex-1` below had nothing to grow into and the whole desk was
+          content-sized and centred — the card sat on its floor with empty paper
+          above the header and below the buttons. */}
+      <div className="-mx-3 sm:-mx-5 flex-1 min-h-0 flex flex-col">
+        {/* **One row, always** *(2026-09-25 panel).* The title had `min-w-[7rem]`
+            and the row held four 44px controls, so at 402pt the row came to ~390px
+            of 378 and wrapped: the controls took a second line and ~52pt came off
+            the card, which then clipped its own example sentence. Flag moved to the
+            back face (it is a verdict *about the card*, made after reading it), the
+            title truncates instead of wrapping, and the row no longer wraps at all. */}
+        <div className="flex items-center gap-2.5 px-3 sm:px-5 py-2">
           {/* A scoped session was opened from somewhere and has a way back. The
               day's queue is the app's root and has none — a back arrow on the
               screen the app opens into is an arrow pointing at nothing. */}
           {scoped && <IconButton label="Back to Wortschatz" pull onClick={onPick}><ArrowLeft size={16} /></IconButton>}
-          <h1 className="text-base font-semibold truncate flex-1 min-w-[7rem]">{target.name}</h1>
+          <h1 className="text-base font-semibold truncate flex-1 min-w-0">{target.name}</h1>
           {/* Position out of a total, not a raw countdown. "92 left" on a first
               session reads as a backlog with no floor; "7 / 92" is the same fact
               as somewhere you are inside something finite, and it moves forward
@@ -478,25 +505,22 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
           <Chip aria-label={`Card ${Math.min(i + 1, queue.length)} of ${queue.length} in this session`}>
             {Math.min(i + 1, queue.length)} / {queue.length}
           </Chip>
-          {/* Prev (undo) + skip — the only in-session controls; the level filter lives in Settings, keys in onboarding. */}
           <div className="ml-auto flex items-center gap-1 flex-shrink-0">
-            {/* Flag: "something’s wrong with this card" — the feedback loop for a
-                solo-maintained corpus. Local, deduped, exports with the backup. */}
-            <IconButton
-              onClick={() => item && flagCard(item.word.id, item.word.term)}
-              label={item && isFlagged(item.word.id) ? 'Card flagged — it exports with your backup' : 'Flag a problem with this card'}
-              aria-pressed={!!(item && isFlagged(item.word.id))}
-              active={!!(item && isFlagged(item.word.id))}>
-              <Flag size={15} fill={item && isFlagged(item.word.id) ? 'currentColor' : 'none'} />
-            </IconButton>
             {/* Sound is on by default now, so muting has to be reachable from
-                inside the session — not three taps away in Settings. */}
+                inside the session — not three taps away in Settings.
+                **One name, and the state in `aria-pressed`.** The label used to flip
+                between "Mute sound" and "Unmute sound" *as well as* the pressed
+                state, so a muted session announced "Unmute sound, selected" — two
+                encodings of one fact that contradicted each other. */}
             <IconButton onClick={() => setSound(!sound())}
-              label={sound() ? 'Mute sound' : 'Unmute sound'}
+              label="Mute sound"
               aria-pressed={!sound()} active={!sound()}>
               {sound() ? <Volume2 size={15} /> : <VolumeX size={15} />}
             </IconButton>
-            <IconButton label="Previous card" onClick={prev} disabled={i === 0}><RotateCcw size={16} /></IconButton>
+            {/* It restores the FSRS state of the last grade (or steps back over a
+                skip), so it is named for what it does: "Previous card" described
+                the movement and hid the consequence. */}
+            <IconButton label="Undo — back to the last card" onClick={prev} disabled={i === 0}><Undo2 size={16} /></IconButton>
             <IconButton label="Skip this card" onClick={skip}><SkipForward size={16} /></IconButton>
           </div>
         </div>
@@ -510,24 +534,9 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
           </div>
         </div>
 
-        {/* The acknowledgment. Lives in the chrome, not on the card, because the
-            card unmounts the instant it is graded — anything rendered there gets
-            about zero frames to be seen. `key` on the sequence number so a run of
-            correct answers re-triggers rather than sitting still.
-            aria-hidden: the grade is already announced by the live region on the
-            card area, and a screen reader does not need it twice. */}
-        <div aria-hidden className="h-5 flex items-center justify-center">
-          {ack && (
-            <span key={ack.n}
-              className={`ack-in inline-flex items-center gap-1.5 text-2xs font-mono ${ack.ok ? 'text-green' : 'text-dim'}`}>
-              {ack.ok ? <Check size={11} /> : <X size={11} />}
-              {ack.interval ? `back in ${ack.interval}` : ack.ok ? 'right' : 'not yet'}
-              {ack.comeback != null && (
-                <span className="text-green">· missed {ack.comeback}× before</span>
-              )}
-            </span>
-          )}
-        </div>
+        {/* The acknowledgment used to have its own 20pt row here, reserved even when
+            empty. It now rides the caption line under the grade buttons (see
+            `Acknowledgement`), which exists anyway — the row was 20pt of card. */}
 
         {/* The card swaps in place, so nothing here is ever re-announced without
             a live region — Placement and the drills each got one, and the
@@ -564,7 +573,12 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
               the *entrance* — the next card arrives from the side opposite the
               judgement, the way a deck advances when you flick one off. CSS,
               transform-only, no fill-mode, so it cannot gate anything. */}
-          <div key={item.srsId} className="card-in w-full flex flex-col items-center"
+          {/* **`flex-1 min-h-0` here too, or the card never grows** *(2026-09-25
+              panel).* `SwipeCard` is `flex-1`, but this wrapper was content-sized,
+              so there was no free space for it to grow into and the card sat on its
+              16.25rem floor at every viewport — 258pt in the panel's iPhone shots,
+              with its example clipped, while an installed PWA had room to spare. */}
+          <div key={item.srsId} className="card-in w-full flex-1 min-h-0 flex flex-col items-center justify-center"
             style={{ '--dir': exitDir.current } as React.CSSProperties}>
           {/* What kind of exercise this is, and why it is here — one caption
               block above the item, in that order.
@@ -589,7 +603,7 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
                 : <RecallItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>
-          <SwipeCard key={item.srsId} onFlip={flip} onGrade={grade} behind={Math.min(2, queue.length - i - 1)}>
+          <SwipeCard key={item.srsId} onFlip={flip} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT — the prompt: word + German context, no translation to spoil
                   the test. Except on first sight: a card the learner has never met
@@ -618,7 +632,12 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
                   `justify-[safe_center]` does not compile — it emits an invalid
                   declaration, the browser drops it, and the face silently falls
                   back to `normal`. Which happened, and looked like a fix. */}
-              <div className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-safe-center gap-3 p-6 sm:p-8 text-center overflow-y-auto">
+              {/* **The hidden face is hidden from everyone.** `backface-visibility`
+                  hides it from the eye only: both faces were in the accessibility tree,
+                  so VoiceOver read the answer on the back while the front was up.
+                  `aria-hidden` + `inert` on whichever face is turned away. */}
+              <div aria-hidden={flipped} inert={flipped}
+                className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-safe-center gap-3 px-6 pt-6 sm:px-8 sm:pt-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
                 <span className="text-2xs text-dim font-mono uppercase tracking-widest">
                   {isNew && <span className="text-accent">New · </span>}
@@ -628,16 +647,26 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
                 {/* lang="de" on every German string: without it a screen reader
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
-                <GenderTerm term={card.term} gender={card.gender}
+                <GenderTerm term={card.term} gender={card.gender} id={`card-hw-${item.srsId}`}
                   className="headword font-bold leading-tight break-words max-w-full px-2 text-4xl sm:text-5xl" />
-                {card.ipa && <span className="font-mono text-base text-dim">/{card.ipa}/</span>}
+                {/* `.ipa`, not `font-mono`: IPA is not data, and Plex Mono's
+                    unicode-range stops short of the IPA block, so every ə ʁ ː fell
+                    back glyph by glyph to a different monospace. `aria-hidden`
+                    because a screen reader spells IPA out as glyph names — the
+                    speaker below is the accessible pronunciation. */}
+                {card.ipa && <span aria-hidden className="ipa text-base text-dim">{card.ipa}</span>}
                 {isNew && (
                   <span className="text-green font-semibold text-xl sm:text-2xl leading-tight max-w-[92%]">{card.en}</span>
                 )}
                 {(
                   <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
                     className="grid place-items-center w-[44px] h-[44px] rounded-full bg-panel border border-line text-accent hover:bg-panel2 active:scale-95" title="Pronunciation">
-                    <Volume2 size={18} />
+                    <Volume2 size={18} aria-hidden />
+                    {/* Named in content, not by `title` (DESIGN §10: not reliably
+                        announced) and not by `aria-label`: an attribute string has one
+                        language and this name has two, so the German word was read
+                        in an English voice. Content can carry its own `lang`. */}
+                    <span className="sr-only">Hear <span lang="de">{card.term}</span></span>
                   </button>
                 )}
                 {/* The example is audible, and prefers a real human reading of it
@@ -652,20 +681,30 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
                     which is the better touch affordance. `aria-label` carries the
                     naming that `SpeakButton` used to provide: without it the
                     accessible name is the German sentence alone, which never says
-                    the control plays anything. */}
+                    the control plays anything.
+
+                    **The name is built from content, in two languages.** It was
+                    `lang="de"` on the button with an English `aria-label`, so the
+                    English half ("Hear the example") was spoken with German phonology.
+                    The instruction is English, the sentence is German, and each
+                    carries its own language now. */}
                 {card.ex[0] && (
-                  <button lang="de"
+                  <button
                     onClick={(e) => { e.stopPropagation(); sayExample(card.id, card.ex[0].de); }}
-                    aria-label={`Hear the example “${card.ex[0].de}”`}
                     title={hasHumanAudio(card.id) ? 'Play — read by a Tatoeba contributor' : 'Play this sentence'}
                     className="text-dim italic text-base leading-relaxed max-w-[90%] hover:text-txt transition-colors cursor-pointer">
-                    {card.ex[0].de}
+                    <span className="sr-only">Hear the example: </span>
+                    <span lang="de">{card.ex[0].de}</span>
                     {hasHumanAudio(card.id) && (
                       <Volume2 size={13} aria-hidden className="inline-block ml-1.5 -mt-0.5 text-accent" />
                     )}
                   </button>
                 )}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
+                {/* The bottom padding, made sticky — see `.face-end` in index.css. It
+                    fades whatever is still below the fold, so a face that has to
+                    scroll says so instead of cutting a line through its middle. */}
+                <div aria-hidden className="face-end self-stretch -mx-6 sm:-mx-8" />
               </div>
               {/* BACK — the reveal.
                   Four things were wrong with the previous face, and all four came
@@ -691,8 +730,9 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
                   The front is centred because it presents one object; the back is
                   flush-left because it is an entry you read. That asymmetry is
                   deliberate, and it replaces an accidental one. */}
-              <div className="flip-face flip-back bg-card border border-line border-l-4 rounded-lg
-                              flex flex-col items-stretch text-left p-5 sm:p-7 overflow-y-auto"
+              <div aria-hidden={!flipped} inert={!flipped}
+                   className="flip-face flip-back bg-card border border-line border-l-4 rounded-lg
+                              flex flex-col items-stretch text-left px-5 pt-5 sm:px-7 sm:pt-7 overflow-y-auto"
                    style={{ borderLeftColor: 'var(--color-green)' }}>
                 <div className="flex items-center gap-2 mb-2.5">
                   <Kicker tone="reward">Answer</Kicker>
@@ -709,8 +749,19 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
                         className="font-mono text-2xs text-dim truncate" />
                     </>
                   )}
-                  <span className="ml-auto flex items-center flex-shrink-0">
-                    <SpeakButton text={card.term} label={`Hear “${card.term}” in German`} />
+                  <span className="ml-auto flex items-center gap-1 flex-shrink-0">
+                    <SpeakButton text={card.term} />
+                    {/* Flag lives on the back *(2026-09-25 panel)*: "something’s
+                        wrong with this card" is a judgement you make after reading
+                        the answer, and in the header it cost the row its fit. Local,
+                        deduped, exports with the backup. */}
+                    <IconButton pull
+                      onClick={(e) => { e.stopPropagation(); flagCard(item.word.id, item.word.term); }}
+                      label={isFlagged(item.word.id) ? 'Card flagged — it exports with your backup' : 'Flag a problem with this card'}
+                      aria-pressed={isFlagged(item.word.id)}
+                      active={isFlagged(item.word.id)}>
+                      <Flag size={15} fill={isFlagged(item.word.id) ? 'currentColor' : 'none'} />
+                    </IconButton>
                   </span>
                 </div>
                 <span className="headword font-bold text-green leading-tight break-words text-3xl sm:text-4xl">{card.en}</span>
@@ -760,50 +811,76 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
                   </RevealBlock>
                 )}
                 <CardSource id={card.id} />
+                <div aria-hidden className="face-end -mx-5 sm:-mx-7" />
               </div>
             </div>
           </SwipeCard>
 
-          {/* Grade from either face — flipping is optional. First-sight cards
-              can’t be "known", so new cards ask "keep it or got it" instead of
-              framing an inevitable miss as failure. */}
-          <div className="min-h-[64px] mt-6 flex flex-col items-center justify-center gap-2 w-full">
-            {/* Two grades on a first-sight card, four once there was something to
-                recall. Four columns don't fit a phone, so they wrap 2×2 — which
-                also puts the two familiar verdicts on the first row. */}
-            <div className={`grid gap-2 sm:gap-2.5 w-full max-w-[580px] ${
-              isNew ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'}`}>
-              {SCALE.filter((s) => !isNew || s.firstSight).map((s) => {
-                const label = (isNew && s.firstSight) ? s.firstSight : s.label;
-                const when = preview?.get(s.rating);
-                return (
-                  // Explicit label: without it the accessible name runs the
-                  // interval preview straight onto the verdict ("Knew it 2 mo").
-                  <button key={s.rating} onClick={() => grade(s.rating)}
-                    aria-label={`${label}${when ? ` — back in ${when}` : ''}`}
-                    className={`flex flex-col items-center border border-line bg-panel rounded-md px-3 py-2
-                      justify-center font-semibold transition-colors active:scale-95 ${s.hover}`}>
-                    <span className="flex items-center gap-1.5 text-sm sm:text-base">
-                      {s.rating === Rating.Again && <X size={15} className="flex-shrink-0" />}
-                      {s.rating === Rating.Good && <Check size={15} className="flex-shrink-0" />}
-                      {label}
-                    </span>
-                    {when && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{when}</span>}
-                  </button>
-                );
-              })}
+          {/* **Grades on the back; "Show answer" on the front** *(2026-09-25 panel).*
+              The four verdicts, with their intervals, used to sit under the *front* —
+              a request for a judgement before the answer was on screen, and the one
+              instruction that mattered ("Tap the card to flip") pushed down against
+              the tab bar. Now a reviewed card offers exactly one thing until it is
+              turned, and the verdicts only once there is something to judge.
+              A first-sight card is the exception: its front already shows the
+              meaning (it is an introduction, not a test), so its two grades are
+              there from the start. First-sight cards can’t be "known", so they ask
+              "keep it or got it" instead of framing an inevitable miss as failure.
+
+              **Both states share one grid cell**, so the cell is always as tall as
+              the grades and the card above never changes height on the flip. The
+              inactive one is `invisible` (out of the layout's paint, the tab order
+              and the accessibility tree) rather than unmounted. */}
+          <div className="mt-3 flex flex-col items-center gap-1.5 w-full">
+            <div className="grid w-full max-w-[580px]">
+              {/* Two grades on a first-sight card, four once there was something to
+                  recall. Four columns don't fit a phone, so they wrap 2×2 — which
+                  also puts the two familiar verdicts on the first row. */}
+              <div inert={!showGrades}
+                className={`col-start-1 row-start-1 grid gap-2 sm:gap-2.5 ${
+                  isNew ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'} ${showGrades ? '' : 'invisible'}`}>
+                {SCALE.filter((s) => !isNew || s.firstSight).map((s) => {
+                  const label = (isNew && s.firstSight) ? s.firstSight : s.label;
+                  const when = preview?.get(s.rating);
+                  return (
+                    // Explicit label: without it the accessible name runs the
+                    // interval preview straight onto the verdict ("Knew it 2 mo").
+                    <button key={s.rating} onClick={() => grade(s.rating)}
+                      aria-label={`${label}${when ? ` — back in ${when}` : ''}`}
+                      className={`flex flex-col items-center border border-line bg-panel rounded-md px-3 py-2
+                        justify-center font-semibold transition-colors active:scale-95 ${s.hover}`}>
+                      <span className="flex items-center gap-1.5 text-sm sm:text-base">
+                        {s.rating === Rating.Again && <X size={15} className="flex-shrink-0" />}
+                        {s.rating === Rating.Good && <Check size={15} className="flex-shrink-0" />}
+                        {label}
+                      </span>
+                      {when && <span className="text-2xs text-dim font-mono font-normal mt-0.5">{when}</span>}
+                    </button>
+                  );
+                })}
+              </div>
+              {!isNew && (
+                <div inert={showGrades}
+                  className={`col-start-1 row-start-1 flex items-center justify-center ${showGrades ? 'invisible' : ''}`}>
+                  {/* The accessible way to turn the card, and the obvious one: the
+                      card itself is no longer a button (it holds buttons), so the
+                      flip has a real control of its own. */}
+                  <Button block onClick={flip}>Show answer</Button>
+                </div>
+              )}
             </div>
-            {/* The hint has to match the device. This read "Space to flip" on
-                phones, which have no Space key — the app's primary surface was
-                naming an affordance that did not exist there. `hover: none`
-                identifies a touch primary input more reliably than width does:
-                a tablet is wide and still has no keyboard. */}
-            <span className={`text-dim text-xs h-4 leading-4 transition-opacity ${flipped ? 'opacity-0' : ''}`}>
-              {isNew
-                ? 'First time seeing this — take it in, then say how it landed'
-                : keyboard
-                  ? 'Space to flip · 1–4 to grade'
-                  : 'Tap the card to flip and check the translation'}
+            {/* One caption line: the acknowledgment of the last grade while it is
+                fresh, the hint otherwise. The hint has to match the device — this
+                once read "Space to flip" on phones, which have no Space key.
+                `aria-hidden`: the grade is announced by the live region, and the
+                hint describes gestures the controls above already cover. */}
+            <span aria-hidden className="text-dim text-xs h-4 leading-4 text-center">
+              {ack ? <Acknowledgement ack={ack} />
+                : isNew
+                  ? 'First time seeing this — take it in, then say how it landed'
+                  : keyboard
+                    ? (flipped ? '1–4 to grade · Space turns it back' : 'Space or 1–4 shows the answer')
+                    : (flipped ? 'Tap or swipe the card to turn it back' : 'Or tap or swipe the card')}
             </span>
           </div>
           </>)}
@@ -814,74 +891,66 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
   );
 }
 
-/** Draggable flip-card. Tap flips; swipe right = knew it (Good), swipe left =
- *  didn’t know (Again). Commits on travel OR a confident flick (velocity with
- *  real distance behind it); below threshold the card is handed back with the
- *  release velocity, so the return reads as the gesture settling — not a reset.
+/** The acknowledgment of the last grade: the interval it committed, not praise.
+ *  Moved out of its own reserved row in the header (20pt of card, empty most of the
+ *  time) onto the caption line under the grades, which exists anyway. */
+function Acknowledgement({ ack }: { ack: { n: number; ok: boolean; interval?: string; comeback?: number } }) {
+  return (
+    <span key={ack.n}
+      className={`ack-in inline-flex items-center gap-1.5 text-2xs font-mono ${ack.ok ? 'text-green' : 'text-dim'}`}>
+      {ack.ok ? <Check size={11} /> : <X size={11} />}
+      {ack.interval ? `back in ${ack.interval}` : ack.ok ? 'right' : 'not yet'}
+      {ack.comeback != null && (
+        <span className="text-green">· missed {ack.comeback}× before</span>
+      )}
+    </span>
+  );
+}
+
+/** Draggable flip-card. Tap flips; a horizontal swipe **also flips**, in either
+ *  direction, and never grades.
+ *
+ *  **Why a swipe stopped grading** *(2026-09-25 panel)*. On the feed, dragging right
+ *  opens a word's entry — "show me more" — and that is the gesture the app teaches
+ *  first. Here, one tab over, the same drag wrote `Rating.Good`: the scheduler's
+ *  strongest signal from the thumb movement the feed had trained as the weakest. The
+ *  gesture grammar (CLAUDE.md) says drag toward *more*; turning the card is exactly
+ *  that, so the swipe keeps its meaning across the app and grading is a button,
+ *  on the back, with the answer in view.
+ *
+ *  **Not a button.** This was `role="button"` with an `aria-label`, which made every
+ *  child presentational and replaced the headword with the label: VoiceOver said
+ *  "Flashcard — activate to flip" and never the German word. It also nested the
+ *  speaker buttons inside a button. It is a `group` named by its headword now; the
+ *  flip has its own control ("Show answer"), and Space still flips from anywhere.
  *
  *  `behind` draws the rest of the queue as a physical stack. "35 left" is a
  *  number standing in for something that should be *seen*: the pile thins as you
  *  work, and the last card has nothing behind it, so finishing is visible before
  *  it is announced. */
-function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
-  { children: React.ReactNode; onFlip: () => void; onGrade: (g: Grade) => void; behind?: number }) {
+function SwipeCard({ children, onFlip, labelledBy, behind = 0 }:
+  { children: React.ReactNode; onFlip: () => void; labelledBy: string; behind?: number }) {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 200], [-8, 8]);
-  const yes = useTransform(x, [20, SWIPE_PX], [0, 1]);
-  const no = useTransform(x, [-20, -SWIPE_PX], [0, 1]);
   const reduce = useReducedMotion();
   const dragged = useRef(false);
   return (
-    // **The height knows about the bars.** *2026-09-05, measured on an iPhone.*
-    // This was `clamp(340px, 52vh, 460px)`, and `vh` is the whole viewport — it
-    // does not know that ~52px of it is an app bar and ~74px is a floating tab
-    // bar. On a 956pt screen the page came to 1,008px and the **grade buttons
-    // sat under the tab bar**: the primary action of the primary loop, below the
-    // fold, on a page that does not look scrollable.
+    // **The height is what is left, not a number.** `flex-1` inside a column that
+    // lays out the rest, so the card takes the space genuinely remaining whatever is
+    // stacked above it (notices, the coach). Its parent must be `flex-1` too, or
+    // there is no free space to take — which is how it sat on its floor until
+    // 2026-09-25.
     //
-    // 470px is the rest of the player measured rather than estimated — header,
-    // why-line, grade row, hint line and gaps, everything in this column that is
-    // not the card. Desktop is unaffected (it still clamps to 460).
+    // **The floor is 260 and the ceiling 460** (16.25/28.75rem at a 16px root). The
+    // pane reports zero overflow at 402×874 because it has no status bar (~59pt)
+    // and no Safari toolbar (~50pt); a real phone loses both. Below the floor a face
+    // scrolls — and says so with `.face-end`'s fade; grade buttons off screen are
+    // not survivable, because they are the primary action of the primary loop.
     //
-    // The 330px floor is the height a *first-sight* card needs — the one that
-    // shows the most: kicker, headword, IPA, gloss, speaker, example and its
-    // translation. Below that the face scrolls internally, which is survivable
-    // (see the `safe` alignment note on the face) but not what anybody wants. On
-    // a screen too short for 330 + the chrome, the page scrolls the difference,
-    // which is the right trade: a card that looks broken is worse than a page
-    // that moves.
-    // **The height is what is left, not a number.** *2026-09-05.*
-    //
-    // This was `clamp(330px, 100dvh - bars - 470px, 460px)`, where 470 was the
-    // rest of the column measured on one screen at one moment. It is right until
-    // anything else appears above the card — and the welcome-back and caught-up
-    // notices do exactly that, which put *the card itself* under the tab bar on
-    // an iPhone 17 Pro. Any future notice would do it again.
-    //
-    // `flex-1` inside the column that already lays this out means the card takes
-    // the space genuinely remaining, whatever is stacked above it.
-    //
-    // **The floor is 260, not 300, and the 40 points are not cosmetic.** Measured
-    // at 402×874: the browser pane reports zero overflow because it has no status
-    // bar and no Safari toolbar, while the same viewport on a real iPhone loses
-    // ~59pt to the status bar and ~50 more to Safari's bottom toolbar — which put
-    // the second row of grade buttons under the tab bar. Installed as a PWA the
-    // toolbar is gone and only the status bar costs anything, but even then the
-    // column came out about sixty points long.
-    //
-    // Below this a first-sight face has more content than room and scrolls
-    // internally, which is survivable; grade buttons off screen are not, because
-    // they are the primary action of the primary loop.
-    //
-    // **The two bounds are `rem`, and here that is the correct unit** *(2026-09-07)*.
-    // They were px, and at an iOS accessibility text size the face's contents grew
-    // while its ceiling did not: the card scrolled internally and what fell below
-    // its own fold was **the headword** — measured on a 16 Pro at
-    // `accessibility-extra-large`, `tun` was cut in half by the card's bottom edge.
-    // The card is the one thing on this screen that is *content*, so it scales with
-    // the type inside it; the chrome around it (bars, touch targets, readouts) is
-    // pinned in px for the opposite reason. 16.25/28.75rem resolve to exactly the
-    // old 260/460 at a 16px root, so nothing moves at rest.
+    // **The bounds are `rem`** *(2026-09-07)*: at an accessibility text size the
+    // face's contents grew while a px ceiling did not, and the headword fell below
+    // its own fold. The card is content, so it scales with its type; the chrome
+    // around it is pinned in px for the opposite reason.
     <div className="relative w-full max-w-[580px] flex-1 min-h-[16.25rem] max-h-[28.75rem]">
       {/* Static, aria-hidden, and behind the drag surface: this is scenery, not
           content. Rendered outermost-first so the nearest sits on top. */}
@@ -894,42 +963,28 @@ function SwipeCard({ children, onFlip, onGrade, behind = 0 }:
           }} />
       ))}
     <motion.div
-      // The card is a control, not a div with a click handler: it was never
-      // focusable, so its only keyboard path was a global window listener.
-      role="button"
-      tabIndex={0}
-      aria-label="Flashcard — activate to flip, or use the grade buttons below"
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onFlip(); }
-      }}
-      // Fluid height: this was a fixed 360/420px with overflow-y-auto faces, so
-      // a C1 card (definition + two bilingual examples + synonyms + antonyms) at
-      // the "Larger" text scale silently scrolled inside a drag surface.
-      // Absolute so it sits exactly on top of the stack behind it.
+      role="group"
+      aria-roledescription="flashcard"
+      aria-labelledby={labelledBy}
       className="absolute inset-0 cursor-pointer touch-pan-y rounded-lg"
       style={{ x, rotate: reduce ? 0 : rotate }}
       drag="x"
+      dragDirectionLock
       dragElastic={0.6}
+      dragConstraints={{ left: 0, right: 0 }}
       onDragStart={() => { dragged.current = true; }}
       onDragEnd={(_, info) => {
         const { offset, velocity } = info;
         const flick = Math.abs(velocity.x) > 480 && Math.abs(offset.x) > 36;
-        if (offset.x > SWIPE_PX || (flick && velocity.x > 0)) onGrade(Rating.Good);
-        else if (offset.x < -SWIPE_PX || (flick && velocity.x < 0)) onGrade(Rating.Again);
-        else animate(x, 0, { type: 'spring', stiffness: 420, damping: 30, velocity: velocity.x });
+        // Either direction turns the card; the card springs back to the centre
+        // either way, because nothing left the deck.
+        if (Math.abs(offset.x) > SWIPE_PX || flick) onFlip();
+        animate(x, 0, reduce ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 30, velocity: velocity.x });
         setTimeout(() => { dragged.current = false; }, 0);
       }}
       onClick={() => { if (!dragged.current) onFlip(); }}
     >
       <div className="flip w-full h-full">{children}</div>
-      <motion.span style={{ opacity: yes }}
-        className="absolute top-3 right-3 flex items-center gap-1.5 text-green font-bold text-xs border border-green rounded-full px-3 py-1 bg-[var(--color-green-d)] pointer-events-none">
-        <Check size={14} /> Knew it
-      </motion.span>
-      <motion.span style={{ opacity: no }}
-        className="absolute top-3 left-3 flex items-center gap-1.5 text-red-txt font-bold text-xs border border-red rounded-full px-3 py-1 bg-[var(--color-red-d)] pointer-events-none">
-        <X size={14} /> Didn’t know
-      </motion.span>
     </motion.div>
     </div>
   );
@@ -1041,14 +1096,14 @@ function CoachMarks() {
     // thing in the app. Shrinking the text to win eight pixels trades the finding
     // this block exists to deliver.
     <div className="pb-2 mb-2 border-b border-line flex items-center gap-x-3 gap-y-0.5 flex-wrap text-xs text-dim">
-      <span><b className="text-txt font-semibold">Tap</b> the card to flip it</span>
+      {/* **One swipe grammar again** *(2026-09-25 panel).* This used to explain that
+          here right meant *knew it* while on the feed right opened the entry — two
+          grammars one screen apart, which the tip could name but not fix. A swipe
+          now turns the card, the same "show me more" it means on the feed, and the
+          verdict is a button on the back. */}
+      <span><b className="text-txt font-semibold">Tap or swipe</b> the card to see the answer</span>
       <span aria-hidden>·</span>
-      {/* "Swipe the card", not "swipe" — the app now has two swipe grammars and
-          they are one screen apart. Here right means *knew it*; on the feed,
-          right opens the entry and left opens the drill. Both are natural on
-          their own surface, and neither is a global rule, so this stops
-          claiming one. */}
-      <span><b className="text-txt font-semibold">Swipe the card</b> right if you knew it, left if you didn’t</span>
+      <span><b className="text-txt font-semibold">Grade</b> on the back — each button says when it returns</span>
       <span aria-hidden>·</span>
       {/* The keyboard path existed but was never stated anywhere in the UI — and
           what it stated only ever worked on the flip card. The drills now take
@@ -1114,7 +1169,15 @@ function StatusPip({ id }: { id: string }) {
   const st = statusOf(id);
   const color = st === 'known' ? 'var(--color-green)' : st === 'learning' ? 'var(--color-accent)' : 'var(--color-dim)';
   const label = st === 'known' ? 'Known' : st === 'learning' ? 'Learning' : 'New';
-  return <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} aria-label={`Status: ${label}`} />;
+  // The dot is colour-only, so its meaning is said in text for assistive tech.
+  // `aria-label` on a bare `<span>` was the old attempt, and ARIA does not expose a
+  // name on a generic element — it announced nothing.
+  return (
+    <>
+      <span aria-hidden className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} />
+      <span className="sr-only">Status: {label}</span>
+    </>
+  );
 }
 
 function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onGame, onProfile, onPlacement }:
