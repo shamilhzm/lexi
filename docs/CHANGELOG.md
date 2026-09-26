@@ -11,6 +11,59 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-25 — Panel review
+
+#### Legal (06) — one legal page, a consent gate, and licences GitHub can read
+
+**Why.** A German operator of a public site owes a privacy notice (Art. 13 GDPR — Vercel
+logs IPs) and a name-and-address notice (§ 18(1) MStV), and Lexi had neither. The CC
+BY-SA and CC BY credits `ATTRIBUTIONS.md` records so carefully appeared nowhere in the
+running app, `creditFor()` had no caller, and GitHub reported the licence as "Other".
+Not legal advice; the operator's lawyer signs off.
+
+- **`public/legal.html`** — static, so it opens without the bundle (store listings, a
+  lawyer's browser). In short · Impressum · privacy notice · every feature that contacts
+  a third party and what it sends · the tutor · rights · credits and licences · content
+  written with AI. Linked from Settings → Your data and from Profile.
+  `src/lib/legal-page.test.ts` fails when a network host appears in `src/` that the page
+  does not name — the promise cannot go stale by a new `fetch`.
+- **The Impressum is never invented.** It renders from `public/legal.json`, which only
+  the operator fills; until name, street, postcode, city and email are all set, the page
+  says **"Impressum: pending"**.
+- **The tutor asks once, per provider, before any text leaves** (`lib/ai.ts`,
+  `AiConsent.tsx`). The gate is in the transport, so no caller can skip it; Settings and
+  the prompt show one disclosure (`aiDisclosure`) naming the text and the company; the
+  yes is forgotten with the key and never rides the backup. Apple 5.1.2(i) needs it for
+  a store build, and it is the honest default on the web.
+- **Recordings are credited by name** — in the card's *Where this came from* and, from
+  `audio.json`, on the legal page.
+- **`LICENSE` is the plain MIT text**; the corpus licence moved to `LICENSE-DATA.md`
+  and ships beside the data as `public/data/NOTICE.txt`.
+- **`sw.js`** (the mobile row's file, one branch): a navigation to any `.html` other
+  than `index.html` is served as itself. Before, it got the shell, and the revalidation
+  stored the fetched page *as* the shell — opening `legal.html` once from an installed
+  app would have replaced the app on the next launch. `sw.test.ts` proves it on the old
+  worker.
+- **`ATTRIBUTIONS.md` corrected**: Tatoeba no longer supplies "the primary example on
+  each new card" (authored cards' examples are written); the brain map is marked
+  retired; "CORS is not a licence" is written down; the HD voice's three hosts, Tatoeba
+  audio and browser speech recognition join the runtime table; a *Written with AI*
+  section sets the rules for generated audio and pictograms before the first file.
+- **Measured, with the instrument committed** (`node scripts/corpus/tatoeba-credit.ts`):
+  4,610 of 24,159 shipped example sentences (in 2,685 of 10,078 word cards) are exact
+  Tatoeba sentences, and 1,885 carry a per-sentence link.
+
+**Left open — the operator's:** fill `public/legal.json` and have a lawyer confirm the
+page; quote SRF, DW and heise terms or ask them for permission, and keep stories out of
+any store build until then; clear the name "Lexi" (DPMA/EUIPO/TMview, classes 9/41/42)
+before a store listing or a domain. **Left open — code:** a credit pass giving the
+2,725 uncited Tatoeba sentences their links (`tatoeba-credit.ts --list` is its input);
+an overlap check of authored examples against the local course-book texts; the CSP
+(mobile row) must allow `cdnjs.cloudflare.com` and `huggingface.co` as well as jsDelivr,
+or the HD voice breaks.
+
+---
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they
