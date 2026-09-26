@@ -1572,3 +1572,16 @@ plurals are not resolved to their headword, so a correct example is refused. Wri
 infinitive after a modal, or the uninflected form, and the example passes. This is a
 coverage gap in `lib/inflections`, not a reason to loosen the gate.
 
+## A refusal that protects one case silences the common one *(added 2026-09-25)*
+
+**Believed:** "where wiktionary lists two plurals they mean different things, so a
+human must choose" (`verify.ts`, `fetch-plurals.ts`). **True:** that holds for
+*Wörter/Worte* and *Stare/Stars*, and it is false for *Pizzas/Pizzen*, *Kommas/Kommata*
+and *Fachleute/Fachmänner*. The refusal left 105 nouns with no plural, and nobody ruled
+on them, so the rare case cost the common one its drill. The same pass
+found the Countries shortcut proposing *nur Singular* for *der Pole* because the
+sector also holds people. **Rule:** when a guard refuses a whole class, count what it
+refuses and read ten of them. If most are the easy case, split the class by the
+evidence the source already carries (here: sections, headline qualifiers, sense
+lines), and send only the remainder to a human.
+
