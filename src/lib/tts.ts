@@ -56,6 +56,31 @@ export async function ensureHdVoice(onProgress?: (fraction: number) => void): Pr
   ready = true;
 }
 
+/** The English voice walk mode prompts in. Piper "cori", trained on LibriVox
+ *  recordings (public domain); British, to match the app's spelling. Only walk
+ *  mode loads it — nothing else in Lexi speaks English. */
+export const EN_VOICE_ID = 'en_GB-cori-medium';
+
+/** Whether a voice is already in the origin's cache (no download needed). */
+export async function voiceStored(id: string): Promise<boolean> {
+  const tts = await load();
+  const stored: string[] = (await tts.stored?.()) ?? [];
+  return stored.includes(id);
+}
+
+/** Download any Piper voice once; a stored voice returns immediately. */
+export async function ensureVoice(id: string, onProgress?: (fraction: number) => void): Promise<void> {
+  if (id === HD_VOICE_ID) return ensureHdVoice(onProgress);
+  const tts = await load();
+  if (!(await voiceStored(id))) await tts.download(id, (p: any) => onProgress?.(pct(p)));
+}
+
+/** Synthesise without playing — walk mode lays hundreds of these on one timeline. */
+export async function synthesize(text: string, voiceId: string): Promise<Blob> {
+  const tts = await load();
+  return tts.predict({ text, voiceId });
+}
+
 /** Unlock audio playback while a user gesture is still in scope.
  *
  *  iOS only allows sound that *begins* inside a tap. The HD-voice setup awaits a

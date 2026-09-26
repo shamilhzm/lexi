@@ -39,6 +39,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import TopBar from './components/TopBar.tsx';
 import BottomNav from './components/BottomNav.tsx';
 import SavedWords from './components/SavedWords.tsx';
+import WalkLayer from './components/WalkLayer.tsx';
 import { AnimatePresence } from 'motion/react';
 import Review from './views/Review.tsx';
 import Feed from './views/Feed.tsx';
@@ -104,6 +105,11 @@ export default function App() {
   // feed, mid-card in a session. See components/SearchSheet.
   const [searching, setSearching] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
+  // Walk mode is a layer, not a route, for the same reason search is: it starts
+  // from wherever you are. `?walk` opens it directly, which is what a home-screen
+  // shortcut ("Start a walk") needs.
+  const [showWalk, setShowWalk] = useState(() =>
+    typeof location !== 'undefined' && new URLSearchParams(location.search).has('walk'));
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
 
@@ -428,7 +434,9 @@ export default function App() {
 
       {searching && <SearchSheet onClose={() => setSearching(false)} />}
       <AnimatePresence>
-        {showSaved && <SavedWords key="saved" onClose={() => setShowSaved(false)} onStudy={study} />}
+        {showSaved && <SavedWords key="saved" onClose={() => setShowSaved(false)} onStudy={study}
+          onWalk={() => { setShowSaved(false); setShowWalk(true); }} />}
+        {showWalk && <WalkLayer key="walk" onClose={() => setShowWalk(false)} />}
       </AnimatePresence>
     </div>
   );

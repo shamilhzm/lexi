@@ -21,7 +21,7 @@
 // worth keeping precisely because the drill next to it is not a substitute: the
 // cap is "teach me this now", which is the wrong answer on a bus.
 import { useMemo } from 'react';
-import { X, Play, Bookmark } from 'lucide-react';
+import { X, Play, Bookmark, Headphones } from 'lucide-react';
 import { savedWords, toggleSaved, statusOf, DAILY_SAVE_GOAL, savedToday } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { BY_ID } from '../data/index.ts';
@@ -32,9 +32,11 @@ import Chip from './ui/Chip.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Target } from '../types.ts';
 
-export default function SavedWords({ onClose, onStudy }: {
+export default function SavedWords({ onClose, onStudy, onWalk }: {
   onClose: () => void;
   onStudy: (t: Target) => void;
+  /** Walk mode — the same words, heard and said aloud. */
+  onWalk?: () => void;
 }) {
   const v = useStore();
   const words = useMemo(
@@ -66,6 +68,11 @@ export default function SavedWords({ onClose, onStudy }: {
             <Button onClick={() => { onStudy({ kind: 'custom', name: 'Saved words', ids: words.map((w) => w.id) }); onClose(); }}>
               <Play size={14} /> Practise these {words.length}
             </Button>
+            {onWalk && (
+              <Button variant="secondary" className="ml-2" onClick={onWalk}>
+                <Headphones size={14} /> On a walk
+              </Button>
+            )}
 
             <ul className="-mx-5 mt-5 divide-y divide-line border-y border-line">
               {words.map((w) => (
