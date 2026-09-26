@@ -46,6 +46,8 @@ should be deleted — git history is what history is for.
 | [COSTS.md](COSTS.md) | What Lexi costs to run and who pays each part — measured by `scripts/costs.ts`, not estimated — plus what would change the bill, the grant window, and how to help. | Before adding a server, a download, or any way of taking money. |
 | [../ATTRIBUTIONS.md](../ATTRIBUTIONS.md) | Every corpus source, its licence, what is redistributed and what is only cached. | Adding a data source. Forking. |
 | [STORES.md](STORES.md) | **Plan, nothing submitted.** Lexi in the App Store and Google Play: web first, a Play TWA next, iOS (Capacitor, bundled) under stated conditions. What a store copy leaves out and why, the listing (`store/listing.json`, tested), the screenshot storyboard, privacy labels, and the owner's steps. | Before packaging, submitting, or changing the manifest or icons. |
+| [PANEL-2026-09-25.md](PANEL-2026-09-25.md) | The ten-reviewer panel: what all ten agreed on, the six disagreements and how each was settled, one-line verdicts. | Before reopening a question the panel settled (walk-mode grading, pictogram colour, native wrapper, rank-based relevel). |
+| [PICTOGRAMS.md](PICTOGRAMS.md) | The pictogram grammar (48-unit grid, one stroke, colour from the page), the QA gate, and pilot 01's measured results. | Before drawing, generating or showing a word picture. |
 
 ### Standing critiques — one lens each, written to be argued with
 
