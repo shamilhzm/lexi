@@ -88,7 +88,7 @@ type Corpus = 'gesamt' | 'zeitung' | 'forum' | 'kinder';
 const CORPORA: Corpus[] = ['gesamt', 'zeitung', 'forum', 'kinder'];
 
 interface ProvRow { id: string; freqRank: number | null }
-interface VocabRow { id: string; term: string; level: string; kind?: string }
+interface VocabRow { id: string; term: string; level: string; kind?: string; pos?: string }
 
 /** Lifted from `kernwortschatz.ts`, deliberately, and the duplication is the lesser
  *  evil: that script is a *report* and this one writes a shipped file, so a change
@@ -136,6 +136,23 @@ function referenceRanks(): Map<string, number> {
 }
 
 const reference = referenceRanks();
+
+/** A fixed phrase is no lemma, so no frequency list ranks it — and unranked cards
+ *  sort last, which put *Wie spät ist es?* behind every ranked A1 word. A phrase is
+ *  ranked as common as its **rarest** word: a chunk cannot be met more often than
+ *  any of its parts. Every word must be ranked; one unknown word leaves the phrase
+ *  unranked rather than guessed. */
+function phraseRank(w: VocabRow): number | null {
+  if (w.pos !== 'phrase') return null;
+  const words = w.term.replace(/[.!?,…–]/g, ' ').split(/\s+/).filter(Boolean);
+  let worst = 0;
+  for (const x of words) {
+    const r = reference.get(fold(x));
+    if (r == null) return null;
+    worst = Math.max(worst, r);
+  }
+  return words.length ? worst : null;
+}
 const vocab: VocabRow[] = JSON.parse(readFileSync(VOCAB, 'utf8'));
 const prov: ProvRow[] = JSON.parse(readFileSync(PROVENANCE, 'utf8'));
 const live = new Set(vocab.map((w) => w.id));
@@ -156,7 +173,7 @@ for (const w of vocab) {
   // The 110 `kind: 'grammar'` rows are filtered at load (`src/data/index.ts`) and
   // never reach a session, so a rank for one is a byte the app downloads to drop.
   if (w.kind === 'grammar') continue;
-  const r = reference.get(fold(w.term));
+  const r = reference.get(fold(w.term)) ?? phraseRank(w);
   if (r != null) { out[w.id] = r; fromReference++; continue; }
   const p = provRank.get(w.id);
   if (p != null) { out[w.id] = CORE_CEILING + p; fromProvenance++; }
