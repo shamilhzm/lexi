@@ -1,0 +1,26 @@
+# Words a learner looked up and Lexi did not have — "Words Lexi didn't have" in
+# Profile opens this prefilled (src/lib/report.ts: `words`, `build`).
+name: Words Lexi didn't have
+description: German words you looked up that aren't cards yet.
+title: "[word] "
+labels: ["word request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Each word is checked against de.wiktionary by `npm run authoring:new`,
+        which refuses anything it cannot verify — gender, plural, part of speech
+        and pronunciation all have to agree. So a word here is a candidate, not a
+        promise: the ones that verify become cards; the ones that don't, don't.
+  - type: textarea
+    id: words
+    attributes:
+      label: Words
+      description: One per line. The sentence you met it in helps — it can become the card's example.
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: App build
+      description: Filled in by the app.

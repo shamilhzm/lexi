@@ -5,7 +5,11 @@ import App from './App.tsx';
 import { initData } from './data/index.ts';
 import { hydrate, applyTextScale } from './store.ts';
 import { applyTheme, watchSystemTheme } from './theme.ts';
+import { dropRefParam } from './lib/ref.ts';
 
+// A `?ref=` campaign tag is for the host's request log and nothing else — see
+// lib/ref.ts. First, before any code reads `location`.
+dropRefParam();
 applyTheme();
 watchSystemTheme();
 applyTextScale(); // rem ramp: apply the learner’s text-size choice before paint
