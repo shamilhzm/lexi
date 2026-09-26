@@ -1,0 +1,32 @@
+{
+  "_about": "Store listing text for Lexi, one object per store and locale. docs/STORES.md explains every choice; store/listing.test.ts enforces the character limits and checks every number against the corpus. The name is a recommendation pending the owner's domain/name decision (panel round 2).",
+  "claims": {
+    "words": 10000,
+    "dictionaryEntries": 90000
+  },
+  "appStore": {
+    "en-US": {
+      "name": "Lexi Deutsch: German Words",
+      "subtitle": "Learn German vocabulary, A1–C2",
+      "keywords": "der,die,das,wortschatz,vokabeln,flashcards,srs,spaced,repetition,artikel,plural,dictionary,offline",
+      "promotionalText": "Scroll 10,000 German words, one per screen. Save the ones you want, and Lexi brings each back just before you would forget it. No account, no ads, no tracking.",
+      "description": "Lexi is a German vocabulary trainer for English speakers, from A1 to C2.\n\nSCROLL\nOne German word per screen, with its pronunciation, its meaning and an example sentence. Nothing tests you while you scroll. Lexi opens on a word, not on a menu.\n\nSAVE\nTap the bookmark on any word that catches you. Lexi teaches your saved words first.\n\nPRACTISE\nÜben brings each word back just before you would forget it, using the FSRS spaced-repetition scheduler, and every card tells you why it is in today's session. For a German noun, knowing the word means knowing its gender and its plural too, so those are drilled alongside the meaning. Recall asks you to type the German from the English, and it forgives a typo unless the typo is itself a real German word.\n\nLOOK IT UP\nSearch finds the more than 10,000 words Lexi teaches, and answers from a dictionary of more than 90,000 German entries. The two are kept apart: the words Lexi teaches are cards you can study, and a dictionary entry is only ever shown as a dictionary entry.\n\nSEE WHAT YOU KNOW\nFortschritt draws every word Lexi teaches as a sky, the commonest at the centre, lit as brightly as you would remember each one today. It counts the words you have studied here; it is not an exam result, and it says so.\n\nWORKS OFFLINE\nEvery word and every dictionary entry ships inside the app.\n\nPRIVATE BY DESIGN\nNo account and no sign-in. No ads, no analytics, no tracking. Your progress is stored on your device, and you can export a backup at any time.\n\nOPEN SOURCE\nThe code is MIT-licensed, and the word data is built from open sources and credited inside the app.",
+      "primaryCategory": "Education",
+      "secondaryCategory": "Reference",
+      "supportUrl": null,
+      "privacyPolicyUrl": null
+    },
+    "en-GB": {
+      "keywords": "wörterbuch,expat,integration,genders,nouns,verbs,audio,pronunciation,memorise,revision,b1,b2"
+    }
+  },
+  "googlePlay": {
+    "en-US": {
+      "title": "Lexi Deutsch: German Words",
+      "shortDescription": "German words with their gender and plural, and spaced repetition. No account.",
+      "fullDescription": "Lexi is a German vocabulary trainer for English speakers, from A1 to C2.\n\nSCROLL\nOne German word per screen, with its pronunciation, its meaning and an example sentence. Nothing tests you while you scroll. Lexi opens on a word, not on a menu.\n\nSAVE\nTap the bookmark on any word that catches you. Lexi teaches your saved words first.\n\nPRACTISE\nÜben brings each word back just before you would forget it, using the FSRS spaced-repetition scheduler, and every card tells you why it is in today's session. For a German noun, knowing the word means knowing its gender and its plural too, so those are drilled alongside the meaning. Recall asks you to type the German from the English, and it forgives a typo unless the typo is itself a real German word.\n\nLOOK IT UP\nSearch finds the more than 10,000 words Lexi teaches, and answers from a dictionary of more than 90,000 German entries. The two are kept apart: the words Lexi teaches are cards you can study, and a dictionary entry is only ever shown as a dictionary entry.\n\nSEE WHAT YOU KNOW\nFortschritt draws every word Lexi teaches as a sky, the commonest at the centre, lit as brightly as you would remember each one today. It counts the words you have studied here; it is not an exam result, and it says so.\n\nPRIVATE BY DESIGN\nNo account and no sign-in. No ads, no analytics, no tracking. Your progress is stored on your device, and you can export a backup at any time.\n\nOPEN SOURCE\nThe code is MIT-licensed, and the word data is built from open sources and credited inside the app.",
+      "category": "Education",
+      "privacyPolicyUrl": null
+    }
+  }
+}
