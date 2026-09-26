@@ -162,7 +162,10 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
       rounded-b-[22px] border-x-0 border-t-0
       min-h-[calc(52px_+_env(safe-area-inset-top))] flex items-center gap-1 px-3 sm:px-4 top-bar">
 
-      <button onClick={() => onGo('session')} aria-label="Lexi — home"
+      {/* **The mark goes to the feed.** It went to Üben — a leftover from when the
+          session was the app's root — so the one control labelled *home* led away
+          from the front door VISION names. On the feed it goes to the top. */}
+      <button onClick={() => onGo('feed')} aria-label="Lexi — home"
         className="home-btn flex items-center gap-2.5 pr-2 sm:pr-4 tap-44 rounded-full hover:opacity-80 transition-opacity">
         <LexiMark size={26} />
         <span className="wordmark font-bold text-lg tracking-wide leading-none">Lexi</span>

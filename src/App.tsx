@@ -42,7 +42,7 @@ import SavedWords from './components/SavedWords.tsx';
 import WalkLayer from './components/WalkLayer.tsx';
 import { AnimatePresence } from 'motion/react';
 import Review from './views/Review.tsx';
-import Feed from './views/Feed.tsx';
+import Feed, { forgetFeedPosition } from './views/Feed.tsx';
 import Words from './views/Words.tsx';
 import Progress from './views/Progress.tsx';
 import Placement from './views/Placement.tsx';
@@ -68,6 +68,10 @@ import type { Target } from './types.ts';
 
 export type View = 'feed' | 'session' | 'words' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
+/** What a scoped session's Back arrow names, by the surface that opened it. */
+const BACK_TO: Partial<Record<View, string>> = {
+  feed: 'Wörter', words: 'Themen', progress: 'Fortschritt', text: 'your text', profile: 'your profile',
+};
 /** The day's queue, rebuilt from the scheduler each time it is asked for. */
 const TODAY = (): Target => ({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids });
 
@@ -105,6 +109,13 @@ export default function App() {
   // feed, mid-card in a session. See components/SearchSheet.
   const [searching, setSearching] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
+  // **Where a scoped session was opened from**, so its Back arrow can go there.
+  // It always went to Themen — labelled "Back to Wortschatz", a surface renamed
+  // weeks ago — even when the session had been started from Fortschritt's
+  // *Relight the fading words*, the saved-words sheet, or the feed's ready slot.
+  // A Back that goes somewhere you never were is a second way to get lost.
+  // Cleared by every tab press: a tab is a fresh place, not a return.
+  const [origin, setOrigin] = useState<View | null>(null);
   // Walk mode is a layer, not a route, for the same reason search is: it starts
   // from wherever you are. `?walk` opens it directly, which is what a home-screen
   // shortcut ("Start a walk") needs.
@@ -247,7 +258,17 @@ export default function App() {
   }, [view, target, words]);
 
   /** Study a specific scope — a deck, a sector, a list of ids from a text. */
-  const study = (t: Target) => { setGuided(false); setDrill(null); setTarget(t); setView('session'); setNavTick((n) => n + 1); };
+  const study = (t: Target) => {
+    setOrigin(view === 'session' ? null : view);
+    setGuided(false); setDrill(null); setTarget(t); setView('session'); setNavTick((n) => n + 1);
+  };
+  /** Back to where a scoped session came from — *without* `go()`'s resets, so
+   *  Themen reopens on the deck you were in and the feed on the word you were
+   *  reading, rather than on their index and their first word. */
+  const returnTo = (v: View) => {
+    setOrigin(null); setDrill(null); setShowSaved(false); setSearching(false);
+    setView(v); setNavTick((t) => t + 1);
+  };
   /** The feed is a fixed, full-bleed surface: it owns the viewport and paints its
    *  own floating chrome, so the shell's bounded content column would only get in
    *  its way. Everything else renders inside the column. */
@@ -257,6 +278,10 @@ export default function App() {
     // inside. A destination in a tab bar is a place, not a resume.
     if (v === 'session') setTarget(TODAY());
     if (v === 'words') setWords({ level: 'index' });
+    // The tab you are already on, pressed again, goes to the top — the feed
+    // otherwise resumes where you were (see `Feed`'s `kept`).
+    if (v === 'feed' && view === 'feed') forgetFeedPosition();
+    setOrigin(null);
     // Leaving the guided chain by the navigation is still leaving it. Without
     // this the first-run hero came back on the next visit, as though placement
     // and the first session had never happened.
@@ -283,6 +308,7 @@ export default function App() {
   const startFirstRun = () => {
     setOnboarded();
     setGuided(true);
+    setOrigin(null);
     setTarget({ kind: 'custom', name: 'First session', ids: firstRunIds(10) });
     // **`setView` was missing here, and only here.** `study()` sets it, `go()`
     // sets it; this one prepared the target, flipped `onboarded` — which is what
@@ -298,7 +324,11 @@ export default function App() {
     setView('session');
     setNavTick((n) => n + 1);
   };
-  const endGuided = () => { setOnboarded(); setGuided(false); go('session'); };
+  // **The guided chain ends on the feed**, not on a second session. The first run
+  // is hero → ten words → recap → placement → topics, and it used to finish by
+  // dropping the learner into *another* session — so the front door of an app
+  // with no home screen was, for a new learner, somewhere they had not yet been.
+  const endGuided = () => { setOnboarded(); setGuided(false); go('feed'); };
 
   return (
     // `relative`, and the bars are `absolute` children of it. That is what makes
@@ -381,7 +411,8 @@ export default function App() {
                   : drill
                   ? <Drill mode={drill} onExit={() => setDrill(null)} />
                   : <>
-                    {view === 'feed' && <Feed onStartFirstRun={startFirstRun} onSettings={() => go('settings')} />}
+                    {view === 'feed' && <Feed onStartFirstRun={startFirstRun} onSettings={() => go('settings')}
+                      onStudy={study} onWalk={() => setShowWalk(true)} />}
                     {view === 'session' && (
                       <Review
                         target={target} firstRun={guided}
@@ -393,6 +424,8 @@ export default function App() {
                         // a session they just finished.
                         onPlacement={() => { location.replace('#/placement'); setView('placement'); }}
                         onPick={() => go('words')}
+                        onBack={origin && BACK_TO[origin] ? () => returnTo(origin) : undefined}
+                        backTo={origin ? BACK_TO[origin] : undefined}
                         onGame={() => setGame(true)}
                         onProfile={() => go('profile')}
                       />
