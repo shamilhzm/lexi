@@ -15,7 +15,7 @@ import { Volume2, VolumeX, ArrowLeft, Check, X, RotateCcw, SkipForward, Flag, Sh
 import { shareProgress } from '../lib/sharecard.ts';
 import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, visitCount} from '../store.ts';
 import { haptic, tick, fmt} from '../lib/ui.ts';
-import { buildMixedSession, loadSession, saveSession, SESSION_CEILING} from '../session.ts';
+import { buildMixedSession, loadSession, saveSession, withRetry, SESSION_CEILING, type SessionItem } from '../session.ts';
 import { loadDetailFor, detailLoadedFor } from '../data/detail.ts';
 // `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
 // drill callback type is aliased rather than renamed at its definition, where
@@ -128,9 +128,14 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
   }, [detailReady, scope]);
 
   const restored = useMemo(() => (firstRun ? null : loadSession(target)), [target, lvKey, firstRun]);
-  const queue = useMemo(
+  const built = useMemo(
     () => (detailReady ? (restored?.items ?? buildMixedSession(target, firstRun)) : []),
     [restored, target, lvKey, firstRun, detailReady]);
+  // The queue as it grows during the session: a missed card, or a first sight,
+  // comes back once a few cards later (`withRetry`, session.ts). Keyed to the
+  // queue it was grown from, so a rebuilt one starts clean.
+  const [grown, setGrown] = useState<{ from: SessionItem[]; items: SessionItem[] } | null>(null);
+  const queue = grown && grown.from === built ? grown.items : built;
   const minedCount = useMemo(() => new Set(queue.filter((it) => it.word.id.startsWith('usr:')).map((it) => it.word.id)).size, [queue]);
   // Counted from the queue's own provenance, so the recap can describe what the
   // scheduler did rather than only how the learner scored.
@@ -168,7 +173,7 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
   const [drillsOk, setDrillsOk] = useState(0);
   // Per-session action log so prev/undo can reverse a grade (restore FSRS state)
   // or a skip, and rewind counters + position exactly.
-  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number; dDrill?: number; dDrillOk?: number; dRetr?: number; dRetrOk?: number }[]>([]);
+  const history = useRef<{ i: number; kind: 'grade' | 'skip'; srsId?: string; prevCard?: SrsCard; dAgain?: number; dNew?: number; dDrill?: number; dDrillOk?: number; dRetr?: number; dRetrOk?: number; retryAt?: number }[]>([]);
   // Which way the outgoing card flies: +1 knew it, -1 didn’t, 0 neutral (skip/
   // prev). Set by every grade path, so swipes, buttons and arrow keys all share
   // one physical vocabulary: right = knew, left = missed.
@@ -307,6 +312,13 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
     noteResult(g !== Rating.Again, cardOf(item.srsId), item.word.term, preview?.get(g));
     noteMet(item.word);
     review(item.srsId, g);
+    // A miss, or a first sight, comes back once a few cards later. Recorded on the
+    // history entry so an undo takes the second showing out with the grade.
+    const again = withRetry(queue, i, g, wasNew);
+    if (again) {
+      setGrown({ from: built, items: again.items });
+      history.current[history.current.length - 1].retryAt = again.at;
+    }
     haptic(g === Rating.Again ? 'wrong' : 'grade');
     setDone((d) => d + 1);
     setNewLearned((n) => n + dNew);
@@ -314,7 +326,7 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
     setRetrievedOk((r) => r + dRetrOk);
     setFlipped(false);
     setI((n) => n + 1);
-  }, [item, i]);
+  }, [item, i, queue, built]);
 
   const gradeDrill = useCallback<DrillGrade>((ok, detail) => {
     if (!item || item.type === 'flip') return;
@@ -367,6 +379,10 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
       setDrillsOk((d) => Math.max(0, d - (e.dDrillOk ?? 0)));
       setRetrieved((r) => Math.max(0, r - (e.dRetr ?? 0)));
       setRetrievedOk((r) => Math.max(0, r - (e.dRetrOk ?? 0)));
+      // Undo is last-in-first-out and every later retry lands further down the
+      // queue, so the slot this grade inserted is still exactly where it put it.
+      const at = e.retryAt;
+      if (at !== undefined) setGrown((gr) => gr && { from: gr.from, items: gr.items.filter((_, k) => k !== at) });
     }
     setFlipped(false);
     setI(e.i);
@@ -1161,7 +1177,7 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
         <MiniSky ids={met.map((w) => w.id)} />
         <PocketList words={met} />
         {firstRun && newLearned > 0 && (
-          <p className="text-base mb-5">These {newLearned} words come back tomorrow — that’s the whole system.</p>
+          <p className="text-base mb-5">These {newLearned} words come back on their own — sooner if they slipped, further apart each time they hold. That’s the whole system.</p>
         )}
         {/* Placement, offered here rather than before the session. It used to be
             the first thing a cold learner met — two minutes of being tested by an

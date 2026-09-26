@@ -12,7 +12,7 @@
 //
 // `whyLine` is pure and structured rather than returning JSX, so the copy is
 // unit-testable and there is exactly one source of truth for it.
-import { Sparkle, TrendingDown, Clock, BookOpen, Bookmark, Eye } from 'lucide-react';
+import { Sparkle, TrendingDown, Clock, BookOpen, Bookmark, Eye, Repeat } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { SessionReason } from '../session.ts';
 import type { Mode } from '../views/drills.tsx';
@@ -107,6 +107,13 @@ export function whyLine(reason: SessionReason): WhyLine | null {
         icon: BookOpen,
         lead: 'Because you want to read ', em: `„${reason.text}“`,
       };
+
+    case 'retry':
+      // Said, because a card you just graded coming straight back looks like a bug
+      // unless something says it is the point.
+      return reason.missed
+        ? { icon: Repeat, lead: 'Back again — you missed this a few cards ago' }
+        : { icon: Repeat, lead: 'Once more, from memory — you met this a few cards ago' };
   }
 }
 
