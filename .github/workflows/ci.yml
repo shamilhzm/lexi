@@ -39,6 +39,9 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      # Ceilings on what a phone downloads before the first word paints, plus the
+      # devseed-absence check CLAUDE.md asks for. See scripts/budget.ts.
+      - run: node scripts/budget.ts
       # The corpus is data, and until 2026-08-27 nothing in CI looked at it — so
       # `corpus:validate` had drifted to 273 warnings, none of which was a defect
       # and all of which were noise. `--strict` fails on any warning at all, which

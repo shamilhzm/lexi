@@ -6,7 +6,7 @@ import { byFrequency } from './lib/freq.ts';
 import { ID_MAP } from './data/idmap.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, retrievability, State, Rating, type Card, type Grade } from './srs.ts';
 import { idbGet, idbSet, idbReady } from './lib/idb.ts';
-import { logReview, dropLastReview } from './lib/ledger.ts';
+import { logReview, dropLastReview, loadLedger, replaceLedger, type ReviewEvent } from './lib/ledger.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
 import { ALL_LEVELS } from './types.ts';
 
@@ -1907,11 +1907,27 @@ export function noteBackup() {
   emit();
 }
 
-export function exportData(): string {
+// **Two things the backup did not carry until 2026-09-25** (panel review): the
+// attempt log, which `missStats` ranks blind spots by, and the review ledger
+// (`lib/ledger.ts`) — the one record that can rebuild a card and the thing
+// docs/BACKEND.md says a merge between devices would need. A restore on a new phone
+// brought the schedule back and started both from nothing. The ledger is read from
+// IndexedDB, so it rides `exportBackup`, the async door the UI uses; `exportData`
+// stays synchronous for the callers that only need the snapshot.
+export function exportData(extra: { ledger?: ReviewEvent[] } = {}): string {
   const settings: Record<string, string> = {};
   for (const k of SETTING_KEYS) { const v = localStorage.getItem(k); if (v != null) settings[k] = v; }
   noteBackup();
-  return JSON.stringify({ app: 'lexi', v: 1, exportedAt: new Date().toISOString(), cards: cardsObject(), misses, visits, settings });
+  return JSON.stringify({
+    app: 'lexi', v: 1, exportedAt: new Date().toISOString(),
+    cards: cardsObject(), misses, attempts, visits, settings,
+    ...(extra.ledger ? { ledger: extra.ledger } : {}),
+  });
+}
+
+/** The backup a learner saves: everything `exportData` carries, plus the ledger. */
+export async function exportBackup(): Promise<string> {
+  return exportData({ ledger: await loadLedger() });
 }
 
 /** Restore a backup produced by exportData. Writes straight to storage; the
@@ -1932,6 +1948,10 @@ export async function importData(json: string): Promise<void> {
     idbSet(CARDS_KEY, d.cards),
     idbSet(MISS_KEY, Array.isArray(d.misses) ? d.misses : []),
     idbSet(VISITS_KEY, Array.isArray(d.visits) ? d.visits : []),
+    // Only when the file carries them: a backup from before 2026-09-25 has neither,
+    // and restoring it must not erase what this device has in their place.
+    ...(Array.isArray(d.attempts) ? [idbSet(ATTEMPT_KEY, d.attempts)] : []),
+    ...(Array.isArray(d.ledger) ? [replaceLedger(d.ledger)] : []),
   ]);
   if (d.settings && typeof d.settings === 'object') {
     for (const k of SETTING_KEYS) {

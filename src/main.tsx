@@ -5,6 +5,12 @@ import App from './App.tsx';
 import { initData } from './data/index.ts';
 import { hydrate, applyTextScale } from './store.ts';
 import { applyTheme, watchSystemTheme } from './theme.ts';
+import { shouldReloadForChunk } from './lib/chunkReload.ts';
+
+// The splash watchdog in `index.html` stands down the moment this module runs.
+// From here on the boot has its own budgets (below) and its own error screen; the
+// watchdog exists for the case where none of this code ever loaded.
+(window as Window & { __lexiBooted?: boolean }).__lexiBooted = true;
 
 applyTheme();
 watchSystemTheme();
@@ -86,16 +92,43 @@ async function boot() {
 boot()
   .catch((err) => {
     console.error('Failed to load lexicon', err);
+    // Tokens, not hex. The old literals (#e6edf3 on #8b97a7) were written for the
+    // dark console theme and read at roughly 2.5:1 on the warm paper ground the
+    // app has used since 2026-08-26 — the one screen that has to be legible.
+    //
+    // The second button is for a cache that is itself the problem: it clears the
+    // worker and Cache Storage (`updateNow`) and never touches progress.
+    const btn = { marginTop: 12, padding: '10px 18px', borderRadius: 999, fontWeight: 700, cursor: 'pointer', font: 'inherit' } as const;
     root.render(
-      <div style={{ display: 'grid', placeItems: 'center', height: '100dvh', padding: 24, textAlign: 'center', color: '#e6edf3', fontFamily: 'sans-serif' }}>
-        <p style={{ color: '#8b97a7' }}>Couldn’t load the lexicon. Check your connection and reload.</p>
+      <div role="alert" style={{ display: 'grid', placeItems: 'center', alignContent: 'center', gap: 4, height: '100dvh', padding: 24, textAlign: 'center', color: 'var(--color-txt)', fontFamily: 'var(--font-sans)' }}>
+        <p style={{ margin: 0, fontWeight: 600 }}>Couldn’t load the lexicon.</p>
+        <p style={{ margin: 0, color: 'var(--color-dim)' }}>Check your connection and reload. Your progress is still on this device.</p>
         <button onClick={() => location.reload()}
-          style={{ marginTop: 16, padding: '10px 18px', borderRadius: 999, border: 0, fontWeight: 700, cursor: 'pointer' }}>
+          style={{ ...btn, border: 0, background: 'var(--color-accent)', color: 'var(--color-bg)' }}>
           Reload
+        </button>
+        <button onClick={() => { void import('./lib/build.ts').then((m) => m.updateNow()); }}
+          style={{ ...btn, border: '1px solid var(--color-line)', background: 'transparent', color: 'var(--color-txt)' }}>
+          Reload without the cache
         </button>
       </div>,
     );
   });
+
+// A lazy chunk of this build that the server no longer has — see lib/chunkReload.ts.
+// Only the reload decision lives there; `preventDefault` tells Vite not to rethrow,
+// because the page is about to be replaced. When the answer is no, the error
+// reaches the view's ErrorBoundary as before.
+window.addEventListener('vite:preloadError', (event) => {
+  const reload = shouldReloadForChunk({
+    now: Date.now(),
+    online: navigator.onLine !== false,
+    storage: (() => { try { return sessionStorage; } catch { return null; } })(),
+  });
+  if (!reload) return;
+  event.preventDefault();
+  location.reload();
+});
 
 // Register the service worker for offline use (production only).
 if ('serviceWorker' in navigator && import.meta.env.PROD) {

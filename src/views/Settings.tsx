@@ -5,7 +5,8 @@
 import { useState, useRef, type ChangeEvent } from 'react';
 import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, CalendarClock, List, Layers, RefreshCw, Info, History, ArrowLeft } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { hdVoice, setHdVoice, retention, setRetentionTarget, exportData, importData, textScale, setTextScale, sound, setSound, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
+import { hdVoice, setHdVoice, retention, setRetentionTarget, importData, textScale, setTextScale, sound, setSound, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
+import { downloadBackup } from '../lib/backup.ts';
 import { MODE_TAG, MODES, type Mode } from './drills.tsx';
 import { WORDS } from '../data/index.ts';
 import { useStore } from '../useStore.ts';
@@ -87,14 +88,8 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
   const fileRef = useRef<HTMLInputElement>(null);
   const [restoreErr, setRestoreErr] = useState('');
-  const doExport = () => {
-    const blob = new Blob([exportData()], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = `lexi-backup-${new Date().toISOString().slice(0, 10)}.json`;
-    document.body.appendChild(a); a.click(); a.remove();
-    URL.revokeObjectURL(url);
-  };
+  // lib/backup.ts: the same download, now carrying the review ledger too.
+  const doExport = () => { void downloadBackup(); };
   const onRestoreFile = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     e.target.value = ''; // let the same file be picked again later

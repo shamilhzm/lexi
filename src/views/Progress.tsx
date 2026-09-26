@@ -34,6 +34,7 @@ import PathCard from '../components/PathCard.tsx';
 import Karte from './Karte.tsx';
 import Stats from './Stats.tsx';
 import BlindSpotList from '../components/BlindSpotList.tsx';
+import DurabilityNote from '../components/DurabilityNote.tsx';
 import CountUp from '../components/CountUp.tsx';
 import WordSky from '../components/WordSky.tsx';
 import { BandRow, Section } from '../components/ui/Band.tsx';
@@ -115,6 +116,9 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
       <Section title="Blind spots" id="blind-heading">
         <BlindSpotList onDrill={onDrill} />
       </Section>
+
+      {/* Whether this device will keep all of the above — the only copy there is. */}
+      <DurabilityNote />
 
       {/* Every "you are thin here" on this page ends in the same question:
           thin in *what*? The answer is a deck, and decks are on Words. */}
