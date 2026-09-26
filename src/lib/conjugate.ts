@@ -489,6 +489,21 @@ const AUX_OVERRIDE: Record<string, Aux> = {
   umziehen: 'sein', umsteigen: 'sein', aussteigen: 'sein', einsteigen: 'sein',
   entstehen: 'sein', erscheinen: 'sein', verschwinden: 'sein',
   bekommen: 'haben', gehören: 'haben', verstehen: 'haben', bestehen: 'haben',
+  // Weak verbs of motion and change of state. The regular generator defaults to
+  // *haben* and still reports `reliable: true`, so *ich habe gereist* and *es hat
+  // passiert* were what any Perfekt surface would have printed (panel review,
+  // 2026-09-25). Only verbs whose standard Perfekt is *sein* in the sense the card
+  // teaches; the ones Duden gives both ways (*joggen, rudern, segeln, surfen,
+  // starten*) are left on *haben* rather than guessed.
+  reisen: 'sein', verreisen: 'sein', passieren: 'sein', begegnen: 'sein', folgen: 'sein',
+  landen: 'sein', wandern: 'sein', klettern: 'sein', scheitern: 'sein', stolpern: 'sein',
+  stürzen: 'sein', rutschen: 'sein', hüpfen: 'sein', eilen: 'sein', flüchten: 'sein',
+  erwachen: 'sein', altern: 'sein', erkranken: 'sein', verunglücken: 'sein',
+  verhungern: 'sein', explodieren: 'sein', marschieren: 'sein', zurückkehren: 'sein',
+  // Strong verbs whose prefix changes the base's auxiliary (treten/biegen take
+  // haben in the table; stepping *in*, turning *off* and moving *in* are motion).
+  eintreten: 'sein', beitreten: 'sein', austreten: 'sein', zurücktreten: 'sein',
+  abbiegen: 'sein', einziehen: 'sein', ausziehen: 'sein', ertrinken: 'sein', aufbrechen: 'sein',
 };
 
 function moveToEnd(form: string, prefix: string): string { return `${form} ${prefix}`; }

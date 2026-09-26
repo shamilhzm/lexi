@@ -22,7 +22,7 @@
 import { writeFileSync } from 'node:fs';
 import { PATHS } from '../corpus/config.ts';
 import { loadCorpus, lookupLemma } from '../corpus/lib.ts';
-import { wikitext, parseFacts } from './verify.ts';
+import { wikitext, parseFacts, taughtPlurals } from './verify.ts';
 import type { Word } from '../../src/types.ts';
 
 // `indexOf` returns -1 for an absent flag, and argv[0] is the node binary — so the
@@ -66,8 +66,11 @@ for (const w of todo) {
   // A country never takes a plural, whatever wiktionary lists. «die Schweizen» is
   // a rare regional form of another sense and was proposed for — and applied to —
   // the country card on 2026-08-25, because that batch was written without being
-  // read. The sector settles it without judgement.
-  if (w.field === 'Countries') {
+  // read. The sector settles it without judgement — **but only for a country.**
+  // The sector also holds *der Pole* and *die Ranch*, and on 2026-09-25 this branch
+  // proposed «nur Singular» for both (die Polen, die Ranches). The page says which:
+  // a country is a `Toponym`, a Pole is a `Substantiv`.
+  if (w.field === 'Countries' && (facts.pos.has('Toponym') || !facts.pos.has('Substantiv'))) {
     rows.push({ id: w.id, expect: { plural: (w.plural ?? null) as string | null }, plural: 'nur Singular',
       src: 'A country name has no plural.' });
     singulare++;
@@ -84,19 +87,37 @@ for (const w of todo) {
     unresolved.push(`${w.id} — card is "${w.gender}" but the page attests ${[...facts.genders].join('/')} — different word`);
     continue;
   }
-  if (facts.genders.size > 1) {
-    unresolved.push(`${w.id} — the page covers ${[...facts.genders].join('/')}; its plural may belong to the other one`);
+  // A page covering two genders used to be refused outright (31 nouns, including
+  // *die Vokabel*, whose page also carries the Austrian *das Vokabel*). It no longer
+  // needs to be: `taughtPlurals` reads only the section, or the numbered column,
+  // of the card's own gender, and says so when it cannot tell them apart.
+  //
+  // Two plurals used to be refused outright too — "they mean different things" —
+  // which is true of *Wörter/Worte* and false of *Pizzas/Pizzen*, and the refusal
+  // took 105 nouns out of the plural drill. `taughtPlurals` separates the two
+  // cases (homograph sections, sense-bound plurals, qualified variants) and
+  // reports only the ones that really need a ruling.
+  const taught = taughtPlurals(wt, w.gender as 'der' | 'die' | 'das' | null);
+  if (taught.unsure) {
+    unresolved.push(`${w.id} — ${facts.plurals.join(' / ')}: ${taught.unsure} — needs a ruling`);
+    continue;
+  }
+  if (facts.plurals.length && !taught.forms.length) {
+    unresolved.push(`${w.id} — the page's plurals (${facts.plurals.join(' / ')}) belong to another gender or are all qualified — needs a ruling`);
+    continue;
+  }
+  if (taught.forms.length > 1) {
+    if (abstract) {
+      unresolved.push(`${w.id} — abstract noun with attested plurals "${taught.forms.join(' / ')}" — needs a ruling on whether a learner should meet it`);
+      continue;
+    }
+    rows.push({ id: w.id, expect: { plural: null }, plural: taught.forms.map((f) => `die ${f}`).join(' / '), src });
+    attested++;
     continue;
   }
 
-  if (facts.plurals.length) {
-    // The first listed form. Where wiktionary lists two (die Wörter / die Worte)
-    // they mean different things and a human must choose, so those are reported.
-    if (facts.plurals.length > 1) {
-      unresolved.push(`${w.id} — wiktionary lists ${facts.plurals.length}: ${facts.plurals.join(' / ')} — needs a ruling`);
-      continue;
-    }
-    const form = facts.plurals[0].trim();
+  if (taught.forms.length) {
+    const form = taught.forms[0].trim();
     // The parser strips an em-dash but not an en-dash, and `die –` would have
     // shipped as a plural. Anything that is not a word is not a plural.
     if (!/^\p{L}/u.test(form)) {
@@ -145,7 +166,8 @@ const CLASSES: [RegExp, string][] = [
   [/no de\.wiktionary entry/, 'no entry in the source — needs authoring by hand'],
   [/needs a ruling on whether a learner should meet it/, 'attested plural, but misleading for a learner — pedagogic ruling'],
   [/states no plural either way/, 'entry is silent — probably "nur Singular", unconfirmed'],
-  [/wiktionary lists \d+:/, 'several attested plurals that mean different things — ruling'],
+  [/binds its plurals to different senses|homographs on one page disagree/, 'plurals tied to senses or homographs — ruling'],
+  [/belong to another gender or are all qualified/, "attested plurals are another gender's, or all qualified — ruling"],
   [/not a form/, "plural field is a dash, not a word"],
   [/different word|belong to the other one/, 'the page covers another gender — cannot be trusted'],
   [/unreachable/, 'network'],

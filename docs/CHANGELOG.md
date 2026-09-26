@@ -11,6 +11,51 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-25 — Panel review
+
+**Germanist (01) — recall grading, several plurals, the sein-auxiliary.**
+
+- **Recall accepts correct German** (`views/drills.tsx`). It accepted only
+  `word.term`, and 66 recall-eligible headwords carry a dictionary's notation rather
+  than German, so *verzichten auf* was marked wrong for `verzichten auf + A`, and
+  *der Bekannte* was marked wrong for `der/die Bekannte`. `recallAnswers` strips the
+  government marker and the sense label and splits two-gender nouns, and the
+  written form stays first on the miss screen. `recallSynonyms` accepts a card the
+  syn relation names, of the same part of speech, with the note *Also right. This
+  card is …*: the gloss gate proves no other card shares the *gloss*, which is not
+  the same as no other card being right. `reflexiveMiss` names a missing *sich* the
+  way `articleMiss` names an article, and sentence punctuation no longer counts as a
+  typo.
+- **A noun can state several plurals**, `die Pizzas / die Pizzen`. The plural drill
+  asks for the first and never offers another as a distractor. `matcher.pluralForms`
+  indexes every form, in the matcher, the surface index and the cloze.
+- **The gate stores them** (`verify.ts`, `taughtPlurals`). Where de.wiktionary
+  listed two plurals, the gate left the field empty, which took exactly the plurals
+  worth teaching out of the drill. It now reads the page the way a learner's
+  dictionary prints the entry:
+  - only the section for the card's gender;
+  - only the forms the Worttrennung line gives unqualified;
+  - minus any plural an Anmerkung restricts;
+  - and no answer at all when a sense line binds a plural or two homograph
+    sections disagree (*Stare/Stars*).
+
+  `fetch-plurals`' Countries shortcut now needs a Toponym page, because it had
+  proposed *nur Singular* for *der Pole* and *die Ranch*.
+- **Every plural-less noun is resolved** (`plural-lookup-07`, 299 rows): 87 get one
+  plural, 44 get several, and 168 are *nur Singular*. 77 rows carry a ruling in
+  `src`, for one of two reasons. A variant that is rare, regional, or reads as
+  another word is not taught (*Hecke*, *Tablette*). A sense-bound page is resolved
+  from the card's gloss (*der Star → die Stars*, *der Ton → die Töne*).
+  `corpus:validate`'s noun-without-plural warnings went 299 → 0. Three new form
+  collisions were ruled keep: *Polen*, *die Akte*, *die Zinsen*.
+- **Perfekt auxiliary** (`conjugate.ts`). The weak generator gave every regular verb
+  *haben* while flagged reliable, so *hat gereist* and *hat passiert* were what any
+  Perfekt surface would have taught. 32 verbs of motion or change of state are now
+  *sein*. Verbs Duden gives both ways (*joggen, surfen, starten*) stay on *haben*
+  rather than being guessed. The long-tail test's *abbiegen → haben* was corrected.
+- **Not done:** the Stammformen and Rektion drills and the degree/cloze redraw from
+  the panel critique. All of them build on these.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they

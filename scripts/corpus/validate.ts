@@ -16,7 +16,7 @@ import { ALLOWED_POS } from './config.ts';
 import { loadCorpus, loadSectors, primeApp, readJSON, fileExists, stripArticle, lemmaKey, ARCHAIC_SPELLING, isGermanDefinition, isEnglishInGermanField, headwordEvidence, exampleKey, PREMODERN_TYPOGRAPHY, tenseItemDefect, LEVELS, type Word } from './lib.ts';
 import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
 import { parseRulings } from '../authoring/verify.ts';
-import type { Matcher } from '../../src/lib/matcher.ts';
+import { pluralForm, type Matcher } from '../../src/lib/matcher.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
 
 const mulberry32 = (seed: number) => () => {
@@ -318,7 +318,9 @@ async function probe(matcher: Matcher, full: Word[]) {
   // Only probe real plural forms ("die Spiele"), not the placeholder notes some
   // existing cards carry ("nur Singular"/"nur Plural").
   const nouns = sample(words.filter((w) => w.pos === 'noun' && w.plural && /^die\s/i.test(w.plural)), 200, mulberry32(seeds.noun));
-  const nounRes = run(nouns, (w) => stripArticle(w.plural!));
+  // The first form of a multi-plural (`die Pizzas / die Pizzen`), never the raw
+  // field — the same sample, so the seeded draws do not shift.
+  const nounRes = run(nouns, (w) => pluralForm(w.term, w.plural) ?? stripArticle(w.plural!));
   const adjs = sample(words.filter((w) => w.pos === 'adjective'), 200, mulberry32(seeds.adj));
   const adjRes = run(adjs, (w) => stripArticle(w.term).toLowerCase() + 'e');
 

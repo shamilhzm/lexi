@@ -38,7 +38,7 @@ import { ArrowLeft, CircleDot, Layers3, PenLine, Venus, Mars, Check, X } from 'l
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { conjugate, canConjugate } from '../lib/conjugate.ts';
-import { pluralForm } from '../lib/matcher.ts';
+import { pluralForms } from '../lib/matcher.ts';
 import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
@@ -76,6 +76,12 @@ const canon = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
  *  supportively rather than graded wrong. */
 const norm = (s: string) => canon(s)
   .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+/** Sentence punctuation is not the German being tested. *Wie bitte?* typed as
+ *  «wie bitte», *Es war einmal …* as «es war einmal», were both one or more edits
+ *  away and graded as typos or misses. */
+const unpunct = (s: string) => s.replace(/(?:\.\.\.|[.!?…])+\s*$/u, '').replace(/\s*…\s*/gu, ' ');
+/** What a typed answer is graded on: case-, spacing-, umlaut- and punctuation-blind. */
+const answerKey = (s: string) => norm(unpunct(s));
 
 function shuffle<T>(a: T[]): T[] {
   const b = [...a];
@@ -118,10 +124,10 @@ function editDistance1(a: string, b: string): boolean {
  *  recognises inflections and not only headwords. The learner is still told,
  *  because an error forgiven silently is how it sets. */
 export function isTypoFor(typed: string, accept: string[]): boolean {
-  const t = norm(typed);
+  const t = answerKey(typed);
   if (t.length < 4) return false;                 // too short for one edit to be evidence
   if (lookupSurface(typed.trim())) return false;  // a real word is a real answer
-  return accept.some((a) => editDistance1(t, norm(a)));
+  return accept.some((a) => editDistance1(t, answerKey(a)));
 }
 
 /** Name the spelling that drifted on a near miss.
@@ -164,11 +170,20 @@ export function hintText(answer: string, level: number): string {
 
 // ---- eligibility ----------------------------------------------------------
 
+/** Every plural the card states, each a full „die …“ form. Several when the noun
+ *  has several standard ones — `die Pizzas / die Pizzen`, `die Fachleute / die
+ *  Fachmänner` — which the gate has stored whole since 2026-09-25. */
+export function pluralsOf(w: Word): string[] {
+  return (w.plural ?? '').split(/\s+\/\s+/).map((p) => p.trim())
+    .filter((p) => /^(der|die|das)\s+[A-Za-zÄÖÜäöüß]/.test(p));
+}
+
 /** A plural the drill may ask for: a full „die …“ form, never a marker or a
- *  shorthand. */
+ *  shorthand — and one form, the first, where the card states several. The
+ *  others are never offered as distractors (`PluralItem`), so the learner who
+ *  knows *Pizzen* is not marked wrong by an item whose answer is *Pizzas*. */
 export function askablePlural(w: Word): string | null {
-  const p = (w.plural ?? '').trim();
-  return /^(der|die|das)\s+[A-Za-zÄÖÜäöüß]/.test(p) ? p : null;
+  return pluralsOf(w)[0] ?? null;
 }
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -279,12 +294,63 @@ export function articleMiss(typed: string, w: Word): string | null {
  *  different problem from one who has neither. The article is never given away —
  *  "feminine" still requires knowing that feminine means *die*. */
 export function recallHints(w: Word): string[] {
-  const bare = stripArticle(w.term);
+  // The notation-free form: a hint counting the letters of «verzichten auf + A»
+  // counts three characters nobody is meant to type.
+  const bare = stripArticle(recallAnswers(w).at(-1) ?? w.term);
   const GENDER_WORD: Record<string, string> = { der: 'masculine', die: 'feminine', das: 'neuter' };
   const first = w.gender
     ? `${GENDER_WORD[w.gender]} · ${bare.length} letters`
     : `${w.pos || 'word'} · ${bare.length} letters`;
   return [first, `starts with “${bare[0]}”`, `“${bare.slice(0, Math.ceil(bare.length / 2))}…”`];
+}
+
+// ---- what recall accepts -----------------------------------------------------
+//
+// **Recall marked correct German wrong, and the gate could not see it.** Only
+// `word.term` was accepted, and 66 recall-eligible headwords carry a dictionary's
+// notation rather than German: `verzichten auf + A`, `der/die Bekannte`,
+// `ansprechen (Person)`. Typing *verzichten auf* was four edits away — a miss.
+// And `recallSafe` guarantees no other card shares the *gloss*, which is not the
+// same as no other card being a right answer: 672 recall-eligible cards name, in
+// their own `syn` field, another card of the same part of speech (panel review,
+// 2026-09-25) — *to close* is `schließen`, and *zumachen* is not wrong.
+
+/** The headword as the corpus writes it, then every form a learner could type
+ *  that means exactly that: the government marker and the sense label stripped,
+ *  a two-gender noun split into both. The written form stays first — it is what
+ *  the miss screen shows, notation and all, because `+ A` is worth seeing. */
+export function recallAnswers(w: Word): string[] {
+  const out = [w.term];
+  const plain = w.term
+    .replace(/\s*\([^)]*\)/gu, '')                 // ansprechen (Person)
+    .replace(/\s*\+\s*[ADG](?![\p{L}])/gu, '')     // verzichten auf + A, dank + G
+    .replace(/\s+/g, ' ').trim();
+  const two = /^(der|die|das)\/(der|die|das)\s+(.+)$/.exec(plain);  // der/die Bekannte
+  for (const f of two ? [`${two[1]} ${two[3]}`, `${two[2]} ${two[3]}`] : [plain]) {
+    if (f && !out.includes(f)) out.push(f);
+  }
+  return out;
+}
+
+/** Cards the syn relation says mean this one, in either direction and of the same
+ *  part of speech — their own answers, article and all, because a synonym noun
+ *  brings its own gender. */
+export function recallSynonyms(w: Word): Word[] {
+  const mine = synKeys(w);
+  const self = canon(stripArticle(w.term));
+  return WORDS.filter((c) => c.kind === 'word' && c.id !== w.id && c.pos === w.pos
+    && canon(stripArticle(c.term)) !== self
+    && (mine.has(canon(stripArticle(c.term))) || synKeys(c).has(self)));
+}
+
+/** Right verb, no *sich*. Graded wrong for the reason `articleMiss` is: the
+ *  reflexive is part of the word (*sich freuen* and *freuen* are different
+ *  verbs), but the learner is told which part was missing. */
+export function reflexiveMiss(typed: string, w: Word): string | null {
+  const full = recallAnswers(w).at(-1) ?? w.term;
+  if (!/^sich\s/.test(full)) return null;
+  return answerKey(typed) === answerKey(full.replace(/^sich\s+/, ''))
+    ? `The verb is right — German needs the reflexive: ${full}.` : null;
 }
 
 // ---- pools (lazy, level-filtered at use) ----------------------------------
@@ -569,10 +635,13 @@ export function PluralItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const mc = useMemo(() => {
     // Near-miss plurals of the *same* noun, so every option is a `die …` form of
     // the word being asked about — there is no shape to pick the answer on.
-    let distract = pickN(pluralVariants(singular), 3, new Set([norm(stripArticle(correct))])).map((n) => `die ${n}`);
+    // Every form the card attests is excluded, not only the one being asked:
+    // `pluralVariants` of *Pizza* builds «Pizzen», which is also right.
+    const attested = pluralsOf(word);
+    let distract = pickN(pluralVariants(singular), 3, new Set(attested.map((p) => norm(stripArticle(p))))).map((n) => `die ${n}`);
     if (distract.length < 3) {
       const pad = pluralPool().filter((w) => w.id !== word.id).map((w) => askablePlural(w)!);
-      distract = distract.concat(pickN(pad, 3 - distract.length, new Set([norm(correct), ...distract.map(norm)])));
+      distract = distract.concat(pickN(pad, 3 - distract.length, new Set([...attested.map(norm), ...distract.map(norm)])));
     }
     return buildMC(correct, distract);
   }, [word.id]);
@@ -698,14 +767,20 @@ const GLOSS_STOP = new Set([
  *  silently forgiven. The card's own example is withheld until after the answer,
  *  because it contains the target. */
 export function RecallItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
-  const ex = useMemo(() => ({
-    prompt: word.en,
-    // Only the canonical form is accepted. The pool gate guarantees no *other*
-    // card answers this gloss, so no correct German is being marked wrong.
-    accept: [word.term],
-    hints: recallHints(word),
-    explain: word.ex[0]?.de ? `${word.ex[0].de} — ${word.ex[0].en}` : undefined,
-  }), [word.id]);
+  const { ex, synonyms } = useMemo(() => {
+    const syns = recallSynonyms(word);
+    return {
+      synonyms: new Set(syns.flatMap(recallAnswers).map(answerKey)),
+      ex: {
+        prompt: word.en,
+        // The card's own forms first (the first is what a miss shows), then every
+        // card the corpus says means the same. See `recallAnswers`.
+        accept: [...recallAnswers(word), ...syns.flatMap(recallAnswers)],
+        hints: recallHints(word),
+        explain: word.ex[0]?.de ? `${word.ex[0].de} — ${word.ex[0].en}` : undefined,
+      },
+    };
+  }, [word.id]);
 
   return (
     <>
@@ -713,7 +788,9 @@ export function RecallItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
         {word.gender ? 'Type the German — with its article' : 'Type the German'}
       </p>
       <TypeItem ex={ex} onGrade={onGrade} promptLang="en"
-        noteFor={(typed, ok) => (ok ? undefined : articleMiss(typed, word) ?? undefined)} />
+        noteFor={(typed, ok) => ok
+          ? (synonyms.has(answerKey(typed)) ? `Also right. This card is ${word.term}.` : undefined)
+          : articleMiss(typed, word) ?? reflexiveMiss(typed, word) ?? undefined} />
     </>
   );
 }
@@ -794,8 +871,7 @@ export function clozeParts(word: Word, forms: string[]): { before: string; blank
       }
     } catch { /* the bare form is still in the set */ }
   } else if (word.pos === 'noun') {
-    const pl = pluralForm(word.term, word.plural);
-    if (pl) known.add(stripArticle(pl).toLowerCase());
+    for (const pl of pluralForms(word.term, word.plural)) known.add(stripArticle(pl).toLowerCase());
   }
   // A German noun is always capitalised, so a lowercase token cannot be one —
   // the orthographic rule the authoring gate already leans on.
@@ -949,27 +1025,35 @@ export function TypeItem({ ex, onGrade, promptLang = 'de', noteFor }: {
   const [hint, setHint] = useState(0);     // 0 = none, 1..n = ladder
   const ref = useRef<HTMLInputElement>(null);
   useEffect(() => { ref.current?.focus(); }, []);
-  const accepts = useMemo(() => new Set(ex.accept.map(norm)), [ex]);
+  const accepts = useMemo(() => new Set(ex.accept.map(answerKey)), [ex]);
   const canonical = ex.accept[0] ?? '';
+  // Which accepted form the attempt matched — a synonym's spelling note names the
+  // synonym, not the card's headword.
+  const [hit, setHit] = useState(canonical);
   const rung = (n: number) => ex.hints?.[n - 1] ?? hintText(canonical, n);
   const rungs = ex.hints?.length ?? 3;
   const submit = () => {
     if (result !== null) return;
-    const exact = accepts.has(norm(val));
+    const exact = accepts.has(answerKey(val));
     const typo = !exact && isTypoFor(val, ex.accept);
     const ok = exact || typo;
-    setNear(ok && !ex.accept.some((a) => canon(a) === canon(val)));
+    const matched = ex.accept.find((a) => answerKey(a) === answerKey(val))
+      ?? ex.accept.find((a) => isTypoFor(val, [a])) ?? canonical;
+    setHit(matched);
+    setNear(ok && !ex.accept.some((a) => canon(unpunct(a)) === canon(unpunct(val))));
     setResult(ok);
   };
-  const note = near
-    ? spellingDiff(val, canonical)
-      ? `Right — just the spelling: ${canonical} (${spellingDiff(val, canonical)})`
+  const nearNote = near
+    ? spellingDiff(val, hit)
+      ? `Right — just the spelling: ${hit} (${spellingDiff(val, hit)})`
       // A typo and an umlaut fold are both near misses and are not the same
       // lesson: one is a slipped finger, the other is a spelling the learner may
       // believe is correct. Naming which is the whole point.
-      : `Right — just a typo: ${canonical}`
-    // The caller's note only gets a say when there is no near miss to report.
-    : noteFor?.(val, result ?? false);
+      : `Right — just a typo: ${hit}`
+    : undefined;
+  // Both can be true at once — a synonym typed with "ae" is a spelling lesson
+  // *and* a different word from the card's — so both are said.
+  const note = [nearNote, noteFor?.(val, result ?? false)].filter(Boolean).join(' ') || undefined;
 
   return (
     <Card>

@@ -1,0 +1,2394 @@
+[
+  {
+    "id": "voc:B1:die Saison",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Saisons",
+    "src": "de.wiktionary.org/wiki/Saison — ruling 2026-09-25 (panel): Saisonen is Austrian"
+  },
+  {
+    "id": "voc:A2:das Tor",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Tore",
+    "src": "de.wiktionary.org/wiki/Tor"
+  },
+  {
+    "id": "voc:A2:der Dollar",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Dollars / die Dollar",
+    "src": "de.wiktionary.org/wiki/Dollar — ruling 2026-09-25 (panel): Dollar is the form after numerals"
+  },
+  {
+    "id": "voc:C1:der Ausbau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ausbauten",
+    "src": "de.wiktionary.org/wiki/Ausbau — ruling 2026-09-25 (panel): Ausbaue is rare"
+  },
+  {
+    "id": "voc:A2:das Gold",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gold"
+  },
+  {
+    "id": "voc:B2:das Wachstum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wachstum"
+  },
+  {
+    "id": "voc:A1:der LKW",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die LKWs",
+    "src": "de.wiktionary.org/wiki/LKW"
+  },
+  {
+    "id": "voc:C1:der Wasserstoff",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wasserstoff"
+  },
+  {
+    "id": "voc:C1:die Justiz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Justiz"
+  },
+  {
+    "id": "voc:B2:der Tourismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Tourismus"
+  },
+  {
+    "id": "voc:C1:der Ruhestand",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ruhestand"
+  },
+  {
+    "id": "voc:B2:der Schock",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schocks",
+    "src": "de.wiktionary.org/wiki/Schock — ruling 2026-09-25 (panel): Schocke is rare"
+  },
+  {
+    "id": "voc:C1:der Analyst",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Analysten",
+    "src": "de.wiktionary.org/wiki/Analyst — ruling 2026-09-25 (panel): Analysts is an English-inflected variant"
+  },
+  {
+    "id": "voc:A2:der Sand",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sand — ruling 2026-09-25 (panel): a mass noun in general use; Sande is technical (kinds of sand)"
+  },
+  {
+    "id": "voc:A2:das Loch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Löcher",
+    "src": "de.wiktionary.org/wiki/Loch"
+  },
+  {
+    "id": "voc:B1:der Tunnel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Tunnel / die Tunnels",
+    "src": "de.wiktionary.org/wiki/Tunnel"
+  },
+  {
+    "id": "voc:C1:der Unmut",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Unmut"
+  },
+  {
+    "id": "voc:B2:der Südwesten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Südwesten"
+  },
+  {
+    "id": "voc:C1:das Achtelfinale",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Achtelfinale / die Achtelfinals",
+    "src": "de.wiktionary.org/wiki/Achtelfinale"
+  },
+  {
+    "id": "voc:C1:der Hinblick",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Hinblick"
+  },
+  {
+    "id": "voc:C1:der Frust",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Frust"
+  },
+  {
+    "id": "voc:C1:die Menschheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Menschheit"
+  },
+  {
+    "id": "voc:C1:der Index",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Indizes / die Indexe",
+    "src": "de.wiktionary.org/wiki/Index"
+  },
+  {
+    "id": "voc:C1:das Regime",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Regime / die Regimes",
+    "src": "de.wiktionary.org/wiki/Regime"
+  },
+  {
+    "id": "voc:C1:die Kreativität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kreativität"
+  },
+  {
+    "id": "voc:B1:der Sonnenschein",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sonnenschein"
+  },
+  {
+    "id": "voc:C1:der Jubel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Jubel"
+  },
+  {
+    "id": "voc:C1:die Flexibilität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Flexibilität"
+  },
+  {
+    "id": "voc:B2:der Campus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Campus / die Campusse",
+    "src": "de.wiktionary.org/wiki/Campus"
+  },
+  {
+    "id": "voc:C1:das Volumen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Volumen / die Volumina",
+    "src": "de.wiktionary.org/wiki/Volumen"
+  },
+  {
+    "id": "voc:C1:die Beliebtheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Beliebtheit"
+  },
+  {
+    "id": "voc:C1:die Kriminalität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kriminalität"
+  },
+  {
+    "id": "voc:C1:der Terror",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Terror"
+  },
+  {
+    "id": "voc:C1:der Herzog",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Herzöge",
+    "src": "de.wiktionary.org/wiki/Herzog"
+  },
+  {
+    "id": "voc:B2:der Verlag",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Verlage",
+    "src": "de.wiktionary.org/wiki/Verlag — ruling 2026-09-25 (panel): Verläge is regional"
+  },
+  {
+    "id": "voc:C1:der Rundfunk",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rundfunk"
+  },
+  {
+    "id": "voc:B1:das Elterngeld",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Elterngeld"
+  },
+  {
+    "id": "voc:A2:der Fall",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Fälle",
+    "src": "de.wiktionary.org/wiki/Fall"
+  },
+  {
+    "id": "voc:B1:der Atem",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Atem"
+  },
+  {
+    "id": "voc:C1:die Güte",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Güte"
+  },
+  {
+    "id": "voc:B2:die Erziehung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Erziehung"
+  },
+  {
+    "id": "voc:B2:das All",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/All"
+  },
+  {
+    "id": "voc:B2:der Nachwuchs",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Nachwuchs"
+  },
+  {
+    "id": "voc:B1:das Zuhause",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zuhause"
+  },
+  {
+    "id": "voc:B2:der Scheck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schecks",
+    "src": "de.wiktionary.org/wiki/Scheck"
+  },
+  {
+    "id": "voc:B1:das Silber",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Silber"
+  },
+  {
+    "id": "voc:B1:der Dschungel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Dschungel",
+    "src": "de.wiktionary.org/wiki/Dschungel"
+  },
+  {
+    "id": "voc:B2:die Echtzeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Echtzeit"
+  },
+  {
+    "id": "voc:C1:der Gehorsam",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gehorsam"
+  },
+  {
+    "id": "voc:A2:die Ananas",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ananas / die Ananasse",
+    "src": "de.wiktionary.org/wiki/Ananas"
+  },
+  {
+    "id": "voc:C1:die Dekarbonisierung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Dekarbonisierung"
+  },
+  {
+    "id": "voc:A2:das Nomen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Nomen / die Nomina",
+    "src": "de.wiktionary.org/wiki/Nomen — ruling 2026-09-25 (panel): Nomen is the school form"
+  },
+  {
+    "id": "voc:C1:das Outsourcing",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Outsourcing"
+  },
+  {
+    "id": "voc:C1:das Bankwesen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Bankwesen"
+  },
+  {
+    "id": "voc:A2:das Adverb",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Adverbien",
+    "src": "de.wiktionary.org/wiki/Adverb — ruling 2026-09-25 (panel): Adverben is rare"
+  },
+  {
+    "id": "voc:A1:die Pizza",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Pizzas / die Pizzen",
+    "src": "de.wiktionary.org/wiki/Pizza"
+  },
+  {
+    "id": "voc:B2:das Model",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Models",
+    "src": "de.wiktionary.org/wiki/Model"
+  },
+  {
+    "id": "voc:B2:die Vielzahl",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vielzahl"
+  },
+  {
+    "id": "voc:B1:das Level",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Level",
+    "src": "de.wiktionary.org/wiki/Level"
+  },
+  {
+    "id": "voc:B2:die Stabilität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Stabilität"
+  },
+  {
+    "id": "voc:B2:das Limit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Limits",
+    "src": "de.wiktionary.org/wiki/Limit — ruling 2026-09-25 (panel): Limite is Swiss"
+  },
+  {
+    "id": "voc:C1:das Modul",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Module",
+    "src": "de.wiktionary.org/wiki/Modul"
+  },
+  {
+    "id": "voc:C1:die Schaffung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schaffung"
+  },
+  {
+    "id": "voc:B2:die Offenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Offenheit"
+  },
+  {
+    "id": "voc:B1:der Pole",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Polen",
+    "src": "de.wiktionary.org/wiki/Pole"
+  },
+  {
+    "id": "voc:B2:das Cover",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Cover / die Covers",
+    "src": "de.wiktionary.org/wiki/Cover"
+  },
+  {
+    "id": "voc:A2:die Pasta",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Pastas",
+    "src": "de.wiktionary.org/wiki/Pasta — ruling 2026-09-25 (panel): Pasten is the plural of the other sense (paste)"
+  },
+  {
+    "id": "voc:B2:das Know-how",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Know-how"
+  },
+  {
+    "id": "voc:B2:der Mehrwert",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mehrwert"
+  },
+  {
+    "id": "voc:A2:das Alphabet",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Alphabete",
+    "src": "de.wiktionary.org/wiki/Alphabet"
+  },
+  {
+    "id": "voc:C1:das Mineral",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Mineralien / die Minerale",
+    "src": "de.wiktionary.org/wiki/Mineral — ruling 2026-09-25 (panel): Mineralien is the everyday form"
+  },
+  {
+    "id": "voc:B2:der Nationalsozialismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Nationalsozialismus"
+  },
+  {
+    "id": "voc:C1:die Wirksamkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wirksamkeit"
+  },
+  {
+    "id": "voc:B2:das Wirtschaftswachstum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wirtschaftswachstum"
+  },
+  {
+    "id": "voc:C1:die Diversität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Diversität"
+  },
+  {
+    "id": "voc:B2:das Inland",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Inland"
+  },
+  {
+    "id": "voc:C1:die Geltung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Geltung"
+  },
+  {
+    "id": "voc:C1:die Barrierefreiheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Barrierefreiheit"
+  },
+  {
+    "id": "voc:B2:der Newsletter",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Newsletter / die Newsletters",
+    "src": "de.wiktionary.org/wiki/Newsletter — ruling 2026-09-25 (panel): the German zero plural is standard"
+  },
+  {
+    "id": "voc:B1:der Versand",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Versand"
+  },
+  {
+    "id": "voc:C1:die Fairness",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Fairness"
+  },
+  {
+    "id": "voc:C1:die Courage",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Courage"
+  },
+  {
+    "id": "voc:C1:der Schadensersatz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schadensersatz"
+  },
+  {
+    "id": "voc:B1:das Lexikon",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Lexika / die Lexiken",
+    "src": "de.wiktionary.org/wiki/Lexikon"
+  },
+  {
+    "id": "voc:B2:der Mobilfunk",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mobilfunk"
+  },
+  {
+    "id": "voc:B1:das Synonym",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Synonyme",
+    "src": "de.wiktionary.org/wiki/Synonym"
+  },
+  {
+    "id": "voc:C1:das Privateigentum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Privateigentum"
+  },
+  {
+    "id": "voc:C1:das Messing",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Messing"
+  },
+  {
+    "id": "voc:C1:der Goldstandard",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Goldstandard"
+  },
+  {
+    "id": "voc:C1:der Neoliberalismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Neoliberalismus"
+  },
+  {
+    "id": "voc:C1:der Föderalismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Föderalismus"
+  },
+  {
+    "id": "voc:C1:der Liberalismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Liberalismus"
+  },
+  {
+    "id": "voc:A2:das Pronomen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Pronomen / die Pronomina",
+    "src": "de.wiktionary.org/wiki/Pronomen"
+  },
+  {
+    "id": "voc:B1:der Fachmann",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Fachleute / die Fachmänner",
+    "src": "de.wiktionary.org/wiki/Fachmann"
+  },
+  {
+    "id": "voc:C1:das Aufsehen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Aufsehen"
+  },
+  {
+    "id": "voc:B2:der Marsch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Märsche",
+    "src": "de.wiktionary.org/wiki/Marsch"
+  },
+  {
+    "id": "voc:B1:der Monitor",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Monitore / die Monitoren",
+    "src": "de.wiktionary.org/wiki/Monitor"
+  },
+  {
+    "id": "voc:B2:der Zutritt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zutritt"
+  },
+  {
+    "id": "voc:B2:das Kapital",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kapitale / die Kapitalien",
+    "src": "de.wiktionary.org/wiki/Kapital"
+  },
+  {
+    "id": "voc:C1:der Landsmann",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Landsleute / die Landsmänner",
+    "src": "de.wiktionary.org/wiki/Landsmann"
+  },
+  {
+    "id": "voc:C1:die Spezies",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Spezies",
+    "src": "de.wiktionary.org/wiki/Spezies — ruling 2026-09-25 (panel): Spezien is rare"
+  },
+  {
+    "id": "voc:B2:der Bonus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Boni / die Bonusse",
+    "src": "de.wiktionary.org/wiki/Bonus — ruling 2026-09-25 (panel): a plural identical to the singular is marginal"
+  },
+  {
+    "id": "voc:B1:der Luxus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Luxus"
+  },
+  {
+    "id": "voc:C1:das Privileg",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Privilegien",
+    "src": "de.wiktionary.org/wiki/Privileg — ruling 2026-09-25 (panel): Privilege is rare"
+  },
+  {
+    "id": "voc:C1:die Wucht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wucht"
+  },
+  {
+    "id": "voc:B2:das Porträt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Porträts",
+    "src": "de.wiktionary.org/wiki/Porträt — ruling 2026-09-25 (panel): Porträte is rare"
+  },
+  {
+    "id": "voc:C1:der Wiederaufbau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wiederaufbau"
+  },
+  {
+    "id": "voc:C1:die Akzeptanz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Akzeptanz"
+  },
+  {
+    "id": "voc:B2:der Naturschutz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Naturschutz"
+  },
+  {
+    "id": "voc:B1:der Papierkram",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Papierkram"
+  },
+  {
+    "id": "voc:C1:das Gesundheitswesen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gesundheitswesen"
+  },
+  {
+    "id": "voc:B2:das Geschrei",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Geschrei"
+  },
+  {
+    "id": "voc:B2:das Heck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Hecks",
+    "src": "de.wiktionary.org/wiki/Heck — ruling 2026-09-25 (panel): Hecke is rare and reads as die Hecke (hedge)"
+  },
+  {
+    "id": "voc:B2:das Start-up",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Start-ups",
+    "src": "de.wiktionary.org/wiki/Start-up"
+  },
+  {
+    "id": "voc:B2:der Avatar",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Avatare / die Avatars",
+    "src": "de.wiktionary.org/wiki/Avatar — ruling 2026-09-25 (panel): Avatare is the Duden form"
+  },
+  {
+    "id": "voc:A2:die Creme",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Cremes",
+    "src": "de.wiktionary.org/wiki/Creme — ruling 2026-09-25 (panel): Cremen is Austrian/Swiss"
+  },
+  {
+    "id": "voc:B2:der Kran",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kräne",
+    "src": "de.wiktionary.org/wiki/Kran — ruling 2026-09-25 (panel): Krane/Kranen are technical"
+  },
+  {
+    "id": "voc:C1:die Entschlossenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Entschlossenheit"
+  },
+  {
+    "id": "voc:C1:die Sklaverei",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sklaverei"
+  },
+  {
+    "id": "voc:C1:die Zurückhaltung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zurückhaltung"
+  },
+  {
+    "id": "voc:C1:der Kodex",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kodexe / die Kodizes",
+    "src": "de.wiktionary.org/wiki/Kodex"
+  },
+  {
+    "id": "voc:C1:die Einigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Einigkeit"
+  },
+  {
+    "id": "voc:C1:die Präzision",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Präzision"
+  },
+  {
+    "id": "voc:B2:das Laub",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Laub"
+  },
+  {
+    "id": "voc:C1:der Nachlass",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Nachlässe",
+    "src": "de.wiktionary.org/wiki/Nachlass — ruling 2026-09-25 (panel): Nachlasse is rare"
+  },
+  {
+    "id": "voc:C1:die Diskretion",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Diskretion"
+  },
+  {
+    "id": "voc:C1:die Komplexität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Komplexität"
+  },
+  {
+    "id": "voc:C1:das Skript",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Skripte / die Skripts",
+    "src": "de.wiktionary.org/wiki/Skript — ruling 2026-09-25 (panel): Skripten is Austrian"
+  },
+  {
+    "id": "voc:C1:die Leistungsfähigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Leistungsfähigkeit"
+  },
+  {
+    "id": "voc:A2:das Komma",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kommas / die Kommata",
+    "src": "de.wiktionary.org/wiki/Komma"
+  },
+  {
+    "id": "voc:C1:der Rückenwind",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rückenwind"
+  },
+  {
+    "id": "voc:B1:das Tablett",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Tabletts",
+    "src": "de.wiktionary.org/wiki/Tablett — ruling 2026-09-25 (panel): Tablette is rare and reads as die Tablette (pill)"
+  },
+  {
+    "id": "voc:C1:die Dringlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Dringlichkeit"
+  },
+  {
+    "id": "voc:C1:der Trubel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Trubel"
+  },
+  {
+    "id": "voc:A2:die Vanille",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vanille"
+  },
+  {
+    "id": "voc:C1:das Polster",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Polster",
+    "src": "de.wiktionary.org/wiki/Polster"
+  },
+  {
+    "id": "voc:C1:der Überfluss",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Überfluss"
+  },
+  {
+    "id": "voc:C1:die Kontinuität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kontinuität"
+  },
+  {
+    "id": "voc:C1:das Herzblut",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Herzblut"
+  },
+  {
+    "id": "voc:C1:das Eigenkapital",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Eigenkapital — ruling 2026-09-25 (panel): an accounting mass noun; Eigenkapitalien is technical"
+  },
+  {
+    "id": "voc:B2:die Zuverlässigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zuverlässigkeit"
+  },
+  {
+    "id": "voc:C1:das Einvernehmen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Einvernehmen"
+  },
+  {
+    "id": "voc:C2:der Vormund",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Vormunde / die Vormünder",
+    "src": "de.wiktionary.org/wiki/Vormund"
+  },
+  {
+    "id": "voc:C2:die Mitleidenschaft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mitleidenschaft"
+  },
+  {
+    "id": "voc:B2:die Navigation",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Navigation"
+  },
+  {
+    "id": "voc:B2:die Mitarbeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mitarbeit"
+  },
+  {
+    "id": "voc:C2:das Ableben",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ableben"
+  },
+  {
+    "id": "voc:C1:das Schema",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schemas / die Schemata",
+    "src": "de.wiktionary.org/wiki/Schema — ruling 2026-09-25 (panel): Schemen is rare and is also the plural of Schemen (phantom)"
+  },
+  {
+    "id": "voc:C1:die Handhabung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Handhabung"
+  },
+  {
+    "id": "voc:B1:das Quadrat",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Quadrate",
+    "src": "de.wiktionary.org/wiki/Quadrat"
+  },
+  {
+    "id": "voc:C2:das Erdreich",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Erdreich"
+  },
+  {
+    "id": "voc:C1:das Franchise",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Franchises",
+    "src": "de.wiktionary.org/wiki/Franchise"
+  },
+  {
+    "id": "voc:C1:die Aerodynamik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Aerodynamik"
+  },
+  {
+    "id": "voc:C1:das Reglement",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Reglements",
+    "src": "de.wiktionary.org/wiki/Reglement — ruling 2026-09-25 (panel): Reglemente is Swiss"
+  },
+  {
+    "id": "voc:B2:der Rennwagen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Rennwagen",
+    "src": "de.wiktionary.org/wiki/Rennwagen"
+  },
+  {
+    "id": "voc:C1:das Kiesbett",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kiesbetten",
+    "src": "de.wiktionary.org/wiki/Kiesbett — ruling 2026-09-25 (panel): the page lists Kiesbetten first; Kiesbette is rare"
+  },
+  {
+    "id": "voc:C1:die Freizügigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Freizügigkeit"
+  },
+  {
+    "id": "voc:B1:die Vollzeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vollzeit"
+  },
+  {
+    "id": "voc:C1:das Risikokapital",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Risikokapital"
+  },
+  {
+    "id": "voc:C1:die Cybersicherheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Cybersicherheit"
+  },
+  {
+    "id": "voc:C1:das Misstrauensvotum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Misstrauensvoten",
+    "src": "de.wiktionary.org/wiki/Misstrauensvotum — ruling 2026-09-25 (panel): Misstrauensvota is rare"
+  },
+  {
+    "id": "voc:C1:der Lobbyismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Lobbyismus"
+  },
+  {
+    "id": "voc:C1:der Rechtsextremismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Rechtsextremismus"
+  },
+  {
+    "id": "voc:C1:der Eigenbedarf",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Eigenbedarf"
+  },
+  {
+    "id": "voc:B1:das Kölsch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kölsch",
+    "src": "de.wiktionary.org/wiki/Kölsch — ruling 2026-09-25 (panel): the beer is counted (zwei Kölsch); only the dialect sense has no plural"
+  },
+  {
+    "id": "voc:C1:der Kohlenstoff",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kohlenstoff"
+  },
+  {
+    "id": "voc:C1:der Orient",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Orient"
+  },
+  {
+    "id": "voc:C1:der Menschenhandel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Menschenhandel"
+  },
+  {
+    "id": "voc:C1:die Wirtschaftlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wirtschaftlichkeit"
+  },
+  {
+    "id": "voc:C1:das Vakuum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Vakua / die Vakuen",
+    "src": "de.wiktionary.org/wiki/Vakuum"
+  },
+  {
+    "id": "voc:C1:der Großhandel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Großhandel"
+  },
+  {
+    "id": "voc:C1:der Maschinenbau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Maschinenbau"
+  },
+  {
+    "id": "voc:C1:der Rückstau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Rückstaus",
+    "src": "de.wiktionary.org/wiki/Rückstau — ruling 2026-09-25 (panel): Rückstaue is rare"
+  },
+  {
+    "id": "voc:C1:der Wortlaut",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wortlaut"
+  },
+  {
+    "id": "voc:C1:die Erkennung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Erkennung"
+  },
+  {
+    "id": "voc:C1:die Blindheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Blindheit"
+  },
+  {
+    "id": "voc:C1:die Einfachheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Einfachheit"
+  },
+  {
+    "id": "voc:C1:die Prosa",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Prosa"
+  },
+  {
+    "id": "voc:C1:die Widerstandsfähigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Widerstandsfähigkeit"
+  },
+  {
+    "id": "voc:B1:die Gymnastik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gymnastik"
+  },
+  {
+    "id": "voc:C1:das Neuron",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Neuronen / die Neurone",
+    "src": "de.wiktionary.org/wiki/Neuron"
+  },
+  {
+    "id": "voc:C2:das Gedankengut",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gedankengut"
+  },
+  {
+    "id": "voc:C1:die Privatwirtschaft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Privatwirtschaft"
+  },
+  {
+    "id": "voc:C1:die Buchführung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Buchführung"
+  },
+  {
+    "id": "voc:C1:die Vollständigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vollständigkeit"
+  },
+  {
+    "id": "voc:B1:der Sandkasten",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Sandkästen",
+    "src": "de.wiktionary.org/wiki/Sandkasten"
+  },
+  {
+    "id": "voc:C1:die Verschwiegenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Verschwiegenheit"
+  },
+  {
+    "id": "voc:C1:das Augenmaß",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Augenmaß"
+  },
+  {
+    "id": "voc:C1:die Diaspora",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Diaspora"
+  },
+  {
+    "id": "voc:C1:der Fiskus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Fisken / die Fiskusse",
+    "src": "de.wiktionary.org/wiki/Fiskus"
+  },
+  {
+    "id": "voc:C2:der Unrat",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Unrat"
+  },
+  {
+    "id": "voc:B2:der Salbei",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Salbei"
+  },
+  {
+    "id": "voc:C1:die Machbarkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Machbarkeit"
+  },
+  {
+    "id": "voc:C1:die Aussagekraft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Aussagekraft"
+  },
+  {
+    "id": "voc:C1:die Latenz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Latenz"
+  },
+  {
+    "id": "voc:C1:das Networking",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Networking"
+  },
+  {
+    "id": "voc:C1:das Vorhandensein",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Vorhandensein"
+  },
+  {
+    "id": "voc:C1:das Stigma",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Stigmata / die Stigmen",
+    "src": "de.wiktionary.org/wiki/Stigma"
+  },
+  {
+    "id": "voc:C1:die Folklore",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Folklore"
+  },
+  {
+    "id": "voc:C2:das Ungemach",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ungemach"
+  },
+  {
+    "id": "voc:C2:der Habitus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Habitus"
+  },
+  {
+    "id": "voc:C1:die Wiederverwendung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wiederverwendung"
+  },
+  {
+    "id": "voc:B1:die Erdkunde",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Erdkunde"
+  },
+  {
+    "id": "voc:C1:der Klerus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Klerus"
+  },
+  {
+    "id": "voc:C1:die Belletristik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Belletristik"
+  },
+  {
+    "id": "voc:C1:die Lesbarkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Lesbarkeit"
+  },
+  {
+    "id": "voc:C1:das Aktienkapital",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Aktienkapital — ruling 2026-09-25 (panel): an accounting mass noun; the plurals are technical"
+  },
+  {
+    "id": "voc:C1:die Schlichtheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schlichtheit"
+  },
+  {
+    "id": "voc:C1:das Unvermögen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Unvermögen"
+  },
+  {
+    "id": "voc:B2:die Alltagssprache",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Alltagssprache"
+  },
+  {
+    "id": "voc:A2:die Vokabel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Vokabeln",
+    "src": "de.wiktionary.org/wiki/Vokabel"
+  },
+  {
+    "id": "voc:C1:die Muße",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Muße"
+  },
+  {
+    "id": "voc:B1:der Mist",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mist"
+  },
+  {
+    "id": "voc:B1:der Rum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Rums",
+    "src": "de.wiktionary.org/wiki/Rum — ruling 2026-09-25 (panel): Rume is rare"
+  },
+  {
+    "id": "voc:B1:der Unsinn",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Unsinn"
+  },
+  {
+    "id": "voc:C1:der Oberst",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Obersten / die Oberste",
+    "src": "de.wiktionary.org/wiki/Oberst — ruling 2026-09-25 (panel): both standard"
+  },
+  {
+    "id": "voc:B2:der Fakt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Fakten",
+    "src": "de.wiktionary.org/wiki/Fakt"
+  },
+  {
+    "id": "voc:B1:das Gift",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Gifte",
+    "src": "de.wiktionary.org/wiki/Gift"
+  },
+  {
+    "id": "voc:B1:der Fleck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Flecke / die Flecken",
+    "src": "de.wiktionary.org/wiki/Fleck"
+  },
+  {
+    "id": "voc:B2:das Unrecht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Unrecht"
+  },
+  {
+    "id": "voc:C1:das Kommando",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kommandos",
+    "src": "de.wiktionary.org/wiki/Kommando — ruling 2026-09-25 (panel): Kommanden/Kommanda are Austrian or rare"
+  },
+  {
+    "id": "voc:A2:der Staub",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Staub — ruling 2026-09-25 (panel): a mass noun in general use; Stäube is technical"
+  },
+  {
+    "id": "voc:A2:der Feuerwehrmann",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Feuerwehrleute / die Feuerwehrmänner",
+    "src": "de.wiktionary.org/wiki/Feuerwehrmann"
+  },
+  {
+    "id": "voc:B2:der Nazi",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Nazis",
+    "src": "de.wiktionary.org/wiki/Nazi — ruling 2026-09-25 (panel): a zero plural is marginal"
+  },
+  {
+    "id": "voc:C1:die Untersuchungshaft",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Untersuchungshaft"
+  },
+  {
+    "id": "voc:C1:der Hauptmann",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Hauptleute / die Hauptmänner",
+    "src": "de.wiktionary.org/wiki/Hauptmann"
+  },
+  {
+    "id": "voc:B2:der Schwachsinn",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schwachsinn"
+  },
+  {
+    "id": "voc:B2:das Mitleid",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mitleid"
+  },
+  {
+    "id": "voc:A2:das Sandwich",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Sandwichs",
+    "src": "de.wiktionary.org/wiki/Sandwich"
+  },
+  {
+    "id": "voc:B1:der Schluck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schlucke",
+    "src": "de.wiktionary.org/wiki/Schluck — ruling 2026-09-25 (panel): Schlücke is rare; Schluck is the form after numerals"
+  },
+  {
+    "id": "voc:C1:der Zorn",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zorn"
+  },
+  {
+    "id": "voc:C1:das Kokain",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kokain"
+  },
+  {
+    "id": "voc:B1:der Pop",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Pop"
+  },
+  {
+    "id": "voc:B1:der Kram",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kram"
+  },
+  {
+    "id": "voc:B2:der Sauerstoff",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sauerstoff"
+  },
+  {
+    "id": "voc:B1:der Ballon",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ballons",
+    "src": "de.wiktionary.org/wiki/Ballon — ruling 2026-09-25 (panel): Ballone is regional"
+  },
+  {
+    "id": "voc:C1:die Furcht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Furcht"
+  },
+  {
+    "id": "voc:C1:der Leutnant",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Leutnants",
+    "src": "de.wiktionary.org/wiki/Leutnant — ruling 2026-09-25 (panel): Leutnante is rare"
+  },
+  {
+    "id": "voc:B2:das Selbstvertrauen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Selbstvertrauen"
+  },
+  {
+    "id": "voc:B2:der Muslim",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Muslime",
+    "src": "de.wiktionary.org/wiki/Muslim — ruling 2026-09-25 (panel): Muslims is an English-inflected variant"
+  },
+  {
+    "id": "voc:A2:der Toast",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Toasts",
+    "src": "de.wiktionary.org/wiki/Toast — ruling 2026-09-25 (panel): Toaste is rare"
+  },
+  {
+    "id": "voc:C1:die Razzia",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Razzien / die Razzias",
+    "src": "de.wiktionary.org/wiki/Razzia"
+  },
+  {
+    "id": "voc:C1:der Jammer",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Jammer"
+  },
+  {
+    "id": "voc:B2:das Beileid",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Beileid"
+  },
+  {
+    "id": "voc:C1:die Unschuld",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Unschuld"
+  },
+  {
+    "id": "voc:A1:der Bogen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Bogen / die Bögen",
+    "src": "de.wiktionary.org/wiki/Bogen — ruling 2026-09-25 (panel): Bögen is listed as southern/Austrian/Swiss but is widespread; both are accepted"
+  },
+  {
+    "id": "voc:C1:das Gerede",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gerede"
+  },
+  {
+    "id": "voc:B2:der Charme",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Charme"
+  },
+  {
+    "id": "voc:C1:der Beschuss",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Beschuss"
+  },
+  {
+    "id": "voc:C1:der Tumor",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Tumoren / die Tumore",
+    "src": "de.wiktionary.org/wiki/Tumor"
+  },
+  {
+    "id": "voc:B1:der Jazz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Jazz"
+  },
+  {
+    "id": "voc:B1:der Geschäftsmann",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Geschäftsleute / die Geschäftsmänner",
+    "src": "de.wiktionary.org/wiki/Geschäftsmann"
+  },
+  {
+    "id": "voc:C1:das Juwel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Juwelen / die Juwele",
+    "src": "de.wiktionary.org/wiki/Juwel"
+  },
+  {
+    "id": "voc:B1:der Weltraum",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Weltraum"
+  },
+  {
+    "id": "voc:C1:das Cannabis",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Cannabis"
+  },
+  {
+    "id": "voc:C1:der Pastor",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Pastoren",
+    "src": "de.wiktionary.org/wiki/Pastor — ruling 2026-09-25 (panel): Pastore/Pastöre are regional"
+  },
+  {
+    "id": "voc:C1:der Orden",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Orden",
+    "src": "de.wiktionary.org/wiki/Orden — ruling 2026-09-25 (panel): Örden is not standard"
+  },
+  {
+    "id": "voc:C1:das Wrack",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Wracks",
+    "src": "de.wiktionary.org/wiki/Wrack — ruling 2026-09-25 (panel): Wracke is rare"
+  },
+  {
+    "id": "voc:B2:die Latte",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Latten",
+    "src": "de.wiktionary.org/wiki/Latte"
+  },
+  {
+    "id": "voc:C1:der Verfassungsschutz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Verfassungsschutz"
+  },
+  {
+    "id": "voc:C1:der Clan",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Clans",
+    "src": "de.wiktionary.org/wiki/Clan — ruling 2026-09-25 (panel): Clane is rare"
+  },
+  {
+    "id": "voc:C1:der Glanz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Glanz"
+  },
+  {
+    "id": "voc:B2:die Hummel",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Hummeln",
+    "src": "de.wiktionary.org/wiki/Hummel"
+  },
+  {
+    "id": "voc:B1:der Nikolaus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Nikolause",
+    "src": "de.wiktionary.org/wiki/Nikolaus — ruling 2026-09-25 (panel): Nikoläuse is jocular"
+  },
+  {
+    "id": "voc:C1:der Zimmermann",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Zimmerleute / die Zimmermänner",
+    "src": "de.wiktionary.org/wiki/Zimmermann"
+  },
+  {
+    "id": "voc:C1:die Ranch",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Ranchs / die Ranches",
+    "src": "de.wiktionary.org/wiki/Ranch"
+  },
+  {
+    "id": "voc:C1:der Streifenwagen",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Streifenwagen",
+    "src": "de.wiktionary.org/wiki/Streifenwagen — ruling 2026-09-25 (panel): Streifenwägen is Austrian"
+  },
+  {
+    "id": "voc:C1:der Anbetracht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Anbetracht"
+  },
+  {
+    "id": "voc:C1:der Schoß",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schöße",
+    "src": "de.wiktionary.org/wiki/Schoß"
+  },
+  {
+    "id": "voc:C1:das Remis",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Remis",
+    "src": "de.wiktionary.org/wiki/Remis"
+  },
+  {
+    "id": "voc:A2:die Eile",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Eile"
+  },
+  {
+    "id": "voc:B2:das Lager",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Lager",
+    "src": "de.wiktionary.org/wiki/Lager — ruling 2026-09-25 (panel): Läger is the Austrian commercial plural"
+  },
+  {
+    "id": "voc:C1:der Fund",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Funde",
+    "src": "de.wiktionary.org/wiki/Fund — ruling 2026-09-25 (panel): Funds belongs to the finance homograph"
+  },
+  {
+    "id": "voc:C1:der Abbau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Abbau — ruling 2026-09-25 (panel): in the card's senses (reduction, extraction) the noun is uncounted; Abbaue/Abbauten are sites and structures"
+  },
+  {
+    "id": "voc:B1:der Sturz",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Stürze",
+    "src": "de.wiktionary.org/wiki/Sturz — ruling 2026-09-25 (panel): Sturze is the building-trade sense (lintel)"
+  },
+  {
+    "id": "voc:B1:der Ton",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Töne",
+    "src": "de.wiktionary.org/wiki/Ton — ruling 2026-09-25 (panel): the card leads with sound/tone; Tone is the clay homograph"
+  },
+  {
+    "id": "voc:C1:der Akt",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Akte",
+    "src": "de.wiktionary.org/wiki/Akt — ruling 2026-09-25 (panel): Akten belongs to die Akte (file)"
+  },
+  {
+    "id": "voc:B1:der Star",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Stars",
+    "src": "de.wiktionary.org/wiki/Star — ruling 2026-09-25 (panel): the card is the celebrity; Stare is the bird"
+  },
+  {
+    "id": "voc:B1:der Block",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Blöcke / die Blocks",
+    "src": "de.wiktionary.org/wiki/Block — ruling 2026-09-25 (panel): both standard across the card's senses (blocks, notepads, housing blocks)"
+  },
+  {
+    "id": "voc:B2:der Bug",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Bugs",
+    "src": "de.wiktionary.org/wiki/Bug — ruling 2026-09-25 (panel): the card is the software error; Büge is the ship's bow"
+  },
+  {
+    "id": "voc:B2:der Atlas",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Atlanten / die Atlasse",
+    "src": "de.wiktionary.org/wiki/Atlas — ruling 2026-09-25 (panel): both given for the map-book sense"
+  },
+  {
+    "id": "voc:B2:das Vorwort",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Vorworte",
+    "src": "de.wiktionary.org/wiki/Vorwort — ruling 2026-09-25 (panel): Vorwörter is the grammar homograph (prepositions)"
+  },
+  {
+    "id": "voc:C1:die Sau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Säue",
+    "src": "de.wiktionary.org/wiki/Sau — ruling 2026-09-25 (panel): Sauen is the hunting term for wild boar"
+  },
+  {
+    "id": "voc:B2:das Stichwort",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Stichworte / die Stichwörter",
+    "src": "de.wiktionary.org/wiki/Stichwort — ruling 2026-09-25 (panel): Stichworte for cues and notes, Stichwörter for dictionary headwords; the card carries both senses"
+  },
+  {
+    "id": "voc:C1:der Dorn",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Dornen",
+    "src": "de.wiktionary.org/wiki/Dorn — ruling 2026-09-25 (panel): Dorne is the technical sense (mandrel)"
+  },
+  {
+    "id": "voc:B1:die Schnur",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Schnüre",
+    "src": "de.wiktionary.org/wiki/Schnur — ruling 2026-09-25 (panel): Schnuren is the other homograph"
+  },
+  {
+    "id": "voc:B2:der Zins",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Zinsen",
+    "src": "de.wiktionary.org/wiki/Zins — ruling 2026-09-25 (panel): Zinse is archaic/regional (tribute)"
+  },
+  {
+    "id": "voc:B1:der Sack",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Säcke",
+    "src": "de.wiktionary.org/wiki/Sack — ruling 2026-09-25 (panel): Sacks is the unit after numerals"
+  },
+  {
+    "id": "voc:B1:der Hammer",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Hämmer",
+    "src": "de.wiktionary.org/wiki/Hammer — ruling 2026-09-25 (panel): the zero plural is the other homograph"
+  },
+  {
+    "id": "voc:A2:der Keks",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kekse",
+    "src": "de.wiktionary.org/wiki/Keks — ruling 2026-09-25 (panel): das Keks with plural Keks is Austrian"
+  },
+  {
+    "id": "voc:C1:der Admiral",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Admirale",
+    "src": "de.wiktionary.org/wiki/Admiral — ruling 2026-09-25 (panel): Admiräle is less common; the butterfly homograph shares the page"
+  },
+  {
+    "id": "voc:C1:der Abdruck",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Abdrücke",
+    "src": "de.wiktionary.org/wiki/Abdruck — ruling 2026-09-25 (panel): Abdrucke are printed reproductions, not impressions"
+  },
+  {
+    "id": "voc:B2:der Streik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Streiks",
+    "src": "de.wiktionary.org/wiki/Streik — ruling 2026-09-25 (panel): Streike is rare"
+  },
+  {
+    "id": "voc:C1:der Warnstreik",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Warnstreiks",
+    "src": "de.wiktionary.org/wiki/Warnstreik — ruling 2026-09-25 (panel): Warnstreike is rare"
+  },
+  {
+    "id": "voc:B2:die Pole-Position",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Pole-Positions",
+    "src": "de.wiktionary.org/wiki/Pole-Position — ruling 2026-09-25 (panel): the motorsport usage"
+  },
+  {
+    "id": "voc:C1:das Interieur",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Interieurs",
+    "src": "de.wiktionary.org/wiki/Interieur — ruling 2026-09-25 (panel): the only standard plural"
+  },
+  {
+    "id": "voc:B1:die Tram",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Trams",
+    "src": "de.wiktionary.org/wiki/Tram — ruling 2026-09-25 (panel): Trame/Träme belong to other genders or regions"
+  },
+  {
+    "id": "voc:A2:das Silvester",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Silvester",
+    "src": "de.wiktionary.org/wiki/Silvester — ruling 2026-09-25 (panel): zero plural, as in die letzten zwei Silvester"
+  },
+  {
+    "id": "voc:C1:der Radar",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Radare",
+    "src": "de.wiktionary.org/wiki/Radar — ruling 2026-09-25 (panel): Duden: der Radar, Plural die Radare"
+  }
+]

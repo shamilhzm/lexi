@@ -179,11 +179,33 @@ const ADJ_SUFFIXES = ['eren', 'erem', 'erer', 'eres', 'sten', 'ere', 'ste', 'en'
  *    ¨-e / ¨-    umlaut, then append: Vorschlag -> Vorschläge, Laden -> Läden
  *    -           unchanged:         Pullover -> Pullover
  *    nur Singular / nur Plural / —  no plural form to index
+ *    die Pizzas / die Pizzen        several standard plurals: the first
  *
  *  Exported for the tests, which assert each notation against a real card. */
 export function pluralForm(term: string, plural: string | null | undefined): string | null {
+  return pluralForms(term, plural)[0] ?? null;
+}
+
+/** Every plural a card attests, in teaching order.
+ *
+ *  Since 2026-09-25 the authoring gate stores all of a noun's standard plurals —
+ *  *die Pizzas / die Pizzen*, *die Fachleute / die Fachmänner* — because storing one
+ *  made the plural drill mark the other wrong and left 105 nouns with none at all.
+ *  An index must learn every form (a reader meets *Pizzen* as often as *Pizzas*),
+ *  so the indexes read this and not `pluralForm`. */
+export function pluralForms(term: string, plural: string | null | undefined): string[] {
+  const parts = (plural ?? '').split(/\s+\/\s+/);
+  const out: string[] = [];
+  for (const part of parts) {
+    const f = onePluralForm(term, part);
+    if (f && !out.includes(f)) out.push(f);
+  }
+  return out;
+}
+
+function onePluralForm(term: string, plural: string): string | null {
   const singular = stripArticle(term).trim();
-  const p = (plural ?? '').trim();
+  const p = plural.trim();
   if (!p || /^nur\s/i.test(p) || p === '—') return null;
   if (!p.startsWith('-') && !p.startsWith('¨')) return stripArticle(p).trim() || null;
   if (p === '-') return singular;
@@ -368,8 +390,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
   for (const w of corpus) {
     add(w.term.toLowerCase(), w);
     add(stripArticle(w.term).toLowerCase(), w);
-    const pl = pluralForm(w.term, w.plural);
-    if (pl) {
+    for (const pl of pluralForms(w.term, w.plural)) {
       const k = pl.toLowerCase();
       if (!index.has(k)) pluralOnly.add(k);
       add(k, w);

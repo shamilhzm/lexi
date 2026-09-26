@@ -258,6 +258,97 @@ export function parseFacts(wt: string): Facts {
   return { genders, plurals, ipa: ipa?.[1]?.trim() || null, pos };
 }
 
+// ---- the plurals a learner is taught ---------------------------------------
+//
+// `parseFacts().plurals` is every Nominativ Plural on the page, and that is the
+// right set for *contradiction* — a candidate's plural is wrong only if the
+// dictionary attests it nowhere. It is the wrong set for *teaching*, and the gap
+// was costing the corpus exactly the plurals worth teaching: whenever the page
+// listed two, the gate left the field empty, so *die Pizza*, *der Fachmann*, *das
+// Lexikon*, *das Komma*, *der Atlas* and *der Zins* reached the app with no plural
+// and the plural drill never saw them (299 nouns on 2026-09-25, `corpus:validate`).
+//
+// Storing every attested form would be worse. The page for *Star* is three
+// homographs (the bird, *die Stare*; the celebrity, *die Stars*); *Sau* binds
+// *Säue* and *Sauen* to different senses; *Bogen* lists *Bögen* only as a regional
+// variant, *Scheck* lists *Schecke* in the table and not in the headline, and
+// *Dorn*'s Anmerkung says its third plural "gilt für die technische Bedeutung".
+// So this reads the page the way a learner's dictionary prints the entry:
+//
+//   - one Substantiv section, of the card's gender. Two sections that disagree
+//     are homographs, and which one the card means is a ruling, not a guess.
+//   - only the forms the Worttrennung line gives *unqualified* — `{{Pl.2}}
+//     ''(süddeutsch …)'' Bö·gen` is a variant, not something to teach.
+//   - minus any plural an Anmerkung restricts ("Der Plural 2 wird selten
+//     verwendet").
+//   - and nothing at all when a sense line binds a plural to a meaning
+//     (`[1] {{K|Plural 1}} …`) — the card's sense decides, so a human does.
+//
+// What survives is stored whole, `die Pizzas / die Pizzen`, and every consumer
+// reads it through `pluralForms` in `src/lib/matcher.ts`.
+
+export interface TaughtPlurals {
+  /** Forms without their article, in teaching order. */
+  forms: string[];
+  /** Set when the page cannot be read without a ruling — say why. */
+  unsure: string | null;
+}
+
+/** The collective *-leute* plural is the usual one for *-mann* compounds — Duden
+ *  gives «Fachleute, seltener Fachmänner» — while de.wiktionary lists *-männer*
+ *  first. Order only: both forms stay accepted. */
+const LEUTE_FIRST = (forms: string[]): string[] =>
+  [...forms].sort((a, b) => Number(/leute$/.test(b)) - Number(/leute$/.test(a)));
+
+export function taughtPlurals(wt: string, gender: 'der' | 'die' | 'das' | null): TaughtPlurals {
+  const de = wt.split(/^==\s*[^=]+\s*\(\{\{Sprache\|/m).find((s) => s.startsWith('Deutsch}}')) ?? wt;
+  const sections = de.split(/^(?====\s*\{\{Wortart\|)/m)
+    .filter((s) => /^===\s*\{\{Wortart\|Substantiv\|Deutsch\}\}/.test(s));
+
+  const readings: string[][] = [];
+  for (const s of sections) {
+    const table = s.match(/\{\{Deutsch Substantiv Übersicht[\s\S]*?\n\}\}/)?.[0] ?? '';
+    // Genus by its number ('' when unnumbered), so a table that holds two genders
+    // — *die Vokabel* beside the Austrian *das Vokabel* — pairs Plural N with Genus N.
+    const genus = new Map<string, 'der' | 'die' | 'das'>();
+    for (const m of table.matchAll(/\|\s*Genus(?:\s*(\d+))?\s*=\s*([mfn])\b/g)) genus.set(m[1] ?? '', GENUS[m[2]]);
+    if (gender && genus.size && ![...genus.values()].includes(gender)) continue;
+    const paired = genus.size > 1 && !genus.has('');
+
+    const pls: { n: string; form: string }[] = [];
+    for (const m of table.matchAll(/\|\s*Nominativ Plural(?:\s*(\d+))?\s*=\s*([^\n|}]*)/g)) {
+      const form = m[2].trim();
+      if (!/^\p{L}/u.test(form) || pls.some((p) => p.form === form)) continue;
+      if (paired && gender && genus.get(m[1] ?? '') !== gender) continue;
+      pls.push({ n: m[1] ?? '', form });
+    }
+    if (!pls.length) continue;
+
+    // A sense line that names a plural binds it to that meaning.
+    if (/^:\[[^\]]+\][^\n]*Plural\s*\d/m.test(s)) {
+      return { forms: [], unsure: 'the page binds its plurals to different senses' };
+    }
+    const restricted = new Set([...s.matchAll(/^:(?!\[)[^\n]*?Der Plural (\d)/gm)].map((m) => m[1]));
+    const line = s.match(/\{\{Worttrennung\}\}\s*\n:([^\n]*)/)?.[1] ?? '';
+    const headline = new Set<string>();
+    for (const m of line.matchAll(/\{\{Pl\.\d*\}\}\s*(''\([^)]*\)''\s*)?([^,{]+)/g)) {
+      if (!m[1]) headline.add(m[2].replace(/[·']/g, '').trim());
+    }
+    const forms = pls
+      .filter((p) => !restricted.has(p.n))
+      .filter((p) => !headline.size || headline.has(p.form))
+      .map((p) => p.form);
+    if (forms.length) readings.push(forms);
+  }
+
+  if (!readings.length) return { forms: [], unsure: null };
+  const key = (f: string[]) => [...f].sort().join('|');
+  if (readings.some((r) => key(r) !== key(readings[0]))) {
+    return { forms: [], unsure: `homographs on one page disagree (${readings.map((r) => r.join('/')).join(' vs ')})` };
+  }
+  return { forms: LEUTE_FIRST(readings[0]), unsure: null };
+}
+
 /** de.wiktionary's part-of-speech names → the corpus vocabulary. */
 const POS_MAP: Record<string, string> = {
   Substantiv: 'noun', Verb: 'verb', Adjektiv: 'adjective', Adverb: 'adverb',
@@ -428,7 +519,8 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   // a machine-verified one, in the one place the distinction has to hold.
   let genderRuled = false;
   if (!facts.genders.size) fill('gender', (r) => { facts.genders.add(r.value as 'der' | 'die' | 'das'); genderRuled = true; });
-  if (!facts.plurals.length) fill('plural', (r) => facts.plurals.push(stripArticle(r.value)));
+  let pluralRuled = false;
+  if (!facts.plurals.length) fill('plural', (r) => { facts.plurals.push(stripArticle(r.value)); pluralRuled = true; });
   if (!facts.ipa) fill('ipa', (r) => { facts.ipa = r.value; });
 
   // --- part of speech ---
@@ -467,13 +559,26 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   let plural = c.plural ?? null;
   if (c.pos === 'noun' && facts.plurals.length) {
     const attestedPl = facts.plurals.map((p) => p.toLowerCase());
-    if (plural && !attestedPl.includes(stripArticle(plural).toLowerCase())) {
+    // A candidate may state one form or several (`die Pizzas / die Pizzen`); every
+    // one of them has to be attested.
+    const stated = (plural ?? '').split(/\s+\/\s+/).map((p) => stripArticle(p).toLowerCase()).filter(Boolean);
+    const taught = wt && !pluralRuled ? taughtPlurals(wt, gender) : { forms: facts.plurals, unsure: null };
+    const whole = taught.forms.map((f) => `die ${f}`).join(' / ');
+    if (stated.some((p) => !attestedPl.includes(p))) {
       reasons.push(`plural "${plural}" contradicted — dictionary has ${facts.plurals.join(' / ')}`);
-    } else if (!plural && facts.plurals.length === 1) {
-      plural = `die ${facts.plurals[0]}`;
+    } else if (!plural && taught.unsure) {
+      notes.push(`plurals attested (${facts.plurals.join(' / ')}), but ${taught.unsure} — left unset`);
+    } else if (!plural && taught.forms.length) {
+      plural = whole;
       notes.push(`plural "${plural}" from dictionary`);
     } else if (!plural) {
-      notes.push(`several plurals attested (${facts.plurals.join(' / ')}) — left unset`);
+      notes.push(`plurals attested (${facts.plurals.join(' / ')}), none of them unqualified — left unset`);
+    } else if (!taught.unsure && taught.forms.length > stated.length
+      && stated.every((p) => taught.forms.some((f) => f.toLowerCase() === p))) {
+      // The candidate named one of several standard forms. Store all of them, or
+      // the drill would teach one and the learner who knows the other is wrong.
+      plural = whole;
+      notes.push(`plural widened to every headline form: "${plural}"`);
     }
   }
 
