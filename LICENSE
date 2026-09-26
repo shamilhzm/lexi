@@ -19,12 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This licence covers the application **code**.
-
-The **corpus** shipped in `public/data/*.json` is built from third-party open
-datasets and carries their terms — principally CC BY-SA 4.0, with attribution
-obligations. Every source, its licence, and what is redistributed is recorded in
-ATTRIBUTIONS.md. If you fork this project, that file travels with it.

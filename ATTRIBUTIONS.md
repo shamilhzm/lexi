@@ -82,11 +82,21 @@ cheap the first time and invisible the second.
 ### 3. Tatoeba — example sentences with translations
 - **URL:** https://tatoeba.org/en/downloads
 - **License:** CC BY 2.0 FR (a minority of sentences are CC0).
-- **Used for:** the primary translated example on each new card.
+- **Used for:** the example sentences of the cards the original pipeline built.
+  *Corrected 2026-09-25:* this line said "the primary translated example on each
+  new card", which stopped being true when authoring moved to `authoring:new` —
+  new cards' examples are written, not imported (see *Written with AI*).
 - **Attribution:** "Example sentences from the Tatoeba Project
   (https://tatoeba.org), licensed CC BY 2.0 FR." Per-sentence provenance
-  (Tatoeba sentence id) is recorded in `public/data/provenance.json` so any
-  individual sentence can be traced to its contributor.
+  (Tatoeba sentence id) is recorded in `public/data/provenance.json`, and the card's
+  *Where this came from* links the sentence.
+- **⚠️ The gap, measured 2026-09-25** (`node scripts/corpus/tatoeba-credit.ts`):
+  of 24,159 example sentences on 10,078 word cards, **4,610 (in 2,685 cards) are
+  exact Tatoeba sentences, and only 1,885 carry the provenance link**. The other
+  2,725 are credited only collectively (the legal page, `public/data/NOTICE.txt`).
+  Some short matches will be coincidences, and crediting those costs nothing.
+  `--list` prints the uncited rows with their sentence ids — the input a credit pass
+  needs. **Open: give every one its link** (CHANGELOG, *Panel review*, left open).
 
 ### 3b. Tatoeba audio — human recordings of example sentences
 - **URL:** https://downloads.tatoeba.org/exports/sentences_with_audio.tar.bz2
@@ -172,7 +182,12 @@ cheap the first time and invisible the second.
   rather than assumed, because a ranking is closer to fact than to expression and is
   still somebody's work. VISION open decision 2a says that call is made out loud.
 
-## The brain map (`#/brain`)
+## The brain map (`#/brain`) — *retired 2026-09-05, nothing below ships*
+
+The observatory went with the refocus (VISION); `three` left `package.json` and
+`public/data/brain-mesh.bin` left the build (checked 2026-09-25: not in
+`public/data/`). The record is kept for anyone who restores it from git history,
+because the licence terms below would come back with it.
 
 **three.js** — MIT licence, © 2010–present three.js authors. Loaded as a lazy
 chunk; see `src/lib/brain/scene.ts`.
@@ -224,6 +239,15 @@ chosen because its endpoints allow a browser to read them (CORS open, verified
 2026-09-24); every story links to its original and credits its photograph when the
 publisher gives a credit.
 
+> **CORS is not a licence** *(added 2026-09-25, panel review)*. An open CORS header
+> says a browser *may* read the response; it says nothing about what the publisher
+> permits — the same point the DWDS entry above makes about an API that answers. Only
+> tagesschau's terms are quoted below. SRF's, DW's and heise's rows describe what Lexi
+> *does*, not what those publishers *allow*. **Open for the operator:** quote each
+> one's terms with a date, or ask for permission ("a reader for language learners") —
+> and ship no store build with stories on until that is done (App Store 5.2.2 asks for
+> the permission itself, on request).
+
 | Source | What is read | Terms, as they bear on this use |
 |---|---|---|
 | **tagesschau** (ARD-aktuell) — `tagesschau.de/api2u` | lists, article text, teaser images | "Die Nutzung der Inhalte für den privaten, nicht-kommerziellen Gebrauch ist gestattet, die Veröffentlichung hingegen nicht" (bundesAPI/tagesschau-api README); max 60 requests/hour — enforced client-side at 45 (`lib/news/feed.ts`). **Re-read before Lexi ever charges money.** |
@@ -231,6 +255,13 @@ publisher gives a credit.
 | **DW** — *Langsam gesprochene Nachrichten* | transcript, mp3 (played from DW's server), image | DW's free learner programme; read and played in place, linked back; not republished. |
 | **heise online** — public Atom feed | headlines, teasers, images | The full article stays on heise.de; the reader links to it. |
 | **de.wiktionary** — MediaWiki API, `prop=categories` | whether a capitalised word is a name | Category membership only; CC BY-SA 4.0 content is not stored or shown. Word *meanings* come from the shipped offline lexicon (source 2). |
+| **Tatoeba** — `tatoeba.org/audio/download/<id>` | a recording, on first play | Per-recording licence, allow-listed (source 3b); cached on the device. |
+| **The HD voice** — `cdn.jsdelivr.net` (vits-web 1.0.3), `cdnjs.cloudflare.com` (onnxruntime-web), `huggingface.co` (the Piper voice) | the speech engine and the Thorsten voice, once, when the learner turns it on | Loaded, not redistributed: Lexi's repo and build contain none of it. The hosts were read from the library's own source on 2026-09-25 — **a CSP must allow all three**, not only jsDelivr. |
+| **Speech recognition** — the browser's own (Apple for Safari, Google for Chrome) | the learner's recording | Disclosed before the first recording (`Respond.tsx`, `SagEs.tsx`). |
+
+Every one of these is named, with what it sends, on the learner-facing page
+[`public/legal.html`](public/legal.html); `src/lib/legal-page.test.ts` fails when a
+network host appears in `src/` that the page does not name.
 
 Parser test fixtures (`src/lib/news/parse.test.ts`) are hand-written in each source's
 *shape*; no publisher text is committed.
@@ -244,16 +275,52 @@ sentence being read, or the learner's own write-back, with the article's title; 
 comes back is shown to the learner and kept in their local journal. It never writes a
 card field, and Lexi ships none of its output, so it adds no licensing obligation.
 
+**Nothing is sent before a yes** *(2026-09-25)*: the first request to a provider shows
+what will be sent and to whom (`aiDisclosure`) and waits for the learner's OK; the gate
+is in the transport, so no caller can skip it, and it is asked again when the provider
+changes. The output is labelled as AI wherever it is shown.
+
+## Written with AI *(added 2026-09-25)*
+
+- **Glosses and example sentences.** Since 2026-08-11 new cards are authored in a Claude
+  session and admitted by `authoring:new` (`scripts/authoring/batches/` holds every
+  batch). The **facts** — gender, plural, part of speech, IPA — are looked up in
+  de.wiktionary and never generated; the gloss and the examples are written, and each
+  example must contain a real inflection of its headword. The provider's terms let the
+  output be used; text written by a machine alone carries no copyright of its own under
+  German law (§ 2(2) UrhG asks for a human author), and it ships under the corpus's CC
+  BY-SA so the data set stays one thing. The learner is told on the legal page.
+- **Regurgitation is the residual risk.** The authoring sessions ran with course-book
+  photos on the maintainer's disk (`reference/`, never committed). A book's sentence
+  reproduced verbatim would be that publisher's text. **Open:** an overlap check of
+  new examples against the local book texts before each `--write`.
+- **Generated media, when it ships** (synthetic audio, pictograms), follows these rules,
+  set before the first file lands:
+  - its own folder with its own `LICENSE`: synthetic audio CC BY-SA 4.0 (it reads
+    corpus sentences, whose credit it keeps); pictograms CC0 with a statement that they
+    are AI-generated and that no rights are claimed;
+  - a manifest row per asset: model, prompt, seed, and the date of the model's terms;
+  - labelled where the learner meets it — *synthetic voice*, *AI-drawn* — which is also
+    what the EU AI Act's Art. 50 transparency duty asks of a deployer for content that
+    could pass as real;
+  - the HD voice's credit: Piper "Thorsten", trained on Thorsten-Voice by Thorsten
+    Müller (CC0) — and never presented as a person reading.
+
 ## License of the shipped corpus
+
+**Stated in [`LICENSE-DATA.md`](LICENSE-DATA.md), and beside the data in
+`public/data/NOTICE.txt`** *(2026-09-25)* — `LICENSE` is now the plain MIT text, so
+GitHub recognises it (with the corpus paragraph appended it reported the licence as
+"Other"). The reasoning:
 
 Because of the CC BY-SA obligation from Wiktionary (source 2), the **data files**
 `public/data/vocab.json` and `public/data/sectors.json` are distributed under
 **CC BY-SA 4.0**, with attribution to Wiktionary/Wiktextract, Tatoeba, and the
 Leipzig Corpora Collection as above. `public/data/freq.json` is under the same
 licence and for a second reason: it is derived from the Kernwortschatz ranking
-(source 6), which is itself CC BY-SA 4.0. The **application code** stays **MIT**. State
-this split in the repository README/LICENSE so downstream users know that reusing
-the corpus carries share-alike obligations while reusing the code does not.
+(source 6), which is itself CC BY-SA 4.0. The **application code** stays **MIT**.
+`LICENSE-DATA.md` extends the same licence to every file in `public/data/`, since
+`lex/`, `detail/` and `inflections.json` carry Wiktionary material too.
 
 ## Provenance
 

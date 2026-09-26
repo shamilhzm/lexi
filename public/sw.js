@@ -134,6 +134,17 @@ self.addEventListener('fetch', (e) => {
   // even if some future caller forgets.
   if (new URL(req.url).pathname.endsWith('/version.json')) return;
 
+  // A navigation to a document that is *not* the app — `legal.html`, the one
+  // static page — is that document, cached under its own URL. Before this
+  // branch existed every navigation was answered with the shell, and the
+  // revalidation then fetched `/legal.html` and stored it *as* `INDEX`: the page
+  // could never be opened from an installed app, and opening it once replaced
+  // the app with it on the next launch (panel review, 2026-09-25).
+  if (req.mode === 'navigate' && !isShellPath(new URL(req.url).pathname)) {
+    e.respondWith(staleWhileRevalidate(e, req, req));
+    return;
+  }
+
   // SPA navigations: the shell, instantly, then checked.
   if (req.mode === 'navigate') {
     e.respondWith(
@@ -158,6 +169,13 @@ self.addEventListener('fetch', (e) => {
   // filename *is* the version. Nothing to check.
   e.respondWith(asset(e, req));
 });
+
+/** The SPA has one document; its routes live in the hash, so every path that
+ *  names the app is the scope root or `index.html`. Anything else ending in
+ *  `.html` is a separate page. */
+function isShellPath(pathname) {
+  return !/\.html$/.test(pathname) || /\/index\.html$/.test(pathname);
+}
 
 async function asset(event, req) {
   const cache = await caches.open(CACHE);

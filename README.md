@@ -176,9 +176,11 @@ app, which for a local-first tool is total data loss.
 **The code is MIT** — see [`LICENSE`](LICENSE).
 
 **The corpus** (`public/data/*.json`) is built from Wiktionary/Wiktextract, Tatoeba and
-the Leipzig Corpora Collection, and carries **CC BY-SA 4.0** with attribution. Every
-source, its licence, and exactly what is redistributed is recorded in
-[`ATTRIBUTIONS.md`](ATTRIBUTIONS.md) — if you fork this, that file travels with it.
+the Leipzig Corpora Collection, and carries **CC BY-SA 4.0** with attribution — see
+[`LICENSE-DATA.md`](LICENSE-DATA.md). Every source, its licence, and exactly what is
+redistributed is recorded in [`ATTRIBUTIONS.md`](ATTRIBUTIONS.md) — if you fork this,
+that file travels with it. What the app sends where, the credits and the legal notice
+are on one page: [`public/legal.html`](public/legal.html).
 
 ## Contributing
 

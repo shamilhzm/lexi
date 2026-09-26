@@ -2,7 +2,7 @@
 // from placement, streak from visits) with an editable display name. Settings and
 // data backup live inside it (reached from the sidebar’s profile button).
 import { useState } from 'react';
-import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight } from 'lucide-react';
+import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight, Scale } from 'lucide-react';
 import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
@@ -106,6 +106,12 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
       <a href="https://github.com/shamilhzm/lexi" target="_blank" rel="noopener noreferrer"
         className="tap-44 mt-4 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-accent">
         <Heart size={13} /> Support Lexi’s development
+      </a>
+      {/* Privacy notice, credits (CC BY-SA and CC BY ask for them where the data is
+          used) and the Impressum — one static page, public/legal.html. */}
+      <a href="./legal.html" target="_blank" rel="noopener"
+        className="tap-44 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-accent">
+        <Scale size={13} /> Privacy, credits &amp; legal notice
       </a>
     </div>
   );

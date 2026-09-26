@@ -19,6 +19,7 @@ import { speak, useGermanVoice } from '../lib/tts.ts';
 import { genderColor } from '../lib/ui.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
 import { loadProvenance, freqBand, exampleCitation, levelBasis, type Provenance } from '../lib/provenance.ts';
+import { loadAudioManifest, creditFor, type AudioEntry } from '../lib/audio.ts';
 import Kicker from './ui/Kicker.tsx';
 import type { Example } from '../types.ts';
 
@@ -204,13 +205,29 @@ export function FalseFriendNote({ term }: { term: string }) {
 export function CardSource({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
   const [prov, setProv] = useState<Provenance | null | undefined>(undefined);
+  // The human recording's credit. CC BY asks for the creator's *name*, and until
+  // 2026-09-25 `creditFor` existed with no caller: the voice was thanked only as
+  // "a Tatoeba contributor" in a tooltip (panel review). The app plays from the
+  // same manifest, so this can only name the recording that actually plays.
+  const [rec, setRec] = useState<AudioEntry | null>(null);
 
   useEffect(() => {
     if (!open) return;
     let live = true;
     loadProvenance().then((m) => { if (live) setProv(m.get(id) ?? null); });
+    loadAudioManifest().then(() => { if (live) setRec(creditFor(id)); });
     return () => { live = false; };
   }, [open, id]);
+
+  const recording = rec && (
+    <p className="text-xs text-dim">
+      Example read by{' '}
+      {rec.attribution
+        ? <a href={rec.attribution} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">{rec.by || 'a Tatoeba contributor'}</a>
+        : (rec.by || 'a Tatoeba contributor')}
+      {' '}for Tatoeba, {rec.license}.
+    </p>
+  );
 
   if (!open) {
     return (
@@ -225,6 +242,7 @@ export function CardSource({ id }: { id: string }) {
     return (
       <RevealBlock label="Source">
         <p className="text-xs text-dim">No source recorded for this card.</p>
+        {recording}
       </RevealBlock>
     );
   }
@@ -250,6 +268,7 @@ export function CardSource({ id }: { id: string }) {
               : cite.label}.
           </p>
         )}
+        {recording}
       </div>
     </RevealBlock>
   );

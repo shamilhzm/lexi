@@ -21,7 +21,8 @@ import { useEffect, useState } from 'react';
 import { X, Volume2, Bookmark, BookmarkCheck, GraduationCap, Info, Plus, Check, Sparkles, ExternalLink, Loader2 } from 'lucide-react';
 import { lookupLex, type LexEntry } from '../../lib/lexicon.ts';
 import { saveFromArticle } from '../../lib/news/library.ts';
-import { explainSentence, aiReady, AiError, type Explanation } from '../../lib/ai.ts';
+import { explainSentence, aiReady, aiConsented, AiError, type Explanation } from '../../lib/ai.ts';
+import AiConsent from '../AiConsent.tsx';
 import { statusOf, isSaved, toggleSaved, isWanted, noteWanted, studyLevel } from '../../store.ts';
 import { speak } from '../../lib/tts.ts';
 import { genderColor, haptic, tick } from '../../lib/ui.ts';
@@ -62,7 +63,10 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
     return () => { live = false; };
   }, [surface, card]);
 
+  // The first request to a provider waits for a yes (lib/ai.ts, *consent*).
+  const [asking, setAsking] = useState(false);
   const runExplain = async () => {
+    if (!aiConsented()) { setAsking(true); return; }
     setExplain('loading');
     try {
       setExplain(await explainSentence({ sentence, paragraph, title: article.title, level: studyLevel() }));
@@ -194,7 +198,9 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
         </div>
         <div className="mt-2">
           {aiReady() ? (
-            explain === null ? (
+            asking ? (
+              <AiConsent onAllow={() => { setAsking(false); runExplain(); }} onCancel={() => setAsking(false)} />
+            ) : explain === null ? (
               <button onClick={runExplain} className={`${pill} glass text-sm`}>
                 <Sparkles size={14} className="text-accent" /> Explain this sentence
               </button>
