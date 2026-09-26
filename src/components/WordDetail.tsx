@@ -21,6 +21,7 @@ import { placementLevel } from '../store.ts';
 import { WORDS } from '../data/index.ts';
 import { GenderTerm, SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, CardSource } from './Reveal.tsx';
 import Kicker from './ui/Kicker.tsx';
+import ReportFlag from './ReportFlag.tsx';
 import type { Word } from '../types.ts';
 
 export default function WordDetail({ word, onClose }: { word: Word; onClose: () => void }) {
@@ -109,6 +110,9 @@ export default function WordDetail({ word, onClose }: { word: Word; onClose: () 
             </RevealBlock>
           )}
           <CardSource id={word.id} />
+          {/* The flag, where the card is read most carefully — and a way to say what
+              is wrong that reaches the maintainer. See ReportFlag. */}
+          <ReportFlag word={word} />
         </div>
       </div>
     </Layer>

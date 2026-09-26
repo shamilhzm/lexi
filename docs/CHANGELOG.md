@@ -270,6 +270,33 @@ every scoped session's Back went to Themen whatever had opened it.
 - **The news-topics question waits for a reader**: A2 placement or 300 known words (a
   judgement, stated in the code). Topics stay choosable in Profile at any level.
 
+**GTM (panel 10): reports reach somebody, and arrivals are countable without telemetry.**
+
+- **Why.** A vocabulary app's quality system is its card reports, and every one of
+  Lexi's ended in a drawer: the flag lived only in the Üben header, stored
+  `{id, term, at}` on the device, and Profile said "send it on" without naming anyone.
+  The repository had never received an issue. And the only honest launch measure a
+  no-telemetry app has is the host's own request log — which needs a way to tell one
+  post's arrivals from another's without the tag travelling anywhere.
+- **The report path** (`lib/report.ts`, `components/ReportFlag.tsx`). The word's entry
+  sheet — what the feed's ⓘ, search and the reader open — ends in *Something wrong with
+  this card?*: it flags the card locally (as before, so it still rides the backup) and
+  offers one chip per problem, each a link to a prefilled GitHub issue (card id,
+  headword, what looks wrong, build sha). Two issue forms in `.github/ISSUE_TEMPLATE/`;
+  `report.test.ts` reads them and fails if a prefilled key is not a declared field.
+  *Cards you flagged* gains *Report on GitHub* for the list and per row; *Words Lexi
+  didn't have* gains *Suggest on GitHub*, carrying the sentence each word was met in
+  and never promising it will be added. URLs are capped under GitHub's length limit,
+  dropping from the least-asked end with an "…and N more" line.
+- **Deliberately not done.** No `mailto:` fallback: the repo publishes no contact
+  address, and choosing one is the owner's call. The Üben back face is not touched here
+  (panel 03 owns `Review.tsx`); its flag reaches GitHub through Profile's list, and
+  swapping it for `<ReportFlag word={item.word} />` is one line at merge.
+- **`?ref=`** (`lib/ref.ts`). A link tagged `?ref=r-german` is counted by the host's
+  request log and nowhere else: the tag is removed from the address bar on arrival
+  (`replaceState`, so Back does not return to it), never stored, never sent, and so
+  never bookmarked, installed or re-shared under the wrong channel.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they

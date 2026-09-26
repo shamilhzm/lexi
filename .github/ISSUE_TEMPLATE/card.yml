@@ -1,0 +1,43 @@
+# A card that looks wrong. Opened prefilled from the app (src/lib/report.ts):
+# the query parameters `card`, `term`, `problem` and `build` fill the inputs
+# below by id, so an id renamed here must be renamed there — report.test.ts
+# reads this file and checks.
+name: A card looks wrong
+description: A gloss, gender, plural, example, pronunciation or level that seems off.
+title: "[card] "
+labels: ["card"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks — reports like this are how the corpus gets better. Every fix goes
+        through the pipeline (`scripts/authoring/fix-authored.ts`), never by hand,
+        so it may take a little while. This issue is public: nothing from your
+        progress is in it unless you add it.
+  - type: input
+    id: card
+    attributes:
+      label: Card id
+      description: Filled in by the app. Shown in a card's "Where this came from" line.
+      placeholder: "voc:A1:die Sprache"
+    validations:
+      required: true
+  - type: input
+    id: term
+    attributes:
+      label: Word
+  - type: input
+    id: problem
+    attributes:
+      label: What looks wrong
+      placeholder: Meaning · Gender · Plural · Example · Pronunciation · Level · Something else
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What you expected instead, and where you saw it if you remember (a dictionary, a teacher, a native speaker).
+  - type: input
+    id: build
+    attributes:
+      label: App build
+      description: Filled in by the app.

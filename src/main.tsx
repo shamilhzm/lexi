@@ -6,12 +6,16 @@ import { initData } from './data/index.ts';
 import { hydrate, applyTextScale } from './store.ts';
 import { applyTheme, watchSystemTheme } from './theme.ts';
 import { shouldReloadForChunk } from './lib/chunkReload.ts';
+import { dropRefParam } from './lib/ref.ts';
 
 // The splash watchdog in `index.html` stands down the moment this module runs.
 // From here on the boot has its own budgets (below) and its own error screen; the
 // watchdog exists for the case where none of this code ever loaded.
 (window as Window & { __lexiBooted?: boolean }).__lexiBooted = true;
 
+// A `?ref=` campaign tag is for the host's request log and nothing else — see
+// lib/ref.ts. First, before any code reads `location`.
+dropRefParam();
 applyTheme();
 watchSystemTheme();
 applyTextScale(); // rem ramp: apply the learner’s text-size choice before paint

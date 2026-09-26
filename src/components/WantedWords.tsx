@@ -9,16 +9,22 @@
 // frequency list does not — *this learner*, reading *their* German, reached for
 // this word more than once.
 //
+// **Sent somewhere now** *(2026-09-25, panel review)*: "send the list on" named no
+// recipient. The list opens as a prefilled GitHub issue (`lib/report.ts`), with the
+// sentence each word was met in — the attested example a card needs. A link the
+// learner follows and reads before posting; Lexi sends nothing.
+//
 // The copy never promises the word will be added. `authoring:new` is
 // machine-gated: it looks gender, plural, part of speech and IPA up in
 // de.wiktionary and refuses anything it cannot verify. So a noted word is a
 // candidate, and saying otherwise would be exactly the kind of claim commitment
 // 3 forbids.
-import { BookmarkPlus, X, Send } from 'lucide-react';
+import { BookmarkPlus, X, Send, ExternalLink } from 'lucide-react';
 import { wantedWords, unwantWord, exportWanted } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import Card from './ui/Card.tsx';
-import Button from './ui/Button.tsx';
+import Button, { buttonClass } from './ui/Button.tsx';
+import { wantedIssueUrl } from '../lib/report.ts';
 import Kicker from './ui/Kicker.tsx';
 import IconButton from './ui/IconButton.tsx';
 
@@ -35,21 +41,28 @@ export default function WantedWords() {
       </div>
       <p className="text-dim text-xs mb-3 max-w-[52ch]">
         {list.length === 1 ? 'One word' : `${list.length} words`} you looked up and the corpus
-        doesn’t carry. Send the list on and it can be checked against a dictionary — the ones
-        that verify become cards; the ones that don’t, don’t.
+        doesn’t carry. Suggest them on GitHub (the issue opens filled in, and you see it before
+        anything is posted) and each is checked against a dictionary — the ones that verify
+        become cards; the ones that don’t, don’t.
       </p>
 
-      <Button variant="secondary" className="mb-3" onClick={() => {
-        const blob = new Blob([exportWanted()], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `lexi-wanted-${new Date().toISOString().slice(0, 10)}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-      }}>
-        <Send size={14} /> Save the list
-      </Button>
+      <div className="flex flex-wrap gap-2 mb-3">
+        <a href={wantedIssueUrl(list)} target="_blank" rel="noopener noreferrer"
+          className={`${buttonClass('secondary')} no-underline`}>
+          <ExternalLink size={14} aria-hidden /> Suggest on GitHub
+        </a>
+        <Button variant="secondary" onClick={() => {
+          const blob = new Blob([exportWanted()], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `lexi-wanted-${new Date().toISOString().slice(0, 10)}.json`;
+          a.click();
+          URL.revokeObjectURL(url);
+        }}>
+          <Send size={14} /> Save the list
+        </Button>
+      </div>
 
       <ul className="divide-y divide-line rounded-md border border-line overflow-hidden">
         {list.map((w) => (
