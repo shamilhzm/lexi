@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### Shipped 2026-09-25 — Panel review
+
+**Product design & IA (02).** *Why:* the loop is *browse → save → Üben teaches what you
+chose*, and the screens carried only the first two thirds of it — saving said "Next
+session will teach this" and offered no way in; the logo labelled *home* went to Üben;
+every scoped session's Back went to Themen whatever had opened it.
+
+- **A ready slot in the feed** (`lib/feedSlots.ts`, `Feed.tsx`). "N words ready · about
+  M min" — saved words first, then due reviews, from the day's briefing and capped at
+  the session ceiling — starts a session of exactly those, with "or listen on a walk"
+  beside it. It is a slot, not a room: it grades nothing, carries no `data-word`, and
+  the app still opens on a word. Placed at `READY_AT` when something is waiting, or two
+  slots ahead once the day's save goal is met; it never moves while it could be on
+  screen and never unmounts once placed, because either would shift the feed under a
+  thumb.
+- **The feed keeps its place** for the page's lifetime, anchored by word id, so leaving
+  for a session, a deck or a sheet returns to the same word. Re-tapping *Wörter* (or
+  the logo) goes to the top. A new visit still opens on a new word.
+- **One root.** The logo goes to the feed; the guided first run ends on the feed rather
+  than in a second session.
+- **Back returns to origin.** A scoped session's arrow names and returns to the surface
+  that opened it (Wörter, Themen with its deck, Fortschritt), instead of "Back to
+  Wortschatz".
+- **The news-topics question waits for a reader**: A2 placement or 300 known words (a
+  judgement, stated in the code). Topics stay choosable in Profile at any level.
+
 ### Shipped 2026-09-25 — Ten thousand words
 
 **Why.** The owner asked for the corpus to reach 10,000 cards, filled from what they
