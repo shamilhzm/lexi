@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Sparkles, Check, Loader2, Trash2 } from 'lucide-react';
 import Card from './ui/Card.tsx';
 import Button from './ui/Button.tsx';
-import { aiConfig, aiKeyHint, setAi, testAi, AiError, DEFAULT_MODEL, type Provider } from '../lib/ai.ts';
+import { aiConfig, aiKeyHint, setAi, testAi, AiError, DEFAULT_MODEL, aiConsented, setAiConsent, aiDisclosure, type Provider } from '../lib/ai.ts';
 
 const PROVIDERS: { id: Provider; label: string; hint: string; keyUrl: string }[] = [
   { id: 'anthropic', label: 'Anthropic', hint: 'Claude, direct. Key starts with sk-ant-.', keyUrl: 'https://console.anthropic.com/settings/keys' },
@@ -17,6 +17,11 @@ export default function AiSettings() {
   const [key, setKey] = useState('');
   const [status, setStatus] = useState<'idle' | 'testing' | 'ok' | string>('idle');
   const hint = aiKeyHint();
+  // Consent is per provider (lib/ai.ts, *consent*). Saving here is the moment the
+  // learner reads what will be sent, so the yes is given here — and "Save and
+  // test" sends a test sentence, which is itself a request.
+  const agreedAlready = aiConsented() && cfg?.provider === provider;
+  const [agree, setAgree] = useState(false);
 
   const pick = (p: Provider) => {
     setProvider(p);
@@ -26,6 +31,7 @@ export default function AiSettings() {
 
   const save = async () => {
     setAi({ provider, model: model.trim() || DEFAULT_MODEL[provider] }, key.trim() ? key : undefined);
+    if (agree) setAiConsent(provider);
     setKey('');
     setStatus('testing');
     try { await testAi(); setStatus('ok'); } catch (e) { setStatus(e instanceof AiError ? e.message : 'The test failed.'); }
@@ -38,6 +44,10 @@ export default function AiSettings() {
         With your own AI key, Lexi can explain a sentence you’re reading and check what you write back.
         Your key stays in this browser and goes only to the provider you pick — Lexi has no server, and the key is never in your backup file.
         Without a key, none of your reading or writing goes to an AI, and everything else works.
+      </p>
+      <p className="text-dim text-xs mb-3" id="ai-disclosure">
+        {aiDisclosure(provider)}{' '}
+        <a href="./legal.html#tutor" target="_blank" rel="noopener" className="underline decoration-dotted hover:text-accent">What leaves this device</a>
       </p>
 
       <div className="flex flex-wrap gap-2 mb-3">
@@ -65,14 +75,22 @@ export default function AiSettings() {
       <input id="ai-model" value={model} onChange={(e) => setModel(e.target.value)} spellCheck={false}
         className="w-full rounded-md bg-panel2 border border-line px-3 py-2 text-sm font-mono focus:border-accent focus:outline-none" />
 
+      {!agreedAlready && (
+        <label className="flex items-start gap-2 mt-3 text-xs">
+          <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)}
+            aria-describedby="ai-disclosure" className="mt-0.5 accent-accent w-4 h-4 flex-shrink-0" />
+          <span>I’ve read what is sent, and to whom, and I’m OK with it.</span>
+        </label>
+      )}
+
       <div className="flex items-center gap-3 flex-wrap mt-3">
-        <Button size="sm" onClick={save} disabled={(!key.trim() && !hint) || status === 'testing'}>
+        <Button size="sm" onClick={save} disabled={(!key.trim() && !hint) || (!agreedAlready && !agree) || status === 'testing'}>
           {status === 'testing' ? <><Loader2 size={13} className="animate-spin" /> Testing…</> : 'Save and test'}
         </Button>
         {status === 'ok' && <span className="flex items-center gap-1 text-xs text-green"><Check size={14} /> Working</span>}
         {status !== 'idle' && status !== 'ok' && status !== 'testing' && <span className="text-xs text-red-txt">{status}</span>}
         {cfg && hint && (
-          <button onClick={() => { setAi(null); setStatus('idle'); setKey(''); }}
+          <button onClick={() => { setAi(null); setStatus('idle'); setKey(''); setAgree(false); }}
             className="ml-auto inline-flex items-center gap-1 text-xs text-dim hover:text-red-txt">
             <Trash2 size={13} /> Remove key
           </button>

@@ -23,7 +23,8 @@
 // Bring-your-own-key. The key is stored in this browser's localStorage and sent
 // only to the provider the learner chose, directly from the browser. It is never
 // in the backup export. Lexi has no server to see it, and with no key set, no
-// text leaves the device.
+// text leaves the device. With a key set, still nothing leaves until the learner
+// has said yes once to a sentence naming the provider and the text (*consent*).
 import type Anthropic from '@anthropic-ai/sdk';
 
 export type Provider = 'anthropic' | 'openrouter';
@@ -33,6 +34,9 @@ export interface AiConfig { provider: Provider; model: string }
 export const AI_CONFIG_KEY = 'lexi.ai.v1';
 /** The key: a secret, and deliberately *not* in SETTING_KEYS. */
 const AI_SECRET_KEY = 'lexi.ai.key.v1';
+/** `{ provider, at }` — which provider the learner agreed to send text to, and
+ *  when. See *consent* below; also deliberately not in SETTING_KEYS. */
+const AI_CONSENT_KEY = 'lexi.ai.consent.v1';
 
 export const DEFAULT_MODEL: Record<Provider, string> = {
   anthropic: 'claude-opus-5',
@@ -56,7 +60,10 @@ export function aiKeyHint(): string | null {
 }
 export function setAi(cfg: AiConfig | null, key?: string | null) {
   try {
-    if (!cfg) { localStorage.removeItem(AI_CONFIG_KEY); localStorage.removeItem(AI_SECRET_KEY); return; }
+    if (!cfg) {
+      localStorage.removeItem(AI_CONFIG_KEY); localStorage.removeItem(AI_SECRET_KEY); localStorage.removeItem(AI_CONSENT_KEY);
+      return;
+    }
     localStorage.setItem(AI_CONFIG_KEY, JSON.stringify(cfg));
     if (key !== undefined) {
       if (key) localStorage.setItem(AI_SECRET_KEY, key.trim()); else localStorage.removeItem(AI_SECRET_KEY);
@@ -64,8 +71,52 @@ export function setAi(cfg: AiConfig | null, key?: string | null) {
   } catch { /* quota */ }
 }
 
+// ---- consent ----------------------------------------------------------------------
+//
+// A key in Settings is permission to *use* a provider, not a statement that the
+// learner knows what will be sent to it. So the first request asks, once per
+// provider, in words that name the provider and the text: Apple's 5.1.2(i) asks
+// for exactly this before personal data goes to a third-party AI, and it is the
+// honest thing on the web for the same reason (the panel review, 2026-09-25).
+//
+// The gate lives in `complete()`, not in the components, so no future caller can
+// send without it — a component that forgets to ask gets a `consent` error, not a
+// silent send.
+//
+// Not in SETTING_KEYS, deliberately: the key it belongs to is never in a backup
+// either, so a restored device re-enters the key and is asked again. Consent to
+// send text to a company should not travel in a file.
+
+export function aiConsented(): boolean {
+  const cfg = aiConfig();
+  if (!cfg) return false;
+  try {
+    const v = JSON.parse(localStorage.getItem(AI_CONSENT_KEY) || 'null') as { provider?: string } | null;
+    return !!v && v.provider === cfg.provider;
+  } catch { return false; }
+}
+export function setAiConsent(provider: Provider) {
+  try { localStorage.setItem(AI_CONSENT_KEY, JSON.stringify({ provider, at: Date.now() })); } catch { /* quota */ }
+}
+
+export const PROVIDER_NAME: Record<Provider, string> = {
+  anthropic: 'Anthropic',
+  openrouter: 'OpenRouter, which passes it on to the company that runs the model you picked',
+};
+
+/** What leaves the device, in one paragraph — shown by Settings and by the
+ *  one-time prompt, so the two can never describe different things. Keep it in
+ *  step with `explainSentence`/`correctWriting` below and with `public/legal.html`. */
+export function aiDisclosure(provider: Provider): string {
+  return `When you ask for an explanation, Lexi sends the sentence, its paragraph and the article’s title; `
+    + `when you ask for a correction, it sends what you wrote, the article’s title and the words you were trying to use. `
+    + `Your level goes with both. It goes straight from this browser to ${PROVIDER_NAME[provider]}, under your key — `
+    + `their terms and privacy policy apply, including any minimum age. Lexi has no server and keeps none of it. `
+    + `Leave out personal details you wouldn’t put in an email.`;
+}
+
 export class AiError extends Error {
-  constructor(message: string, readonly kind: 'no-key' | 'auth' | 'rate' | 'network' | 'refused' | 'bad-output' | 'other') {
+  constructor(message: string, readonly kind: 'no-key' | 'consent' | 'auth' | 'rate' | 'network' | 'refused' | 'bad-output' | 'other') {
     super(message);
   }
 }
@@ -172,6 +223,7 @@ async function complete<T>(system: string, user: string, schema: Record<string, 
   const cfg = aiConfig();
   const key = aiSecret();
   if (!cfg || !key) throw new AiError('No AI key set', 'no-key');
+  if (!aiConsented()) throw new AiError('Lexi needs your OK before it sends text to your AI provider', 'consent');
   const text = cfg.provider === 'anthropic'
     ? await viaAnthropic(cfg.model, key, system, user, schema, effort)
     : await viaOpenRouter(cfg.model, key, system, user, schema);

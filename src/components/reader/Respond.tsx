@@ -14,7 +14,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Mic, MicOff, Sparkles, Loader2, Check } from 'lucide-react';
 import UmlautBar from '../UmlautBar.tsx';
-import { aiReady, correctWriting, AiError } from '../../lib/ai.ts';
+import { aiReady, aiConsented, correctWriting, AiError } from '../../lib/ai.ts';
+import AiConsent from '../AiConsent.tsx';
 import { addJournal, updateJournal, type Correction } from '../../lib/news/library.ts';
 import { correctionDiff } from '../../lib/news/diff.ts';
 import { createListener, support, type Listener } from '../../lib/asr.ts';
@@ -42,6 +43,8 @@ export default function Respond({ articleId, title, targets, onSettings }: {
   const [entryId, setEntryId] = useState<string | null>(null);
   const [listening, setListening] = useState(false);
   const [asked, setAsked] = useState(false);
+  /** The first correction for a provider waits for a yes (lib/ai.ts, *consent*). */
+  const [askingAi, setAskingAi] = useState(false);
   const box = useRef<HTMLTextAreaElement>(null);
   const listener = useRef<Listener | null>(null);
   const mic = support();
@@ -79,6 +82,9 @@ export default function Respond({ articleId, title, targets, onSettings }: {
       : addJournal({ articleId, title, text: body, correction: null }).id;
     setEntryId(entry);
     if (!aiReady()) { setState('saved'); return; }
+    // Journalled first, so "Not now" still keeps what they wrote.
+    if (!aiConsented()) { setAskingAi(true); setState('saved'); return; }
+    setAskingAi(false);
     setState('checking');
     try {
       const c = await correctWriting({ text: body, title, level: studyLevel(), targets: words });
@@ -150,6 +156,11 @@ export default function Respond({ articleId, title, targets, onSettings }: {
           </span>
         )}
       </div>
+      {askingAi && aiReady() && (
+        <div className="mt-3">
+          <AiConsent onAllow={submit} onCancel={() => setAskingAi(false)} />
+        </div>
+      )}
       {error && <p className="mt-2 text-xs text-red-txt">{error} Your text is saved.</p>}
 
       {result && (
