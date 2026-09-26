@@ -1572,3 +1572,22 @@ plurals are not resolved to their headword, so a correct example is refused. Wri
 infinitive after a modal, or the uninflected form, and the example passes. This is a
 coverage gap in `lib/inflections`, not a reason to loosen the gate.
 
+
+## A `flex-1` is only as tall as its parent lets it be *(added 2026-09-25, panel round 3)*
+
+**Believed:** the Üben card "takes the space genuinely remaining" — its own comment said
+so, `SwipeCard` was `flex-1 min-h-[16.25rem] max-h-[28.75rem]`, and a guard test pinned
+that class string.
+
+**True:** two ancestors between it and the bounded stage were content-sized (the
+header-and-stage wrapper was a plain block; the `card-in` wrapper was a flex column
+without `flex-1`), so there was never any free space for it to grow into. The card sat
+on its 260pt floor on every phone, clipping its own example, while the column around it
+was centred with empty paper above the header and below the buttons. The panel's
+screenshots measured the card at ~258pt; making both wrappers `flex-1 min-h-0` grew it
+to ~296pt on the same iPhone 17 Pro in Safari with no other change.
+
+**Rule:** a size class is a request, not a measurement. When a layout claims to fill
+space, check the rendered height on the simulator — and walk every ancestor up to the
+one with a definite height: each must itself be a growing flex item, or the claim is
+decoration. A test that pins the class string cannot see this.
