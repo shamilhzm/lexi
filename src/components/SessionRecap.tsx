@@ -57,12 +57,15 @@ export default function SessionRecap({ data, title = 'Session complete', childre
           transition={{ type: 'spring', stiffness: 500, damping: 13 }} className="inline-flex">
           <Flame size={14} className="text-accent" />
         </motion.span>
-        <motion.span initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
+        {/* Transform-only (DESIGN §7): this is a number, and `opacity: 0` is where a
+            stalled animation leaves it — invisible. `MotionConfig reducedMotion`
+            at the root turns the scale off for a learner who asked for less. */}
+        <motion.span initial={{ scale: 0.4 }} animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 480, damping: 16, delay: 0.05 }}
           className="font-mono font-bold text-accent tabular-nums">{data.streak}</motion.span>
       </p>
       {data.milestone && (
-        <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+        <motion.div initial={{ y: 6 }} animate={{ y: 0 }} transition={{ delay: 0.15 }}
           className="flex items-center justify-center gap-1.5 mb-5 text-accent">
           <Trophy size={15} /> <span className="font-semibold text-xs">New milestone · {data.milestone}</span>
         </motion.div>
@@ -72,7 +75,7 @@ export default function SessionRecap({ data, title = 'Session complete', childre
           style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
           {tiles.map((s, k) => (
             <motion.div key={s.label} className="px-2 py-3"
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 8 }} animate={{ y: 0 }}
               transition={{ type: 'spring', stiffness: 480, damping: 30, delay: 0.1 + k * 0.06 }}>
               <Kicker className="block">{s.label}</Kicker>
               {/* Count-up: feedback density, honors reduced motion via CountUp. */}

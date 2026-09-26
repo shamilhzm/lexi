@@ -56,7 +56,13 @@ export function useChoiceKeys({ count, answered, onPick, onNext }: {
 /** Speak one German string. Small by design: these sit inline beside text rather
  *  than acting as a primary control, so they take the 24px WCAG 2.5.8 floor
  *  rather than the 44px one `IconButton` enforces for standalone targets. */
-export function SpeakButton({ text, label }: { text: string; label?: string }) {
+export function SpeakButton({ text, label }: {
+  text: string;
+  /** The English half of the name, e.g. "Hear the example". The German `text` is
+   *  appended as content in its own `lang` *(2026-09-25 panel)*: as one
+   *  `aria-label` string the German was spoken with English phonology. */
+  label?: string;
+}) {
   // **Not offered when it cannot work.** Without a German voice the platform reads
   // German spelling with English phonology — *Zeit* as "zyte", every `ei` wrong —
   // and says nothing about having done so. `speakDe` refuses that; this is the
@@ -78,7 +84,6 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
   return (
     <button
       onClick={(e) => { e.stopPropagation(); speak(text); }}
-      aria-label={label ?? `Hear “${text}” in German`}
       // `tap-hit` rather than a bigger box: the speaker sits inline beside a
       // sentence at 24px by design, and growing it for real would push the
       // reveal's typography around. The target reaches 44px, the ink does not
@@ -91,7 +96,8 @@ export function SpeakButton({ text, label }: { text: string; label?: string }) {
       // comment above already said "inline"; only the class disagreed.
       className="tap-hit inline-grid place-items-center w-[24px] h-[24px] rounded-sm text-dim hover:text-accent
         active:scale-95 transition-colors flex-shrink-0 align-middle">
-      <Volume2 size={14} />
+      <Volume2 size={14} aria-hidden />
+      <span className="sr-only">{label ?? 'Hear'} <span lang="de">{text}</span></span>
     </button>
   );
 }
@@ -153,7 +159,7 @@ export function ExampleList({ items, max = 2 }: { items: Example[]; max?: number
       {items.slice(0, max).map((e, k) => (
         <li key={k} className="text-sm leading-relaxed">
           <span lang="de" className="text-txt">{e.de}</span>{' '}
-          <SpeakButton text={e.de} label={`Hear the example “${e.de}”`} />
+          <SpeakButton text={e.de} label="Hear the example:" />
           {e.en && <span className="block text-dim italic pl-3.5 mt-0.5">{e.en}</span>}
         </li>
       ))}

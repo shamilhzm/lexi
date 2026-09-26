@@ -66,6 +66,40 @@ export default function Layer({ children, side, label, back = 'Wort', onClose }:
   const reduce = useReducedMotion();
   const away = side === 'left' ? '-100%' : '100%';
 
+  // **Where focus goes back to, and what is behind** *(2026-09-25 panel).*
+  //
+  // The panel took focus on open and gave nothing back on close, so a keyboard or
+  // VoiceOver user who opened a word's ⓘ landed at the top of the document when
+  // they closed it — in a feed ten thousand words long. The opener is remembered
+  // here, before the effect below moves focus into the panel, and handed focus
+  // back on the way out if focus has not gone somewhere deliberate meanwhile.
+  //
+  // And the route underneath is `inert` while a layer is up. Not `aria-modal` —
+  // the bars stay live, which is the point of layers (see the header) — but the
+  // page the panel *covers* was still in the accessibility tree, so swiping
+  // through with VoiceOver read feed words hidden behind an open entry. `#main`
+  // is the route column only; the bars are its siblings. Counted, because an
+  // entry can open a drill over itself and the first close must not wake the page.
+  // Declared before the focusing effect so the opener is read first.
+  useEffect(() => {
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const main = document.getElementById('main');
+    if (main) {
+      main.dataset.layers = String(Number(main.dataset.layers ?? 0) + 1);
+      main.inert = true;
+    }
+    return () => {
+      if (main) {
+        const left = Math.max(0, Number(main.dataset.layers ?? 1) - 1);
+        main.dataset.layers = String(left);
+        if (left === 0) main.inert = false;
+      }
+      const now = document.activeElement;
+      const stranded = !now || now === document.body || now.closest?.('#layer-root') !== null;
+      if (opener && opener.isConnected && stranded) opener.focus({ preventScroll: true });
+    };
+  }, []);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKey);
