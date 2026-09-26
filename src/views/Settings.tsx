@@ -174,7 +174,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-accent" /><h2 className="text-base font-semibold">German voice</h2></div>
         <p className="text-dim text-xs mb-3">
           The HD voice is a native-German neural voice (Piper “Thorsten”) that runs on your device.
-          It downloads once (~25 MB), then works offline — far better than the built-in browser voice.
+          It downloads once (~75 MB), then works offline — far better than the built-in browser voice.
           {/* Lexi says it works offline, and that is true of everything except this
               one step: enabling the voice fetches both a library and the voice
               itself over the network. Saying so here is cheaper than a learner

@@ -68,7 +68,10 @@ export default function AiSettings() {
         className="w-full rounded-md bg-panel2 border border-line px-3 py-2 text-sm font-mono focus:border-accent focus:outline-none" />
       <p className="text-2xs text-dim mt-1">
         Get one at <a className="underline decoration-dotted hover:text-accent" href={PROVIDERS.find((p) => p.id === provider)!.keyUrl} target="_blank" rel="noopener noreferrer">
-          {provider === 'anthropic' ? 'console.anthropic.com' : 'openrouter.ai'}</a>. A day’s reading and writing costs cents.
+          {provider === 'anthropic' ? 'console.anthropic.com' : 'openrouter.ai'}</a>. Your provider bills this key per request, and its usage page shows what you’ve spent.
+          {/* Not "a day costs cents": nothing measured that (ai.ts never reads `usage`), and
+              what a day costs depends on the model the learner picks. A money claim about
+              the learner's own card is the last number that should be a guess — docs/COSTS.md. */}
       </p>
 
       <label className="block text-xs text-dim mb-1 mt-3" htmlFor="ai-model">Model</label>
