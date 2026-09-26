@@ -37,12 +37,15 @@
 import { Fragment, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { loadDetailFor } from '../data/detail.ts';
 import { AnimatePresence, motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Info, Bookmark, GraduationCap, Volume2, VolumeX, Play, ChevronDown, X } from 'lucide-react';
+import { Info, Bookmark, GraduationCap, Volume2, VolumeX, Play, ChevronDown, X, Headphones } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
   isSaved, toggleSaved, noteExposure, DWELL_MS,
+  savedWords, savedToday, DAILY_SAVE_GOAL, placementLevel, totals,
 } from '../store.ts';
+import { SESSION_CEILING, estimateMinutes } from '../session.ts';
+import { readyFrom, nextReadyAt, topicAskAllowed, READY_AT, type Ready } from '../lib/feedSlots.ts';
 import { useStore } from '../useStore.ts';
 import { byFrequency } from '../lib/freq.ts';
 import { speak, useGermanVoice } from '../lib/tts.ts';
@@ -55,7 +58,7 @@ import { StorySlot, TopicSlot } from '../components/reader/StorySlot.tsx';
 import { loadTopics, type FeedArticle } from '../lib/news/feed.ts';
 import { newsTopics, isRead } from '../lib/news/library.ts';
 import { primaryTopic } from '../lib/news/sources.ts';
-import type { Word } from '../types.ts';
+import type { Target, Word } from '../types.ts';
 
 // The reader proper — the word sheet, the write-back, the AI client — is opened
 // deliberately and is most of the stories' code, so it loads on first use.
@@ -100,6 +103,51 @@ const PAGE = 24;
  *  is on screen — and small enough that reading the top of the feed never pulls a
  *  level the learner has not reached. */
 const LOOKAHEAD = 4;
+
+/** What the ready slot offers right now. A full briefing is a scan of the lexicon,
+ *  so this runs when the feed opens and after a save — never on a dwell, which
+ *  fires every 1.2 s of reading. */
+function readyNow(): Ready {
+  return readyFrom(buildBriefing(), new Set(savedWords()), (id) => statusOf(id) === 'new', SESSION_CEILING);
+}
+
+// ---- where the learner was ------------------------------------------------
+// **The feed remembers its place for as long as the page lives.** It used to be
+// rebuilt — and reshuffled — every time the tab was entered, so a learner who
+// left for a session or a deck came back to a different first word and no way to
+// find the one they were on. That made every door out of the feed a door that
+// cost you your place, which is the opposite of what the ready slot promises
+// ("you'll come back to this spot").
+//
+// Module state rather than storage on purpose: a new visit *should* open on a new
+// word (see the shuffle note in `feedOrder`), and a remembered place across app
+// launches would be a feed that never moves. The anchor is a word id, not a scroll
+// offset, so a slot inserted or removed above it cannot shift where you land.
+let kept: { lvKey: string; order: Word[]; anchor: string | null } | null = null;
+
+/** Tapping *Wörter* (or the logo) while already on the feed goes back to the top,
+ *  as every tab bar does — the one way to ask for a fresh start mid-visit. */
+export function forgetFeedPosition(): void {
+  if (kept) kept.anchor = null;
+}
+
+/** The feed's order for this scope: the kept one if the scope has not changed. */
+function keptOrder(lvKey: string): Word[] {
+  if (kept && kept.lvKey === lvKey) return kept.order;
+  const order = feedOrder();
+  kept = { lvKey, order, anchor: null };
+  return order;
+}
+
+/** The slot index of the word the learner was last reading, or -1. */
+function keptSlot(order: Word[]): number {
+  const anchor = kept?.anchor;
+  return anchor ? order.findIndex((w) => w.id === anchor) : -1;
+}
+
+function keepAnchor(id: string): void {
+  if (kept) kept.anchor = id;
+}
 
 /** Order the whole in-scope lexicon the way the scheduler would.
  *
@@ -187,17 +235,30 @@ function shuffle<T>(a: T[], from = 0, to = a.length): void {
   }
 }
 
-export default function Feed({ onStartFirstRun, onSettings }: { onStartFirstRun: () => void; onSettings: () => void }) {
+export default function Feed({ onStartFirstRun, onSettings, onStudy, onWalk }: {
+  onStartFirstRun: () => void; onSettings: () => void;
+  /** Start a session — the ready slot's one action. */
+  onStudy: (t: Target) => void;
+  /** Walk mode, offered beside the session for the same words. */
+  onWalk?: () => void;
+}) {
   const v = useStore();
   const lvKey = [...levels()].sort().join('');
   // Rebuilt when the level filter changes, and never on a save: re-ordering the
   // list under a scrolling thumb is the one thing a feed must not do.
-  const order = useMemo(() => feedOrder(), [lvKey]);
-  const [count, setCount] = useState(PAGE);
+  //
+  // Reused from `kept` when the level filter has not changed since the feed was
+  // last on screen — see the note above `kept`.
+  const order = useMemo(() => keptOrder(lvKey), [lvKey]);
+  // Where to land on mount: the word the learner was last reading, if any.
+  const [resumeAt] = useState(() => keptSlot(order));
+  const [count, setCount] = useState(() => Math.max(PAGE, resumeAt + LOOKAHEAD + 1));
   /** The furthest slot the dwell observer has seen. Declared up here because the
    *  observer effect below writes it; the effect that reads it is further down,
    *  beside the slots it applies to. */
-  const [reached, setReached] = useState(0);
+  const [reached, setReached] = useState(() => Math.max(0, resumeAt));
+  const reachedRef = useRef(reached);
+  useEffect(() => { reachedRef.current = reached; }, [reached]);
   const [detail, setDetail] = useState<Word | null>(null);
   // Two sheets, two pieces of state, and never both at once — reading about a
   // word and being asked about it are opposite activities, and the second one is
@@ -220,7 +281,25 @@ export default function Feed({ onStartFirstRun, onSettings }: { onStartFirstRun:
       .catch(() => { /* offline and nothing cached: a word feed, as before */ });
     return () => { live = false; };
   }, [topicsKey]);
-  const askTopics = newsTopics() === null;
+  // Measured once per mount: `totals()` walks the in-scope lexicon, and the feed
+  // re-renders on every dwell.
+  const [topicsEarned] = useState(() => topicAskAllowed(placementLevel(), totals().known));
+  const askTopics = newsTopics() === null && topicsEarned;
+
+  // ---- the ready slot -------------------------------------------------------
+  // See `lib/feedSlots.ts` for why the feed carries one. Placed at `READY_AT` when
+  // something is waiting as the feed opens; otherwise it arrives two slots ahead
+  // of the learner once the day's save goal is met — the moment the pill turns
+  // green is the moment "now go and learn them" is true.
+  const [ready, setReady] = useState(readyNow);
+  const [readyAt, setReadyAt] = useState<number | null>(() => (ready.ids.length ? READY_AT : null));
+  const onSaved = useCallback(() => {
+    const r = readyNow();
+    setReady(r);
+    if (r.ids.length && savedToday() >= DAILY_SAVE_GOAL) {
+      setReadyAt((at) => nextReadyAt(at, reachedRef.current, STORY_EVERY));
+    }
+  }, []);
 
   // Grow the list before the learner reaches the end of it. An IntersectionObserver
   // on a sentinel rather than a scroll handler: a scroll listener on a snap
@@ -239,8 +318,22 @@ export default function Feed({ onStartFirstRun, onSettings }: { onStartFirstRun:
   }, [order.length]);
 
   // Back to the top when the scope changes, or the learner is left mid-feed in a
-  // list that no longer contains what they were looking at.
-  useEffect(() => { scroller.current?.scrollTo({ top: 0 }); setCount(PAGE); }, [lvKey]);
+  // list that no longer contains what they were looking at. *Changes* — not on
+  // mount, where it used to run too and would now throw away the resumed place.
+  const scopeKey = useRef(lvKey);
+  useEffect(() => {
+    if (scopeKey.current === lvKey) return;
+    scopeKey.current = lvKey;
+    scroller.current?.scrollTo({ top: 0 }); setCount(PAGE);
+  }, [lvKey]);
+
+  // Land where the learner left. Instant, not smooth: this is a place being
+  // restored, not a movement the eye should follow. By slot index, which is
+  // stable because `order` is the kept one.
+  useEffect(() => {
+    if (resumeAt < 0) return;
+    scroller.current?.querySelector<HTMLElement>(`[data-slot="${resumeAt}"]`)?.scrollIntoView({ block: 'start' });
+  }, [resumeAt]);
 
   // ---- the dwell gate ------------------------------------------------------
   //
@@ -267,6 +360,9 @@ export default function Feed({ onStartFirstRun, onSettings }: { onStartFirstRun:
         const id = (e.target as HTMLElement).dataset.word;
         if (!id) continue;
         if (e.isIntersecting) {
+          // The place to come back to. Recorded at the same 0.6 threshold as the
+          // dwell, so it is the word that is actually on screen.
+          keepAnchor(id);
           // How far down the feed the learner has actually got, which is what
           // decides how much detail to fetch. See the `loadDetailFor` effect.
           const at = Number((e.target as HTMLElement).dataset.slot);
@@ -371,12 +467,16 @@ export default function Feed({ onStartFirstRun, onSettings }: { onStartFirstRun:
         const story = (i + 1) % STORY_EVERY === 0 ? stories[(i + 1) / STORY_EVERY - 1] : undefined;
         return (
           <Fragment key={w.id}>
-            <Slot word={w} at={i} version={v} watch={watch} onAnnounce={announce}
+            <Slot word={w} at={i} version={v} watch={watch} onAnnounce={announce} onSaved={onSaved}
               onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
             {i === TOPIC_SLOT_AT && askTopics && (
               <TopicSlot onChosen={() => setTopicsKey((newsTopics() ?? []).join(','))} />
             )}
             {story && <StorySlot story={story} onOpen={setReading} />}
+            {i === readyAt && (
+              <ReadySlot ready={ready} onWalk={onWalk}
+                onStart={() => onStudy({ kind: 'custom', name: 'Ready now', ids: ready.ids })} />
+            )}
           </Fragment>
         );
       })}
@@ -470,6 +570,58 @@ function SwipeHint() {
  *  what is it, and where does my data go. Then two ways on, because there are
  *  genuinely two: scroll, which costs nothing and commits to nothing, or take the
  *  ten-card session, which is the fastest way to see why the app schedules. */
+/** The loop's third leg, as a slot: what is waiting in Üben, how long it takes,
+ *  and one press to start it.
+ *
+ *  **It never leaves once placed.** A slot that unmounted when its count fell to
+ *  zero would pull every slot below it up by a screen — re-ordering under the
+ *  thumb, the one thing the feed must not do. So an emptied slot says so instead.
+ *
+ *  No `data-word`: like a story it is invisible to the dwell observer, records no
+ *  exposure and grades nothing. The session it starts is an ordinary scoped one,
+ *  whose Back arrow returns here (App keeps the origin; the feed keeps its place). */
+function ReadySlot({ ready, onStart, onWalk }: { ready: Ready; onStart: () => void; onWalk?: () => void }) {
+  const n = ready.ids.length;
+  const parts = [
+    ready.saved > 0 && `${ready.saved} you saved`,
+    ready.due > 0 && `${ready.due} due back`,
+  ].filter(Boolean).join(' · ');
+  return (
+    <section aria-labelledby="feed-ready"
+      className="feed-slot snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-safe-center px-6
+      pt-[var(--bar-t)] pb-[var(--bar-b)]">
+      <div className="w-full max-w-[460px] text-center">
+        <p className="font-mono text-2xs uppercase tracking-widest text-accent">Waiting in <span lang="de">Üben</span></p>
+        {n > 0 ? (
+          <>
+            <h2 id="feed-ready" className="text-2xl font-bold mt-1">
+              {n} {n === 1 ? 'word' : 'words'} ready
+            </h2>
+            <p className="text-sm text-dim mt-1 mb-6">
+              {parts} · about {estimateMinutes(n)} min
+            </p>
+            <Button onClick={onStart}><Play size={14} /> Learn them now</Button>
+            {onWalk && (
+              <button onClick={onWalk}
+                className="tap-44 mt-3 mx-auto flex items-center gap-1.5 text-sm text-dim hover:text-accent">
+                <Headphones size={14} aria-hidden /> or listen on a walk
+              </button>
+            )}
+            <p className="text-dim text-2xs mt-5">Back from the session brings you to this spot.</p>
+          </>
+        ) : (
+          <>
+            <h2 id="feed-ready" className="text-2xl font-bold mt-1">Nothing waiting</h2>
+            <p className="text-sm text-dim mt-1 max-w-[36ch] mx-auto">
+              Save a word with the bookmark and it lands here — Üben teaches it next.
+            </p>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function Welcome({ onStart }: { onStart: () => void }) {
   return (
     // `.feed-slot` and safe centring, exactly like a word slot. Without the class this
@@ -512,8 +664,10 @@ function Welcome({ onStart }: { onStart: () => void }) {
  *  `content-visibility: auto` on the section is what makes a long list cheap: the
  *  browser skips layout and paint for slots that are nowhere near the viewport,
  *  and `contain-intrinsic-size` keeps the scrollbar honest while it does. */
-function Slot({ word, at, version, onInfo, onDrill, onAnnounce, watch }: {
+function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }: {
   word: Word; version: number; onInfo: () => void; onDrill: () => void;
+  /** Tells the feed a save happened, so the ready slot can count it. */
+  onSaved: () => void;
   /** Hands a sentence to the feed's single live region. */
   onAnnounce: (message: string) => void;
   /** This slot's position in the feed, published to the DOM so the one observer
@@ -536,7 +690,8 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, watch }: {
     onAnnounce(now
       ? `${word.term} saved — ${cardOf(word.id) ? 'already in your sessions' : 'your next session will teach it'}`
       : `${word.term} removed from your saved words`);
-  }, [word.id, word.term, onAnnounce]);
+    onSaved();
+  }, [word.id, word.term, onAnnounce, onSaved]);
 
   return (
     // The slot is the **whole** viewport — the word passes under the glass bars

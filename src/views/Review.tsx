@@ -78,12 +78,15 @@ export function showsGermanDefs(placed: CEFR | null): boolean {
   return !!placed && ALL_LEVELS.indexOf(placed) >= ALL_LEVELS.indexOf('B2');
 }
 
-export default function Review({ target, onDone, onPick, onGame, onProfile, onPlacement, firstRun = false }:
+export default function Review({ target, onDone, onPick, onBack, backTo, onGame, onProfile, onPlacement, firstRun = false }:
   { target: Target;
     /** Leave the guided chain — the recap's "Got it". */
     onDone: () => void;
     /** Into the lexicon: another deck, or a word to look up. */
     onPick: () => void;
+    /** Where a scoped session's Back arrow goes, and what it says — the surface
+     *  that opened it (App keeps the origin). Absent: Themen, as before. */
+    onBack?: () => void; backTo?: string;
     /** Open `Sag es`, the pronunciation game. Offered from the empty state, which is
      *  the one moment the app knows a learner has time and nothing owed. */
     onGame: () => void;
@@ -496,7 +499,7 @@ export default function Review({ target, onDone, onPick, onGame, onProfile, onPl
           {/* A scoped session was opened from somewhere and has a way back. The
               day's queue is the app's root and has none — a back arrow on the
               screen the app opens into is an arrow pointing at nothing. */}
-          {scoped && <IconButton label="Back to Wortschatz" pull onClick={onPick}><ArrowLeft size={16} /></IconButton>}
+          {scoped && <IconButton label={`Back to ${backTo ?? 'Themen'}`} pull onClick={onBack ?? onPick}><ArrowLeft size={16} /></IconButton>}
           <h1 className="text-base font-semibold truncate flex-1 min-w-0">{target.name}</h1>
           {/* Position out of a total, not a raw countdown. "92 left" on a first
               session reads as a backlog with no floor; "7 / 92" is the same fact
