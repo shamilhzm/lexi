@@ -1710,3 +1710,17 @@ arrive as build-time tokens (`lib/publicCopy.ts`) and images carry no counts at 
 own** — three headline lines rendered on top of each other at y≈0, off the canvas. It
 also drops a quoted family in a `font-family` list (`'New York', Georgia` fell back to
 Helvetica). *Rule: one `<text>` per line, unquoted family names, and look at the PNG.*
+
+## CI builds from git; the deploy builds from the upload *(added 2026-09-27)*
+
+**Believed:** CI green on `main` meant the deploy would build — CI runs the same
+`npm run build`.
+
+**True:** CI checks out git; `vercel deploy` uploads the working directory minus
+`.vercelignore`, which excludes all of `scripts/`. The marketing branch made
+`vite.config.ts` import `scripts/marketing/publicCopyPlugin.ts`, so every deploy after
+the panel merge failed with "Could not resolve" while CI passed.
+
+**Rule:** anything the build imports must survive `.vercelignore` —
+`scripts/vercelignore.test.ts` now checks every relative import in `vite.config.ts`.
+And a green CI is not a deploy: read the deploy's own build log before saying it shipped.

@@ -18,7 +18,17 @@ dist
 
 # Build-time corpus + authoring pipeline. Runs on a maintainer's machine only;
 # the app fetches the finished JSON from public/data at runtime.
-scripts
+#
+# **Except what `vite.config.ts` imports.** The build runs on Vercel, so a config
+# import under scripts/ must be uploaded: `publicCopyPlugin.ts` was excluded with
+# the rest and every deploy after the panel merge failed with "Could not resolve"
+# (2026-09-27) — while CI, which builds from git, passed. `vercelignore.test.ts`
+# now fails if a config import is ignored. Directory then file, because an ignored
+# directory cannot have a file re-included without its parent re-included first.
+scripts/*
+!scripts/marketing
+scripts/marketing/*
+!scripts/marketing/publicCopyPlugin.ts
 
 # Local-only material, gitignored too: DaF textbook scans and design screenshots
 # (~444 MB), the source for the A1/A2 corpus work.
