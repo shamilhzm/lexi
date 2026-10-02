@@ -6,6 +6,14 @@
 import { describe, it, expect, vi } from 'vitest';
 import type { Word } from './types.ts';
 
+// Focus (lib/focus.ts) hides the drill toggles and the pace setting but keeps
+// their machinery, so these tests run with every flag on — the app as it is the
+// moment a flag is flipped back. `focus.test.ts` covers the focused defaults.
+vi.mock('./lib/focus.ts', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('./lib/focus.ts')>()),
+  FOCUS: { grammar: true, speaking: true, writing: true, tuning: true },
+  visibleMode: () => true,
+}));
 vi.mock('./lib/idb.ts', () => ({ idbGet: async () => undefined, idbSet: async () => undefined, idbReady: async () => true }));
 
 async function fresh() {

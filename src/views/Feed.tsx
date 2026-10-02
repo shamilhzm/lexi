@@ -237,12 +237,12 @@ function shuffle<T>(a: T[], from = 0, to = a.length): void {
   }
 }
 
-export default function Feed({ onStartFirstRun, onSettings, onStudy, onWalk }: {
+export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }: {
   onStartFirstRun: () => void; onSettings: () => void;
   /** Start a session — the ready slot's one action. */
   onStudy: (t: Target) => void;
-  /** Walk mode, offered beside the session for the same words. */
-  onWalk?: () => void;
+  /** Hören, offered beside the session for the same words — they play first. */
+  onListen?: () => void;
 }) {
   const v = useStore();
   const lvKey = [...levels()].sort().join('');
@@ -477,7 +477,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onWalk }: {
             )}
             {story && <StorySlot story={story} onOpen={setReading} />}
             {i === readyAt && (
-              <ReadySlot ready={ready} onWalk={onWalk}
+              <ReadySlot ready={ready} onListen={onListen}
                 onStart={() => onStudy({ kind: 'custom', name: 'Ready now', ids: ready.ids })} />
             )}
           </Fragment>
@@ -583,7 +583,7 @@ function SwipeHint() {
  *  No `data-word`: like a story it is invisible to the dwell observer, records no
  *  exposure and grades nothing. The session it starts is an ordinary scoped one,
  *  whose Back arrow returns here (App keeps the origin; the feed keeps its place). */
-function ReadySlot({ ready, onStart, onWalk }: { ready: Ready; onStart: () => void; onWalk?: () => void }) {
+function ReadySlot({ ready, onStart, onListen }: { ready: Ready; onStart: () => void; onListen?: () => void }) {
   const n = ready.ids.length;
   const parts = [
     ready.saved > 0 && `${ready.saved} you saved`,
@@ -604,10 +604,10 @@ function ReadySlot({ ready, onStart, onWalk }: { ready: Ready; onStart: () => vo
               {parts} · about {estimateMinutes(n)} min
             </p>
             <Button onClick={onStart}><Play size={14} /> Learn them now</Button>
-            {onWalk && (
-              <button onClick={onWalk}
+            {onListen && (
+              <button onClick={onListen}
                 className="tap-44 mt-3 mx-auto flex items-center gap-1.5 text-sm text-dim hover:text-accent">
-                <Headphones size={14} aria-hidden /> or listen on a walk
+                <Headphones size={14} aria-hidden /> or play them in the background
               </button>
             )}
             <p className="text-dim text-2xs mt-5">Back from the session brings you to this spot.</p>

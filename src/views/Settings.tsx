@@ -8,6 +8,7 @@ import type { LucideIcon } from 'lucide-react';
 import { hdVoice, setHdVoice, retention, setRetentionTarget, importData, textScale, setTextScale, sound, setSound, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
 import { downloadBackup } from '../lib/backup.ts';
 import { MODE_TAG, MODES, type Mode } from './drills.tsx';
+import { FOCUS } from '../lib/focus.ts';
 import { WORDS } from '../data/index.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
@@ -151,8 +152,9 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         </button>
       </Card>
 
-      {/* Review intensity (FSRS desired retention) */}
-      <Card as="section" className="mb-4">
+      {/* Review intensity (FSRS desired retention). Hidden while Lexi does one
+          thing (lib/focus.ts): the recommended 90% applies, the stored choice waits. */}
+      {FOCUS.tuning && <Card as="section" className="mb-4">
         <div className="flex items-center gap-2 mb-1"><Gauge size={16} className="text-accent" /><h2 className="text-base font-semibold">Review intensity</h2></div>
         <p className="text-dim text-xs mb-3">
           How hard the scheduler pushes. Higher retention means shorter intervals and
@@ -167,7 +169,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
             </button>
           ))}
         </div>
-      </Card>
+      </Card>}
 
       {/* HD voice */}
       <Card as="section" className="mb-4">
@@ -307,7 +309,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
           Governs *sessions only*: opening a drill by name from Blind spots still
           drills it, because there you asked for it. */}
-      <Card pad="none" className="p-4">
+      {FOCUS.grammar && <Card pad="none" className="p-4">
         <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-accent" /> What’s in a session</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           Flip cards are always there. These are the drills woven between them — the same word
@@ -332,11 +334,11 @@ export default function Settings({ onExit }: { onExit: () => void }) {
             );
           })}
         </div>
-      </Card>
+      </Card>}
 
       {/* Daily pace. The caps were good defaults and also a ceiling with no
           override — an exam in three weeks could not ask for more. */}
-      <Card pad="none" className="p-4">
+      {FOCUS.tuning && <Card pad="none" className="p-4">
         <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><CalendarClock size={16} className="text-accent" /> Daily pace</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           How many new words a day, and how much of a backlog one day serves. The new-word
@@ -355,7 +357,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
             </button>
           ))}
         </div>
-      </Card>
+      </Card>}
 
     </div>
   );

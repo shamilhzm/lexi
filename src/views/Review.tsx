@@ -30,6 +30,7 @@ import { speak, onSystemVoice } from '../lib/tts.ts';
 import { sayExample, hasHumanAudio, stopAudio } from '../lib/audio.ts';
 import { familyOf } from '../lib/family.ts';
 import { valencyOf, valencyLabel } from '../lib/valency.ts';
+import { FOCUS } from '../lib/focus.ts';
 import { WORDS } from '../data/index.ts';
 import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
@@ -88,8 +89,9 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
      *  that opened it (App keeps the origin). Absent: Themen, as before. */
     onBack?: () => void; backTo?: string;
     /** Open `Sag es`, the pronunciation game. Offered from the empty state, which is
-     *  the one moment the app knows a learner has time and nothing owed. */
-    onGame: () => void;
+     *  the one moment the app knows a learner has time and nothing owed. Absent
+     *  while speaking is out of focus (lib/focus.ts), and then nothing offers it. */
+    onGame?: () => void;
     /** Backup, reminders, settings — offered from the recap's nudges. */
     onProfile: () => void;
     /** Offered from the first-run recap — see DoneState. */
@@ -793,7 +795,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     headword string where nothing could read it. Never shows a
                     case it had to guess — see lib/valency.ts. */}
                 {valency && (
-                  <p lang="de" className="text-sm text-accent font-mono mb-2">{valencyLabel(valency)}</p>
+                  <p lang="de" className="text-sm text-accent font-mono mb-2">{valencyLabel(valency, FOCUS.grammar)}</p>
                 )}
                 {card.ex.length > 0 && (
                   <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
@@ -1186,7 +1188,7 @@ function StatusPip({ id }: { id: string }) {
 function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onGame, onProfile, onPlacement }:
   { done: number; newLearned: number; retrieved: number; retrievedOk: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
     composition?: RecapData['composition']; met: Word[]; onDone: () => void; onPick: () => void;
-    onGame: () => void; onProfile: () => void;
+    onGame?: () => void; onProfile: () => void;
     /** Offered from the first recap, once there is something to calibrate. */
     onPlacement?: () => void }) {
   // **Recall is only defined where a retrieval happened.**
@@ -1284,7 +1286,7 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
                   the learner owes nothing. Not on a first run: the first session ends
                   in the placement test, and a microphone prompt across that is a
                   second ask on top of a first impression. */}
-              <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>
+              {onGame && <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>}
             </>}
         </div>
         {/* The pride moment — the market as a designed image, not a cropped
@@ -1307,7 +1309,7 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
  *  true thing to say to somebody who has served every review and spent the whole
  *  new-card budget. */
 function EmptyState({ target, scoped, onPick, onGame }: {
-  target: Target; scoped: boolean; onPick: () => void; onGame: () => void;
+  target: Target; scoped: boolean; onPick: () => void; onGame?: () => void;
 }) {
   const t = totals();
   return (
@@ -1332,7 +1334,7 @@ function EmptyState({ target, scoped, onPick, onGame }: {
           {/* The game is offered here and only here for now. This is the one state
               where the app knows the learner has time and owes nothing, which is the
               honest moment to suggest something that is not studying. */}
-          <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>
+          {onGame && <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>}
         </div>
       </div>
     </div>

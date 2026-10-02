@@ -23,7 +23,9 @@
 // Everything here is pure: what to play, in what order, and — once the clips have
 // durations — where each one sits on the timeline. `walkAudio.ts` renders it.
 
-export type WalkMode = 'teach' | 'test' | 'listen';
+/** `hear` and `again` are Hören's (lib/listen.ts): a word's first hearing, and
+ *  the shorter return of it later in the program, with the English faded out. */
+export type WalkMode = 'teach' | 'test' | 'listen' | 'hear' | 'again';
 
 export interface WalkItem {
   id: string;
@@ -46,7 +48,7 @@ export interface Presentation {
 /** Rough seconds per presentation, for planning before the clips exist. Measured
  *  against the layout below with typical clip lengths; the real total comes from
  *  `layout`, which is what the walk is actually as long as. */
-export const EST_SECONDS: Record<WalkMode, number> = { teach: 12, test: 11, listen: 9 };
+export const EST_SECONDS: Record<WalkMode, number> = { teach: 12, test: 11, listen: 9, hear: 7, again: 4 };
 
 /** When a new word is tested again, in presentations after it was taught. At the
  *  estimates above: ~40 s, ~2 min, ~5 min. */
@@ -153,7 +155,8 @@ export function clipsFor(pres: Presentation[], practice: WalkItem[], listen: Wal
   for (const p of pres) {
     const it = (p.lane === 'practice' ? practice : listen)[p.item];
     keys.add(deKey(it.de));
-    keys.add(enKey(it.en));
+    // A returning word is heard in German only: the support fades (lib/listen.ts).
+    if (p.mode !== 'again') keys.add(enKey(it.en));
     if (it.example && p.mode !== 'test') keys.add(deKey(it.example));
   }
   return [...keys];
@@ -187,6 +190,18 @@ export function layout(pres: Presentation[], practice: WalkItem[], listen: WalkI
       say(enKey(it.en), 0.6);
       say(deKey(it.de), it.example ? 0.8 : 1.4);
       if (it.example) say(deKey(it.example), 1.4);
+    } else if (p.mode === 'hear') {
+      // German, English, German again, then the word in a sentence.
+      answerAt = t;
+      say(deKey(it.de), 0.6);
+      say(enKey(it.en), 0.6);
+      say(deKey(it.de), it.example ? 0.8 : 1.8);
+      if (it.example) say(deKey(it.example), 1.8);
+    } else if (p.mode === 'again') {
+      // The return: German only. Meaning is now the listener's job, gently.
+      answerAt = t;
+      say(deKey(it.de), it.example ? 0.8 : 1.8);
+      if (it.example) say(deKey(it.example), 1.8);
     } else {
       answerAt = t;
       say(deKey(it.de), 0.6);

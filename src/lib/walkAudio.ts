@@ -20,6 +20,7 @@
 // so the float buffers alive at any moment stay small.
 import { synthesize, HD_VOICE_ID, EN_VOICE_ID } from './tts.ts';
 import { TONE_SECONDS, type Segment } from './walk.ts';
+import { readClips, writeClip, pruneClips } from './clipCache.ts';
 
 const RATE = 16000;
 const CHUNK_SECONDS = 300;
@@ -31,20 +32,53 @@ const Offline: Ctor | undefined = typeof window === 'undefined'
 
 export function canRenderWalk(): boolean { return !!Offline; }
 
-/** Synthesise and decode every clip. `onProgress` gets 0..1. */
+/** The voice a clip key is spoken in: `de:` keys in Thorsten, `en:` in Cori. */
+export function voiceFor(key: string): string { return key.startsWith('en:') ? EN_VOICE_ID : HD_VOICE_ID; }
+
+/** What a clip is cached under — the voice as well as the text, so a new voice
+ *  can never be served an old one's recording. */
+const cacheKey = (key: string) => `${voiceFor(key)}\u0000${key.slice(3)}`;
+
+/** The clip keys that would have to be synthesised — not yet on this device. */
+export async function missingClips(keys: string[]): Promise<string[]> {
+  const have = await readClips(keys.map(cacheKey));
+  return keys.filter((k) => !have.has(cacheKey(k)));
+}
+
+/** Synthesise and decode every clip, from the device's cache where it can
+ *  (`lib/clipCache.ts`). `onProgress` gets 0..1. */
 export async function renderClips(keys: string[], onProgress?: (f: number) => void): Promise<Map<string, AudioBuffer>> {
   if (!Offline) throw new Error('This browser cannot render audio offline.');
   const decoder = new Offline(1, 1, RATE);
   const out = new Map<string, AudioBuffer>();
+  const cached = await readClips(keys.map(cacheKey));
   let done = 0;
   for (const key of keys) {
-    const lang = key.slice(0, 2);
-    const text = key.slice(3);
-    const wav = await synthesize(text, lang === 'en' ? EN_VOICE_ID : HD_VOICE_ID);
-    out.set(key, await decoder.decodeAudioData(await wav.arrayBuffer()));
+    const hit = cached.get(cacheKey(key));
+    if (hit) {
+      const buf = decoder.createBuffer(1, Math.max(1, hit.length), RATE);
+      const ch = buf.getChannelData(0);
+      for (let i = 0; i < hit.length; i++) ch[i] = hit[i] / 0x8000;
+      out.set(key, buf);
+    } else {
+      const wav = await synthesize(key.slice(3), voiceFor(key));
+      const buf = await decoder.decodeAudioData(await wav.arrayBuffer());
+      out.set(key, buf);
+      void writeClip(cacheKey(key), toInt16(buf.getChannelData(0)));
+    }
     onProgress?.(++done / keys.length);
   }
+  void pruneClips();
   return out;
+}
+
+function toInt16(f32: Float32Array): Int16Array<ArrayBuffer> {
+  const i16 = new Int16Array(f32.length);
+  for (let i = 0; i < f32.length; i++) {
+    const v = Math.max(-1, Math.min(1, f32[i]));
+    i16[i] = v < 0 ? v * 0x8000 : v * 0x7fff;
+  }
+  return i16;
 }
 
 /** Lay the segments on the clock and render them to a WAV blob URL. */
@@ -82,12 +116,7 @@ export async function renderTimeline(segments: Segment[], clips: Map<string, Aud
       }
     }
     const rendered = await ctx.startRendering();
-    const f32 = rendered.getChannelData(0);
-    const i16 = new Int16Array(f32.length);
-    for (let i = 0; i < f32.length; i++) {
-      const v = Math.max(-1, Math.min(1, f32[i]));
-      i16[i] = v < 0 ? v * 0x8000 : v * 0x7fff;
-    }
+    const i16 = toInt16(rendered.getChannelData(0));
     parts.push(i16.buffer);
     samples += i16.length;
     onProgress?.(Math.min(1, (from + len) / total));

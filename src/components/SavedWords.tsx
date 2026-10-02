@@ -32,11 +32,11 @@ import Chip from './ui/Chip.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Target } from '../types.ts';
 
-export default function SavedWords({ onClose, onStudy, onWalk }: {
+export default function SavedWords({ onClose, onStudy, onListen }: {
   onClose: () => void;
   onStudy: (t: Target) => void;
-  /** Walk mode — the same words, heard and said aloud. */
-  onWalk?: () => void;
+  /** Hören — the same words, in the background; saved words play first. */
+  onListen?: () => void;
 }) {
   const v = useStore();
   const words = useMemo(
@@ -68,9 +68,9 @@ export default function SavedWords({ onClose, onStudy, onWalk }: {
             <Button onClick={() => { onStudy({ kind: 'custom', name: 'Saved words', ids: words.map((w) => w.id) }); onClose(); }}>
               <Play size={14} /> Practise these {words.length}
             </Button>
-            {onWalk && (
-              <Button variant="secondary" className="ml-2" onClick={onWalk}>
-                <Headphones size={14} /> On a walk
+            {onListen && (
+              <Button variant="secondary" className="ml-2" onClick={onListen}>
+                <Headphones size={14} /> Listen
               </Button>
             )}
 

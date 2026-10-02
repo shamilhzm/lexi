@@ -1,4 +1,6 @@
-// Walk mode's surface: choose a length, prepare the audio, put the phone away.
+// Practise aloud (walk mode until 2026-10-02): choose a length, prepare the
+// audio, put the phone away. Reached from Hören's sheet — Hören is the one that
+// plays in the background without asking anything; this one asks.
 //
 // The screen matters least of any surface in the app — it is meant to be in a
 // pocket — so it does three honest things and nothing else: say what is about to
@@ -18,6 +20,7 @@ import { schedule, layout, clipsFor, pressTarget, promptOf, answerOf, DURATIONS,
   type WalkItem, type Placed } from '../lib/walk.ts';
 import { canRenderWalk, renderClips, renderTimeline } from '../lib/walkAudio.ts';
 import Layer from './Layer.tsx';
+import { claimAudio, releaseAudio, audioOwner } from '../lib/player.ts';
 import Button from './ui/Button.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Word } from '../types.ts';
@@ -56,15 +59,18 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
   const briefing = useMemo(() => buildBriefing(), []);
   const counts = { due: briefing.due, fresh: briefing.fresh };
 
-  // Release the rendered file and the lock-screen controls when the layer goes.
+  // Release the rendered file and the lock-screen controls when the layer goes —
+  // the controls only if this layer still holds them: if Hören took the audio
+  // since, they are Hören's now (lib/player.ts).
   useEffect(() => () => {
     audio.current?.pause();
     if (url.current) URL.revokeObjectURL(url.current);
-    if ('mediaSession' in navigator) {
+    if ('mediaSession' in navigator && audioOwner() === 'walk') {
       for (const a of ['nexttrack', 'previoustrack'] as MediaSessionAction[]) {
         try { navigator.mediaSession.setActionHandler(a, null); } catch { /* unsupported */ }
       }
     }
+    releaseAudio('walk');
   }, []);
 
   async function prepare() {
@@ -130,12 +136,14 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
     if (!url.current) return;
     const el = new Audio(url.current);
     audio.current = el;
+    // One long programme at a time: this stops Hören if it was playing.
+    claimAudio('walk', () => { el.pause(); setPhase('done'); });
     el.addEventListener('timeupdate', () => setNow(el.currentTime));
-    el.addEventListener('ended', () => setPhase('done'));
+    el.addEventListener('ended', () => { setPhase('done'); releaseAudio('walk'); });
     el.addEventListener('pause', () => setPaused(true));
     el.addEventListener('play', () => setPaused(false));
     if ('mediaSession' in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: `Lexi walk · ${minutes} min`, artist: 'Lexi', album: 'Deutsch' });
+      navigator.mediaSession.metadata = new MediaMetadata({ title: `Practise aloud · ${minutes} min`, artist: 'Lexi', album: 'Deutsch' });
       try {
         navigator.mediaSession.setActionHandler('nexttrack', () => press(true));
         navigator.mediaSession.setActionHandler('previoustrack', () => press(false));
@@ -157,17 +165,17 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
   })();
 
   return (
-    <Layer side="right" label="Walk" back="the feed" onClose={onClose}>
+    <Layer side="right" label="Practise aloud" back="where you were" onClose={onClose}>
       <div className="pb-16">
-        <Kicker className="block mb-0.5">Walk</Kicker>
-        <h1 className="display text-3xl mb-2">Lexi in your ears</h1>
+        <Kicker className="block mb-0.5">Practise aloud</Kicker>
+        <h1 className="display text-3xl mb-2">Say it before Lexi does</h1>
 
         {phase === 'choose' && (
           <>
             <p className="text-dim text-sm leading-relaxed max-w-[40ch] mb-4">
-              Headphones in. You hear the English, a soft tone, and then you <em>say the German
-              out loud</em> before Lexi does. Double-press your headphones if you knew it,
-              triple-press if you didn’t. No press, no grade — only an answer you vouch for counts.
+              For a walk with headphones in. You hear the English and a soft tone — say the German out
+              loud, then Lexi says it. Knew it? Double-press your headphones. Didn’t? Triple-press.
+              Only the words you press for count toward your progress.
             </p>
             <div role="radiogroup" aria-label="Length" className="flex flex-wrap gap-2 mb-4">
               {DURATIONS.map((m) => (
@@ -241,7 +249,7 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
               <button className="tap-44 inline-flex items-center gap-1" onClick={() => {
                 const el = audio.current; if (!el) return; if (el.paused) void el.play(); else el.pause();
               }}>{paused ? <><Play size={14} /> Resume</> : <><Pause size={14} /> Pause</>}</button>
-              <button className="tap-44" onClick={() => { audio.current?.pause(); setPhase('done'); }}>End</button>
+              <button className="tap-44" onClick={() => { audio.current?.pause(); setPhase('done'); releaseAudio('walk'); }}>End</button>
             </div>
           </>
         )}

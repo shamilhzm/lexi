@@ -22,10 +22,10 @@
       "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }]
     },
     {
-      "name": "Start a walk",
-      "short_name": "Walk",
-      "description": "Lexi as audio: hear the English, say the German aloud, grade with your headphones.",
-      "url": "./?walk",
+      "name": "Listen",
+      "short_name": "Hören",
+      "description": "German in the background: each word in German, English and a sentence, coming back as it plays.",
+      "url": "./?listen",
       "icons": [{ "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" }]
     },
     {

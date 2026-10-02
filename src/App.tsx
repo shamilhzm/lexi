@@ -64,6 +64,10 @@ import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseHash, toHash, type WordsRoute } from './route.ts';
 import SagEs from './components/SagEs.tsx';
+import { FOCUS } from './lib/focus.ts';
+import ListenBar, { LISTEN_BAR_SPACE } from './components/ListenBar.tsx';
+import ListenSheet from './components/ListenSheet.tsx';
+import { useHoeren, start as startHoeren, stop as stopHoeren } from './lib/hoeren.ts';
 import type { Target } from './types.ts';
 
 export type View = 'feed' | 'session' | 'words' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
@@ -74,6 +78,10 @@ const BACK_TO: Partial<Record<View, string>> = {
 };
 /** The day's queue, rebuilt from the scheduler each time it is asked for. */
 const TODAY = (): Target => ({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids });
+
+/** The tab bar's bottom clearance. The `- 14px` is the same subtraction BottomNav
+ *  seats its capsule with; `dynamic-type.test.ts` holds the two together. */
+const BAR_B = 'calc(58px + max(8px, env(safe-area-inset-bottom) - 14px) + 8px)';
 
 export default function App() {
   useStore(); // keep the top bar's profile (name / level / streak) live
@@ -97,7 +105,9 @@ export default function App() {
   // track never moves. `import.meta.env.DEV` folds to `false` at build time and the
   // whole expression goes with it; `greppable.test.ts` guards that.
   const [game, setGame] = useState(() =>
-    import.meta.env.DEV && new URLSearchParams(location.search).has('game'));
+    FOCUS.speaking && import.meta.env.DEV && new URLSearchParams(location.search).has('game'));
+  // Nothing offers the game while speaking is out of focus (lib/focus.ts).
+  const openGame = FOCUS.speaking ? () => setGame(true) : undefined;
   // Bumped by every `go()`. It is part of the route container's key, so tapping
   // the tab you are already on remounts that destination — which is how a tab bar
   // is expected to behave, and on *Lernen* it is also how you rebuild the day's
@@ -116,11 +126,26 @@ export default function App() {
   // A Back that goes somewhere you never were is a second way to get lost.
   // Cleared by every tab press: a tab is a fresh place, not a return.
   const [origin, setOrigin] = useState<View | null>(null);
-  // Walk mode is a layer, not a route, for the same reason search is: it starts
-  // from wherever you are. `?walk` opens it directly, which is what a home-screen
-  // shortcut ("Start a walk") needs.
+  // Practise aloud (walk mode) is a layer, not a route, for the same reason search
+  // is: it starts from wherever you are. `?walk` still opens it, for home screens
+  // that kept the old "Start a walk" shortcut.
   const [showWalk, setShowWalk] = useState(() =>
     typeof location !== 'undefined' && new URLSearchParams(location.search).has('walk'));
+  // Hören — German in the background (lib/hoeren.ts). The top bar's button starts
+  // it in one tap; the sheet is for length, looping, the one-time voice download
+  // and Practise aloud. `?listen` opens the sheet — sound cannot start before a tap.
+  const hoeren = useHoeren();
+  const [showListen, setShowListen] = useState(() =>
+    typeof location !== 'undefined' && new URLSearchParams(location.search).has('listen'));
+  const listening = hoeren.phase !== 'idle' && hoeren.phase !== 'consent';
+  // First time only: the voices have to download, and that is asked, not assumed —
+  // so a programme waiting on consent opens the sheet, and closing it declines.
+  const listenSheet = showListen || hoeren.phase === 'consent';
+  const closeListen = () => { setShowListen(false); if (hoeren.phase === 'consent') stopHoeren(); };
+  const listen = () => {
+    if (hoeren.phase === 'idle' || hoeren.phase === 'error') startHoeren();
+    else setShowListen(true);
+  };
 
   useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
 
@@ -351,6 +376,7 @@ export default function App() {
       <TopBar
         view={view} onGo={go}
         onSearch={() => setSearching(true)}
+        onListen={listen} listening={listening}
         onSaved={() => setShowSaved(true)}
         onProfile={() => go('profile')}
         name={profileName()} level={placementLevel()} streak={streak()}
@@ -380,7 +406,9 @@ export default function App() {
           // seat the capsule; if they disagree, content scrolls to a stop in the
           // wrong place.
           ['--bar-t' as string]: 'calc(56px + env(safe-area-inset-top))',
-          ['--bar-b' as string]: 'calc(58px + max(8px, env(safe-area-inset-bottom) - 14px) + 8px)',
+          // Hören's mini-player is chrome too: while it is up, the bottom clearance
+          // grows by its height (components/ListenBar.tsx).
+          ['--bar-b' as string]: listening ? `calc(${BAR_B} + ${LISTEN_BAR_SPACE})` : BAR_B,
         }}>
         <main id="main" tabIndex={-1}
           className={`flex-1 bg-bg min-h-0 ${bare ? 'overflow-hidden' : 'overflow-y-auto'}`}
@@ -407,7 +435,7 @@ export default function App() {
               // route is a document that should size to its content — and on a short
               // viewport this still overflows once the card hits its 260px floor,
               // which is the right order to give up in.
-              : `route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] md:pb-6${
+              : `route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] ${listening ? 'md:pb-24' : 'md:pb-6'}${
                   view === 'session' ? ' min-h-full' : ''}`}>
               <ErrorBoundary resetKey={`${view}:${drill ?? ''}:${game ? 'game' : ''}`}>
                 {game
@@ -416,7 +444,7 @@ export default function App() {
                   ? <Drill mode={drill} onExit={() => setDrill(null)} />
                   : <>
                     {view === 'feed' && <Feed onStartFirstRun={startFirstRun} onSettings={() => go('settings')}
-                      onStudy={study} onWalk={() => setShowWalk(true)} />}
+                      onStudy={study} onListen={listen} />}
                     {view === 'session' && (
                       <Review
                         target={target} firstRun={guided}
@@ -430,11 +458,11 @@ export default function App() {
                         onPick={() => go('words')}
                         onBack={origin && BACK_TO[origin] ? () => returnTo(origin) : undefined}
                         backTo={origin ? BACK_TO[origin] : undefined}
-                        onGame={() => setGame(true)}
+                        onGame={openGame}
                         onProfile={() => go('profile')}
                       />
                     )}
-                    {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} onText={() => go('text')} onGame={() => setGame(true)} />}
+                    {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} onText={() => go('text')} onGame={openGame} />}
                     {/* The heatmap is a map *of the corpus*, so its drill-down lands in
                         the corpus rather than one level further into a stats page. An
                         empty group name means "the index" — the browse-everything row
@@ -466,13 +494,16 @@ export default function App() {
             Inert itself — `pointer-events-none` — so nothing here can swallow a
             tap meant for the tab bar when no layer is open. */}
         <div id="layer-root" className="absolute inset-0 z-40 pointer-events-none" />
+        <ListenBar onOpen={() => setShowListen(true)} />
         <BottomNav view={view} onGo={go} />
       </div>
 
       {searching && <SearchSheet onClose={() => setSearching(false)} />}
       <AnimatePresence>
         {showSaved && <SavedWords key="saved" onClose={() => setShowSaved(false)} onStudy={study}
-          onWalk={() => { setShowSaved(false); setShowWalk(true); }} />}
+          onListen={() => { setShowSaved(false); listen(); }} />}
+        {listenSheet && <ListenSheet key="listen" onClose={closeListen}
+          onPractise={() => { closeListen(); setShowWalk(true); }} />}
         {showWalk && <WalkLayer key="walk" onClose={() => setShowWalk(false)} />}
       </AnimatePresence>
     </div>

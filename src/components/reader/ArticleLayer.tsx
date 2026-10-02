@@ -22,6 +22,7 @@ import { ExternalLink, Volume2, Square, Check, Loader2, Headphones, Bookmark } f
 import Layer from '../Layer.tsx';
 import WordSheet, { type Picked } from './WordSheet.tsx';
 import Respond from './Respond.tsx';
+import { FOCUS } from '../../lib/focus.ts';
 import WordDetail from '../WordDetail.tsx';
 import WordDrill from '../WordDrill.tsx';
 import { coverageOf, type Coverage, type CoverageToken } from '../../lib/coverage.ts';
@@ -260,7 +261,9 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
             </section>
           )}
 
-          {paras.length > 0 && (
+          {/* Writing back is practice in writing, not in words — hidden while Lexi
+              does one thing (lib/focus.ts). The tutor's *explain* stays. */}
+          {FOCUS.writing && paras.length > 0 && (
             <Respond articleId={article.id} title={article.title} targets={targets} onSettings={onSettings} />
           )}
 

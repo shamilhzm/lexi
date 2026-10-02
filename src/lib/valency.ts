@@ -106,6 +106,6 @@ export function valencyOf(w: Word): Valency | null {
  *
  *  Deliberately never prints a case it had to guess — a learner reading a case
  *  off a card will believe it, and a wrong one here is worse than a missing one. */
-export function valencyLabel(v: Valency): string {
-  return v.kase ? `${v.verb} ${v.prep} + ${v.kase}` : `${v.verb} ${v.prep}`;
+export function valencyLabel(v: Valency, withCase = true): string {
+  return v.kase && withCase ? `${v.verb} ${v.prep} + ${v.kase}` : `${v.verb} ${v.prep}`;
 }

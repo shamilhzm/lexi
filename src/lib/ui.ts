@@ -125,6 +125,10 @@ export function speakDe(text: string): SpeakResult {
     u.rate = 0.95;
     u.voice = v;
     speechSynthesis.cancel();
+    // Hören pauses for the word and picks up after it (lib/player.ts).
+    const resume = interrupt();
+    u.onend = resume;
+    u.onerror = resume;
     speechSynthesis.speak(u);
     return 'spoken';
   } catch { return 'unsupported'; }
@@ -173,6 +177,7 @@ export const haptic = (kind: 'grade' | 'wrong' = 'grade') => {
 // because a learner hears it dozens of times a session and it must never read as
 // a scold. `milestone` is the only cue that gets a chord.
 import { sound } from '../store.ts';
+import { interrupt } from './player.ts';
 
 type Cue = 'good' | 'wrong' | 'done' | 'milestone';
 /** [frequency Hz, start offset s, peak gain] per note. */

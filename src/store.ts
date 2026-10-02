@@ -9,6 +9,7 @@ import { idbGet, idbSet, idbReady } from './lib/idb.ts';
 import { logReview, dropLastReview, loadLedger, replaceLedger, type ReviewEvent } from './lib/ledger.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
 import { ALL_LEVELS } from './types.ts';
+import { FOCUS, visibleMode } from './lib/focus.ts';
 
 const CARDS_KEY = 'lexi.cards.v1';
 const VISITS_KEY = 'lexi.visits.v1';
@@ -38,6 +39,9 @@ export const PACE: Record<Pace, { fresh: number; due: number; label: string }> =
   intense: { fresh: 50, due: 150, label: 'Intense' },
 };
 export function pace(): Pace {
+  // Hidden under focus (lib/focus.ts): the default applies and the stored choice
+  // waits, untouched, for the day the setting comes back.
+  if (!FOCUS.tuning) return 'steady';
   const v = localStorage.getItem(PACE_KEY);
   return v === 'gentle' || v === 'intense' ? v : 'steady';
 }
@@ -294,8 +298,15 @@ let offModes = loadOffModes();
 
 /** Drill modes the learner has switched **off** for mixed sessions. */
 export function mutedModes(): Set<string> { return offModes; }
-/** Is this drill mode allowed into a mixed session? */
-export function modeEnabled(m: string): boolean { return !offModes.has(m); }
+/** Is this drill mode allowed into a mixed session?
+ *
+ *  Under focus (lib/focus.ts) the toggles are not on screen, and a preference
+ *  nobody can see or change is not a preference — so the defaults apply: every
+ *  visible mode is on. The stored mutes are kept for the day the toggles return. */
+export function modeEnabled(m: string): boolean {
+  if (!FOCUS.grammar) return visibleMode(m);
+  return !offModes.has(m);
+}
 
 export function toggleDrillMode(m: string) {
   const next = new Set(offModes);
@@ -1461,6 +1472,9 @@ export function setHdVoice(on: boolean) {
 const RETENTION_KEY = 'lexi.retention.v1';
 export const DEFAULT_RETENTION = 0.9;
 export function retention(): number {
+  // Hidden under focus, like pace: the recommended target applies, the stored
+  // one is kept.
+  if (!FOCUS.tuning) return DEFAULT_RETENTION;
   const v = parseFloat(localStorage.getItem(RETENTION_KEY) || '');
   return v >= 0.7 && v <= 0.97 ? v : DEFAULT_RETENTION;
 }

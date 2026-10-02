@@ -38,6 +38,7 @@ import { ArrowLeft, CircleDot, Layers3, PenLine, Venus, Mars, Check, X } from 'l
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { conjugate, canConjugate } from '../lib/conjugate.ts';
+import { visibleMode } from '../lib/focus.ts';
 import { pluralForms } from '../lib/matcher.ts';
 import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -413,7 +414,10 @@ export function practiceModes(w: Word, attested: string[] = []): Mode[] {
   // Production last and gated exactly as the scheduler gates it: asking for a
   // word cold before the form–meaning link exists is a lapse on nothing.
   if (recallSafe(w) && statusOf(w.id) === 'known') out.push('recall');
-  return out;
+  // Verb forms and comparison test a rule of the language, and Lexi currently
+  // does one thing (lib/focus.ts). Filtered here rather than not pushed, so the
+  // bank above stays the whole truth about what a word *can* be practised with.
+  return out.filter(visibleMode);
 }
 
 /** The label a miss is logged under — the blind-spot table's key. */

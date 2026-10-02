@@ -12,12 +12,23 @@ import { missStats, missTotal } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { modeForTag } from './PathCard.tsx';
 import type { Mode } from '../views/drills.tsx';
+import { FOCUS, visibleMode } from '../lib/focus.ts';
+
+/** Under focus (lib/focus.ts) a row is shown only when it maps to a drill the
+ *  learner can still open. Legacy tags from the retired grammar drills and the
+ *  hidden verb-form and comparison drills keep their history in the log — they
+ *  are just not this app's question while it does one thing. */
+function shown(tag: string): boolean {
+  if (FOCUS.grammar) return true;
+  const mode = modeForTag(tag);
+  return !!mode && visibleMode(mode);
+}
 
 export default function BlindSpotList({ onDrill, days = 30 }:
   { onDrill: (m: Mode) => void; days?: number }) {
   const v = useStore();
-  const stats = useMemo(() => missStats(days), [days, v]);
-  const total = missTotal(days);
+  const stats = useMemo(() => missStats(days).filter((s) => shown(s.tag)), [days, v]);
+  const total = FOCUS.grammar ? missTotal(days) : stats.reduce((n, s) => n + s.count, 0);
   // Two scales, because the list holds two kinds of row. A measured row is drawn
   // against the worst *rate*; an unmeasured one against the largest *count*, as
   // this list always did. Neither denominator can be 0.

@@ -4,22 +4,27 @@
 // spelling-pronunciation.
 import { hdVoice } from '../../store.ts';
 import { speakHdToEnd, stopHd } from '../tts.ts';
+import { interrupt } from '../player.ts';
 
 /** Start reading `texts`; `onIndex(i)` fires as paragraph `i` starts and with -1
  *  when done or stopped. Returns a stop function. */
 export function readAloud(texts: string[], onIndex: (i: number) => void): () => void {
   let stopped = false;
+  // One interruption for the whole article: Hören stays paused between paragraphs
+  // rather than leaping back in during each one's synthesis (lib/player.ts).
+  const resume = interrupt();
+  const done = (i: number) => { onIndex(i); if (i < 0) resume(); };
   if (hdVoice()) {
     void (async () => {
       for (let i = 0; i < texts.length && !stopped; i++) {
         onIndex(i);
         try { await speakHdToEnd(texts[i]); } catch { break; }
       }
-      onIndex(-1);
+      done(-1);
     })();
-    return () => { stopped = true; stopHd(); onIndex(-1); };
+    return () => { stopped = true; stopHd(); done(-1); };
   }
-  if (typeof speechSynthesis === 'undefined') { onIndex(-1); return () => {}; }
+  if (typeof speechSynthesis === 'undefined') { done(-1); return () => {}; }
   speechSynthesis.cancel();
   const voice = speechSynthesis.getVoices().find((v) => v.lang.startsWith('de'));
   texts.forEach((t, i) => {
@@ -28,8 +33,8 @@ export function readAloud(texts: string[], onIndex: (i: number) => void): () => 
     u.rate = 0.95;
     if (voice) u.voice = voice;
     u.onstart = () => { if (!stopped) onIndex(i); };
-    if (i === texts.length - 1) u.onend = () => onIndex(-1);
+    if (i === texts.length - 1) u.onend = () => done(-1);
     speechSynthesis.speak(u);
   });
-  return () => { stopped = true; speechSynthesis.cancel(); onIndex(-1); };
+  return () => { stopped = true; speechSynthesis.cancel(); done(-1); };
 }

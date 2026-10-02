@@ -70,10 +70,12 @@ describe('manifest.webmanifest', () => {
     }
   });
 
-  it('offers the walk as a home-screen shortcut, on the URL App.tsx opens it from', () => {
-    const walk = m.shortcuts.find((s) => s.name === 'Start a walk');
-    expect(walk?.url).toBe('./?walk');
+  it('offers Hören as a home-screen shortcut, on the URL App.tsx opens it from', () => {
+    const listen = m.shortcuts.find((s) => s.name === 'Listen');
+    expect(listen?.url).toBe('./?listen');
     const app = readFileSync(join(pub, '..', 'src', 'App.tsx'), 'utf8');
+    expect(app).toMatch(/URLSearchParams\(location\.search\)\.has\('listen'\)/);
+    // The retired "Start a walk" shortcut lives on in home screens that pinned it.
     expect(app).toMatch(/URLSearchParams\(location\.search\)\.has\('walk'\)/);
   });
 });

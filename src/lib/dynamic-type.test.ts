@@ -73,7 +73,9 @@ describe('the bars stop growing', () => {
   // is content scrolling to a stop in the wrong place. Both floors are 8px.
   it('--bar-b and the capsule inset agree, in px', () => {
     expect(app).toMatch(/--bar-t' as string\]: 'calc\(56px \+ env\(safe-area-inset-top\)\)'/);
-    expect(app).toMatch(/--bar-b' as string\]: 'calc\(58px \+ max\(8px, env\(safe-area-inset-bottom\) - 14px\) \+ 8px\)'/);
+    expect(app).toMatch(/const BAR_B = 'calc\(58px \+ max\(8px, env\(safe-area-inset-bottom\) - 14px\) \+ 8px\)'/);
+    // Hören's mini-player adds its own height on top, and nothing else.
+    expect(app).toMatch(/--bar-b' as string\]: listening \? `calc\(\$\{BAR_B\} \+ \$\{LISTEN_BAR_SPACE\}\)` : BAR_B,/);
     expect(nav).toMatch(/pb-\[max\(8px,calc\(env\(safe-area-inset-bottom\)_-_14px\)\)\]/);
   });
 });

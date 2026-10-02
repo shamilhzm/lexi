@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import Layer from './Layer.tsx';
 import { loadDetailFor } from '../data/detail.ts';
 import { valencyOf, valencyLabel } from '../lib/valency.ts';
+import { FOCUS } from '../lib/focus.ts';
 import { familyOf } from '../lib/family.ts';
 import { showsGermanDefs } from '../views/Review.tsx';
 import { placementLevel } from '../store.ts';
@@ -91,7 +92,9 @@ export default function WordDetail({ word, onClose }: { word: Word; onClose: () 
               shows a case it had to guess — see lib/valency.ts. */}
           {valency && (
             <RevealBlock label="Takes">
-              <p lang="de" className="text-sm text-accent font-mono">{valencyLabel(valency)}</p>
+              {/* Which preposition is vocabulary; which case it governs is a rule,
+                  hidden while Lexi does one thing (lib/focus.ts). */}
+              <p lang="de" className="text-sm text-accent font-mono">{valencyLabel(valency, FOCUS.grammar)}</p>
             </RevealBlock>
           )}
           {word.ex.length > 0 && (

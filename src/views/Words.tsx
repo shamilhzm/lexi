@@ -43,8 +43,9 @@ export default function Words({ route, onNavigate, onStudy, onText, onGame }: {
   onStudy: (t: Target) => void;
   /** The other way to choose words: paste a text, study what’s in the way. */
   onText: () => void;
-  /** Open `Sag es`, the pronunciation game. */
-  onGame: () => void;
+  /** Open `Sag es`, the pronunciation game. Absent while speaking is out of
+   *  focus (lib/focus.ts). */
+  onGame?: () => void;
 }) {
   useStore();
 
@@ -83,7 +84,7 @@ export default function Words({ route, onNavigate, onStudy, onText, onGame }: {
 /** The index. Search first, because that is what the surface is for; the
  *  taxonomy underneath is for the learner who does not yet have a word in mind. */
 function Index({ onOpenGroup, onText, onGame }: {
-  onOpenGroup: (g: string) => void; onText: () => void; onGame: () => void;
+  onOpenGroup: (g: string) => void; onText: () => void; onGame?: () => void;
 }) {
   // `useStore()` at the top of `Words` re-renders this on a filter change, and
   // the filter is a Set the store mutates by replacement — so key the memo on a
@@ -143,7 +144,7 @@ function Index({ onOpenGroup, onText, onGame }: {
           game behind finishing a session — the most expensive door in the app, and
           invisible to anyone who had not already worked for it. A thing you might
           want to *do* belongs on the surface that lists things you can do. */}
-      <button onClick={onGame}
+      {onGame && <button onClick={onGame}
         className="-mx-3 sm:-mx-5 w-[calc(100%+1.5rem)] sm:w-[calc(100%+2.5rem)] border-b border-line
           flex items-center gap-3.5 px-3 sm:px-5 py-4 text-left hover:bg-panel2 active:bg-panel2 transition-colors">
         <span className="grid place-items-center w-[44px] h-[44px] rounded-md flex-shrink-0 text-accent"
@@ -157,7 +158,7 @@ function Index({ onOpenGroup, onText, onGame }: {
           </span>
         </span>
         <ChevronRight size={18} className="text-dim flex-shrink-0" />
-      </button>
+      </button>}
     </div>
   );
 }

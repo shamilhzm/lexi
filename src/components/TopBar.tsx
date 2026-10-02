@@ -32,7 +32,7 @@
 //
 // The rule holds either way: places on the left, the action on the right, the
 // person at the end.
-import { Layers, TrendingUp, LayoutGrid, GraduationCap, Flame, Bookmark, Check, Search } from 'lucide-react';
+import { Layers, TrendingUp, LayoutGrid, GraduationCap, Flame, Bookmark, Check, Search, Headphones, AudioLines } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { savedToday, DAILY_SAVE_GOAL } from '../store.ts';
 import type { View } from '../App.tsx';
@@ -130,8 +130,13 @@ function GoalPill({ onOpen }: { onOpen: () => void }) {
   );
 }
 
-export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name, level, streak }: {
+export default function TopBar({ view, onGo, onSearch, onListen, listening = false, onProfile, onSaved, name, level, streak }: {
   view: View; onGo: (v: View) => void;
+  /** Hören — German in the background (lib/hoeren.ts). An action like search, and
+   *  for the same reason: it starts from wherever you are. */
+  onListen?: () => void;
+  /** Hören is playing or preparing: the button lights, and opens the sheet. */
+  listening?: boolean;
   /** Opens the saved-words layer — the list the pill's number refers to. */
   onSaved: () => void;
   /** The one thing in the bar that is an *action* rather than a place. It earns
@@ -196,6 +201,15 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
           happened, and pressing bookmark is. Small, right-aligned, next to the
           person it belongs to — a goal is a fact about you, not a scoreboard. */}
       {view === 'feed' && <GoalPill onOpen={onSaved} />}
+
+      {onListen && (
+        <button onClick={onListen} aria-label={listening ? 'Hören — playing. Open the player' : 'Hören — play German in the background'}
+          aria-pressed={listening}
+          className={`tap-44 grid place-items-center w-[40px] h-[40px] rounded-full
+            hover:bg-panel2/70 active:scale-95 transition flex-shrink-0 ${listening ? 'text-accent' : 'text-txt'}`}>
+          {listening ? <AudioLines size={19} /> : <Headphones size={19} />}
+        </button>
+      )}
 
       <button onClick={onSearch} aria-label="Look up a word"
         className="tap-44 grid place-items-center w-[40px] h-[40px] rounded-full text-txt

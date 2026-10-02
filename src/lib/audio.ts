@@ -19,6 +19,7 @@
 // work offline afterwards. Same reason, same shape — a learner on a tram should
 // not re-download a clip they heard yesterday.
 import { speak } from './tts.ts';
+import { interrupt } from './player.ts';
 
 /** One usable recording, as `corpus:audio` records it. */
 export interface AudioEntry {
@@ -103,10 +104,13 @@ function playBlob(blob: Blob, rate = 1): Promise<void> {
   const audio = new Audio(url);
   audio.playbackRate = rate;
   current = audio;
+  // Hören pauses for the sentence and picks up after it (lib/player.ts).
+  const resume = interrupt();
+  audio.addEventListener('pause', resume, { once: true });
   return new Promise<void>((resolve, reject) => {
-    audio.addEventListener('ended', () => { URL.revokeObjectURL(url); resolve(); }, { once: true });
-    audio.addEventListener('error', () => { URL.revokeObjectURL(url); reject(new Error('playback failed')); }, { once: true });
-    audio.play().catch(reject);
+    audio.addEventListener('ended', () => { URL.revokeObjectURL(url); resume(); resolve(); }, { once: true });
+    audio.addEventListener('error', () => { URL.revokeObjectURL(url); resume(); reject(new Error('playback failed')); }, { once: true });
+    audio.play().catch((e) => { resume(); reject(e); });
   });
 }
 

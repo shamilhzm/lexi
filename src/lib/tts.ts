@@ -8,6 +8,7 @@
 import { hdVoice } from '../store.ts';
 import { useEffect, useState } from 'react';
 import { speakDe, hasGermanVoice } from './ui.ts';
+import { interrupt } from './player.ts';
 
 export const HD_VOICE_ID = 'de_DE-thorsten-medium';
 
@@ -76,10 +77,117 @@ export async function ensureVoice(id: string, onProgress?: (fraction: number) =>
   if (!(await voiceStored(id))) await tts.download(id, (p: any) => onProgress?.(pct(p)));
 }
 
-/** Synthesise without playing — walk mode lays hundreds of these on one timeline. */
-export async function synthesize(text: string, voiceId: string): Promise<Blob> {
-  const tts = await load();
-  return tts.predict({ text, voiceId });
+// ---- synthesis, with one ONNX session per voice ----------------------------------
+//
+// **`predict()` leaks a voice per call, so Lexi does not call it.** The library's
+// `predict` reads the 63 MB model out of storage and builds a *new*
+// `InferenceSession` every time, and never releases it — each one keeps the
+// model's weights in onnxruntime's WebAssembly heap. A word tap now and then hides
+// that; Hören does not. Driven on the iPhone simulator on 2026-10-02, a 30-minute
+// programme (~150 clips) died part-way with *"Can't create a session. failed to
+// allocate a buffer of size 63531379"* — the English voice, refused memory.
+//
+// So synthesis is done here with the same parts the library uses — its pinned
+// onnxruntime and phonemizer builds, the voice files it already stored — and a
+// session is created **once per voice** and kept. Phonemization still makes a fresh
+// Emscripten instance per text, as the library does, because `callMain` is not
+// re-entrant; that instance is garbage the moment it has printed.
+
+const ORT_URL = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.18.0/+esm';
+const PHONEMIZE_URL = 'https://cdn.jsdelivr.net/npm/@diffusionstudio/vits-web@1.0.3/dist/piper-DeOu3H9E.js/+esm';
+
+interface VoiceModel { session: any; config: any; ort: any }
+const models = new Map<string, Promise<VoiceModel>>();
+let ortLib: Promise<any> | null = null;
+let phonemizeLib: Promise<any> | null = null;
+/** One synthesis at a time: a session must not run twice at once, and a word tap
+ *  mid-preparation simply waits its turn. */
+let queue: Promise<unknown> = Promise.resolve();
+
+async function storedFile(name: string): Promise<Blob | null> {
+  try {
+    const dir = await (await navigator.storage.getDirectory()).getDirectoryHandle('piper');
+    return await (await dir.getFileHandle(name)).getFile();
+  } catch { return null; }
+}
+
+function model(voiceId: string): Promise<VoiceModel> {
+  let m = models.get(voiceId);
+  if (m) return m;
+  m = (async () => {
+    const lib = await load();
+    const path: string | undefined = lib.PATH_MAP?.[voiceId];
+    if (!path) throw new Error(`Unknown voice: ${voiceId}`);
+    if (!(await voiceStored(voiceId))) await lib.download(voiceId);
+    const name = path.split('/').at(-1)!;
+    // The library writes its downloads without awaiting the write, so a file can
+    // be missing for a moment after `download` resolves; the URL is then the
+    // browser's cache, not a second download.
+    const get = async (file: string, url: string) => (await storedFile(file)) ?? (await (await fetch(url)).blob());
+    const [onnx, json] = await Promise.all([
+      get(name, `${lib.HF_BASE}/${path}`),
+      get(`${name}.json`, `${lib.HF_BASE}/${path}.json`),
+    ]);
+    const ort = await (ortLib ??= import(/* @vite-ignore */ ORT_URL));
+    ort.env.wasm.numThreads = navigator.hardwareConcurrency;
+    ort.env.wasm.wasmPaths = lib.ONNX_BASE;
+    const session = await ort.InferenceSession.create(await onnx.arrayBuffer());
+    return { session, config: JSON.parse(await json.text()), ort };
+  })();
+  models.set(voiceId, m);
+  m.catch(() => models.delete(voiceId));   // a failed load may be retried
+  return m;
+}
+
+async function phonemize(text: string, espeakVoice: string): Promise<number[]> {
+  const lib = await load();
+  const mod = await (phonemizeLib ??= import(/* @vite-ignore */ PHONEMIZE_URL));
+  let ids: number[] | null = null;
+  let lastErr = '';
+  const inst = await mod.createPiperPhonemize({
+    print: (line: string) => { try { ids = JSON.parse(line).phoneme_ids; } catch { /* not the result line */ } },
+    printErr: (line: string) => { lastErr = line; },
+    locateFile: (f: string) => (f.endsWith('.wasm') ? `${lib.WASM_BASE}.wasm` : f.endsWith('.data') ? `${lib.WASM_BASE}.data` : f),
+  });
+  inst.callMain(['-l', espeakVoice, '--input', JSON.stringify([{ text: text.trim() }]), '--espeak_data', '/espeak-ng-data']);
+  if (!ids) throw new Error(lastErr || 'The phonemizer returned nothing.');
+  return ids;
+}
+
+/** 16-bit mono WAV, which is what every caller of the library's `predict` got. */
+function wav(samples: Float32Array, rate: number): Blob {
+  const h = new DataView(new ArrayBuffer(44 + samples.length * 2));
+  const str = (o: number, t: string) => { for (let i = 0; i < t.length; i++) h.setUint8(o + i, t.charCodeAt(i)); };
+  str(0, 'RIFF'); h.setUint32(4, 36 + samples.length * 2, true); str(8, 'WAVE');
+  str(12, 'fmt '); h.setUint32(16, 16, true); h.setUint16(20, 1, true); h.setUint16(22, 1, true);
+  h.setUint32(24, rate, true); h.setUint32(28, rate * 2, true); h.setUint16(32, 2, true); h.setUint16(34, 16, true);
+  str(36, 'data'); h.setUint32(40, samples.length * 2, true);
+  for (let i = 0; i < samples.length; i++) {
+    const v = Math.max(-1, Math.min(1, samples[i]));
+    h.setInt16(44 + i * 2, v < 0 ? v * 0x8000 : v * 0x7fff, true);
+  }
+  return new Blob([h.buffer], { type: 'audio/wav' });
+}
+
+/** Synthesise without playing — Hören and Practise aloud lay hundreds of these on
+ *  one timeline, which is why the session is kept (see above). */
+export function synthesize(text: string, voiceId: string): Promise<Blob> {
+  const run = async () => {
+    const { session, config, ort } = await model(voiceId);
+    const ids = await phonemize(text, config.espeak.voice);
+    const inf = config.inference;
+    const feeds: Record<string, unknown> = {
+      input: new ort.Tensor('int64', ids, [1, ids.length]),
+      input_lengths: new ort.Tensor('int64', [ids.length]),
+      scales: new ort.Tensor('float32', [inf.noise_scale, inf.length_scale, inf.noise_w]),
+    };
+    if (Object.keys(config.speaker_id_map ?? {}).length) feeds.sid = new ort.Tensor('int64', [0]);
+    const { output } = await session.run(feeds);
+    return wav(output.data as Float32Array, config.audio.sample_rate);
+  };
+  const next = queue.then(run, run);
+  queue = next.catch(() => {});
+  return next;
 }
 
 /** Unlock audio playback while a user gesture is still in scope.
@@ -116,15 +224,17 @@ export function primeAudio(): void {
 let current: HTMLAudioElement | null = null;
 /** Synthesize and play with Piper. Throws (with a useful message) on failure. */
 export async function speakHd(text: string): Promise<void> {
-  const tts = await load();
-  const wav: Blob = await tts.predict({ text, voiceId: HD_VOICE_ID });
-  if (!(wav instanceof Blob) || wav.size === 0) throw new Error('Voice engine returned no audio.');
-  const url = URL.createObjectURL(wav);
+  const clip = await synthesize(text, HD_VOICE_ID);
+  if (!(clip instanceof Blob) || clip.size === 0) throw new Error('Voice engine returned no audio.');
+  const url = URL.createObjectURL(clip);
   current?.pause();
   const audio = new Audio(url);
   current = audio;
   audio.addEventListener('ended', () => URL.revokeObjectURL(url), { once: true });
-  await audio.play();
+  // Hören pauses for the word and picks up after it (lib/player.ts).
+  const resume = interrupt();
+  for (const ev of ['ended', 'pause', 'error'] as const) audio.addEventListener(ev, resume, { once: true });
+  try { await audio.play(); } catch (e) { resume(); throw e; }
 }
 
 /** Speak with Piper and resolve when the audio has *finished* — `speakHd`
