@@ -11,6 +11,127 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-02 — Focus, and Hören
+
+**Why.** The owner asked three things in one message. Was Lexi what somebody who moved
+to Germany needs? It should be simpler: "focus on expanding vocabulary — hide all
+grammar-related config — excel at one thing before expanding to others". And walk mode
+was the wrong framing: "I'm more looking for the audio to just run in the background
+while I do other things … without having to have my headphones in or clicking anything."
+The honest answer to the first is in [TRAILS.md](TRAILS.md), a proposal that is not
+built. The other two shipped.
+
+**Focus** (`src/lib/focus.ts`, VISION *Focus*). Four flags, all off.
+
+- **`grammar`** hides the drills that test a rule of the language:
+  - *verb forms* and *comparison* leave `practiceModes`;
+  - the session's nine drill toggles go;
+  - a verb's governed case is no longer printed. `warten auf` stays; `+ Akkusativ` goes.
+- **`speaking`** hides *Sag es*.
+- **`writing`** hides story write-back. The tutor's *explain* stays.
+- **`tuning`** hides daily pace and review intensity.
+
+**Gender and plural stay.** In German they are part of a noun, and the owner chose to
+keep them.
+
+**Hidden means the defaults apply, and nothing stored is touched.**
+
+- `modeEnabled` answers with the visible modes.
+- `pace()` is *steady* and `retention()` is 90%.
+- The stored mutes, pace and target wait in localStorage.
+- Every `gym:*` schedule is kept.
+- Blind spots list only drills that can still be opened.
+
+`src/focus.test.ts` pins the flags and checks that the filter really removed something.
+It was mutation-checked: making `visibleMode` always true fails two of its six tests.
+The four suites that cover the hidden machinery now run with every flag on, which is the
+app as it will be the day a flag is flipped back.
+
+**Hören** (`lib/listen.ts`, `lib/hoeren.ts`, `lib/player.ts`, `lib/clipCache.ts`,
+`components/ListenBar.tsx`, `components/ListenSheet.tsx`).
+
+- **One tap in the top bar** on every surface.
+- **What plays.** Each word plays German · English · German · a sentence. It comes back
+  about 1, 4, 10 and 20 minutes later in German only, so the support fades. Through the
+  speaker, looping when it ends.
+- **What it records: nothing.** No grade, and no dwell exposure either: playback is not
+  interest, and counting it would corrupt "you kept stopping on this", the one
+  inference the scheduler names.
+- **The mini-player** shows the word being heard, with save, pause, skip and stop. It
+  sits with the bars at `z-50`, and `--bar-b` grows by its height.
+- **Lock screen.** Next skips a word and previous replays it. These are not walk mode's
+  knew/didn't.
+- **Other audio.** A speaker tap, a human recording or an article read aloud pauses
+  Hören and hands it back when it ends (`player.interrupt`).
+- **One programme at a time.** Hören and Practise aloud stop each other
+  (`claimAudio`). A deploy or chunk reload waits until neither is playing.
+- **iOS gestures.** The audio element is unlocked inside the tap, before any await, so
+  the programme can start by itself a minute later. If it cannot, the player's Play
+  button is the fallback.
+- **First run.** One consent before the voices download, sized live. On 2026-10-02,
+  `node scripts/costs.ts --live` measured the runtime at 11.4 MB and the voices at
+  63.2 and 63.5 MB: 138.1 MB in all, or 63.5 MB with the HD voice already present.
+- **The clip cache.** Synthesised clips are kept in their own IndexedDB database, so
+  each day's wait shrinks. Cache Storage was ruled out because `sw.js` deletes every
+  cache it does not own. The cache is PCM16 at 16 kHz with LRU at 60 MB, and walk
+  mode uses it too.
+
+**Synthesis no longer leaks a voice per clip** (`lib/tts.ts`).
+
+- **The bug.** The voice library's `predict()` builds a new 63 MB ONNX session on every
+  call and never releases it.
+- **How it showed.** On the simulator, Hören's first programme died part-way with
+  *"failed to allocate a buffer of size 63531379"*.
+- **The fix.** `synthesize()` now uses the library's own pinned parts with one session
+  per voice, kept, and one synthesis at a time. The HD voice's speaker taps go the same
+  way; they had been leaking too, more slowly.
+- **The result.** A 60-word programme renders in about half a minute on the simulator.
+- See LESSONS, *A function that looks stateless can be holding a gigabyte*.
+
+**Walk mode is now Practise aloud.** It is reached from Hören's sheet, and its grading is
+unchanged.
+
+**Entry points moved.**
+
+- The feed's ready slot now offers "or play them in the background".
+- The saved-words sheet offers *Listen*.
+- The home-screen shortcut is *Listen* (`./?listen`). `?walk` still opens Practise
+  aloud for shortcuts already pinned.
+
+**Datasets the owner found.**
+
+- `coral-nlp/german-commons` is useful at build time as licence-tagged text, for example
+  sentences and collocations (BACKLOG).
+- `sarannair/de_audios_new` is not usable: no licence, an empty card, film dialogue.
+
+**Also.**
+
+- `npm run corpus:domains` re-measured migrant survival vocabulary: **86 of 90 taught**.
+  BACKLOG said 52.
+- `scripts/costs.ts` §5 was found modelling `.vercelignore` wrongly (LESSONS).
+
+**Verified:**
+
+- `npm run typecheck`
+- `npm test`: 1,864 passed
+- `npm run build`
+- `node scripts/budget.ts` PASS (entry 263.1 of 280 KB)
+- `grep -c devseed dist/assets/*.js` → 0
+- **Driven on the iPhone 17 Pro simulator:**
+  - first-run consent sized live at 138.1 MB;
+  - the programme started on its own after preparing;
+  - skip moved to the next word;
+  - with the screen locked, the Now Playing card followed the words, and *deutsch* came
+    back about a minute after its first hearing;
+  - Settings shows no drill, pace or intensity cards, and Themen has no *Sag es*.
+- **Calibrated from the simulator run.** "30 min" first rendered 21 min of audio, so the
+  per-word estimates are now 7 s and 4 s.
+
+**Locked-phone playback on a real iPhone, the silent switch and the speaker are still
+the owner's checks.**
+
+---
+
 ### Shipped 2026-09-25 — Panel review
 
 **How this was made.** The owner asked for ten reviewers — a Germanist, product design,

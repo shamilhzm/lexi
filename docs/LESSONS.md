@@ -1724,3 +1724,40 @@ the panel merge failed with "Could not resolve" while CI passed.
 **Rule:** anything the build imports must survive `.vercelignore` —
 `scripts/vercelignore.test.ts` now checks every relative import in `vite.config.ts`.
 And a green CI is not a deploy: read the deploy's own build log before saying it shipped.
+
+## A model of a matcher is a second matcher, and it drifts *(added 2026-10-02)*
+
+`node scripts/costs.ts` §5 reported the deploy upload as **1,767.2 MB of 100 MB, 4,790
+files**, a deploy that cannot exist: production at `e064a34` had been built from that
+same `.vercelignore` five days earlier. The script re-implements the ignore file by
+testing each pattern against a bare *file name* (`^scripts/.*$` against `scripts`),
+which was true while every pattern was a bare name. The 2026-09-27 deploy fix turned
+`scripts` into `scripts/*` plus two negations, so the copy now ignores nothing under
+`scripts/` and counts the 1.6 GB of corpus dumps the real CLI never sends. CI cannot
+notice, because nothing fails on a number that is only printed.
+
+**Rule: a script that predicts another tool's behaviour is a second implementation of
+that tool, and it goes stale the first time the input uses a feature the copy lacks.**
+Either call the tool itself (`vercel build` or a dry listing) or test the copy against
+the pattern shapes the input really holds, the way `vercelignore.test.ts` does for the
+config imports. Until it is fixed, treat §5 as unreliable whenever `.vercelignore` has
+a `/` or a `!` in it.
+
+## A function that looks stateless can be holding a gigabyte *(added 2026-10-02)*
+
+**Believed:** `predict({ text, voiceId })` from `@diffusionstudio/vits-web` was a pure
+call. Text in, WAV out, safe to call as often as needed. Walk mode called it once per
+clip, and so did the HD voice on every speaker tap.
+
+**True:** every call reads the 63 MB model out of storage and builds a **new**
+`InferenceSession`. Nothing releases it, so each one keeps the model's weights in
+onnxruntime's WebAssembly heap. A few taps never showed it. Hören's first 30-minute
+programme needed ~150 clips and died on the iPhone simulator with *"Can't create a
+session. failed to allocate a buffer of size 63531379"*. On the next load of the same
+tab it failed on the first clip, because the process still held the earlier heap.
+Walk mode had shipped with the same leak at a smaller dose.
+
+**Rule:** before calling a library function hundreds of times, read what one call
+allocates. Then run it at the real count on the real device class, not three times on
+a desktop. `lib/tts.ts` now builds one session per voice and keeps it, using the
+library's own pinned parts. A 60-word programme then renders in about half a minute.

@@ -47,6 +47,7 @@ should be deleted — git history is what history is for.
 | [../ATTRIBUTIONS.md](../ATTRIBUTIONS.md) | Every corpus source, its licence, what is redistributed and what is only cached. | Adding a data source. Forking. |
 | [STORES.md](STORES.md) | **Plan, nothing submitted.** Lexi in the App Store and Google Play: web first, a Play TWA next, iOS (Capacitor, bundled) under stated conditions. What a store copy leaves out and why, the listing (`store/listing.json`, tested), the screenshot storyboard, privacy labels, and the owner's steps. | Before packaging, submitting, or changing the manifest or icons. |
 | [PANEL-2026-09-25.md](PANEL-2026-09-25.md) | The ten-reviewer panel: what all ten agreed on, the six disagreements and how each was settled, one-line verdicts. | Before reopening a question the panel settled (walk-mode grading, pictogram colour, native wrapper, rank-based relevel). |
+| [TRAILS.md](TRAILS.md) | **Proposal, not policy.** Trailhead's shape for vocabulary: trails of scenes rather than semantic sectors, a check behind every stamp, ranks with no leagues, a Dackel mascot. Not built; it would narrow two VISION rulings. | Before organising words by situation, or adding badges, ranks or a mascot. |
 | [PICTOGRAMS.md](PICTOGRAMS.md) | The pictogram grammar (48-unit grid, one stroke, colour from the page), the QA gate, and pilot 01's measured results. | Before drawing, generating or showing a word picture. |
 
 ### Standing critiques — one lens each, written to be argued with

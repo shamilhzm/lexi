@@ -312,6 +312,38 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   default (no key, no text leaves the device) and by the key never entering a backup.
   **What it may never do:** score, grade, write a card field, or touch FSRS. Its advice
   is shown once, labelled as AI and fallible, and kept in the learner's journal.
+- **Focus: one thing, done well** *(2026-10-02, at the owner's direction)*. "Simplify
+  Lexi to focus on expanding vocabulary — hide all grammar-related config — and excel
+  at one thing before expanding to others." Four flags in `src/lib/focus.ts`, all off:
+  - `grammar` hides the drills that test a rule of the language rather than a fact of
+    the word (verb forms, comparison), the session's drill toggles, and the case a
+    verb's preposition governs (`warten auf` stays; `+ Akkusativ` goes).
+    **Gender and plural stay** — in German they are part of knowing a noun.
+  - `speaking` hides *Sag es*; `writing` hides story write-back (the tutor's
+    *explain* stays, because it helps a reader with the words they are saving);
+    `tuning` hides daily pace and review intensity.
+
+  **Hidden means the defaults apply and nothing stored is touched**: every visible
+  drill is on, pace is *steady*, retention is 90%, and the stored mutes, pace and
+  target wait in localStorage for the day a flag is flipped back. No FSRS row is
+  deleted — the hidden drills' `gym:*` schedules stay inert, like `gex:*` and
+  `gram:*`. `src/focus.test.ts` pins the flags, so walking this back is a decision,
+  not a drift. The refocus of 2026-09-05 narrowed what Lexi *teaches*; this narrows
+  what a learner is *asked to configure and practise*.
+- **Hören — German in the background** *(2026-10-02, at the owner's direction)*.
+  Walk mode was hard to find and the wrong shape for the ask: "the audio to just run
+  in the background while I do other things … without having to have my headphones
+  in or clicking anything." Hören is one tap in the top bar on every surface: each word
+  German · English · German · a sentence, returning about 1, 4, 10 and 20 minutes later
+  in German only, through the speaker, looping when it ends. **It never grades and
+  records nothing** — not even a dwell, because playback is not interest and counting
+  it would corrupt the one inference the scheduler names ("you kept stopping on
+  this"). The player's bookmark saves a word, the feed's one honest signal. It plays
+  saved words, then the day's due and fresh words, then the feed's order — due words
+  included, on the feed's own precedent (meaning shown, nothing graded). Walk mode
+  survives inside it as *Practise aloud*, unchanged: it asks, and a press grades. The
+  audio is still rendered on the phone; clips are kept on the device so each day's
+  wait shrinks. Hosting pre-rendered clips is the next step (BACKLOG).
 
 ---
 
@@ -555,6 +587,15 @@ allow-listed fetch relay on the Vercel deploy would reach them — it stores not
 sees no learner data, but it is a server, and "no backend" has so far meant *none*.
 Motorsport and games are exactly the owner's interests and are thin without it (SRF's
 motorsport news; games only by keyword). **Undecided.**
+
+### 3c. Trails — Trailhead's shape for vocabulary *(proposal, 2026-10-02)*
+
+The owner named Salesforce Trailhead as the benchmark for a tangible outcome: units
+with objectives and times, quizzes and hands-on checks, badges, ranks, a mascot, and
+optimism. [TRAILS.md](TRAILS.md) is the proposal — trails of *scenes* (Anmeldung,
+Mietvertrag, Arzt) rather than semantic sectors, stamps backed by a check, ranks with
+no leagues. It would narrow two settled things (Track E #5's "nothing picks a card",
+and the "you can now" refusal) and is **not built**. Undecided.
 
 ### 4. Billing / the supporter tier
 

@@ -23,6 +23,56 @@
 >
 > ---
 >
+> ## What is open after 2026-10-02 — Focus and Hören
+>
+> *The owner narrowed Lexi to vocabulary (`lib/focus.ts`) and asked for audio that runs
+> in the background; Hören replaced walk mode's entry (VISION, settled decisions;
+> CHANGELOG 2026-10-02). [TRAILS.md](TRAILS.md) proposes the Trailhead-style rebuild.*
+>
+> **Needs the owner:**
+>
+> 1. **Hören on a real iPhone.** Speaker playback with the phone locked; the ring switch
+>    on silent; the lock-screen next/previous (skip and replay, never grades); whether
+>    it starts by itself after preparing or waits for the player's Play button; a speaker
+>    tap mid-programme pausing it and handing it back. The simulator cannot answer the
+>    locked-phone questions.
+> 2. **Decide Trails** (TRAILS.md): rank names, self-confirmed missions, and whether the
+>    Pass replaces or sits beside the level path. It needs two VISION rulings narrowed.
+> 3. **Hosting for Hören's clips** (below) needs an account — a Hugging Face dataset
+>    under the owner's name, or Cloudflare R2 — and a line in the legal page.
+>
+> **Engineering, next:**
+>
+> 1. **Hosted Hören clips.** · M — Render every card's headword, gloss and shortest
+>    example with Piper on a maintainer's machine (`~/.local/share/lexi-voices`), as
+>    mono ~32 kbit/s, content-hashed, in per-level packs with an index; fetch a level
+>    pack once, cache it, and fall back to on-device Piper for anything missing. Removes
+>    the 138.1 MB first-run download and most of the wait. Requests are per level, so
+>    no word id leaves the device. COSTS.md §6 models the size (194.7 MB at Opus 16k);
+>    update COSTS and `public/legal.html` in the same change (`legal-page.test.ts`).
+> 2. **German Commons example miner.** · M — `coral-nlp/german-commons` (154.56B tokens,
+>    a SPDX licence on every record). Build-time only: modern subsets (Wikipedia,
+>    WikiNews, Wikibooks, YouTube Commons transcripts, Bundestag) under CC0, CC-BY-4.0
+>    or CC-BY-SA-4.0; sentences of 6–16 words whose headword inflection `lib/matcher.ts`
+>    proves and whose words are ≥ 90% known at the card's level; candidates go out as an
+>    authoring batch and `authoring:new` decides. Attribution per sentence. The same
+>    pass can count collocations (*einen Termin vereinbaren*). Not for audio.
+>    `sarannair/de_audios_new` is **not usable**: no licence, an empty card, unknown
+>    provenance, film dialogue among its clips.
+> 3. **Hören starts sooner.** · S–M — measure the first-programme wait on a real phone;
+>    if it hurts, render the first five minutes alone and start them while the rest
+>    renders (needs the locked-phone source swap verified first).
+> 4. **`scripts/costs.ts` §5 models `.vercelignore` wrongly.** · XS — patterns are tested
+>    against bare names, so `scripts/*` and its negations ignore nothing and §5 reports
+>    1,767.2 MB. Test against relative paths with negation, or ask the CLI (LESSONS, *A
+>    model of a matcher is a second matcher*).
+>
+> **Parked by the focus** (not dead — `lib/focus.ts` brings them back): the Germanist's
+> principal-parts and verb + preposition + case drills, and the `degree`/`cloze`
+> redraw for the comparison half.
+>
+> ---
+>
 > ## What is open after 2026-09-26 — the panel review
 >
 > *Ten reviewers critiqued Lexi, argued it out and implemented the consensus
@@ -484,6 +534,11 @@ this card's gloss, almost certainly belongs to that other card. That is `schicke
 exactly.
 
 ### 🟡 Migration vocabulary is answerable but not teachable — `npm run corpus:domains`
+
+> **Re-measured 2026-10-02: taught 86 of 90 (95.6%), lookup-only 2 (*Anleiterin*,
+> *Beschwerden*), absent from both layers 2 (*Meldebescheinigung*, *Termin ausmachen*).**
+> The figures below are the original finding and are stale; the item is now four words,
+> and what a mover lacks is the *shape* around these cards (TRAILS.md), not the cards.
 
 Over 90 hand-picked words across seven domains a migrant survives: **taught 52 (57.8%),
 lookup-only 32 (35.6%), absent from both layers 6**. The dictionary layer largely closed
