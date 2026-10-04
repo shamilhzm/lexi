@@ -312,6 +312,19 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   default (no key, no text leaves the device) and by the key never entering a backup.
   **What it may never do:** score, grade, write a card field, or touch FSRS. Its advice
   is shown once, labelled as AI and fallible, and kept in the learner's journal.
+- **The tutor moves behind Lexi's server** *(2026-10-04, at the owner's direction,
+  amending the bring-your-own-key decision above)*. The learner's provider key sat in
+  localStorage, and the browser called the provider through the SDK's
+  `dangerouslyAllowBrowser` switch; article text went into the prompt unmarked. Both
+  went. `api/tutor.ts` — **Lexi's first server code** — holds the owner's key in its
+  environment and writes the prompts itself. Article and learner text enter as tagged,
+  defused *data* under a rule that they are never instructions, and a reply quoting
+  anything not in the sentence has that part dropped. The browser holds only an access
+  code that works for these two tasks and nothing else. **What it may never do** is
+  unchanged: score, grade, write a card field, touch FSRS, or store what it was sent. It
+  is not a relay — two task shapes, length limits, no free prompt — and the Anthropic
+  Console's spend limit is the backstop. "No backend" now means: no accounts, no
+  learner data held, and one stateless function.
 - **Focus: one thing, done well** *(2026-10-02, at the owner's direction)*. "Simplify
   Lexi to focus on expanding vocabulary — hide all grammar-related config — and excel
   at one thing before expanding to others." Four flags in `src/lib/focus.ts`, all off:

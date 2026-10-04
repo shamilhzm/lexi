@@ -11,6 +11,53 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-04 — The tutor, behind Lexi's server
+
+**Why.** Asked whether this is the app Anthropic would launch, the review named two
+security defects in the optional tutor, and the owner said to fix both.
+
+- **The provider key was in the browser.** It sat in localStorage, and the browser
+  called Anthropic or OpenRouter through the SDK's `dangerouslyAllowBrowser` switch.
+  Anything that ran script on the page could read the key and spend it anywhere.
+- **Article text went into the prompt unmarked** (`lib/ai.ts`), so a story's own words
+  could pose as instructions to the model.
+
+**What changed.**
+
+- **`api/tutor.ts`, Lexi's first server code.** It is one stateless Vercel function
+  that holds the key in its environment.
+  - **Not a relay.** It accepts two task shapes (explain, correct), with length limits
+    and a 16 KB body cap, and writes every prompt itself.
+  - **Article and learner text are data.** They enter inside tags, with their angle
+    brackets defused so they can't close one, under a rule that text in the tags is
+    never an instruction.
+  - **The reply is checked.** A chunk it claims to quote but that isn't in the sentence
+    is dropped, and every field is length-bounded.
+  - **It stores nothing and logs no learner text.**
+  - **Refusals** fall back to the default model.
+  - **Configuration.** The model is `TUTOR_MODEL` (default `claude-opus-5-5`).
+- **The browser holds only an access code.** Settings asks for the code; there is no
+  key, provider or model field. *Save and test* is a ping that sends no learner text.
+  On first load, the stored BYOK key (`lexi.ai.key.v1`) and its config (`lexi.ai.v1`)
+  are deleted. Consent names the new flow, so an old yes doesn't carry over.
+- **The CSP drops `api.anthropic.com` and `openrouter.ai`.** A test now pins that the
+  page can reach no model provider. The Anthropic SDK is gone from the browser bundle
+  (0 chunks contain it).
+- **The legal page** describes the server flow, and its walk-mode row now covers
+  Hören.
+
+**Verified.**
+- 1,889 tests pass, including 18 new server tests: injection-shaped input stays inside
+  its tags; a smuggled `system` field goes nowhere; a fabricated quote is dropped.
+- Both guards were mutation-checked: disabling the defusing or the quote check fails
+  two tests each.
+- Build passes; budget PASS (entry 263.9 KB).
+
+**Owner setup** is in BACKLOG. Until it's done, the tutor answers "not set up on this
+server".
+
+---
+
 ### Shipped 2026-10-02 — Focus, and Hören
 
 **Why.** The owner asked three things in one message. Was Lexi what somebody who moved

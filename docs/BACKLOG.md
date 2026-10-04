@@ -23,6 +23,68 @@
 >
 > ---
 >
+> ## The tutor's owner setup — after 2026-10-04
+>
+> The tutor now runs through `api/tutor.ts`. Until these are done it answers "not set
+> up on this server", and everything else in Lexi works.
+>
+> 1. **Create a dedicated API key** at console.anthropic.com, in a workspace with a
+>    **monthly spend limit**.
+> 2. **Set two environment variables** on the Vercel project:
+>    - `ANTHROPIC_API_KEY`, the key;
+>    - `TUTOR_ACCESS_CODE`, a long random string you make up, e.g. from
+>      `openssl rand -base64 24`.
+>
+>    Optionally set `TUTOR_MODEL`; the default is `claude-opus-5-5`.
+> 3. **Redeploy**, because env changes need a new deploy. Then enter the access code
+>    under Settings → Tutor → *Save and test*.
+> 4. **Revoke any key you ever pasted into Lexi's old Settings,** and the OpenRouter
+>    key that was pasted in chat on 2026-09-25. Both lived in places a key should not.
+>
+> ---
+>
+> ## What is open after 2026-10-04 — the second panel
+>
+> *Ten app-developer seats reviewed Focus and Hören and agreed a path
+> ([PANEL-2026-10-04](PANEL-2026-10-04.md)). It supersedes the order of the 2026-10-02
+> list below; the items there stay, re-ranked here.*
+>
+> **Now, this week:**
+> 1. **Owner:** Hören on the real iPhone — Safari and home screen, 30 min locked, silent
+>    switch, lock-screen next/previous, a speaker tap mid-programme. The result decides
+>    how soon the native shell comes.
+> 2. **Hören's order leaks the test.** It plays the day's *due* words before Üben asks
+>    for them (`lib/hoeren.ts` `queue()`, briefing order). Make it saved → new →
+>    reviewed today → due only after today's reviews. · S
+> 3. **`persist()` and the backup nudge in Hören's consent tap.** The voices and clip
+>    cache add ~200 MB to the origin that holds the learner's history. · XS
+> 4. **Mini-player and sheet.** Stop moves into the sheet; the sheet stays open through
+>    preparing; replace *where you were*; a one-time hint naming 🎧 *Hören*. · XS
+> 5. **Lazy-load Hören** (engine, sheet, Practise aloud): the entry is 263.9 of 280 KB. · S
+> 6. **Loudness-normalise clips** in `renderClips`. · XS
+>
+> **Next:**
+> - **Hosted MP3 clip packs**, concatenated with no render step and an ASR-gated build.
+> - **Synthesis in a terminating Worker.**
+> - **A private *heard* log**, so Fortschritt can say whether Hören helped (needs a
+>   VISION amendment).
+> - **The Behörden trail slice.**
+> - **Phrases as trail cards.**
+> - **Ten learners**, plus an opt-in "send my week".
+> - **Story episodes in Hören.**
+>
+> **Owner decisions, in order:**
+> 1. name and domain;
+> 2. the Prototype Fund application (closes 30 Nov 2026);
+> 3. the Trails choices;
+> 4. an account to host clips;
+> 5. the heard-log amendment.
+>
+> **For four weeks the shape is frozen:** fixes, Hören hardening and one trail slice
+> only. The next reframe needs evidence from five learners who are not the owner.
+>
+> ---
+>
 > ## What is open after 2026-10-02 — Focus and Hören
 >
 > *The owner narrowed Lexi to vocabulary (`lib/focus.ts`) and asked for audio that runs

@@ -1761,3 +1761,23 @@ Walk mode had shipped with the same leak at a smaller dose.
 allocates. Then run it at the real count on the real device class, not three times on
 a desktop. `lib/tts.ts` now builds one session per voice and keeps it, using the
 library's own pinned parts. A 60-word programme then renders in about half a minute.
+
+## Text you did not write is an instruction channel unless you close it *(added 2026-10-04)*
+
+**Believed:** the tutor's prompt was safe because the system prompt said what to do.
+The article was "just the input".
+
+**True:** `lib/ai.ts` put the article's title, paragraph and sentence into the user
+message as plain lines, with nothing marking them as material rather than requests. A
+news story is text from the web. Any sentence in it saying *ignore the above* sat in
+the same channel as the learner's real request. The output was trusted too: whatever
+came back went on screen.
+
+**Rule:** untrusted text goes into a model as **data**:
+- inside tags;
+- with the characters that could close the tag defused;
+- under a system rule saying the tags never hold instructions.
+
+Validate the reply against what it claims to quote. Put the provider key where page
+script cannot read it, and the prompt where the page cannot write it. `api/tutor.ts`
+does all four, and `tutor-server.test.ts` proves each guard fails when removed.
