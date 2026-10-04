@@ -151,7 +151,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
         {state === 'saved' && !result && !error && (
           <span className="text-xs text-dim">
             Saved to your journal.{!aiReady() && (
-              <> <button className="underline decoration-dotted hover:text-accent" onClick={onSettings}>Add an AI key</button> for corrections.</>
+              <> <button className="underline decoration-dotted hover:text-accent" onClick={onSettings}>Set up the tutor</button> for corrections.</>
             )}
           </span>
         )}

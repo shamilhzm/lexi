@@ -82,7 +82,7 @@
   <p>The operator named in the <a href="#impressum">Impressum</a> is the controller under the GDPR for the processing described here.</p>
 
   <h3>What stays on your device</h3>
-  <p>Lexi keeps its data in your browser (IndexedDB, localStorage and, for audio, the origin private file system). That includes your cards and review history, saved and noted words, your reading journal and the tutor’s feedback, cached stories and recordings, your settings and, if you add one, your AI key. This storage is strictly necessary to provide what you asked for (§ 25(2) no. 2 TDDDG). It is never sent to the operator. To delete it, clear this site’s data in your browser or remove the installed app. To keep a copy, use <em>Settings → Your data → Export backup</em>. The backup never contains your AI key.</p>
+  <p>Lexi keeps its data in your browser (IndexedDB, localStorage and, for audio, the origin private file system). That includes your cards and review history, saved and noted words, your reading journal and the tutor’s feedback, cached stories and recordings, your settings and, if you enter one, the tutor’s access code. This storage is strictly necessary to provide what you asked for (§ 25(2) no. 2 TDDDG). It is never sent to the operator. To delete it, clear this site’s data in your browser or remove the installed app. To keep a copy, use <em>Settings → Your data → Export backup</em>. The backup never contains the tutor’s access code.</p>
 
   <h3>Hosting</h3>
   <p>The app’s files are served by Vercel Inc. (USA). As with any website, Vercel’s servers log requests (your IP address, the time, the file requested and your browser’s user agent) to deliver the files and keep the service secure. The legal basis is Art. 6(1)(f) GDPR: a website cannot be delivered without it. Vercel processes this as the operator’s processor. The safeguards for the transfer to the USA are set out in <a href="https://vercel.com/legal/dpa">Vercel’s Data Processing Addendum</a>. Aggregate request counts (how often a file was fetched) may be read to see whether Lexi is used. No identifiers are added for that, and nothing in the app measures you.</p>
@@ -104,28 +104,28 @@
       <tr><td>HD German voice <span class="dim">(off until you turn it on)</span></td>
         <td>cdn.jsdelivr.net and cdnjs.cloudflare.com (the speech engine), huggingface.co (the voice)</td>
         <td>A one-time download (~75 MB). After that the voice runs on your device and sends nothing.</td></tr>
-      <tr><td>Walk mode <span class="dim">(when you prepare a walk)</span></td>
+      <tr><td>Hören and Practise aloud <span class="dim">(the first time you start one)</span></td>
         <td>the same three hosts, for the German voice and an English one</td>
-        <td>A one-time download (~138 MB for both voices, less if you already use the HD voice). The walk’s audio is made on your device from the words on it; nothing about your walk, your answers or your headphone presses leaves the device.</td></tr>
+        <td>A one-time download (~138 MB for both voices, less if you already use the HD voice). The audio is made on your device from the words in it; nothing about what you hear, your answers or your headphone presses leaves the device.</td></tr>
       <tr><td>Speaking (“Say it”, “Sag es”)</td>
         <td>Your browser’s maker: Apple (Safari) or Google (Chrome)</td>
         <td>The audio you record, for speech recognition. Lexi asks before the first recording.</td></tr>
-      <tr><td>AI tutor <span class="dim">(off until you add your own key)</span></td>
-        <td>api.anthropic.com (Anthropic, USA) or openrouter.ai (OpenRouter, USA, which forwards to the model’s provider)</td>
+      <tr><td>AI tutor <span class="dim">(off until you enter an access code)</span></td>
+        <td>Lexi’s own server (this site, hosted by Vercel, USA), which forwards to Anthropic (USA)</td>
         <td>See <a href="#tutor">the next section</a></td></tr>
       <tr><td>Links you open</td>
-        <td>The publisher’s article, DeepL, a Tatoeba sentence page, GitHub, your AI provider’s console</td>
+        <td>The publisher’s article, DeepL, a Tatoeba sentence page, GitHub</td>
         <td>Ordinary browsing. Lexi adds nothing to the address.</td></tr>
     </tbody>
   </table>
 
   <h2 id="tutor">The optional AI tutor</h2>
-  <p>The tutor works only with <strong>your own key</strong>, from an account you hold with Anthropic or OpenRouter. The key is stored in this browser and sent only to that provider. Before the first request, Lexi shows what will be sent and waits for your OK. It asks again if you switch provider.</p>
+  <p>The tutor runs through <strong>Lexi’s own server</strong>, which holds the AI key and passes your request to Anthropic (Claude). No AI key is stored in your browser — only an access code that works for Lexi’s tutor and nothing else. The server writes the instructions to the AI itself, treats the article and your text as material to analyse, and keeps none of it. Before the first request, Lexi shows what will be sent and waits for your OK.</p>
   <ul>
     <li><strong>Explain a sentence</strong> sends the sentence, its paragraph, the article’s title and your level.</li>
     <li><strong>Check my German</strong> sends what you wrote, the article’s title, the words you were trying to use and your level.</li>
   </ul>
-  <p>Your agreement with the provider governs what happens next, including its privacy policy and any minimum age. OpenRouter passes requests to the company that runs the model you choose. Leave out personal details you would not put in an email. The answer is shown to you and kept in your journal on this device. It is labelled as AI, can be wrong, and never changes your cards, your schedule or any number in Lexi.</p>
+  <p>Anthropic’s terms and privacy policy apply to what it receives, including any minimum age. Leave out personal details you would not put in an email. The answer is shown to you and kept in your journal on this device. It is labelled as AI, can be wrong, and never changes your cards, your schedule or any number in Lexi.</p>
 
   <h2 id="rights">Your rights</h2>
   <p>Under the GDPR you have the right to access, rectification, erasure, restriction, data portability and objection (Arts. 15–21), and the right to complain to a data protection supervisory authority. Lexi’s operator holds no data about you except the hosting logs above, so a request will usually be answered with “we hold nothing that identifies you”. For the services in the table, ask the company named. Your learning data is on your device, under your control.</p>

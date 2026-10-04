@@ -2105,9 +2105,11 @@ const SETTING_KEYS = [
   'lexi.userwords.v1',
   // The reader's own state (lib/news/library.ts, lib/ai.ts). Literal keys, not
   // imports: library.ts imports this file.
-  'lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1', 'lexi.ai.v1',
-  // Deliberately NOT 'lexi.ai.key.v1'. A backup file is meant to be carried
-  // around and handed over; an API key in it would be a secret in plain text.
+  'lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1',
+  // Deliberately NOT 'lexi.tutor.code.v1' (the tutor's access code) or the old
+  // 'lexi.ai.key.v1'. A backup file is meant to be carried around and handed over;
+  // a credential in it would be a secret in plain text. 'lexi.ai.v1' (provider and
+  // model) went with bring-your-own-key on 2026-10-04: the server chooses now.
 ];
 
 /** Serialize all progress + non-secret settings to a JSON backup string. */

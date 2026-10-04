@@ -23,19 +23,22 @@ describe('exportData', () => {
   });
 
   it('carries the reader’s state', async () => {
-    for (const k of ['lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1', 'lexi.ai.v1']) {
+    // 'lexi.ai.v1' (provider and model) left the list with bring-your-own-key, 2026-10-04.
+    for (const k of ['lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1']) {
       localStorage.setItem(k, '[]');
     }
     const store = await import('./store.ts');
     const b = JSON.parse(store.exportData());
-    for (const k of ['lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1', 'lexi.ai.v1']) {
+    for (const k of ['lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1']) {
       expect(b.settings[k]).toBe('[]');
     }
   });
 
-  it('never carries the AI key', async () => {
+  it('never carries the AI key, or the tutor’s access code', async () => {
     localStorage.setItem('lexi.ai.key.v1', 'sk-secret-do-not-export');
+    localStorage.setItem('lexi.tutor.code.v1', 'access-code-do-not-export');
     const store = await import('./store.ts');
     expect(store.exportData()).not.toContain('sk-secret-do-not-export');
+    expect(store.exportData()).not.toContain('access-code-do-not-export');
   });
 });

@@ -80,11 +80,20 @@ describe('the Content-Security-Policy', () => {
     for (const origin of new Set(files.flatMap(originsIn))) {
       expect(allows(connect, origin), `connect-src does not allow ${origin}`).toBe(true);
     }
-    // Implicit ones: the Anthropic SDK's default base URL, the DW articles an RSS
-    // item links to, and where the Piper voice model redirects.
-    for (const origin of ['https://api.anthropic.com', 'https://learngerman.dw.com',
-      'https://huggingface.co', 'https://us.aws.cdn.hf.co']) {
+    // Implicit ones: the DW articles an RSS item links to, and where the Piper
+    // voice model redirects.
+    for (const origin of ['https://learngerman.dw.com', 'https://huggingface.co', 'https://us.aws.cdn.hf.co']) {
       expect(allows(connect, origin), `connect-src does not allow ${origin}`).toBe(true);
+    }
+  });
+
+  it('never lets the page talk to a model provider — the tutor goes through api/tutor.ts', () => {
+    // 2026-10-04: the browser held a provider key and called the provider itself.
+    // The key now lives on the server, so the page has no reason to reach one, and
+    // a CSP that still allowed it would let injected script spend a stolen key.
+    const connect = directive('connect-src');
+    for (const origin of ['https://api.anthropic.com', 'https://openrouter.ai']) {
+      expect(allows(connect, origin), `connect-src still allows ${origin}`).toBe(false);
     }
   });
 

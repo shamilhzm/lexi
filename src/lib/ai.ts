@@ -1,122 +1,90 @@
-// The optional tutor — reopened 2026-09-24. See VISION, "Settled decisions".
+// The optional tutor — reopened 2026-09-24, moved behind Lexi's server 2026-10-04.
+// See VISION, "Settled decisions".
 //
 // ## What it is, and what it is not
 //
 // Two jobs, both about **language the learner has already met**:
 //
 //   explain  — a sentence from an article they are reading: what it says, and
-//              the grammar that makes it hard (Konjunktiv I, a separable verb
-//              split across a clause, a genitive).
+//              what makes it hard to read.
 //   correct  — what the learner wrote back about that article: the minimum edits
 //              to make it right, each named, and one thing to practise.
 //
 // It is **not** a chatbot, and it never writes a fact onto a card. Cards stay
 // looked-up (`lib/wiktionary.ts`) and observed (the learner's own sentence).
 // Feedback is advice, shown once, stored in the learner's journal, and never
-// feeds FSRS, readiness, Known or any other number — the refusal it reopens was
-// "a drill that marks correct German wrong is worse than no drill", and the
-// answer to that is: nothing here marks anything. It suggests, and says it can be
-// wrong.
+// feeds FSRS, readiness, Known or any other number. It suggests, and says it can
+// be wrong.
 //
-// ## No backend, still
+// ## Through Lexi's server, with no AI key in this browser
 //
-// Bring-your-own-key. The key is stored in this browser's localStorage and sent
-// only to the provider the learner chose, directly from the browser. It is never
-// in the backup export. Lexi has no server to see it, and with no key set, no
-// text leaves the device. With a key set, still nothing leaves until the learner
-// has said yes once to a sentence naming the provider and the text (*consent*).
-import type Anthropic from '@anthropic-ai/sdk';
+// Until 2026-10-04 the learner pasted their own provider key here; it sat in
+// localStorage and the browser called the provider directly. Anything that runs
+// script on the page can read localStorage, and a provider key spends money
+// anywhere — so the key moved to the server (`api/tutor.ts`), which also writes
+// the prompts and treats article text as data, never as instructions. This
+// browser keeps only an **access code**: it works against Lexi's tutor endpoint
+// for these two tasks and nothing else, and whoever runs the server can change it
+// in a minute. With no code set, no text leaves the device. With one set, still
+// nothing leaves until the learner has said yes once to a sentence naming where
+// it goes (*consent*).
 
-export type Provider = 'anthropic' | 'openrouter';
-export interface AiConfig { provider: Provider; model: string }
-
-/** Provider and model: an ordinary setting, and in the backup. */
-export const AI_CONFIG_KEY = 'lexi.ai.v1';
-/** The key: a secret, and deliberately *not* in SETTING_KEYS. */
-const AI_SECRET_KEY = 'lexi.ai.key.v1';
-/** `{ provider, at }` — which provider the learner agreed to send text to, and
- *  when. See *consent* below; also deliberately not in SETTING_KEYS. */
+/** The access code: deliberately *not* in SETTING_KEYS — never in a backup. */
+const CODE_KEY = 'lexi.tutor.code.v1';
+/** `{ flow, at }` — what the learner agreed to send text to, and when. Also not in
+ *  SETTING_KEYS: consent to send text to a company should not travel in a file. */
 const AI_CONSENT_KEY = 'lexi.ai.consent.v1';
+/** What a yes is a yes to. A yes given to the old bring-your-own-key flow named a
+ *  different recipient, so it does not carry over. */
+const CONSENT_FLOW = 'lexi-server';
 
-export const DEFAULT_MODEL: Record<Provider, string> = {
-  anthropic: 'claude-opus-5',
-  openrouter: 'anthropic/claude-opus-5',
-};
+// One-time cleanup of the bring-your-own-key era: a provider key has no business
+// in this browser any more, and its config described a flow that no longer exists.
+try { localStorage.removeItem('lexi.ai.key.v1'); localStorage.removeItem('lexi.ai.v1'); } catch { /* no storage */ }
 
-export function aiConfig(): AiConfig | null {
+export function tutorCode(): string | null {
+  try { return localStorage.getItem(CODE_KEY) || null; } catch { return null; }
+}
+export function setTutorCode(code: string | null) {
   try {
-    const v = JSON.parse(localStorage.getItem(AI_CONFIG_KEY) || 'null') as AiConfig | null;
-    return v && (v.provider === 'anthropic' || v.provider === 'openrouter') && typeof v.model === 'string' ? v : null;
-  } catch { return null; }
-}
-function aiSecret(): string | null {
-  try { return localStorage.getItem(AI_SECRET_KEY) || null; } catch { return null; }
-}
-export function aiReady(): boolean { return !!aiConfig() && !!aiSecret(); }
-/** The last four characters, for "key ending …a1b2" in Settings. Never the key. */
-export function aiKeyHint(): string | null {
-  const k = aiSecret();
-  return k ? k.slice(-4) : null;
-}
-export function setAi(cfg: AiConfig | null, key?: string | null) {
-  try {
-    if (!cfg) {
-      localStorage.removeItem(AI_CONFIG_KEY); localStorage.removeItem(AI_SECRET_KEY); localStorage.removeItem(AI_CONSENT_KEY);
-      return;
-    }
-    localStorage.setItem(AI_CONFIG_KEY, JSON.stringify(cfg));
-    if (key !== undefined) {
-      if (key) localStorage.setItem(AI_SECRET_KEY, key.trim()); else localStorage.removeItem(AI_SECRET_KEY);
-    }
+    if (code && code.trim()) localStorage.setItem(CODE_KEY, code.trim());
+    else { localStorage.removeItem(CODE_KEY); localStorage.removeItem(AI_CONSENT_KEY); }
   } catch { /* quota */ }
 }
+export function aiReady(): boolean { return !!tutorCode(); }
 
 // ---- consent ----------------------------------------------------------------------
-//
-// A key in Settings is permission to *use* a provider, not a statement that the
-// learner knows what will be sent to it. So the first request asks, once per
-// provider, in words that name the provider and the text: Apple's 5.1.2(i) asks
-// for exactly this before personal data goes to a third-party AI, and it is the
-// honest thing on the web for the same reason (the panel review, 2026-09-25).
 //
 // The gate lives in `complete()`, not in the components, so no future caller can
 // send without it — a component that forgets to ask gets a `consent` error, not a
 // silent send.
-//
-// Not in SETTING_KEYS, deliberately: the key it belongs to is never in a backup
-// either, so a restored device re-enters the key and is asked again. Consent to
-// send text to a company should not travel in a file.
 
 export function aiConsented(): boolean {
-  const cfg = aiConfig();
-  if (!cfg) return false;
   try {
-    const v = JSON.parse(localStorage.getItem(AI_CONSENT_KEY) || 'null') as { provider?: string } | null;
-    return !!v && v.provider === cfg.provider;
+    const v = JSON.parse(localStorage.getItem(AI_CONSENT_KEY) || 'null') as { flow?: string } | null;
+    return !!v && v.flow === CONSENT_FLOW;
   } catch { return false; }
 }
-export function setAiConsent(provider: Provider) {
-  try { localStorage.setItem(AI_CONSENT_KEY, JSON.stringify({ provider, at: Date.now() })); } catch { /* quota */ }
+export function setAiConsent() {
+  try { localStorage.setItem(AI_CONSENT_KEY, JSON.stringify({ flow: CONSENT_FLOW, at: Date.now() })); } catch { /* quota */ }
 }
-
-export const PROVIDER_NAME: Record<Provider, string> = {
-  anthropic: 'Anthropic',
-  openrouter: 'OpenRouter, which passes it on to the company that runs the model you picked',
-};
 
 /** What leaves the device, in one paragraph — shown by Settings and by the
  *  one-time prompt, so the two can never describe different things. Keep it in
- *  step with `explainSentence`/`correctWriting` below and with `public/legal.html`. */
-export function aiDisclosure(provider: Provider): string {
+ *  step with `api/tutor.ts` and with `public/legal.html`. */
+export function aiDisclosure(): string {
   return `When you ask for an explanation, Lexi sends the sentence, its paragraph and the article’s title; `
     + `when you ask for a correction, it sends what you wrote, the article’s title and the words you were trying to use. `
-    + `Your level goes with both. It goes straight from this browser to ${PROVIDER_NAME[provider]}, under your key — `
-    + `their terms and privacy policy apply, including any minimum age. Lexi has no server and keeps none of it. `
+    + `Your level goes with both. It goes to Lexi’s own server, which passes it to Anthropic (Claude) and keeps none of it — `
+    + `Anthropic’s terms and privacy policy apply, including any minimum age. `
     + `Leave out personal details you wouldn’t put in an email.`;
 }
 
+export type AiErrorKind = 'no-key' | 'consent' | 'not-configured' | 'auth' | 'rate' | 'network' | 'refused' | 'bad-output' | 'other';
+const KINDS: ReadonlySet<string> = new Set(['no-key', 'consent', 'not-configured', 'auth', 'rate', 'network', 'refused', 'bad-output', 'other']);
+
 export class AiError extends Error {
-  constructor(message: string, readonly kind: 'no-key' | 'consent' | 'auth' | 'rate' | 'network' | 'refused' | 'bad-output' | 'other') {
+  constructor(message: string, readonly kind: AiErrorKind) {
     super(message);
   }
 }
@@ -130,35 +98,6 @@ export interface Explanation {
   points: { de: string; note: string }[];
 }
 
-const EXPLAIN_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['translation', 'points'],
-  properties: {
-    translation: { type: 'string' },
-    points: {
-      type: 'array',
-      items: {
-        type: 'object', additionalProperties: false, required: ['de', 'note'],
-        properties: { de: { type: 'string' }, note: { type: 'string' } },
-      },
-    },
-  },
-};
-
-export async function explainSentence(args: { sentence: string; paragraph: string; title: string; level: string }): Promise<Explanation> {
-  const system = [
-    `You help an English-speaking learner of German at CEFR level ${args.level} read real German news.`,
-    'They tapped one sentence and want to understand it. Reply in English.',
-    '"translation": a natural English translation of the sentence.',
-    '"points": up to four chunks of the German sentence that a learner at this level would find hard, each with a short note: what it means here and the grammar behind it (case, verb position, separable verbs, Konjunktiv I in reported speech, participle constructions, idioms, compounds broken into parts). Quote each chunk exactly as it appears. Skip anything easy.',
-    'Explain the language only. Do not add facts about the news story.',
-  ].join('\n');
-  const user = `Article: ${args.title}\n\nParagraph:\n${args.paragraph}\n\nSentence to explain:\n${args.sentence}`;
-  const out = await complete<Explanation>(system, user, EXPLAIN_SCHEMA, 'low');
-  return { translation: String(out.translation ?? ''), points: Array.isArray(out.points) ? out.points.slice(0, 4) : [] };
-}
-
 export interface CorrectionResult {
   corrected: string;
   natural: string;
@@ -167,133 +106,63 @@ export interface CorrectionResult {
   tip: string;
 }
 
-const CORRECT_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['corrected', 'natural', 'verdict', 'issues', 'tip'],
-  properties: {
-    corrected: { type: 'string' },
-    natural: { type: 'string' },
-    verdict: { type: 'string' },
-    tip: { type: 'string' },
-    issues: {
-      type: 'array',
-      items: {
-        type: 'object', additionalProperties: false, required: ['original', 'fix', 'why', 'kind'],
-        properties: {
-          original: { type: 'string' }, fix: { type: 'string' }, why: { type: 'string' },
-          kind: { type: 'string', enum: ['gender', 'case', 'verb', 'word-order', 'spelling', 'word-choice', 'preposition', 'other'] },
-        },
-      },
-    },
-  },
-};
+export async function explainSentence(args: { sentence: string; paragraph: string; title: string; level: string }): Promise<Explanation> {
+  const r = await complete<Partial<Explanation>>({ task: 'explain', ...args });
+  // The server checked the shape; checking again costs nothing and means a
+  // misbehaving server cannot put a non-string on screen.
+  return {
+    translation: String(r.translation ?? ''),
+    points: (Array.isArray(r.points) ? r.points : []).slice(0, 4)
+      .filter((p) => p && typeof p.de === 'string' && typeof p.note === 'string'),
+  };
+}
 
 export async function correctWriting(args: { text: string; title: string; level: string; targets: string[] }): Promise<CorrectionResult> {
-  const system = [
-    `You are a German writing coach for an English-speaking adult learner at CEFR level ${args.level}.`,
-    'They read a news article and wrote a short response in German. Correct it.',
-    '"corrected": their text with only the changes needed for correct German. Keep their meaning, their ideas and their word choices wherever those are correct.',
-    `"natural": how a native speaker might say the same thing, still readable at ${args.level}.`,
-    '"issues": one entry per real error, in the order it appears: the original fragment, the fixed fragment, one sentence in English naming the rule (for example: "wegen takes the genitive in written German: wegen des Wetters"), and its kind. Style preferences are not errors. Correct German that you would merely phrase differently is not an error. If there are no errors, return an empty list.',
-    '"verdict": one honest sentence in English. No flattery, no scores.',
-    '"tip": the single most useful thing for this learner to practise next, based on these errors, in one sentence.',
-    'If words they were trying to use are listed, check that any they used were used correctly; do not mention ones they did not use.',
-  ].join('\n');
-  const user = [
-    `Article: ${args.title}`,
-    args.targets.length ? `Words they were trying to use: ${args.targets.join(', ')}` : '',
-    '',
-    'Their text:',
-    args.text,
-  ].filter((l) => l !== '').join('\n');
-  const out = await complete<CorrectionResult>(system, user, CORRECT_SCHEMA, 'medium');
+  const r = await complete<Partial<CorrectionResult>>({ task: 'correct', ...args });
   return {
-    corrected: String(out.corrected ?? ''),
-    natural: String(out.natural ?? ''),
-    verdict: String(out.verdict ?? ''),
-    tip: String(out.tip ?? ''),
-    issues: Array.isArray(out.issues) ? out.issues : [],
+    corrected: String(r.corrected ?? ''),
+    natural: String(r.natural ?? ''),
+    verdict: String(r.verdict ?? ''),
+    tip: String(r.tip ?? ''),
+    issues: (Array.isArray(r.issues) ? r.issues : [])
+      .filter((i) => i && typeof i.original === 'string' && typeof i.fix === 'string'),
   };
 }
 
 // ---- transport -------------------------------------------------------------------
 
-async function complete<T>(system: string, user: string, schema: Record<string, unknown>, effort: 'low' | 'medium'): Promise<T> {
-  const cfg = aiConfig();
-  const key = aiSecret();
-  if (!cfg || !key) throw new AiError('No AI key set', 'no-key');
-  if (!aiConsented()) throw new AiError('Lexi needs your OK before it sends text to your AI provider', 'consent');
-  const text = cfg.provider === 'anthropic'
-    ? await viaAnthropic(cfg.model, key, system, user, schema, effort)
-    : await viaOpenRouter(cfg.model, key, system, user, schema);
-  try { return JSON.parse(text) as T; } catch { /* fall through */ }
-  // A provider that ignored the schema may still have wrapped JSON in prose.
-  const m = text.match(/\{[\s\S]*\}/);
-  if (m) { try { return JSON.parse(m[0]) as T; } catch { /* fall through */ } }
-  throw new AiError('The reply was not in the expected shape', 'bad-output');
+/** Lexi's tutor endpoint — `api/tutor.ts`, served by the same host as the app. */
+export const TUTOR_ENDPOINT = '/api/tutor';
+
+async function complete<T>(body: Record<string, unknown>): Promise<T> {
+  const code = tutorCode();
+  if (!code) throw new AiError('The tutor isn’t set up on this device', 'no-key');
+  if (!aiConsented()) throw new AiError('Lexi needs your OK before it sends text to the tutor', 'consent');
+  return post<T>(code, body);
 }
 
-async function viaAnthropic(model: string, apiKey: string, system: string, user: string,
-  schema: Record<string, unknown>, effort: 'low' | 'medium'): Promise<string> {
-  const { default: Client } = await import('@anthropic-ai/sdk');
-  const client = new Client({ apiKey, dangerouslyAllowBrowser: true, maxRetries: 1 });
-  let res: Anthropic.Beta.BetaMessage;
-  try {
-    res = await client.beta.messages.create({
-      model,
-      max_tokens: 16000,
-      system,
-      messages: [{ role: 'user', content: user }],
-      output_config: { effort, format: { type: 'json_schema', schema } },
-      // On a policy decline the API re-runs the request on its default fallback
-      // model instead of returning nothing — a correction is not worth failing.
-      betas: ['server-side-fallback-2026-07-01'],
-      fallbacks: 'default',
-    });
-  } catch (e) {
-    if (e instanceof Client.AuthenticationError || e instanceof Client.PermissionDeniedError) throw new AiError('The API key was not accepted', 'auth');
-    if (e instanceof Client.RateLimitError) throw new AiError('Rate limited — try again in a moment', 'rate');
-    if (e instanceof Client.APIConnectionError) throw new AiError('Could not reach Anthropic', 'network');
-    if (e instanceof Client.APIError) throw new AiError(`Anthropic error ${e.status ?? ''}`.trim(), 'other');
-    throw e;
-  }
-  if (res.stop_reason === 'refusal') throw new AiError('The model declined this one', 'refused');
-  const block = res.content.find((b): b is Anthropic.Beta.BetaTextBlock => b.type === 'text');
-  if (!block) throw new AiError('Empty reply', 'bad-output');
-  return block.text;
-}
-
-async function viaOpenRouter(model: string, apiKey: string, system: string, user: string,
-  schema: Record<string, unknown>): Promise<string> {
+async function post<T>(code: string, body: Record<string, unknown>): Promise<T> {
   let res: Response;
   try {
-    res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    res = await fetch(TUTOR_ENDPOINT, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': location.origin,
-        'X-Title': 'Lexi',
-      },
-      body: JSON.stringify({
-        model,
-        max_tokens: 8000,
-        messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
-        response_format: { type: 'json_schema', json_schema: { name: 'result', strict: true, schema } },
-      }),
+      headers: { 'Content-Type': 'application/json', 'X-Lexi-Access': code },
+      body: JSON.stringify(body),
     });
-  } catch { throw new AiError('Could not reach OpenRouter', 'network'); }
-  if (res.status === 401 || res.status === 403) throw new AiError('The API key was not accepted', 'auth');
-  if (res.status === 429) throw new AiError('Rate limited — try again in a moment', 'rate');
-  if (!res.ok) throw new AiError(`OpenRouter error ${res.status}`, 'other');
-  const j = await res.json() as { choices?: { message?: { content?: string } }[] };
-  const text = j.choices?.[0]?.message?.content;
-  if (!text) throw new AiError('Empty reply', 'bad-output');
-  return text;
+  } catch { throw new AiError('Could not reach Lexi’s tutor', 'network'); }
+  const j = await res.json().catch(() => null) as { ok?: boolean; result?: unknown; kind?: string; message?: string } | null;
+  if (!res.ok || !j?.ok) {
+    const kind: AiErrorKind = j?.kind && KINDS.has(j.kind) ? j.kind as AiErrorKind
+      : res.status === 401 ? 'auth' : res.status === 429 ? 'rate' : 'other';
+    throw new AiError(j?.message || `The tutor answered ${res.status}`, kind);
+  }
+  return (j.result ?? {}) as T;
 }
 
-/** A cheap round-trip for Settings' "Test" button. */
+/** Settings' "Save and test": checks the code and that the server is set up,
+ *  without sending any of the learner's text or spending anything. */
 export async function testAi(): Promise<void> {
-  await explainSentence({ sentence: 'Das ist ein Test.', paragraph: 'Das ist ein Test.', title: 'Test', level: 'A1' });
+  const code = tutorCode();
+  if (!code) throw new AiError('Enter the access code first', 'no-key');
+  await post<{ model?: string }>(code, { task: 'ping' });
 }

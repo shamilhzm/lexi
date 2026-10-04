@@ -33,7 +33,7 @@ const LINK_ONLY: Record<string, string> = {
 
 /** Requests made by code Lexi loads rather than code it contains. */
 const INDIRECT = [
-  'api.anthropic.com', // the Anthropic SDK's endpoint (lib/ai.ts)
+  'Anthropic', // where Lexi's server sends a tutor request (api/tutor.ts) — not the browser
   'cdnjs.cloudflare.com', 'huggingface.co', // the HD voice's engine and model (lib/tts.ts)
   'Vercel', // the host itself
 ];
@@ -48,7 +48,7 @@ describe('legal.html', () => {
 
   it('finds the hosts it is meant to police', () => {
     // A broken walker would pass everything below vacuously.
-    expect([...hosts].map(domain)).toEqual(expect.arrayContaining(['tagesschau.de', 'tatoeba.org', 'wiktionary.org', 'openrouter.ai']));
+    expect([...hosts].map(domain)).toEqual(expect.arrayContaining(['tagesschau.de', 'tatoeba.org', 'wiktionary.org', 'jsdelivr.net']));
   });
 
   it('names every network destination in the source', () => {
