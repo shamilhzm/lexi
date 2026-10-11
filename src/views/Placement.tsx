@@ -208,11 +208,11 @@ export default function Placement({ onDone }: { onDone: () => void }) {
 
       <div className="grid grid-cols-2 gap-3">
         <button onClick={() => answer(false)}
-          className="flex items-center justify-center gap-2 rounded-md py-3.5 bg-panel2 border border-line hover:border-red text-base font-semibold transition-colors active:scale-[0.98]">
+          className="flex items-center justify-center gap-2 key rounded-full py-3.5 bg-card text-base font-semibold transition-colors active:scale-[0.98]">
           <X size={16} className="text-red" /> New to me
         </button>
         <button onClick={() => answer(true)}
-          className="flex items-center justify-center gap-2 rounded-md py-3.5 bg-panel2 border border-line hover:border-green text-base font-semibold transition-colors active:scale-[0.98]">
+          className="flex items-center justify-center gap-2 key rounded-full py-3.5 bg-card text-base font-semibold transition-colors active:scale-[0.98]">
           <Check size={16} className="text-green" /> I know it
         </button>
       </div>

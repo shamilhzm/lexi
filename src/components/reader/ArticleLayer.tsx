@@ -249,7 +249,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
                       <button onClick={() => { if (!on) { saveFromArticle(u.word.id, from, ''); haptic('grade'); } }}
                         aria-pressed={on}
                         className={`tap-44 inline-flex items-center gap-1.5 rounded-full px-3.5 h-10 text-sm transition active:scale-95
-                          ${on ? 'bg-accent text-bg font-semibold' : 'glass'}`}>
+                          ${on ? 'bg-key text-key-ink font-semibold' : 'glass'}`}>
                         {on ? <Check size={13} /> : <Bookmark size={13} className="text-accent" />}
                         <span lang="de">{u.word.term}</span>
                         {u.occurrences > 1 && <span className="text-2xs opacity-70">×{u.occurrences}</span>}

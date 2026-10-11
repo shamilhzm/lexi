@@ -48,28 +48,18 @@
 }
 
 /* ============================================================
-   THE ATLAS — theme tokens.
+   THE CARD BOX — theme tokens *(2026-10-11; was THE ATLAS)*.
    @theme color tokens auto-generate Tailwind utilities
-   (bg-bg, text-accent, border-line, …). LIGHT by default;
+   (bg-bg, text-accent, border-line, bg-key, …). LIGHT by default;
    `html.dark` overrides below.
 
-   Why light is primary now: this app is read, in daylight, for
-   fifteen minutes at a time. The dark-first default was inherited
-   from the terminal reference, and a 12-persona review found the
-   light theme already carried *better* hierarchy than the dark one
-   (the session-card number reads as data on light and as *disabled*
-   on dark). The three traditions this palette descends from —
-   Aicher/Ulm, cartography, and the printed lexicon — are all
-   light-ground. See docs/DESIGN.md §1.
-
-   The accent is Aicher's light blue, the "colour of peace" he made
-   the official hue of Munich 1972, darkened here to clear AA both
-   as ink on white and as a ground under white text.
+   Light is primary: this app is read, in daylight, for fifteen
+   minutes at a time, and a 12-persona review found the light theme
+   carried better hierarchy than the dark one. See docs/DESIGN.md §1
+   for the identity — cream box, white index card, charcoal ink, two
+   coloured tabs (teal, coral) — and why it replaced Atlas blue.
    ============================================================ */
 @theme {
-  /* "amber" is the legacy token NAME for the accent (kept so every
-     text-accent/bg-accent/border-accent utility doesn't churn); its value has been
-     Glacier cyan and is now Atlas blue. Rename is tracked in the backlog. */
   /* Warmed to paper 2026-08-26. These were a cool grey-blue "biased toward the
      accent", which is a screen colour: it made the instrument read as a
      dashboard, and a dashboard is the one thing §1 spent a whole section
@@ -94,23 +84,39 @@
      guard in `palette.test.ts` failed on its first run and named it. #e6e1d8
      restores the accent to 4.62, which is exactly what the cool palette scored,
      so the warm ground costs nothing on the pair it was worst at. */
-  --color-bg:      #eeeae3;   /* page — paper */
-  --color-panel:   #fbf9f6;   /* chrome surfaces */
-  --color-panel2:  #e6e1d8;   /* sunken fills, nested rows */
+  /* **The card box** *(2026-10-11)* — see DESIGN §1. The ground is the cream of a
+     Karteikasten, the card is the white index card that sits in it, the ink is
+     charcoal rather than blue-black, and colour comes from two *tabs*: teal and
+     coral. Measured before it shipped (scripted, then pinned in palette.test.ts):
+     every text pair clears 4.5 in both themes, `dim` on `panel2` went 5.38 → 5.86
+     and `accent` on `panel2` 4.62 → 5.08. */
+  --color-bg:      #faf6e6;   /* page — the box's cream */
+  --color-panel:   #fdfbf2;   /* chrome surfaces */
+  --color-panel2:  #efead5;   /* sunken fills, nested rows */
   --color-card:    #ffffff;   /* the study surface — pure white, reserved */
-  --color-line:    #d2cabc;   /* hairlines */
-  --color-txt:     #1e2226;   /* primary ink */
-  --color-dim:     #5b5952;   /* secondary ink — AA on paper and on white */
-  --color-chrome:  #55544e;   /* secondary ink *on glass* — see `.glass-bar` below */
-  --color-accent:   #1d6a8c;   /* brand / accent / focus (Atlas blue) */
+  --color-line:    #e0dac5;   /* hairlines */
+  --color-txt:     #2b2b2b;   /* primary ink — charcoal */
+  --color-dim:     #5c5850;   /* secondary ink — AA on cream and on white */
+  --color-chrome:  #55524a;   /* secondary ink *on glass* — see `.glass-bar` below */
+  /* The accent is the teal tab *as ink*. The tab itself (#93c1c1) is 2.0 on cream
+     and can never carry text, so it is a separate token — `key` — that is only
+     ever a fill, always under `key-ink`. */
+  --color-accent:  #2c6b6b;   /* brand ink / focus (teal, deepened for AA) */
+  --color-key:     #93c1c1;   /* the teal tab — a fill, never ink */
+  --color-key-ink: #2b2b2b;   /* the only ink allowed on `key` (7.2:1) */
+  --color-coral:   #f39483;   /* the second tab — marks and pads, never ink */
+  --color-lip:     #2b2b2b;   /* the hard edge under a key you can press */
+  /* The swipe verdict, as a wash over the whole room (Review). Never text. */
+  --color-knew:    #c6f3b8;
+  --color-again:   #f7d2c1;
   /* #3f7a3a until 2026-09-25: 4.32 on bg and 3.98 on panel2, and it is set as
      small text — the feed's `known`, the session acknowledgment, the drill's
      "Answer:", search's "Noted". The guard only checked txt/dim/accent, so no test
      saw it. Same hue, darker; every ground now clears 4.5 (palette.test.ts). */
-  --color-green:   #387034;   /* gains / mastered */
-  --color-green-d: #dfeddc;
+  --color-green:   #3a6e2e;   /* gains / mastered */
+  --color-green-d: #e3f3d9;
   --color-red:     #a3402f;   /* losses / weak */
-  --color-red-d:   #f6e3de;
+  --color-red-d:   #f9e1d6;
   --color-red-txt: #96351f;
 
   /* NB: the coverage ramp (--heat-*) is deliberately NOT declared here — see
@@ -203,11 +209,12 @@
    Ink is paired to its class so contrast is decided here, once, rather than
    guessed from a luminance threshold at paint time. */
 :root {
-  --heat-0: #dbe4e8;  --heat-ink-0: #3d4d55;
-  --heat-1: #b4ccd8;  --heat-ink-1: #1c2e37;
-  --heat-2: #7fadc2;  --heat-ink-2: #10222b;
-  --heat-3: #4a89a8;  --heat-ink-3: #ffffff;
-  --heat-4: #1d6a8c;  --heat-ink-4: #ffffff;
+  /* Teal, ending on the accent; `heat-2` is the key tab itself. */
+  --heat-0: #e4e9dc;  --heat-ink-0: #3b4a48;
+  --heat-1: #c3dad5;  --heat-ink-1: #1f3333;
+  --heat-2: #93c1c1;  --heat-ink-2: #142828;
+  --heat-3: #3f7f7f;  --heat-ink-3: #ffffff;
+  --heat-4: #2c6b6b;  --heat-ink-4: #ffffff;
 
 }
 
@@ -285,46 +292,53 @@
    Measured: bg→panel 1.12 (light: 1.12), panel→card 1.07 (light: 1.05).
    ============================================================ */
 html.dark {
-  --color-bg:      #101619;
-  --color-panel:   #192327;
-  --color-panel2:  #0b1013;
-  --color-card:    #1f2b30;
-  --color-line:    #2c3b41;
-  --color-txt:     #e6edef;
-  --color-dim:     #93a5ac;   /* AA on every dark surface */
-  --color-chrome:  #a8b7bd;   /* secondary ink *on glass* — see `.glass-bar` */
-  --color-accent:   #63b3d4;   /* Atlas blue, lifted for a dark ground */
-  --color-green:   #7bb36a;
-  --color-green-d: #17301a;
-  --color-red:     #e0705c;
-  --color-red-d:   #3a1712;
-  --color-red-txt: #ef8571;
+  /* Charcoal, not blue-black: the box with the lid on. Neutral greys so the two
+     tabs are the only colour in the room, exactly as they are in light. */
+  --color-bg:      #282828;
+  --color-panel:   #2e2e2e;
+  --color-panel2:  #202020;
+  --color-card:    #393939;
+  --color-line:    #4a4a48;
+  --color-txt:     #f0ebe1;   /* the cream, as ink */
+  --color-dim:     #bab4a8;   /* AA on every dark surface */
+  --color-chrome:  #d2ccc1;   /* secondary ink *on glass* — see `.glass-bar` */
+  --color-accent:  #93c1c1;   /* on charcoal the tab is light enough to be ink */
+  --color-key:     #93c1c1;
+  --color-key-ink: #2b2b2b;
+  --color-coral:   #f39483;
+  --color-lip:     #0e0e0e;
+  --color-knew:    #2d4a26;
+  --color-again:   #55302a;
+  --color-green:   #9fcf7a;
+  --color-green-d: #2c3a24;
+  --color-red:     #f39483;
+  --color-red-d:   #4a2b25;
+  --color-red-txt: #f6a596;
 
   /* The ramp inverts direction: on a dark ground the *unlearned* end must
      recede into the page, not glow off it. Same five classes, same pairing
      rule — ink is decided here, per class, not guessed at paint time. */
-  --heat-0: #1c2a30;  --heat-ink-0: #8fa3ac;
-  --heat-1: #244a5c;  --heat-ink-1: #cfe2ea;
-  --heat-2: #2e6c86;  --heat-ink-2: #eaf4f8;
-  --heat-3: #3d90ae;  --heat-ink-3: #06181f;
-  --heat-4: #63b3d4;  --heat-ink-4: #06181f;
+  --heat-0: #333836;  --heat-ink-0: #a3b0ad;
+  --heat-1: #2f4d4d;  --heat-ink-1: #d7e8e6;
+  --heat-2: #3f7272;  --heat-ink-2: #f0f7f6;
+  --heat-3: #6fa3a3;  --heat-ink-3: #10201f;
+  --heat-4: #93c1c1;  --heat-ink-4: #10201f;
 
-  --color-der: #7fa5ff;
-  --color-die: #f472b6;
-  --color-das: #4bd6c4;
-  --color-a1: #7fa5ff;
-  --color-a2: #38bdf8;
-  --color-b1: #4bd6c4;
-  --color-b2: #a78bfa;
-  --color-c1: #e879f9;
-  --color-c2: #fb7185;
+  /* Lifted from the Atlas values: the card is #393939 now, not #1f2b30, and the
+     old `der` / `die` / `c2` measured 4.3–4.4 on it. Same hues. */
+  --color-der: #8db0ff;
+  --color-die: #f58cc0;
+  --color-das: #5fd6c6;
+  --color-a1: #8db0ff;
+  --color-a2: #5cc8f0;
+  --color-b1: #5fd6c6;
+  --color-b2: #b9a2fb;
+  --color-c1: #ec94f9;
+  --color-c2: #fc8a9b;
 }
-/* Dark-surface field: a soft top glow + a faint light grid (mirrors light). */
-html.dark body {
-  background-image:
-    radial-gradient(130% 80% at 50% -12%, #16323f 0%, rgba(16,22,25,0) 55%),
-    radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
-}
+/* Dark is flat charcoal. The Atlas had a blue glow and a dotted map grid here;
+   the box has neither — one quiet ground, so the tabs carry the colour. */
+html.dark body { background-image: none; }
 /* On dark the panel/card material highlight is a light wash rather than the
    soft dark one the light theme uses. */
 html.dark .bg-panel {
@@ -614,21 +628,16 @@ body {
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;
-  /* The sheet: a soft top wash + a faint dotted grid — the register of a map
-     sheet under daylight rather than a trading floor in the dark. */
+  /* Flat cream. The Atlas drew a top wash and a dotted map grid here; a card box
+     is one even ground, and the white card is the only thing that catches light. */
   background-color: var(--color-bg);
-  background-image:
-    radial-gradient(130% 80% at 50% -12%, #ffffff 0%, rgba(238,234,227,0) 55%),
-    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: auto, 24px 24px;
-  background-attachment: fixed;
 }
 
 /* Panel material — subtle top highlight + elevation, applied wherever the
    bg-panel token is used (header, cards, KPIs). Low-churn global polish. */
 .bg-panel {
-  background-image: linear-gradient(180deg, rgba(16,32,48,0.014), rgba(0,0,0,0) 40%);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 8px 24px -20px rgba(22,32,46,0.45);
+  background-image: linear-gradient(180deg, rgba(43,43,43,0.012), rgba(0,0,0,0) 40%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 8px 24px -20px rgba(43,40,30,0.4);
 }
 
 /* ── The card is a different *material*, not a different colour ──────────────
@@ -648,13 +657,60 @@ body {
 .bg-card {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
-    linear-gradient(180deg, rgba(16,32,48,0.02), rgba(0,0,0,0) 46%);
+    linear-gradient(180deg, rgba(43,43,43,0.015), rgba(0,0,0,0) 46%);
   background-size: 140px 140px, auto;
   background-blend-mode: soft-light, normal;
-  box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6);
+  /* Karteto's card: a contact shadow you can barely see and a long soft one you
+     feel. An index card lies *on* the cream; it does not float above it. */
+  box-shadow: 0 1px 2px rgba(60,52,30,0.06), 0 18px 40px -24px rgba(60,52,30,0.38);
 }
 /* Raise the flip-card faces too. */
-.flip-face { box-shadow: 0 1px 0 rgba(255,255,255,1) inset, 0 20px 44px -22px rgba(22,32,46,0.6); }
+.flip-face { box-shadow: 0 1px 2px rgba(60,52,30,0.06), 0 18px 40px -24px rgba(60,52,30,0.38); }
+
+/* ── The key — the one material for things you press *(2026-10-11)* ──────────
+   A key has a hard charcoal edge and a lip under it, and when you press it the
+   lip disappears because the key has gone down. That is the whole of it, and it
+   is what makes a control read as *pressable* before it is read as a label —
+   which a 1px hairline and a hover colour, the Atlas's button, never did on a
+   phone where there is no hover.
+
+   It is transform + box-shadow only: no layout moves, nothing waits on an
+   animation, and `:active` is instant so a tap is felt on the frame it lands.
+
+   Not for surfaces you read. A card is lifted by a soft shadow; a key is *set*
+   on the page by a hard one. Two materials, two jobs (DESIGN §3, §5).
+
+   In `@layer components`, so a utility on the same element still wins: a key
+   that has been answered can take `border-green` without a specificity fight. */
+@layer components {
+  .key {
+    border: 1.5px solid var(--color-lip);
+    box-shadow: 0 3px 0 0 var(--color-lip);
+    transition: transform 70ms ease-out, box-shadow 70ms ease-out;
+  }
+  .key:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 0 var(--color-lip);
+  }
+}
+@media (prefers-reduced-motion: reduce) { .key { transition: none; } }
+
+/* ── The swipe wash (Review → SwipeCard) ────────────────────────────────────
+   Fixed to the viewport so it reaches the edges whatever column the card is in;
+   it is painted before the stack and the card, so both sit on top of it. The
+   bars are z-50 and stay chrome-coloured above it. */
+.swipe-wash { position: fixed; inset: 0; pointer-events: none; mix-blend-mode: multiply; }
+.swipe-knew { background: var(--color-knew); }
+.swipe-again { background: var(--color-again); }
+html.dark .swipe-wash { mix-blend-mode: screen; }
+
+/* ── The pad — a halftone coral disc that an emblem stands on ─────────────────
+   The second tab's one figurative use. Dots, not a fill, so it reads as *print*
+   and stays quieter than the teal it sits beside. */
+.pad {
+  background-image: radial-gradient(var(--color-coral) 1.1px, transparent 1.4px);
+  background-size: 5px 5px;
+}
 
 /* Live status dot */
 .live-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); }

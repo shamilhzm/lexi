@@ -528,10 +528,10 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
           const state = !picked ? 'idle' : g === word.gender ? 'right' : g === picked ? 'wrong' : 'idle';
           return (
             <button key={g} onClick={() => choose(g)} disabled={!!picked}
-              className={`rounded-md py-4 font-bold text-xl border transition-colors ${
+              className={`key rounded-full py-3.5 font-bold text-xl ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
-                : 'bg-panel2 border-line hover:border-accent'}`}
+                : 'bg-card'}`}
               style={state === 'idle' ? { color } : undefined}>
               {g}
             </button>
@@ -611,10 +611,10 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
           return (
             <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
-              className={`rounded-md py-3.5 px-4 border text-base text-center transition-colors ${
+              className={`key rounded-full py-3 px-5 text-base text-center ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
-                : 'bg-panel2 border-line hover:border-accent'}`}>
+                : 'bg-card'}`}>
               {/* The key that picks this option, so the shortcut is discoverable
                   rather than folklore. Hidden on touch. */}
               <kbd aria-hidden className="hidden sm:inline-block font-mono text-2xs text-dim mr-2 tabular-nums">{i + 1}</kbd>

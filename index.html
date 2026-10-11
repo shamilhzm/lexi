@@ -6,7 +6,7 @@
          and a strange thing to do in an app that ships its own text-size ramp
          precisely because small text is hard to read. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#eeeae3" />
+    <meta name="theme-color" content="#faf6e6" />
     <!-- Apply the saved light/dark preference before first paint (avoids a flash). -->
     <script>
       (function () {
@@ -19,7 +19,7 @@
         document.documentElement.classList.add(t);
         if (t === 'dark') {
           var m = document.querySelector('meta[name="theme-color"]');
-          if (m) m.setAttribute('content', '#101619');
+          if (m) m.setAttribute('content', '#282828');
         }
       })();
       // The splash watchdog. `main.tsx` has budgets for the lexicon and the
@@ -116,8 +116,8 @@
          so the splash flashed cool and the app resolved warm, on every launch. */
       #boot {
         position: fixed; inset: 0; display: grid; place-items: center;
-        background: radial-gradient(120% 90% at 50% 0%, #fbf9f6 0%, #eeeae3 60%);
-        color: #1e2226; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #faf6e6;
+        color: #2b2b2b; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
       /* Flex column, not `text-align: center`.
          `.mark` (56px) and `.bar` (132px) are *block* elements, and text-align
@@ -128,7 +128,7 @@
       #boot .stack { display: flex; flex-direction: column; align-items: center; }
       #boot .mark {
         width: 56px; height: 56px;
-        filter: drop-shadow(0 12px 40px rgba(29, 106, 140, .20));
+        filter: drop-shadow(0 12px 32px rgba(60, 52, 30, .22));
         animation: bootpulse 1.6s ease-in-out infinite;
       }
       #boot .mark svg { width: 56px; height: 56px; display: block; }
@@ -136,17 +136,17 @@
          last letter, which pushes the *ink* left of centre even when the box is
          centred. Half the tracking back. */
       #boot .wm { margin-top: 18px; font-weight: 700; letter-spacing: .5px; font-size: 18px; }
-      #boot .tag { margin-top: 5px; color: #5b5952; font-size: 11px; letter-spacing: 3px; text-indent: 3px; }
-      #boot .bar { margin-top: 20px; width: 132px; height: 3px; border-radius: 3px; background: #d2cabc; overflow: hidden; }
-      #boot .bar i { display: block; height: 100%; width: 40%; border-radius: 3px; background: var(--boot-accent, #1d6a8c);
+      #boot .tag { margin-top: 5px; color: #5c5850; font-size: 11px; letter-spacing: 3px; text-indent: 3px; }
+      #boot .bar { margin-top: 20px; width: 132px; height: 3px; border-radius: 3px; background: #e0dac5; overflow: hidden; }
+      #boot .bar i { display: block; height: 100%; width: 40%; border-radius: 3px; background: var(--boot-accent, #2c6b6b);
         animation: bootbar 1.1s ease-in-out infinite; }
       @keyframes bootpulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
       @keyframes bootbar { 0% { transform: translateX(-120%);} 100% { transform: translateX(330%);} }
       /* Dark-theme boot splash (the mark works on both grounds). */
-      html.dark #boot { background: radial-gradient(120% 90% at 50% 0%, #16323f 0%, #101619 60%); color: #e6edef;
-        --boot-accent: #63b3d4; }
-      html.dark #boot .tag { color: #93a5ac; }
-      html.dark #boot .bar { background: #2c3b41; }
+      html.dark #boot { background: #282828; color: #f0ebe1;
+        --boot-accent: #93c1c1; }
+      html.dark #boot .tag { color: #bab4a8; }
+      html.dark #boot .bar { background: #4a4a48; }
       /* The splash outlives its welcome only when something is wrong, and a
          pulsing logo says nothing about that. Respect the setting either way. */
       @media (prefers-reduced-motion: reduce) {
@@ -161,10 +161,10 @@
         <div class="stack">
           <div class="mark">
             <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-              <rect width="150" height="150" rx="34" fill="#0e1722"/>
-              <rect x="52" y="40" width="20" height="72" rx="3" fill="#38cde8"/>
-              <rect x="52" y="92" width="60" height="20" rx="3" fill="#38cde8"/>
-              <rect x="88" y="40" width="20" height="22" rx="3" fill="#38cde8"/>
+              <rect width="150" height="150" rx="34" fill="#2b2b2b"/>
+              <rect x="52" y="40" width="20" height="72" rx="3" fill="#93c1c1"/>
+              <rect x="52" y="92" width="60" height="20" rx="3" fill="#93c1c1"/>
+              <rect x="88" y="40" width="20" height="22" rx="3" fill="#f39483"/>
             </svg>
           </div>
           <div class="wm">Lexi</div>

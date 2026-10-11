@@ -63,9 +63,9 @@ const THROW_MS = 160; // the thrown card's flight before the grade commits
  *
  *  `firstSight` is the label for a card the learner has never met: an
  *  introduction, not a test, so it asks "still learning / got it". */
-const SCALE: { rating: Grade; label: string; firstSight: string; hover: string }[] = [
-  { rating: Rating.Again, label: 'Didn’t know', firstSight: 'Still learning', hover: 'hover:border-red hover:text-red' },
-  { rating: Rating.Good, label: 'Knew it', firstSight: 'Got it', hover: 'hover:border-green hover:text-green' },
+const SCALE: { rating: Grade; label: string; firstSight: string }[] = [
+  { rating: Rating.Again, label: 'Didn’t know', firstSight: 'Still learning' },
+  { rating: Rating.Good, label: 'Knew it', firstSight: 'Got it' },
 ];
 
 /** The first-session tour (components/Tour.tsx). Replaces the inline coach
@@ -549,10 +549,12 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
           </div>
         </div>
         {/* Slim session progress — tracks position through the queue. */}
-        <div className="h-0.5 bg-panel2" role="progressbar" aria-label="Session progress"
+        {/* Karteto's track: inset, round-ended, charcoal on a sunken line — a
+            ruler you are walking along, not a hairline under the header. */}
+        <div className="mx-3 sm:mx-5 h-1 rounded-full bg-panel2" role="progressbar" aria-label="Session progress"
           aria-valuenow={i} aria-valuemin={0} aria-valuemax={queue.length}
           aria-valuetext={`${i} of ${queue.length} done`}>
-          <div className="relative h-full bg-accent transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }}>
+          <div className="relative h-full rounded-full bg-txt transition-[width] duration-300" style={{ width: `${queue.length ? (i / queue.length) * 100 : 0}%` }}>
             {/* The cursor rides the tip of the bar — it writes your session. */}
             {i > 0 && <span aria-hidden key={ack?.n ?? 0} className={ack?.ok ? 'tip tip-hit' : 'tip'} />}
           </div>
@@ -867,8 +869,10 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     // interval preview straight onto the verdict ("Knew it 2 mo").
                     <button key={s.rating} onClick={() => grade(s.rating)}
                       aria-label={`${label}${when ? ` — back in ${when}` : ''}`}
-                      className={`flex flex-col items-center border border-line bg-panel rounded-md px-3 py-2
-                        justify-center font-semibold transition-colors active:scale-95 ${s.hover}`}>
+                      // Keys in the wash's own two colours, so the button and the
+                      // swipe are visibly the same verdict *(2026-10-11)*.
+                      className={`key flex flex-col items-center rounded-full px-3 py-2 text-txt
+                        justify-center font-semibold ${s.rating === Rating.Again ? 'bg-again' : 'bg-knew'}`}>
                       <span className="flex items-center gap-1.5 text-sm sm:text-base">
                         {s.rating === Rating.Again && <X size={15} className="flex-shrink-0" />}
                         {s.rating === Rating.Good && <Check size={15} className="flex-shrink-0" />}
@@ -973,6 +977,15 @@ function SwipeCard({ children, onFlip, onSwipe, onThrow, labelledBy, behind = 0 
     // its own fold. The card is content, so it scales with its type; the chrome
     // around it is pinned in px for the opposite reason.
     <div className="relative w-full max-w-[580px] flex-1 min-h-[16.25rem] max-h-[28.75rem]">
+      {/* **The room takes the verdict** *(2026-10-11)*. As the card travels, the
+          whole screen washes green or salmon — the reference's clearest idea, and
+          the right size for the decision: the learner is grading themselves, so
+          the verdict is theirs to see everywhere, not in a 12px corner pill.
+          A wash, not a fill: `multiply` in light (`screen` in dark) tints the page
+          while ink stays ink, and the card — painted after it — stays white.
+          §3's rule holds: green fills nothing the learner has not just judged. */}
+      <motion.div aria-hidden className="swipe-wash swipe-knew" style={{ opacity: knew }} />
+      <motion.div aria-hidden className="swipe-wash swipe-again" style={{ opacity: missed }} />
       {/* Static, aria-hidden, and behind the drag surface: this is scenery, not
           content. Rendered outermost-first so the nearest sits on top. */}
       {Array.from({ length: behind }, (_, k) => behind - 1 - k).map((depth) => (

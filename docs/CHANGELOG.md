@@ -11,6 +11,36 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-11 — The card box: a new visual identity
+
+**Why.** The owner asked for Lexi to look closer to two references
+(`reference/karteto`, `reference/lexi inspopics`). The full reasoning, including what
+was deliberately *not* taken, is DESIGN §1.
+
+- **Palette** (`index.css`). Cream ground `#faf6e6`, white card, charcoal ink
+  `#2b2b2b`, and two tabs — teal `#93c1c1` and coral `#f39483` — as the only colour.
+  The accent ink is the teal deepened to `#2c6b6b`; the tab itself is a fill (`key`)
+  that only ever carries `key-ink`. Dark is neutral charcoal with the cream as ink.
+  The coverage ramp is teal. The Atlas's map grid and the dark theme's blue glow are
+  gone. Every pair was scripted against the guards first, then pinned in
+  `palette.test.ts` (dim/panel2 5.38 → 5.86, accent/panel2 4.62 → 5.08, key 7.17).
+- **The key** (`.key`). One material for everything you press: a hard charcoal edge
+  and a lip that goes away under the thumb. `Button` primary/secondary, drill
+  options, gender choices, placement, the CTA pills and the Themen tiles all wear it.
+  Buttons are pills now.
+- **Themen is a grid of keys**, each with its emblem in charcoal on a teal disc
+  over a coral halftone pad (`.pad`). It was a hairline list.
+- **Üben.** The whole room washes green or salmon as the card travels (`multiply`
+  in light, `screen` in dark, so ink stays ink and the card stays white). The two
+  grade keys wear the same two colours. The progress track is an inset charcoal
+  ruler.
+- **Kickers are sans**, tracked caps. They were mono, which the type rules reserve
+  for data.
+- **The mark** is charcoal with a teal L and a coral tab; every icon PNG was rebuilt
+  with `npm run icons`, and the splash, `theme-color`, manifest and legal page follow
+  the new grounds. The pre-paint script changed, so its CSP hash in `vercel.json` did
+  too.
+
 ### Shipped 2026-10-11 — The swipe, fixed; a tour for every screen
 
 **Why.** The owner's screen recording showed the swipe as twitchy. Separately, a

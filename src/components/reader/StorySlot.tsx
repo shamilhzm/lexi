@@ -85,7 +85,7 @@ export function StorySlot({ story, onOpen }: { story: FeedArticle; onOpen: (a: F
           </h2>
           {story.teaser && <p lang="de" className="mt-2 text-base text-dim leading-snug line-clamp-3">{story.teaser}</p>}
           <div className="mt-4 flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent text-bg font-bold text-sm px-4 h-10">
+            <span className="inline-flex items-center gap-1.5 key rounded-full bg-key text-key-ink font-bold text-sm px-4 h-10">
               Lesen <ArrowRight size={15} />
             </span>
             {/* Shown only once it says something encouraging *and* informative. On
@@ -134,7 +134,7 @@ export function TopicSlot({ onChosen }: { onChosen: () => void }) {
               <li key={t.id}>
                 <button onClick={() => toggle(t.id)} aria-pressed={on}
                   className={`tap-44 rounded-full px-4 h-10 text-sm font-semibold transition active:scale-95
-                    ${on ? 'bg-accent text-bg' : 'glass text-txt'}`}>
+                    ${on ? 'bg-key text-key-ink' : 'glass text-txt'}`}>
                   {t.label}
                 </button>
               </li>
@@ -144,7 +144,7 @@ export function TopicSlot({ onChosen }: { onChosen: () => void }) {
         <div className="mt-6 flex justify-center">
           <button disabled={!picked.size}
             onClick={() => { setNewsTopics(TOPICS.map((t) => t.id).filter((id) => picked.has(id))); onChosen(); }}
-            className="tap-44 inline-flex items-center gap-2 rounded-full bg-accent text-bg font-bold text-sm px-5 h-11
+            className="tap-44 inline-flex items-center gap-2 key rounded-full bg-key text-key-ink font-bold text-sm px-5 h-11
               disabled:opacity-40 active:scale-95 transition">
             Add stories to my feed <ArrowRight size={15} />
           </button>

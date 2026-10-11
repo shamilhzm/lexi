@@ -203,42 +203,35 @@ function Taxonomy({ onOpenGroup }: { onOpenGroup: (g: string) => void }) {
       <p className="text-dim text-xs mb-3">
         {rows.length} groups over {fmt(rows.reduce((n, r) => n + r.sectors, 0))} decks.
       </p>
-      {/* **No boxes.** *2026-09-05.*
-          Nine bordered cards inside a page that is itself a surface is a box in a
-          box, and it is the single thing that made this screen read as a
-          different app from the feed one tab away. The feed sets a word directly
-          on the paper with nothing drawn around it; so does this now, and what
-          separates one row from the next is a hairline — which is what a printed
-          lexicon uses and what `RevealBlock` already used two files over.
-          Full-bleed: the negative margin cancels the page gutter, so a row runs
-          edge to edge and the tap target is the width of the phone. */}
-      <ul className="-mx-3 sm:-mx-5 divide-y divide-line border-y border-line">
+      {/* **Keys, not rows** *(2026-10-11)*. This was a hairline list — the right
+          answer to nine bordered *cards*, which were boxes in a box. A tile you
+          press is not a card: it is a key (`.key` — hard edge, lip, goes down
+          under the thumb), and a grid of keys is what lets nine topics be
+          *scanned* by their emblem before a label is read. Two columns, because a
+          German group name at `text-base` fits half a 402pt phone without
+          breaking. */}
+      <ul className="grid grid-cols-2 gap-3 pb-1">
         {rows.map((r) => (
-          <li key={r.name}>
+          <li key={r.name} className="min-w-0">
             <button onClick={() => onOpenGroup(r.name)}
-              className="w-full text-left px-3 sm:px-5 py-4 flex items-center gap-3.5
-                hover:bg-panel2 active:bg-panel2 transition-colors">
-              <GroupEmblem group={r.name} />
-              <span className="flex-1 min-w-0">
-                <span className="block text-lg font-semibold break-words leading-tight">{r.name}</span>
-                <span className="block text-xs text-dim mt-1">
-                  {fmt(r.count)} words · {r.sectors} deck{r.sectors === 1 ? '' : 's'}
-                  {r.due > 0 && <> · <span className="text-accent">{fmt(r.due)} due</span></>}
+              className="key w-full h-full min-h-[9.5rem] rounded-lg bg-card text-left p-3.5 flex flex-col">
+              <span className="flex justify-end -mr-1 -mt-1"><GroupEmblem group={r.name} /></span>
+              <span className="mt-auto pt-2 block text-base font-semibold leading-tight break-words">{r.name}</span>
+              <span className="block text-2xs text-dim mt-1">
+                {fmt(r.count)} words
+                {r.due > 0 && <> · <span className="text-accent font-semibold">{fmt(r.due)} due</span></>}
+              </span>
+              {/* Coverage rides the foot of the key: the fact that decides which
+                  one to press, at the size of a fact rather than a headline. */}
+              <span className="mt-2 flex items-center gap-2" aria-label={`${Math.round(r.coverage * 100)}% known`}>
+                <span className="flex-1 h-1 rounded-full bg-panel2 overflow-hidden">
+                  <span className="block h-full rounded-full transition-[width] duration-500"
+                    style={{ width: `${Math.max(3, Math.round(r.coverage * 100))}%`, background: heatText(r.coverage) }} />
                 </span>
-                {/* The bar rides under the label rather than across a card, so it
-                    reads as a property of the row and not as its floor. */}
-                <span className="mt-2 flex items-center gap-2">
-                  <span className="flex-1 h-1 rounded-full bg-panel2 overflow-hidden">
-                    <span className="block h-full rounded-full transition-[width] duration-500"
-                      style={{ width: `${Math.max(2, Math.round(r.coverage * 100))}%`, background: heatText(r.coverage) }} />
-                  </span>
-                  <span className="font-mono text-2xs tabular-nums flex-shrink-0"
-                    style={{ color: heatText(r.coverage) }}>
-                    {Math.round(r.coverage * 100)}%
-                  </span>
+                <span className="font-mono text-2xs tabular-nums flex-shrink-0" style={{ color: heatText(r.coverage) }}>
+                  {Math.round(r.coverage * 100)}%
                 </span>
               </span>
-              <ChevronRight size={18} className="text-dim flex-shrink-0" />
             </button>
           </li>
         ))}
@@ -263,21 +256,25 @@ function Taxonomy({ onOpenGroup }: { onOpenGroup: (g: string) => void }) {
  *  for exactly this ("for callers drawing inside an existing <svg>") — rather
  *  than flipping a global flag whose other three surfaces nobody has looked at.
  *
- *  The tile is what makes it read as an emblem rather than a stray icon: the
- *  accent at low opacity, `rounded-md` because it is not a surface you read, and
- *  the stroke in full accent on top. That is the reference's actual lesson —
- *  a topic is recognised by a coloured mark before its label is read — expressed
- *  in this app's own drawing language instead of borrowing someone else's
- *  isometric halftone, which would be the pastiche §1 warns about. */
+ *  It used to sit on an accent tint at 12% and argued that halftone was the
+ *  reference's *costume*. The owner asked for the reference's look on 2026-10-11,
+ *  and what was taken is a mark system rather than a style: two flat tabs (teal
+ *  disc, coral halftone pad) under the line art this module already draws. No
+ *  isometric scenes, no borrowed drawings — see DESIGN §1, *The card box*. */
 function GroupEmblem({ group }: { group: string }) {
   const concept = conceptForSector(group);
+  // **Two tabs, one mark** *(2026-10-11)*. The teal disc carries the emblem in
+  // charcoal line; the coral halftone pad under it, offset down and right, is
+  // what sets it on the page — the reference's lesson (a topic is a coloured
+  // mark before it is a label) drawn in this app's own line language.
   return (
-    <span aria-hidden
-      className="grid place-items-center w-[44px] h-[44px] rounded-md flex-shrink-0 text-accent"
-      style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)' }}>
-      <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round"
-        dangerouslySetInnerHTML={{ __html: conceptPaths(concept) }} />
+    <span aria-hidden className="relative block w-[60px] h-[60px] flex-shrink-0">
+      <span className="pad absolute left-[10px] top-[16px] w-[50px] h-[44px] rounded-full" />
+      <span className="absolute left-0 top-0 grid place-items-center w-[52px] h-[52px] rounded-full bg-key text-key-ink border-[1.5px] border-lip">
+        <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round"
+          dangerouslySetInnerHTML={{ __html: conceptPaths(concept) }} />
+      </span>
     </span>
   );
 }

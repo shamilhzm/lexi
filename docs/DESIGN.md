@@ -40,7 +40,59 @@ it is either shipped or superseded by this file.
 
 ---
 
-## 1. The identity — **the Atlas**
+## 1. The identity — **the card box** *(changed 2026-10-11)*
+
+> **The owner asked for it, with two reference folders** — `reference/karteto`
+> (a German flashcard app: cream ground, white index cards, the whole screen washing
+> green or salmon as you swipe) and `reference/lexi inspopics` (an English vocabulary
+> app: charcoal and cream, a teal and a coral, keys with a hard lip, two-tone
+> emblems on halftone pads). The preface above says how an outside look is let in:
+> serve an identity the app claims, survive measurement, take the principle and
+> not the costume. This is how each test was met.
+
+**The idea is the Karteikasten** — the card box German learners have kept their
+vocabulary in for a century, and the thing Leitner built spaced repetition out of.
+It is the most literal identity this app could have, and both references are
+already halfway to it:
+
+| | In the box | In the app |
+|---|---|---|
+| The ground | the box's cream | `--color-bg` `#faf6e6` (Karteto's ground, a step deeper so white lifts off it) |
+| The card | a white index card, lying flat | `--color-card` white, soft contact shadow, a stack under it in Üben |
+| The ink | pencil | `--color-txt` charcoal `#2b2b2b`, not blue-black |
+| The tabs | coloured *Reiter* that find a section before you read it | **teal** `--color-key` `#93c1c1` and **coral** `--color-coral` `#f39483` — the only colour in the room |
+| The keys | — | everything you press has a hard charcoal edge and a lip (`.key`) |
+| The verdict | sorting a card forward or back | the whole room washes green or salmon as the card travels |
+
+**What was taken, and what was not.**
+
+- *Taken:* the palette as a system (one neutral ground, two tabs), the key material,
+  the swipe wash, the two-tone emblem on a halftone pad, the cream/white/charcoal
+  values themselves. These are principles that happen to have exact values.
+- *Not taken:* isometric scenes, mid-century editorial illustration, the journey
+  map, either app's typefaces. The emblems are this app's own line art
+  (`lib/illustration.tsx`) on two flat tabs. Fraunces stays: it is already the serif
+  the vocabulary app's headwords are reaching for, with an optical-size axis theirs
+  lacks.
+- *The preface's own example changes sides.* It called "isometric two-tone halftone"
+  the costume. The isometric half still is. A halftone **pad** under a mark is now
+  the coral tab's one figurative use — the owner overruled the line, and the rule
+  that survives is narrower and better: *borrow a mark system, never a drawing.*
+
+**What the Atlas left behind, kept on purpose.** Light is primary; dark is fully
+designed. The token architecture, the AA guard (`palette.test.ts`), the radius
+hierarchy, §7 motion, §10 accessibility and §11 gotchas are unchanged in substance.
+Aicher's *method* — colour as category, systematic construction — is exactly what
+"two tabs and nothing else" is; only his blue went.
+
+**Measured, not eyeballed.** Scripted against every guard before a line of CSS
+changed, then pinned: every text pair ≥ 4.5 in both themes; `dim` on `panel2`
+5.38 → **5.86**; `accent` on `panel2` 4.62 → **5.08**; `key-ink` on `key` **7.17**.
+The teal tab is 2.0:1 on cream and therefore can never be ink: `accent` is the tab
+deepened to `#2c6b6b` for text, and `key` is a fill that only ever carries
+`key-ink`. On charcoal the tab is light enough to be both.
+
+### The Atlas *(2026-07-28 → 2026-10-11)* — kept as history
 
 > **Changed 2026-07-28.** Lexi looked like a **market terminal** for a year. That
 > was never chosen; it was the nearest available reference for "organise a vast
@@ -108,7 +160,11 @@ Tailwind palette classes anywhere in `src/`, and it should stay that way.
 | `--color-card` | **the study surface** — the thing you read from |
 | `--color-line` | hairlines |
 | `--color-txt` / `--color-dim` | primary / secondary ink |
-| `--color-amber` | the brand accent (**Atlas blue** — the name is doubly legacy: not amber, no longer cyan) |
+| `--color-accent` | the brand **ink** — the teal tab deepened to clear AA (`#2c6b6b` light, `#93c1c1` dark) |
+| `--color-key` / `--color-key-ink` | the teal tab as a **fill** — primary keys, chosen options, emblem discs — and the only ink allowed on it |
+| `--color-coral` | the second tab — halftone pads and the mark's tab; never ink |
+| `--color-lip` | the hard edge and lip under a key |
+| `--color-knew` / `--color-again` | the swipe wash and the two grade keys; never ink |
 | `--color-green` / `--color-red` / `--color-red-txt` | gains / losses / AA-safe small red |
 | `--color-der` / `--color-die` / `--color-das` | grammatical gender |
 | `--color-a1` … `--color-c2` | CEFR ink, deliberately decoupled from status colours |
@@ -121,12 +177,17 @@ each. Only luminance inverts.
 
 | | light (primary) | dark |
 |---|---|---|
-| `bg` | `#eeeae3` | `#101619` |
-| `panel` | `#fbf9f6` | `#192327` |
-| `panel2` | `#e6e1d8` | `#0b1013` |
-| `card` | `#ffffff` | `#1f2b30` |
+| `bg` | `#faf6e6` | `#282828` |
+| `panel` | `#fdfbf2` | `#2e2e2e` |
+| `panel2` | `#efead5` | `#202020` |
+| `card` | `#ffffff` | `#393939` |
 
-Measured: bg→panel **1.14 / 1.12**, panel→card **1.05 / 1.07**.
+Since 2026-10-11 the light steps are small (bg→card **1.08**) and that is
+deliberate: Karteto's card is set apart by a shadow, not by a value step, and an
+index card lies *on* the box rather than glowing out of it. The guard only requires
+the ramp to be monotonic. Dark is neutral charcoal — no blue, no glow, no grid — so
+the two tabs are the only colour in either room. *(The Atlas values, for the record:
+light `#eeeae3`/`#fbf9f6`/`#e6e1d8`/`#fff`, dark `#101619`/`#192327`/`#0b1013`/`#1f2b30`.)*
 
 ### The ground is paper *(changed 2026-08-26)*
 
@@ -247,7 +308,8 @@ Roboto Mono on Android — the terminal look only actually existed on a Mac.
 
 | Role | Face | Where |
 |---|---|---|
-| Data | **IBM Plex Mono** (400/700) | every stat, kicker, CEFR badge, numeral, interval |
+| Data | **IBM Plex Mono** (400/700) | every stat, CEFR badge, numeral, interval |
+| Kicker | system sans, semibold, tracked caps | `ui/Kicker` — *was mono until 2026-10-11; a kicker is a label, not a measurement* |
 | UI | system sans | body, labels, controls, **section headings** |
 | The German | **Fraunces** variable | `.headword` — the flip faces **and the exercise prompt** |
 | The page title | **Fraunces** variable | `.display` — one per surface |
@@ -289,9 +351,15 @@ No arbitrary `text-[…]`.
 
 | Radius | Means |
 |---|---|
-| `rounded-lg` (16px) | a **surface you read** |
-| `rounded-md` (10px) | a **control you press**, or a row nested inside a surface |
-| `rounded-sm` / `rounded-full` | a chip |
+| `rounded-lg` (16px) | a **surface you read** — or a tile-sized key |
+| `rounded-full` | a **key you press** (buttons, options, grade keys) and a chip |
+| `rounded-md` (10px) | a row nested inside a surface |
+
+**Since 2026-10-11 the material says "press", not the radius.** A key (`.key`,
+index.css) has a 1.5px charcoal edge and a 3px lip that disappears under the thumb;
+a card has a soft shadow and no edge. A Themen tile is `rounded-lg` because it holds
+a picture, and is still unmistakably a key. `.key` lives in `@layer components` so a
+verdict utility (`border-green`) on an answered option still wins.
 
 Before this rule everything was 10px and `--radius-lg` was used zero times, so
 nothing read as more important than anything else.

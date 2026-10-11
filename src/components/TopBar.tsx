@@ -40,10 +40,10 @@ import type { View } from '../App.tsx';
 export function LexiMark({ size = 28, className = '' }: { size?: number; className?: string }) {
   return (
     <svg viewBox="0 0 150 150" width={size} height={size} role="img" aria-label="Lexi" className={`flex-shrink-0 ${className}`}>
-      <rect width="150" height="150" rx="34" fill="#0e1722" />
-      <rect x="52" y="40" width="20" height="72" rx="3" fill="#38cde8" />
-      <rect x="52" y="92" width="60" height="20" rx="3" fill="#38cde8" />
-      <rect x="88" y="40" width="20" height="22" rx="3" fill="#38cde8" />
+      <rect width="150" height="150" rx="34" fill="#2b2b2b" />
+      <rect x="52" y="40" width="20" height="72" rx="3" fill="#93c1c1" />
+      <rect x="52" y="92" width="60" height="20" rx="3" fill="#93c1c1" />
+      <rect x="88" y="40" width="20" height="22" rx="3" fill="#f39483" />
     </svg>
   );
 }

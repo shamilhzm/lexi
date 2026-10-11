@@ -140,7 +140,9 @@ app can drop you into cannot be a room you have to know how to leave.**
 Not "styled". The app draws on the German design tradition it teaches — Otl Aicher and
 HfG Ulm, cartography, the printed lexicon — because form matching subject is the
 difference between a tool that looks competent and one that feels like its subject.
-The identity is **the Atlas**. [DESIGN.md](DESIGN.md) is the system of record.
+The identity is **the card box** — the Karteikasten: cream ground, white index card,
+charcoal ink, two coloured tabs *(2026-10-11; was the Atlas)*. [DESIGN.md](DESIGN.md)
+is the system of record.
 
 **Forbids:** a visual language that could belong to any dashboard. Motion that has a
 library instead of a director. Restraint used as a synonym for absence.
@@ -267,6 +269,8 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
 
 - **English-base** *(2026-07-27)* — stated in the README and the first-run hero.
 - **The Atlas identity** *(2026-07-28)* — the terminal is retired.
+- **The card box** *(2026-10-11)* — the Atlas's blue and map grid are retired for the
+  owner's two references (Karteto, a vocabulary app); its method stays. DESIGN §1.
 - **Consumer before schools** *(2026-07-27)*, **superseded 2026-09-05** — the school
   pitch's whole mechanism was print, class packs and exam papers. All three are gone;
   `SCHOOL-PITCH.md` went with them. A school offer would now have to be re-derived from

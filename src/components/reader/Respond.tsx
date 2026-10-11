@@ -138,7 +138,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button onClick={submit} disabled={!text.trim() || state === 'checking'}
-          className={`${pill} bg-accent text-bg`}>
+          className={`${pill} key bg-key text-key-ink`}>
           {state === 'checking'
             ? <><Loader2 size={14} className="animate-spin" /> Reading your German…</>
             : aiReady() ? <><Sparkles size={14} /> Check my German</> : <>Save to my journal</>}

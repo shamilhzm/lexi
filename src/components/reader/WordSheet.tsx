@@ -155,7 +155,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
               else { saveFromArticle(card.id, article, sentence); haptic('grade'); tick('good'); }
               bump((n) => n + 1);
             }} aria-pressed={saved}
-              className={`${pill} ${saved ? 'bg-accent text-bg' : 'glass text-accent'}`}>
+              className={`${pill} ${saved ? 'bg-key text-key-ink' : 'glass text-accent'}`}>
               {saved ? <BookmarkCheck size={15} /> : <Bookmark size={15} />} {saved ? 'Saved' : 'Save'}
             </button>
             <button onClick={() => onPractise(card)} className={`${pill} glass`}>

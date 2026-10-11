@@ -264,7 +264,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
             ) : (
               <button
                 onClick={() => { noteWanted(q); setNoted(true); haptic('grade'); }}
-                className="tap-44 inline-flex items-center gap-2 rounded-full bg-accent text-bg
+                className="tap-44 inline-flex items-center gap-2 key rounded-full bg-key text-key-ink
                   font-bold text-sm px-5 py-2.5 hover:brightness-105 active:scale-95 transition">
                 <Plus size={15} /> Note this word
               </button>

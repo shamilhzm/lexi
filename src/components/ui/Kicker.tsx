@@ -1,6 +1,8 @@
 // The small uppercase label above a section — the app's most repeated text
 // treatment (~65 uses of the exact same four-class string, in two tones).
-// Mono, because in this app anything mono is data.
+// Sans, tracked caps *(2026-10-11)*. It was mono, on the grounds that "anything
+// mono is data" — but a kicker is a label (TOPICS, ANSWER, CHAPTER), not a
+// measurement, so the rule itself said it should never have been mono.
 import type { ComponentProps, ReactNode } from 'react';
 
 const TONE = {
@@ -22,7 +24,7 @@ type Props = ComponentProps<'span'> & {
 export default function Kicker({ tone = 'dim', className = '', children, ...rest }: Props) {
   return (
     <span
-      className={`font-mono text-2xs uppercase tracking-widest ${TONE[tone]} ${className}`}
+      className={`text-2xs font-semibold uppercase tracking-widest ${TONE[tone]} ${className}`}
       {...rest}
     >
       {children}

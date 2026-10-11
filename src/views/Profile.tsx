@@ -47,7 +47,7 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
                 onKeyDown={(e) => { if (e.key === 'Enter') save(); if (e.key === 'Escape') setEditing(false); }}
                 placeholder="Your name" maxLength={40}
                 className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-base outline-none focus:border-accent w-full max-w-[240px]" />
-              <IconButton label="Save name" onClick={save} className="bg-accent text-bg hover:text-bg"><Check size={16} /></IconButton>
+              <IconButton label="Save name" onClick={save} className="bg-key text-key-ink hover:text-key-ink"><Check size={16} /></IconButton>
             </div>
           ) : (
             <button onClick={() => { setDraft(name); setEditing(true); }} className="tap-44 group flex items-center gap-2 text-left">

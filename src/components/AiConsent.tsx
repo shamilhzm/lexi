@@ -20,7 +20,7 @@ export default function AiConsent({ onAllow, onCancel }: { onAllow: () => void; 
         <a href="./legal.html#tutor" target="_blank" rel="noopener" className="underline decoration-dotted hover:text-accent">What leaves this device</a>
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
-        <button onClick={() => { setAiConsent(); onAllow(); }} className={`${pill} bg-accent text-bg`}>OK, send it</button>
+        <button onClick={() => { setAiConsent(); onAllow(); }} className={`${pill} key bg-key text-key-ink`}>OK, send it</button>
         <button onClick={onCancel} className={`${pill} glass`}>Not now</button>
       </div>
     </div>

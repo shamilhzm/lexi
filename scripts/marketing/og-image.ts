@@ -43,7 +43,7 @@ function tokenOf(name: string): string {
 }
 const ink = {
   bg: tokenOf('--color-bg'), panel: tokenOf('--color-panel'), line: tokenOf('--color-line'),
-  txt: tokenOf('--color-txt'), dim: tokenOf('--color-dim'), accent: tokenOf('--color-accent'),
+  txt: tokenOf('--color-txt'), dim: tokenOf('--color-dim'), accent: tokenOf('--color-accent'), coral: tokenOf('--color-coral'),
 };
 
 // ---- the sky, from the shipped data ----------------------------------------------
@@ -93,7 +93,7 @@ const mark = `<g transform="translate(${X} 64)">
   <rect width="44" height="44" rx="10" fill="${ink.panel}"/>
   <rect x="${52 * s}" y="${40 * s}" width="${20 * s}" height="${72 * s}" rx="1" fill="${ink.accent}"/>
   <rect x="${52 * s}" y="${92 * s}" width="${60 * s}" height="${20 * s}" rx="1" fill="${ink.accent}"/>
-  <rect x="${88 * s}" y="${40 * s}" width="${20 * s}" height="${22 * s}" rx="1" fill="${ink.accent}"/>
+  <rect x="${88 * s}" y="${40 * s}" width="${20 * s}" height="${22 * s}" rx="1" fill="${ink.coral}"/>
 </g>`;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">

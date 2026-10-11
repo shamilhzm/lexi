@@ -272,16 +272,30 @@ describe('the warm ground beats the palette it replaced', () => {
     expect(regressions).toEqual([]);
   });
 
-  it('re-derives the two figures the docs publish', () => {
-    const now = palette('light');
+  it('re-derives the figures the docs publish', () => {
     // DESIGN §2's table. If either side of an arrow moves, the doc is wrong.
+    // The paper palette (2026-08-26 → 2026-10-11) is pinned as data, as COOL is:
+    // the card box replaced it, and its figures are history the docs still cite.
+    const PAPER = { bg: '#eeeae3', panel2: '#e6e1d8', dim: '#5b5952', accent: '#1d6a8c' };
     expect(contrast(COOL.dim, COOL.bg)).toBeCloseTo(5.18, 1);
-    expect(contrast(now.dim, now.bg)).toBeCloseTo(5.85, 1);
+    expect(contrast(PAPER.dim, PAPER.bg)).toBeCloseTo(5.85, 1);
     expect(contrast(COOL.dim, COOL.panel2)).toBeCloseTo(4.74, 1);
-    expect(contrast(now.dim, now.panel2)).toBeCloseTo(5.38, 1);
-    // And the pair that the guard caught at 4.49 before panel2 was corrected:
-    // the shipped value must match what the cool palette scored, not beat it.
-    expect(contrast(now.accent, now.panel2)).toBeCloseTo(4.62, 1);
+    expect(contrast(PAPER.dim, PAPER.panel2)).toBeCloseTo(5.38, 1);
+    // The pair the guard caught at 4.49 before paper's panel2 was corrected.
+    expect(contrast(PAPER.accent, PAPER.panel2)).toBeCloseTo(4.62, 1);
+    // The card box *(2026-10-11)*: every one of those pairs improved again.
+    const now = palette('light');
+    expect(contrast(now.dim, now.bg)).toBeCloseTo(6.54, 1);
+    expect(contrast(now.dim, now.panel2)).toBeCloseTo(5.86, 1);
+    expect(contrast(now.accent, now.panel2)).toBeCloseTo(5.08, 1);
+  });
+
+  /** The teal tab is a fill, never ink — `key-ink` is the only text it carries. */
+  it('keeps the key legible under its own ink, in both themes', () => {
+    for (const theme of ['light', 'dark'] as const) {
+      const p = palette(theme);
+      expect(contrast(p['key-ink'], p.key), `${theme}: key-ink on key`).toBeGreaterThanOrEqual(4.5);
+    }
   });
 });
 
@@ -390,8 +404,8 @@ describe('text stays legible through the glass', () => {
     // The worst grounds a floating bar can be given: the app's own darkest and
     // most saturated surfaces, sliding under it at the engaged alpha.
     const SATURATED = {
-      light: { ink: '#1e2226', heat4: '#1d6a8c' },
-      dark: { ink: '#e6edef', heat4: '#63b3d4' },
+      light: { ink: '#2b2b2b', heat4: '#2c6b6b' },
+      dark: { ink: '#f0ebe1', heat4: '#93c1c1' },
     } as const;
 
     for (const theme of ['light', 'dark'] as const) {

@@ -380,7 +380,7 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
           {LENSES.map((l) => (
             <button key={l.id} onClick={() => setLens(l.id)} aria-pressed={lens === l.id}
               className={`tap-44 rounded-full px-3 h-9 text-xs font-semibold transition active:scale-95
-                ${lens === l.id ? 'bg-accent text-bg' : 'glass text-txt'}`}>
+                ${lens === l.id ? 'bg-key text-key-ink' : 'glass text-txt'}`}>
               {l.label}
             </button>
           ))}
@@ -435,7 +435,7 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
       {lens === 'memory' && counts.fading > 0 && (
         <div className="mt-3 flex justify-center">
           <button onClick={() => onStudy({ kind: 'custom', name: 'Fading words', ids: fadingIds.slice(0, 60) })}
-            className="tap-44 inline-flex items-center gap-2 rounded-full bg-accent text-bg font-bold text-sm px-5 h-11 active:scale-95 transition">
+            className="tap-44 inline-flex items-center gap-2 key rounded-full bg-key text-key-ink font-bold text-sm px-5 h-11 active:scale-95 transition">
             Relight the {fmt(Math.min(60, counts.fading))} fading {counts.fading === 1 ? 'word' : 'words'}
           </button>
         </div>
@@ -553,7 +553,7 @@ function StarDetail({ word, rank, events, onEntry, onClose }: {
       <div className="mt-3 flex flex-wrap gap-2">
         <button onClick={() => { toggleSaved(word.id); haptic('grade'); }} aria-pressed={saved}
           className={`tap-44 inline-flex items-center gap-1.5 rounded-full px-3.5 h-10 text-sm font-semibold active:scale-95 transition
-            ${saved ? 'bg-accent text-bg' : 'glass text-accent'}`}>
+            ${saved ? 'bg-key text-key-ink' : 'glass text-accent'}`}>
           {saved ? <BookmarkCheck size={15} /> : <Bookmark size={15} />} {saved ? 'Saved' : 'Save'}
         </button>
         <button onClick={onEntry} className="tap-44 inline-flex items-center gap-1.5 rounded-full glass px-3.5 h-10 text-sm font-semibold active:scale-95 transition">

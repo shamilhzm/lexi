@@ -16,7 +16,7 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'sha256-wSahfNdMGli52P3ornHollueTkRIQ9l6bUI9c83mQKo=' 'wasm-unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' https://www.tagesschau.de https://www.srf.ch https://rss.dw.com https://learngerman.dw.com https://www.heise.de https://de.wiktionary.org https://tatoeba.org https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://huggingface.co https://*.hf.co; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'sha256-VP32jLIdQm8larnCv342Y/1A2PrI682K21i/9FDAXeo=' 'wasm-unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' https://www.tagesschau.de https://www.srf.ch https://rss.dw.com https://learngerman.dw.com https://www.heise.de https://de.wiktionary.org https://tatoeba.org https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://huggingface.co https://*.hf.co; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" },
         { "key": "X-Content-Type-Options", "value": "nosniff" }
       ]
     }
