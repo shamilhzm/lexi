@@ -21,6 +21,7 @@ import IconButton from '../components/ui/IconButton.tsx';
 import AiSettings from '../components/AiSettings.tsx';
 import NewsTopicsSettings from '../components/reader/NewsTopicsSettings.tsx';
 import { storiesAvailable } from '../lib/platform.ts';
+import { resetTours } from '../lib/hints.ts';
 
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
@@ -52,6 +53,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
   const muted = mutedModes();
   const [update, setUpdate] = useState<UpdateState | null>(null);
   const [checking, setChecking] = useState(false);
+  const [toursReset, setToursReset] = useState(false);
   const check = async () => {
     setChecking(true);
     setUpdate(await checkForUpdate());
@@ -150,6 +152,15 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         <button onClick={() => setSound(!sound())} aria-pressed={sound()} className={toggle(sound())}>
           {sound() ? 'Sound on' : 'Sound off'}
         </button>
+      </Card>
+
+      {/* The first-visit tours (components/Tour.tsx), on demand. */}
+      <Card as="section" className="mb-4">
+        <div className="flex items-center gap-2 mb-1"><Info size={16} className="text-accent" /><h2 className="text-base font-semibold">Tips</h2></div>
+        <p className="text-dim text-xs mb-3">Each screen has a short tour the first time you open it. Bring them back if you want a reminder.</p>
+        <Button variant="secondary" size="sm" onClick={() => { resetTours(); setToursReset(true); }} disabled={toursReset}>
+          {toursReset ? 'Tips will show on each screen' : 'Show the tips again'}
+        </Button>
       </Card>
 
       {/* Review intensity (FSRS desired retention). Hidden while Lexi does one

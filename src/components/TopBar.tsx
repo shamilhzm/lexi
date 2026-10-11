@@ -211,7 +211,7 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
         </button>
       )}
 
-      <button onClick={onSearch} aria-label="Look up a word"
+      <button onClick={onSearch} aria-label="Look up a word" data-tour="search"
         className="tap-44 grid place-items-center w-[40px] h-[40px] rounded-full text-txt
           hover:bg-panel2/70 active:scale-95 transition flex-shrink-0">
         <Search size={19} />

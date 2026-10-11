@@ -37,7 +37,7 @@
 import { Fragment, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { loadDetailFor } from '../data/detail.ts';
 import { AnimatePresence, motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Info, Bookmark, GraduationCap, Volume2, VolumeX, Play, ChevronDown, X, Headphones } from 'lucide-react';
+import { Info, Bookmark, GraduationCap, Volume2, VolumeX, Play, ChevronDown, Headphones } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
@@ -50,6 +50,7 @@ import { useStore } from '../useStore.ts';
 import { byFrequency } from '../lib/freq.ts';
 import { speak, useGermanVoice } from '../lib/tts.ts';
 import { haptic, tick, fmt } from '../lib/ui.ts';
+import Tour, { useSwipeDemo, type TourStep } from '../components/Tour.tsx';
 import { GenderTerm } from '../components/Reveal.tsx';
 import Picto from '../components/Picto.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -356,6 +357,8 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
   // the whole design.
   const io = useRef<IntersectionObserver | null>(null);
   const shownSlot = useRef(-1);
+  // The first word slot that reached the screen: where the tour points.
+  const [tourSlot, setTourSlot] = useState<number | null>(null);
   const pending = useRef(new Set<HTMLElement>());
   useEffect(() => {
     const timers = new Map<Element, number>();
@@ -370,6 +373,8 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
         }
         const id = (e.target as HTMLElement).dataset.word;
         if (!id) continue;
+        // After the snap settles, so the tour measures the word where it stops.
+        if (e.isIntersecting && Number.isFinite(slot)) window.setTimeout(() => setTourSlot((t) => t ?? slot), 500);
         if (e.isIntersecting) {
           // The place to come back to. Recorded at the same 0.6 threshold as the
           // dwell, so it is the word that is actually on screen.
@@ -473,7 +478,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
         <span key={said.n}>{said.text}</span>
       </p>
       {cold && <Welcome onStart={onStartFirstRun} />}
-      <SwipeHint />
+      <Tour id="feed" ready={tourSlot !== null} steps={feedTour(tourSlot ?? 0)} />
       {slots.map((w, i) => {
         const story = (i + 1) % STORY_EVERY === 0 ? stories[(i + 1) / STORY_EVERY - 1] : undefined;
         return (
@@ -523,56 +528,6 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
   );
 }
 
-/** The feed's two gestures, said once in words.
- *
- *  They were announced to screen readers and to nobody else — an `sr-only` line
- *  per slot, which is correct for assistive tech and invisible to the sighted
- *  learner who has no reason to try dragging a word sideways. A gesture nobody
- *  discovers is a gesture that does not exist.
- *
- *  Floating over the feed rather than occupying a slot, because the feed's whole
- *  premise is one word per screen and this must not become the first thing
- *  anybody meets. Dismissed on the first real swipe or the first tap of the ×,
- *  whichever comes first, and never shown again. */
-function SwipeHint() {
-  const [show, setShow] = useState(() => {
-    try { return localStorage.getItem('lexi.coach.feed.v1') !== '1'; } catch { return false; }
-  });
-  const dismiss = useCallback(() => {
-    try { localStorage.setItem('lexi.coach.feed.v1', '1'); } catch { /* private mode */ }
-    setShow(false);
-  }, []);
-  // Any horizontal drag anywhere in the feed means they have found it.
-  useEffect(() => {
-    if (!show) return;
-    const onDown = (e: PointerEvent) => {
-      const x0 = e.clientX;
-      const up = (u: PointerEvent) => {
-        window.removeEventListener('pointerup', up);
-        if (Math.abs(u.clientX - x0) > 60) dismiss();
-      };
-      window.addEventListener('pointerup', up);
-    };
-    window.addEventListener('pointerdown', onDown);
-    return () => window.removeEventListener('pointerdown', onDown);
-  }, [show, dismiss]);
-  if (!show) return null;
-  return (
-    <div className="feed-coach absolute inset-x-0 z-30 flex justify-center px-4 pointer-events-none"
-      style={{ bottom: 'calc(var(--bar-b) + 0.5rem)' }}>
-      <div className="glass rounded-full pointer-events-auto flex items-center gap-2 pl-3.5 pr-1.5 py-1.5
-        text-2xs text-dim max-w-full">
-        <span className="truncate">
-          Swipe <b className="text-txt">right</b> for the full entry, <b className="text-txt">left</b> to practise
-        </span>
-        <button onClick={dismiss} aria-label="Got it"
-          className="grid place-items-center w-[28px] h-[28px] rounded-full flex-shrink-0 hover:text-txt">
-          <X size={13} />
-        </button>
-      </div>
-    </div>
-  );
-}
 
 /** The first thing anyone ever sees — and it is a slot in the feed, not a page in
  *  front of it.
@@ -834,7 +789,7 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             gesture has no name, no focus ring and no screen-reader path; it is an
             accelerant for people who already know what is there, and it cannot be
             the only way to reach anything. */}
-        <div className="feed-actions mt-8 flex items-center gap-8">
+        <div data-tour="feed-actions" className="feed-actions mt-8 flex items-center gap-8">
           <Action label={<>What else Lexi knows about <span lang="de">{word.term}</span></>} onClick={onInfo}>
             <Info size={24} strokeWidth={1.6} />
           </Action>
@@ -901,11 +856,15 @@ function Swipeable({ children, onLeft, onRight, term }: {
 }) {
   const x = useMotionValue(0);
   const reduce = useReducedMotion();
+  const surface = useRef<HTMLDivElement>(null);
+  useSwipeDemo(surface, x, reduce);
   const info = useTransform(x, [18, SWIPE_PX], [0, 1]);
   const drill = useTransform(x, [-18, -SWIPE_PX], [0, 1]);
 
   return (
     <motion.div
+      ref={surface}
+      data-tour="feed-word"
       // **The whole slot is the handle.** It used to be this column — capped at
       // 560px and only as tall as the word, its gloss and the icon row — so a
       // drag that began in the empty space above the headword or below the
@@ -959,6 +918,45 @@ function Swipeable({ children, onLeft, onRight, term }: {
       </span>
     </motion.div>
   );
+}
+
+/** The feed's first-visit tour, pointed at the word on screen when it starts.
+ *  Replaces a one-line hint that named the two swipes and nothing else. */
+function feedTour(slot: number): TourStep[] {
+  const word = `[data-slot="${slot}"] [data-tour="feed-word"]`;
+  // The headword, with the bubble above it: the meaning and the actions below it
+  // stay in view while the tour talks about them.
+  const headword = `${word} h2`;
+  return [
+    {
+      title: 'Welcome to Wörter',
+      body: <>One German word per screen, with its meaning. <b className="text-txt">Scroll up</b> for the next. Nothing here is a test.</>,
+      target: headword,
+      prefer: 'above',
+    },
+    {
+      title: 'Swipe a word',
+      body: <>Swipe <b className="text-txt">right</b> for everything Lexi knows about it. Swipe <b className="text-txt">left</b> to practise it right now.</>,
+      target: headword,
+      demo: word,
+      prefer: 'above',
+    },
+    {
+      title: 'Save what catches your eye',
+      body: <>The <b className="text-txt">bookmark</b> saves a word, and Üben teaches your saved words first. ⓘ opens the entry, and the cap starts a practice.</>,
+      target: `[data-slot="${slot}"] [data-tour="feed-actions"]`,
+    },
+    {
+      title: 'Look anything up',
+      body: <>Search any German or English word from any screen.</>,
+      target: '[data-tour="search"]',
+    },
+    {
+      title: 'Four places',
+      body: <><b className="text-txt">Wörter</b> to browse · <b className="text-txt">Themen</b> for topics and your own texts · <b className="text-txt">Üben</b> to study · <b className="text-txt">Fortschritt</b> to see what you know.</>,
+      target: '[data-tour="tabs"]',
+    },
+  ];
 }
 
 /** Horizontal travel that commits. Matches the session card's `SWIPE_PX`

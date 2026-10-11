@@ -31,8 +31,9 @@ describe('Review — the card swap is state, not animation', () => {
     // `key={item.srsId}` is what makes React remount (and so re-trigger the CSS
     // entrance) on every advance; `.card-in` is transform-only with no
     // fill-mode, so a stalled animation leaves the card fully visible.
-    expect(src).toMatch(/className="card-in[^"]*"/);
-    expect(src).toMatch(/key=\{item\.srsId\}\s+className="card-in/);
+    // The entrance class is `card-in` or, after a swipe, `card-rise` — both CSS.
+    expect(src).toMatch(/useRef<'card-in' \| 'card-rise'>\('card-in'\)/);
+    expect(src).toMatch(/key=\{item\.srsId\}\s+className=\{`\$\{entrance\.current\}/);
   });
 });
 
@@ -202,8 +203,11 @@ describe('Review — a tap turns the card, a swipe grades it', () => {
     expect(swipe).toMatch(/onDragEnd=/);
     expect(swipe).toMatch(/onSwipe\(right\)/);
     expect(swipe.slice(swipe.indexOf('onDragEnd='), swipe.indexOf('onClick='))).not.toMatch(/onFlip/);
-    expect(swipe).toMatch(/onClick=\{\(\) => \{ if \(!dragged\.current\) onFlip\(\); \}\}/);
-    expect(src).toMatch(/onSwipe=\{\(knew\) => \{[^}]*grade\(knew \? Rating\.Good : Rating\.Again\)/);
+    expect(swipe).toMatch(/onClick=\{\(\) => \{ if \(!dragged\.current && !thrown\) onFlip\(\); \}\}/);
+    // The grade is a timer cleared on unmount, never the animation's completion.
+    expect(swipe).toMatch(/commit\.current = window\.setTimeout\(\(\) => onSwipe\(right\)/);
+    expect(swipe).toMatch(/clearTimeout\(commit\.current\)/);
+    expect(src).toMatch(/onSwipe=\{\(knew\) => grade\(knew \? Rating\.Good : Rating\.Again, 'swipe'\)\}/);
   });
 
   it('offers two verdicts only — no Hard, no Easy', () => {

@@ -85,7 +85,7 @@ describe('chrome caps are unconditional', () => {
   // threshold: at a 28px root — `lg`, not `ax` — the profile button's right edge was
   // at 448px of a 402px viewport. `min()` is the same rule at every size, so there is
   // no size at which it is off by one step.
-  const capped = ['.goal-pill', '.top-bar', '.profile-btn', '.streak-chip', '.feed-coach > div'];
+  const capped = ['.goal-pill', '.top-bar', '.profile-btn', '.streak-chip', '.tour-bubble'];
   it.each(capped)('%s is capped without a data-type threshold', (sel) => {
     const at = css.indexOf(`\n${sel} {`);
     expect(at, `no unconditional rule for ${sel}`).toBeGreaterThan(-1);

@@ -33,6 +33,7 @@ import { conceptForSector, conceptPaths } from '../lib/illustration.tsx';
 import Decks from './Decks.tsx';
 import Wortkarte from './Wortkarte.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
+import Tour, { type TourStep } from '../components/Tour.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { WordsRoute } from '../route.ts';
 import type { Target } from '../types.ts';
@@ -116,13 +117,14 @@ function Index({ onOpenGroup, onText, onGame }: {
           surface (components/SearchSheet), and two entry points to one search on
           one screen is the definition of the clutter this pass exists to remove.
           This page is what its tab says it is: themes. */}
+      <Tour id="themen" steps={THEMEN_TOUR} />
       <Taxonomy onOpenGroup={onOpenGroup} />
       {/* The second way to choose words, and the one nobody would guess is here.
           A theme is Lexi's answer to "what should I learn next"; a text you
           actually want to read is the learner's, and it is the better one when
           they have it. Below the taxonomy and deliberately quiet: it needs
           something pasted in, so it is not where a cold visit should start. */}
-      <button onClick={onText}
+      <button onClick={onText} data-tour="text"
         className="-mx-3 sm:-mx-5 w-[calc(100%+1.5rem)] sm:w-[calc(100%+2.5rem)] border-b border-line
           flex items-center gap-3.5 px-3 sm:px-5 py-4 text-left hover:bg-panel2 active:bg-panel2 transition-colors">
         <span className="grid place-items-center w-[44px] h-[44px] rounded-md flex-shrink-0 text-accent"
@@ -170,6 +172,19 @@ function Index({ onOpenGroup, onText, onGame }: {
  *  is the fact that decides it. The heatmap on Progress answers the same
  *  question spatially and for a different mood — there you are auditing, here
  *  you are shopping. */
+const THEMEN_TOUR: TourStep[] = [
+  {
+    title: 'Themen: words by topic',
+    body: <>Every word Lexi teaches, grouped by theme. Each group shows how much of it you already know. Open one to browse its decks or study it.</>,
+    target: '[data-tour="themes"] button',
+  },
+  {
+    title: 'Or bring your own German',
+    body: <>Paste a text you want to read. Lexi marks the words you know and builds a session from the rest.</>,
+    target: '[data-tour="text"]',
+  },
+];
+
 function Taxonomy({ onOpenGroup }: { onOpenGroup: (g: string) => void }) {
   const rows = useMemo(() => {
     const stats = groupStats();
@@ -183,7 +198,7 @@ function Taxonomy({ onOpenGroup }: { onOpenGroup: (g: string) => void }) {
   }, []);
 
   return (
-    <section aria-labelledby="groups-heading">
+    <section aria-labelledby="groups-heading" data-tour="themes">
       <h2 id="groups-heading" className="text-lg font-bold mb-1">Browse by theme</h2>
       <p className="text-dim text-xs mb-3">
         {rows.length} groups over {fmt(rows.reduce((n, r) => n + r.sectors, 0))} decks.

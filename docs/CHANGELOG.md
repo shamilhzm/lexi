@@ -11,6 +11,29 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-11 — The swipe, fixed; a tour for every screen
+
+**Why.** The owner's screen recording showed the swipe as twitchy. Separately, a
+brand-new learner met four tabs with no account of what any of them was for.
+
+- **The swipe follows the thumb 1:1.** The cause was elastic against a zero
+  constraint (see LESSONS, *A swipe that passed on the simulator*). Now the drag is
+  free, commits at 80px or on a 320px/s flick, and throws the card off-screen. The
+  card rotates about a point below it, like a card held in the hand. The grade still
+  commits on a timer (`THROW_MS`) and never waits on the animation, and the next
+  card rises from the stack (`card-rise`).
+- **First-visit tours** (`components/Tour.tsx`, `lib/hints.ts`). Each tab has a
+  few bubbles pointing at real controls over a dimmed screen: Wörter 5, Üben 3,
+  Themen 2, Fortschritt 3. On the swipe steps the word or card performs its own
+  gesture (`useSwipeDemo`), labels lit, so the learner sees it rather than reads
+  about it.
+  - **They replace the two one-line coach marks** (`SwipeHint`, `CoachMarks`). They
+    are overlays, so unlike the inline coach block (BACKLOG #32, B2) they can never
+    push the grade buttons under the tab bar.
+  - Settings → **Tips** brings them back. They are not in the backup, since nothing
+    in them is the learner's.
+  - Dev personas other than `cold` and `day2` are seeded with the tours already seen.
+
 ### Shipped 2026-10-11 — Two verdicts, swipe to grade, and sound
 
 **Why.** The owner's ruling: four grade buttons asked for a calibration nobody wanted

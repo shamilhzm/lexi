@@ -422,17 +422,18 @@ html[data-type='ax'] nav[aria-label='Main'] .tab-icon { width: 26px; height: 26p
 .goal-pill { padding: min(0.375rem, 6px) min(0.75rem, 12px); gap: min(0.5rem, 8px); }
 .goal-pill span { font-size: min(0.6875rem, 13px); }
 
-/* The one-time swipe hint is capped, not suppressed. It is `position: absolute` over
-   the word, so at a 40px root it grew past its line and landed on the IPA — but it is
-   also the only place the two gestures are ever explained, and hiding it (tried
-   first) takes the instruction away from exactly the reader most likely to need it.
-   A floating hint is not body copy; the actions it names are all present as labelled
-   buttons below the word anyway. */
-.feed-coach > div {
-  font-size: min(0.6875rem, 15px);
-  gap: min(0.5rem, 8px);
-  padding: min(0.375rem, 6px) min(0.375rem, 6px) min(0.375rem, 6px) min(0.875rem, 14px);
+/* First-visit tours (components/Tour.tsx). The bubble's type is capped, not
+   scaled: at a 40px root an uncapped bubble outgrew the phone and covered the very
+   control it pointed at. It is chrome over the page, so it is pinned like the bars. */
+.tour-bubble {
+  font-size: min(1rem, 17px);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
 }
+.tour-scrim { background: rgb(0 0 0 / .45); }
+.tour-spot { box-shadow: 0 0 0 200vmax rgb(0 0 0 / .45); transition: left .2s, top .2s, width .2s, height .2s; }
+@keyframes tourin { from { transform: translateY(6px); } }
+.tour-in { animation: tourin .22s cubic-bezier(.32,.72,0,1); }
 
 /* **At an accessibility size the feed stops being a carousel.** One word per screen
    is a promise the screen can no longer keep: at a 34px root the headword, its IPA,
@@ -715,6 +716,11 @@ body {
    moved `.tile-in` off 1.5%. See DESIGN.md §7 corollary. */
 @keyframes cardin { from { transform: translateX(calc(var(--dir, 0) * -26px)); } }
 .card-in { animation: cardin .26s cubic-bezier(.32,.72,0,1); }
+/* After a swipe the thrown card is gone and the next is the one already drawn
+   beneath it (SwipeCard's `behind` stack sits 7px lower), so it rises into place
+   instead of arriving from a side. Translate-only, as above. */
+@keyframes cardrise { from { transform: translateY(7px); } }
+.card-rise { animation: cardrise .22s cubic-bezier(.32,.72,0,1); }
 
 /* The answer acknowledgment. Rises rather than fades in: transform-only, so a
    stalled animation leaves the text legible rather than invisible. */

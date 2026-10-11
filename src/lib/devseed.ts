@@ -268,6 +268,11 @@ export async function applySeedFromUrl(
   localStorage.clear();
   const { cards, settings, visits, misses } = persona.build();
   await importData(JSON.stringify({ app: 'lexi', v: 1, cards, misses, visits, settings }));
+  // The first-visit tours belong to a brand-new learner. Every other persona has
+  // had them, and a bubble over the screen under test hides what is being tested.
+  if (name !== 'cold' && name !== 'day2') {
+    localStorage.setItem('lexi.hints.v1', JSON.stringify(['feed', 'session', 'themen', 'progress']));
+  }
   // eslint-disable-next-line no-console
   console.info(`[devseed] ${persona.name} — ${persona.looksAt}`);
   // Strip **`seed` only** so a manual reload does not re-seed, and leave any other

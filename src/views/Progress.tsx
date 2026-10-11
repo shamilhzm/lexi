@@ -39,6 +39,25 @@ import CountUp from '../components/CountUp.tsx';
 import WordSky from '../components/WordSky.tsx';
 import { BandRow, Section } from '../components/ui/Band.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
+import Tour, { type TourStep } from '../components/Tour.tsx';
+
+const PROGRESS_TOUR: TourStep[] = [
+  {
+    title: 'Fortschritt: what you know',
+    body: <>The number of words you can reliably recall, and how it is changing. Only words you studied in Üben count here, never words you only scrolled past.</>,
+    target: '[data-tour="headline"]',
+  },
+  {
+    title: 'Your words as a sky',
+    body: <>Every word Lexi teaches, with the most common ones in the middle. The ones you know light up. Tap a region to study it.</>,
+    target: '[data-tour="sky"]',
+  },
+  {
+    title: 'The way up',
+    body: <>Your path through the levels, plus the forms you keep missing, so you know what to practise next.</>,
+    target: '[data-tour="path"]',
+  },
+];
 import type { Target } from '../types.ts';
 import type { Mode } from './drills.tsx';
 
@@ -70,11 +89,12 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
           Composing the two surfaces made it obvious they were the same four
           numbers twice over — Known, coverage, seen, due, streak — separated
           only by having lived on different screens. The headline says it once. */}
-      <Headline />
+      <Tour id="progress" steps={PROGRESS_TOUR} />
+      <div data-tour="headline"><Headline /></div>
 
       {/* The picture of it: every word, the commonest at the centre, lit as brightly
           as you would remember it today. See components/WordSky.tsx. */}
-      <WordSky onStudy={onStudy} />
+      <div data-tour="sky"><WordSky onStudy={onStudy} /></div>
 
       {/* The two minutes that calibrate everything above and below it. Shown
           until taken, and never again after. */}
@@ -94,7 +114,7 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
       {/* Which levels you are studying, and how far through each. This is the
           control that decides what the session serves you, so it is on the page
           that explains the session's results rather than buried in settings. */}
-      <PathCard onStudy={onStudy} onDrill={onDrill} />
+      <div data-tour="path"><PathCard onStudy={onStudy} onDrill={onDrill} /></div>
 
       {/* Where you are thin, spatially. Karte supplies its own heading. */}
       <section aria-label="Knowledge heatmap" className="mb-6">

@@ -13,7 +13,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, Undo2, SkipForward, Flag, Share2, ClipboardList, Mic } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, visitCount} from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing} from '../store.ts';
 import { haptic, tick, fmt} from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession, withRetry, SESSION_CEILING, type SessionItem } from '../session.ts';
 import { loadDetailFor, detailLoadedFor } from '../data/detail.ts';
@@ -45,11 +45,13 @@ import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
+import Tour, { useSwipeDemo, type TourStep } from '../components/Tour.tsx';
 import { ALL_LEVELS } from '../types.ts';
 import type { Target, Word, CEFR } from '../types.ts';
 
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', recall: 'Recall' };
-const SWIPE_PX = 90; // horizontal travel that commits a grade: right knew it, left didn't
+const SWIPE_PX = 80; // horizontal travel that commits a grade: right knew it, left didn't
+const THROW_MS = 160; // the thrown card's flight before the grade commits
 
 /** The grade scale: two verdicts *(2026-10-11, owner's ruling)*.
  *
@@ -64,6 +66,27 @@ const SWIPE_PX = 90; // horizontal travel that commits a grade: right knew it, l
 const SCALE: { rating: Grade; label: string; firstSight: string; hover: string }[] = [
   { rating: Rating.Again, label: 'Didn’t know', firstSight: 'Still learning', hover: 'hover:border-red hover:text-red' },
   { rating: Rating.Good, label: 'Knew it', firstSight: 'Got it', hover: 'hover:border-green hover:text-green' },
+];
+
+/** The first-session tour (components/Tour.tsx). Replaces the inline coach
+ *  block, which spent the card's height to say the same things in one line. */
+const SESSION_TOUR: TourStep[] = [
+  {
+    title: 'This is Üben — where words stick',
+    body: <>Each card is a word you saved, one due back, or a new one. <b className="text-txt">Tap the card</b> to turn it and see the answer.</>,
+    target: '[data-tour="session-card"]',
+  },
+  {
+    title: 'Swipe to say how it went',
+    body: <><b className="text-green">Right</b> if you knew it, <b className="text-red">left</b> if you didn’t. Lexi brings missed words back sooner and spaces out the ones you know.</>,
+    target: '[data-tour="session-card"]',
+    demo: true,
+  },
+  {
+    title: 'Sound, undo, skip',
+    body: <>Mute the sounds, undo the last card, or skip one without grading. A session is capped, and you can leave whenever you like. Nothing is lost.</>,
+    target: '[data-tour="session-tools"]',
+  },
 ];
 
 /** Does this learner get the monolingual layer? A German definition is the right
@@ -179,6 +202,9 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   // vocabulary: right = knew, left = missed. (A swipe no longer grades — see
   // `SwipeCard` — so this is the deck's direction, not the thumb's.)
   const exitDir = useRef(0);
+  // How the next card arrives: from the side after a button or key, from the
+  // stack after a swipe — the thrown card is gone, so the one beneath rises.
+  const entrance = useRef<'card-in' | 'card-rise'>('card-in');
 
   // Feel layer: the comeback of the day (a word you’d missed ≥2 times before
   // and got right today), and the miss-streak circuit breaker (F3): after 4
@@ -296,7 +322,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   // Grade a flip card. The *controls* only offer this on the back face (or on a
   // first-sight front, which already shows the meaning) — see the action area
   // below; this function stays unconditional so undo and tests can drive it.
-  const grade = useCallback((g: Grade) => {
+  const grade = useCallback((g: Grade, via?: 'swipe') => {
     if (!item || item.type !== 'flip') return;
     const wasNew = statusOf(item.srsId) === 'new';
     const dAgain = g === Rating.Again ? 1 : 0;
@@ -307,6 +333,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     const dRetrOk = !wasNew && g !== Rating.Again ? 1 : 0;
     pushGrade(dAgain, dNew, 0, 0, dRetr, dRetrOk);
     exitDir.current = g === Rating.Again ? -1 : 1;
+    entrance.current = via === 'swipe' ? 'card-rise' : 'card-in';
     // `preview` is computed for this card *before* the grade commits, so it is
     // exactly the interval the learner was shown on the button they pressed.
     // Keyed by rating, so this is honest across all four grades — the two-rating
@@ -335,6 +362,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     const dAgain = ok ? 0 : 1;
     pushGrade(dAgain, 0, 1, ok ? 1 : 0);
     exitDir.current = ok ? 1 : -1;
+    entrance.current = 'card-in';
     noteResult(ok);
     noteMet(item.word);
     review(item.srsId, ok ? Rating.Good : Rating.Again);
@@ -360,6 +388,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   const skip = useCallback(() => {
     if (!item) return;
     exitDir.current = 0;
+    entrance.current = 'card-in';
     history.current.push({ i, kind: 'skip' });
     if (item.type !== 'flip') noteMiss(MODE_TAG[item.type], item.word.term);
     else if (item.word.kind === 'grammar') noteMiss(item.word.term);
@@ -373,6 +402,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     const e = history.current.pop();
     if (!e) return;
     exitDir.current = 0;
+    entrance.current = 'card-in';
     if (e.kind === 'grade' && e.srsId) {
       restoreCard(e.srsId, e.prevCard, (e.dAgain ?? 0) > 0);
       setDone((d) => Math.max(0, d - 1));
@@ -447,7 +477,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   return (
     <div className="mx-auto w-full max-w-[640px] flex-1 min-h-0 flex flex-col justify-center">
       <ReturnNotice firstRun={firstRun} />
-      <CoachMarks />
+      <Tour id="session" ready={!!item && item.type === 'flip'} steps={SESSION_TOUR} />
       {offerVoice && <div className="mb-2.5"><VoiceOffer onClose={() => setOfferVoice(false)} /></div>}
       {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
           patch. Offer a graceful stop at a natural break — once, then quiet. */}
@@ -499,7 +529,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
           <Chip aria-label={`Card ${Math.min(i + 1, queue.length)} of ${queue.length} in this session`}>
             {Math.min(i + 1, queue.length)} / {queue.length}
           </Chip>
-          <div className="ml-auto flex items-center gap-1 flex-shrink-0">
+          <div data-tour="session-tools" className="ml-auto flex items-center gap-1 flex-shrink-0">
             {/* Sound is on by default now, so muting has to be reachable from
                 inside the session — not three taps away in Settings.
                 **One name, and the state in `aria-pressed`.** The label used to flip
@@ -572,7 +602,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
               so there was no free space for it to grow into and the card sat on its
               16.25rem floor at every viewport — 258pt in the panel's iPhone shots,
               with its example clipped, while an installed PWA had room to spare. */}
-          <div key={item.srsId} className="card-in w-full flex-1 min-h-0 flex flex-col items-center justify-center"
+          <div key={item.srsId} className={`${entrance.current} w-full flex-1 min-h-0 flex flex-col items-center justify-center`}
             style={{ '--dir': exitDir.current } as React.CSSProperties}>
           {/* What kind of exercise this is, and why it is here — one caption
               block above the item, in that order.
@@ -597,7 +627,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                 : <RecallItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>
-          <SwipeCard key={item.srsId} onFlip={flip} onSwipe={(knew) => { tick('swipe'); grade(knew ? Rating.Good : Rating.Again); }} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>
+          <SwipeCard key={item.srsId} onFlip={flip} onSwipe={(knew) => grade(knew ? Rating.Good : Rating.Again, 'swipe')} onThrow={() => tick('swipe')} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT — the prompt: word + German context, no translation to spoil
                   the test. Except on first sight: a card the learner has never met
@@ -898,25 +928,33 @@ function Acknowledgement({ ack }: { ack: { n: number; ok: boolean; interval?: st
 }
 
 /** Draggable flip-card. **Tap flips; a swipe grades** *(2026-10-11, owner's ruling)*.
- *  Right is *Knew it*, left is *Didn't know*, from either face — the card leaves
- *  and the next one arrives from the opposite side (`card-in`). This reverses the
+ *  Right is *Knew it*, left is *Didn't know*, from either face — the card is
+ *  thrown off that side and the next one rises from the stack (`card-rise`). This reverses the
  *  2026-09-25 panel, which made the swipe flip so it would mean "show me more" as
- *  on the feed; the owner preferred the deck gesture. The grade is committed on
- *  release, not after an exit animation, so advancing never waits on rAF.
+ *  on the feed; the owner preferred the deck gesture. The grade commits on a
+ *  `THROW_MS` timer, not the animation's end, so advancing never waits on rAF.
  *
  *  **Not a button.** A `group` named by its headword: as `role="button"` VoiceOver
  *  read the label and never the German word. "Show answer" is the flip's control.
  *
  *  `behind` draws the rest of the queue as a physical stack, so finishing is
  *  visible before it is announced. */
-function SwipeCard({ children, onFlip, onSwipe, labelledBy, behind = 0 }:
-  { children: React.ReactNode; onFlip: () => void; onSwipe: (knew: boolean) => void; labelledBy: string; behind?: number }) {
+function SwipeCard({ children, onFlip, onSwipe, onThrow, labelledBy, behind = 0 }:
+  { children: React.ReactNode; onFlip: () => void; onSwipe: (knew: boolean) => void; onThrow?: () => void; labelledBy: string; behind?: number }) {
   const x = useMotionValue(0);
-  const rotate = useTransform(x, [-200, 200], [-8, 8]);
+  const rotate = useTransform(x, [-240, 240], [-10, 10]);
+  // Thrown: input is ignored for the flight, and the grade is a timer, not the
+  // animation's completion — so it commits even if rAF stalls. Cleared on
+  // unmount, so a button grade inside the flight cannot grade the next card too.
+  const [thrown, setThrown] = useState(false);
+  const commit = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(commit.current), []);
+  const surface = useRef<HTMLDivElement>(null);
   const knew = useTransform(x, [18, SWIPE_PX], [0, 1]);
   const missed = useTransform(x, [-18, -SWIPE_PX], [0, 1]);
   const reduce = useReducedMotion();
   const dragged = useRef(false);
+  useSwipeDemo(surface, x, reduce);
   return (
     // **The height is what is left, not a number.** `flex-1` inside a column that
     // lays out the rest, so the card takes the space genuinely remaining whatever is
@@ -946,27 +984,39 @@ function SwipeCard({ children, onFlip, onSwipe, labelledBy, behind = 0 }:
           }} />
       ))}
     <motion.div
+      ref={surface}
+      data-tour="session-card"
       role="group"
       aria-roledescription="flashcard"
       aria-labelledby={labelledBy}
-      className="absolute inset-0 cursor-pointer touch-pan-y rounded-lg"
-      style={{ x, rotate: reduce ? 0 : rotate }}
-      drag="x"
+      // **1:1 under the thumb** *(2026-10-11)*. It was elastic against a zero
+      // constraint, so the card moved at 60% of the finger and a 90px commit
+      // needed 150px of thumb: most swipes fell short and sprang back, which read
+      // as twitchy. Free drag, a lower bar, and a gentler flick.
+      // Rotation pivots below the card, as a held card turns in the hand.
+      className={`absolute inset-0 cursor-pointer touch-pan-y rounded-lg ${thrown ? 'pointer-events-none' : ''}`}
+      style={{ x, rotate: reduce ? 0 : rotate, originY: 1.4 }}
+      drag={thrown ? false : 'x'}
       dragDirectionLock
-      dragElastic={0.6}
-      dragConstraints={{ left: 0, right: 0 }}
+      dragMomentum={false}
       onDragStart={() => { dragged.current = true; }}
       onDragEnd={(_, info) => {
         const { offset, velocity } = info;
-        const flick = Math.abs(velocity.x) > 480 && Math.abs(offset.x) > 36;
+        const flick = Math.abs(velocity.x) > 320 && Math.abs(offset.x) > 28;
         const right = offset.x > SWIPE_PX || (flick && velocity.x > 0);
         const left = offset.x < -SWIPE_PX || (flick && velocity.x < 0);
         setTimeout(() => { dragged.current = false; }, 0);
-        // Committed: this card unmounts with the grade, nothing to spring back.
-        if (right || left) { onSwipe(right); return; }
-        animate(x, 0, reduce ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 30, velocity: velocity.x });
+        if (right || left) {
+          setThrown(true);
+          onThrow?.();
+          const off = (right ? 1 : -1) * (window.innerWidth + 120);
+          animate(x, off, reduce ? { duration: 0 } : { type: 'tween', ease: [0.2, 0.7, 0.4, 1], duration: THROW_MS / 1000 + 0.06, velocity: velocity.x });
+          commit.current = window.setTimeout(() => onSwipe(right), reduce ? 0 : THROW_MS);
+          return;
+        }
+        animate(x, 0, reduce ? { duration: 0 } : { type: 'spring', stiffness: 520, damping: 36, velocity: velocity.x });
       }}
-      onClick={() => { if (!dragged.current) onFlip(); }}
+      onClick={() => { if (!dragged.current && !thrown) onFlip(); }}
     >
       <div className="flip w-full h-full">{children}</div>
       {/* The verdict, named while the thumb is still deciding, on the side it is
@@ -1059,60 +1109,6 @@ function ReturnNotice({ firstRun }: { firstRun: boolean }) {
   );
 }
 
-/** One-time first-session tips (Karl, S6): flip / grade / skip, then gone.
- *
- *  **Also gated on this actually being an early session.** The dismissal flag
- *  lives in localStorage, so anything that clears it — a restore, a new device,
- *  a browser wiping site data — brings the tips back to a learner of two years.
- *  Caught on the phone: the returning learner got the welcome-back notice *and*
- *  the coach marks *and* the session header stacked above the card, which pushed
- *  the card itself under the tab bar. Somebody with a visit history has had
- *  their first session. */
-function CoachMarks() {
-  const [show, setShow] = useState(() => {
-    if (visitCount() > 1) return false;
-    try { return localStorage.getItem('lexi.coach.session.v1') !== '1'; } catch { return false; }
-  });
-  if (!show) return null;
-  const dismiss = () => {
-    try { localStorage.setItem('lexi.coach.session.v1', '1'); } catch { /* */ }
-    setShow(false);
-  };
-  return (
-    // Vertically tight on purpose. Three tips wrap to three lines on a phone, and
-    // every pixel this block spends comes off the bottom of the session: measured
-    // 2026-08-16 on a first run at 375×667 — the iPhone SE floor — the grade
-    // buttons ended 7px past the fold and the session scrolled (723 against 667).
-    // At 375×812 and 402×874 they were already comfortably above it, so BACKLOG
-    // #32's "coach marks eat 200px of 812" is a 2.5× overstatement of a block that
-    // measures 79px; what was real is only real on the short viewport.
-    //
-    // Padding and gaps, not type size: the tips are the first words a learner
-    // reads and "Tap the card to flip it" is the one genuinely undiscoverable
-    // thing in the app. Shrinking the text to win eight pixels trades the finding
-    // this block exists to deliver.
-    <div className="pb-2 mb-2 border-b border-line flex items-center gap-x-3 gap-y-0.5 flex-wrap text-xs text-dim">
-      {/* *(2026-10-11, owner's ruling)* The swipe grades again: right knew it,
-          left didn't. Tap turns the card. The feed's right-drag still opens the
-          entry — the two surfaces knowingly speak different gestures. */}
-      <span><b className="text-txt font-semibold">Tap</b> the card to see the answer</span>
-      <span aria-hidden>·</span>
-      <span><b className="text-txt font-semibold">Swipe right</b> if you knew it, <b className="text-txt font-semibold">left</b> if not</span>
-      <span aria-hidden>·</span>
-      {/* The keyboard path existed but was never stated anywhere in the UI — and
-          what it stated only ever worked on the flip card. The drills now take
-          1–4 and Enter too, so one line covers every card type. */}
-      <span className="hidden sm:inline">
-        <kbd className="text-txt font-semibold">Space</kbd> flips,{' '}
-        <kbd className="text-txt font-semibold">1</kbd>–<kbd className="text-txt font-semibold">4</kbd> grade or answer,{' '}
-        <kbd className="text-txt font-semibold">Enter</kbd> continues
-      </span>
-      <span aria-hidden className="hidden sm:inline">·</span>
-      <span><b className="text-txt font-semibold">Skip</b> is always free</span>
-      <button onClick={dismiss} className="tap-hit ml-auto text-accent font-semibold hover:brightness-110">Got it</button>
-    </div>
-  );
-}
 
 
 /** The words you met today, in a shape you can take away.

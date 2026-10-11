@@ -1781,3 +1781,21 @@ came back went on screen.
 Validate the reply against what it claims to quote. Put the provider key where page
 script cannot read it, and the prompt where the page cannot write it. `api/tutor.ts`
 does all four, and `tutor-server.test.ts` proves each guard fails when removed.
+
+## A swipe that passed on the simulator felt broken in the hand *(added 2026-10-11)*
+
+**Believed:** swipe-to-grade worked, because two simulator swipes on 2026-10-11
+committed and advanced.
+
+**True:** the card had `dragElastic={0.6}` against `dragConstraints={{ left: 0, right: 0 }}`,
+so it moved at 60% of the finger, and the 90px commit needed about 150px of thumb.
+The simulator's scripted swipes went 220px and crossed the bar easily. A real thumb
+mostly fell short and the card sprang back, and a grade on release made the card
+vanish with no exit. The owner's screen recording showed it as "twitchy, almost
+glitchy".
+
+**Rule:** a gesture that gets scripted and a gesture that gets felt are tested
+differently. Script a *slow, short* drag too, about 100pt at 0.5s, because that is
+the real thumb's motion. And never put elastic against a zero constraint on
+something meant to be dragged *off*: it is a rubber band, and the hand reads it as
+resistance.

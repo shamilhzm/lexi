@@ -52,7 +52,7 @@ export default function BottomNav({ view, onGo }: {
     // indicator (a 5pt bar sitting ~8pt off the edge) — floating, not stranded.
     // The `max()` floor keeps 8px on a device that reports no inset at all.
     <div className="md:hidden absolute bottom-0 inset-x-0 z-50 no-print px-[12px] pb-[max(8px,calc(env(safe-area-inset-bottom)_-_14px))] pointer-events-none">
-      <nav aria-label="Main" className="glass glass-bar rounded-full pointer-events-auto overflow-hidden">
+      <nav aria-label="Main" data-tour="tabs" className="glass glass-bar rounded-full pointer-events-auto overflow-hidden">
         <div className="flex items-stretch h-[58px]">
           {NAV.map((n) => {
             const active = view === n.id;
