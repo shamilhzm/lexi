@@ -190,19 +190,26 @@ describe('motion entrances in the study loop never start invisible', () => {
   }
 });
 
-// ── One swipe grammar (2026-09-25 panel) ──────────────────────────────────────
+// ── Tap turns, swipe grades (2026-10-11, owner's ruling) ─────────────────────
 //
-// On the feed a horizontal drag opens a word's entry; on this card the same drag
-// used to write `Rating.Good`. It turns the card now, and grading is a button on
-// the back. The card is also no longer `role="button"`, which hid its headword
-// from VoiceOver behind a generic label.
-describe('Review — a swipe turns the card and never grades it', () => {
+// Reverses the 2026-09-25 panel's "a swipe turns the card". Right is Knew it,
+// left is Didn't know; a tap is the only gesture that turns the card. The card
+// is still not `role="button"`, which hid its headword from VoiceOver.
+describe('Review — a tap turns the card, a swipe grades it', () => {
   const swipe = src.slice(src.indexOf('function SwipeCard'), src.indexOf('function ReturnNotice'));
 
-  it('the drag handler flips and does not grade', () => {
+  it('the drag handler grades and does not flip; the click flips', () => {
     expect(swipe).toMatch(/onDragEnd=/);
-    expect(swipe).toMatch(/onFlip\(\)/);
-    expect(swipe).not.toMatch(/onGrade|Rating\./);
+    expect(swipe).toMatch(/onSwipe\(right\)/);
+    expect(swipe.slice(swipe.indexOf('onDragEnd='), swipe.indexOf('onClick='))).not.toMatch(/onFlip/);
+    expect(swipe).toMatch(/onClick=\{\(\) => \{ if \(!dragged\.current\) onFlip\(\); \}\}/);
+    expect(src).toMatch(/onSwipe=\{\(knew\) => \{[^}]*grade\(knew \? Rating\.Good : Rating\.Again\)/);
+  });
+
+  it('offers two verdicts only — no Hard, no Easy', () => {
+    const scale = src.slice(src.indexOf('const SCALE'), src.indexOf('];', src.indexOf('const SCALE')));
+    expect(scale).not.toMatch(/Rating\.(Hard|Easy)/);
+    expect(scale.match(/rating: Rating\./g)).toHaveLength(2);
   });
 
   it('the card is a group named by its headword, not a button', () => {

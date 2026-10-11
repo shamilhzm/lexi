@@ -179,31 +179,65 @@ export const haptic = (kind: 'grade' | 'wrong' = 'grade') => {
 import { sound } from '../store.ts';
 import { interrupt } from './player.ts';
 
-type Cue = 'good' | 'wrong' | 'done' | 'milestone';
-/** [frequency Hz, start offset s, peak gain] per note. */
-const CUES: Record<Cue, [number, number, number][]> = {
-  good:      [[880, 0, 0.06]],
-  wrong:     [[420, 0, 0.045], [330, 0.08, 0.045]],           // a small fall
-  done:      [[660, 0, 0.06], [990, 0.09, 0.06]],             // a two-note rise
-  milestone: [[660, 0, 0.05], [880, 0.08, 0.05], [1320, 0.16, 0.06]], // a rising triad
+type Cue = 'good' | 'wrong' | 'done' | 'milestone' | 'flip' | 'swipe' | 'page';
+/** A tone: [frequency Hz, start offset s, peak gain, length s]. */
+type Note = [number, number, number, number?];
+/** A band-passed noise burst — the physical sounds (card turned, card thrown, a
+ *  page passing) are texture, not pitch, so they cannot be mistaken for a verdict.
+ *  [centre Hz, start offset s, peak gain, length s, sweep-to Hz]. */
+type Noise = [number, number, number, number, number?];
+const CUES: Record<Cue, { tones?: Note[]; noise?: Noise[] }> = {
+  good:      { tones: [[880, 0, 0.06], [1320, 0.06, 0.04]] },                  // a small lift
+  wrong:     { tones: [[420, 0, 0.045], [330, 0.08, 0.045]] },                 // a small fall
+  done:      { tones: [[660, 0, 0.06], [990, 0.09, 0.06]] },                   // a two-note rise
+  milestone: { tones: [[660, 0, 0.05], [880, 0.08, 0.05], [1320, 0.16, 0.06]] }, // a rising triad
+  flip:      { noise: [[2400, 0, 0.05, 0.05]] },                                // a card turned
+  swipe:     { noise: [[900, 0, 0.07, 0.16, 3200]] },                           // a card thrown
+  page:      { noise: [[3200, 0, 0.018, 0.035]], tones: [[1760, 0, 0.008, 0.03]] }, // a page passing — the quietest cue
 };
 
 let audioCtx: AudioContext | null = null;
+let noiseBuf: AudioBuffer | null = null;
 export function tick(kind: Cue) {
   if (!sound() || typeof AudioContext === 'undefined') return;
   try {
-    audioCtx ??= new AudioContext();
-    for (const [freq, offset, peak] of CUES[kind]) {
-      const t0 = audioCtx.currentTime + offset;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
+    const ctx = (audioCtx ??= new AudioContext());
+    // iOS starts a context suspended until a gesture; every cue follows one.
+    if (ctx.state === 'suspended') void ctx.resume();
+    const { tones = [], noise = [] } = CUES[kind];
+    for (const [freq, offset, peak, len = 0.12] of tones) {
+      const t0 = ctx.currentTime + offset;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
       osc.type = 'sine';
       osc.frequency.value = freq;
       gain.gain.setValueAtTime(peak, t0);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.12);
-      osc.connect(gain).connect(audioCtx.destination);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + len);
+      osc.connect(gain).connect(ctx.destination);
       osc.start(t0);
-      osc.stop(t0 + 0.13);
+      osc.stop(t0 + len + 0.01);
+    }
+    if (noise.length && !noiseBuf) {
+      noiseBuf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * 0.3), ctx.sampleRate);
+      const d = noiseBuf.getChannelData(0);
+      for (let k = 0; k < d.length; k++) d[k] = Math.random() * 2 - 1;
+    }
+    for (const [freq, offset, peak, len, to] of noise) {
+      const t0 = ctx.currentTime + offset;
+      const src = ctx.createBufferSource();
+      src.buffer = noiseBuf;
+      const band = ctx.createBiquadFilter();
+      band.type = 'bandpass';
+      band.Q.value = 1.2;
+      band.frequency.setValueAtTime(freq, t0);
+      if (to) band.frequency.exponentialRampToValueAtTime(to, t0 + len);
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.0001, t0);
+      gain.gain.exponentialRampToValueAtTime(peak, t0 + Math.min(0.015, len / 3));
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + len);
+      src.connect(band).connect(gain).connect(ctx.destination);
+      src.start(t0);
+      src.stop(t0 + len + 0.01);
     }
   } catch { /* audio unavailable — silence is fine */ }
 }

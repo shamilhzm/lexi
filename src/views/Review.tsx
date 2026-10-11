@@ -49,26 +49,21 @@ import { ALL_LEVELS } from '../types.ts';
 import type { Target, Word, CEFR } from '../types.ts';
 
 const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', recall: 'Recall' };
-const SWIPE_PX = 90; // horizontal travel that commits a flip — never a grade
+const SWIPE_PX = 90; // horizontal travel that commits a grade: right knew it, left didn't
 
-/** The grade scale.
+/** The grade scale: two verdicts *(2026-10-11, owner's ruling)*.
  *
- *  FSRS takes four ratings and Lexi only ever sent two — `Rating.Hard` and
- *  `Rating.Easy` appeared nowhere outside the tests. That throws away exactly the
- *  signal the scheduler exists to act on: the difference between recalling
- *  something after a struggle and recalling it instantly. Two ratings make every
- *  success identical, so intervals grow at one rate for a word you nearly lost and
- *  a word you will never forget.
+ *  Hard and Easy were added on 2026-09-25 to give FSRS the difference between a
+ *  struggle and an instant recall. The owner removed them: four buttons asked for a
+ *  calibration the learner did not want to make on every card, and the swipe now
+ *  grades — a gesture has two directions, not four. FSRS still schedules from
+ *  Again/Good; Placement's `Rating.Easy` is untouched.
  *
- *  `firstSight` is the label for a card the learner has never met, and its absence
- *  is meaningful: a first-sight card is an introduction, not a test, so there was
- *  no retrieval to rate on a difficulty scale and only those two grades are shown.
- *  The button count follows whether recall actually happened. */
-const SCALE: { rating: Grade; label: string; firstSight?: string; hover: string }[] = [
+ *  `firstSight` is the label for a card the learner has never met: an
+ *  introduction, not a test, so it asks "still learning / got it". */
+const SCALE: { rating: Grade; label: string; firstSight: string; hover: string }[] = [
   { rating: Rating.Again, label: 'Didn’t know', firstSight: 'Still learning', hover: 'hover:border-red hover:text-red' },
-  { rating: Rating.Hard, label: 'Hard', hover: 'hover:border-accent hover:text-accent' },
   { rating: Rating.Good, label: 'Knew it', firstSight: 'Got it', hover: 'hover:border-green hover:text-green' },
-  { rating: Rating.Easy, label: 'Easy', hover: 'hover:border-green hover:text-green' },
 ];
 
 /** Does this learner get the monolingual layer? A German definition is the right
@@ -278,7 +273,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   useEffect(() => { saveSession(target, queue, i); }, [target, queue, i]);
 
   const item = queue[i];
-  const flip = useCallback(() => setFlipped((f) => !f), []);
+  const flip = useCallback(() => { setFlipped((f) => !f); tick('flip'); }, []);
 
   // Interval preview: show when each grade brings the card back. This is how
   // the scheduler earns trust — machinery, not magic (Anki’s oldest lesson).
@@ -408,21 +403,15 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
         if (e.code === 'Space' || e.key === 'Enter') return;
       }
       if (e.code === 'Space') { e.preventDefault(); flip(); }
-      // ←/→ are the two-way shortcut; 1–4 reach the full scale. A new card has no
-      // 2 or 4 to press.
-      //
-      // **A grade key on an unturned card turns it instead of grading it.** The
-      // buttons only exist on the back (2026-09-25 panel), so a verdict is always
-      // given with the answer in view; the keyboard follows the same rule rather
-      // than being the one path that grades blind. The second press grades.
-      const firstSight = !!item && statusOf(item.srsId) === 'new';
-      const isGradeKey = e.key === 'ArrowLeft' || e.key === 'ArrowRight' || (e.key >= '1' && e.key <= '4');
-      if (isGradeKey && item?.type === 'flip' && !firstSight && !flipped) { flip(); return; }
-      if (e.key === 'ArrowLeft') grade(Rating.Again);
-      if (e.key === 'ArrowRight') grade(Rating.Good);
-      if (e.key >= '1' && e.key <= '4') {
-        const s = SCALE[Number(e.key) - 1];
-        if (s && (!firstSight || s.firstSight)) grade(s.rating);
+      // ←/→ are the swipe: they grade from either face, as the drag does.
+      // 1/2 are the buttons, and follow the buttons' rule — on an unturned card
+      // they turn it, and the second press grades.
+      if (e.key === 'ArrowLeft') { grade(Rating.Again); return; }
+      if (e.key === 'ArrowRight') { grade(Rating.Good); return; }
+      if (e.key === '1' || e.key === '2') {
+        const firstSight = !!item && statusOf(item.srsId) === 'new';
+        if (item?.type === 'flip' && !firstSight && !flipped) { flip(); return; }
+        grade(SCALE[Number(e.key) - 1].rating);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -608,7 +597,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                 : <RecallItem key={item.srsId} word={card} onGrade={gradeDrill} />}
             </div>
           ) : (<>
-          <SwipeCard key={item.srsId} onFlip={flip} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>
+          <SwipeCard key={item.srsId} onFlip={flip} onSwipe={(knew) => { tick('swipe'); grade(knew ? Rating.Good : Rating.Again); }} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT — the prompt: word + German context, no translation to spoil
                   the test. Except on first sight: a card the learner has never met
@@ -838,14 +827,10 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
               and the accessibility tree) rather than unmounted. */}
           <div className="mt-3 flex flex-col items-center gap-1.5 w-full">
             <div className="grid w-full max-w-[580px]">
-              {/* Two grades on a first-sight card, four once there was something to
-                  recall. Four columns don't fit a phone, so they wrap 2×2 — which
-                  also puts the two familiar verdicts on the first row. */}
               <div inert={!showGrades}
-                className={`col-start-1 row-start-1 grid gap-2 sm:gap-2.5 ${
-                  isNew ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'} ${showGrades ? '' : 'invisible'}`}>
-                {SCALE.filter((s) => !isNew || s.firstSight).map((s) => {
-                  const label = (isNew && s.firstSight) ? s.firstSight : s.label;
+                className={`col-start-1 row-start-1 grid grid-cols-2 gap-2 sm:gap-2.5 ${showGrades ? '' : 'invisible'}`}>
+                {SCALE.map((s) => {
+                  const label = isNew ? s.firstSight : s.label;
                   const when = preview?.get(s.rating);
                   return (
                     // Explicit label: without it the accessible name runs the
@@ -884,8 +869,8 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                 : isNew
                   ? 'First time seeing this — take it in, then say how it landed'
                   : keyboard
-                    ? (flipped ? '1–4 to grade · Space turns it back' : 'Space or 1–4 shows the answer')
-                    : (flipped ? 'Tap or swipe the card to turn it back' : 'Or tap or swipe the card')}
+                    ? (flipped ? '← didn’t know · → knew it · Space turns it back' : 'Space shows the answer · ← / → grades')
+                    : (flipped ? 'Swipe right if you knew it, left if not' : 'Tap to turn · swipe right knew it, left didn’t')}
             </span>
           </div>
           </>)}
@@ -912,31 +897,24 @@ function Acknowledgement({ ack }: { ack: { n: number; ok: boolean; interval?: st
   );
 }
 
-/** Draggable flip-card. Tap flips; a horizontal swipe **also flips**, in either
- *  direction, and never grades.
+/** Draggable flip-card. **Tap flips; a swipe grades** *(2026-10-11, owner's ruling)*.
+ *  Right is *Knew it*, left is *Didn't know*, from either face — the card leaves
+ *  and the next one arrives from the opposite side (`card-in`). This reverses the
+ *  2026-09-25 panel, which made the swipe flip so it would mean "show me more" as
+ *  on the feed; the owner preferred the deck gesture. The grade is committed on
+ *  release, not after an exit animation, so advancing never waits on rAF.
  *
- *  **Why a swipe stopped grading** *(2026-09-25 panel)*. On the feed, dragging right
- *  opens a word's entry — "show me more" — and that is the gesture the app teaches
- *  first. Here, one tab over, the same drag wrote `Rating.Good`: the scheduler's
- *  strongest signal from the thumb movement the feed had trained as the weakest. The
- *  gesture grammar (CLAUDE.md) says drag toward *more*; turning the card is exactly
- *  that, so the swipe keeps its meaning across the app and grading is a button,
- *  on the back, with the answer in view.
+ *  **Not a button.** A `group` named by its headword: as `role="button"` VoiceOver
+ *  read the label and never the German word. "Show answer" is the flip's control.
  *
- *  **Not a button.** This was `role="button"` with an `aria-label`, which made every
- *  child presentational and replaced the headword with the label: VoiceOver said
- *  "Flashcard — activate to flip" and never the German word. It also nested the
- *  speaker buttons inside a button. It is a `group` named by its headword now; the
- *  flip has its own control ("Show answer"), and Space still flips from anywhere.
- *
- *  `behind` draws the rest of the queue as a physical stack. "35 left" is a
- *  number standing in for something that should be *seen*: the pile thins as you
- *  work, and the last card has nothing behind it, so finishing is visible before
- *  it is announced. */
-function SwipeCard({ children, onFlip, labelledBy, behind = 0 }:
-  { children: React.ReactNode; onFlip: () => void; labelledBy: string; behind?: number }) {
+ *  `behind` draws the rest of the queue as a physical stack, so finishing is
+ *  visible before it is announced. */
+function SwipeCard({ children, onFlip, onSwipe, labelledBy, behind = 0 }:
+  { children: React.ReactNode; onFlip: () => void; onSwipe: (knew: boolean) => void; labelledBy: string; behind?: number }) {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 200], [-8, 8]);
+  const knew = useTransform(x, [18, SWIPE_PX], [0, 1]);
+  const missed = useTransform(x, [-18, -SWIPE_PX], [0, 1]);
   const reduce = useReducedMotion();
   const dragged = useRef(false);
   return (
@@ -981,15 +959,28 @@ function SwipeCard({ children, onFlip, labelledBy, behind = 0 }:
       onDragEnd={(_, info) => {
         const { offset, velocity } = info;
         const flick = Math.abs(velocity.x) > 480 && Math.abs(offset.x) > 36;
-        // Either direction turns the card; the card springs back to the centre
-        // either way, because nothing left the deck.
-        if (Math.abs(offset.x) > SWIPE_PX || flick) onFlip();
-        animate(x, 0, reduce ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 30, velocity: velocity.x });
+        const right = offset.x > SWIPE_PX || (flick && velocity.x > 0);
+        const left = offset.x < -SWIPE_PX || (flick && velocity.x < 0);
         setTimeout(() => { dragged.current = false; }, 0);
+        // Committed: this card unmounts with the grade, nothing to spring back.
+        if (right || left) { onSwipe(right); return; }
+        animate(x, 0, reduce ? { duration: 0 } : { type: 'spring', stiffness: 420, damping: 30, velocity: velocity.x });
       }}
       onClick={() => { if (!dragged.current) onFlip(); }}
     >
       <div className="flip w-full h-full">{children}</div>
+      {/* The verdict, named while the thumb is still deciding, on the side it is
+          travelling towards. */}
+      <motion.span aria-hidden style={{ opacity: knew }}
+        className="absolute top-3 left-3 z-10 flex items-center gap-1.5 text-green font-semibold text-xs
+          rounded-full border border-green px-2.5 py-1 pointer-events-none glass">
+        <Check size={13} /> Knew it
+      </motion.span>
+      <motion.span aria-hidden style={{ opacity: missed }}
+        className="absolute top-3 right-3 z-10 flex items-center gap-1.5 text-red font-semibold text-xs
+          rounded-full border border-red px-2.5 py-1 pointer-events-none glass">
+        <X size={13} /> Didn’t know
+      </motion.span>
     </motion.div>
     </div>
   );
@@ -1101,14 +1092,12 @@ function CoachMarks() {
     // thing in the app. Shrinking the text to win eight pixels trades the finding
     // this block exists to deliver.
     <div className="pb-2 mb-2 border-b border-line flex items-center gap-x-3 gap-y-0.5 flex-wrap text-xs text-dim">
-      {/* **One swipe grammar again** *(2026-09-25 panel).* This used to explain that
-          here right meant *knew it* while on the feed right opened the entry — two
-          grammars one screen apart, which the tip could name but not fix. A swipe
-          now turns the card, the same "show me more" it means on the feed, and the
-          verdict is a button on the back. */}
-      <span><b className="text-txt font-semibold">Tap or swipe</b> the card to see the answer</span>
+      {/* *(2026-10-11, owner's ruling)* The swipe grades again: right knew it,
+          left didn't. Tap turns the card. The feed's right-drag still opens the
+          entry — the two surfaces knowingly speak different gestures. */}
+      <span><b className="text-txt font-semibold">Tap</b> the card to see the answer</span>
       <span aria-hidden>·</span>
-      <span><b className="text-txt font-semibold">Grade</b> on the back — each button says when it returns</span>
+      <span><b className="text-txt font-semibold">Swipe right</b> if you knew it, <b className="text-txt font-semibold">left</b> if not</span>
       <span aria-hidden>·</span>
       {/* The keyboard path existed but was never stated anywhere in the UI — and
           what it stated only ever worked on the flip card. The drills now take

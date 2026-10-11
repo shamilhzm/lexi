@@ -355,11 +355,19 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
   // `review()`: see the exposure block in `store.ts` for why the separation is
   // the whole design.
   const io = useRef<IntersectionObserver | null>(null);
+  const shownSlot = useRef(-1);
   const pending = useRef(new Set<HTMLElement>());
   useEffect(() => {
     const timers = new Map<Element, number>();
     const obs = new IntersectionObserver((entries) => {
       for (const e of entries) {
+        // A page passing: the quietest cue in the app, once per slot arrived at.
+        // Not on the first slot the feed opens on — nothing was scrolled.
+        const slot = Number((e.target as HTMLElement).dataset.slot);
+        if (e.isIntersecting && Number.isFinite(slot) && slot !== shownSlot.current) {
+          if (shownSlot.current >= 0) tick('page');
+          shownSlot.current = slot;
+        }
         const id = (e.target as HTMLElement).dataset.word;
         if (!id) continue;
         if (e.isIntersecting) {

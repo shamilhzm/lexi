@@ -11,6 +11,28 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-11 — Two verdicts, swipe to grade, and sound
+
+**Why.** The owner's ruling: four grade buttons asked for a calibration nobody wanted
+to make on every card, and a swipe that only turned the card felt like a wasted
+gesture in a deck.
+
+- **Hard and Easy are gone from Üben** (`SCALE` in `views/Review.tsx`). Only *Didn't
+  know* and *Knew it* (*Still learning* / *Got it* on a first sight) remain. FSRS
+  schedules from Again/Good. Placement still writes `Rating.Easy`, and existing Hard
+  and Easy rows in the ledger are untouched.
+- **Tap turns the card; a swipe grades it.** Right is *Knew it*, left is *Didn't
+  know*, from either face. A label names the verdict as you drag. ←/→ grade the same
+  way; 1/2 follow the buttons and turn an unturned card first. This **reverses the
+  2026-09-25 panel**, which made the swipe flip so it would match the feed's
+  right-drag-opens-the-entry. The two surfaces now knowingly use different gestures.
+  `review-structure.test.ts` guards the new rule.
+- **Sound** (`tick()` in `lib/ui.ts`, gated on the existing sound setting). The cues
+  are a soft card-turn on a flip, a noise sweep on a swipe, a two-note lift on a
+  right grade, and a very quiet page tick when a new word slot arrives in Wörter.
+  The physical sounds are band-passed noise, not pitch, so they never sound like a
+  verdict. The feed's tick skips the slot it opens on.
+
 ### Shipped 2026-10-04 — The tutor, behind Lexi's server
 
 **Why.** Asked whether this is the app Anthropic would launch, the review named two
