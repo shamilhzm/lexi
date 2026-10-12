@@ -1,0 +1,10 @@
+[
+  {
+    "id": "voc:C1:der Wiedereinsteiger",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈviːdɐˌaɪ̯nʃtaɪ̯ɡɐ",
+    "src": "wieder /ˈviːdɐ/ + Einsteiger /ˈaɪ̯nˌʃtaɪ̯ɡɐ/"
+  }
+]

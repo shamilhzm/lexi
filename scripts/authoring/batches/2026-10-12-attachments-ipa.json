@@ -1,0 +1,34 @@
+[
+  {
+    "id": "voc:B2:der Wiedereinstieg",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈviːdɐˌaɪ̯nʃtiːk",
+    "src": "wieder /ˈviːdɐ/ + Einstieg /ˈaɪ̯nʃtiːk/"
+  },
+  {
+    "id": "voc:C1:der Personalvermittler",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "pɛʁzoˈnaːlfɛɐ̯ˌmɪtlɐ",
+    "src": "Personal /pɛʁzoˈnaːl/ + Vermittler /fɛɐ̯ˈmɪtlɐ/"
+  },
+  {
+    "id": "voc:C1:der Auswahlprozess",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯svaːlpʁoˌt͡sɛs",
+    "src": "Auswahl /ˈaʊ̯svaːl/ + Prozess /pʁoˈt͡sɛs/"
+  },
+  {
+    "id": "voc:C1:der/die Personalverantwortliche",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "pɛʁzoˈnaːlfɛɐ̯ˌʔantvɔʁtlɪçə",
+    "src": "Personal /pɛʁzoˈnaːl/ + Verantwortliche /fɛɐ̯ˈʔantvɔʁtlɪçə/"
+  }
+]

@@ -50,6 +50,12 @@
 # build rather than quietly disagreeing with the card it was written for. A
 # ruling for a term not yet authored is fine and is why the file exists.
 #
-# No rulings yet. Add one only when a run has actually reported the dictionary
-# silent for that term — never pre-emptively.
+# Add one only when a run has actually reported the dictionary silent for that
+# term — never pre-emptively.
 term	field	value	evidence	date
+der/die Personalverantwortliche	gender	der/die	Wikidata L785043 (German noun; grammatical gender masculine and feminine)	2026-10-12
+der Wiedereinstieg	gender	der	Wikidata L783662 (German noun; grammatical gender masculine)	2026-10-12
+der Personalvermittler	gender	der	Wikidata L936603 (German noun; grammatical gender masculine)	2026-10-12
+der Auswahlprozess	gender	der	Wikidata L789916 (German noun; grammatical gender masculine)	2026-10-12
+der/die Personalverantwortliche	plural	die Personalverantwortlichen	de.wiktionary "Verantwortliche": {{Deutsch adjektivisch Übersicht}} — adjectival declension, plural "die Verantwortlichen"; the compound modifier Personal- does not change it	2026-10-12
+der Wiedereinsteiger	gender	der	Wikidata L916919 (German noun; grammatical gender masculine)	2026-10-12

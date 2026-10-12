@@ -314,6 +314,48 @@ const TABLE: Record<string, Entry> = {
   // which kept **geüberreicht** off the screen but also kept the card out of the
   // corpus. A table row is the file's own answer for an ambiguous prefix.
   überreichen:    { praesens: six('überreiche','überreichst','überreicht','überreichen','überreicht','überreichen'), praeteritum: six('überreichte','überreichtest','überreichte','überreichten','überreichtet','überreichten'), partizip: 'überreicht', aux: 'haben' },
+  // **From two attachments the owner handed over** *(2026-10-12)*: a course book's
+  // *trennbare und untrennbare Verben* table and a careers article. Every form is
+  // the verb's de.wiktionary *Deutsch Verb Übersicht* box (Präsens ich/du/er,
+  // Präteritum ich, Partizip II, Hilfsverb); only the plural persons and the other
+  // preterite persons follow the rule, as for the long tail above.
+  //
+  // Where a page has two boxes the card teaches one sense, and the row is that
+  // sense: *durchfahren* and *überkochen* separable (non-stop; boil over), and
+  // *durchdenken*, *durchdringen*, *überrennen*, *übertreten*, *überziehen*,
+  // *umfahren*, *umfliegen* inseparable. *widerhallen* and *widerspiegeln* are
+  // separable — `wider-` is stressed there — which the generator got wrong while
+  // reporting itself reliable, as it did *wiederaufnehmen* ("wiederaufnehmt").
+  durchsehen:      { praesens: six('sehe durch','siehst durch','sieht durch','sehen durch','seht durch','sehen durch'), praeteritum: six('sah durch','sahst durch','sah durch','sahen durch','saht durch','sahen durch'), partizip: 'durchgesehen', aux: 'haben' },
+  durchleben:      { praesens: six('durchlebe','durchlebst','durchlebt','durchleben','durchlebt','durchleben'), praeteritum: six('durchlebte','durchlebtest','durchlebte','durchlebten','durchlebtet','durchlebten'), partizip: 'durchlebt', aux: 'haben' },
+  durchdenken:     { praesens: six('durchdenke','durchdenkst','durchdenkt','durchdenken','durchdenkt','durchdenken'), praeteritum: six('durchdachte','durchdachtest','durchdachte','durchdachten','durchdachtet','durchdachten'), partizip: 'durchdacht', aux: 'haben' },
+  durchdringen:    { praesens: six('durchdringe','durchdringst','durchdringt','durchdringen','durchdringt','durchdringen'), praeteritum: six('durchdrang','durchdrangst','durchdrang','durchdrangen','durchdrangt','durchdrangen'), partizip: 'durchdrungen', aux: 'haben' },
+  durchfahren:     { praesens: six('fahre durch','fährst durch','fährt durch','fahren durch','fahrt durch','fahren durch'), praeteritum: six('fuhr durch','fuhrst durch','fuhr durch','fuhren durch','fuhrt durch','fuhren durch'), partizip: 'durchgefahren', aux: 'sein' },
+  übersiedeln:     { praesens: six('siedele über','siedelst über','siedelt über','siedeln über','siedelt über','siedeln über'), praeteritum: six('siedelte über','siedeltest über','siedelte über','siedelten über','siedeltet über','siedelten über'), partizip: 'übergesiedelt', aux: 'sein' },
+  überkochen:      { praesens: six('koche über','kochst über','kocht über','kochen über','kocht über','kochen über'), praeteritum: six('kochte über','kochtest über','kochte über','kochten über','kochtet über','kochten über'), partizip: 'übergekocht', aux: 'sein' },
+  überrennen:      { praesens: six('überrenne','überrennst','überrennt','überrennen','überrennt','überrennen'), praeteritum: six('überrannte','überranntest','überrannte','überrannten','überranntet','überrannten'), partizip: 'überrannt', aux: 'haben' },
+  übertreiben:     { praesens: six('übertreibe','übertreibst','übertreibt','übertreiben','übertreibt','übertreiben'), praeteritum: six('übertrieb','übertriebst','übertrieb','übertrieben','übertriebt','übertrieben'), partizip: 'übertrieben', aux: 'haben' },
+  übertreten:      { praesens: six('übertrete','übertrittst','übertritt','übertreten','übertretet','übertreten'), praeteritum: six('übertrat','übertratest','übertrat','übertraten','übertratet','übertraten'), partizip: 'übertreten', aux: 'haben' },
+  überziehen:      { praesens: six('überziehe','überziehst','überzieht','überziehen','überzieht','überziehen'), praeteritum: six('überzog','überzogst','überzog','überzogen','überzogt','überzogen'), partizip: 'überzogen', aux: 'haben' },
+  umbauen:         { praesens: six('baue um','baust um','baut um','bauen um','baut um','bauen um'), praeteritum: six('baute um','bautest um','baute um','bauten um','bautet um','bauten um'), partizip: 'umgebaut', aux: 'haben' },
+  umfallen:        { praesens: six('falle um','fällst um','fällt um','fallen um','fallt um','fallen um'), praeteritum: six('fiel um','fielst um','fiel um','fielen um','fielt um','fielen um'), partizip: 'umgefallen', aux: 'sein' },
+  umladen:         { praesens: six('lade um','lädst um','lädt um','laden um','ladet um','laden um'), praeteritum: six('lud um','ludest um','lud um','luden um','ludet um','luden um'), partizip: 'umgeladen', aux: 'haben' },
+  umstoßen:        { praesens: six('stoße um','stößt um','stößt um','stoßen um','stoßt um','stoßen um'), praeteritum: six('stieß um','stießest um','stieß um','stießen um','stießt um','stießen um'), partizip: 'umgestoßen', aux: 'haben' },
+  umfahren:        { praesens: six('umfahre','umfährst','umfährt','umfahren','umfahrt','umfahren'), praeteritum: six('umfuhr','umfuhrst','umfuhr','umfuhren','umfuhrt','umfuhren'), partizip: 'umfahren', aux: 'haben' },
+  umfliegen:       { praesens: six('umfliege','umfliegst','umfliegt','umfliegen','umfliegt','umfliegen'), praeteritum: six('umflog','umflogst','umflog','umflogen','umflogt','umflogen'), partizip: 'umflogen', aux: 'haben' },
+  unterordnen:     { praesens: six('ordne unter','ordnest unter','ordnet unter','ordnen unter','ordnet unter','ordnen unter'), praeteritum: six('ordnete unter','ordnetest unter','ordnete unter','ordneten unter','ordnetet unter','ordneten unter'), partizip: 'untergeordnet', aux: 'haben' },
+  widerhallen:     { praesens: six('halle wider','hallst wider','hallt wider','hallen wider','hallt wider','hallen wider'), praeteritum: six('hallte wider','halltest wider','hallte wider','hallten wider','halltet wider','hallten wider'), partizip: 'widergehallt', aux: 'haben' },
+  widerspiegeln:   { praesens: six('spiegle wider','spiegelst wider','spiegelt wider','spiegeln wider','spiegelt wider','spiegeln wider'), praeteritum: six('spiegelte wider','spiegeltest wider','spiegelte wider','spiegelten wider','spiegeltet wider','spiegelten wider'), partizip: 'widergespiegelt', aux: 'haben' },
+  wiederkommen:    { praesens: six('komme wieder','kommst wieder','kommt wieder','kommen wieder','kommt wieder','kommen wieder'), praeteritum: six('kam wieder','kamst wieder','kam wieder','kamen wieder','kamt wieder','kamen wieder'), partizip: 'wiedergekommen', aux: 'sein' },
+  auffrischen:     { praesens: six('frische auf','frischst auf','frischt auf','frischen auf','frischt auf','frischen auf'), praeteritum: six('frischte auf','frischtest auf','frischte auf','frischten auf','frischtet auf','frischten auf'), partizip: 'aufgefrischt', aux: 'haben' },
+  aussortieren:    { praesens: six('sortiere aus','sortierst aus','sortiert aus','sortieren aus','sortiert aus','sortieren aus'), praeteritum: six('sortierte aus','sortiertest aus','sortierte aus','sortierten aus','sortiertet aus','sortierten aus'), partizip: 'aussortiert', aux: 'haben' },
+  einbüßen:        { praesens: six('büße ein','büßt ein','büßt ein','büßen ein','büßt ein','büßen ein'), praeteritum: six('büßte ein','büßtest ein','büßte ein','büßten ein','büßtet ein','büßten ein'), partizip: 'eingebüßt', aux: 'haben' },
+  wiederaufnehmen: { praesens: six('nehme wieder auf','nimmst wieder auf','nimmt wieder auf','nehmen wieder auf','nehmt wieder auf','nehmen wieder auf'), praeteritum: six('nahm wieder auf','nahmst wieder auf','nahm wieder auf','nahmen wieder auf','nahmt wieder auf','nahmen wieder auf'), partizip: 'wiederaufgenommen', aux: 'haben' },
+
+  // Two more from the same request, whose roots (*schrauben*, *dösen*) are not
+  // cards, so the separable split had no known verb to land on.
+  anschrauben:     { praesens: six('schraube an','schraubst an','schraubt an','schrauben an','schraubt an','schrauben an'), praeteritum: six('schraubte an','schraubtest an','schraubte an','schraubten an','schraubtet an','schraubten an'), partizip: 'angeschraubt', aux: 'haben' },
+  wegdösen:        { praesens: six('döse weg','döst weg','döst weg','dösen weg','döst weg','dösen weg'), praeteritum: six('döste weg','döstest weg','döste weg','dösten weg','döstet weg','dösten weg'), partizip: 'weggedöst', aux: 'sein' },
   // Separable, but the participle takes no `ge-`: it attaches to *bereitet*, whose
   // own unstressed `be-` already suppresses it. The generator produced
   // **gevorbereitet**, which is why `bereiten` is not in SEED_ROOTS.

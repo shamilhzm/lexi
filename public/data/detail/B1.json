@@ -12157,6 +12157,20 @@
       }
     ]
   },
+  "voc:B1:der Hauptsatz": {
+    "ex": [
+      {
+        "de": "Im Hauptsatz steht das Verb an zweiter Stelle.",
+        "en": "In a main clause the verb is in second position.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Satz besteht aus zwei Hauptsätzen.",
+        "en": "The sentence consists of two main clauses.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Hauseingang": {
     "def": "The doorway leading into a building.",
     "ex": [
@@ -30502,6 +30516,20 @@
       }
     ]
   },
+  "voc:B1:die Vorsilbe": {
+    "ex": [
+      {
+        "de": "Die Vorsilbe „un-“ macht aus einem Wort oft sein Gegenteil.",
+        "en": "The prefix \"un-\" often turns a word into its opposite.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Betonte Vorsilben sind meistens trennbar.",
+        "en": "Stressed prefixes are usually separable.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Vorsorge": {
     "def": "Vorbeugung, Vorbereitung für spätere Entwicklungen",
     "ex": [
@@ -39549,6 +39577,20 @@
       }
     ]
   },
+  "voc:B1:sich anfühlen": {
+    "ex": [
+      {
+        "de": "Der Stoff fühlt sich weich an.",
+        "en": "The fabric feels soft.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie fühlt es sich an, wieder zu Hause zu sein?",
+        "en": "How does it feel to be home again?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:sich auflösen": {
     "def": "To break up and come to an end; also to disappear.",
     "ex": [
@@ -41236,6 +41278,20 @@
       }
     ]
   },
+  "voc:B1:trennbar": {
+    "ex": [
+      {
+        "de": "„Anrufen“ ist ein trennbares Verb.",
+        "en": "\"Anrufen\" is a separable verb.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ist diese Vorsilbe trennbar?",
+        "en": "Is this prefix separable?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:treten": {
     "def": "to step, to walk (a short distance); to appear",
     "ex": [
@@ -41408,6 +41464,20 @@
       {
         "de": "Er wird sich umbringen.",
         "en": "He's going to kill himself.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:umfallen": {
+    "ex": [
+      {
+        "de": "Die Vase ist umgefallen.",
+        "en": "The vase fell over.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Pass auf, sonst fällt die Leiter um!",
+        "en": "Careful, or the ladder will fall over!",
         "lvl": "B1"
       }
     ]
@@ -45135,6 +45205,20 @@
       }
     ]
   },
+  "voc:B1:zweijährig": {
+    "ex": [
+      {
+        "de": "Die Ausbildung ist zweijährig.",
+        "en": "The training lasts two years.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach einer zweijährigen Pause kehrte sie zurück.",
+        "en": "She came back after a two-year break.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:zweitens": {
     "ex": [
       {
@@ -45160,6 +45244,20 @@
       {
         "de": "Ich lasse mich nicht zwingen.",
         "en": "I won't be coerced.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:zwölfmal": {
+    "ex": [
+      {
+        "de": "Ich habe dich zwölfmal angerufen!",
+        "en": "I called you twelve times!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Wahrscheinlichkeit ist zwölfmal höher.",
+        "en": "The probability is twelve times higher.",
         "lvl": "B1"
       }
     ]
@@ -45484,6 +45582,20 @@
       {
         "de": "Der Stress überträgt sich auf das Pferd.",
         "en": "The stress transfers to the horse.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:übertreiben": {
+    "ex": [
+      {
+        "de": "Du übertreibst mal wieder!",
+        "en": "You're exaggerating again!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Man sollte es mit dem Sport nicht übertreiben.",
+        "en": "You shouldn't overdo it with sport.",
         "lvl": "B1"
       }
     ]

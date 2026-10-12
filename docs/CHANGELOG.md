@@ -11,6 +11,42 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-12 — Two attachments, every word: 88 cards, and three matcher fixes
+
+**Why.** The owner handed over a course-book page (*Grammatik-Rückschau*: Konnektoren,
+trennbare und untrennbare Verben) and a careers article, plus a list of words to check.
+"Make sure every word is in Lexi."
+
+- **The instrument first: `npm run corpus:textcov`.** Running text through the app's
+  own matcher, every token in one bucket (card · compound · function · entity · dark),
+  plus `--lemmas=` for word lists and verb tables. The inputs are copyrighted and stay
+  out of the repo; the tool is committed.
+- **88 cards** (10,188 → 10,276), all through the gate: the page's 36 missing
+  headwords (Konnektor, Hauptsatz, Vorsilbe, trennbar, *es sei denn*, 26 prefix verbs),
+  the article's 43, and 9 from the owner's list (*nach wie vor*, *zum Einsatz kommen*,
+  *derjenige*, *reinlich*, *anschrauben*, *wegdösen*, *Rekrutierung*…). Six facts are
+  ruled from Wikidata lexemes; four compound IPAs are composed from their parts.
+- **Corrections:** `wiederholen` (A1) was glossed "to bring back" — the *separable*
+  verb — on the card that teaches *to repeat*. *Aktualität*'s plural belonged to the
+  other sense. Four uncountables now say *nur Singular*.
+- **25 verbs into the conjugation table** from their de.wiktionary summary boxes. The
+  generator had *widerhallen* as "widerhallt" and *wiederaufnehmen* as "wiederaufnehmt"
+  while reporting itself reliable.
+- **The gate caught a new class:** on a page holding a separable and an inseparable
+  verb it took the first IPA, so *übertreten* ("violate") was about to ship with the
+  separable stress. It now withholds IPA there unless stated, and checks a stated one
+  against the page.
+- **Matcher:** `der/die` nouns (*Vorgesetzter*, *Angestellter*) matched only their
+  plural; reflexive and governed verbs had **no** attested forms at all (*erwies*,
+  *hinzuweisen* were dark). Both fixed — and the second fix's first draft moved 287
+  tokens between cards, so it is scoped and measured (LESSONS, *A headword is not a
+  lemma*).
+- **Not added, on purpose:** proper nouns and English (*Salesforce*, *Tools*,
+  *Mentoring*), *Großbritannien* (a country takes no article; the gate cannot express
+  that yet), and seven transparent compounds no dictionary attests — they still read
+  as their parts. *sich vertraut machen* lights up as *vertraut* + *machen*.
+- **Store screenshots** retaken in the card-box look, same three frames.
+
 ### Shipped 2026-10-11 — The card box: a new visual identity
 
 **Why.** The owner asked for Lexi to look closer to two references

@@ -1799,3 +1799,33 @@ differently. Script a *slow, short* drag too, about 100pt at 0.5s, because that 
 the real thumb's motion. And never put elastic against a zero constraint on
 something meant to be dragged *off*: it is a rubber band, and the hand reads it as
 resistance.
+
+## A headword is not a lemma *(added 2026-10-12)*
+
+**Believed:** every verb card had attested inflections once `corpus:inflections` ran,
+so an article's *erwies* or *hinzuweisen* would light up whenever the card existed.
+
+**True:** `inflections.ts` keyed cards by `term` with only the article stripped. A
+card's term is shaped for a flashcard — `sich erweisen`, `hinweisen auf + A` — and no
+Wiktionary headword is spelled like that. So **all 104 reflexive and all 34 governed
+verbs had zero attested forms**, while 1,759 of 1,909 verbs looked covered. Found by
+running a real article through the new `corpus:textcov`: three dark tokens whose
+cards existed (*erwies*, *hinzuweisen*, *weiterzuentwickeln*).
+
+**Rule:** anything that asks a dictionary about a card asks with `lookupLemma` (or
+`government().lemma`), never with `term`. `lib.ts` has said so since August; the
+inflections builder predated it. And measure a coverage tool on *running text*, not
+only on word lists: a list hands you lemmas, and that hides every bug in getting
+from a form back to one.
+
+**And the fix had its own version of the bug.** Keying on the lemma gave the forms to
+*every* card sharing it, and first-wins handed them to whichever came first: **287
+tokens moved owner** on the first rebuild — *bat* from *bitten* to *bitten um + A*,
+*litt* to *leiden (unter)*, *bessere* from *gut* to *sich bessern*. Measured by
+diffing the matcher over every newly attested form, old table against new. Now a
+pattern card gets attested forms only when it is the sole card for its lemma, and a
+reflexive card never takes a form the adjective path claims; seven owners still
+change, and each was read (lowercase verb forms beating noun plurals, by design).
+**Rule, sharpened:** a change to what the matcher indexes is measured as *who owns
+each token, before and after*, not as a hit rate — a rate can stay flat while 287
+tokens change hands.

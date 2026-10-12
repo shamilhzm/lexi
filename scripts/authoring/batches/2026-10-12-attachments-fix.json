@@ -1,0 +1,74 @@
+[
+ {
+  "id": "voc:A1:das Fernsehen",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Fernsehen — Nominativ Plural: —"
+ },
+ {
+  "id": "voc:C1:die Seniorität",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Seniorität — Nominativ Plural: —"
+ },
+ {
+  "id": "voc:C1:die Arbeitsmoral",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Arbeitsmoral — Nominativ Plural: —"
+ },
+ {
+  "id": "voc:C1:die Aktualität",
+  "expect": {
+   "plural": "die Aktualitäten"
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Aktualität — the plural Aktualitäten belongs to the sense 'current events'; the card teaches 'topicality', which is uncountable (the Händel case, sense-scoped plural)"
+ },
+ {
+  "id": "voc:A1:wiederholen",
+  "expect": {
+   "en": "to bring back, take back"
+  },
+  "en": "to repeat",
+  "src": "de.wiktionary.org/wiki/wiederholen — the A1 card is the inseparable wiederhólen (to repeat), which its own def and both examples teach; 'bring back' is the separable wieder|holen"
+ },
+ {
+  "id": "voc:C1:der Personalvermittler",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Personalvermittler",
+  "src": "de.wiktionary.org/wiki/Vermittler — Nominativ Plural: Vermittler; a compound declines as its head (Grundwort)"
+ },
+ {
+  "id": "voc:C1:der Auswahlprozess",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Auswahlprozesse",
+  "src": "de.wiktionary.org/wiki/Prozess — Nominativ Plural: Prozesse; a compound declines as its head (Grundwort)"
+ },
+ {
+  "id": "voc:B2:der Wiedereinstieg",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Wiedereinstiege",
+  "src": "de.wiktionary.org/wiki/Einstieg — Nominativ Plural: Einstiege; a compound declines as its head (Grundwort)"
+ },
+ {
+  "id": "voc:C1:der Wiedereinsteiger",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Wiedereinsteiger",
+  "src": "de.wiktionary.org/wiki/Einsteiger — Nominativ Plural: Einsteiger; a compound declines as its head (Grundwort)"
+ }
+]

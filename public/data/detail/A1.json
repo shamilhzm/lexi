@@ -3489,6 +3489,20 @@
       }
     ]
   },
+  "voc:A1:das Fernsehen": {
+    "ex": [
+      {
+        "de": "Was läuft heute im Fernsehen?",
+        "en": "What's on television today?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Fernsehen berichtet live aus Berlin.",
+        "en": "Television is reporting live from Berlin.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Feuer": {
     "def": "fire (chemical process); fire (instance of something burning)",
     "ex": [

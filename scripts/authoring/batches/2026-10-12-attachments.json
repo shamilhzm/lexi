@@ -1,0 +1,1338 @@
+[
+ {
+  "term": "es sei denn",
+  "en": "unless",
+  "pos": "phrase",
+  "level": "B2",
+  "field": "Connectors",
+  "ex": [
+   {
+    "de": "Wir gehen spazieren, es sei denn, es regnet.",
+    "en": "We'll go for a walk, unless it rains."
+   },
+   {
+    "de": "Die Zeit vergeht schnell, es sei denn, man wartet.",
+    "en": "Time passes quickly, unless you're waiting."
+   }
+  ]
+ },
+ {
+  "term": "der Konnektor",
+  "en": "connector, linking word",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Language",
+  "ex": [
+   {
+    "de": "„Deshalb“ ist ein Konnektor, der eine Folge einleitet.",
+    "en": "\"Deshalb\" is a connector that introduces a consequence."
+   },
+   {
+    "de": "Mit Konnektoren klingt dein Text flüssiger.",
+    "en": "With connectors your text sounds smoother."
+   }
+  ]
+ },
+ {
+  "term": "der Hauptsatz",
+  "en": "main clause",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Language",
+  "ex": [
+   {
+    "de": "Im Hauptsatz steht das Verb an zweiter Stelle.",
+    "en": "In a main clause the verb is in second position."
+   },
+   {
+    "de": "Der Satz besteht aus zwei Hauptsätzen.",
+    "en": "The sentence consists of two main clauses."
+   }
+  ]
+ },
+ {
+  "term": "trennbar",
+  "en": "separable",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Language",
+  "ex": [
+   {
+    "de": "„Anrufen“ ist ein trennbares Verb.",
+    "en": "\"Anrufen\" is a separable verb."
+   },
+   {
+    "de": "Ist diese Vorsilbe trennbar?",
+    "en": "Is this prefix separable?"
+   }
+  ]
+ },
+ {
+  "term": "untrennbar",
+  "en": "inseparable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Language",
+  "ex": [
+   {
+    "de": "„Verstehen“ ist ein untrennbares Verb.",
+    "en": "\"Verstehen\" is an inseparable verb."
+   },
+   {
+    "de": "Die beiden sind untrennbar miteinander verbunden.",
+    "en": "The two are inseparably linked."
+   }
+  ]
+ },
+ {
+  "term": "die Vorsilbe",
+  "en": "prefix",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Language",
+  "ex": [
+   {
+    "de": "Die Vorsilbe „un-“ macht aus einem Wort oft sein Gegenteil.",
+    "en": "The prefix \"un-\" often turns a word into its opposite."
+   },
+   {
+    "de": "Betonte Vorsilben sind meistens trennbar.",
+    "en": "Stressed prefixes are usually separable."
+   }
+  ]
+ },
+ {
+  "term": "das Fernsehen",
+  "en": "television (the medium)",
+  "pos": "noun",
+  "level": "A1",
+  "field": "Media",
+  "ex": [
+   {
+    "de": "Was läuft heute im Fernsehen?",
+    "en": "What's on television today?"
+   },
+   {
+    "de": "Das Fernsehen berichtet live aus Berlin.",
+    "en": "Television is reporting live from Berlin."
+   }
+  ]
+ },
+ {
+  "term": "durchsehen",
+  "en": "to look through, to check",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Office & Communication",
+  "ex": [
+   {
+    "de": "Kannst du meinen Text noch einmal durchsehen?",
+    "en": "Can you look through my text once more?"
+   },
+   {
+    "de": "Ich habe alle Unterlagen durchgesehen.",
+    "en": "I've gone through all the documents."
+   }
+  ]
+ },
+ {
+  "term": "durchleben",
+  "en": "to live through, to experience",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Sie musste eine schwere Zeit durchleben.",
+    "en": "She had to live through a hard time."
+   },
+   {
+    "de": "Viele Familien durchleben solche Krisen.",
+    "en": "Many families go through crises like that."
+   }
+  ]
+ },
+ {
+  "term": "durchqueren",
+  "en": "to cross, to travel across",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Sie wollen die Wüste zu Fuß durchqueren.",
+    "en": "They want to cross the desert on foot."
+   },
+   {
+    "de": "Wir mussten die ganze Stadt durchqueren.",
+    "en": "We had to cross the whole city."
+   }
+  ]
+ },
+ {
+  "term": "durchdenken",
+  "en": "to think through",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Decisions",
+  "ex": [
+   {
+    "de": "Du solltest den Plan gut durchdenken.",
+    "en": "You should think the plan through carefully."
+   },
+   {
+    "de": "Das war nicht gut durchdacht.",
+    "en": "That wasn't well thought through."
+   }
+  ],
+  "ipa": "dʊʁçˈdɛŋkn̩"
+ },
+ {
+  "term": "durchdringen",
+  "en": "to penetrate, to pervade",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Das Licht kann das dichte Laub kaum durchdringen.",
+    "en": "The light can barely penetrate the dense leaves."
+   },
+   {
+    "de": "Die Idee hat die ganze Firma durchdrungen.",
+    "en": "The idea has pervaded the whole company."
+   }
+  ],
+  "ipa": "ˌdʊʁçˈdʁɪŋən"
+ },
+ {
+  "term": "durchfahren",
+  "en": "to drive through (without stopping)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Wir sind die ganze Nacht durchgefahren.",
+    "en": "We drove through the whole night without stopping."
+   },
+   {
+    "de": "Fährt dieser Zug bis Hamburg durch?",
+    "en": "Does this train go straight through to Hamburg?"
+   }
+  ],
+  "ipa": "ˈdʊʁçˌfaːʁən"
+ },
+ {
+  "term": "übersiedeln",
+  "en": "to move, to relocate (to another place)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Die Familie will nach Wien übersiedeln.",
+    "en": "The family wants to relocate to Vienna."
+   },
+   {
+    "de": "Vor zehn Jahren sind sie nach Kanada übergesiedelt.",
+    "en": "Ten years ago they moved to Canada."
+   }
+  ]
+ },
+ {
+  "term": "überkochen",
+  "en": "to boil over",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Pass auf, dass die Milch nicht überkocht!",
+    "en": "Watch that the milk doesn't boil over!"
+   },
+   {
+    "de": "Die Suppe ist übergekocht.",
+    "en": "The soup boiled over."
+   }
+  ],
+  "ipa": "ˈyːbɐˌkɔxn̩"
+ },
+ {
+  "term": "überblicken",
+  "en": "to overlook; to grasp, to have an overview of",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Von hier oben kann man die ganze Stadt überblicken.",
+    "en": "From up here you can see the whole city."
+   },
+   {
+    "de": "Die Folgen sind noch nicht zu überblicken.",
+    "en": "The consequences can't be fully grasped yet."
+   }
+  ]
+ },
+ {
+  "term": "überfordern",
+  "en": "to overwhelm, to ask too much of",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Mental health concepts",
+  "ex": [
+   {
+    "de": "Ich will dich nicht überfordern.",
+    "en": "I don't want to ask too much of you."
+   },
+   {
+    "de": "Ich überfordere mich oft selbst.",
+    "en": "I often take on too much myself."
+   }
+  ]
+ },
+ {
+  "term": "überrennen",
+  "en": "to overrun, to run over",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Die Fans haben die Absperrung fast überrannt.",
+    "en": "The fans almost overran the barrier."
+   },
+   {
+    "de": "Er wollte mich nicht überrennen.",
+    "en": "He didn't mean to run me over."
+   }
+  ],
+  "ipa": "yːbɐˈʁɛnən"
+ },
+ {
+  "term": "übertreiben",
+  "en": "to exaggerate, to overdo",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Du übertreibst mal wieder!",
+    "en": "You're exaggerating again!"
+   },
+   {
+    "de": "Man sollte es mit dem Sport nicht übertreiben.",
+    "en": "You shouldn't overdo it with sport."
+   }
+  ]
+ },
+ {
+  "term": "übertreten",
+  "en": "to break (a rule), to violate",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Wer das Gesetz übertritt, muss mit einer Strafe rechnen.",
+    "en": "Anyone who breaks the law must expect a penalty."
+   },
+   {
+    "de": "Er hat die Regeln übertreten.",
+    "en": "He broke the rules."
+   }
+  ],
+  "ipa": "yːbɐˈtʁeːtn̩"
+ },
+ {
+  "term": "überziehen",
+  "en": "to overdraw (an account); to overrun (time)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Bank & Money",
+  "ex": [
+   {
+    "de": "Ich habe mein Konto um 200 Euro überzogen.",
+    "en": "I've overdrawn my account by 200 euros."
+   },
+   {
+    "de": "Bitte die Redezeit nicht überziehen!",
+    "en": "Please don't go over the speaking time!"
+   }
+  ],
+  "ipa": "ˌyːbɐˈt͡siːən"
+ },
+ {
+  "term": "umbauen",
+  "en": "to rebuild, to convert, to remodel",
+  "pos": "verb",
+  "level": "B2",
+  "field": "The Building",
+  "ex": [
+   {
+    "de": "Wir wollen die Küche umbauen.",
+    "en": "We want to remodel the kitchen."
+   },
+   {
+    "de": "Die alte Fabrik wurde zu Wohnungen umgebaut.",
+    "en": "The old factory was converted into flats."
+   }
+  ],
+  "ipa": "ˈumˌbaʊ̯ən"
+ },
+ {
+  "term": "umfallen",
+  "en": "to fall over",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Die Vase ist umgefallen.",
+    "en": "The vase fell over."
+   },
+   {
+    "de": "Pass auf, sonst fällt die Leiter um!",
+    "en": "Careful, or the ladder will fall over!"
+   }
+  ]
+ },
+ {
+  "term": "umladen",
+  "en": "to reload, to transfer (cargo)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Die Waren müssen in Hamburg umgeladen werden.",
+    "en": "The goods have to be transferred in Hamburg."
+   },
+   {
+    "de": "Wir mussten alles auf einen kleineren Wagen umladen.",
+    "en": "We had to reload everything onto a smaller van."
+   }
+  ]
+ },
+ {
+  "term": "umstoßen",
+  "en": "to knock over; to overturn (a plan)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Das Kind hat das Glas umgestoßen.",
+    "en": "The child knocked the glass over."
+   },
+   {
+    "de": "Der Regen hat unsere Pläne umgestoßen.",
+    "en": "The rain upset our plans."
+   }
+  ]
+ },
+ {
+  "term": "umkreisen",
+  "en": "to circle, to orbit",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Der Mond umkreist die Erde.",
+    "en": "The moon orbits the earth."
+   },
+   {
+    "de": "Ein Hubschrauber umkreiste das Gebäude.",
+    "en": "A helicopter circled the building."
+   }
+  ]
+ },
+ {
+  "term": "umzäunen",
+  "en": "to fence in",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Sie wollen den Garten umzäunen.",
+    "en": "They want to fence in the garden."
+   },
+   {
+    "de": "Das Grundstück ist umzäunt.",
+    "en": "The property is fenced in."
+   }
+  ]
+ },
+ {
+  "term": "umfahren",
+  "en": "to drive around, to bypass",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Wir können den Stau umfahren.",
+    "en": "We can drive around the traffic jam."
+   },
+   {
+    "de": "Der Bus umfuhr die Baustelle.",
+    "en": "The bus drove around the roadworks."
+   }
+  ],
+  "ipa": "ʊmˈfaːʁən"
+ },
+ {
+  "term": "umfliegen",
+  "en": "to fly around",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Das Flugzeug musste das Gewitter umfliegen.",
+    "en": "The plane had to fly around the storm."
+   },
+   {
+    "de": "Die Vögel umflogen den Kirchturm.",
+    "en": "The birds flew around the church tower."
+   }
+  ],
+  "ipa": "ʊmˈfliːɡn̩"
+ },
+ {
+  "term": "unterordnen",
+  "en": "to subordinate, to put second",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Power & Authority",
+  "ex": [
+   {
+    "de": "Sie hat ihre Wünsche immer der Familie untergeordnet.",
+    "en": "She always put the family's needs before her own wishes."
+   },
+   {
+    "de": "Er kann sich schlecht unterordnen.",
+    "en": "He isn't good at taking a back seat."
+   }
+  ]
+ },
+ {
+  "term": "unterschätzen",
+  "en": "to underestimate",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Man sollte die Gefahr nicht unterschätzen.",
+    "en": "You shouldn't underestimate the danger."
+   },
+   {
+    "de": "Ich habe die Arbeit völlig unterschätzt.",
+    "en": "I completely underestimated the work."
+   }
+  ]
+ },
+ {
+  "term": "widerhallen",
+  "en": "to echo, to reverberate",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Ihre Schritte hallten im Flur wider.",
+    "en": "Her footsteps echoed in the corridor."
+   },
+   {
+    "de": "Der Applaus ließ den Saal widerhallen.",
+    "en": "The applause made the hall reverberate."
+   }
+  ]
+ },
+ {
+  "term": "widerspiegeln",
+  "en": "to reflect, to mirror",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Society",
+  "ex": [
+   {
+    "de": "Die Zahlen spiegeln die Lage gut wider.",
+    "en": "The figures reflect the situation well."
+   },
+   {
+    "de": "Seine Bilder widerspiegeln seine Kindheit.",
+    "en": "His paintings reflect his childhood."
+   }
+  ]
+ },
+ {
+  "term": "widerfahren",
+  "en": "to happen to, to befall",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Ihm ist großes Unrecht widerfahren.",
+    "en": "A great injustice was done to him."
+   },
+   {
+    "de": "So etwas kann jedem widerfahren.",
+    "en": "Something like that can happen to anyone."
+   }
+  ]
+ },
+ {
+  "term": "wiederkommen",
+  "en": "to come back, to return",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Basic verbs",
+  "ex": [
+   {
+    "de": "Wann kommst du wieder?",
+    "en": "When are you coming back?"
+   },
+   {
+    "de": "Ich möchte unbedingt wiederkommen.",
+    "en": "I'd really like to come back."
+   }
+  ]
+ },
+ {
+  "term": "das Berufsleben",
+  "en": "working life",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Working Life",
+  "ex": [
+   {
+    "de": "Nach der Elternzeit kehrte sie ins Berufsleben zurück.",
+    "en": "After parental leave she returned to working life."
+   },
+   {
+    "de": "Im Berufsleben braucht man viel Geduld.",
+    "en": "You need a lot of patience in working life."
+   }
+  ]
+ },
+ {
+  "term": "der/die Personalverantwortliche",
+  "en": "HR manager, person responsible for hiring",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Applying for Jobs",
+  "ex": [
+   {
+    "de": "Die Personalverantwortliche hat mich zum Gespräch eingeladen.",
+    "en": "The HR manager invited me to an interview."
+   },
+   {
+    "de": "Viele Personalverantwortliche lesen Lebensläufe nur kurz.",
+    "en": "Many hiring managers only skim CVs."
+   }
+  ]
+ },
+ {
+  "term": "die Anatomie",
+  "en": "anatomy",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Body parts",
+  "ex": [
+   {
+    "de": "Im ersten Semester lernen die Studierenden Anatomie.",
+    "en": "In the first semester the students learn anatomy."
+   },
+   {
+    "de": "Der Artikel beschreibt die Anatomie einer Krise.",
+    "en": "The article describes the anatomy of a crisis."
+   }
+  ]
+ },
+ {
+  "term": "die Aktualität",
+  "en": "topicality, being up to date",
+  "pos": "noun",
+  "level": "C1",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Das Thema hat nichts von seiner Aktualität verloren.",
+    "en": "The topic has lost none of its relevance."
+   },
+   {
+    "de": "Bei Nachrichten zählt vor allem die Aktualität.",
+    "en": "With news, what counts most is being current."
+   }
+  ]
+ },
+ {
+  "term": "die Benachteiligung",
+  "en": "discrimination, disadvantage",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Development & Inequality",
+  "ex": [
+   {
+    "de": "Das Gesetz soll die Benachteiligung von Frauen verhindern.",
+    "en": "The law is meant to prevent discrimination against women."
+   },
+   {
+    "de": "Sie spricht offen über ihre Benachteiligung im Job.",
+    "en": "She talks openly about being disadvantaged at work."
+   }
+  ]
+ },
+ {
+  "term": "benachteiligen",
+  "en": "to disadvantage, to discriminate against",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Development & Inequality",
+  "ex": [
+   {
+    "de": "Niemand darf wegen seiner Herkunft benachteiligt werden.",
+    "en": "No one may be disadvantaged because of their origin."
+   },
+   {
+    "de": "Die alte Regel hat ältere Bewerber benachteiligt.",
+    "en": "The old rule disadvantaged older applicants."
+   }
+  ]
+ },
+ {
+  "term": "die Ersetzung",
+  "en": "replacement",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Digitalisation & Work",
+  "ex": [
+   {
+    "de": "Viele fürchten die Ersetzung von Menschen durch Maschinen.",
+    "en": "Many fear the replacement of people by machines."
+   },
+   {
+    "de": "Die Ersetzung der alten Leitungen dauert Monate.",
+    "en": "Replacing the old pipes takes months."
+   }
+  ]
+ },
+ {
+  "term": "die Festanstellung",
+  "en": "permanent position",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Employment contract",
+  "ex": [
+   {
+    "de": "Nach dem Praktikum bekam sie eine Festanstellung.",
+    "en": "After the internship she got a permanent position."
+   },
+   {
+    "de": "Eine Festanstellung gibt mehr Sicherheit.",
+    "en": "A permanent job gives more security."
+   }
+  ]
+ },
+ {
+  "term": "der Hoffnungsschimmer",
+  "en": "glimmer of hope",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die neue Studie ist ein kleiner Hoffnungsschimmer.",
+    "en": "The new study is a small glimmer of hope."
+   },
+   {
+    "de": "Es gibt noch einen Hoffnungsschimmer.",
+    "en": "There is still a glimmer of hope."
+   }
+  ]
+ },
+ {
+  "term": "der Leitfaden",
+  "en": "guide, guidelines",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Der Leitfaden erklärt alle Schritte der Bewerbung.",
+    "en": "The guide explains every step of the application."
+   },
+   {
+    "de": "Für neue Mitarbeiter gibt es einen Leitfaden.",
+    "en": "There's a guide for new employees."
+   }
+  ]
+ },
+ {
+  "term": "die Repräsentation",
+  "en": "representation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics & Society",
+  "ex": [
+   {
+    "de": "Es geht um die Repräsentation von Frauen in der Politik.",
+    "en": "It's about the representation of women in politics."
+   },
+   {
+    "de": "Mehr Repräsentation schafft mehr Vertrauen.",
+    "en": "More representation builds more trust."
+   }
+  ]
+ },
+ {
+  "term": "die Schilderung",
+  "en": "description, account",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Narrative Technique",
+  "ex": [
+   {
+    "de": "Nach seiner Schilderung war der Unfall nicht seine Schuld.",
+    "en": "According to his account, the accident wasn't his fault."
+   },
+   {
+    "de": "Ihre Schilderung des Abends war sehr lebendig.",
+    "en": "Her description of the evening was very vivid."
+   }
+  ]
+ },
+ {
+  "term": "die Seniorität",
+  "en": "seniority",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Das Gehalt hängt auch von der Seniorität ab.",
+    "en": "The salary also depends on seniority."
+   },
+   {
+    "de": "Bei Beförderungen zählt nicht nur die Seniorität.",
+    "en": "Seniority isn't the only thing that counts for promotions."
+   }
+  ]
+ },
+ {
+  "term": "die Unmöglichkeit",
+  "en": "impossibility",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Das ist eine Herausforderung, aber keine Unmöglichkeit.",
+    "en": "That's a challenge, but not an impossibility."
+   },
+   {
+    "de": "Sie sprach von der Unmöglichkeit einer schnellen Lösung.",
+    "en": "She spoke of the impossibility of a quick solution."
+   }
+  ]
+ },
+ {
+  "term": "im Nachhinein",
+  "en": "in hindsight, afterwards",
+  "pos": "phrase",
+  "level": "B2",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Das war im Nachhinein die richtige Entscheidung.",
+    "en": "In hindsight that was the right decision."
+   },
+   {
+    "de": "Das weiß man immer erst im Nachhinein.",
+    "en": "You only ever know that afterwards."
+   }
+  ]
+ },
+ {
+  "term": "proaktiv",
+  "en": "proactive",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Sprechen Sie die Lücke im Lebenslauf proaktiv an.",
+    "en": "Address the gap in your CV proactively."
+   },
+   {
+    "de": "Wir brauchen proaktive Mitarbeiter.",
+    "en": "We need proactive employees."
+   }
+  ]
+ },
+ {
+  "term": "abschreckend",
+  "en": "off-putting, deterrent",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Persuasion & Impact",
+  "ex": [
+   {
+    "de": "Die hohen Preise sind abschreckend.",
+    "en": "The high prices are off-putting."
+   },
+   {
+    "de": "Die Strafe soll abschreckend wirken.",
+    "en": "The penalty is meant to act as a deterrent."
+   }
+  ]
+ },
+ {
+  "term": "geschlechtsspezifisch",
+  "en": "gender-specific",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Development & Inequality",
+  "ex": [
+   {
+    "de": "Es gibt immer noch große geschlechtsspezifische Unterschiede beim Gehalt.",
+    "en": "There are still big gender-specific differences in pay."
+   },
+   {
+    "de": "Die Studie untersucht geschlechtsspezifisches Verhalten.",
+    "en": "The study examines gender-specific behaviour."
+   }
+  ]
+ },
+ {
+  "term": "sechsmonatig",
+  "en": "six-month (lasting six months)",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Sie macht ein sechsmonatiges Praktikum.",
+    "en": "She's doing a six-month internship."
+   },
+   {
+    "de": "Nach einer sechsmonatigen Pause fing er wieder an.",
+    "en": "After a six-month break he started again."
+   }
+  ]
+ },
+ {
+  "term": "zweijährig",
+  "en": "two-year; two-year-old",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Die Ausbildung ist zweijährig.",
+    "en": "The training lasts two years."
+   },
+   {
+    "de": "Nach einer zweijährigen Pause kehrte sie zurück.",
+    "en": "She came back after a two-year break."
+   }
+  ]
+ },
+ {
+  "term": "unerklärt",
+  "en": "unexplained",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Die Ursache bleibt bis heute unerklärt.",
+    "en": "The cause remains unexplained to this day."
+   },
+   {
+    "de": "Eine unerklärte Lücke im Lebenslauf wirkt schlecht.",
+    "en": "An unexplained gap in a CV makes a bad impression."
+   }
+  ]
+ },
+ {
+  "term": "ununterbrochen",
+  "en": "continuous, nonstop",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Es hat ununterbrochen geregnet.",
+    "en": "It rained nonstop."
+   },
+   {
+    "de": "Er arbeitet seit zehn Jahren ununterbrochen bei der Firma.",
+    "en": "He has worked at the company continuously for ten years."
+   }
+  ]
+ },
+ {
+  "term": "perfekt",
+  "en": "perfect",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das Wetter ist heute perfekt.",
+    "en": "The weather is perfect today."
+   },
+   {
+    "de": "Niemand ist perfekt.",
+    "en": "Nobody is perfect."
+   }
+  ]
+ },
+ {
+  "term": "sich anfühlen",
+  "en": "to feel (like)",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Der Stoff fühlt sich weich an.",
+    "en": "The fabric feels soft."
+   },
+   {
+    "de": "Wie fühlt es sich an, wieder zu Hause zu sein?",
+    "en": "How does it feel to be home again?"
+   }
+  ]
+ },
+ {
+  "term": "auffrischen",
+  "en": "to brush up, to refresh",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Lifelong Learning",
+  "ex": [
+   {
+    "de": "Ich will vor der Reise mein Französisch auffrischen.",
+    "en": "I want to brush up my French before the trip."
+   },
+   {
+    "de": "Sie hat ihre Kenntnisse in einem Kurs aufgefrischt.",
+    "en": "She refreshed her knowledge in a course."
+   }
+  ]
+ },
+ {
+  "term": "aufholen",
+  "en": "to catch up, to make up (for)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "School",
+  "ex": [
+   {
+    "de": "Nach der Krankheit musste er viel Stoff aufholen.",
+    "en": "After his illness he had a lot of material to catch up on."
+   },
+   {
+    "de": "Die Mannschaft hat in der zweiten Hälfte aufgeholt.",
+    "en": "The team caught up in the second half."
+   }
+  ]
+ },
+ {
+  "term": "aussortieren",
+  "en": "to sort out, to weed out",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Ich sortiere alte Kleidung aus.",
+    "en": "I'm sorting out old clothes."
+   },
+   {
+    "de": "Viele Bewerbungen werden sofort aussortiert.",
+    "en": "Many applications are weeded out straight away."
+   }
+  ]
+ },
+ {
+  "term": "beimessen",
+  "en": "to attach (importance to), to attribute",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Man sollte dem Gerücht keine Bedeutung beimessen.",
+    "en": "You shouldn't attach any importance to the rumour."
+   },
+   {
+    "de": "Sie misst der Familie großen Wert bei.",
+    "en": "She places great value on family."
+   }
+  ]
+ },
+ {
+  "term": "einbüßen",
+  "en": "to lose, to forfeit",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Partei hat viele Stimmen eingebüßt.",
+    "en": "The party lost a lot of votes."
+   },
+   {
+    "de": "Durch die Pause wollte sie nichts einbüßen.",
+    "en": "She didn't want to lose anything through the break."
+   }
+  ]
+ },
+ {
+  "term": "entgegnen",
+  "en": "to reply, to retort",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "„Das stimmt nicht“, entgegnete sie.",
+    "en": "\"That's not true,\" she retorted."
+   },
+   {
+    "de": "Darauf wusste er nichts zu entgegnen.",
+    "en": "He didn't know what to say to that."
+   }
+  ]
+ },
+ {
+  "term": "schulen",
+  "en": "to train",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Studies & Training",
+  "ex": [
+   {
+    "de": "Alle Mitarbeiter werden an der neuen Software geschult.",
+    "en": "All employees are being trained on the new software."
+   },
+   {
+    "de": "Wir schulen unser Personal regelmäßig.",
+    "en": "We train our staff regularly."
+   }
+  ]
+ },
+ {
+  "term": "unterbewerten",
+  "en": "to undervalue, to underrate",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Viele Frauen unterbewerten ihre eigene Leistung.",
+    "en": "Many women undervalue their own achievements."
+   },
+   {
+    "de": "Die Aktie gilt als unterbewertet.",
+    "en": "The share is considered undervalued."
+   }
+  ]
+ },
+ {
+  "term": "vornehmen",
+  "en": "to carry out, to make (changes); (sich) to resolve to",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Decisions",
+  "ex": [
+   {
+    "de": "Wir müssen noch ein paar Änderungen vornehmen.",
+    "en": "We still need to make a few changes."
+   },
+   {
+    "de": "Ich habe mir vorgenommen, mehr Sport zu machen.",
+    "en": "I've resolved to do more sport."
+   }
+  ]
+ },
+ {
+  "term": "wiederaufnehmen",
+  "en": "to resume, to take up again",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Nach der Pause hat sie ihre Karriere wiederaufgenommen.",
+    "en": "After the break she resumed her career."
+   },
+   {
+    "de": "Die Gespräche sollen morgen wiederaufgenommen werden.",
+    "en": "The talks are to resume tomorrow."
+   }
+  ]
+ },
+ {
+  "term": "der Wiedereinstieg",
+  "en": "return (to work), re-entry",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Der Wiedereinstieg in den Beruf war nicht leicht.",
+    "en": "Returning to work wasn't easy."
+   },
+   {
+    "de": "Das Programm hilft beim Wiedereinstieg nach der Elternzeit.",
+    "en": "The programme helps with returning after parental leave."
+   }
+  ]
+ },
+ {
+  "term": "der Personalvermittler",
+  "en": "recruiter, recruitment agent",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Applying for Jobs",
+  "ex": [
+   {
+    "de": "Ein Personalvermittler hat mir die Stelle angeboten.",
+    "en": "A recruiter offered me the job."
+   },
+   {
+    "de": "Viele Firmen arbeiten mit Personalvermittlern zusammen.",
+    "en": "Many firms work with recruitment agents."
+   }
+  ]
+ },
+ {
+  "term": "die Berufstätigkeit",
+  "en": "employment, working (in a job)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Working Life",
+  "ex": [
+   {
+    "de": "Sie hat ihre Berufstätigkeit für die Kinder unterbrochen.",
+    "en": "She interrupted her working life for the children."
+   },
+   {
+    "de": "Die Berufstätigkeit von Müttern hat stark zugenommen.",
+    "en": "The employment of mothers has increased sharply."
+   }
+  ]
+ },
+ {
+  "term": "die Kernkompetenz",
+  "en": "core competence, core skill",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Beratung ist die Kernkompetenz unserer Firma.",
+    "en": "Consulting is our company's core competence."
+   },
+   {
+    "de": "Welche Kernkompetenzen bringen Sie mit?",
+    "en": "Which core skills do you bring?"
+   }
+  ]
+ },
+ {
+  "term": "die Arbeitsmoral",
+  "en": "work ethic, morale",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work & Colleagues",
+  "ex": [
+   {
+    "de": "Er hat eine sehr gute Arbeitsmoral.",
+    "en": "He has a very good work ethic."
+   },
+   {
+    "de": "Die Arbeitsmoral im Team ist gesunken.",
+    "en": "Morale in the team has dropped."
+   }
+  ]
+ },
+ {
+  "term": "das Rentenalter",
+  "en": "retirement age",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Das Rentenalter soll weiter steigen.",
+    "en": "The retirement age is set to rise further."
+   },
+   {
+    "de": "Mit 67 erreicht sie das Rentenalter.",
+    "en": "At 67 she reaches retirement age."
+   }
+  ]
+ },
+ {
+  "term": "die Eignungsprüfung",
+  "en": "aptitude test",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Applying for Jobs",
+  "ex": [
+   {
+    "de": "Vor dem Studium muss man eine Eignungsprüfung machen.",
+    "en": "Before the degree you have to take an aptitude test."
+   },
+   {
+    "de": "Er hat die Eignungsprüfung bestanden.",
+    "en": "He passed the aptitude test."
+   }
+  ]
+ },
+ {
+  "term": "die Berufsbezeichnung",
+  "en": "job title",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Application & CV",
+  "ex": [
+   {
+    "de": "Wie lautet Ihre genaue Berufsbezeichnung?",
+    "en": "What is your exact job title?"
+   },
+   {
+    "de": "Neue Berufsbezeichnungen entstehen ständig.",
+    "en": "New job titles are appearing all the time."
+   }
+  ]
+ },
+ {
+  "term": "der Auswahlprozess",
+  "en": "selection process",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Applying for Jobs",
+  "ex": [
+   {
+    "de": "Der Auswahlprozess dauert etwa vier Wochen.",
+    "en": "The selection process takes about four weeks."
+   },
+   {
+    "de": "Sie hat den ganzen Auswahlprozess durchlaufen.",
+    "en": "She went through the whole selection process."
+   }
+  ]
+ }
+]

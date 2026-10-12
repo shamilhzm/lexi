@@ -24705,6 +24705,20 @@
       }
     ]
   },
+  "voc:A2:perfekt": {
+    "ex": [
+      {
+        "de": "Das Wetter ist heute perfekt.",
+        "en": "The weather is perfect today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Niemand ist perfekt.",
+        "en": "Nobody is perfect.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:persönlich": {
     "def": "Belonging to or concerning one particular person.",
     "ex": [
@@ -28910,6 +28924,20 @@
       {
         "de": "Marokko ist westlich von Algerien.",
         "en": "Morocco is west of Algeria.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:wiederkommen": {
+    "ex": [
+      {
+        "de": "Wann kommst du wieder?",
+        "en": "When are you coming back?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich möchte unbedingt wiederkommen.",
+        "en": "I'd really like to come back.",
         "lvl": "A2"
       }
     ]

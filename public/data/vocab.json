@@ -167569,7 +167569,7 @@
   {
     "id": "voc:A1:wiederholen",
     "term": "wiederholen",
-    "en": "to bring back, take back",
+    "en": "to repeat",
     "pos": "verb",
     "level": "A1",
     "gender": null,
@@ -303740,6 +303740,2382 @@
       }
     ],
     "field": "Everyday greetings and farewells",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:es sei denn",
+    "term": "es sei denn",
+    "en": "unless",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛs zaɪ̯ dɛn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir gehen spazieren, es sei denn, es regnet.",
+        "en": "We'll go for a walk, unless it rains.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zeit vergeht schnell, es sei denn, man wartet.",
+        "en": "Time passes quickly, unless you're waiting.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Konnektor",
+    "term": "der Konnektor",
+    "en": "connector, linking word",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Konnektoren",
+    "ipa": "kɔˈnɛktoːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "„Deshalb“ ist ein Konnektor, der eine Folge einleitet.",
+        "en": "\"Deshalb\" is a connector that introduces a consequence.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit Konnektoren klingt dein Text flüssiger.",
+        "en": "With connectors your text sounds smoother.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Hauptsatz",
+    "term": "der Hauptsatz",
+    "en": "main clause",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Hauptsätze",
+    "ipa": "ˈhaʊ̯ptˌzat͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Hauptsatz steht das Verb an zweiter Stelle.",
+        "en": "In a main clause the verb is in second position.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Satz besteht aus zwei Hauptsätzen.",
+        "en": "The sentence consists of two main clauses.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:trennbar",
+    "term": "trennbar",
+    "en": "separable",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtʁɛnbaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "„Anrufen“ ist ein trennbares Verb.",
+        "en": "\"Anrufen\" is a separable verb.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ist diese Vorsilbe trennbar?",
+        "en": "Is this prefix separable?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:untrennbar",
+    "term": "untrennbar",
+    "en": "inseparable",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʊnˈtʁɛnbaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "„Verstehen“ ist ein untrennbares Verb.",
+        "en": "\"Verstehen\" is an inseparable verb.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die beiden sind untrennbar miteinander verbunden.",
+        "en": "The two are inseparably linked.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Vorsilbe",
+    "term": "die Vorsilbe",
+    "en": "prefix",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Vorsilben",
+    "ipa": "ˈfoːɐ̯ˌzɪlbə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Vorsilbe „un-“ macht aus einem Wort oft sein Gegenteil.",
+        "en": "The prefix \"un-\" often turns a word into its opposite.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Betonte Vorsilben sind meistens trennbar.",
+        "en": "Stressed prefixes are usually separable.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A1:das Fernsehen",
+    "term": "das Fernsehen",
+    "en": "television (the medium)",
+    "pos": "noun",
+    "level": "A1",
+    "gender": "das",
+    "plural": "nur Singular",
+    "ipa": "ˈfɛʁnˌzeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Was läuft heute im Fernsehen?",
+        "en": "What's on television today?",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Fernsehen berichtet live aus Berlin.",
+        "en": "Television is reporting live from Berlin.",
+        "lvl": "A1"
+      }
+    ],
+    "field": "Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:durchsehen",
+    "term": "durchsehen",
+    "en": "to look through, to check",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʊʁçˌzeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kannst du meinen Text noch einmal durchsehen?",
+        "en": "Can you look through my text once more?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe alle Unterlagen durchgesehen.",
+        "en": "I've gone through all the documents.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Office & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:durchleben",
+    "term": "durchleben",
+    "en": "to live through, to experience",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌdʊʁçˈleːbn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie musste eine schwere Zeit durchleben.",
+        "en": "She had to live through a hard time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Familien durchleben solche Krisen.",
+        "en": "Many families go through crises like that.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Life Stages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:durchqueren",
+    "term": "durchqueren",
+    "en": "to cross, to travel across",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "dʊʁçˈkveːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie wollen die Wüste zu Fuß durchqueren.",
+        "en": "They want to cross the desert on foot.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir mussten die ganze Stadt durchqueren.",
+        "en": "We had to cross the whole city.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:durchdenken",
+    "term": "durchdenken",
+    "en": "to think through",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "dʊʁçˈdɛŋkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du solltest den Plan gut durchdenken.",
+        "en": "You should think the plan through carefully.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war nicht gut durchdacht.",
+        "en": "That wasn't well thought through.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Decisions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:durchdringen",
+    "term": "durchdringen",
+    "en": "to penetrate, to pervade",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌdʊʁçˈdʁɪŋən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Licht kann das dichte Laub kaum durchdringen.",
+        "en": "The light can barely penetrate the dense leaves.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Idee hat die ganze Firma durchdrungen.",
+        "en": "The idea has pervaded the whole company.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:durchfahren",
+    "term": "durchfahren",
+    "en": "to drive through (without stopping)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdʊʁçˌfaːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir sind die ganze Nacht durchgefahren.",
+        "en": "We drove through the whole night without stopping.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Fährt dieser Zug bis Hamburg durch?",
+        "en": "Does this train go straight through to Hamburg?",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:übersiedeln",
+    "term": "übersiedeln",
+    "en": "to move, to relocate (to another place)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈyːbɐˌziːdl̩n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Familie will nach Wien übersiedeln.",
+        "en": "The family wants to relocate to Vienna.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Vor zehn Jahren sind sie nach Kanada übergesiedelt.",
+        "en": "Ten years ago they moved to Canada.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Real Estate & Moving",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:überkochen",
+    "term": "überkochen",
+    "en": "to boil over",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈyːbɐˌkɔxn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Pass auf, dass die Milch nicht überkocht!",
+        "en": "Watch that the milk doesn't boil over!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Suppe ist übergekocht.",
+        "en": "The soup boiled over.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:überblicken",
+    "term": "überblicken",
+    "en": "to overlook; to grasp, to have an overview of",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌyːbɐˈblɪkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Von hier oben kann man die ganze Stadt überblicken.",
+        "en": "From up here you can see the whole city.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Folgen sind noch nicht zu überblicken.",
+        "en": "The consequences can't be fully grasped yet.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Knowledge & Truth",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:überfordern",
+    "term": "überfordern",
+    "en": "to overwhelm, to ask too much of",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "yːbɐˈfɔʁdɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich will dich nicht überfordern.",
+        "en": "I don't want to ask too much of you.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich überfordere mich oft selbst.",
+        "en": "I often take on too much myself.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Mental health concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:überrennen",
+    "term": "überrennen",
+    "en": "to overrun, to run over",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "yːbɐˈʁɛnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Fans haben die Absperrung fast überrannt.",
+        "en": "The fans almost overran the barrier.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er wollte mich nicht überrennen.",
+        "en": "He didn't mean to run me over.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Military concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:übertreiben",
+    "term": "übertreiben",
+    "en": "to exaggerate, to overdo",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "yːbɐˈtʁaɪ̯bn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Du übertreibst mal wieder!",
+        "en": "You're exaggerating again!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Man sollte es mit dem Sport nicht übertreiben.",
+        "en": "You shouldn't overdo it with sport.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:übertreten",
+    "term": "übertreten",
+    "en": "to break (a rule), to violate",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "yːbɐˈtʁeːtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wer das Gesetz übertritt, muss mit einer Strafe rechnen.",
+        "en": "Anyone who breaks the law must expect a penalty.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat die Regeln übertreten.",
+        "en": "He broke the rules.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:überziehen",
+    "term": "überziehen",
+    "en": "to overdraw (an account); to overrun (time)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌyːbɐˈt͡siːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe mein Konto um 200 Euro überzogen.",
+        "en": "I've overdrawn my account by 200 euros.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bitte die Redezeit nicht überziehen!",
+        "en": "Please don't go over the speaking time!",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Bank & Money",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:umbauen",
+    "term": "umbauen",
+    "en": "to rebuild, to convert, to remodel",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈumˌbaʊ̯ən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir wollen die Küche umbauen.",
+        "en": "We want to remodel the kitchen.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die alte Fabrik wurde zu Wohnungen umgebaut.",
+        "en": "The old factory was converted into flats.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "The Building",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:umfallen",
+    "term": "umfallen",
+    "en": "to fall over",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊmˌfalən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Vase ist umgefallen.",
+        "en": "The vase fell over.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Pass auf, sonst fällt die Leiter um!",
+        "en": "Careful, or the ladder will fall over!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Everyday Luck & Accidents",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:umladen",
+    "term": "umladen",
+    "en": "to reload, to transfer (cargo)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊmˌlaːdn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Waren müssen in Hamburg umgeladen werden.",
+        "en": "The goods have to be transferred in Hamburg.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir mussten alles auf einen kleineren Wagen umladen.",
+        "en": "We had to reload everything onto a smaller van.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:umstoßen",
+    "term": "umstoßen",
+    "en": "to knock over; to overturn (a plan)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊmˌʃtoːsn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Kind hat das Glas umgestoßen.",
+        "en": "The child knocked the glass over.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Regen hat unsere Pläne umgestoßen.",
+        "en": "The rain upset our plans.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Everyday Luck & Accidents",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:umkreisen",
+    "term": "umkreisen",
+    "en": "to circle, to orbit",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʊmˈkʁaɪ̯zn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Mond umkreist die Erde.",
+        "en": "The moon orbits the earth.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein Hubschrauber umkreiste das Gebäude.",
+        "en": "A helicopter circled the building.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:umzäunen",
+    "term": "umzäunen",
+    "en": "to fence in",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʊmˈt͡sɔɪ̯nən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie wollen den Garten umzäunen.",
+        "en": "They want to fence in the garden.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Grundstück ist umzäunt.",
+        "en": "The property is fenced in.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:umfahren",
+    "term": "umfahren",
+    "en": "to drive around, to bypass",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʊmˈfaːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir können den Stau umfahren.",
+        "en": "We can drive around the traffic jam.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Bus umfuhr die Baustelle.",
+        "en": "The bus drove around the roadworks.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Transport & Mobility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:umfliegen",
+    "term": "umfliegen",
+    "en": "to fly around",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʊmˈfliːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Flugzeug musste das Gewitter umfliegen.",
+        "en": "The plane had to fly around the storm.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Vögel umflogen den Kirchturm.",
+        "en": "The birds flew around the church tower.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Travel & Transport",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unterordnen",
+    "term": "unterordnen",
+    "en": "to subordinate, to put second",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊntɐˌʔɔʁdnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat ihre Wünsche immer der Familie untergeordnet.",
+        "en": "She always put the family's needs before her own wishes.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er kann sich schlecht unterordnen.",
+        "en": "He isn't good at taking a back seat.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Power & Authority",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:unterschätzen",
+    "term": "unterschätzen",
+    "en": "to underestimate",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌʊntɐˈʃɛt͡sn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Man sollte die Gefahr nicht unterschätzen.",
+        "en": "You shouldn't underestimate the danger.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe die Arbeit völlig unterschätzt.",
+        "en": "I completely underestimated the work.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Opinion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:widerhallen",
+    "term": "widerhallen",
+    "en": "to echo, to reverberate",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈviːdɐˌhalən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihre Schritte hallten im Flur wider.",
+        "en": "Her footsteps echoed in the corridor.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Applaus ließ den Saal widerhallen.",
+        "en": "The applause made the hall reverberate.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Music & Theatre",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:widerspiegeln",
+    "term": "widerspiegeln",
+    "en": "to reflect, to mirror",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈviːdɐˌʃpiːɡl̩n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Zahlen spiegeln die Lage gut wider.",
+        "en": "The figures reflect the situation well.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Seine Bilder widerspiegeln seine Kindheit.",
+        "en": "His paintings reflect his childhood.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:widerfahren",
+    "term": "widerfahren",
+    "en": "to happen to, to befall",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌvidɐˈfaːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihm ist großes Unrecht widerfahren.",
+        "en": "A great injustice was done to him.",
+        "lvl": "C1"
+      },
+      {
+        "de": "So etwas kann jedem widerfahren.",
+        "en": "Something like that can happen to anyone.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Everyday Luck & Accidents",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:wiederkommen",
+    "term": "wiederkommen",
+    "en": "to come back, to return",
+    "pos": "verb",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈviːdɐˌkɔmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wann kommst du wieder?",
+        "en": "When are you coming back?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich möchte unbedingt wiederkommen.",
+        "en": "I'd really like to come back.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Basic verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Berufsleben",
+    "term": "das Berufsleben",
+    "en": "working life",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Berufsleben",
+    "ipa": "bəˈʁuːfsˌleːbn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach der Elternzeit kehrte sie ins Berufsleben zurück.",
+        "en": "After parental leave she returned to working life.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Berufsleben braucht man viel Geduld.",
+        "en": "You need a lot of patience in working life.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der/die Personalverantwortliche",
+    "term": "der/die Personalverantwortliche",
+    "en": "HR manager, person responsible for hiring",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Personalverantwortlichen",
+    "ipa": "pɛʁzoˈnaːlfɛɐ̯ˌʔantvɔʁtlɪçə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Personalverantwortliche hat mich zum Gespräch eingeladen.",
+        "en": "The HR manager invited me to an interview.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Personalverantwortliche lesen Lebensläufe nur kurz.",
+        "en": "Many hiring managers only skim CVs.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Anatomie",
+    "term": "die Anatomie",
+    "en": "anatomy",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Anatomien",
+    "ipa": "anatoˈmiː",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im ersten Semester lernen die Studierenden Anatomie.",
+        "en": "In the first semester the students learn anatomy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Artikel beschreibt die Anatomie einer Krise.",
+        "en": "The article describes the anatomy of a crisis.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Body parts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Aktualität",
+    "term": "die Aktualität",
+    "en": "topicality, being up to date",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "nur Singular",
+    "ipa": "aktualiˈtɛːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Thema hat nichts von seiner Aktualität verloren.",
+        "en": "The topic has lost none of its relevance.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei Nachrichten zählt vor allem die Aktualität.",
+        "en": "With news, what counts most is being current.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "News Media",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Benachteiligung",
+    "term": "die Benachteiligung",
+    "en": "discrimination, disadvantage",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Benachteiligungen",
+    "ipa": "bəˈnaːxtaɪ̯lɪɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Gesetz soll die Benachteiligung von Frauen verhindern.",
+        "en": "The law is meant to prevent discrimination against women.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie spricht offen über ihre Benachteiligung im Job.",
+        "en": "She talks openly about being disadvantaged at work.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Development & Inequality",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:benachteiligen",
+    "term": "benachteiligen",
+    "en": "to disadvantage, to discriminate against",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈnaːxˌtaɪ̯lɪɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Niemand darf wegen seiner Herkunft benachteiligt werden.",
+        "en": "No one may be disadvantaged because of their origin.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die alte Regel hat ältere Bewerber benachteiligt.",
+        "en": "The old rule disadvantaged older applicants.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Development & Inequality",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Ersetzung",
+    "term": "die Ersetzung",
+    "en": "replacement",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Ersetzungen",
+    "ipa": "ɛɐ̯ˈzɛt͡sʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele fürchten die Ersetzung von Menschen durch Maschinen.",
+        "en": "Many fear the replacement of people by machines.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Ersetzung der alten Leitungen dauert Monate.",
+        "en": "Replacing the old pipes takes months.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Digitalisation & Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Festanstellung",
+    "term": "die Festanstellung",
+    "en": "permanent position",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Festanstellungen",
+    "ipa": "ˈfɛstˌʔanʃtɛlʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach dem Praktikum bekam sie eine Festanstellung.",
+        "en": "After the internship she got a permanent position.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Eine Festanstellung gibt mehr Sicherheit.",
+        "en": "A permanent job gives more security.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Employment contract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Hoffnungsschimmer",
+    "term": "der Hoffnungsschimmer",
+    "en": "glimmer of hope",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Hoffnungsschimmer",
+    "ipa": "ˈhɔfnʊŋsˌʃɪmɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die neue Studie ist ein kleiner Hoffnungsschimmer.",
+        "en": "The new study is a small glimmer of hope.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gibt noch einen Hoffnungsschimmer.",
+        "en": "There is still a glimmer of hope.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Leitfaden",
+    "term": "der Leitfaden",
+    "en": "guide, guidelines",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Leitfäden",
+    "ipa": "ˈlaɪ̯tˌfaːdn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Leitfaden erklärt alle Schritte der Bewerbung.",
+        "en": "The guide explains every step of the application.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für neue Mitarbeiter gibt es einen Leitfaden.",
+        "en": "There's a guide for new employees.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Repräsentation",
+    "term": "die Repräsentation",
+    "en": "representation",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Repräsentationen",
+    "ipa": "ʁepʁɛzɛntaˈt͡si̯oːn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es geht um die Repräsentation von Frauen in der Politik.",
+        "en": "It's about the representation of women in politics.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mehr Repräsentation schafft mehr Vertrauen.",
+        "en": "More representation builds more trust.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Politics & Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Schilderung",
+    "term": "die Schilderung",
+    "en": "description, account",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Schilderungen",
+    "ipa": "ˈʃɪldəʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach seiner Schilderung war der Unfall nicht seine Schuld.",
+        "en": "According to his account, the accident wasn't his fault.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihre Schilderung des Abends war sehr lebendig.",
+        "en": "Her description of the evening was very vivid.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Narrative Technique",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Seniorität",
+    "term": "die Seniorität",
+    "en": "seniority",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "nur Singular",
+    "ipa": "ˌzeːni̯oʁiˈtɛːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Gehalt hängt auch von der Seniorität ab.",
+        "en": "The salary also depends on seniority.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei Beförderungen zählt nicht nur die Seniorität.",
+        "en": "Seniority isn't the only thing that counts for promotions.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Unmöglichkeit",
+    "term": "die Unmöglichkeit",
+    "en": "impossibility",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Unmöglichkeiten",
+    "ipa": "ˈʊnˌmøːklɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine Herausforderung, aber keine Unmöglichkeit.",
+        "en": "That's a challenge, but not an impossibility.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sprach von der Unmöglichkeit einer schnellen Lösung.",
+        "en": "She spoke of the impossibility of a quick solution.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:im Nachhinein",
+    "term": "im Nachhinein",
+    "en": "in hindsight, afterwards",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪm ˈnaːxhɪˌnaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das war im Nachhinein die richtige Entscheidung.",
+        "en": "In hindsight that was the right decision.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das weiß man immer erst im Nachhinein.",
+        "en": "You only ever know that afterwards.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:proaktiv",
+    "term": "proaktiv",
+    "en": "proactive",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "pʁoʔakˈtiːf",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sprechen Sie die Lücke im Lebenslauf proaktiv an.",
+        "en": "Address the gap in your CV proactively.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir brauchen proaktive Mitarbeiter.",
+        "en": "We need proactive employees.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:abschreckend",
+    "term": "abschreckend",
+    "en": "off-putting, deterrent",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌʃʁɛkn̩t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die hohen Preise sind abschreckend.",
+        "en": "The high prices are off-putting.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Strafe soll abschreckend wirken.",
+        "en": "The penalty is meant to act as a deterrent.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Persuasion & Impact",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:geschlechtsspezifisch",
+    "term": "geschlechtsspezifisch",
+    "en": "gender-specific",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈʃlɛçt͡sʃpeˌt͡siːfɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es gibt immer noch große geschlechtsspezifische Unterschiede beim Gehalt.",
+        "en": "There are still big gender-specific differences in pay.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Studie untersucht geschlechtsspezifisches Verhalten.",
+        "en": "The study examines gender-specific behaviour.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Development & Inequality",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:sechsmonatig",
+    "term": "sechsmonatig",
+    "en": "six-month (lasting six months)",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzɛksˌmoːnatɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie macht ein sechsmonatiges Praktikum.",
+        "en": "She's doing a six-month internship.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach einer sechsmonatigen Pause fing er wieder an.",
+        "en": "After a six-month break he started again.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Basic time concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zweijährig",
+    "term": "zweijährig",
+    "en": "two-year; two-year-old",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡svaɪ̯ˌjɛːʁɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Ausbildung ist zweijährig.",
+        "en": "The training lasts two years.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach einer zweijährigen Pause kehrte sie zurück.",
+        "en": "She came back after a two-year break.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Basic time concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unerklärt",
+    "term": "unerklärt",
+    "en": "unexplained",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnʔɛɐ̯ˌklɛːɐ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Ursache bleibt bis heute unerklärt.",
+        "en": "The cause remains unexplained to this day.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Eine unerklärte Lücke im Lebenslauf wirkt schlecht.",
+        "en": "An unexplained gap in a CV makes a bad impression.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Knowledge & Truth",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:ununterbrochen",
+    "term": "ununterbrochen",
+    "en": "continuous, nonstop",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnʔʊntɐˌbʁɔxn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es hat ununterbrochen geregnet.",
+        "en": "It rained nonstop.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er arbeitet seit zehn Jahren ununterbrochen bei der Firma.",
+        "en": "He has worked at the company continuously for ten years.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:perfekt",
+    "term": "perfekt",
+    "en": "perfect",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "pɛʁˈfɛkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Wetter ist heute perfekt.",
+        "en": "The weather is perfect today.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Niemand ist perfekt.",
+        "en": "Nobody is perfect.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:sich anfühlen",
+    "term": "sich anfühlen",
+    "en": "to feel (like)",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌfyːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Stoff fühlt sich weich an.",
+        "en": "The fabric feels soft.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie fühlt es sich an, wieder zu Hause zu sein?",
+        "en": "How does it feel to be home again?",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:auffrischen",
+    "term": "auffrischen",
+    "en": "to brush up, to refresh",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fˌfʁɪʃn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich will vor der Reise mein Französisch auffrischen.",
+        "en": "I want to brush up my French before the trip.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat ihre Kenntnisse in einem Kurs aufgefrischt.",
+        "en": "She refreshed her knowledge in a course.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Lifelong Learning",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:aufholen",
+    "term": "aufholen",
+    "en": "to catch up, to make up (for)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fˌhoːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach der Krankheit musste er viel Stoff aufholen.",
+        "en": "After his illness he had a lot of material to catch up on.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Mannschaft hat in der zweiten Hälfte aufgeholt.",
+        "en": "The team caught up in the second half.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "School",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:aussortieren",
+    "term": "aussortieren",
+    "en": "to sort out, to weed out",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯szɔʁˌtiːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich sortiere alte Kleidung aus.",
+        "en": "I'm sorting out old clothes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Bewerbungen werden sofort aussortiert.",
+        "en": "Many applications are weeded out straight away.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Home",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:beimessen",
+    "term": "beimessen",
+    "en": "to attach (importance to), to attribute",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈbaɪ̯ˌmɛsn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Man sollte dem Gerücht keine Bedeutung beimessen.",
+        "en": "You shouldn't attach any importance to the rumour.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie misst der Familie großen Wert bei.",
+        "en": "She places great value on family.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Opinion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:einbüßen",
+    "term": "einbüßen",
+    "en": "to lose, to forfeit",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯nˌbyːsn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Partei hat viele Stimmen eingebüßt.",
+        "en": "The party lost a lot of votes.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Durch die Pause wollte sie nichts einbüßen.",
+        "en": "She didn't want to lose anything through the break.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:entgegnen",
+    "term": "entgegnen",
+    "en": "to reply, to retort",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛntˈɡeːɡnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "„Das stimmt nicht“, entgegnete sie.",
+        "en": "\"That's not true,\" she retorted.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Darauf wusste er nichts zu entgegnen.",
+        "en": "He didn't know what to say to that.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:schulen",
+    "term": "schulen",
+    "en": "to train",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃuːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Alle Mitarbeiter werden an der neuen Software geschult.",
+        "en": "All employees are being trained on the new software.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir schulen unser Personal regelmäßig.",
+        "en": "We train our staff regularly.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Studies & Training",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unterbewerten",
+    "term": "unterbewerten",
+    "en": "to undervalue, to underrate",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊntɐbəˌveːɐ̯tn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele Frauen unterbewerten ihre eigene Leistung.",
+        "en": "Many women undervalue their own achievements.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Aktie gilt als unterbewertet.",
+        "en": "The share is considered undervalued.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:vornehmen",
+    "term": "vornehmen",
+    "en": "to carry out, to make (changes); (sich) to resolve to",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfoːɐ̯ˌneːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir müssen noch ein paar Änderungen vornehmen.",
+        "en": "We still need to make a few changes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe mir vorgenommen, mehr Sport zu machen.",
+        "en": "I've resolved to do more sport.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Decisions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:wiederaufnehmen",
+    "term": "wiederaufnehmen",
+    "en": "to resume, to take up again",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "viːdɐˈaʊ̯fˌneːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach der Pause hat sie ihre Karriere wiederaufgenommen.",
+        "en": "After the break she resumed her career.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Gespräche sollen morgen wiederaufgenommen werden.",
+        "en": "The talks are to resume tomorrow.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Wiedereinstieg",
+    "term": "der Wiedereinstieg",
+    "en": "return (to work), re-entry",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Wiedereinstiege",
+    "ipa": "ˈviːdɐˌaɪ̯nʃtiːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Wiedereinstieg in den Beruf war nicht leicht.",
+        "en": "Returning to work wasn't easy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Programm hilft beim Wiedereinstieg nach der Elternzeit.",
+        "en": "The programme helps with returning after parental leave.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Personalvermittler",
+    "term": "der Personalvermittler",
+    "en": "recruiter, recruitment agent",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Personalvermittler",
+    "ipa": "pɛʁzoˈnaːlfɛɐ̯ˌmɪtlɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein Personalvermittler hat mir die Stelle angeboten.",
+        "en": "A recruiter offered me the job.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Firmen arbeiten mit Personalvermittlern zusammen.",
+        "en": "Many firms work with recruitment agents.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Berufstätigkeit",
+    "term": "die Berufstätigkeit",
+    "en": "employment, working (in a job)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Berufstätigkeiten",
+    "ipa": "bəˈʁuːfstɛːtɪçkaɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie hat ihre Berufstätigkeit für die Kinder unterbrochen.",
+        "en": "She interrupted her working life for the children.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Berufstätigkeit von Müttern hat stark zugenommen.",
+        "en": "The employment of mothers has increased sharply.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Working Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Kernkompetenz",
+    "term": "die Kernkompetenz",
+    "en": "core competence, core skill",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Kernkompetenzen",
+    "ipa": "ˈkɛʁnkɔmpəˌtɛnt͡s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Beratung ist die Kernkompetenz unserer Firma.",
+        "en": "Consulting is our company's core competence.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Welche Kernkompetenzen bringen Sie mit?",
+        "en": "Which core skills do you bring?",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Arbeitsmoral",
+    "term": "die Arbeitsmoral",
+    "en": "work ethic, morale",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "nur Singular",
+    "ipa": "ˈaʁbaɪ̯t͡smoˌʁaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat eine sehr gute Arbeitsmoral.",
+        "en": "He has a very good work ethic.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Arbeitsmoral im Team ist gesunken.",
+        "en": "Morale in the team has dropped.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work & Colleagues",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Rentenalter",
+    "term": "das Rentenalter",
+    "en": "retirement age",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Rentenalter",
+    "ipa": "ˈʁɛntn̩ˌʔaltɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Rentenalter soll weiter steigen.",
+        "en": "The retirement age is set to rise further.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit 67 erreicht sie das Rentenalter.",
+        "en": "At 67 she reaches retirement age.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Life Stages",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Eignungsprüfung",
+    "term": "die Eignungsprüfung",
+    "en": "aptitude test",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Eignungsprüfungen",
+    "ipa": "ˈaɪ̯ɡnʊŋsˌpʁyːfʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Vor dem Studium muss man eine Eignungsprüfung machen.",
+        "en": "Before the degree you have to take an aptitude test.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat die Eignungsprüfung bestanden.",
+        "en": "He passed the aptitude test.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Berufsbezeichnung",
+    "term": "die Berufsbezeichnung",
+    "en": "job title",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Berufsbezeichnungen",
+    "ipa": "bəˈʁuːfsbəˌt͡saɪ̯çnʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wie lautet Ihre genaue Berufsbezeichnung?",
+        "en": "What is your exact job title?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Neue Berufsbezeichnungen entstehen ständig.",
+        "en": "New job titles are appearing all the time.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Application & CV",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Auswahlprozess",
+    "term": "der Auswahlprozess",
+    "en": "selection process",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Auswahlprozesse",
+    "ipa": "ˈaʊ̯svaːlpʁoˌt͡sɛs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Auswahlprozess dauert etwa vier Wochen.",
+        "en": "The selection process takes about four weeks.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat den ganzen Auswahlprozess durchlaufen.",
+        "en": "She went through the whole selection process.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:derjenige",
+    "term": "derjenige",
+    "en": "the one (who), that (which)",
+    "pos": "pronoun",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈdeːɐ̯ˌjeːnɪɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Derjenige, der zuletzt geht, macht das Licht aus.",
+        "en": "Whoever leaves last turns off the light.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er war derjenige, der mir geholfen hat.",
+        "en": "He was the one who helped me.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:nach wie vor",
+    "term": "nach wie vor",
+    "en": "still, as before",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "naːx viː foːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Problem besteht nach wie vor.",
+        "en": "The problem still exists.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie wohnt nach wie vor in Berlin.",
+        "en": "She still lives in Berlin.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Time",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:zum Einsatz kommen",
+    "term": "zum Einsatz kommen",
+    "en": "to be used, to be deployed",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡sʊm ˈaɪ̯nˌzat͡s ˈkɔmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Fabrik sollen bald Roboter zum Einsatz kommen.",
+        "en": "Robots are soon to be used in the factory.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Welche Programme werden bei euch zum Einsatz kommen?",
+        "en": "Which programs will you be using?",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Digitalisation & Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:reinlich",
+    "term": "reinlich",
+    "en": "clean, cleanly (in one's habits)",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁaɪ̯nlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Katzen sind sehr reinliche Tiere.",
+        "en": "Cats are very clean animals.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er war schon immer sehr reinlich.",
+        "en": "He has always been very clean in his habits.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Everyday Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:anschrauben",
+    "term": "anschrauben",
+    "en": "to screw on, to screw (to)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌʃʁaʊ̯bn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Kannst du das Regal an die Wand anschrauben?",
+        "en": "Can you screw the shelf to the wall?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe das Schild gestern angeschraubt.",
+        "en": "I screwed the sign on yesterday.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Furniture",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:wegdösen",
+    "term": "wegdösen",
+    "en": "to doze off",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvɛkˌdøːzn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Vor dem Fernseher bin ich kurz weggedöst.",
+        "en": "I dozed off for a moment in front of the TV.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Pass auf, dass du im Zug nicht wegdöst!",
+        "en": "Make sure you don't doze off on the train!",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Everyday Life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Rekrutierung",
+    "term": "die Rekrutierung",
+    "en": "recruitment",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Rekrutierungen",
+    "ipa": "ʁekʁuˈtiːʁʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Rekrutierung neuer Mitarbeiter dauert lange.",
+        "en": "Recruiting new staff takes a long time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma investiert viel in die Rekrutierung.",
+        "en": "The company invests a lot in recruitment.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Applying for Jobs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Wiedereinsteiger",
+    "term": "der Wiedereinsteiger",
+    "en": "returner (to work)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Wiedereinsteiger",
+    "ipa": "ˈviːdɐˌaɪ̯nʃtaɪ̯ɡɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für Wiedereinsteiger gibt es spezielle Kurse.",
+        "en": "There are special courses for returners.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Wiedereinsteiger haben Kinder großgezogen.",
+        "en": "Many returners have raised children.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Career & Advancement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Technologiebranche",
+    "term": "die Technologiebranche",
+    "en": "tech industry",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Technologiebranchen",
+    "ipa": "tɛçnoloˈɡiːˌbʁɑ̃ːʃə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Technologiebranche verändert sich schnell.",
+        "en": "The tech industry changes quickly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er arbeitet seit Jahren in der Technologiebranche.",
+        "en": "He has worked in the tech industry for years.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Digitalisation & Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zwölfmal",
+    "term": "zwölfmal",
+    "en": "twelve times",
+    "pos": "adverb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡svœlfmaːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich habe dich zwölfmal angerufen!",
+        "en": "I called you twelve times!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Wahrscheinlichkeit ist zwölfmal höher.",
+        "en": "The probability is twelve times higher.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Numbers",
     "kind": "word"
   }
 ]

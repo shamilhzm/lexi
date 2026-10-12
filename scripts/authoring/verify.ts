@@ -101,8 +101,10 @@ export function parseRulings(tsv: string): Ruling[] {
     const [term, field, value, evidence, date] = cols.map((c) => c.trim());
     if (!RULING_FIELDS.has(field)) throw new Error(`verify-rulings.tsv line ${i + 1}: unknown field "${field}"`);
     if (!value) throw new Error(`verify-rulings.tsv line ${i + 1}: empty value`);
-    if (field === 'gender' && !['der', 'die', 'das'].includes(value)) {
-      throw new Error(`verify-rulings.tsv line ${i + 1}: gender must be der/die/das, got "${value}"`);
+    // `der/die` is the adjectival noun's honest gender (*der/die Vorgesetzte*), and
+    // the only two-valued ruling there is.
+    if (field === 'gender' && !['der', 'die', 'das', 'der/die'].includes(value)) {
+      throw new Error(`verify-rulings.tsv line ${i + 1}: gender must be der/die/das or der/die, got "${value}"`);
     }
     if (field === 'plural' && !/^die\s/.test(value)) {
       throw new Error(`verify-rulings.tsv line ${i + 1}: plural must carry its article, e.g. "die Häuser"`);
@@ -126,7 +128,9 @@ export function rulingsFor(all: Ruling[], term: string): Map<Ruling['field'], Ru
   return m;
 }
 
-const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
+// `der/die` first: an adjectival noun (*der/die Vorgesetzte*) carries both articles,
+// and stripping only `der` left "/die Vorgesetzte" to be looked up.
+const stripArticle = (t: string) => t.replace(/^(der\/die|der|die|das)\s+/i, '').trim();
 
 /** The page the dictionary actually has, which is not always the term.
  *
@@ -152,6 +156,17 @@ const lemmaOf = (t: string) => stripArticle(t)
   .trim();
 
 const GENUS: Record<string, 'der' | 'die' | 'das'> = { m: 'der', f: 'die', n: 'das' };
+
+/** The distinct IPA of each verb section on a page — more than one means the page
+ *  holds a separable and an inseparable verb with different stress. */
+function sectionIpas(wt: string): string[] {
+  const out = new Set<string>();
+  for (const sec of wt.split(/^=== \{\{Wortart\|Verb\|Deutsch\}\}/m).slice(1)) {
+    const ipa = sec.match(/\{\{Lautschrift\|([^}|]+)\}\}/)?.[1]?.trim();
+    if (ipa) out.add(ipa);
+  }
+  return [...out];
+}
 
 // ---- the authority ---------------------------------------------------------
 
@@ -388,7 +403,10 @@ export function exampleTeachesWord(card: Word, de: string, corpus: Word[] = []):
   // word: this gate passed «Er braut Bier» for `die Braut` and «Wer schritt ein?»
   // for `der Schritt`, and both shipped. `headwordEvidence` is the shared rule,
   // used by `corpus:validate` and by `fix-authored` for the same reason.
-  const m = buildMatcher([...corpus, card]);
+  // Word cards only — the app filters `kind: 'grammar'` at load, so a matcher that
+  // keeps them answers a question the app never asks: *perfekt* resolved to the
+  // hidden tense card *Perfekt* and every example for the adjective was refused.
+  const m = buildMatcher([...corpus.filter((w) => w.kind !== 'grammar'), card]);
   return headwordEvidence(m, card, de).ok;
 }
 
@@ -518,7 +536,10 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   // also attests das" about a page that does not exist — a ruled fact reading as
   // a machine-verified one, in the one place the distinction has to hold.
   let genderRuled = false;
-  if (!facts.genders.size) fill('gender', (r) => { facts.genders.add(r.value as 'der' | 'die' | 'das'); genderRuled = true; });
+  if (!facts.genders.size) fill('gender', (r) => {
+    for (const g of r.value.split('/')) facts.genders.add(g as 'der' | 'die' | 'das');
+    genderRuled = true;
+  });
   let pluralRuled = false;
   if (!facts.plurals.length) fill('plural', (r) => { facts.plurals.push(stripArticle(r.value)); pluralRuled = true; });
   if (!facts.ipa) fill('ipa', (r) => { facts.ipa = r.value; });
@@ -534,7 +555,18 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
 
   // --- gender: the field the human gate existed for ---
   let gender = c.gender ?? null;
-  if (c.pos === 'noun') {
+  // An adjectival noun names a person of either gender with one stem — *der/die
+  // Vorgesetzte*. Both genders must be attested, and the card stores `der`, which
+  // is what the ten shipped before this gate learned the shape store.
+  const dual = /^der\/die\s/i.test(c.term);
+  if (c.pos === 'noun' && dual) {
+    if (!(facts.genders.has('der') && facts.genders.has('die'))) {
+      reasons.push(`a der/die noun needs both genders attested (have ${[...facts.genders].join('/') || 'none'})`);
+    } else {
+      gender = 'der';
+      notes.push(genderRuled ? 'der/die matches the ruling; the dictionary states none' : 'der/die confirmed by dictionary');
+    }
+  } else if (c.pos === 'noun') {
     if (!facts.genders.size) reasons.push('dictionary states no gender');
     else if (gender && !facts.genders.has(gender)) {
       reasons.push(`gender ${gender} contradicted — dictionary attests ${[...facts.genders].join('/')}`);
@@ -583,8 +615,22 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   }
 
   // --- ipa ---
+  // **Two verbs on one page carry two stresses** *(2026-10-12)*. *übertreten* is
+  // /ˈyːbɐˌtʁeːtn̩/ when it means "step over" (tritt über) and /yːbɐˈtʁeːtn̩/ when it
+  // means "violate" (übertritt), and the page lists the separable one first. Taking
+  // the first transcription put the wrong stress on four cards in one batch — the
+  // *Händel* failure again: a fact copied correctly from the right page, answering
+  // a sense the card does not teach. So on such a page the IPA is withheld unless
+  // the candidate states it, and a stated one must be one of the page's own.
+  const verbIpas = c.pos === 'verb' && wt ? sectionIpas(wt) : [];
   let ipa = c.ipa ?? null;
-  if (!ipa && facts.ipa) { ipa = facts.ipa; notes.push('IPA from dictionary'); }
+  if (ipa && verbIpas.length > 1 && !verbIpas.includes(ipa)) {
+    reasons.push(`ipa "${ipa}" is none of the page's transcriptions (${verbIpas.join(' · ')})`);
+  } else if (ipa && verbIpas.length > 1) {
+    notes.push('IPA chosen from the page\'s two verb sections');
+  } else if (!ipa && verbIpas.length > 1) {
+    notes.push(`two verbs on this page (${verbIpas.join(' · ')}) — IPA withheld; state the one this card teaches`);
+  } else if (!ipa && facts.ipa) { ipa = facts.ipa; notes.push('IPA from dictionary'); }
 
   // --- gloss sanity ---
   const gloss = (c.en || '').trim();

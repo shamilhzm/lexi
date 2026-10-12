@@ -33,7 +33,10 @@ if (!batchPath) {
 
 const cands = JSON.parse(readFileSync(batchPath, 'utf8')) as Candidate[];
 const corpus = loadCorpus(PATHS.vocab);
-const existing = new Set(corpus.map((w) => w.term.toLowerCase()));
+// Word cards only, as `corpus:validate`'s duplicate check does: the hidden grammar
+// cards share no namespace with words, and counting them refused the adjective
+// `perfekt` because a tense card is called *Perfekt*.
+const existing = new Set(corpus.filter((w) => w.kind !== 'grammar').map((w) => w.term.toLowerCase()));
 
 // A batch that names the same term twice would write two cards with one id.
 const seen = new Set<string>();

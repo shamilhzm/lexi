@@ -16,7 +16,11 @@
 import { conjugate, canConjugate, recognitionPraesens, setKnownVerbs } from './conjugate.ts';
 import type { Word } from '../types.ts';
 
-const stripArticle = (term: string) => term.replace(/^(der|die|das)\s+/i, '');
+// `der/die` first. An adjectival noun's term carries both articles (*der/die
+// Vorgesetzte*), and stripping only `der` left "/die Vorgesetzte" as the key — so
+// those cards matched their plural and nothing else (LESSONS, *A headword is not a
+// lemma*).
+const stripArticle = (term: string) => term.replace(/^(der\/die|der|die|das)\s+/i, '');
 
 /** A term carrying government notation — `warten auf + A`, `sich verlieben in + A`,
  *  `gehören zu + D` — is a **pattern**, not a lemma, and the distinction is the
@@ -396,6 +400,18 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       add(k, w);
     }
     if (w.pos === 'adjective') { const k = w.term.toLowerCase(); if (!adjIndex.has(k)) adjIndex.set(k, w); }
+    // An adjectival noun declines like the adjective it is: *der Vorgesetzte, ein
+    // Vorgesetzter, dem Vorgesetzten, mit Vorgesetztem*. Declension forms, so they
+    // yield to a verb reading the way a plural does.
+    if (w.pos === 'noun' && /^der\/die\s/i.test(w.term)) {
+      const stem = stripArticle(w.term).trim().toLowerCase();
+      if (stem.endsWith('e')) {
+        for (const f of [`${stem}r`, `${stem}n`, `${stem}m`]) {
+          if (!index.has(f)) pluralOnly.add(f);
+          add(f, w);
+        }
+      }
+    }
   }
   // Attested inflections, before anything generated.
   //
@@ -409,10 +425,29 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
   // (dative plural of *der Besuch*, and a real German word twice over) would
   // take the token from the verb.
   if (attested) {
+    // Degree stems first, so the guard below can ask the adjective path. The main
+    // loop sets the same entries under the same `!has` rule, so this changes no
+    // adjective's resolution — only when it becomes known.
+    for (const w of corpus) {
+      if (w.pos !== 'adjective') continue;
+      for (const f of attested[w.id] ?? []) if (!adjIndex.has(f)) adjIndex.set(f, w);
+    }
+    /** Would adjective de-inflection claim this form? *bessere* → *besser* → gut. */
+    const adjClaims = (f: string) => ADJ_SUFFIXES.some((suf) => {
+      if (f.length - suf.length < 3 || !f.endsWith(suf)) return false;
+      const stem = f.slice(0, -suf.length);
+      return adjIndex.has(stem) || adjIndex.has(deUmlaut(stem));
+    });
     for (const w of corpus) {
       const forms = attested[w.id];
       if (!forms) continue;
+      // A reflexive verb's table holds *ich bessere mich* — and *bessere* is far
+      // more often *eine bessere Lösung*. A literal index hit always beats the
+      // adjective path, so the form would take the comparative from *gut*. Where
+      // the adjective path claims a form, the reflexive card does not get it.
+      const reflexive = w.pos === 'verb' && /^sich\s/i.test(w.term);
       for (const f of forms) {
+        if (reflexive && adjClaims(f)) continue;
         if (w.pos === 'noun' && !index.has(f)) pluralOnly.add(f);
         add(f, w);
         if (w.pos === 'verb') addVerb(f, w);

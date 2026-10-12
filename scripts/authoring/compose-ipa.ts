@@ -40,6 +40,13 @@ const SEGMENTS: Record<string, string[]> = {
   // (`der Vorfahre` cannot be composed — no part spelling "-fahre" has a transcription —
   // so it is a ruled absence in scripts/corpus/ipa-absent.tsv, not a guess.)
   'voc:C1:die Höchstgrenze':     ['höchst', 'Grenze'],
+  // 2026-10-12, the careers article: Wikidata attests their gender, no dictionary
+  // has a page, so no transcription — but every part has one.
+  'voc:B2:der Wiedereinstieg':   ['wieder', 'Einstieg'],
+  'voc:C1:der Personalvermittler': ['Personal', 'Vermittler'],
+  'voc:C1:der Auswahlprozess':   ['Auswahl', 'Prozess'],
+  'voc:C1:der Wiedereinsteiger': ['wieder', 'Einsteiger'],
+  'voc:C1:der/die Personalverantwortliche': ['Personal', 'Verantwortliche'],
 };
 
 const arg = (n: string): string | undefined => {

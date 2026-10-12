@@ -1,0 +1,53 @@
+[
+ {
+  "term": "der Wiedereinsteiger",
+  "en": "returner (to work)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Career & Advancement",
+  "ex": [
+   {
+    "de": "Für Wiedereinsteiger gibt es spezielle Kurse.",
+    "en": "There are special courses for returners."
+   },
+   {
+    "de": "Viele Wiedereinsteiger haben Kinder großgezogen.",
+    "en": "Many returners have raised children."
+   }
+  ]
+ },
+ {
+  "term": "die Technologiebranche",
+  "en": "tech industry",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Digitalisation & Work",
+  "ex": [
+   {
+    "de": "Die Technologiebranche verändert sich schnell.",
+    "en": "The tech industry changes quickly."
+   },
+   {
+    "de": "Er arbeitet seit Jahren in der Technologiebranche.",
+    "en": "He has worked in the tech industry for years."
+   }
+  ]
+ },
+ {
+  "term": "zwölfmal",
+  "en": "twelve times",
+  "pos": "adverb",
+  "level": "B1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Ich habe dich zwölfmal angerufen!",
+    "en": "I called you twelve times!"
+   },
+   {
+    "de": "Die Wahrscheinlichkeit ist zwölfmal höher.",
+    "en": "The probability is twelve times higher."
+   }
+  ]
+ }
+]

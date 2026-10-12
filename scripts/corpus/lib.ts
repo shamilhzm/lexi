@@ -34,7 +34,7 @@ export function loadSectors(path: string): SectorMeta[] {
 }
 
 // ---- terms, keys, ids -----------------------------------------------------
-export const stripArticle = (term: string): string => term.replace(/^(der|die|das)\s+/i, '').trim();
+export const stripArticle = (term: string): string => term.replace(/^(der\/die|der|die|das)\s+/i, '').trim();
 
 /** Case-insensitive, article-stripped headword — the identity used for dedupe. */
 export const lemmaKey = (term: string): string => stripArticle(term).toLowerCase();
@@ -210,6 +210,27 @@ export function headwordEvidence(matcher: Matcher, card: Word, de: string): Evid
           const lower = first === first.toLowerCase() && first !== first.toUpperCase();
           if (lower && seg.word?.pos === 'noun') return { ok: true, token: seg.text };
         }
+      }
+    }
+
+    // **And the noun side of the same fact.** A capitalised token that does not
+    // open a sentence is a noun — German has no other reason to capitalise it. So
+    // where the matcher handed «im Fernsehen» to the verb *fernsehen* (it owns the
+    // lowercase key, first-wins, for reading) and this card is the noun *das
+    // Fernsehen*, the token is this card. Sentence-initial capitals prove nothing
+    // and are skipped. Found authoring `das Fernsehen`, 2026-10-12.
+    if (card.pos === 'noun') {
+      const own = stripArticle(card.term).trim();
+      let at = 0;
+      for (const seg of matcher.annotate(de)) {
+        const pos = de.indexOf(seg.text, at);
+        if (pos >= 0) at = pos + seg.text.length;
+        // Exact, capitalised spelling; not opening a sentence; and claimed by
+        // something that is *not* a noun — a homonym noun (*der See* / *die See*)
+        // keeps its claim, so this cannot pass an example on the wrong gender.
+        if (!seg.isWord || seg.text !== own || seg.word?.pos === 'noun') continue;
+        const before = de.slice(0, Math.max(0, pos)).trimEnd();
+        if (before && !/[.!?:„“"]$/.test(before)) return { ok: true, token: seg.text };
       }
     }
 

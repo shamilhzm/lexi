@@ -17,6 +17,7 @@
     "corpus:coverage": "node scripts/corpus/coverage.ts",
     "corpus:news": "node scripts/corpus/news-coverage.ts",
     "corpus:tokencov": "node scripts/corpus/tokencov.ts",
+    "corpus:textcov": "node scripts/corpus/textcov.ts",
     "corpus:dictcheck": "node scripts/corpus/dudencheck.ts",
     "corpus:dictgap": "node scripts/corpus/dictgap.ts",
     "corpus:lexicon": "node scripts/corpus/lexicon.ts",

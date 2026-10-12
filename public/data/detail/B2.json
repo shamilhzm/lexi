@@ -761,6 +761,20 @@
       }
     ]
   },
+  "voc:B2:anschrauben": {
+    "ex": [
+      {
+        "de": "Kannst du das Regal an die Wand anschrauben?",
+        "en": "Can you screw the shelf to the wall?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe das Schild gestern angeschraubt.",
+        "en": "I screwed the sign on yesterday.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:anspruchsvoll": {
     "def": "sophisticated, fastidious",
     "ex": [
@@ -1008,6 +1022,20 @@
       }
     ]
   },
+  "voc:B2:auffrischen": {
+    "ex": [
+      {
+        "de": "Ich will vor der Reise mein Französisch auffrischen.",
+        "en": "I want to brush up my French before the trip.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie hat ihre Kenntnisse in einem Kurs aufgefrischt.",
+        "en": "She refreshed her knowledge in a course.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:auffällig": {
     "def": "Standing out enough that people notice it without looking.",
     "ex": [
@@ -1034,6 +1062,20 @@
       {
         "de": "Nach der Nachricht war sie den ganzen Tag aufgewühlt.",
         "en": "After the news she was agitated all day.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:aufholen": {
+    "ex": [
+      {
+        "de": "Nach der Krankheit musste er viel Stoff aufholen.",
+        "en": "After his illness he had a lot of material to catch up on.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Mannschaft hat in der zweiten Hälfte aufgeholt.",
+        "en": "The team caught up in the second half.",
         "lvl": "B2"
       }
     ]
@@ -1511,6 +1553,20 @@
       {
         "de": "Die Universität schreibt zwei Professuren aus.",
         "en": "The university is advertising two professorships.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:aussortieren": {
+    "ex": [
+      {
+        "de": "Ich sortiere alte Kleidung aus.",
+        "en": "I'm sorting out old clothes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Bewerbungen werden sofort aussortiert.",
+        "en": "Many applications are weeded out straight away.",
         "lvl": "B2"
       }
     ]
@@ -2073,6 +2129,20 @@
       {
         "de": "Die benachbarten Länder helfen mit.",
         "en": "The neighbouring countries are helping.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:benachteiligen": {
+    "ex": [
+      {
+        "de": "Niemand darf wegen seiner Herkunft benachteiligt werden.",
+        "en": "No one may be disadvantaged because of their origin.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die alte Regel hat ältere Bewerber benachteiligt.",
+        "en": "The old rule disadvantaged older applicants.",
         "lvl": "B2"
       }
     ]
@@ -3063,6 +3133,20 @@
       {
         "de": "Wir sprechen der Familie unser Beileid aus.",
         "en": "We offer our condolences to the family.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Berufsleben": {
+    "ex": [
+      {
+        "de": "Nach der Elternzeit kehrte sie ins Berufsleben zurück.",
+        "en": "After parental leave she returned to working life.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Berufsleben braucht man viel Geduld.",
+        "en": "You need a lot of patience in working life.",
         "lvl": "B2"
       }
     ]
@@ -4558,6 +4642,20 @@
       {
         "de": "Wo wird das Raumschiff aufsetzen?",
         "en": "Where will the spaceship touch down?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Rentenalter": {
+    "ex": [
+      {
+        "de": "Das Rentenalter soll weiter steigen.",
+        "en": "The retirement age is set to rise further.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit 67 erreicht sie das Rentenalter.",
+        "en": "At 67 she reaches retirement age.",
         "lvl": "B2"
       }
     ]
@@ -7994,6 +8092,20 @@
       }
     ]
   },
+  "voc:B2:der Konnektor": {
+    "ex": [
+      {
+        "de": "„Deshalb“ ist ein Konnektor, der eine Folge einleitet.",
+        "en": "\"Deshalb\" is a connector that introduces a consequence.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit Konnektoren klingt dein Text flüssiger.",
+        "en": "With connectors your text sounds smoother.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Kontrast": {
     "ex": [
       {
@@ -8221,6 +8333,20 @@
       {
         "de": "Der Lehrplan wurde um digitale Themen erweitert.",
         "en": "The curriculum was expanded to include digital topics.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Leitfaden": {
+    "ex": [
+      {
+        "de": "Der Leitfaden erklärt alle Schritte der Bewerbung.",
+        "en": "The guide explains every step of the application.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für neue Mitarbeiter gibt es einen Leitfaden.",
+        "en": "There's a guide for new employees.",
         "lvl": "B2"
       }
     ]
@@ -10792,6 +10918,20 @@
       }
     ]
   },
+  "voc:B2:der Wiedereinstieg": {
+    "ex": [
+      {
+        "de": "Der Wiedereinstieg in den Beruf war nicht leicht.",
+        "en": "Returning to work wasn't easy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Programm hilft beim Wiedereinstieg nach der Elternzeit.",
+        "en": "The programme helps with returning after parental leave.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Wirtschaftsminister": {
     "ex": [
       {
@@ -11133,6 +11273,20 @@
       {
         "de": "Ist das wirklich derart wichtig?",
         "en": "Is this really all that important?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:derjenige": {
+    "ex": [
+      {
+        "de": "Derjenige, der zuletzt geht, macht das Licht aus.",
+        "en": "Whoever leaves last turns off the light.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er war derjenige, der mir geholfen hat.",
+        "en": "He was the one who helped me.",
         "lvl": "B2"
       }
     ]
@@ -12275,6 +12429,34 @@
       {
         "de": "Bei seiner ersten Rede vor der Belegschaft betont er sein Engagement für eine freie Berichterstattung.",
         "en": "In his first speech to the workforce, he emphasizes his commitment to free reporting.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Berufsbezeichnung": {
+    "ex": [
+      {
+        "de": "Wie lautet Ihre genaue Berufsbezeichnung?",
+        "en": "What is your exact job title?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Neue Berufsbezeichnungen entstehen ständig.",
+        "en": "New job titles are appearing all the time.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Berufstätigkeit": {
+    "ex": [
+      {
+        "de": "Sie hat ihre Berufstätigkeit für die Kinder unterbrochen.",
+        "en": "She interrupted her working life for the children.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Berufstätigkeit von Müttern hat stark zugenommen.",
+        "en": "The employment of mothers has increased sharply.",
         "lvl": "B2"
       }
     ]
@@ -17210,6 +17392,20 @@
       }
     ]
   },
+  "voc:B2:die Unmöglichkeit": {
+    "ex": [
+      {
+        "de": "Das ist eine Herausforderung, aber keine Unmöglichkeit.",
+        "en": "That's a challenge, but not an impossibility.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie sprach von der Unmöglichkeit einer schnellen Lösung.",
+        "en": "She spoke of the impossibility of a quick solution.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Unruhe": {
     "ex": [
       {
@@ -18448,6 +18644,20 @@
       }
     ]
   },
+  "voc:B2:durchfahren": {
+    "ex": [
+      {
+        "de": "Wir sind die ganze Nacht durchgefahren.",
+        "en": "We drove through the whole night without stopping.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Fährt dieser Zug bis Hamburg durch?",
+        "en": "Does this train go straight through to Hamburg?",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:durchhalten": {
     "ex": [
       {
@@ -18502,6 +18712,20 @@
       {
         "de": "die durchschnittliche Anzahl.",
         "en": "the average number.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:durchsehen": {
+    "ex": [
+      {
+        "de": "Kannst du meinen Text noch einmal durchsehen?",
+        "en": "Can you look through my text once more?",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe alle Unterlagen durchgesehen.",
+        "en": "I've gone through all the documents.",
         "lvl": "B2"
       }
     ]
@@ -19844,6 +20068,20 @@
       {
         "de": "Ich ertrinke gerade in Arbeit.",
         "en": "I'm drowning in work at the moment.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:es sei denn": {
+    "ex": [
+      {
+        "de": "Wir gehen spazieren, es sei denn, es regnet.",
+        "en": "We'll go for a walk, unless it rains.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zeit vergeht schnell, es sei denn, man wartet.",
+        "en": "Time passes quickly, unless you're waiting.",
         "lvl": "B2"
       }
     ]
@@ -21519,6 +21757,20 @@
       }
     ]
   },
+  "voc:B2:im Nachhinein": {
+    "ex": [
+      {
+        "de": "Das war im Nachhinein die richtige Entscheidung.",
+        "en": "In hindsight that was the right decision.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das weiß man immer erst im Nachhinein.",
+        "en": "You only ever know that afterwards.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:importieren": {
     "ex": [
       {
@@ -23103,6 +23355,20 @@
       }
     ]
   },
+  "voc:B2:nach wie vor": {
+    "ex": [
+      {
+        "de": "Das Problem besteht nach wie vor.",
+        "en": "The problem still exists.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie wohnt nach wie vor in Berlin.",
+        "en": "She still lives in Berlin.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:nachlassen": {
     "ex": [
       {
@@ -24277,6 +24543,20 @@
       }
     ]
   },
+  "voc:B2:schulen": {
+    "ex": [
+      {
+        "de": "Alle Mitarbeiter werden an der neuen Software geschult.",
+        "en": "All employees are being trained on the new software.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir schulen unser Personal regelmäßig.",
+        "en": "We train our staff regularly.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:schweben": {
     "ex": [
       {
@@ -24302,6 +24582,20 @@
       {
         "de": "Rauchen ist schädlich für die Lunge.",
         "en": "Smoking is harmful to the lungs.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:sechsmonatig": {
+    "ex": [
+      {
+        "de": "Sie macht ein sechsmonatiges Praktikum.",
+        "en": "She's doing a six-month internship.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nach einer sechsmonatigen Pause fing er wieder an.",
+        "en": "After a six-month break he started again.",
         "lvl": "B2"
       }
     ]
@@ -25402,6 +25696,20 @@
       }
     ]
   },
+  "voc:B2:umbauen": {
+    "ex": [
+      {
+        "de": "Wir wollen die Küche umbauen.",
+        "en": "We want to remodel the kitchen.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die alte Fabrik wurde zu Wohnungen umgebaut.",
+        "en": "The old factory was converted into flats.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:umbenennen": {
     "ex": [
       {
@@ -25412,6 +25720,20 @@
       {
         "de": "Die Stadt will die Straße umbenennen.",
         "en": "The city wants to rename the street.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:umfahren": {
+    "ex": [
+      {
+        "de": "Wir können den Stau umfahren.",
+        "en": "We can drive around the traffic jam.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Bus umfuhr die Baustelle.",
+        "en": "The bus drove around the roadworks.",
         "lvl": "B2"
       }
     ]
@@ -25569,6 +25891,20 @@
         "de": "Wir setzen die Empfehlungen Schritt für Schritt um.",
         "en": "We are implementing the recommendations step by step.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B2:umstoßen": {
+    "ex": [
+      {
+        "de": "Das Kind hat das Glas umgestoßen.",
+        "en": "The child knocked the glass over.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Regen hat unsere Pläne umgestoßen.",
+        "en": "The rain upset our plans.",
+        "lvl": "B2"
       }
     ]
   },
@@ -25971,6 +26307,20 @@
       }
     ]
   },
+  "voc:B2:unterschätzen": {
+    "ex": [
+      {
+        "de": "Man sollte die Gefahr nicht unterschätzen.",
+        "en": "You shouldn't underestimate the danger.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe die Arbeit völlig unterschätzt.",
+        "en": "I completely underestimated the work.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:unterstreichen": {
     "ex": [
       {
@@ -25995,6 +26345,34 @@
       {
         "de": "Das Abkommen wurde in Paris unterzeichnet.",
         "en": "The agreement was signed in Paris.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:untrennbar": {
+    "ex": [
+      {
+        "de": "„Verstehen“ ist ein untrennbares Verb.",
+        "en": "\"Verstehen\" is an inseparable verb.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die beiden sind untrennbar miteinander verbunden.",
+        "en": "The two are inseparably linked.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:ununterbrochen": {
+    "ex": [
+      {
+        "de": "Es hat ununterbrochen geregnet.",
+        "en": "It rained nonstop.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er arbeitet seit zehn Jahren ununterbrochen bei der Firma.",
+        "en": "He has worked at the company continuously for ten years.",
         "lvl": "B2"
       }
     ]
@@ -27191,6 +27569,20 @@
       }
     ]
   },
+  "voc:B2:vornehmen": {
+    "ex": [
+      {
+        "de": "Wir müssen noch ein paar Änderungen vornehmen.",
+        "en": "We still need to make a few changes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe mir vorgenommen, mehr Sport zu machen.",
+        "en": "I've resolved to do more sport.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:vorschreiben": {
     "ex": [
       {
@@ -27407,6 +27799,20 @@
       {
         "de": "Das war ein widerliches Verhalten.",
         "en": "That was disgusting behaviour.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:widerspiegeln": {
+    "ex": [
+      {
+        "de": "Die Zahlen spiegeln die Lage gut wider.",
+        "en": "The figures reflect the situation well.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Seine Bilder widerspiegeln seine Kindheit.",
+        "en": "His paintings reflect his childhood.",
         "lvl": "B2"
       }
     ]
@@ -28321,6 +28727,20 @@
       }
     ]
   },
+  "voc:B2:überfordern": {
+    "ex": [
+      {
+        "de": "Ich will dich nicht überfordern.",
+        "en": "I don't want to ask too much of you.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich überfordere mich oft selbst.",
+        "en": "I often take on too much myself.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:überfällig": {
     "ex": [
       {
@@ -28331,6 +28751,20 @@
       {
         "de": "Eine Reform ist längst überfällig.",
         "en": "A reform is long overdue.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:überkochen": {
+    "ex": [
+      {
+        "de": "Pass auf, dass die Milch nicht überkocht!",
+        "en": "Watch that the milk doesn't boil over!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Suppe ist übergekocht.",
+        "en": "The soup boiled over.",
         "lvl": "B2"
       }
     ]
@@ -28508,6 +28942,20 @@
       {
         "de": "Von so viel Freundlichkeit war sie ganz überwältigt.",
         "en": "She was quite overwhelmed by so much kindness.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:überziehen": {
+    "ex": [
+      {
+        "de": "Ich habe mein Konto um 200 Euro überzogen.",
+        "en": "I've overdrawn my account by 200 euros.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bitte die Redezeit nicht überziehen!",
+        "en": "Please don't go over the speaking time!",
         "lvl": "B2"
       }
     ]

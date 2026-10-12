@@ -23,7 +23,8 @@
 // small enough to load at boot beside `cards.json` rather than a 18 MB shard set.
 import './shim.ts';
 import { PATHS } from './config.ts';
-import { loadCorpus } from './lib.ts';
+import { loadCorpus, lookupLemma } from './lib.ts';
+import { government } from '../../src/lib/matcher.ts';
 import { createReadStream, writeFileSync } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { join } from 'node:path';
@@ -86,10 +87,30 @@ const corpus = loadCorpus(PATHS.vocab).filter((w) => w.kind === 'word');
 /** headword (lowercased, article-stripped) → the cards claiming it. */
 const byHead = new Map<string, Word[]>();
 for (const w of corpus) {
-  const k = stripArticle(w.term).toLowerCase();
+  // The *lemma*, not the term: `sich erweisen` and `hinweisen auf + A` are flashcard
+  // shapes no Wiktionary headword matches, and keying on them left every reflexive
+  // and governed verb with no attested forms (LESSONS, *A headword is not a lemma*).
+  const k = (government(w.term)?.lemma ?? lookupLemma(w.term)).toLowerCase();
   const list = byHead.get(k) ?? [];
   list.push(w);
   byHead.set(k, list);
+}
+// **A pattern card only gets the forms when it is the only card for its lemma.**
+// Where a plain card exists — *bitten* beside *bitten um + A*, *leiden* beside
+// *leiden (unter)* — the plain card owns *bat* and *gelitten*, and the pattern card
+// claims a token through the matcher's own preposition and pronoun checks, never
+// through this table. Keying on the lemma without this rule moved 287 tokens from
+// plain verbs to their pattern siblings on its first run.
+// And where two pattern cards share a lemma with no plain card (*sich sorgen* and
+// *sorgen für + A*), neither gets them: the table cannot say which one a bare
+// *sorgt* is, and the generated forms already decide it as they always have.
+for (const [k, list] of byHead) {
+  // Plain means the term *is* the lemma — no sense note, no `sich`, no government.
+  // `lookupLemma` strips all three, which is why it cannot be the test here.
+  const isPlain = (w: Word) => w.term.replace(/^(der\/die|der|die|das)\s+/i, '').toLowerCase() === k;
+  const plain = list.filter(isPlain);
+  if (plain.length && plain.length < list.length) byHead.set(k, plain);
+  else if (!plain.length && list.length > 1) byHead.delete(k);
 }
 
 const out = new Map<string, Set<string>>();
@@ -146,7 +167,7 @@ for await (const line of rl) {
       form = form.replace(/^am\s+/i, '');
 
       const lc = form.toLowerCase();
-      if (lc === stripArticle(card.term).toLowerCase()) continue;   // the lemma is not a form
+      if (lc === (government(card.term)?.lemma ?? lookupLemma(card.term)).toLowerCase()) continue;   // the lemma is not a form
       if (lc.includes(' ')) continue;   // multi-word rows are phrases, not forms
       set.add(lc);
     }

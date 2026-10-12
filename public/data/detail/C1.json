@@ -284,6 +284,20 @@
       }
     ]
   },
+  "voc:C1:abschreckend": {
+    "ex": [
+      {
+        "de": "Die hohen Preise sind abschreckend.",
+        "en": "The high prices are off-putting.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Strafe soll abschreckend wirken.",
+        "en": "The penalty is meant to act as a deterrent.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:absehbar": {
     "def": "Able to be expected or predicted.",
     "ex": [
@@ -2244,6 +2258,20 @@
       {
         "de": "Er geht einmal im Jahr beichten.",
         "en": "He goes to confession once a year.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:beimessen": {
+    "ex": [
+      {
+        "de": "Man sollte dem Gerücht keine Bedeutung beimessen.",
+        "en": "You shouldn't attach any importance to the rumour.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie misst der Familie großen Wert bei.",
+        "en": "She places great value on family.",
         "lvl": "C1"
       }
     ]
@@ -6992,6 +7020,20 @@
       }
     ]
   },
+  "voc:C1:der Auswahlprozess": {
+    "ex": [
+      {
+        "de": "Der Auswahlprozess dauert etwa vier Wochen.",
+        "en": "The selection process takes about four weeks.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie hat den ganzen Auswahlprozess durchlaufen.",
+        "en": "She went through the whole selection process.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Außenbereich": {
     "ex": [
       {
@@ -8492,6 +8534,20 @@
       }
     ]
   },
+  "voc:C1:der Hoffnungsschimmer": {
+    "ex": [
+      {
+        "de": "Die neue Studie ist ein kleiner Hoffnungsschimmer.",
+        "en": "The new study is a small glimmer of hope.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gibt noch einen Hoffnungsschimmer.",
+        "en": "There is still a glimmer of hope.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Höchstwert": {
     "ex": [
       {
@@ -9811,6 +9867,20 @@
       {
         "de": "Die Pastorin predigt am Sonntag.",
         "en": "The pastor is preaching on Sunday.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Personalvermittler": {
+    "ex": [
+      {
+        "de": "Ein Personalvermittler hat mir die Stelle angeboten.",
+        "en": "A recruiter offered me the job.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Firmen arbeiten mit Personalvermittlern zusammen.",
+        "en": "Many firms work with recruitment agents.",
         "lvl": "C1"
       }
     ]
@@ -11929,6 +11999,20 @@
       }
     ]
   },
+  "voc:C1:der Wiedereinsteiger": {
+    "ex": [
+      {
+        "de": "Für Wiedereinsteiger gibt es spezielle Kurse.",
+        "en": "There are special courses for returners.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Wiedereinsteiger haben Kinder großgezogen.",
+        "en": "Many returners have raised children.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Windschatten": {
     "ex": [
       {
@@ -12311,6 +12395,20 @@
       }
     ]
   },
+  "voc:C1:der/die Personalverantwortliche": {
+    "ex": [
+      {
+        "de": "Die Personalverantwortliche hat mich zum Gespräch eingeladen.",
+        "en": "The HR manager invited me to an interview.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Personalverantwortliche lesen Lebensläufe nur kurz.",
+        "en": "Many hiring managers only skim CVs.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:derartig": {
     "ex": [
       {
@@ -12664,6 +12762,20 @@
       }
     ]
   },
+  "voc:C1:die Aktualität": {
+    "ex": [
+      {
+        "de": "Das Thema hat nichts von seiner Aktualität verloren.",
+        "en": "The topic has lost none of its relevance.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei Nachrichten zählt vor allem die Aktualität.",
+        "en": "With news, what counts most is being current.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Akzeptanz": {
     "ex": [
       {
@@ -12761,6 +12873,20 @@
       {
         "de": "Seine Amtszeit endet im Frühjahr.",
         "en": "His term of office ends in spring.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Anatomie": {
+    "ex": [
+      {
+        "de": "Im ersten Semester lernen die Studierenden Anatomie.",
+        "en": "In the first semester the students learn anatomy.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Artikel beschreibt die Anatomie einer Krise.",
+        "en": "The article describes the anatomy of a crisis.",
         "lvl": "C1"
       }
     ]
@@ -13017,6 +13143,20 @@
       {
         "de": "Die Bank hat eine neue Applikation.",
         "en": "The bank has a new app.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Arbeitsmoral": {
+    "ex": [
+      {
+        "de": "Er hat eine sehr gute Arbeitsmoral.",
+        "en": "He has a very good work ethic.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Arbeitsmoral im Team ist gesunken.",
+        "en": "Morale in the team has dropped.",
         "lvl": "C1"
       }
     ]
@@ -13758,6 +13898,20 @@
       {
         "de": "Trotz aller Bemühung gab es keine Lösung.",
         "en": "Despite every effort there was no solution.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Benachteiligung": {
+    "ex": [
+      {
+        "de": "Das Gesetz soll die Benachteiligung von Frauen verhindern.",
+        "en": "The law is meant to prevent discrimination against women.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie spricht offen über ihre Benachteiligung im Job.",
+        "en": "She talks openly about being disadvantaged at work.",
         "lvl": "C1"
       }
     ]
@@ -14728,6 +14882,20 @@
       }
     ]
   },
+  "voc:C1:die Eignungsprüfung": {
+    "ex": [
+      {
+        "de": "Vor dem Studium muss man eine Eignungsprüfung machen.",
+        "en": "Before the degree you have to take an aptitude test.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat die Eignungsprüfung bestanden.",
+        "en": "He passed the aptitude test.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Einberufung": {
     "ex": [
       {
@@ -15255,6 +15423,20 @@
       }
     ]
   },
+  "voc:C1:die Ersetzung": {
+    "ex": [
+      {
+        "de": "Viele fürchten die Ersetzung von Menschen durch Maschinen.",
+        "en": "Many fear the replacement of people by machines.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Ersetzung der alten Leitungen dauert Monate.",
+        "en": "Replacing the old pipes takes months.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Erwartungshaltung": {
     "ex": [
       {
@@ -15435,6 +15617,20 @@
       {
         "de": "Ein Termin beim Amt: Fehlanzeige.",
         "en": "An appointment at the office: nothing doing.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Festanstellung": {
+    "ex": [
+      {
+        "de": "Nach dem Praktikum bekam sie eine Festanstellung.",
+        "en": "After the internship she got a permanent position.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Eine Festanstellung gibt mehr Sicherheit.",
+        "en": "A permanent job gives more security.",
         "lvl": "C1"
       }
     ]
@@ -16970,6 +17166,20 @@
       {
         "de": "Die Kennzeichnung fehlt auf der Packung.",
         "en": "The label is missing from the packet.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Kernkompetenz": {
+    "ex": [
+      {
+        "de": "Beratung ist die Kernkompetenz unserer Firma.",
+        "en": "Consulting is our company's core competence.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Welche Kernkompetenzen bringen Sie mit?",
+        "en": "Which core skills do you bring?",
         "lvl": "C1"
       }
     ]
@@ -19030,6 +19240,20 @@
       }
     ]
   },
+  "voc:C1:die Rekrutierung": {
+    "ex": [
+      {
+        "de": "Die Rekrutierung neuer Mitarbeiter dauert lange.",
+        "en": "Recruiting new staff takes a long time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma investiert viel in die Rekrutierung.",
+        "en": "The company invests a lot in recruitment.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Renaissance": {
     "ex": [
       {
@@ -19083,6 +19307,20 @@
       {
         "de": "Um die Validität eines Experiments zu belegen oder zu hinterfragen, ist eine Replikation die geeignete Maßnahme.",
         "en": "To confirm or question the validity of an experiment, replication is the appropriate measure.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Repräsentation": {
+    "ex": [
+      {
+        "de": "Es geht um die Repräsentation von Frauen in der Politik.",
+        "en": "It's about the representation of women in politics.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mehr Repräsentation schafft mehr Vertrauen.",
+        "en": "More representation builds more trust.",
         "lvl": "C1"
       }
     ]
@@ -19426,6 +19664,20 @@
       }
     ]
   },
+  "voc:C1:die Schilderung": {
+    "ex": [
+      {
+        "de": "Nach seiner Schilderung war der Unfall nicht seine Schuld.",
+        "en": "According to his account, the accident wasn't his fault.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihre Schilderung des Abends war sehr lebendig.",
+        "en": "Her description of the evening was very vivid.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Schirmherrschaft": {
     "ex": [
       {
@@ -19637,6 +19889,20 @@
       {
         "de": "„Von diesem Bedeutungsgehalt, mit dem sich die Semantik beschäftigt, wollen wir in unserer Untersuchung zunächst einmal absehen.“",
         "en": "„In our study we will initially disregard this semantic content with which semantics is concerned.“",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Seniorität": {
+    "ex": [
+      {
+        "de": "Das Gehalt hängt auch von der Seniorität ab.",
+        "en": "The salary also depends on seniority.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei Beförderungen zählt nicht nur die Seniorität.",
+        "en": "Seniority isn't the only thing that counts for promotions.",
         "lvl": "C1"
       }
     ]
@@ -20266,6 +20532,20 @@
       {
         "de": "Er hat Musik über eine Tauschbörse geladen.",
         "en": "He downloaded music via a file-sharing network.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Technologiebranche": {
+    "ex": [
+      {
+        "de": "Die Technologiebranche verändert sich schnell.",
+        "en": "The tech industry changes quickly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er arbeitet seit Jahren in der Technologiebranche.",
+        "en": "He has worked in the tech industry for years.",
         "lvl": "C1"
       }
     ]
@@ -22416,6 +22696,34 @@
       }
     ]
   },
+  "voc:C1:durchdenken": {
+    "ex": [
+      {
+        "de": "Du solltest den Plan gut durchdenken.",
+        "en": "You should think the plan through carefully.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war nicht gut durchdacht.",
+        "en": "That wasn't well thought through.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:durchdringen": {
+    "ex": [
+      {
+        "de": "Das Licht kann das dichte Laub kaum durchdringen.",
+        "en": "The light can barely penetrate the dense leaves.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Idee hat die ganze Firma durchdrungen.",
+        "en": "The idea has pervaded the whole company.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:durchgängig": {
     "ex": [
       {
@@ -22440,6 +22748,34 @@
       {
         "de": "Das Produkt muss viele Tests durchlaufen.",
         "en": "The product has to go through many tests.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:durchleben": {
+    "ex": [
+      {
+        "de": "Sie musste eine schwere Zeit durchleben.",
+        "en": "She had to live through a hard time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Familien durchleben solche Krisen.",
+        "en": "Many families go through crises like that.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:durchqueren": {
+    "ex": [
+      {
+        "de": "Sie wollen die Wüste zu Fuß durchqueren.",
+        "en": "They want to cross the desert on foot.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir mussten die ganze Stadt durchqueren.",
+        "en": "We had to cross the whole city.",
         "lvl": "C1"
       }
     ]
@@ -22667,6 +23003,20 @@
       {
         "de": "Kannst du das Video in die Seite einbinden?",
         "en": "Can you embed the video in the page?",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:einbüßen": {
+    "ex": [
+      {
+        "de": "Die Partei hat viele Stimmen eingebüßt.",
+        "en": "The party lost a lot of votes.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Durch die Pause wollte sie nichts einbüßen.",
+        "en": "She didn't want to lose anything through the break.",
         "lvl": "C1"
       }
     ]
@@ -23171,6 +23521,20 @@
       {
         "de": "Frühe Förderung wirkt sozialer Ungleichheit entgegen.",
         "en": "Early support counteracts social inequality.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:entgegnen": {
+    "ex": [
+      {
+        "de": "„Das stimmt nicht“, entgegnete sie.",
+        "en": "\"That's not true,\" she retorted.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Darauf wusste er nichts zu entgegnen.",
+        "en": "He didn't know what to say to that.",
         "lvl": "C1"
       }
     ]
@@ -24691,6 +25055,20 @@
       {
         "de": "Die Übergabe lief geräuschlos ab.",
         "en": "The handover went off quietly.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:geschlechtsspezifisch": {
+    "ex": [
+      {
+        "de": "Es gibt immer noch große geschlechtsspezifische Unterschiede beim Gehalt.",
+        "en": "There are still big gender-specific differences in pay.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Studie untersucht geschlechtsspezifisches Verhalten.",
+        "en": "The study examines gender-specific behaviour.",
         "lvl": "C1"
       }
     ]
@@ -28272,6 +28650,20 @@
       }
     ]
   },
+  "voc:C1:proaktiv": {
+    "ex": [
+      {
+        "de": "Sprechen Sie die Lücke im Lebenslauf proaktiv an.",
+        "en": "Address the gap in your CV proactively.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir brauchen proaktive Mitarbeiter.",
+        "en": "We need proactive employees.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:profitabel": {
     "ex": [
       {
@@ -28650,6 +29042,20 @@
       {
         "de": "Der Thermostat reguliert die Temperatur.",
         "en": "The thermostat regulates the temperature.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:reinlich": {
+    "ex": [
+      {
+        "de": "Katzen sind sehr reinliche Tiere.",
+        "en": "Cats are very clean animals.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er war schon immer sehr reinlich.",
+        "en": "He has always been very clean in his habits.",
         "lvl": "C1"
       }
     ]
@@ -30366,6 +30772,20 @@
       }
     ]
   },
+  "voc:C1:umfliegen": {
+    "ex": [
+      {
+        "de": "Das Flugzeug musste das Gewitter umfliegen.",
+        "en": "The plane had to fly around the storm.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Vögel umflogen den Kirchturm.",
+        "en": "The birds flew around the church tower.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:umkehrbar": {
     "def": "Able to be undone, returning things to how they were.",
     "ex": [
@@ -30381,6 +30801,20 @@
       }
     ]
   },
+  "voc:C1:umkreisen": {
+    "ex": [
+      {
+        "de": "Der Mond umkreist die Erde.",
+        "en": "The moon orbits the earth.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein Hubschrauber umkreiste das Gebäude.",
+        "en": "A helicopter circled the building.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:umkämpft": {
     "ex": [
       {
@@ -30391,6 +30825,20 @@
       {
         "de": "Die Stadt ist seit Wochen umkämpft.",
         "en": "The city has been fought over for weeks.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:umladen": {
+    "ex": [
+      {
+        "de": "Die Waren müssen in Hamburg umgeladen werden.",
+        "en": "The goods have to be transferred in Hamburg.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wir mussten alles auf einen kleineren Wagen umladen.",
+        "en": "We had to reload everything onto a smaller van.",
         "lvl": "C1"
       }
     ]
@@ -30477,6 +30925,20 @@
       {
         "de": "Die Stadt will die Fabrik in Wohnungen umwandeln.",
         "en": "The city wants to convert the factory into flats.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:umzäunen": {
+    "ex": [
+      {
+        "de": "Sie wollen den Garten umzäunen.",
+        "en": "They want to fence in the garden.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Grundstück ist umzäunt.",
+        "en": "The property is fenced in.",
         "lvl": "C1"
       }
     ]
@@ -30618,6 +31080,20 @@
       {
         "de": "Die Preise sind unerhört gestiegen.",
         "en": "Prices have risen to an unheard-of extent.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:unerklärt": {
+    "ex": [
+      {
+        "de": "Die Ursache bleibt bis heute unerklärt.",
+        "en": "The cause remains unexplained to this day.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Eine unerklärte Lücke im Lebenslauf wirkt schlecht.",
+        "en": "An unexplained gap in a CV makes a bad impression.",
         "lvl": "C1"
       }
     ]
@@ -30878,6 +31354,20 @@
       }
     ]
   },
+  "voc:C1:unterbewerten": {
+    "ex": [
+      {
+        "de": "Viele Frauen unterbewerten ihre eigene Leistung.",
+        "en": "Many women undervalue their own achievements.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Aktie gilt als unterbewertet.",
+        "en": "The share is considered undervalued.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:unterbinden": {
     "ex": [
       {
@@ -31014,6 +31504,20 @@
         "de": "Interne E-Mails untermauern die Darstellung der Klägerin.",
         "en": "Internal emails underpin the plaintiff's account.",
         "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C1:unterordnen": {
+    "ex": [
+      {
+        "de": "Sie hat ihre Wünsche immer der Familie untergeordnet.",
+        "en": "She always put the family's needs before her own wishes.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er kann sich schlecht unterordnen.",
+        "en": "He isn't good at taking a back seat.",
+        "lvl": "C1"
       }
     ]
   },
@@ -32614,6 +33118,20 @@
       }
     ]
   },
+  "voc:C1:wegdösen": {
+    "ex": [
+      {
+        "de": "Vor dem Fernseher bin ich kurz weggedöst.",
+        "en": "I dozed off for a moment in front of the TV.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Pass auf, dass du im Zug nicht wegdöst!",
+        "en": "Make sure you don't doze off on the train!",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:wegfallen": {
     "ex": [
       {
@@ -32773,6 +33291,34 @@
       }
     ]
   },
+  "voc:C1:widerfahren": {
+    "ex": [
+      {
+        "de": "Ihm ist großes Unrecht widerfahren.",
+        "en": "A great injustice was done to him.",
+        "lvl": "C1"
+      },
+      {
+        "de": "So etwas kann jedem widerfahren.",
+        "en": "Something like that can happen to anyone.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:widerhallen": {
+    "ex": [
+      {
+        "de": "Ihre Schritte hallten im Flur wider.",
+        "en": "Her footsteps echoed in the corridor.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Applaus ließ den Saal widerhallen.",
+        "en": "The applause made the hall reverberate.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:widerlegen": {
     "def": "To prove that a statement or argument is wrong.",
     "ex": [
@@ -32812,6 +33358,20 @@
       {
         "de": "Die Partei hat das Gesetz widerstandslos akzeptiert.",
         "en": "The party accepted the law without resistance.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:wiederaufnehmen": {
+    "ex": [
+      {
+        "de": "Nach der Pause hat sie ihre Karriere wiederaufgenommen.",
+        "en": "After the break she resumed her career.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Gespräche sollen morgen wiederaufgenommen werden.",
+        "en": "The talks are to resume tomorrow.",
         "lvl": "C1"
       }
     ]
@@ -33241,6 +33801,20 @@
       }
     ]
   },
+  "voc:C1:zum Einsatz kommen": {
+    "ex": [
+      {
+        "de": "In der Fabrik sollen bald Roboter zum Einsatz kommen.",
+        "en": "Robots are soon to be used in the factory.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Welche Programme werden bei euch zum Einsatz kommen?",
+        "en": "Which programs will you be using?",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:zumutbar": {
     "def": "Reasonable to ask of someone, given what it costs them.",
     "ex": [
@@ -33566,6 +34140,20 @@
       }
     ]
   },
+  "voc:C1:überblicken": {
+    "ex": [
+      {
+        "de": "Von hier oben kann man die ganze Stadt überblicken.",
+        "en": "From up here you can see the whole city.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Folgen sind noch nicht zu überblicken.",
+        "en": "The consequences can't be fully grasped yet.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:überdenken": {
     "ex": [
       {
@@ -33681,6 +34269,20 @@
       }
     ]
   },
+  "voc:C1:überrennen": {
+    "ex": [
+      {
+        "de": "Die Fans haben die Absperrung fast überrannt.",
+        "en": "The fans almost overran the barrier.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er wollte mich nicht überrennen.",
+        "en": "He didn't mean to run me over.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:überschreiben": {
     "ex": [
       {
@@ -33695,6 +34297,20 @@
       }
     ]
   },
+  "voc:C1:übersiedeln": {
+    "ex": [
+      {
+        "de": "Die Familie will nach Wien übersiedeln.",
+        "en": "The family wants to relocate to Vienna.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Vor zehn Jahren sind sie nach Kanada übergesiedelt.",
+        "en": "Ten years ago they moved to Canada.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:übertreffen": {
     "ex": [
       {
@@ -33705,6 +34321,20 @@
       {
         "de": "Sie will ihren eigenen Rekord übertreffen.",
         "en": "She wants to beat her own record.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:übertreten": {
+    "ex": [
+      {
+        "de": "Wer das Gesetz übertritt, muss mit einer Strafe rechnen.",
+        "en": "Anyone who breaks the law must expect a penalty.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat die Regeln übertreten.",
+        "en": "He broke the rules.",
         "lvl": "C1"
       }
     ]

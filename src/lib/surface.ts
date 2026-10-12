@@ -26,7 +26,7 @@ import { pluralForms } from './matcher.ts';
 import { appMatcher } from './appMatcher.ts';
 import type { Word } from '../types.ts';
 
-const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
+const stripArticle = (t: string) => t.replace(/^(der\/die|der|die|das)\s+/i, '').trim();
 
 /** Word-ish runs, keeping punctuation as separators so a sentence can be
  *  reassembled exactly as written. German letters count as letters — see the

@@ -472,7 +472,10 @@ async function main() {
         : r.field === 'pos' ? card.pos
         : card.ipa;
       const bare = (s: string) => s.replace(/^(der|die|das)\s+/i, '').trim().toLowerCase();
-      const same = r.field === 'plural' ? bare(actual ?? '') === bare(r.value) : (actual ?? '') === r.value;
+      // A `der/die` ruling is honoured by the convention every adjectival noun
+      // follows (verify.ts): the term carries both articles and `gender` stores der.
+      const dual = r.field === 'gender' && r.value === 'der/die' && /^der\/die\s/i.test(card.term) && actual === 'der';
+      const same = dual || (r.field === 'plural' ? bare(actual ?? '') === bare(r.value) : (actual ?? '') === r.value);
       if (!same) {
         allErrors.push({
           id: card.id,

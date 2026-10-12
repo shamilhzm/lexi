@@ -1,0 +1,23 @@
+[
+ { "term": "derjenige", "en": "the one (who), that (which)", "pos": "pronoun", "level": "B2", "field": "Connectors",
+   "ex": [ { "de": "Derjenige, der zuletzt geht, macht das Licht aus.", "en": "Whoever leaves last turns off the light." },
+           { "de": "Er war derjenige, der mir geholfen hat.", "en": "He was the one who helped me." } ] },
+ { "term": "nach wie vor", "en": "still, as before", "pos": "phrase", "level": "B2", "field": "Time",
+   "ex": [ { "de": "Das Problem besteht nach wie vor.", "en": "The problem still exists." },
+           { "de": "Sie wohnt nach wie vor in Berlin.", "en": "She still lives in Berlin." } ] },
+ { "term": "zum Einsatz kommen", "en": "to be used, to be deployed", "pos": "phrase", "level": "C1", "field": "Digitalisation & Work",
+   "ex": [ { "de": "In der Fabrik sollen bald Roboter zum Einsatz kommen.", "en": "Robots are soon to be used in the factory." },
+           { "de": "Welche Programme werden bei euch zum Einsatz kommen?", "en": "Which programs will you be using?" } ] },
+ { "term": "reinlich", "en": "clean, cleanly (in one's habits)", "pos": "adjective", "level": "C1", "field": "Everyday Life",
+   "ex": [ { "de": "Katzen sind sehr reinliche Tiere.", "en": "Cats are very clean animals." },
+           { "de": "Er war schon immer sehr reinlich.", "en": "He has always been very clean in his habits." } ] },
+ { "term": "anschrauben", "en": "to screw on, to screw (to)", "pos": "verb", "level": "B2", "field": "Furniture",
+   "ex": [ { "de": "Kannst du das Regal an die Wand anschrauben?", "en": "Can you screw the shelf to the wall?" },
+           { "de": "Ich habe das Schild gestern angeschraubt.", "en": "I screwed the sign on yesterday." } ] },
+ { "term": "wegdösen", "en": "to doze off", "pos": "verb", "level": "C1", "field": "Everyday Life",
+   "ex": [ { "de": "Vor dem Fernseher bin ich kurz weggedöst.", "en": "I dozed off for a moment in front of the TV." },
+           { "de": "Pass auf, dass du im Zug nicht wegdöst!", "en": "Make sure you don't doze off on the train!" } ] },
+ { "term": "die Rekrutierung", "en": "recruitment", "pos": "noun", "level": "C1", "field": "Applying for Jobs",
+   "ex": [ { "de": "Die Rekrutierung neuer Mitarbeiter dauert lange.", "en": "Recruiting new staff takes a long time." },
+           { "de": "Die Firma investiert viel in die Rekrutierung.", "en": "The company invests a lot in recruitment." } ] }
+]
