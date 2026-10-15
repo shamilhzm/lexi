@@ -416,6 +416,9 @@ export default function App() {
             paddingTop: 'var(--bar-t)',
             // Only below `md`: the tab bar is in the top bar from there up.
             scrollPaddingTop: 'var(--bar-t)',
+            // And the floating tab bar at the bottom, so `scrollIntoView` lands a
+            // control *above* the capsule rather than behind it (Review's stage-end).
+            scrollPaddingBottom: 'var(--bar-b)',
           }}>
           {/* The route entrance is CSS, not Framer, and deliberately so.
               It used to be `initial={{ opacity: 0 }}` inside an AnimatePresence,

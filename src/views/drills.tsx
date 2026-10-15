@@ -528,7 +528,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
           const state = !picked ? 'idle' : g === word.gender ? 'right' : g === picked ? 'wrong' : 'idle';
           return (
             <button key={g} onClick={() => choose(g)} disabled={!!picked}
-              className={`key rounded-full py-3.5 font-bold text-xl ${
+              className={`key rounded-full py-3.5 short:py-2 font-bold text-xl ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-card'}`}
@@ -606,12 +606,12 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de
   return (
     <Card>
       <Prompt small={sub} gloss={hint} big={big}>{prompt}</Prompt>
-      <div className="grid gap-2.5">
+      <div className="grid gap-2.5 short:gap-2">
         {options.map((o, i) => {
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
           return (
             <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
-              className={`key rounded-full py-3 px-5 text-base text-center ${
+              className={`key rounded-full py-3 short:py-2 px-5 text-base text-center ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-card'}`}>
@@ -626,7 +626,7 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de
           );
         })}
       </div>
-      {picked !== null && <div className="mt-5 flex justify-center"><Button variant="secondary" onClick={() => settle(picked)}>Next →</Button></div>}
+      {picked !== null && <div className="mt-5 short:mt-3 flex justify-center"><Button variant="secondary" onClick={() => settle(picked)}>Next →</Button></div>}
     </Card>
   );
 }
@@ -1151,7 +1151,7 @@ function Prompt({ children, small, gloss, big = true }: {
   children: React.ReactNode; small?: string; gloss?: string; big?: boolean;
 }) {
   return (
-    <div className="text-center mb-5">
+    <div className="text-center mb-5 short:mb-3">
       {/* Sentence case, dim — deliberately *not* a second accent kicker. The
           session already prints the mode as an uppercase accent kicker above the
           card, and two tracked uppercase lines stacked read as one label repeated.

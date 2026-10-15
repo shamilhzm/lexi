@@ -149,7 +149,17 @@ describe('Review — the primary action survives the coach', () => {
   });
 
   it('keeps the card free to shrink', () => {
-    expect(src).toMatch(/flex-1 min-h-\[16\.25rem\] max-h-\[28\.75rem\]/);
+    expect(src).toMatch(/flex-1 min-h-\[min\(16\.25rem,32svh\)\] max-h-\[28\.75rem\]/);
+  });
+
+  // **A rem floor alone is a floor the screen does not have** *(2026-10-14)*. On an
+  // iPhone 13 mini at Extra-Extra Large text, 16.25rem came to ~340pt, the column
+  // overflowed, and the grade keys sat under the tab bar — a friend's first session.
+  // The floor must be capped by the viewport, or text size can push the primary
+  // action off screen.
+  it('caps the card floor by the viewport, not only by text size', () => {
+    expect(src).not.toMatch(/flex-1 min-h-\[16\.25rem\]/);
+    expect(src).toMatch(/min-h-\[min\([^)]*svh\)\]/);
   });
 
   // The same two numbers, in the unit that makes them survive Dynamic Type. They

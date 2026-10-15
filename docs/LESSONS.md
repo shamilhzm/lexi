@@ -1829,3 +1829,36 @@ change, and each was read (lowercase verb forms beating noun plurals, by design)
 **Rule, sharpened:** a change to what the matcher indexes is measured as *who owns
 each token, before and after*, not as a hit rate — a rate can stay flat while 287
 tokens change hands.
+
+## `str.replace` with an empty needle writes everywhere *(added 2026-10-14)*
+
+**Believed:** slicing a block out of `index.css` between two anchors and replacing
+it was safe, because both anchors existed.
+
+**True:** the anchors were in the opposite order to the one assumed, so the slice was
+empty — and Python's `s.replace('', block)` inserts `block` between *every character*.
+The 68 KB stylesheet became 5.7 MB in one call. It was caught because the next `grep`
+printed megabytes, and nothing had been committed; `git checkout` and a re-apply fixed it.
+
+**Rule:** an edit script that replaces a computed slice asserts, before writing, that
+the needle is non-empty, occurs exactly once, and that `start < end` with a sane
+length. Prefer the Edit tool for anything that is not mechanical.
+
+## The owner's phone is the largest, newest screen the app will meet *(added 2026-10-14)*
+
+**Believed:** the session fitted, because it fitted on a 17 Pro at default text and
+the card's bounds were already in `rem` "so they survive Dynamic Type".
+
+**True:** a friend's first session, on an iPhone 13 mini at **Extra-Extra Large**
+text, put both grade keys under the tab bar. The card's 16.25rem floor came to
+~340pt — `rem` scaled the floor with her text while her screen stayed 375×812, so the
+column overflowed. Measured her text size from her screenshot (tab labels 64pt wide
+against 52pt at default), reproduced it with `simctl ui … content_size`, and the drills
+overflowed too: four answer keys plus a prompt cannot fit 650pt at that size, at any
+padding.
+
+**Rule:** before believing a layout, drive it on the smallest current phone at a large
+text size — `xcrun simctl create` a 13 mini or an SE, then `simctl ui <id> content_size
+extra-extra-large`. Floors are capped by the viewport (`min(…rem, …svh)`), and anything
+that still cannot fit must be *reachable*: the session scrolls the item's end above the
+tab bar on mount and on growth. `review-structure.test.ts` pins both.

@@ -11,6 +11,28 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-14 — Small phones and large text
+
+**Why.** A friend's first session on an iPhone 13 mini put the grade keys under the
+tab bar. She uses Extra-Extra Large text (measured from her screenshot); reproduced on
+a 13 mini simulator, then checked on an SE and at accessibility sizes.
+
+- **The card's floor is capped by the screen:** `min(16.25rem, 32svh)`. The rem floor
+  alone scaled with her text to ~340pt and overflowed a 375×812 phone.
+- **The answers are always reachable.** When an item mounts or grows (a choice drill's
+  *Next →*), the session scrolls its end above the tab bar; `#main` carries
+  `scroll-padding-bottom` for the capsule. The header scrolls away first.
+- **Less chrome on short screens** (`short:` = under 700pt tall): the caught-up notice
+  is one compact line and shows only on the first card; the card's label row and the
+  hint under the keys truncate instead of wrapping; drill options, gaps and the
+  why-this-card line tighten.
+- **Smoother drag on older GPUs:** the swipe wash was `mix-blend-mode` over the whole
+  viewport, re-compositing everything under both frosted bars on every frame. It is
+  now a plain layer behind the session; only its opacity animates.
+- Checked: 13 mini at default, Extra Large and Extra-Extra Large; SE; 17 Pro at default
+  (unchanged) and at an accessibility size. Needs iOS 16.4+ (Tailwind 4), which every
+  iPhone from the 8 onward can run.
+
 ### Shipped 2026-10-12 — Two attachments, every word: 88 cards, and three matcher fixes
 
 **Why.** The owner handed over a course-book page (*Grammatik-Rückschau*: Konnektoren,

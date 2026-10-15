@@ -301,6 +301,32 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   const item = queue[i];
   const flip = useCallback(() => { setFlipped((f) => !f); tick('flip'); }, []);
 
+  // **The answers are never left behind the tab bar** *(2026-10-14)*. The stage
+  // shrinks the card to fit, but a drill's four answer keys cannot shrink, and at a
+  // large text size on a small phone they ran under the floating capsule — a
+  // friend's 13 mini at Extra-Extra Large, on her first day. When an item mounts,
+  // its end is scrolled into view; `#main` carries `scroll-padding-bottom` for the
+  // capsule, so "into view" means *above* it, and the session header is what scrolls
+  // away first.
+  //
+  // **On every growth, not only on mount.** A choice drill grows a *Next →* key
+  // after it is answered, and that key landed under the capsule too. So the item's
+  // contents are watched with a ResizeObserver. Its callbacks run in the rendering
+  // step, as rAF's do, so a hidden tab defers them — harmless here, since a page
+  // nobody can see needs no scrolling, but it is why the mount-time reveal is a
+  // timer as well: the first reveal never waits on a frame.
+  const stageEnd = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const end = stageEnd.current;
+    const box = end?.parentElement;
+    if (!end || !box) return;
+    const reveal = () => end.scrollIntoView({ block: 'nearest' });
+    const t = window.setTimeout(reveal, 0);
+    const ro = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(reveal);
+    if (ro) for (const child of Array.from(box.children)) if (child !== end) ro.observe(child);
+    return () => { window.clearTimeout(t); ro?.disconnect(); };
+  }, [item?.srsId]);
+
   // Interval preview: show when each grade brings the card back. This is how
   // the scheduler earns trust — machinery, not magic (Anki’s oldest lesson).
   const preview = useMemo(() => {
@@ -475,8 +501,12 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   const showGrades = isNew || flipped;
 
   return (
-    <div className="mx-auto w-full max-w-[640px] flex-1 min-h-0 flex flex-col justify-center">
-      <ReturnNotice firstRun={firstRun} />
+    // `isolate`: the swipe wash sits at `z-index: -1` inside this context — above
+    // the page's ground, below every card and key (see `.swipe-wash`, index.css).
+    <div className="isolate mx-auto w-full max-w-[640px] flex-1 min-h-0 flex flex-col justify-center">
+      {/* Said once, on the first card. It is news before you start and a strip of
+          lost card height on every card after (2026-10-14, a 13 mini at large text). */}
+      {i === 0 && <ReturnNotice firstRun={firstRun} />}
       <Tour id="session" ready={!!item && item.type === 'flip'} steps={SESSION_TOUR} />
       {offerVoice && <div className="mb-2.5"><VoiceOffer onClose={() => setOfferVoice(false)} /></div>}
       {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
@@ -581,7 +611,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
             Pro viewport (402×**714**, not the 874 a desktop pane reports): the column
             came out 795px, the buttons landed at y629, and the bar starts at y646.
             Bounded here, the card gives up exactly the height the coach took. */}
-        <div className="flex-1 min-h-0 flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-6"
+        <div className="flex-1 min-h-0 flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-6 short:py-2"
           role="region" aria-live="polite" aria-label="Current card">
           {/* The card swap is React state, not an animation lifecycle.
               It used to be `AnimatePresence mode="wait"`, which keeps the
@@ -665,7 +695,12 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
               <div aria-hidden={flipped} inert={flipped}
                 className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-safe-center gap-3 px-6 pt-6 sm:px-8 sm:pt-8 text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
-                <span className="text-2xs text-dim font-mono uppercase tracking-widest">
+                {/* One line, always: the sector is the least important word in it and
+                    the first to go. Wrapped, it cost a line of card on a narrow phone.
+                    `shrink-0` because `truncate` is `overflow: hidden`, and in a flex
+                    column that overflows, a hidden-overflow item may shrink to zero —
+                    the label vanished entirely on the first try. */}
+                <span className="text-2xs text-dim font-mono uppercase tracking-widest max-w-full truncate shrink-0">
                   {isNew && <span className="text-accent">New · </span>}
                   {card.pos || 'word'} · {card.level}{card.field ? ` · ${card.field}` : ''}
                 </span>
@@ -857,7 +892,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
               the grades and the card above never changes height on the flip. The
               inactive one is `invisible` (out of the layout's paint, the tab order
               and the accessibility tree) rather than unmounted. */}
-          <div className="mt-3 flex flex-col items-center gap-1.5 w-full">
+          <div className="mt-3 short:mt-2 flex flex-col items-center gap-1.5 w-full">
             <div className="grid w-full max-w-[580px]">
               <div inert={!showGrades}
                 className={`col-start-1 row-start-1 grid grid-cols-2 gap-2 sm:gap-2.5 ${showGrades ? '' : 'invisible'}`}>
@@ -898,7 +933,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                 once read "Space to flip" on phones, which have no Space key.
                 `aria-hidden`: the grade is announced by the live region, and the
                 hint describes gestures the controls above already cover. */}
-            <span aria-hidden className="text-dim text-xs h-4 leading-4 text-center">
+            <span aria-hidden className="text-dim text-xs h-4 leading-4 text-center max-w-full truncate">
               {ack ? <Acknowledgement ack={ack} />
                 : isNew
                   ? 'First time seeing this — take it in, then say how it landed'
@@ -908,6 +943,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
             </span>
           </div>
           </>)}
+          <div ref={stageEnd} aria-hidden className="h-0 w-full" />
           </div>
         </div>
       </div>
@@ -976,13 +1012,18 @@ function SwipeCard({ children, onFlip, onSwipe, onThrow, labelledBy, behind = 0 
     // face's contents grew while a px ceiling did not, and the headword fell below
     // its own fold. The card is content, so it scales with its type; the chrome
     // around it is pinned in px for the opposite reason.
-    <div className="relative w-full max-w-[580px] flex-1 min-h-[16.25rem] max-h-[28.75rem]">
+    // **The floor is the smaller of 16.25rem and a third of the screen**
+    // *(2026-10-14)*. A rem floor scales with the learner's text size and the
+    // screen does not: at "Extra Large" on a 13 mini the floor came to ~310pt, the
+    // column overflowed, and the grade keys sat under the tab bar. `svh` is the
+    // screen with every toolbar showing, so the floor holds in Safari and installed.
+    <div className="relative w-full max-w-[580px] flex-1 min-h-[min(16.25rem,32svh)] max-h-[28.75rem]">
       {/* **The room takes the verdict** *(2026-10-11)*. As the card travels, the
           whole screen washes green or salmon — the reference's clearest idea, and
           the right size for the decision: the learner is grading themselves, so
           the verdict is theirs to see everywhere, not in a 12px corner pill.
-          A wash, not a fill: `multiply` in light (`screen` in dark) tints the page
-          while ink stays ink, and the card — painted after it — stays white.
+          A layer behind the session, not a blend over it: ink stays ink because the
+          wash is underneath it, and only its opacity moves (see `.swipe-wash`).
           §3's rule holds: green fills nothing the learner has not just judged. */}
       <motion.div aria-hidden className="swipe-wash swipe-knew" style={{ opacity: knew }} />
       <motion.div aria-hidden className="swipe-wash swipe-again" style={{ opacity: missed }} />
@@ -1097,26 +1138,23 @@ function ReturnNotice({ firstRun }: { firstRun: boolean }) {
   return (
     // A tinted band, not a card. The one card on this screen is the one you
     // study — everything else is page.
-    <div role="status" className="mb-3 pb-3 border-b border-line">
+    <div role="status" className="mb-2 pb-2 border-b border-line">
+      {/* **One line where it can be.** Every line here comes off the height of the
+          card below it, and on a 375pt phone at a larger text size two lines of
+          notice were what pushed the grade keys under the tab bar. */}
       {away ? (
-        <>
-          <p className="text-sm font-semibold">Welcome back — it’s been {gap} days.</p>
-          <p className="text-xs text-dim mt-1 leading-relaxed">
-            {/* Short on purpose. Every line here comes off the height of the card
-                below it, and the card is the reason anybody opened this screen. */}
-            {b.dueTotal > SESSION_CEILING
-              ? <>{fmt(b.dueTotal)} waiting · today serves {SESSION_CEILING}, the rest keep.</>
-              : <>Everything waiting fits in one session.</>}
-            {best > 1 && <> Longest streak: {best} days.</>}
-          </p>
-        </>
+        <p className="text-xs text-dim leading-snug">
+          <span className="font-semibold text-txt">Welcome back — it’s been {gap} days.</span>{' '}
+          {b.dueTotal > SESSION_CEILING
+            ? <>{fmt(b.dueTotal)} waiting · today serves {SESSION_CEILING}, the rest keep.</>
+            : <>Everything waiting fits in one session.</>}
+          {best > 1 && <> Longest streak: {best} days.</>}
+        </p>
       ) : (
-        <>
-          <p className="text-sm font-semibold">You’re caught up — nothing is due.</p>
-          <p className="text-xs text-dim mt-1 leading-relaxed">
-            {b.fresh} new {b.fresh === 1 ? 'word' : 'words'} below, offered rather than owed.
-          </p>
-        </>
+        <p className="text-xs text-dim leading-snug">
+          <span className="font-semibold text-txt">You’re caught up — nothing is due.</span>{' '}
+          {b.fresh} new {b.fresh === 1 ? 'word' : 'words'} below, offered rather than owed.
+        </p>
       )}
     </div>
   );

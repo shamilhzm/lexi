@@ -667,6 +667,12 @@ body {
 /* Raise the flip-card faces too. */
 .flip-face { box-shadow: 0 1px 2px rgba(60,52,30,0.06), 0 18px 40px -24px rgba(60,52,30,0.38); }
 
+/* `short:` — a viewport under 700pt tall *(2026-10-14)*. Width breakpoints cannot
+   see the case that broke: a 375pt phone is the same width as a big one with
+   Safari's toolbars, but 13 mini Safari leaves ~650pt for the page and an SE ~550.
+   Used only to give padding back to the study card, never to hide anything. */
+@custom-variant short (@media (max-height: 700px));
+
 /* ── The key — the one material for things you press *(2026-10-11)* ──────────
    A key has a hard charcoal edge and a lip under it, and when you press it the
    lip disappears because the key has gone down. That is the whole of it, and it
@@ -696,13 +702,19 @@ body {
 @media (prefers-reduced-motion: reduce) { .key { transition: none; } }
 
 /* ── The swipe wash (Review → SwipeCard) ────────────────────────────────────
-   Fixed to the viewport so it reaches the edges whatever column the card is in;
-   it is painted before the stack and the card, so both sit on top of it. The
-   bars are z-50 and stay chrome-coloured above it. */
-.swipe-wash { position: fixed; inset: 0; pointer-events: none; mix-blend-mode: multiply; }
+   A plain layer *behind* the session, not a blend over it *(2026-10-14)*. It
+   shipped as `mix-blend-mode: multiply` over the whole viewport, which makes the
+   GPU re-composite every pixel under it — including both frosted bars, whose
+   backdrop blur then re-runs over the blended result — on every frame of the drag.
+   That is free on a new phone and a dropped frame on an older one, during the one
+   gesture that has to feel like a card in the hand.
+   Behind the content it needs no blend at all: ink stays ink because the wash is
+   underneath it, and only `opacity` changes, which the compositor does alone. The
+   session root is `isolate`, so `z-index: -1` lands above the page's own ground
+   and below everything the learner reads. */
+.swipe-wash { position: fixed; inset: 0; pointer-events: none; z-index: -1; will-change: opacity; }
 .swipe-knew { background: var(--color-knew); }
 .swipe-again { background: var(--color-again); }
-html.dark .swipe-wash { mix-blend-mode: screen; }
 
 /* ── The pad — a halftone coral disc that an emblem stands on ─────────────────
    The second tab's one figurative use. Dots, not a fill, so it reads as *print*
