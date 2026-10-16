@@ -356,6 +356,10 @@ const TABLE: Record<string, Entry> = {
   // cards, so the separable split had no known verb to land on.
   anschrauben:     { praesens: six('schraube an','schraubst an','schraubt an','schrauben an','schraubt an','schrauben an'), praeteritum: six('schraubte an','schraubtest an','schraubte an','schraubten an','schraubtet an','schraubten an'), partizip: 'angeschraubt', aux: 'haben' },
   wegdösen:        { praesens: six('döse weg','döst weg','döst weg','dösen weg','döst weg','dösen weg'), praeteritum: six('döste weg','döstest weg','döste weg','dösten weg','döstet weg','dösten weg'), partizip: 'weggedöst', aux: 'sein' },
+  // 2026-10-16, from the owner's list: separable, and the generator had it
+  // inseparable ("umgestaltet" for *er gestaltet um*) while reporting itself reliable.
+  // Forms from de.wiktionary's summary box; the participle takes no extra `ge-`.
+  umgestalten:     { praesens: six('gestalte um','gestaltest um','gestaltet um','gestalten um','gestaltet um','gestalten um'), praeteritum: six('gestaltete um','gestaltetest um','gestaltete um','gestalteten um','gestaltetet um','gestalteten um'), partizip: 'umgestaltet', aux: 'haben' },
   // Separable, but the participle takes no `ge-`: it attaches to *bereitet*, whose
   // own unstressed `be-` already suppresses it. The generator produced
   // **gevorbereitet**, which is why `bereiten` is not in SEED_ROOTS.

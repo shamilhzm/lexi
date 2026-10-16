@@ -523,12 +523,16 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   return (
     <Card>
       <Prompt small="Which article goes with it?" gloss={word.en}>{stripArticle(word.term)}</Prompt>
-      <div className="grid grid-cols-3 gap-2.5">
+      {/* **Three across, or one column — never two-and-one** *(2026-10-16)*. A fixed
+          third of a 375pt card was 67px at an accessibility size, for a 41px "der", and
+          the word broke inside its own key. `.gender-keys` stacks them from the app's
+          `lg` text size up (index.css); below it, three across always fits. */}
+      <div className="gender-keys gap-2.5 short:gap-2">
         {GENDER.map(({ g, color }) => {
           const state = !picked ? 'idle' : g === word.gender ? 'right' : g === picked ? 'wrong' : 'idle';
           return (
             <button key={g} onClick={() => choose(g)} disabled={!!picked}
-              className={`key rounded-full py-3.5 short:py-2 font-bold text-xl ${
+              className={`key rounded-key py-3.5 short:py-2 px-3 font-bold text-xl leading-tight ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-card'}`}
@@ -611,7 +615,7 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
           return (
             <button key={i} onClick={() => picked === null && setPicked(i)} disabled={picked !== null}
-              className={`key rounded-full py-3 short:py-2 px-5 text-base text-center ${
+              className={`key rounded-key py-3 short:py-2 px-5 text-base text-center ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green font-semibold'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
                 : 'bg-card'}`}>
@@ -1159,7 +1163,7 @@ function Prompt({ children, small, gloss, big = true }: {
       {small && <p className="text-xs text-dim mb-2">{small}</p>}
       {/* The German being *tested* is a headword too, so an exercise prompt reads
           as the subject of the app rather than as data inside it. */}
-      <div lang="de" className={`headword font-bold leading-snug ${big ? 'text-3xl sm:text-4xl' : 'text-xl sm:text-2xl'}`}>{children}</div>
+      <div lang="de" className={`headword font-bold leading-snug ${big ? 'hw-answer' : 'text-xl sm:text-2xl'}`}>{children}</div>
       {gloss && <p className="text-dim text-xs mt-2">{gloss}</p>}
     </div>
   );

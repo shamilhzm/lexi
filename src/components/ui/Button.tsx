@@ -30,13 +30,14 @@ const SIZE: Record<ButtonSize, string> = {
   lg: 'gap-2 px-6 py-3 text-base',
 };
 
-// Keys are pills (`rounded-full`) and cards are rounded-lg (16px), so the shape
-// alone tells you whether a thing is a surface or something you press.
+// Keys are pills (`rounded-key`, 28px — a full pill at any default height, a
+// rounded rectangle once large text makes the key taller) and cards are rounded-lg
+// (16px), so the shape alone tells you whether a thing is a surface or a press.
 // `tap-44` here rather than at each call site, because the padding scale alone
 // does not reach 44px at any size: lg computes to 42, md to ~37, sm to ~32. The
 // app's primary action — *Start session* on Today — was one of the 42s. It only
 // applies on a coarse pointer, so the desktop rhythm is unchanged.
-const BASE = 'tap-44 inline-flex items-center justify-center rounded-full transition-colors '
+const BASE = 'tap-44 inline-flex items-center justify-center rounded-key transition-colors '
   + 'disabled:opacity-40 disabled:pointer-events-none';
 
 /** The button's classes, for the rare case where the element can't be a button

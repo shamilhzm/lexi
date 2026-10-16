@@ -530,6 +530,18 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
     ? parseFacts(wt)
     : { genders: new Set(), plurals: [], ipa: null, pos: new Set() };
 
+  // **An adjectival noun has two pages** *(2026-10-16)*. de.wiktionary files *die
+  // Verdächtige* under "Verdächtige" (Genus f) and *der Verdächtige* under
+  // "Verdächtiger" — the strong masculine nominative. Asking only the first made
+  // every `der/die` card fail "needs both genders". The masculine page is read for
+  // its gender alone; the plural and IPA stay the base page's.
+  if (/^der\/die\s/i.test(c.term)) {
+    try {
+      const masc = await wikitext(`${lemma}r`);
+      if (masc) for (const g of parseFacts(masc).genders) facts.genders.add(g);
+    } catch (e) { reasons.push((e as Error).message); }
+  }
+
   // Rulings fill gaps, in that order, and only gaps. Each `if` is the proof that
   // the dictionary said nothing here.
   // Tracked, because the confirmation note below would otherwise say "the page

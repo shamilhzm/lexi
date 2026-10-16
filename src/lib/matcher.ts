@@ -337,6 +337,11 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
   const addVerb = (k: string, w: Word) => { if (k && !verbIndex.has(k)) verbIndex.set(k, w); };
   /** Keys whose only reason to be in `index` is a noun's plural form. */
   const pluralOnly = new Set<string>();
+  /** A noun's own inflected forms (plurals, adjectival declension, attested
+   *  declension), kept apart so rule 4b can hand a capitalised token back to the
+   *  noun when a verb won the shared spelling — *die Verdächtigen* / *verdächtigen*. */
+  const nounIndex = new Map<string, Word>();
+  const addNoun = (k: string, w: Word) => { if (k && w.pos === 'noun' && !nounIndex.has(k)) nounIndex.set(k, w); };
 
   // Separable verbs, keyed by the *stem* token with the particle recorded beside it.
   // `conjugate('anrufen')` yields "rufe an" — a two-token string that single-token
@@ -398,6 +403,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       const k = pl.toLowerCase();
       if (!index.has(k)) pluralOnly.add(k);
       add(k, w);
+      addNoun(k, w);
     }
     if (w.pos === 'adjective') { const k = w.term.toLowerCase(); if (!adjIndex.has(k)) adjIndex.set(k, w); }
     // An adjectival noun declines like the adjective it is: *der Vorgesetzte, ein
@@ -409,6 +415,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
         for (const f of [`${stem}r`, `${stem}n`, `${stem}m`]) {
           if (!index.has(f)) pluralOnly.add(f);
           add(f, w);
+          addNoun(f, w);
         }
       }
     }
@@ -449,6 +456,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       for (const f of forms) {
         if (reflexive && adjClaims(f)) continue;
         if (w.pos === 'noun' && !index.has(f)) pluralOnly.add(f);
+        addNoun(f, w);
         add(f, w);
         if (w.pos === 'verb') addVerb(f, w);
         // *gut → besser, besten*. Into `adjIndex` rather than only `index`, so
@@ -674,6 +682,11 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
    *  verb-second order, which is what disambiguates a token that is both an
    *  adjective lemma and a verb form. */
   const SUBJECT_PRONOUN = new Set(['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'man']);
+  /** Articles and contractions that cannot stand before a plural noun (rule 4b). */
+  const SINGULAR_ARTICLE = new Set(['das', 'dem', 'vom', 'zum', 'beim', 'im', 'ins', 'am', 'ans', 'aufs',
+    'einem', 'keinem', 'meinem', 'deinem', 'seinem', 'ihrem', 'unserem', 'eurem', 'diesem', 'jedem', 'dieses', 'jedes']);
+  /** …and the ones that can, which cancel the singular reading when both are near. */
+  const PLURAL_CAPABLE = new Set(['die', 'den', 'der', 'keine', 'meine', 'deine', 'seine', 'ihre', 'unsere', 'eure', 'diese', 'alle', 'viele', 'zwei', 'drei']);
 
   /** @param after tokens following this one in the same sentence, lowercased —
    *  used only to confirm a separable verb's particle actually landed.
@@ -756,6 +769,38 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     if (direct && pluralOnly.has(lc) && tok[0] === tok[0].toLowerCase()) {
       const verb = verbIndex.get(lc);
       if (verb) return verb;
+    }
+    // 4b. The mirror *(2026-10-16)*. A **capitalised** token that does not open its
+    //    sentence is a noun — German has no other reason to capitalise it — so when
+    //    a verb or adjective won the shared spelling and a noun has this as one of
+    //    its own forms, the noun is the reading. *Man hat die Verdächtigen befragt*
+    //    was resolving to the verb *verdächtigen*. Position 0 is excluded for the
+    //    same reason rule 4 tests lowercase: sentence-initial capitals prove nothing.
+    //
+    //    One exception, measured over all 24,409 example sentences: a nominalised
+    //    infinitive. *vom langen Sitzen*, *nach dem Spielen*, *beim Arbeiten* are the
+    //    verbs, capitalised — not the plurals *Sitze*, *Spiele*, *Arbeiten* — and the
+    //    tell is a singular article before them, which a plural cannot take. So a
+    //    noun reached only through a *plural* form yields to the verb after a
+    //    singular article. A noun whose headword *is* the token (*am Morgen*, *das
+    //    Essen*) keeps it: that is the singular itself.
+    if (direct && direct.pos !== 'noun' && pos > 0 && tok[0] !== tok[0].toLowerCase()) {
+      const noun = nounIndex.get(lc);
+      if (noun) {
+        const isHeadword = stripArticle(noun.term).trim().toLowerCase() === lc;
+        // The *nearest* determiner decides (*den Kindern das Bremsen*: `das`, not
+        // `den`). An adjective in `-es` directly before is a neuter singular too —
+        // *Langes Sitzen*, *Ständiges Nachfragen* — but not `des`, the genitive
+        // article, which *des Abends* needs to keep.
+        let singular = false;
+        const last = before[before.length - 1] ?? '';
+        if (last.length > 3 && last.endsWith('es') && !PLURAL_CAPABLE.has(last)) singular = true;
+        for (let k = before.length - 1; k >= Math.max(0, before.length - 3) && !singular; k--) {
+          if (PLURAL_CAPABLE.has(before[k])) break;
+          if (SINGULAR_ARTICLE.has(before[k])) singular = true;
+        }
+        if (isHeadword || !singular) return noun;
+      }
     }
     if (direct) return direct;
     // 5. A verb form that lost the first-wins race to an unrelated lemma.

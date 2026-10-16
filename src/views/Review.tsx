@@ -693,7 +693,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                   so VoiceOver read the answer on the back while the front was up.
                   `aria-hidden` + `inert` on whichever face is turned away. */}
               <div aria-hidden={flipped} inert={flipped}
-                className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-safe-center gap-3 px-6 pt-6 sm:px-8 sm:pt-8 text-center overflow-y-auto">
+                className="flip-face relative border border-line rounded-lg bg-card flex flex-col items-center justify-safe-center text-center overflow-y-auto">
                 <StatusPip id={item.srsId} />
                 {/* One line, always: the sector is the least important word in it and
                     the first to go. Wrapped, it cost a line of card on a narrow phone.
@@ -709,7 +709,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
                 <GenderTerm term={card.term} gender={card.gender} id={`card-hw-${item.srsId}`}
-                  className="headword font-bold leading-tight break-words max-w-full px-2 text-4xl sm:text-5xl" />
+                  className="headword hw-front font-bold leading-tight break-words max-w-full px-2" />
                 {/* `.ipa`, not `font-mono`: IPA is not data, and Plex Mono's
                     unicode-range stops short of the IPA block, so every ə ʁ ː fell
                     back glyph by glyph to a different monospace. `aria-hidden`
@@ -765,7 +765,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                 {/* The bottom padding, made sticky — see `.face-end` in index.css. It
                     fades whatever is still below the fold, so a face that has to
                     scroll says so instead of cutting a line through its middle. */}
-                <div aria-hidden className="face-end self-stretch -mx-6 sm:-mx-8" />
+                <div aria-hidden className="face-end self-stretch" />
               </div>
               {/* BACK — the reveal.
                   Four things were wrong with the previous face, and all four came
@@ -793,7 +793,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                   deliberate, and it replaces an accidental one. */}
               <div aria-hidden={!flipped} inert={!flipped}
                    className="flip-face flip-back bg-card border border-line border-l-4 rounded-lg
-                              flex flex-col items-stretch text-left px-5 pt-5 sm:px-7 sm:pt-7 overflow-y-auto"
+                              flex flex-col items-stretch text-left overflow-y-auto"
                    style={{ borderLeftColor: 'var(--color-green)' }}>
                 <div className="flex items-center gap-2 mb-2.5">
                   <Kicker tone="reward">Answer</Kicker>
@@ -825,7 +825,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     </IconButton>
                   </span>
                 </div>
-                <span className="headword font-bold text-green leading-tight break-words text-3xl sm:text-4xl">{card.en}</span>
+                <span className="headword hw-answer font-bold text-green leading-tight break-words">{card.en}</span>
                 <Kicker className="block mt-1.5">
                   {card.pos} · {card.level}{card.field ? ` · ${card.field}` : ''}
                 </Kicker>
@@ -872,7 +872,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                   </RevealBlock>
                 )}
                 <CardSource id={card.id} />
-                <div aria-hidden className="face-end -mx-5 sm:-mx-7" />
+                <div aria-hidden className="face-end" />
               </div>
             </div>
           </SwipeCard>
@@ -906,7 +906,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                       aria-label={`${label}${when ? ` — back in ${when}` : ''}`}
                       // Keys in the wash's own two colours, so the button and the
                       // swipe are visibly the same verdict *(2026-10-11)*.
-                      className={`key flex flex-col items-center rounded-full px-3 py-2 text-txt
+                      className={`key flex flex-col items-center rounded-key px-3 py-2 text-txt
                         justify-center font-semibold ${s.rating === Rating.Again ? 'bg-again' : 'bg-knew'}`}>
                       <span className="flex items-center gap-1.5 text-sm sm:text-base">
                         {s.rating === Rating.Again && <X size={15} className="flex-shrink-0" />}
@@ -1215,7 +1215,9 @@ function StatusPip({ id }: { id: string }) {
   // name on a generic element — it announced nothing.
   return (
     <>
-      <span aria-hidden className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full" style={{ background: color }} title={label} />
+      {/* px, like the face padding it sits in: rem put it on top of the label row at an
+          accessibility text size, once the padding stopped growing. */}
+      <span aria-hidden className="absolute top-[10px] left-[10px] w-[8px] h-[8px] rounded-full" style={{ background: color }} title={label} />
       <span className="sr-only">Status: {label}</span>
     </>
   );

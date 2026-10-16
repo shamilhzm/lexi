@@ -46,6 +46,9 @@ const SEGMENTS: Record<string, string[]> = {
   'voc:C1:der Personalvermittler': ['Personal', 'Vermittler'],
   'voc:C1:der Auswahlprozess':   ['Auswahl', 'Prozess'],
   'voc:C1:der Wiedereinsteiger': ['wieder', 'Einsteiger'],
+  // 2026-10-16, the owner's list: Wikidata L829711 attests the adjective, no
+  // dictionary transcribes it, and both parts are transcribed.
+  'voc:C1:gleichgesinnt':        ['gleich', 'gesinnt'],
   'voc:C1:der/die Personalverantwortliche': ['Personal', 'Verantwortliche'],
 };
 

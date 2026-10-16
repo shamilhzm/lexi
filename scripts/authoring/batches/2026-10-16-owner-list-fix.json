@@ -1,0 +1,74 @@
+[
+ {
+  "id": "voc:B1:unheimlich",
+  "expect": {
+   "en": "uncanny, creepy, eerie"
+  },
+  "en": "uncanny, eerie; (informal) incredibly",
+  "src": "de.wiktionary.org/wiki/unheimlich — sense [2] umgangssprachlich verstärkend: sehr, äußerst"
+ },
+ {
+  "id": "voc:B1:verraten",
+  "expect": {
+   "en": "to betray, to be disloyal to"
+  },
+  "en": "to betray; to give away, reveal (a secret)",
+  "src": "de.wiktionary.org/wiki/verraten — sense: ein Geheimnis preisgeben, mitteilen"
+ },
+ {
+  "id": "voc:B1:betrügen",
+  "expect": {
+   "en": "to deceive"
+  },
+  "en": "to deceive, cheat; to cheat on (a partner); to defraud",
+  "src": "de.wiktionary.org/wiki/betrügen — senses: täuschen; jemanden um etwas bringen; untreu sein"
+ },
+ {
+  "id": "voc:C1:sich bewähren",
+  "expect": {
+   "en": "to prove itself"
+  },
+  "en": "to prove oneself, to prove its worth",
+  "src": "de.wiktionary.org/wiki/bewähren — sich als geeignet, tauglich erweisen (reflexive)"
+ },
+ {
+  "id": "voc:B2:die Bewährung",
+  "expect": {
+   "en": "parole"
+  },
+  "en": "probation (suspended sentence); proving oneself",
+  "src": "de.wiktionary.org/wiki/Bewährung — Recht: Aussetzung einer Strafe zur Bewährung (probation, not parole: no prison term was served)"
+ },
+ {
+  "id": "voc:C1:der Widerstand",
+  "expect": {
+   "en": "resistance"
+  },
+  "en": "resistance; (electrical) resistor",
+  "src": "de.wiktionary.org/wiki/Widerstand — Elektrotechnik: Bauelement / elektrischer Widerstand"
+ },
+ {
+  "id": "voc:B2:der Eifer",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Eifer — Nominativ Plural: —"
+ },
+ {
+  "id": "voc:B1:der Neid",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Neid — Nominativ Plural: —"
+ },
+ {
+  "id": "voc:B2:der Verrat",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Verrat — Nominativ Plural: —"
+ }
+]

@@ -93,13 +93,16 @@ describe('chrome caps are unconditional', () => {
     expect(rule).toMatch(/min\(|:\s*\d+px/);
   });
 
-  // `data-type` survives only for the two things `min()` cannot express: dropping
-  // the tab labels, and turning the feed from a carousel into a scrolling list.
+  // `data-type` survives only for the things `min()` cannot express: dropping the
+  // tab labels, turning the feed from a carousel into a scrolling list, and
+  // *(2026-10-16)* stacking der/die/das — a reflow from three columns to one, which
+  // no capped size can do (a third of a 375pt card is narrower than an
+  // accessibility-size "der" at any cap that still reads as large text).
   it('keeps data-type only for the structural changes', () => {
-    const gated = css.match(/^html\[data-type='ax'\][^{]*/gm) ?? [];
+    const gated = css.match(/^html\[data-type='(?:ax|lg)'\][^{]*/gm) ?? [];
     expect(gated.length).toBeGreaterThan(0);
     for (const sel of gated) {
-      expect(sel).toMatch(/nav\[aria-label='Main'\]|\.feed-scroller|\.feed-slot/);
+      expect(sel).toMatch(/nav\[aria-label='Main'\]|\.feed-scroller|\.feed-slot|\.gender-keys/);
     }
   });
 });

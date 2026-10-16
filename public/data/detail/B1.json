@@ -9751,6 +9751,20 @@
       }
     ]
   },
+  "voc:B1:der Bademeister": {
+    "ex": [
+      {
+        "de": "Der Bademeister pfeift, wenn jemand vom Rand springt.",
+        "en": "The pool attendant blows his whistle when someone jumps from the edge.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Frag doch den Bademeister!",
+        "en": "Why don't you ask the pool attendant!",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Ballon": {
     "ex": [
       {
@@ -10001,6 +10015,20 @@
         "de": "In einem familiengeführten Betrieb herrscht oft ein anderer Ton.",
         "en": "In a family-run firm there’s often a different tone.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Betrug": {
+    "ex": [
+      {
+        "de": "Der Betrug flog nach zwei Jahren auf.",
+        "en": "The fraud came to light after two years.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist doch Betrug!",
+        "en": "That's a rip-off!",
+        "lvl": "B1"
       }
     ]
   },
@@ -14167,6 +14195,20 @@
       {
         "de": "Der Nebensatz beginnt mit weil.",
         "en": "The subordinate clause begins with weil.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Neid": {
+    "ex": [
+      {
+        "de": "Sie sah das neue Auto voller Neid an.",
+        "en": "She looked at the new car full of envy.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Neid macht unglücklich.",
+        "en": "Envy makes you unhappy.",
         "lvl": "B1"
       }
     ]
@@ -18405,6 +18447,20 @@
         "de": "Die Integration der Geflüchteten gelingt am besten über Arbeit und Bildung.",
         "en": "The integration of refugees succeeds best through work and education.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der/die Verdächtige": {
+    "ex": [
+      {
+        "de": "Die Polizei sucht noch eine Verdächtige.",
+        "en": "The police are still looking for a suspect.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Eine Verdächtige wurde stundenlang befragt.",
+        "en": "A suspect was questioned for hours.",
+        "lvl": "B1"
       }
     ]
   },
@@ -29155,6 +29211,20 @@
       {
         "de": "Ich habe eine bipolare Störung.",
         "en": "I have bipolar disorder.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Sucht": {
+    "ex": [
+      {
+        "de": "Spielen kann zur Sucht werden.",
+        "en": "Gambling can become an addiction.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat seine Sucht besiegt.",
+        "en": "He has overcome his addiction.",
         "lvl": "B1"
       }
     ]

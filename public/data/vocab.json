@@ -87470,7 +87470,7 @@
   {
     "id": "voc:C1:der Widerstand",
     "term": "der Widerstand",
-    "en": "resistance",
+    "en": "resistance; (electrical) resistor",
     "pos": "noun",
     "level": "C1",
     "gender": "der",
@@ -131956,7 +131956,7 @@
   {
     "id": "voc:C1:sich bewähren",
     "term": "sich bewähren",
-    "en": "to prove itself",
+    "en": "to prove oneself, to prove its worth",
     "pos": "phrase",
     "level": "C1",
     "gender": null,
@@ -148243,7 +148243,7 @@
   {
     "id": "voc:B1:verraten",
     "term": "verraten",
-    "en": "to betray, to be disloyal to",
+    "en": "to betray; to give away, reveal (a secret)",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -171089,7 +171089,7 @@
   {
     "id": "voc:B1:unheimlich",
     "term": "unheimlich",
-    "en": "uncanny, creepy, eerie",
+    "en": "uncanny, eerie; (informal) incredibly",
     "pos": "adjective",
     "level": "B1",
     "gender": null,
@@ -172893,7 +172893,7 @@
   {
     "id": "voc:B1:betrügen",
     "term": "betrügen",
-    "en": "to deceive",
+    "en": "to deceive, cheat; to cheat on (a partner); to defraud",
     "pos": "verb",
     "level": "B1",
     "gender": null,
@@ -174464,7 +174464,7 @@
   {
     "id": "voc:B2:die Bewährung",
     "term": "die Bewährung",
-    "en": "parole",
+    "en": "probation (suspended sentence); proving oneself",
     "pos": "noun",
     "level": "B2",
     "gender": "die",
@@ -306116,6 +306116,1005 @@
       }
     ],
     "field": "Numbers",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der/die Verdächtige",
+    "term": "der/die Verdächtige",
+    "en": "suspect (person)",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Verdächtigen",
+    "ipa": "fɛɐ̯ˈdɛçtɪɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Polizei sucht noch eine Verdächtige.",
+        "en": "The police are still looking for a suspect.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Eine Verdächtige wurde stundenlang befragt.",
+        "en": "A suspect was questioned for hours.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Verrat",
+    "term": "der Verrat",
+    "en": "betrayal, treason",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "nur Singular",
+    "ipa": "fɛɐ̯ˈʁaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für ihn war das ein Verrat an der Freundschaft.",
+        "en": "For him that was a betrayal of their friendship.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das war glatter Verrat.",
+        "en": "That was outright betrayal.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Responsibility & Guilt",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:positionieren",
+    "term": "positionieren",
+    "en": "to position, to place",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "pozit͡si̯oˈniːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir müssen das Produkt besser auf dem Markt positionieren.",
+        "en": "We need to position the product better in the market.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie positionierte die Kamera direkt vor der Bühne.",
+        "en": "She positioned the camera right in front of the stage.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Business & Workplace",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich freikaufen",
+    "term": "sich freikaufen",
+    "en": "to buy one's freedom; to buy one's way out",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈfʁaɪ̯ˌkaʊ̯fn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Man kann sich von der Verantwortung nicht freikaufen.",
+        "en": "You can't buy your way out of responsibility.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Familie hat sich damals freigekauft.",
+        "en": "Back then the family bought their freedom.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:entschleunigen",
+    "term": "entschleunigen",
+    "en": "to slow down (deliberately)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛntˈʃlɔɪ̯nɪɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Urlaub will ich einfach entschleunigen.",
+        "en": "On holiday I just want to slow down.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Spaziergänge im Wald entschleunigen den Alltag.",
+        "en": "Walks in the woods slow everyday life down.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Prevention & Wellbeing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Entschleunigung",
+    "term": "die Entschleunigung",
+    "en": "slowing down (of pace of life)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Entschleunigungen",
+    "ipa": "ɛntˈʃlɔɪ̯nɪɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele Menschen sehnen sich nach Entschleunigung.",
+        "en": "Many people long to slow down.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Kloster bietet Kurse zur Entschleunigung an.",
+        "en": "The monastery offers courses in slowing down.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Prevention & Wellbeing",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Beschleunigung",
+    "term": "die Beschleunigung",
+    "en": "acceleration",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Beschleunigungen",
+    "ipa": "bəˈʃlɔɪ̯nɪɡʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Auto hat eine enorme Beschleunigung.",
+        "en": "The car has tremendous acceleration.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Regierung plant eine Beschleunigung der Verfahren.",
+        "en": "The government is planning to speed up the procedures.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Science concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Betrug",
+    "term": "der Betrug",
+    "en": "fraud, deception",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Betrüge",
+    "ipa": "bəˈtʁuːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Betrug flog nach zwei Jahren auf.",
+        "en": "The fraud came to light after two years.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das ist doch Betrug!",
+        "en": "That's a rip-off!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:betrügerisch",
+    "term": "betrügerisch",
+    "en": "fraudulent",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈtʁyːɡəʁɪʃ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Bank warnt vor betrügerischen E-Mails.",
+        "en": "The bank is warning about fraudulent emails.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Angebot war betrügerisch.",
+        "en": "The offer was fraudulent.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:entmieten",
+    "term": "entmieten",
+    "en": "to force tenants out (of a building)",
+    "pos": "verb",
+    "level": "C2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛntˈmiːtn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der neue Eigentümer will das Haus entmieten und teuer verkaufen.",
+        "en": "The new owner wants to force the tenants out and sell the building at a high price.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In Berlin werden immer wieder Häuser entmietet.",
+        "en": "In Berlin, tenants are repeatedly forced out of buildings.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Real Estate & Moving",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Laus",
+    "term": "die Laus",
+    "en": "louse",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Läuse",
+    "ipa": "laʊ̯s",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Kind hat Läuse aus der Kita mitgebracht.",
+        "en": "The child brought lice home from nursery.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Eine einzelne Laus kann viele Eier legen.",
+        "en": "A single louse can lay many eggs.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Animals",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:außer wenn",
+    "term": "außer wenn",
+    "en": "unless, except when",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯sɐ vɛn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich fahre mit dem Rad, außer wenn es regnet.",
+        "en": "I cycle, except when it rains.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zeit vergeht schnell, außer wenn man wartet.",
+        "en": "Time passes quickly, except when you're waiting.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:unvermeidlich",
+    "term": "unvermeidlich",
+    "en": "unavoidable, inevitable",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊnfɛɐ̯ˌmaɪ̯tlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein paar Fehler sind unvermeidlich.",
+        "en": "A few mistakes are unavoidable.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Streit war wohl unvermeidlich.",
+        "en": "The argument was probably inevitable.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:vermeidbar",
+    "term": "vermeidbar",
+    "en": "avoidable",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈmaɪ̯tbaːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele Unfälle wären vermeidbar.",
+        "en": "Many accidents would be avoidable.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das war ein vermeidbarer Fehler.",
+        "en": "That was an avoidable mistake.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Rettungsschwimmer",
+    "term": "der Rettungsschwimmer",
+    "en": "lifeguard",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Rettungsschwimmer",
+    "ipa": "ˈʁɛtʊŋsˌʃvɪmɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Rettungsschwimmer zog das Kind aus dem Wasser.",
+        "en": "The lifeguard pulled the child out of the water.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Sommer arbeitet sie als Rettungsschwimmerin.",
+        "en": "In summer she works as a lifeguard.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Water sports",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Rettungsdienst",
+    "term": "der Rettungsdienst",
+    "en": "ambulance service, emergency medical service",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Rettungsdienste",
+    "ipa": "ˈʁɛtʊŋsˌdiːnst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ruf sofort den Rettungsdienst!",
+        "en": "Call the ambulance service right away!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rettungsdienst war nach acht Minuten da.",
+        "en": "The paramedics arrived after eight minutes.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Healthcare System",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Bademeister",
+    "term": "der Bademeister",
+    "en": "pool attendant, lifeguard",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "die Bademeister",
+    "ipa": "ˈbaːdəˌmaɪ̯stɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Bademeister pfeift, wenn jemand vom Rand springt.",
+        "en": "The pool attendant blows his whistle when someone jumps from the edge.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Frag doch den Bademeister!",
+        "en": "Why don't you ask the pool attendant!",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Water sports",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Eifer",
+    "term": "der Eifer",
+    "en": "eagerness, zeal",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "nur Singular",
+    "ipa": "ˈaɪ̯fɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie arbeitet mit großem Eifer an dem Projekt.",
+        "en": "She is working on the project with great eagerness.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Eifer des Gefechts habe ich das vergessen.",
+        "en": "In the heat of the moment I forgot that.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:der Eiferer",
+    "term": "der Eiferer",
+    "en": "zealot",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "der",
+    "plural": "die Eiferer",
+    "ipa": "ˈaɪ̯fəʁɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mit religiösen Eiferern kann man kaum diskutieren.",
+        "en": "You can hardly argue with religious zealots.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er galt als politischer Eiferer.",
+        "en": "He was regarded as a political zealot.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Values & Norms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich ereifern",
+    "term": "sich ereifern",
+    "en": "to get worked up",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈʔaɪ̯fɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er kann sich über Kleinigkeiten stundenlang ereifern.",
+        "en": "He can get worked up about trifles for hours.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie ereiferte sich über die hohen Preise.",
+        "en": "She got worked up about the high prices.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich hingeben",
+    "term": "sich hingeben",
+    "en": "to devote oneself, to give oneself over to",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɪnˌɡeːbn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Urlaub will ich mich ganz der Ruhe hingeben.",
+        "en": "On holiday I want to give myself over completely to peace and quiet.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er gab sich ganz der Musik hin.",
+        "en": "He devoted himself entirely to music.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der/die Gleichgesinnte",
+    "term": "der/die Gleichgesinnte",
+    "en": "like-minded person",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Gleichgesinnten",
+    "ipa": "ˈɡlaɪ̯çɡəˌzɪntə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Verein hat sie viele Gleichgesinnte gefunden.",
+        "en": "She found many like-minded people in the club.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er sucht Gleichgesinnte für ein Musikprojekt.",
+        "en": "He is looking for like-minded people for a music project.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Social life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:gleichgesinnt",
+    "term": "gleichgesinnt",
+    "en": "like-minded",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈɡlaɪ̯çɡəˌzɪnt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie trifft sich gern mit gleichgesinnten Leuten.",
+        "en": "She likes meeting like-minded people.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die beiden waren politisch gleichgesinnt.",
+        "en": "The two were politically like-minded.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Social life",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der/die Ehrenamtliche",
+    "term": "der/die Ehrenamtliche",
+    "en": "volunteer",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Ehrenamtlichen",
+    "ipa": "ˈeːʁənˌʔamtlɪçə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne Ehrenamtliche gäbe es die Tafel nicht.",
+        "en": "Without volunteers the food bank wouldn't exist.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Eine Ehrenamtliche liest den Kindern vor.",
+        "en": "A volunteer reads to the children.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Volunteering",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:umgestalten",
+    "term": "umgestalten",
+    "en": "to redesign, to reorganise",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʊmɡəˌʃtaltn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Stadt will den Marktplatz umgestalten.",
+        "en": "The town wants to redesign the market square.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir haben das Wohnzimmer komplett umgestaltet.",
+        "en": "We completely redesigned the living room.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Urban Planning & Future",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich wappnen",
+    "term": "sich wappnen",
+    "en": "to brace oneself, to prepare (for)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvapnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir müssen uns für den Winter wappnen.",
+        "en": "We have to brace ourselves for the winter.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie war gegen jede Kritik gewappnet.",
+        "en": "She was braced for any criticism.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Decisions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Wappen",
+    "term": "das Wappen",
+    "en": "coat of arms",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Wappen",
+    "ipa": "ˈvapn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Bär ist das Wappen von Berlin.",
+        "en": "The bear is Berlin's coat of arms.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf dem Tor sieht man ein altes Wappen.",
+        "en": "You can see an old coat of arms on the gate.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Politics & History",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:kriegstüchtig",
+    "term": "kriegstüchtig",
+    "en": "able to fight a war, war-ready",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʁiːksˌtʏçtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Minister sagte, die Armee müsse kriegstüchtig werden.",
+        "en": "The minister said the army must become ready to fight a war.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ist die Bundeswehr kriegstüchtig?",
+        "en": "Is the German army war-ready?",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Military concepts",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:tüchtig",
+    "term": "tüchtig",
+    "en": "capable, hard-working; (informal) a lot",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈtʏçtɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie ist eine sehr tüchtige Mitarbeiterin.",
+        "en": "She is a very capable employee.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir haben tüchtig gefeiert.",
+        "en": "We celebrated a lot.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Work & Colleagues",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:der Neid",
+    "term": "der Neid",
+    "en": "envy",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "der",
+    "plural": "nur Singular",
+    "ipa": "naɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie sah das neue Auto voller Neid an.",
+        "en": "She looked at the new car full of envy.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Neid macht unglücklich.",
+        "en": "Envy makes you unhappy.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Sucht",
+    "term": "die Sucht",
+    "en": "addiction",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "die Süchte / die Suchten",
+    "ipa": "zʊxt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Spielen kann zur Sucht werden.",
+        "en": "Gambling can become an addiction.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat seine Sucht besiegt.",
+        "en": "He has overcome his addiction.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C2:das Urinsekt",
+    "term": "das Urinsekt",
+    "en": "primitive insect, primeval insect",
+    "pos": "noun",
+    "level": "C2",
+    "gender": "das",
+    "plural": "die Urinsekten",
+    "ipa": "ˈuːɐ̯ʔɪnˌzɛkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Urinsekt lebte vor Millionen von Jahren.",
+        "en": "The primeval insect lived millions of years ago.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Forscher haben ein versteinertes Urinsekt gefunden.",
+        "en": "Researchers have found a fossilised primeval insect.",
+        "lvl": "C2"
+      }
+    ],
+    "field": "Animals",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Machtgefälle",
+    "term": "das Machtgefälle",
+    "en": "power imbalance",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Machtgefälle",
+    "ipa": "ˈmaxtɡəˌfɛlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Zwischen Chef und Praktikant gibt es ein klares Machtgefälle.",
+        "en": "There is a clear power imbalance between the boss and the intern.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Machtgefälle macht offene Kritik schwierig.",
+        "en": "The power imbalance makes open criticism difficult.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Power & Authority",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:erproben",
+    "term": "erproben",
+    "en": "to test, to try out",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈpʁoːbn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das neue Medikament wird noch erprobt.",
+        "en": "The new drug is still being tested.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma will das Konzept in drei Städten erproben.",
+        "en": "The company wants to try out the concept in three cities.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Science",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:erprobt",
+    "term": "erprobt",
+    "en": "tried and tested, proven",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈpʁoːpt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das ist eine erprobte Methode.",
+        "en": "That is a tried and tested method.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Team ist gut erprobt.",
+        "en": "The team has proven itself well.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:widerstandsfähig",
+    "term": "widerstandsfähig",
+    "en": "resilient, resistant",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈviːdɐʃtant͡sˌfɛːɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sport macht den Körper widerstandsfähiger.",
+        "en": "Sport makes the body more resilient.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Diese Pflanze ist sehr widerstandsfähig gegen Kälte.",
+        "en": "This plant is very resistant to cold.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Health & Prevention",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:schattig",
+    "term": "schattig",
+    "en": "shady",
+    "pos": "adjective",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃatɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir suchen uns einen schattigen Platz.",
+        "en": "Let's find a shady spot.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Garten ist es angenehm schattig.",
+        "en": "It's pleasantly shady in the garden.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Weather",
     "kind": "word"
   }
 ]

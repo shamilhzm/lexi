@@ -352,7 +352,8 @@ No arbitrary `text-[…]`.
 | Radius | Means |
 |---|---|
 | `rounded-lg` (16px) | a **surface you read** — or a tile-sized key |
-| `rounded-full` | a **key you press** (buttons, options, grade keys) and a chip |
+| `rounded-key` (28px) | a **key you press** (buttons, options, grade keys) — a full pill at any default height, a rounded rectangle once large text makes the key taller than 56px *(2026-10-16; was `rounded-full`, which turned a tall narrow key into a circle its word ran past)* |
+| `rounded-full` | a chip, and fixed-height pills that cannot grow |
 | `rounded-md` (10px) | a row nested inside a surface |
 
 **Since 2026-10-11 the material says "press", not the radius.** A key (`.key`,

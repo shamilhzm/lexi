@@ -237,3 +237,31 @@ describe('Review — a tap turns the card, a swipe grades it', () => {
     expect(src).toMatch(/Show answer/);
   });
 });
+
+// ── Large text: keys that hold their words (2026-10-16) ─────────────────────
+//
+// At an accessibility text size a third of a phone-width card was 67px for a 41px
+// "der", and `rounded-full` turned the tall key into a circle the word ran past.
+describe('der · die · das at large text sizes', () => {
+  const drills = readFileSync(fileURLToPath(new URL('./drills.tsx', import.meta.url)), 'utf8');
+  const css = readFileSync(fileURLToPath(new URL('../index.css', import.meta.url)), 'utf8');
+
+  it('lays the three keys out with the stacking grid, not a fixed three columns', () => {
+    expect(drills).toMatch(/className="gender-keys/);
+    expect(drills).not.toMatch(/grid grid-cols-3 gap-2\.5">\s*\{GENDER\.map/);
+  });
+
+  it('stacks them from the lg text band up', () => {
+    expect(css).toMatch(/html\[data-type='lg'\] \.gender-keys,\s*html\[data-type='ax'\] \.gender-keys \{ grid-template-columns: minmax\(0, 1fr\); \}/);
+  });
+
+  it('gives growable keys a px radius, never rounded-full', () => {
+    expect(css).toMatch(/--radius-key:\s*28px/);
+    expect(drills).not.toMatch(/key rounded-full/);
+  });
+
+  it('caps the study word in px so it stays on the card', () => {
+    expect(css).toMatch(/\.hw-front\s*\{ font-size: min\(var\(--text-4xl\), 46px\); \}/);
+    expect(src).toMatch(/headword hw-front/);
+  });
+});

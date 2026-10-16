@@ -11,6 +11,46 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-16 — der/die/das at large text; the owner's word list and its families
+
+**Why.** The der/die/das keys broke at accessibility text sizes, and the owner sent a
+list of words to make sure Lexi teaches — with their word families.
+
+- **der/die/das** stack into one column from the `lg` text band up (`.gender-keys`);
+  three across holds at 21px and overflowed at 28px (77px keys for a 35px "der").
+  Keys that can grow use `rounded-key` (28px) instead of `rounded-full`, so a tall key
+  is a rounded rectangle, not a circle its word runs past.
+- **The study word stays on the card:** `.hw-front` / `.hw-answer` cap the headword in
+  px (46px / 40px on phones). At an accessibility size *die Erlaubnis* broke after its
+  article and the noun sat below the card's fold. Card padding is capped in px too
+  (one `--face-pad` variable read by the face and by `.face-end`), and the status dot
+  is placed in px.
+- **37 cards** (10,276 → 10,313) from the list and its families: *der/die Verdächtige,
+  der Verrat, positionieren, sich freikaufen, entschleunigen, die Entschleunigung, die
+  Beschleunigung, der Betrug, betrügerisch, entmieten, die Laus, außer wenn,
+  unvermeidlich, vermeidbar, der Rettungsschwimmer, der Rettungsdienst, der
+  Bademeister, der Eifer, der Eiferer, sich ereifern, sich hingeben, der/die
+  Gleichgesinnte, gleichgesinnt, der/die Ehrenamtliche, umgestalten, sich wappnen, das
+  Wappen, kriegstüchtig, tüchtig, der Neid, die Sucht, das Urinsekt, das Machtgefälle,
+  erproben, erprobt, widerstandsfähig, schattig*. The rest of the list was already in.
+- **Glosses corrected:** *unheimlich* (also "incredibly"), *verraten* (also "give
+  away"), *betrügen* (also "cheat on, defraud"), *sich bewähren*, *die Bewährung*
+  ("probation", not "parole"), *der Widerstand* (also "resistor").
+- **Not added:** *Positionierung*, *Entmietung* and *Zeitwahrnehmung* — no attested
+  pronunciation anywhere, and CI requires one; *Zeitwahrnehmung* still reads as
+  *Zeit* + *Wahrnehmung*. *Elektrowiderstand* is in no dictionary; *Widerstand* now
+  carries the electrical sense.
+- **Gate:** a `der/die` noun reads both de.wiktionary pages (*Verdächtige* is filed
+  feminine, *Verdächtiger* masculine). *umgestalten* gets a conjugation row — the
+  generator had it inseparable while reporting itself reliable.
+- **Reader, rule 4b:** a capitalised token after the first word of a sentence is a
+  noun, so *die Verdächtigen* is no longer the verb *verdächtigen*, *am Morgen* no
+  longer the adverb, *das Essen* no longer the verb. Except after a singular article
+  or an `-es` adjective (*beim Spielen*, *Langes Sitzen*), where it is a nominalised
+  verb. Measured over all 24,409 example sentences: 325 tokens change owner, 24 now
+  resolve to the card they illustrate, none stop. Known misses with no article to go
+  on: *Hier ist Parken erlaubt*, *Rauchen verboten*.
+
 ### Shipped 2026-10-14 — Small phones and large text
 
 **Why.** A friend's first session on an iPhone 13 mini put the grade keys under the

@@ -1,0 +1,631 @@
+[
+ {
+  "term": "der/die Verdächtige",
+  "en": "suspect (person)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Polizei sucht noch eine Verdächtige.",
+    "en": "The police are still looking for a suspect."
+   },
+   {
+    "de": "Eine Verdächtige wurde stundenlang befragt.",
+    "en": "A suspect was questioned for hours."
+   }
+  ]
+ },
+ {
+  "term": "der Verrat",
+  "en": "betrayal, treason",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Responsibility & Guilt",
+  "ex": [
+   {
+    "de": "Für ihn war das ein Verrat an der Freundschaft.",
+    "en": "For him that was a betrayal of their friendship."
+   },
+   {
+    "de": "Das war glatter Verrat.",
+    "en": "That was outright betrayal."
+   }
+  ]
+ },
+ {
+  "term": "positionieren",
+  "en": "to position, to place",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Wir müssen das Produkt besser auf dem Markt positionieren.",
+    "en": "We need to position the product better in the market."
+   },
+   {
+    "de": "Sie positionierte die Kamera direkt vor der Bühne.",
+    "en": "She positioned the camera right in front of the stage."
+   }
+  ]
+ },
+ {
+  "term": "sich freikaufen",
+  "en": "to buy one's freedom; to buy one's way out",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Man kann sich von der Verantwortung nicht freikaufen.",
+    "en": "You can't buy your way out of responsibility."
+   },
+   {
+    "de": "Die Familie hat sich damals freigekauft.",
+    "en": "Back then the family bought their freedom."
+   }
+  ]
+ },
+ {
+  "term": "entschleunigen",
+  "en": "to slow down (deliberately)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Prevention & Wellbeing",
+  "ex": [
+   {
+    "de": "Im Urlaub will ich einfach entschleunigen.",
+    "en": "On holiday I just want to slow down."
+   },
+   {
+    "de": "Spaziergänge im Wald entschleunigen den Alltag.",
+    "en": "Walks in the woods slow everyday life down."
+   }
+  ]
+ },
+ {
+  "term": "die Entschleunigung",
+  "en": "slowing down (of pace of life)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Prevention & Wellbeing",
+  "ex": [
+   {
+    "de": "Viele Menschen sehnen sich nach Entschleunigung.",
+    "en": "Many people long to slow down."
+   },
+   {
+    "de": "Das Kloster bietet Kurse zur Entschleunigung an.",
+    "en": "The monastery offers courses in slowing down."
+   }
+  ]
+ },
+ {
+  "term": "die Beschleunigung",
+  "en": "acceleration",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Das Auto hat eine enorme Beschleunigung.",
+    "en": "The car has tremendous acceleration."
+   },
+   {
+    "de": "Die Regierung plant eine Beschleunigung der Verfahren.",
+    "en": "The government is planning to speed up the procedures."
+   }
+  ]
+ },
+ {
+  "term": "der Betrug",
+  "en": "fraud, deception",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Der Betrug flog nach zwei Jahren auf.",
+    "en": "The fraud came to light after two years."
+   },
+   {
+    "de": "Das ist doch Betrug!",
+    "en": "That's a rip-off!"
+   }
+  ]
+ },
+ {
+  "term": "betrügerisch",
+  "en": "fraudulent",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Bank warnt vor betrügerischen E-Mails.",
+    "en": "The bank is warning about fraudulent emails."
+   },
+   {
+    "de": "Das Angebot war betrügerisch.",
+    "en": "The offer was fraudulent."
+   }
+  ]
+ },
+ {
+  "term": "entmieten",
+  "en": "to force tenants out (of a building)",
+  "pos": "verb",
+  "level": "C2",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Der neue Eigentümer will das Haus entmieten und teuer verkaufen.",
+    "en": "The new owner wants to force the tenants out and sell the building at a high price."
+   },
+   {
+    "de": "In Berlin werden immer wieder Häuser entmietet.",
+    "en": "In Berlin, tenants are repeatedly forced out of buildings."
+   }
+  ]
+ },
+ {
+  "term": "die Laus",
+  "en": "louse",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Animals",
+  "ex": [
+   {
+    "de": "Das Kind hat Läuse aus der Kita mitgebracht.",
+    "en": "The child brought lice home from nursery."
+   },
+   {
+    "de": "Eine einzelne Laus kann viele Eier legen.",
+    "en": "A single louse can lay many eggs."
+   }
+  ]
+ },
+ {
+  "term": "außer wenn",
+  "en": "unless, except when",
+  "pos": "phrase",
+  "level": "B2",
+  "field": "Connectors",
+  "ex": [
+   {
+    "de": "Ich fahre mit dem Rad, außer wenn es regnet.",
+    "en": "I cycle, except when it rains."
+   },
+   {
+    "de": "Die Zeit vergeht schnell, außer wenn man wartet.",
+    "en": "Time passes quickly, except when you're waiting."
+   }
+  ]
+ },
+ {
+  "term": "unvermeidlich",
+  "en": "unavoidable, inevitable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Ein paar Fehler sind unvermeidlich.",
+    "en": "A few mistakes are unavoidable."
+   },
+   {
+    "de": "Der Streit war wohl unvermeidlich.",
+    "en": "The argument was probably inevitable."
+   }
+  ]
+ },
+ {
+  "term": "vermeidbar",
+  "en": "avoidable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Viele Unfälle wären vermeidbar.",
+    "en": "Many accidents would be avoidable."
+   },
+   {
+    "de": "Das war ein vermeidbarer Fehler.",
+    "en": "That was an avoidable mistake."
+   }
+  ]
+ },
+ {
+  "term": "der Rettungsschwimmer",
+  "en": "lifeguard",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Water sports",
+  "ex": [
+   {
+    "de": "Der Rettungsschwimmer zog das Kind aus dem Wasser.",
+    "en": "The lifeguard pulled the child out of the water."
+   },
+   {
+    "de": "Im Sommer arbeitet sie als Rettungsschwimmerin.",
+    "en": "In summer she works as a lifeguard."
+   }
+  ]
+ },
+ {
+  "term": "der Rettungsdienst",
+  "en": "ambulance service, emergency medical service",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Healthcare System",
+  "ex": [
+   {
+    "de": "Ruf sofort den Rettungsdienst!",
+    "en": "Call the ambulance service right away!"
+   },
+   {
+    "de": "Der Rettungsdienst war nach acht Minuten da.",
+    "en": "The paramedics arrived after eight minutes."
+   }
+  ]
+ },
+ {
+  "term": "der Bademeister",
+  "en": "pool attendant, lifeguard",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Water sports",
+  "ex": [
+   {
+    "de": "Der Bademeister pfeift, wenn jemand vom Rand springt.",
+    "en": "The pool attendant blows his whistle when someone jumps from the edge."
+   },
+   {
+    "de": "Frag doch den Bademeister!",
+    "en": "Why don't you ask the pool attendant!"
+   }
+  ]
+ },
+ {
+  "term": "der Eifer",
+  "en": "eagerness, zeal",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Sie arbeitet mit großem Eifer an dem Projekt.",
+    "en": "She is working on the project with great eagerness."
+   },
+   {
+    "de": "Im Eifer des Gefechts habe ich das vergessen.",
+    "en": "In the heat of the moment I forgot that."
+   }
+  ]
+ },
+ {
+  "term": "der Eiferer",
+  "en": "zealot",
+  "pos": "noun",
+  "level": "C2",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Mit religiösen Eiferern kann man kaum diskutieren.",
+    "en": "You can hardly argue with religious zealots."
+   },
+   {
+    "de": "Er galt als politischer Eiferer.",
+    "en": "He was regarded as a political zealot."
+   }
+  ]
+ },
+ {
+  "term": "sich ereifern",
+  "en": "to get worked up",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Er kann sich über Kleinigkeiten stundenlang ereifern.",
+    "en": "He can get worked up about trifles for hours."
+   },
+   {
+    "de": "Sie ereiferte sich über die hohen Preise.",
+    "en": "She got worked up about the high prices."
+   }
+  ]
+ },
+ {
+  "term": "sich hingeben",
+  "en": "to devote oneself, to give oneself over to",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Im Urlaub will ich mich ganz der Ruhe hingeben.",
+    "en": "On holiday I want to give myself over completely to peace and quiet."
+   },
+   {
+    "de": "Er gab sich ganz der Musik hin.",
+    "en": "He devoted himself entirely to music."
+   }
+  ]
+ },
+ {
+  "term": "der/die Gleichgesinnte",
+  "en": "like-minded person",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Social life",
+  "ex": [
+   {
+    "de": "Im Verein hat sie viele Gleichgesinnte gefunden.",
+    "en": "She found many like-minded people in the club."
+   },
+   {
+    "de": "Er sucht Gleichgesinnte für ein Musikprojekt.",
+    "en": "He is looking for like-minded people for a music project."
+   }
+  ]
+ },
+ {
+  "term": "gleichgesinnt",
+  "en": "like-minded",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Social life",
+  "ex": [
+   {
+    "de": "Sie trifft sich gern mit gleichgesinnten Leuten.",
+    "en": "She likes meeting like-minded people."
+   },
+   {
+    "de": "Die beiden waren politisch gleichgesinnt.",
+    "en": "The two were politically like-minded."
+   }
+  ]
+ },
+ {
+  "term": "der/die Ehrenamtliche",
+  "en": "volunteer",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Volunteering",
+  "ex": [
+   {
+    "de": "Ohne Ehrenamtliche gäbe es die Tafel nicht.",
+    "en": "Without volunteers the food bank wouldn't exist."
+   },
+   {
+    "de": "Eine Ehrenamtliche liest den Kindern vor.",
+    "en": "A volunteer reads to the children."
+   }
+  ]
+ },
+ {
+  "term": "umgestalten",
+  "en": "to redesign, to reorganise",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Urban Planning & Future",
+  "ex": [
+   {
+    "de": "Die Stadt will den Marktplatz umgestalten.",
+    "en": "The town wants to redesign the market square."
+   },
+   {
+    "de": "Wir haben das Wohnzimmer komplett umgestaltet.",
+    "en": "We completely redesigned the living room."
+   }
+  ]
+ },
+ {
+  "term": "sich wappnen",
+  "en": "to brace oneself, to prepare (for)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Decisions",
+  "ex": [
+   {
+    "de": "Wir müssen uns für den Winter wappnen.",
+    "en": "We have to brace ourselves for the winter."
+   },
+   {
+    "de": "Sie war gegen jede Kritik gewappnet.",
+    "en": "She was braced for any criticism."
+   }
+  ]
+ },
+ {
+  "term": "das Wappen",
+  "en": "coat of arms",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Der Bär ist das Wappen von Berlin.",
+    "en": "The bear is Berlin's coat of arms."
+   },
+   {
+    "de": "Auf dem Tor sieht man ein altes Wappen.",
+    "en": "You can see an old coat of arms on the gate."
+   }
+  ]
+ },
+ {
+  "term": "kriegstüchtig",
+  "en": "able to fight a war, war-ready",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Der Minister sagte, die Armee müsse kriegstüchtig werden.",
+    "en": "The minister said the army must become ready to fight a war."
+   },
+   {
+    "de": "Ist die Bundeswehr kriegstüchtig?",
+    "en": "Is the German army war-ready?"
+   }
+  ]
+ },
+ {
+  "term": "tüchtig",
+  "en": "capable, hard-working; (informal) a lot",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Work & Colleagues",
+  "ex": [
+   {
+    "de": "Sie ist eine sehr tüchtige Mitarbeiterin.",
+    "en": "She is a very capable employee."
+   },
+   {
+    "de": "Wir haben tüchtig gefeiert.",
+    "en": "We celebrated a lot."
+   }
+  ]
+ },
+ {
+  "term": "der Neid",
+  "en": "envy",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Sie sah das neue Auto voller Neid an.",
+    "en": "She looked at the new car full of envy."
+   },
+   {
+    "de": "Neid macht unglücklich.",
+    "en": "Envy makes you unhappy."
+   }
+  ]
+ },
+ {
+  "term": "die Sucht",
+  "en": "addiction",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Spielen kann zur Sucht werden.",
+    "en": "Gambling can become an addiction."
+   },
+   {
+    "de": "Er hat seine Sucht besiegt.",
+    "en": "He has overcome his addiction."
+   }
+  ]
+ },
+ {
+  "term": "das Urinsekt",
+  "en": "primitive insect, primeval insect",
+  "pos": "noun",
+  "level": "C2",
+  "field": "Animals",
+  "ex": [
+   {
+    "de": "Das Urinsekt lebte vor Millionen von Jahren.",
+    "en": "The primeval insect lived millions of years ago."
+   },
+   {
+    "de": "Forscher haben ein versteinertes Urinsekt gefunden.",
+    "en": "Researchers have found a fossilised primeval insect."
+   }
+  ]
+ },
+ {
+  "term": "das Machtgefälle",
+  "en": "power imbalance",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Power & Authority",
+  "ex": [
+   {
+    "de": "Zwischen Chef und Praktikant gibt es ein klares Machtgefälle.",
+    "en": "There is a clear power imbalance between the boss and the intern."
+   },
+   {
+    "de": "Das Machtgefälle macht offene Kritik schwierig.",
+    "en": "The power imbalance makes open criticism difficult."
+   }
+  ]
+ },
+ {
+  "term": "erproben",
+  "en": "to test, to try out",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Science",
+  "ex": [
+   {
+    "de": "Das neue Medikament wird noch erprobt.",
+    "en": "The new drug is still being tested."
+   },
+   {
+    "de": "Die Firma will das Konzept in drei Städten erproben.",
+    "en": "The company wants to try out the concept in three cities."
+   }
+  ]
+ },
+ {
+  "term": "erprobt",
+  "en": "tried and tested, proven",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das ist eine erprobte Methode.",
+    "en": "That is a tried and tested method."
+   },
+   {
+    "de": "Das Team ist gut erprobt.",
+    "en": "The team has proven itself well."
+   }
+  ]
+ },
+ {
+  "term": "widerstandsfähig",
+  "en": "resilient, resistant",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Health & Prevention",
+  "ex": [
+   {
+    "de": "Sport macht den Körper widerstandsfähiger.",
+    "en": "Sport makes the body more resilient."
+   },
+   {
+    "de": "Diese Pflanze ist sehr widerstandsfähig gegen Kälte.",
+    "en": "This plant is very resistant to cold."
+   }
+  ]
+ },
+ {
+  "term": "schattig",
+  "en": "shady",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Weather",
+  "ex": [
+   {
+    "de": "Wir suchen uns einen schattigen Platz.",
+    "en": "Let's find a shady spot."
+   },
+   {
+    "de": "Im Garten ist es angenehm schattig.",
+    "en": "It's pleasantly shady in the garden."
+   }
+  ]
+ }
+]

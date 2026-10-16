@@ -25516,6 +25516,20 @@
       }
     ]
   },
+  "voc:A2:schattig": {
+    "ex": [
+      {
+        "de": "Wir suchen uns einen schattigen Platz.",
+        "en": "Let's find a shady spot.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Garten ist es angenehm schattig.",
+        "en": "It's pleasantly shady in the garden.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:schauen": {
     "def": "to watch, to view; to look (at something, at a certain location, in a certain direction, in a certain way)",
     "ex": [

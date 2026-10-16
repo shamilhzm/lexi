@@ -529,6 +529,20 @@
       }
     ]
   },
+  "voc:C2:das Urinsekt": {
+    "ex": [
+      {
+        "de": "Das Urinsekt lebte vor Millionen von Jahren.",
+        "en": "The primeval insect lived millions of years ago.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Forscher haben ein versteinertes Urinsekt gefunden.",
+        "en": "Researchers have found a fossilised primeval insect.",
+        "lvl": "C2"
+      }
+    ]
+  },
   "voc:C2:das Vermächtnis": {
     "def": "Something handed down by a predecessor; also property left in a will.",
     "ex": [
@@ -600,6 +614,20 @@
       {
         "de": "Als Beleg dient ein Brief aus dem Jahr 1912.",
         "en": "A letter from 1912 serves as evidence.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:der Eiferer": {
+    "ex": [
+      {
+        "de": "Mit religiösen Eiferern kann man kaum diskutieren.",
+        "en": "You can hardly argue with religious zealots.",
+        "lvl": "C2"
+      },
+      {
+        "de": "Er galt als politischer Eiferer.",
+        "en": "He was regarded as a political zealot.",
         "lvl": "C2"
       }
     ]
@@ -2301,6 +2329,20 @@
       {
         "de": "Das Gutachten entkräftet den Verdacht vollständig.",
         "en": "The expert report completely invalidates the suspicion.",
+        "lvl": "C2"
+      }
+    ]
+  },
+  "voc:C2:entmieten": {
+    "ex": [
+      {
+        "de": "Der neue Eigentümer will das Haus entmieten und teuer verkaufen.",
+        "en": "The new owner wants to force the tenants out and sell the building at a high price.",
+        "lvl": "C2"
+      },
+      {
+        "de": "In Berlin werden immer wieder Häuser entmietet.",
+        "en": "In Berlin, tenants are repeatedly forced out of buildings.",
         "lvl": "C2"
       }
     ]

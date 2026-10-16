@@ -1714,6 +1714,20 @@
       }
     ]
   },
+  "voc:B2:außer wenn": {
+    "ex": [
+      {
+        "de": "Ich fahre mit dem Rad, außer wenn es regnet.",
+        "en": "I cycle, except when it rains.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zeit vergeht schnell, außer wenn man wartet.",
+        "en": "Time passes quickly, except when you're waiting.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:außergewöhnlich": {
     "ex": [
       {
@@ -5146,6 +5160,20 @@
       }
     ]
   },
+  "voc:B2:das Wappen": {
+    "ex": [
+      {
+        "de": "Der Bär ist das Wappen von Berlin.",
+        "en": "The bear is Berlin's coat of arms.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auf dem Tor sieht man ein altes Wappen.",
+        "en": "You can see an old coat of arms on the gate.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Weibchen": {
     "ex": [
       {
@@ -6939,6 +6967,20 @@
       {
         "de": "Die Bemühungen führten zu keinem Effekt.",
         "en": "The efforts brought about no effect.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Eifer": {
+    "ex": [
+      {
+        "de": "Sie arbeitet mit großem Eifer an dem Projekt.",
+        "en": "She is working on the project with great eagerness.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Eifer des Gefechts habe ich das vergessen.",
+        "en": "In the heat of the moment I forgot that.",
         "lvl": "B2"
       }
     ]
@@ -9322,6 +9364,34 @@
       }
     ]
   },
+  "voc:B2:der Rettungsdienst": {
+    "ex": [
+      {
+        "de": "Ruf sofort den Rettungsdienst!",
+        "en": "Call the ambulance service right away!",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Rettungsdienst war nach acht Minuten da.",
+        "en": "The paramedics arrived after eight minutes.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Rettungsschwimmer": {
+    "ex": [
+      {
+        "de": "Der Rettungsschwimmer zog das Kind aus dem Wasser.",
+        "en": "The lifeguard pulled the child out of the water.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Sommer arbeitet sie als Rettungsschwimmerin.",
+        "en": "In summer she works as a lifeguard.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Rettungswagen": {
     "def": "A vehicle that takes sick or injured people to hospital.",
     "ex": [
@@ -10605,6 +10675,20 @@
       }
     ]
   },
+  "voc:B2:der Verrat": {
+    "ex": [
+      {
+        "de": "Für ihn war das ein Verrat an der Freundschaft.",
+        "en": "For him that was a betrayal of their friendship.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das war glatter Verrat.",
+        "en": "That was outright betrayal.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Versager": {
     "ex": [
       {
@@ -11258,6 +11342,20 @@
       {
         "de": "Wer regional isst, verkleinert seinen ökologischen Fußabdruck.",
         "en": "Those who eat locally reduce their ecological footprint.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der/die Ehrenamtliche": {
+    "ex": [
+      {
+        "de": "Ohne Ehrenamtliche gäbe es die Tafel nicht.",
+        "en": "Without volunteers the food bank wouldn't exist.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Eine Ehrenamtliche liest den Kindern vor.",
+        "en": "A volunteer reads to the children.",
         "lvl": "B2"
       }
     ]
@@ -12487,6 +12585,20 @@
       {
         "de": "Die gesamte Besatzung wurde gerettet.",
         "en": "All the crew were saved.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Beschleunigung": {
+    "ex": [
+      {
+        "de": "Das Auto hat eine enorme Beschleunigung.",
+        "en": "The car has tremendous acceleration.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Regierung plant eine Beschleunigung der Verfahren.",
+        "en": "The government is planning to speed up the procedures.",
         "lvl": "B2"
       }
     ]
@@ -15207,6 +15319,20 @@
       {
         "de": "Der Handyvertrag hat eine Laufzeit von 24 Monaten.",
         "en": "The phone contract runs for 24 months.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Laus": {
+    "ex": [
+      {
+        "de": "Das Kind hat Läuse aus der Kita mitgebracht.",
+        "en": "The child brought lice home from nursery.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Eine einzelne Laus kann viele Eier legen.",
+        "en": "A single louse can lay many eggs.",
         "lvl": "B2"
       }
     ]
@@ -23827,6 +23953,20 @@
       }
     ]
   },
+  "voc:B2:positionieren": {
+    "ex": [
+      {
+        "de": "Wir müssen das Produkt besser auf dem Markt positionieren.",
+        "en": "We need to position the product better in the market.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Sie positionierte die Kamera direkt vor der Bühne.",
+        "en": "She positioned the camera right in front of the stage.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:posten": {
     "def": "post, station",
     "ex": [
@@ -25696,6 +25836,20 @@
       }
     ]
   },
+  "voc:B2:tüchtig": {
+    "ex": [
+      {
+        "de": "Sie ist eine sehr tüchtige Mitarbeiterin.",
+        "en": "She is a very capable employee.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir haben tüchtig gefeiert.",
+        "en": "We celebrated a lot.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:umbauen": {
     "ex": [
       {
@@ -25822,6 +25976,20 @@
       {
         "de": "Die Liste steht in umgekehrter Reihenfolge.",
         "en": "The list is in reverse order.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:umgestalten": {
+    "ex": [
+      {
+        "de": "Die Stadt will den Marktplatz umgestalten.",
+        "en": "The town wants to redesign the market square.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir haben das Wohnzimmer komplett umgestaltet.",
+        "en": "We completely redesigned the living room.",
         "lvl": "B2"
       }
     ]
@@ -26388,6 +26556,20 @@
       {
         "de": "Fragen Sie unverbindlich nach dem Preis.",
         "en": "Ask about the price without obligation.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:unvermeidlich": {
+    "ex": [
+      {
+        "de": "Ein paar Fehler sind unvermeidlich.",
+        "en": "A few mistakes are unavoidable.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Streit war wohl unvermeidlich.",
+        "en": "The argument was probably inevitable.",
         "lvl": "B2"
       }
     ]
@@ -27813,6 +27995,20 @@
       {
         "de": "Seine Bilder widerspiegeln seine Kindheit.",
         "en": "His paintings reflect his childhood.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:widerstandsfähig": {
+    "ex": [
+      {
+        "de": "Sport macht den Körper widerstandsfähiger.",
+        "en": "Sport makes the body more resilient.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Diese Pflanze ist sehr widerstandsfähig gegen Kälte.",
+        "en": "This plant is very resistant to cold.",
         "lvl": "B2"
       }
     ]

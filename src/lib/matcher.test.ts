@@ -320,3 +320,38 @@ describe('news German', () => {
     expect(at('zugreifen')).not.toBe('der Reifen');
   });
 });
+
+// ── Rule 4b: a capitalised word mid-sentence is a noun (2026-10-16) ──────────
+//
+// Measured over all 24,409 example sentences before shipping: 325 tokens changed
+// owner, 24 now resolve to the card they illustrate, none stopped doing so.
+describe('capitalised mid-sentence tokens prefer the noun', () => {
+  const words: Word[] = [
+    w({ id: 'v:bremsen', term: 'bremsen', pos: 'verb' }),
+    w({ id: 'n:bremse', term: 'die Bremse', pos: 'noun', gender: 'die', plural: 'die Bremsen' }),
+    w({ id: 'v:verdaechtigen', term: 'verdächtigen', pos: 'verb' }),
+    w({ id: 'n:verdaechtige', term: 'der/die Verdächtige', pos: 'noun', gender: 'der', plural: 'die Verdächtigen' }),
+  ];
+  const mm = buildMatcher(words);
+  const at = (s: string, tok: string) => mm.annotate(s).find((x) => x.text === tok)?.word?.term ?? null;
+
+  it('gives a capitalised plural after an article to the noun', () => {
+    expect(at('Die Bremsen kreischen.', 'Bremsen')).toBe('die Bremse');
+    expect(at('Man hat die Verdächtigen befragt.', 'Verdächtigen')).toBe('der/die Verdächtige');
+  });
+
+  it('leaves a lowercase form with the verb', () => {
+    expect(at('Wir verdächtigen ihn.', 'verdächtigen')).toBe('verdächtigen');
+    expect(at('Ich muss jetzt bremsen.', 'bremsen')).toBe('bremsen');
+  });
+
+  it('reads a nominalised infinitive as the verb after a singular article or -es adjective', () => {
+    expect(at('Er zeigt den Kindern das Bremsen.', 'Bremsen')).toBe('bremsen');
+    expect(at('Langes Bremsen ist schlecht.', 'Bremsen')).toBe('bremsen');
+  });
+
+  it('matches the singular forms of a der/die noun', () => {
+    expect(at('Der Verdächtige schweigt.', 'Verdächtige')).toBe('der/die Verdächtige');
+    expect(at('Ein Verdächtiger wurde gesehen.', 'Verdächtiger')).toBe('der/die Verdächtige');
+  });
+});

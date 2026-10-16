@@ -184,6 +184,12 @@
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 22px;
+  /* **A key's radius, in px on purpose** *(2026-10-16)*. Keys were `rounded-full`,
+     whose end radius is half the height — so a key in a narrow column that grows
+     with large text (der/die/das at an accessibility size) turned into a circle and
+     its word ran past the curve. 28px is a full pill for any key up to 56px tall,
+     which is every key at default text, and a rounded rectangle above that. */
+  --radius-key: 28px;
 
   /* Uppercase-kicker tracking (used with text-2xs). */
   --tracking-wider: 0.08em;
@@ -238,6 +244,29 @@
   font-family: var(--font-display);
   font-optical-sizing: auto;
   letter-spacing: -0.01em;
+}
+
+/* der · die · das: three across, stacked at an accessibility text size (see the
+   GenderItem comment in drills.tsx). `data-type` is set in App.tsx from the root
+   size: `lg` from 22px, `ax` from 30. Measured at 402pt wide: three across holds at
+   21px (90px keys) and overflows by 28px (77px keys for a 35px "der"). Two-and-one, which an auto-fit grid produced at Extra-Extra Large, reads as
+   a ranking. */
+.gender-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+html[data-type='lg'] .gender-keys,
+html[data-type='ax'] .gender-keys { grid-template-columns: minmax(0, 1fr); }
+
+/* **The study word stops growing before the card does** *(2026-10-16)*. These are
+   the ramp's own steps (4xl/5xl on the front, 3xl/4xl for the answer and a drill's
+   prompt), capped in px. At default text the cap is far away and nothing changes;
+   at an accessibility size `text-4xl` reached ~70px and *die Erlaubnis* broke after
+   its article — the card showed "die" and the noun sat below the fold. Body text
+   keeps scaling with the learner's setting; one display word at 46px is already
+   larger than anything else on the screen. */
+.hw-front  { font-size: min(var(--text-4xl), 46px); }
+.hw-answer { font-size: min(var(--text-3xl), 40px); }
+@media (min-width: 640px) {
+  .hw-front  { font-size: min(var(--text-5xl), 60px); }
+  .hw-answer { font-size: min(var(--text-4xl), 46px); }
 }
 
 /* The page title — Fraunces at display size, one per surface.
@@ -1163,6 +1192,23 @@ html[data-scrolled='true'] .glass-bar {
  *
  * The gradient ends in `--color-card`, so it is right in both themes; it covers the
  * grain for 40px, which is below the threshold of noticing. */
+/* **A face's padding is chrome, not type** *(2026-10-16)*. It was `px-6 pt-6 gap-3`
+   — rem — so at an accessibility text size 24px of padding became ~50px and the gaps
+   ~25px, and that, not the word, is what filled a card at its floor. One capped
+   variable per face, read by the padding and by `.face-end`'s bleed, so the two can
+   never disagree again (they were written apart as `px-6` and `-mx-6`). */
+.flip-face {
+  --face-pad: min(1.5rem, 24px);
+  padding: var(--face-pad) var(--face-pad) 0;
+}
+.flip-face:not(.flip-back) { row-gap: min(0.75rem, 12px); }
+.flip-back { --face-pad: min(1.25rem, 20px); }
+@media (min-width: 640px) {
+  .flip-face { --face-pad: min(2rem, 32px); }
+  .flip-back { --face-pad: min(1.75rem, 28px); }
+}
+.flip-face > .face-end { margin-inline: calc(-1 * var(--face-pad)); }
+
 .face-end {
   position: sticky;
   bottom: 0;
