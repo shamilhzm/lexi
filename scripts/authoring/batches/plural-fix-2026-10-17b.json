@@ -1,0 +1,122 @@
+[
+  {
+    "id": "voc:B2:die Frische",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Frische"
+  },
+  {
+    "id": "voc:B2:die Gemütlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gemütlichkeit"
+  },
+  {
+    "id": "voc:C1:die Männlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Männlichkeit"
+  },
+  {
+    "id": "voc:C1:die Echtheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Echtheit"
+  },
+  {
+    "id": "voc:B1:die Pünktlichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Pünktlichkeit"
+  },
+  {
+    "id": "voc:C1:die Ernsthaftigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Ernsthaftigkeit"
+  },
+  {
+    "id": "voc:C1:die Wachsamkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wachsamkeit"
+  },
+  {
+    "id": "voc:C1:die Verachtung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Verachtung"
+  },
+  {
+    "id": "voc:C1:die Nässe",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Nässe"
+  },
+  {
+    "id": "voc:C1:die Geborgenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Geborgenheit"
+  },
+  {
+    "id": "voc:C1:die Bescheidenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Bescheidenheit"
+  },
+  {
+    "id": "voc:C1:die Aufbewahrung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Aufbewahrung"
+  },
+  {
+    "id": "voc:C1:die Sterblichkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Sterblichkeit"
+  },
+  {
+    "id": "voc:C1:die Hilflosigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Hilflosigkeit"
+  },
+  {
+    "id": "voc:B2:die Verdauung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Verdauung"
+  }
+]

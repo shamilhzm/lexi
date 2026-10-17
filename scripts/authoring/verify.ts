@@ -535,6 +535,10 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   // "Verdächtiger" — the strong masculine nominative. Asking only the first made
   // every `der/die` card fail "needs both genders". The masculine page is read for
   // its gender alone; the plural and IPA stay the base page's.
+  //
+  // Where the base page is a stub that states no gender (*Anwesende* is filed only
+  // as a declined form), the feminine half is silence, and a ruling may fill it.
+  const dualBaseSilent = /^der\/die\s/i.test(c.term) && !facts.genders.size;
   if (/^der\/die\s/i.test(c.term)) {
     try {
       const masc = await wikitext(`${lemma}r`);
@@ -548,7 +552,7 @@ export async function verify(c: Candidate, existing: Set<string>, corpus: Word[]
   // also attests das" about a page that does not exist — a ruled fact reading as
   // a machine-verified one, in the one place the distinction has to hold.
   let genderRuled = false;
-  if (!facts.genders.size) fill('gender', (r) => {
+  if (!facts.genders.size || dualBaseSilent) fill('gender', (r) => {
     for (const g of r.value.split('/')) facts.genders.add(g as 'der' | 'die' | 'das');
     genderRuled = true;
   });

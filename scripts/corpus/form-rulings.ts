@@ -590,6 +590,10 @@ export const FORM_RULINGS: FormRuling[] = [
     why: 'denken introduces a thought — «Ich denke, dass …» — while denken an is directed at a person or a thing. Both are needed. (The A1 card\'s example was the governed pattern and is fixed separately.)',
   },
   {
+    rule: 'keep', form: 'voc:B1:achten', lemma: 'voc:B1:achten auf + A',
+    why: 'jemanden achten is to respect or esteem somebody — «Sie wird von allen Kollegen geachtet» — while achten auf is paying attention to something. Different constructions and different meanings. (Added 2026-10-17: the plain verb was missing, and the ordinal *achte* had been claiming *achten* in «darauf achten».)',
+  },
+  {
     rule: 'keep', form: 'voc:A1:warten', lemma: 'voc:A2:warten auf + A',
     why: 'warten alone is intransitive — «Warte kurz!» — and warten auf takes an accusative object. The pattern is the B1 fact; the bare verb is A1. (The A1 example was the pattern and is fixed separately.)',
   },

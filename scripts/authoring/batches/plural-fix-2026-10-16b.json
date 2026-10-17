@@ -1,0 +1,42 @@
+[
+  {
+    "id": "voc:C1:die Eintracht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Eintracht"
+  },
+  {
+    "id": "voc:B2:die Scheiße",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Scheiße"
+  },
+  {
+    "id": "voc:B1:die Wärme",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wärme"
+  },
+  {
+    "id": "voc:C1:die Schwere",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Schwere"
+  },
+  {
+    "id": "voc:B2:die Stille",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Stille"
+  }
+]

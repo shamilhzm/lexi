@@ -1,0 +1,26 @@
+[
+  {
+    "id": "voc:B1:das Weltall",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Weltall"
+  },
+  {
+    "id": "voc:C1:die Klimaneutralität",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Klimaneutralität"
+  },
+  {
+    "id": "voc:B2:die Reife",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Reife"
+  }
+]

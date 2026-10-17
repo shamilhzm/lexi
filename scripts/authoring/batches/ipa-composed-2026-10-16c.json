@@ -1,0 +1,66 @@
+[
+  {
+    "id": "voc:C1:ruhelos",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʁuːəˌloːs",
+    "src": "Ruhe /ˈʁuːə/ + los /loːs/"
+  },
+  {
+    "id": "voc:C1:schuldlos",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃʊltˌloːs",
+    "src": "Schuld /ʃʊlt/ + los /loːs/"
+  },
+  {
+    "id": "voc:C1:ungehörig",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊnɡəˌhøːʁɪç",
+    "src": "un- /ʊn/ + gehörig /ɡəˈhøːʁɪç/"
+  },
+  {
+    "id": "voc:C1:blödsinnig",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈbløːtˌzɪnɪç",
+    "src": "blöd /bløːt/ + sinnig /ˈzɪnɪç/"
+  },
+  {
+    "id": "voc:C1:die Sicherstellung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈzɪçɐˌʃtɛlʊŋ",
+    "src": "sicher /ˈzɪçɐ/ + Stellung /ˈʃtɛlʊŋ/"
+  },
+  {
+    "id": "voc:C1:die Aussetzung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaʊ̯sˌzɛt͡sʊŋ",
+    "src": "aus /aʊ̯s/ + Setzung /ˈzɛt͡sʊŋ/"
+  },
+  {
+    "id": "voc:C1:die Einbindung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈaɪ̯nˌbɪndʊŋ",
+    "src": "ein /aɪ̯n/ + Bindung /ˈbɪndʊŋ/"
+  },
+  {
+    "id": "voc:C1:die Absenkung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈapˌzɛŋkʊŋ",
+    "src": "ab /ap/ + Senkung /ˈzɛŋkʊŋ/"
+  }
+]

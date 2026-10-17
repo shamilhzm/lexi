@@ -1,0 +1,26 @@
+[
+  {
+    "id": "voc:C1:ungerechtfertigt",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊnɡəˌʁɛçtfɛʁtɪçt",
+    "src": "un- /ʊn/ + gerechtfertigt /ɡəˈʁɛçtˌfɛʁtɪçt/"
+  },
+  {
+    "id": "voc:C1:glücklos",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈɡlʏkˌloːs",
+    "src": "Glück /ɡlʏk/ + los /loːs/"
+  },
+  {
+    "id": "voc:B2:die Vorbestellung",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈfoːɐ̯bəˌʃtɛlʊŋ",
+    "src": "vor /foːɐ̯/ + Bestellung /bəˈʃtɛlʊŋ/"
+  }
+]

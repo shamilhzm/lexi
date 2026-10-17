@@ -1,0 +1,12 @@
+[
+  {
+    "id": "voc:B1:achten", "at": 1,
+    "expect": { "de": "Bitte achten Sie darauf, die Tür zu schließen.", "en": "Please make sure you close the door." },
+    "de": "Sie wird von allen Kollegen geachtet.", "en": "She is respected by all her colleagues."
+  },
+  {
+    "id": "voc:B1:achten",
+    "expect": { "en": "to respect; to pay attention" },
+    "en": "to respect, esteem"
+  }
+]

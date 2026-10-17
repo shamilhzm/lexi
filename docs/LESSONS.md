@@ -32,7 +32,9 @@ restore; if so it goes in `SETTING_KEYS` *and* `store-backup.test.ts`. `lexi.use
 **…land a corpus batch.** Commit only on a `corpus:validate` PASS, and make the thing
 that checks say so when it fails. Then run `corpus:freq` and `npm test`: ranks and
 several tests are derived from the corpus and go stale without a sound (see *Ten
-thousand cards*).
+thousand cards*). And run `corpus:ownership`: the gate checks a new card's own
+examples, never what it takes from everyone else's (see *A new card can steal its
+neighbour's forms*).
 
 **…write a regex over German text.** No `\b`: it treats *ä ö ü ß* as boundaries. Anchor
 at a word start with `(?<!\p{L})` and the `u` flag, and never compile data into a pattern.
@@ -1862,3 +1864,38 @@ text size — `xcrun simctl create` a 13 mini or an SE, then `simctl ui <id> con
 extra-extra-large`. Floors are capped by the viewport (`min(…rem, …svh)`), and anything
 that still cannot fit must be *reachable*: the session scrolls the item's end above the
 tab bar on mount and on growth. `review-structure.test.ts` pins both.
+
+## A new card can steal its neighbour's forms *(added 2026-10-17)*
+
+**Believed:** adding *die Schwere*, *die Moderne*, *die Leere* — quality nouns the
+gate verified, each with its own correct example — could only add coverage.
+
+**True:** the moment they shipped, *in schweren Zeiten* resolved to *die Schwere*,
+*Moderne Geräte* to *die Moderne*, *Leere Flaschen* to *die Leere*. The dative-plural
+fallback (*-n* stripped, noun accepted) and the sentence-initial capital both handed
+the adjective's forms to the new noun. The gate cannot see this: it checks that the
+new card's *own* examples light up, not what the new card takes from everyone
+else's. It surfaced only when ownership over *every* shipped example was diffed
+against `HEAD`.
+
+**Rule:** after a corpus batch, diff token ownership over all shipped examples
+against the last commit — old corpus and inflections from `git show HEAD:…`, new from
+disk, the same matcher for both — and read every row where a token moved from an old
+card to a new one. Gaps filled (`∅ → new`) are the point; `old → new` is either a fix
+or a theft, and only reading the sentence says which.
+
+## A failing floor is a finding, not a threshold *(added 2026-10-17)*
+
+**Believed:** `rulings.test.ts` failing at 74.5% ranked against a 75% floor was the
+corpus outgrowing an arbitrary number, so the floor could be reframed around A1–B1.
+
+**True:** the floor was doing its job. 2,613 cards had no rank and sorted in build
+order inside their band — *sieben*, *zehn* and *die Haltestelle* among them at A1 —
+and the hand-authored C1 families made it worse. A rank existed for nearly all of
+them in the Leipzig list the provenance tier already came from. Adding that tier
+took coverage to 96.9% and A1 to 95.5%; lowering the floor would have shipped the
+gap.
+
+**Rule:** when a coverage test fails after the corpus grows, ask what the uncovered
+rows are before touching the number. A floor is lowered only with a measurement of
+why the uncovered rows do not matter, written next to it.

@@ -55,9 +55,23 @@ const CONTRACTED: Record<string, string> = {
   im: 'in', ins: 'in', überm: 'über', übers: 'über', ums: 'um', unterm: 'unter',
   unters: 'unter', vom: 'von', vorm: 'vor', vors: 'vor', zum: 'zu', zur: 'zu',
 };
-/** Does this clause contain `prep`, spelled plainly or contracted with an article? */
+/** The pronominal adverb that stands for `prep` + a thing: *davon*, *darauf*,
+ *  *worüber*. A governed verb takes its object this way constantly — *«Bitte
+ *  achten Sie darauf»*, *«dass einzelne Staaten davon profitieren»* — and a check
+ *  for the bare preposition missed every one (2026-10-17). */
+const pronominal = (t: string, prep: string) => {
+  const r = /^[aeiouäöü]/.test(prep) ? 'r' : '';
+  return t === `da${r}${prep}` || t === `wo${r}${prep}`;
+};
+/** Words a separable particle can stand directly before without closing its
+ *  clause with punctuation: coordination, and the comparison that German
+ *  extraposes past the particle. */
+const CLAUSE_JOIN = new Set(['und', 'oder', 'aber', 'sondern', 'denn', 'als', 'wie', 'bis']);
+const NO_SLOTS: ReadonlySet<string> = new Set();
+/** Does this clause contain `prep`, spelled plainly, contracted with an article,
+ *  or as a pronominal adverb? */
 const hasPrep = (toks: string[], prep: string) =>
-  toks.some((t) => t === prep || CONTRACTED[t] === prep);
+  toks.some((t) => t === prep || CONTRACTED[t] === prep || pronominal(t, prep));
 
 /** Closed-class words (articles, pronouns, prepositions, conjunctions,
  *  contractions) that aren't learnable vocab. */
@@ -269,6 +283,9 @@ const EXTRA_CLOSED_FORMS: Record<string, string[]> = {
   dieser: ['diese', 'dieses', 'diesem', 'diesen'],
   mein: ['meiner', 'meinem', 'meines'],
   werden: ['worden'],
+  // The interrogative's other cases (2026-10-16): *Wem gehören die Ressourcen?*
+  // left `wem` dark on a discussion-question page whose every heading asks one.
+  wer: ['wen', 'wem', 'wessen'],
 };
 
 // Loanwords keep their diacritics in German — Café, Büro's fine but Café, Résumé,
@@ -347,8 +364,13 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
   // `conjugate('anrufen')` yields "rufe an" — a two-token string that single-token
   // lookup could never reach, which is why every separable verb missed entirely.
   const sepIndex = new Map<string, { word: Word; particle: string }[]>();
+  /** Every particle a separable verb was indexed with — *los*, *teil*, *fest* —
+   *  seeded with the noun-spelled ones whose verbs reach the corpus only as
+   *  pattern cards (*teilnehmen an + D*), which `addSep` never sees. */
+  const particles = new Set<string>(['teil', 'statt', 'preis', 'heim', 'los', 'fest', 'weg']);
   const addSep = (stem: string, particle: string, w: Word) => {
     if (!stem || !particle) return;
+    particles.add(particle);
     const list = sepIndex.get(stem) ?? [];
     if (!list.some((e) => e.word.id === w.id)) list.push({ word: w, particle });
     sepIndex.set(stem, list);
@@ -376,12 +398,12 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
   // is reflexive after *ich erinnere* and an ordinary object after *das Lied
   // erinnert*. So each indexed form remembers which persons it can be, and a
   // reflexive pattern requires the matching pronoun.
-  const patIndex = new Map<string, { word: Word; prep: string; refl: boolean; persons: Set<number> | null; participle: boolean }[]>();
-  const addPat = (form: string, prep: string, w: Word, refl: boolean, persons: Set<number> | null, participle = false) => {
+  const patIndex = new Map<string, { word: Word; prep: string; refl: boolean; persons: Set<number> | null; participle: boolean; particle?: string }[]>();
+  const addPat = (form: string, prep: string, w: Word, refl: boolean, persons: Set<number> | null, participle = false, particle?: string) => {
     if (!form || !prep) return;
     const list = patIndex.get(form) ?? [];
     if (list.some((e) => e.word.id === w.id)) return;
-    list.push({ word: w, prep, refl, persons: persons ? new Set(persons) : null, participle });
+    list.push({ word: w, prep, refl, persons: persons ? new Set(persons) : null, participle, particle });
     patIndex.set(form, list);
   };
 
@@ -571,6 +593,11 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
      *  person the conjugator does not label (the Partizip II, the imperative). */
     const formPersons = new Map<string, Set<number> | null>();
     const participles = new Set<string>();
+    /** A stem reached only by splitting off a particle (*denkst* from *denkst
+     *  nach*) is that verb only when the particle lands — the rule `sepIndex`
+     *  already keeps. Without it *«Was denkst du darüber?»* was `nachdenken über`. */
+    const splitParticle = new Map<string, string>();
+    const unsplit = new Set<string>();
     const addForm = (f: string, person: number | null) => {
       if (!f) return;
       forms.add(f);
@@ -599,21 +626,24 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
         for (const [f, person] of withPerson) {
           const lcf = f.toLowerCase();
           const space = lcf.indexOf(' ');
-          if (space < 0) { addForm(lcf, person); continue; }
+          if (space < 0) { addForm(lcf, person); unsplit.add(lcf); continue; }
           // Governed *and* separable — `abhängen von + D`, `sich einsetzen für + A`.
           // The conjugator hands back "hängt ab"; the text has the stem here and the
           // particle at the clause end. Key the stem, as `sepIndex` does, and the
           // joined form a Nebensatz produces ("…, weil das vom Wetter abhängt").
           addForm(lcf.slice(0, space), person);
+          splitParticle.set(lcf.slice(0, space), lcf.slice(space + 1));
           addForm(lcf.slice(space + 1) + lcf.slice(0, space), person);
+          unsplit.add(lcf.slice(space + 1) + lcf.slice(0, space));
         }
         const du = c.praesens[1];
-        if (du && !du.includes(' ')) addForm(du.replace(/st$/, '').toLowerCase(), 1);
+        if (du && !du.includes(' ')) { const imp = du.replace(/st$/, '').toLowerCase(); addForm(imp, 1); unsplit.add(imp); }
       } catch { /* fall back to the lemma alone */ }
     }
     const refl = /^sich\s/i.test(w.term);
     for (const f of forms) {
-      addPat(f, g.prep, w, refl, formPersons.get(f) ?? null, participles.has(f));
+      const particle = unsplit.has(f) || f === g.lemma.toLowerCase() ? undefined : splitParticle.get(f);
+      addPat(f, g.prep, w, refl, formPersons.get(f) ?? null, participles.has(f), particle);
     }
   }
 
@@ -692,12 +722,32 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
    *  used only to confirm a separable verb's particle actually landed.
    *  @param prev the immediately preceding token, lowercased.
    *  @param pos 0-based position of this token within its own sentence. */
+  /** An adjective lemma for an inflected form (`letzten` → letzte), or null. */
+  const deinflectAdjective = (lc: string): Word | null => {
+    if (lc.length < 4) return null;
+    for (const suf of ADJ_SUFFIXES) {
+      if (lc.length - suf.length < 3 || !lc.endsWith(suf)) continue;
+      const stem = lc.slice(0, -suf.length);
+      const w = adjIndex.get(stem) ?? adjIndex.get(deUmlaut(stem)) ?? adjIndex.get(`${stem}e`);
+      if (w) return w;
+    }
+    return null;
+  };
+
   const matchWord = (tok: string, after: string[] = [], prev = '', pos = -1, before: string[] = [],
     /** Filled in when the match came from compound decomposition rather than from
      *  the token's own lemma. An out-parameter rather than a wider return type
      *  because every one of the twenty-odd rules below returns a bare `Word`, and
      *  widening it would touch all of them to record something one rule knows. */
-    out?: { viaCompound: boolean }): Word | null => {
+    out?: { viaCompound: boolean },
+    /** The next token as written — case kept, because a capital is what marks the
+     *  noun an attributive adjective stands before. */
+    next = '',
+    /** Where a split-off particle can land in this token's clause, lowercased:
+     *  the clause's last token (to the next comma or sentence end), and any token
+     *  directly before a conjunction or comparison — *«stehen früh auf und
+     *  sehen»*, *«sah aus wie ein Schlachtfeld»*, *«fiel kleiner aus als geplant»*. */
+    slots: ReadonlySet<string> = NO_SLOTS): Word | null => {
     const lc = tok.toLowerCase();
 
     // 1. A governed verb, when the preposition the card teaches is really in the
@@ -714,6 +764,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     if (pat) {
       const clause = before.concat(after);
       const hit = pat.find((e) => {
+        if (e.particle && !slots.has(e.particle)) return false;
         if (!hasPrep(clause, e.prep)) return false;
         if (!e.refl) return true;
         // A reflexive pattern needs its pronoun, agreeing with the person of the
@@ -741,7 +792,10 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     //    preposition earlier in the sentence from being read as a particle.
     const sep = sepIndex.get(lc);
     if (sep) {
-      const hit = sep.find((e) => after.includes(e.particle));
+      // At the **end of the clause**, not merely later in it: *«Er geht mit dem
+      // Hund spazieren»* has a `mit` after `geht` and no *mitgehen* — the
+      // preposition opens a phrase, the particle closes the clause (2026-10-17).
+      const hit = sep.find((e) => slots.has(e.particle));
       if (hit) return hit.word;
     }
 
@@ -802,12 +856,45 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
         if (isHeadword || !singular) return noun;
       }
     }
+    // 4c. And the lowercase half *(2026-10-16)*: a lowercase token is never a noun.
+    //    Adjectival nouns index their own stem — *der/die Jugendliche* owns
+    //    `jugendliche` — so *jugendliche Täter* and *eine verdächtige Person* were
+    //    handed to the noun. Where an adjective reading exists, it wins.
+    //
+    //    And a verb reading wins too: *er macht*, *sie sucht*, *kann nicht schaden*
+    //    were *die Macht*, *die Sucht*, *der Schaden*. Where the spelling is both a
+    //    verb and an inflected adjective (*reifen* — `reif` + -en; *bekannte*), the
+    //    next word decides: an inflected adjective stands before its noun, so *die
+    //    reifen Bananen* is the adjective and *die Bananen reifen nach* the verb.
+    //    A separable particle (*viel los*, *nehmen teil*) is neither, and keeps the
+    //    reading it had.
+    if (direct && direct.pos === 'noun' && tok[0] !== tok[0].toUpperCase()) {
+      const adj = adjIndex.get(lc) ?? deinflectAdjective(lc);
+      const verb = particles.has(lc) ? undefined : verbIndex.get(lc);
+      const nounNext = !!next && next[0] !== next[0].toLowerCase();
+      if (adj && (!verb || nounNext)) return adj;
+      if (verb) return verb;
+    }
+    // 4d. The sentence-initial half of 4c *(2026-10-16)*. Position 0 is capitalised
+    //    whatever the class, so *Moderne Geräte*, *Leere Flaschen*, *Schwangere
+    //    Frauen* opened on the quality nouns *die Moderne*, *die Leere*, *die
+    //    Schwangere*. An inflected adjective stands before its noun, so a capital
+    //    next is the tell — the same one 4c uses — and a noun opening a sentence is
+    //    almost never followed directly by another.
+    if (direct && direct.pos === 'noun' && pos === 0 && next && next[0] !== next[0].toLowerCase()) {
+      const adj = adjIndex.get(lc) ?? deinflectAdjective(lc);
+      if (adj) return adj;
+    }
     if (direct) return direct;
     // 5. A verb form that lost the first-wins race to an unrelated lemma.
     const verb = verbIndex.get(lc);
     if (verb) return verb;
-    // Dative plural adds -n (Wählern → Wähler). Accept only a noun match.
-    if (lc.length >= 5 && lc.endsWith('n')) {
+    // Dative plural adds -n (Wählern → Wähler). Accept only a noun match — and
+    // not for a lowercase token an adjective can claim: *einer armen Familie* is
+    // `arm`, not the dative plural of *der Arm* (rule 4c's principle, reached here
+    // because *armen* is no form the index holds directly).
+    if (lc.length >= 5 && lc.endsWith('n')
+      && !(tok[0] === tok[0].toLowerCase() && tok[0] !== tok[0].toUpperCase() && deinflectAdjective(lc))) {
       const w = index.get(lc.slice(0, -1));
       if (w && w.pos === 'noun') return w;
     }
@@ -819,14 +906,8 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     // meant `letzten`, `letztes` and `letzter` all resolved to nothing while
     // `letzte` resolved fine. Only consulted after the bare stem misses, so it
     // cannot take a word away from an adjective stored the ordinary way.
-    if (lc.length >= 4) {
-      for (const suf of ADJ_SUFFIXES) {
-        if (lc.length - suf.length < 3 || !lc.endsWith(suf)) continue;
-        const stem = lc.slice(0, -suf.length);
-        const w = adjIndex.get(stem) ?? adjIndex.get(deUmlaut(stem)) ?? adjIndex.get(`${stem}e`);
-        if (w) return w;
-      }
-    }
+    const adj = deinflectAdjective(lc);
+    if (adj) return adj;
     // Genitive singular, and the adverbial -s that looks exactly like it.
     //
     // `des Kurses`, `des Vaters`, `des Hauses`, `des Romans` — and `montags`,
@@ -906,7 +987,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     if (lc.includes('ss')) {
       for (const alt of [tok.replace(/ss/g, 'ß'), tok.replace('ss', 'ß'), tok.replace(/ss(?!.*ss)/, 'ß')]) {
         if (alt === tok) continue;
-        const hit = matchWord(alt, after, prev, pos, before, out);
+        const hit = matchWord(alt, after, prev, pos, before, out, next, slots);
         if (hit) return hit;
       }
     }
@@ -990,7 +1071,14 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       // verb form. Looking only forward missed every Perfekt and every modal.
       const before = toks.slice(sentenceStart(i), i).map((t) => t.text.toLowerCase());
       const prov = { viaCompound: false };
-      const w = tok.length >= 2 ? matchWord(tok, after, prev, posInSentence, before, prov) : null;
+      const next = i + 1 < sentenceEnd(i) ? toks[i + 1].text : '';
+      let ce = i + 1;
+      while (ce < toks.length && !/[,.!?;:–—]/.test(text.slice(toks[ce - 1].start + toks[ce - 1].text.length, toks[ce].start))) ce++;
+      const slots = new Set<string>();
+      for (let j = i + 1; j < ce; j++) {
+        if (j === ce - 1 || CLAUSE_JOIN.has(toks[j + 1].text.toLowerCase())) slots.add(toks[j].text.toLowerCase());
+      }
+      const w = tok.length >= 2 ? matchWord(tok, after, prev, posInSentence, before, prov, next, slots) : null;
       out.push({ text: tok, word: w, isWord: true, viaCompound: prov.viaCompound });
       last = start + tok.length;
       // Reset at a sentence boundary so "second position" means second in *this*

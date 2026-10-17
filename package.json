@@ -18,6 +18,8 @@
     "corpus:news": "node scripts/corpus/news-coverage.ts",
     "corpus:tokencov": "node scripts/corpus/tokencov.ts",
     "corpus:textcov": "node scripts/corpus/textcov.ts",
+    "corpus:families": "node scripts/corpus/families.ts",
+    "corpus:ownership": "node scripts/corpus/ownership.ts",
     "corpus:dictcheck": "node scripts/corpus/dudencheck.ts",
     "corpus:dictgap": "node scripts/corpus/dictgap.ts",
     "corpus:lexicon": "node scripts/corpus/lexicon.ts",

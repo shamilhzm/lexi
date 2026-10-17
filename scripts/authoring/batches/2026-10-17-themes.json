@@ -1,0 +1,1110 @@
+[
+ {
+  "term": "arm",
+  "en": "poor",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Money & shopping",
+  "ex": [
+   {
+    "de": "Er kommt aus einer armen Familie.",
+    "en": "He comes from a poor family."
+   },
+   {
+    "de": "Viele ärmere Länder brauchen Hilfe.",
+    "en": "Many poorer countries need help."
+   }
+  ]
+ },
+ {
+  "term": "wohlhabend",
+  "en": "wealthy, well-off",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Sie stammt aus einer wohlhabenden Familie.",
+    "en": "She comes from a wealthy family."
+   },
+   {
+    "de": "Wohlhabende Länder tragen mehr Verantwortung.",
+    "en": "Wealthy countries bear more responsibility."
+   }
+  ]
+ },
+ {
+  "term": "das Weltall",
+  "en": "space, the universe",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Erde ist nur ein kleiner Teil des Weltalls.",
+    "en": "The earth is only a small part of the universe."
+   },
+   {
+    "de": "Im Weltall gibt es keine Luft.",
+    "en": "There is no air in space."
+   }
+  ]
+ },
+ {
+  "term": "die Raumfahrt",
+  "en": "space travel, spaceflight",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Raumfahrt ist sehr teuer.",
+    "en": "Space travel is very expensive."
+   },
+   {
+    "de": "Er arbeitet in der Raumfahrt.",
+    "en": "He works in the space industry."
+   }
+  ]
+ },
+ {
+  "term": "der Raumfahrer",
+  "en": "astronaut, space traveller",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Der Raumfahrer verbrachte ein halbes Jahr im All.",
+    "en": "The astronaut spent half a year in space."
+   },
+   {
+    "de": "Die Raumfahrer sind sicher gelandet.",
+    "en": "The astronauts landed safely."
+   }
+  ]
+ },
+ {
+  "term": "die Raumstation",
+  "en": "space station",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Raumstation umkreist die Erde.",
+    "en": "The space station orbits the earth."
+   },
+   {
+    "de": "Auf der Raumstation leben sechs Menschen.",
+    "en": "Six people live on the space station."
+   }
+  ]
+ },
+ {
+  "term": "der Asteroid",
+  "en": "asteroid",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Ein Asteroid ist knapp an der Erde vorbeigeflogen.",
+    "en": "An asteroid narrowly missed the earth."
+   },
+   {
+    "de": "Auf Asteroiden könnte es wertvolle Rohstoffe geben.",
+    "en": "There could be valuable raw materials on asteroids."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Planet",
+  "en": "planet",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Die Erde ist ein Planet.",
+    "en": "The earth is a planet."
+   },
+   {
+    "de": "Wir haben nur diesen einen Planeten.",
+    "en": "We only have this one planet."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Himmelskörper",
+  "en": "celestial body",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Der Mond ist der Himmelskörper, der uns am nächsten ist.",
+    "en": "The moon is the celestial body closest to us."
+   },
+   {
+    "de": "Auf anderen Himmelskörpern ist Leben kaum möglich.",
+    "en": "Life is hardly possible on other celestial bodies."
+   }
+  ]
+ },
+ {
+  "term": "die Besiedlung",
+  "en": "settlement, colonization",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Die Besiedlung des Mars ist noch ein Traum.",
+    "en": "Settling Mars is still a dream."
+   },
+   {
+    "de": "Die Besiedlung der Region begann vor 2000 Jahren.",
+    "en": "Settlement of the region began 2000 years ago."
+   }
+  ]
+ },
+ {
+  "term": "siedeln",
+  "en": "to settle",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Die ersten Menschen siedelten in diesem Tal.",
+    "en": "The first people settled in this valley."
+   },
+   {
+    "de": "Die Bauern siedelten am Ufer des Flusses.",
+    "en": "The farmers settled on the bank of the river."
+   }
+  ]
+ },
+ {
+  "term": "experimentell",
+  "en": "experimental",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Die Behandlung ist noch experimentell.",
+    "en": "The treatment is still experimental."
+   },
+   {
+    "de": "Er macht experimentelle Musik.",
+    "en": "He makes experimental music."
+   }
+  ]
+ },
+ {
+  "term": "experimentieren",
+  "en": "to experiment",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Die Forscher experimentieren mit neuen Materialien.",
+    "en": "The researchers are experimenting with new materials."
+   },
+   {
+    "de": "In der Küche experimentiert er gern.",
+    "en": "He likes to experiment in the kitchen."
+   }
+  ]
+ },
+ {
+  "term": "die Freisetzung",
+  "en": "release (of a substance)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Environment",
+  "ex": [
+   {
+    "de": "Die Freisetzung von Treibhausgasen muss sinken.",
+    "en": "The release of greenhouse gases must fall."
+   },
+   {
+    "de": "Bei dem Unfall kam es zur Freisetzung giftiger Stoffe.",
+    "en": "The accident led to the release of toxic substances."
+   }
+  ]
+ },
+ {
+  "term": "der Permafrost",
+  "en": "permafrost",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Der Permafrost taut immer schneller auf.",
+    "en": "The permafrost is thawing ever faster."
+   },
+   {
+    "de": "In Sibirien ist der Boden durch den Permafrost gefroren.",
+    "en": "In Siberia the ground is frozen by the permafrost."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "der Regenfall",
+  "en": "rainfall",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Weather conditions",
+  "ex": [
+   {
+    "de": "Heftige Regenfälle führten zu Überschwemmungen.",
+    "en": "Heavy rainfall led to flooding."
+   },
+   {
+    "de": "Für morgen werden starke Regenfälle erwartet.",
+    "en": "Heavy rain is expected tomorrow."
+   }
+  ]
+ },
+ {
+  "term": "verlangsamen",
+  "en": "to slow down",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Wir müssen den Klimawandel verlangsamen.",
+    "en": "We must slow down climate change."
+   },
+   {
+    "de": "Das Wachstum hat sich verlangsamt.",
+    "en": "Growth has slowed."
+   }
+  ]
+ },
+ {
+  "term": "die Verlangsamung",
+  "en": "slowdown, deceleration",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Experten erwarten eine Verlangsamung der Wirtschaft.",
+    "en": "Experts expect an economic slowdown."
+   },
+   {
+    "de": "Die Verlangsamung des Wachstums macht Sorgen.",
+    "en": "The slowdown in growth is worrying."
+   }
+  ]
+ },
+ {
+  "term": "die Hitzewelle",
+  "en": "heatwave",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Weather conditions",
+  "ex": [
+   {
+    "de": "Europa erlebt eine Hitzewelle.",
+    "en": "Europe is experiencing a heatwave."
+   },
+   {
+    "de": "Während der Hitzewelle sollte man viel trinken.",
+    "en": "During the heatwave you should drink a lot."
+   }
+  ]
+ },
+ {
+  "term": "der Industriestaat",
+  "en": "industrialized country",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Global Economy",
+  "ex": [
+   {
+    "de": "Die Industriestaaten haben viel CO2 ausgestoßen.",
+    "en": "The industrialized countries have emitted a lot of CO2."
+   },
+   {
+    "de": "Deutschland ist ein Industriestaat.",
+    "en": "Germany is an industrialized country."
+   }
+  ]
+ },
+ {
+  "term": "das Industrieland",
+  "en": "industrialized country",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Global Economy",
+  "ex": [
+   {
+    "de": "Viele Industrieländer haben ihre Klimaziele verfehlt.",
+    "en": "Many industrialized countries have missed their climate targets."
+   },
+   {
+    "de": "Japan ist ein reiches Industrieland.",
+    "en": "Japan is a rich industrialized country."
+   }
+  ]
+ },
+ {
+  "term": "das Treibhausgas",
+  "en": "greenhouse gas",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Kohlendioxid ist ein Treibhausgas.",
+    "en": "Carbon dioxide is a greenhouse gas."
+   },
+   {
+    "de": "Wir müssen weniger Treibhausgase ausstoßen.",
+    "en": "We must emit fewer greenhouse gases."
+   }
+  ]
+ },
+ {
+  "term": "das Treibhaus",
+  "en": "greenhouse",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Farm",
+  "ex": [
+   {
+    "de": "Im Treibhaus wachsen Tomaten.",
+    "en": "Tomatoes grow in the greenhouse."
+   },
+   {
+    "de": "Hier ist es heiß wie in einem Treibhaus.",
+    "en": "It's as hot as a greenhouse in here."
+   }
+  ]
+ },
+ {
+  "term": "die Behandlungsmethode",
+  "en": "method of treatment",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Medical Treatment",
+  "ex": [
+   {
+    "de": "Es gibt eine neue Behandlungsmethode gegen Krebs.",
+    "en": "There is a new method of treating cancer."
+   },
+   {
+    "de": "Moderne Behandlungsmethoden sind oft teuer.",
+    "en": "Modern treatment methods are often expensive."
+   }
+  ]
+ },
+ {
+  "term": "die Preisentwicklung",
+  "en": "price trend, price development",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Preisentwicklung bereitet vielen Menschen Sorgen.",
+    "en": "The price trend worries many people."
+   },
+   {
+    "de": "Die Zentralbank beobachtet die Preisentwicklung genau.",
+    "en": "The central bank is watching price trends closely."
+   }
+  ]
+ },
+ {
+  "term": "die Privatperson",
+  "en": "private individual",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Das Angebot gilt nur für Privatpersonen.",
+    "en": "The offer is only for private individuals."
+   },
+   {
+    "de": "Er spricht hier als Privatperson.",
+    "en": "He is speaking here as a private individual."
+   }
+  ]
+ },
+ {
+  "term": "die Selbsttäuschung",
+  "en": "self-deception",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Das ist reine Selbsttäuschung.",
+    "en": "That is pure self-deception."
+   },
+   {
+    "de": "Sie lebt in einer ständigen Selbsttäuschung.",
+    "en": "She lives in constant self-deception."
+   }
+  ]
+ },
+ {
+  "term": "das Klimaziel",
+  "en": "climate target",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Deutschland könnte seine Klimaziele verfehlen.",
+    "en": "Germany could miss its climate targets."
+   },
+   {
+    "de": "Das Klimaziel ist sehr ehrgeizig.",
+    "en": "The climate target is very ambitious."
+   }
+  ]
+ },
+ {
+  "term": "die Lebensbedingung",
+  "en": "living condition (mostly plural)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Development & Inequality",
+  "ex": [
+   {
+    "de": "Die Lebensbedingungen der Menschen haben sich verbessert.",
+    "en": "People's living conditions have improved."
+   },
+   {
+    "de": "Auf dem Mars herrschen extreme Lebensbedingungen.",
+    "en": "Extreme living conditions prevail on Mars."
+   }
+  ]
+ },
+ {
+  "term": "verpflichtend",
+  "en": "compulsory, mandatory",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Rules & Etiquette",
+  "ex": [
+   {
+    "de": "Der Kurs ist für alle verpflichtend.",
+    "en": "The course is compulsory for everyone."
+   },
+   {
+    "de": "Es gibt eine verpflichtende Schulung.",
+    "en": "There is a mandatory training session."
+   }
+  ]
+ },
+ {
+  "term": "aufwerfen",
+  "en": "to raise (a question)",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Das wirft neue Fragen auf.",
+    "en": "That raises new questions."
+   },
+   {
+    "de": "Die Studie hat viele Fragen aufgeworfen.",
+    "en": "The study has raised many questions."
+   }
+  ]
+ },
+ {
+  "term": "unvertretbar",
+  "en": "unjustifiable, indefensible",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Ethics & Responsibility",
+  "ex": [
+   {
+    "de": "Das Risiko ist unvertretbar.",
+    "en": "The risk is unjustifiable."
+   },
+   {
+    "de": "Die Kosten sind unvertretbar hoch.",
+    "en": "The costs are indefensibly high."
+   }
+  ]
+ },
+ {
+  "term": "gerechtfertigt",
+  "en": "justified",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Die Kritik ist gerechtfertigt.",
+    "en": "The criticism is justified."
+   },
+   {
+    "de": "Sind diese Ausgaben gerechtfertigt?",
+    "en": "Are these expenses justified?"
+   }
+  ]
+ },
+ {
+  "term": "anpassungsfähig",
+  "en": "adaptable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Menschen sind sehr anpassungsfähig.",
+    "en": "People are very adaptable."
+   },
+   {
+    "de": "Diese Pflanze ist besonders anpassungsfähig.",
+    "en": "This plant is particularly adaptable."
+   }
+  ]
+ },
+ {
+  "term": "die Gewährleistung",
+  "en": "warranty; guarantee",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Services & Complaints",
+  "ex": [
+   {
+    "de": "Die Gewährleistung beträgt zwei Jahre.",
+    "en": "The warranty lasts two years."
+   },
+   {
+    "de": "Die Gewährleistung der Sicherheit hat Vorrang.",
+    "en": "Guaranteeing safety has priority."
+   }
+  ]
+ },
+ {
+  "term": "gespalten",
+  "en": "divided, split",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Society",
+  "ex": [
+   {
+    "de": "Die Gesellschaft ist tief gespalten.",
+    "en": "Society is deeply divided."
+   },
+   {
+    "de": "Die Meinungen dazu sind gespalten.",
+    "en": "Opinions on this are divided."
+   }
+  ]
+ },
+ {
+  "term": "das Leiden",
+  "en": "suffering; ailment",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Er hat ein chronisches Leiden.",
+    "en": "He has a chronic ailment."
+   },
+   {
+    "de": "Das Medikament lindert das Leiden der Patienten.",
+    "en": "The medicine relieves the patients' suffering."
+   }
+  ]
+ },
+ {
+  "term": "zusammenarbeiten",
+  "en": "to work together, cooperate",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Work & Colleagues",
+  "ex": [
+   {
+    "de": "Wir arbeiten eng zusammen.",
+    "en": "We work closely together."
+   },
+   {
+    "de": "Die Länder müssen beim Klimaschutz zusammenarbeiten.",
+    "en": "Countries must cooperate on climate protection."
+   }
+  ]
+ },
+ {
+  "term": "luxuriös",
+  "en": "luxurious",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Das Hotel ist sehr luxuriös.",
+    "en": "The hotel is very luxurious."
+   },
+   {
+    "de": "Sie leben in einer luxuriösen Wohnung.",
+    "en": "They live in a luxurious flat."
+   }
+  ]
+ },
+ {
+  "term": "der Erfinder",
+  "en": "inventor",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Der Erfinder des Telefons ist berühmt.",
+    "en": "The inventor of the telephone is famous."
+   },
+   {
+    "de": "Viele Erfinder wurden zuerst ausgelacht.",
+    "en": "Many inventors were laughed at at first."
+   }
+  ]
+ },
+ {
+  "term": "die Umlaufbahn",
+  "en": "orbit",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Der Satellit ist in der Umlaufbahn.",
+    "en": "The satellite is in orbit."
+   },
+   {
+    "de": "Die Rakete bringt die Kapsel in eine Umlaufbahn um die Erde.",
+    "en": "The rocket puts the capsule into orbit around the earth."
+   }
+  ]
+ },
+ {
+  "term": "der Meteorit",
+  "en": "meteorite",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Ein Meteorit schlug in der Wüste ein.",
+    "en": "A meteorite struck in the desert."
+   },
+   {
+    "de": "Das Museum zeigt einen echten Meteoriten.",
+    "en": "The museum shows a real meteorite."
+   }
+  ]
+ },
+ {
+  "term": "das Sonnensystem",
+  "en": "solar system",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Jupiter ist der größte Planet im Sonnensystem.",
+    "en": "Jupiter is the largest planet in the solar system."
+   },
+   {
+    "de": "Unser Sonnensystem hat acht Planeten.",
+    "en": "Our solar system has eight planets."
+   }
+  ]
+ },
+ {
+  "term": "der Komet",
+  "en": "comet",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Am Himmel war ein Komet zu sehen.",
+    "en": "A comet could be seen in the sky."
+   },
+   {
+    "de": "Der Komet kommt alle 76 Jahre wieder.",
+    "en": "The comet returns every 76 years."
+   }
+  ]
+ },
+ {
+  "term": "die Mondlandung",
+  "en": "moon landing",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Die erste Mondlandung war 1969.",
+    "en": "The first moon landing was in 1969."
+   },
+   {
+    "de": "Millionen sahen die Mondlandung im Fernsehen.",
+    "en": "Millions watched the moon landing on television."
+   }
+  ]
+ },
+ {
+  "term": "der Kohleausstieg",
+  "en": "coal phase-out",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Energy & Resources",
+  "ex": [
+   {
+    "de": "Der Kohleausstieg soll bis 2038 abgeschlossen sein.",
+    "en": "The coal phase-out is to be completed by 2038."
+   },
+   {
+    "de": "Über den Kohleausstieg wird heftig gestritten.",
+    "en": "There is fierce debate about the coal phase-out."
+   }
+  ]
+ },
+ {
+  "term": "ausstoßen",
+  "en": "to emit; to expel",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Autos stoßen viel CO2 aus.",
+    "en": "Cars emit a lot of CO2."
+   },
+   {
+    "de": "Die Fabrik hat giftige Gase ausgestoßen.",
+    "en": "The factory emitted toxic gases."
+   }
+  ]
+ },
+ {
+  "term": "die Klimaneutralität",
+  "en": "climate neutrality",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Die EU strebt Klimaneutralität bis 2050 an.",
+    "en": "The EU is aiming for climate neutrality by 2050."
+   },
+   {
+    "de": "Der Weg zur Klimaneutralität ist lang.",
+    "en": "The road to climate neutrality is long."
+   }
+  ]
+ },
+ {
+  "term": "der Hitzschlag",
+  "en": "heatstroke",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Bei dieser Hitze droht ein Hitzschlag.",
+    "en": "In this heat there is a risk of heatstroke."
+   },
+   {
+    "de": "Er kam mit einem Hitzschlag ins Krankenhaus.",
+    "en": "He went to hospital with heatstroke."
+   }
+  ]
+ },
+ {
+  "term": "die Gentechnik",
+  "en": "genetic engineering",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Viele Menschen lehnen Gentechnik in Lebensmitteln ab.",
+    "en": "Many people reject genetic engineering in food."
+   },
+   {
+    "de": "Die Gentechnik wirft ethische Fragen auf.",
+    "en": "Genetic engineering raises ethical questions."
+   }
+  ]
+ },
+ {
+  "term": "klonen",
+  "en": "to clone",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Research Ethics",
+  "ex": [
+   {
+    "de": "Forscher haben ein Schaf geklont.",
+    "en": "Researchers have cloned a sheep."
+   },
+   {
+    "de": "Darf man Menschen klonen?",
+    "en": "Should humans be cloned?"
+   }
+  ]
+ },
+ {
+  "term": "die Stammzelle",
+  "en": "stem cell",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Research Ethics",
+  "ex": [
+   {
+    "de": "Die Forschung mit Stammzellen ist umstritten.",
+    "en": "Research with stem cells is controversial."
+   },
+   {
+    "de": "Stammzellen können sich in verschiedene Zellen verwandeln.",
+    "en": "Stem cells can turn into different cells."
+   }
+  ]
+ },
+ {
+  "term": "die Organspende",
+  "en": "organ donation",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Healthcare System",
+  "ex": [
+   {
+    "de": "Er hat einen Ausweis für die Organspende.",
+    "en": "He has an organ donor card."
+   },
+   {
+    "de": "Die Organspende rettet Leben.",
+    "en": "Organ donation saves lives."
+   }
+  ]
+ },
+ {
+  "term": "die Sterbehilfe",
+  "en": "assisted dying, euthanasia",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Research Ethics",
+  "ex": [
+   {
+    "de": "Die Sterbehilfe ist in Deutschland stark umstritten.",
+    "en": "Assisted dying is highly controversial in Germany."
+   },
+   {
+    "de": "Er spricht sich für Sterbehilfe aus.",
+    "en": "He speaks in favour of assisted dying."
+   }
+  ]
+ },
+ {
+  "term": "der Tierversuch",
+  "en": "animal experiment",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Research Ethics",
+  "ex": [
+   {
+    "de": "Viele Kosmetikfirmen verzichten auf Tierversuche.",
+    "en": "Many cosmetics companies do without animal testing."
+   },
+   {
+    "de": "Der Tierversuch ist umstritten.",
+    "en": "The animal experiment is controversial."
+   }
+  ]
+ },
+ {
+  "term": "die Armutsgrenze",
+  "en": "poverty line",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Development & Inequality",
+  "ex": [
+   {
+    "de": "Millionen Menschen leben unter der Armutsgrenze.",
+    "en": "Millions of people live below the poverty line."
+   },
+   {
+    "de": "Die Familie liegt knapp über der Armutsgrenze.",
+    "en": "The family is just above the poverty line."
+   }
+  ]
+ },
+ {
+  "term": "umverteilen",
+  "en": "to redistribute",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Development & Inequality",
+  "ex": [
+   {
+    "de": "Der Staat soll den Reichtum gerechter umverteilen.",
+    "en": "The state should redistribute wealth more fairly."
+   },
+   {
+    "de": "Die Steuern werden zugunsten der Armen umverteilt.",
+    "en": "Taxes are redistributed in favour of the poor."
+   }
+  ]
+ },
+ {
+  "term": "die Sozialleistung",
+  "en": "social security benefit",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Society",
+  "ex": [
+   {
+    "de": "Die Familie ist auf Sozialleistungen angewiesen.",
+    "en": "The family depends on social security benefits."
+   },
+   {
+    "de": "Die Regierung will die Sozialleistungen kürzen.",
+    "en": "The government wants to cut benefits."
+   }
+  ]
+ },
+ {
+  "term": "das Existenzminimum",
+  "en": "subsistence minimum",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Das Einkommen liegt unter dem Existenzminimum.",
+    "en": "The income is below the subsistence level."
+   },
+   {
+    "de": "Der Staat muss das Existenzminimum sichern.",
+    "en": "The state must guarantee the subsistence minimum."
+   }
+  ]
+ },
+ {
+  "term": "verarmen",
+  "en": "to become impoverished",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Development & Inequality",
+  "ex": [
+   {
+    "de": "Viele Rentner verarmen im Alter.",
+    "en": "Many pensioners become impoverished in old age."
+   },
+   {
+    "de": "Durch den Krieg ist die Region verarmt.",
+    "en": "The war has impoverished the region."
+   }
+  ]
+ },
+ {
+  "term": "der Gletscher",
+  "en": "glacier",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Die Gletscher in den Alpen schmelzen.",
+    "en": "The glaciers in the Alps are melting."
+   },
+   {
+    "de": "Wir haben eine Wanderung zum Gletscher gemacht.",
+    "en": "We went on a hike to the glacier."
+   }
+  ]
+ },
+ {
+  "term": "die Gletscherschmelze",
+  "en": "glacier melt",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Climate Change",
+  "ex": [
+   {
+    "de": "Die Gletscherschmelze lässt den Meeresspiegel steigen.",
+    "en": "The melting glaciers are raising the sea level."
+   },
+   {
+    "de": "Die Gletscherschmelze hat sich beschleunigt.",
+    "en": "The glacier melt has accelerated."
+   }
+  ]
+ },
+ {
+  "term": "die Reife",
+  "en": "maturity, ripeness",
+  "pos": "noun",
+  "level": "B2",
+  "field": "School & Education System",
+  "ex": [
+   {
+    "de": "Die Realschule schließt mit der mittleren Reife ab.",
+    "en": "Secondary school ends with the intermediate school-leaving certificate."
+   },
+   {
+    "de": "Ihm fehlt noch die nötige Reife.",
+    "en": "He still lacks the necessary maturity."
+   }
+  ]
+ },
+ {
+  "term": "achten",
+  "en": "to respect; to pay attention",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Man sollte die Meinung anderer achten.",
+    "en": "One should respect other people's opinions."
+   },
+   {
+    "de": "Bitte achten Sie darauf, die Tür zu schließen.",
+    "en": "Please make sure you close the door."
+   }
+  ]
+ },
+ {
+  "term": "nähen",
+  "en": "to sew",
+  "pos": "verb",
+  "level": "A2",
+  "field": "Clothing",
+  "ex": [
+   {
+    "de": "Meine Oma näht ihre Kleider selbst.",
+    "en": "My grandma sews her own clothes."
+   },
+   {
+    "de": "Wir nähen mit einer Nadel.",
+    "en": "We sew with a needle."
+   }
+  ]
+ }
+]

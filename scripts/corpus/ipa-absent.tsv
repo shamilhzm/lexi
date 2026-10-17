@@ -6,3 +6,23 @@
 voc:B2:das Qualifying	English loan; de.wiktionary page has no Lautschrift (scripts/authoring/fetch-ipa.ts, 2026-09-26)	2026-09-26
 voc:B2:das Tutorial	English loan; de.wiktionary page has no Lautschrift (fetch-ipa.ts, 2026-09-26)	2026-09-26
 voc:C1:der Vorfahre	de.wiktionary page has no Lautschrift, and it does not compose from attested parts (compose-ipa.ts)	2026-09-26
+voc:C1:die Einstufung	no de.wiktionary page (Wikidata L296612 has no pronunciation); does not compose — no transcribed part spells "-stufung"	2026-10-16
+voc:C1:unersetzlich	no de.wiktionary page (Wikidata L873915 has no pronunciation); does not compose — "ersetzlich" has no page	2026-10-16
+voc:C1:verräterisch	no de.wiktionary page (Wikidata L881701 has no pronunciation); does not compose — no transcribed part spells "-isch"	2026-10-16
+voc:B2:traurigerweise	no de.wiktionary page (Wikidata L488865 has no pronunciation); does not compose — the linking "-er-" has no transcription	2026-10-16
+voc:C1:die Platzierung	no de.wiktionary page (Wikidata L497678 has no pronunciation); does not compose — no transcribed part spells "-ierung"	2026-10-16
+voc:C1:begreiflich	no de.wiktionary page (Wikidata L343702 has no pronunciation); does not compose — no transcribed part spells "-lich"	2026-10-16
+voc:C1:die Köstlichkeit	no de.wiktionary page (Wikidata L849499 has no pronunciation); does not compose — no transcribed part spells "-keit"	2026-10-16
+voc:C1:die Positionierung	no de.wiktionary page (Wikidata L786233 has no pronunciation); does not compose — no transcribed part spells "-ierung"	2026-10-16
+voc:C1:rückständig	no de.wiktionary page (Wikidata L826714 has no pronunciation); does not compose — "Rückstand" + "-ig" does not spell it (umlaut)	2026-10-16
+voc:C1:eindrücklich	no de.wiktionary page (Wikidata L344399 has no pronunciation); does not compose — no transcribed part spells "-lich"	2026-10-16
+voc:C1:die Verlangsamung	no de.wiktionary page (Wikidata L881393 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-ung"	2026-10-17
+voc:C1:lachhaft	no de.wiktionary page (Wikidata L875432 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-haft"	2026-10-17
+voc:C1:stimmig	no de.wiktionary page (Wikidata L872273 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-ig"	2026-10-17
+voc:C1:die Nennung	no de.wiktionary page (Wikidata L874847 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-ung"	2026-10-17
+voc:B2:buchbar	no de.wiktionary page (Wikidata L343989 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-bar"	2026-10-17
+voc:C1:anteilig	no de.wiktionary page (Wikidata L343418 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-ig"	2026-10-17
+voc:C1:kultig	no de.wiktionary page (Wikidata L794555 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-ig"	2026-10-17
+voc:C1:die Löschung	no de.wiktionary page (Wikidata L290411 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-ung"	2026-10-17
+voc:B2:die Abholung	no de.wiktionary page (Wikidata L290467 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-ung"	2026-10-17
+voc:C1:fotografisch	no de.wiktionary page (Wikidata L851488 has no pronunciation); does not compose — compose-ipa takes no suffix parts, and no transcribed part spells "-isch"	2026-10-17

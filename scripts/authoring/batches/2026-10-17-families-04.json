@@ -1,0 +1,2553 @@
+[
+ {
+  "term": "fälschlicherweise",
+  "en": "wrongly, by mistake",
+  "pos": "adverb",
+  "level": "B2",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Er wurde fälschlicherweise verhaftet.",
+    "en": "He was wrongly arrested."
+   },
+   {
+    "de": "Ich habe fälschlicherweise angenommen, dass du Bescheid weißt.",
+    "en": "I mistakenly assumed you knew."
+   }
+  ]
+ },
+ {
+  "term": "lachhaft",
+  "en": "ridiculous, laughable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Die Ausrede ist einfach lachhaft.",
+    "en": "The excuse is simply ridiculous."
+   },
+   {
+    "de": "Er bot eine lachhafte Summe.",
+    "en": "He offered a laughable sum."
+   }
+  ]
+ },
+ {
+  "term": "erfinderisch",
+  "en": "inventive, resourceful",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science & Technology",
+  "ex": [
+   {
+    "de": "Not macht erfinderisch.",
+    "en": "Necessity is the mother of invention."
+   },
+   {
+    "de": "Sie ist sehr erfinderisch.",
+    "en": "She is very resourceful."
+   }
+  ]
+ },
+ {
+  "term": "unhygienisch",
+  "en": "unhygienic",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Die Zustände in der Küche waren unhygienisch.",
+    "en": "Conditions in the kitchen were unhygienic."
+   },
+   {
+    "de": "Es ist unhygienisch, das Handy mit aufs Klo zu nehmen.",
+    "en": "It's unhygienic to take your phone to the toilet."
+   }
+  ]
+ },
+ {
+  "term": "realisierbar",
+  "en": "feasible, achievable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Der Plan ist kaum realisierbar.",
+    "en": "The plan is hardly feasible."
+   },
+   {
+    "de": "Wir suchen eine realisierbare Lösung.",
+    "en": "We are looking for a feasible solution."
+   }
+  ]
+ },
+ {
+  "term": "der Stecker",
+  "en": "plug",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Technology & Devices",
+  "ex": [
+   {
+    "de": "Zieh bitte den Stecker aus der Steckdose.",
+    "en": "Please pull the plug out of the socket."
+   },
+   {
+    "de": "Der Stecker passt nicht in die Steckdose.",
+    "en": "The plug doesn't fit the socket."
+   }
+  ]
+ },
+ {
+  "term": "preislich",
+  "en": "in terms of price",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Money & shopping",
+  "ex": [
+   {
+    "de": "Preislich liegt das Hotel im Mittelfeld.",
+    "en": "In terms of price the hotel is mid-range."
+   },
+   {
+    "de": "Die beiden Angebote unterscheiden sich preislich kaum.",
+    "en": "The two offers hardly differ in price."
+   }
+  ]
+ },
+ {
+  "term": "die Frische",
+  "en": "freshness",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Achten Sie auf die Frische der Zutaten.",
+    "en": "Pay attention to the freshness of the ingredients."
+   },
+   {
+    "de": "Die Frische des Morgens tat gut.",
+    "en": "The freshness of the morning felt good."
+   }
+  ]
+ },
+ {
+  "term": "die Verkleidung",
+  "en": "costume, disguise; casing",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Festivals & customs",
+  "ex": [
+   {
+    "de": "Zum Karneval trägt er eine lustige Verkleidung.",
+    "en": "For carnival he wears a funny costume."
+   },
+   {
+    "de": "Die Verkleidung des Geräts ist aus Kunststoff.",
+    "en": "The device's casing is made of plastic."
+   }
+  ]
+ },
+ {
+  "term": "die Abwägung",
+  "en": "weighing up",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Decisions",
+  "ex": [
+   {
+    "de": "Nach sorgfältiger Abwägung haben wir uns entschieden.",
+    "en": "After careful consideration we have decided."
+   },
+   {
+    "de": "Es ist eine Abwägung zwischen Kosten und Nutzen.",
+    "en": "It is a trade-off between costs and benefits."
+   }
+  ]
+ },
+ {
+  "term": "der Staubsauger",
+  "en": "vacuum cleaner",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Der Staubsauger ist kaputt.",
+    "en": "The vacuum cleaner is broken."
+   },
+   {
+    "de": "Ich hole schnell den Staubsauger.",
+    "en": "I'll quickly get the vacuum cleaner."
+   }
+  ]
+ },
+ {
+  "term": "die Haltbarkeit",
+  "en": "durability; shelf life",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Die Milch hat eine lange Haltbarkeit.",
+    "en": "The milk has a long shelf life."
+   },
+   {
+    "de": "Die Haltbarkeit der Schuhe ist beeindruckend.",
+    "en": "The durability of the shoes is impressive."
+   }
+  ]
+ },
+ {
+  "term": "die Verfehlung",
+  "en": "misconduct, transgression",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Ethics & Responsibility",
+  "ex": [
+   {
+    "de": "Er musste wegen schwerer Verfehlungen zurücktreten.",
+    "en": "He had to resign because of serious misconduct."
+   },
+   {
+    "de": "Sie entschuldigte sich für ihre Verfehlung.",
+    "en": "She apologised for her transgression."
+   }
+  ]
+ },
+ {
+  "term": "spielbar",
+  "en": "playable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Games",
+  "ex": [
+   {
+    "de": "Das Spiel ist auch auf dem Handy spielbar.",
+    "en": "The game can also be played on a phone."
+   },
+   {
+    "de": "Der Platz war nach dem Regen kaum spielbar.",
+    "en": "After the rain the pitch was hardly playable."
+   }
+  ]
+ },
+ {
+  "term": "die Enge",
+  "en": "narrowness, confinement",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Spatial relations",
+  "ex": [
+   {
+    "de": "Die Enge der kleinen Wohnung bedrückte sie.",
+    "en": "The cramped little flat depressed her."
+   },
+   {
+    "de": "Er wurde in die Enge getrieben.",
+    "en": "He was driven into a corner."
+   }
+  ]
+ },
+ {
+  "term": "die Betroffenheit",
+  "en": "dismay, shock",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Nachricht löste große Betroffenheit aus.",
+    "en": "The news caused great dismay."
+   },
+   {
+    "de": "Mit Betroffenheit haben wir vom Unglück erfahren.",
+    "en": "We learned of the accident with shock."
+   }
+  ]
+ },
+ {
+  "term": "die Örtlichkeit",
+  "en": "locality, venue",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Town & travel",
+  "ex": [
+   {
+    "de": "Er kennt die Örtlichkeiten genau.",
+    "en": "He knows the place well."
+   },
+   {
+    "de": "Wo sind hier die Örtlichkeiten?",
+    "en": "Where are the toilets here?"
+   }
+  ]
+ },
+ {
+  "term": "unbedenklich",
+  "en": "harmless, safe",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Das Medikament gilt als unbedenklich.",
+    "en": "The medicine is considered safe."
+   },
+   {
+    "de": "Das Wasser ist gesundheitlich unbedenklich.",
+    "en": "The water is harmless to health."
+   }
+  ]
+ },
+ {
+  "term": "die Antike",
+  "en": "antiquity",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Die Säulen stammen aus der Antike.",
+    "en": "The columns date from antiquity."
+   },
+   {
+    "de": "Sie studiert die Kunst der Antike.",
+    "en": "She studies the art of antiquity."
+   }
+  ]
+ },
+ {
+  "term": "stimmig",
+  "en": "coherent, consistent",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Aesthetic Concepts",
+  "ex": [
+   {
+    "de": "Das Gesamtkonzept ist stimmig.",
+    "en": "The overall concept is coherent."
+   },
+   {
+    "de": "Die Farben wirken sehr stimmig.",
+    "en": "The colours go together very well."
+   }
+  ]
+ },
+ {
+  "term": "dringlich",
+  "en": "urgent, pressing",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Das ist eine dringliche Angelegenheit.",
+    "en": "That is an urgent matter."
+   },
+   {
+    "de": "Die Frage wird immer dringlicher.",
+    "en": "The question is becoming ever more pressing."
+   }
+  ]
+ },
+ {
+  "term": "die Gemütlichkeit",
+  "en": "cosiness, comfort",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Kerzen sorgen für Gemütlichkeit.",
+    "en": "Candles create a cosy atmosphere."
+   },
+   {
+    "de": "In der Ruhe liegt die Gemütlichkeit.",
+    "en": "Take it easy."
+   }
+  ]
+ },
+ {
+  "term": "die Umgehung",
+  "en": "bypass; circumvention",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Das ist eine Umgehung des Gesetzes.",
+    "en": "That is a circumvention of the law."
+   },
+   {
+    "de": "Die neue Umgehung entlastet das Dorf.",
+    "en": "The new bypass relieves the village."
+   }
+  ]
+ },
+ {
+  "term": "die Vertiefung",
+  "en": "deepening; hollow",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Education",
+  "ex": [
+   {
+    "de": "Der Kurs dient der Vertiefung des Wissens.",
+    "en": "The course serves to deepen knowledge."
+   },
+   {
+    "de": "Im Boden war eine kleine Vertiefung.",
+    "en": "There was a small hollow in the ground."
+   }
+  ]
+ },
+ {
+  "term": "die Nennung",
+  "en": "mention, naming",
+  "pos": "noun",
+  "level": "C1",
+  "field": "News Media",
+  "ex": [
+   {
+    "de": "Er sprach ohne Nennung von Namen.",
+    "en": "He spoke without mentioning names."
+   },
+   {
+    "de": "Die Nennung der Quelle ist Pflicht.",
+    "en": "Citing the source is mandatory."
+   }
+  ]
+ },
+ {
+  "term": "versöhnlich",
+  "en": "conciliatory",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Der Film hat ein versöhnliches Ende.",
+    "en": "The film has a conciliatory ending."
+   },
+   {
+    "de": "Er sprach in versöhnlichem Ton.",
+    "en": "He spoke in a conciliatory tone."
+   }
+  ]
+ },
+ {
+  "term": "alkoholisch",
+  "en": "alcoholic",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Ich trinke keine alkoholischen Getränke.",
+    "en": "I don't drink alcoholic drinks."
+   },
+   {
+    "de": "Der Cocktail ist leicht alkoholisch.",
+    "en": "The cocktail is slightly alcoholic."
+   }
+  ]
+ },
+ {
+  "term": "die Männlichkeit",
+  "en": "masculinity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Identity",
+  "ex": [
+   {
+    "de": "Das Buch hinterfragt traditionelle Vorstellungen von Männlichkeit.",
+    "en": "The book questions traditional ideas of masculinity."
+   },
+   {
+    "de": "Er fühlte sich in seiner Männlichkeit gekränkt.",
+    "en": "His masculinity felt wounded."
+   }
+  ]
+ },
+ {
+  "term": "ungerechtfertigt",
+  "en": "unjustified",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Die Kritik ist völlig ungerechtfertigt.",
+    "en": "The criticism is completely unjustified."
+   },
+   {
+    "de": "Das war eine ungerechtfertigte Kündigung.",
+    "en": "That was an unjustified dismissal."
+   }
+  ]
+ },
+ {
+  "term": "die Berühmtheit",
+  "en": "fame; celebrity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Entertainment & Media",
+  "ex": [
+   {
+    "de": "Er erlangte über Nacht Berühmtheit.",
+    "en": "He became famous overnight."
+   },
+   {
+    "de": "Auf der Party waren viele Berühmtheiten.",
+    "en": "There were many celebrities at the party."
+   }
+  ]
+ },
+ {
+  "term": "gedanklich",
+  "en": "mental, intellectual",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Gedanklich war ich schon im Urlaub.",
+    "en": "Mentally I was already on holiday."
+   },
+   {
+    "de": "Das erfordert viel gedankliche Arbeit.",
+    "en": "That requires a lot of mental work."
+   }
+  ]
+ },
+ {
+  "term": "die Steigung",
+  "en": "gradient, incline",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "ex": [
+   {
+    "de": "Die Straße hat eine Steigung von zehn Prozent.",
+    "en": "The road has a ten percent gradient."
+   },
+   {
+    "de": "Mit dem Fahrrad ist die Steigung anstrengend.",
+    "en": "The incline is tiring on a bike."
+   }
+  ]
+ },
+ {
+  "term": "cremig",
+  "en": "creamy",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Die Suppe ist schön cremig.",
+    "en": "The soup is nice and creamy."
+   },
+   {
+    "de": "Rühren Sie die Masse cremig.",
+    "en": "Stir the mixture until creamy."
+   }
+  ]
+ },
+ {
+  "term": "kunstvoll",
+  "en": "artistic, elaborate",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Arts and culture",
+  "ex": [
+   {
+    "de": "Die Torte war kunstvoll verziert.",
+    "en": "The cake was elaborately decorated."
+   },
+   {
+    "de": "Sie trägt eine kunstvolle Frisur.",
+    "en": "She wears an elaborate hairstyle."
+   }
+  ]
+ },
+ {
+  "term": "die Echtheit",
+  "en": "authenticity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Experten prüfen die Echtheit des Gemäldes.",
+    "en": "Experts are checking the authenticity of the painting."
+   },
+   {
+    "de": "An der Echtheit des Briefes gibt es Zweifel.",
+    "en": "There are doubts about the authenticity of the letter."
+   }
+  ]
+ },
+ {
+  "term": "die Zusammenstellung",
+  "en": "compilation, selection",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Hier ist eine Zusammenstellung der wichtigsten Daten.",
+    "en": "Here is a compilation of the most important data."
+   },
+   {
+    "de": "Die Zusammenstellung des Menüs übernimmt der Koch.",
+    "en": "The chef puts the menu together."
+   }
+  ]
+ },
+ {
+  "term": "drahtlos",
+  "en": "wireless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Das Gerät funktioniert drahtlos.",
+    "en": "The device works wirelessly."
+   },
+   {
+    "de": "Wir haben ein drahtloses Netzwerk.",
+    "en": "We have a wireless network."
+   }
+  ]
+ },
+ {
+  "term": "die Pünktlichkeit",
+  "en": "punctuality",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Pünktlichkeit ist in Deutschland sehr wichtig.",
+    "en": "Punctuality is very important in Germany."
+   },
+   {
+    "de": "Der Chef legt großen Wert auf Pünktlichkeit.",
+    "en": "The boss attaches great importance to punctuality."
+   }
+  ]
+ },
+ {
+  "term": "die Unklarheit",
+  "en": "lack of clarity, uncertainty",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Bei Unklarheiten fragen Sie bitte nach.",
+    "en": "If anything is unclear, please ask."
+   },
+   {
+    "de": "Es herrscht noch Unklarheit über die Kosten.",
+    "en": "There is still uncertainty about the costs."
+   }
+  ]
+ },
+ {
+  "term": "unverwechselbar",
+  "en": "unmistakable, distinctive",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Aesthetic Concepts",
+  "ex": [
+   {
+    "de": "Sie hat einen unverwechselbaren Stil.",
+    "en": "She has a distinctive style."
+   },
+   {
+    "de": "Seine Stimme ist unverwechselbar.",
+    "en": "His voice is unmistakable."
+   }
+  ]
+ },
+ {
+  "term": "die Befindlichkeit",
+  "en": "sensitivity, state of mind",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Auf persönliche Befindlichkeiten kann man keine Rücksicht nehmen.",
+    "en": "Personal sensitivities can't be taken into account."
+   },
+   {
+    "de": "Er fragte nach ihrer Befindlichkeit.",
+    "en": "He asked how she was feeling."
+   }
+  ]
+ },
+ {
+  "term": "buchbar",
+  "en": "bookable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Die Reise ist ab sofort buchbar.",
+    "en": "The trip can be booked from now on."
+   },
+   {
+    "de": "Zusätzliche Ausflüge sind vor Ort buchbar.",
+    "en": "Extra excursions can be booked locally."
+   }
+  ]
+ },
+ {
+  "term": "die Erläuterung",
+  "en": "explanation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Für weitere Erläuterungen stehe ich gern zur Verfügung.",
+    "en": "I am happy to give further explanations."
+   },
+   {
+    "de": "Die Erläuterung im Anhang ist hilfreich.",
+    "en": "The explanation in the appendix is helpful."
+   }
+  ]
+ },
+ {
+  "term": "die Überwindung",
+  "en": "overcoming; effort of will",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Es kostete mich Überwindung, ihn anzurufen.",
+    "en": "It took an effort to call him."
+   },
+   {
+    "de": "Die Überwindung der Krise dauert Jahre.",
+    "en": "Overcoming the crisis will take years."
+   }
+  ]
+ },
+ {
+  "term": "gewichtig",
+  "en": "weighty, important",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Es gibt gewichtige Gründe dagegen.",
+    "en": "There are weighty reasons against it."
+   },
+   {
+    "de": "Er hat eine gewichtige Stimme in der Partei.",
+    "en": "He has an influential voice in the party."
+   }
+  ]
+ },
+ {
+  "term": "gegenteilig",
+  "en": "opposite, contrary",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Die Maßnahme hatte die gegenteilige Wirkung.",
+    "en": "The measure had the opposite effect."
+   },
+   {
+    "de": "Es gibt keine gegenteiligen Beweise.",
+    "en": "There is no evidence to the contrary."
+   }
+  ]
+ },
+ {
+  "term": "märchenhaft",
+  "en": "fairy-tale, magical",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Fairy Tales & Stories",
+  "ex": [
+   {
+    "de": "Das Schloss liegt märchenhaft am See.",
+    "en": "The castle sits like something out of a fairy tale by the lake."
+   },
+   {
+    "de": "Sie erlebten eine märchenhafte Hochzeit.",
+    "en": "They had a fairy-tale wedding."
+   }
+  ]
+ },
+ {
+  "term": "anteilig",
+  "en": "proportional, pro rata",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Finance & Taxes",
+  "ex": [
+   {
+    "de": "Die Kosten werden anteilig aufgeteilt.",
+    "en": "The costs are split proportionally."
+   },
+   {
+    "de": "Sie bekommt das Gehalt anteilig für drei Monate.",
+    "en": "She gets the salary pro rata for three months."
+   }
+  ]
+ },
+ {
+  "term": "unwesentlich",
+  "en": "insignificant, negligible",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Der Unterschied ist unwesentlich.",
+    "en": "The difference is negligible."
+   },
+   {
+    "de": "Die Preise sind nur unwesentlich gestiegen.",
+    "en": "Prices have risen only slightly."
+   }
+  ]
+ },
+ {
+  "term": "kultig",
+  "en": "cult, cool",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Entertainment & Media",
+  "ex": [
+   {
+    "de": "Der Film ist inzwischen kultig.",
+    "en": "The film has become a cult classic."
+   },
+   {
+    "de": "Das ist eine kultige Kneipe.",
+    "en": "That's a cult pub."
+   }
+  ]
+ },
+ {
+  "term": "die Drehung",
+  "en": "rotation, turn",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Die Erde macht jeden Tag eine Drehung um sich selbst.",
+    "en": "The earth makes one rotation on its axis every day."
+   },
+   {
+    "de": "Mit einer schnellen Drehung entkam er.",
+    "en": "He escaped with a quick turn."
+   }
+  ]
+ },
+ {
+  "term": "die Behebung",
+  "en": "remedying, repair",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Services & Complaints",
+  "ex": [
+   {
+    "de": "Die Behebung des Fehlers dauert einige Tage.",
+    "en": "Fixing the fault will take a few days."
+   },
+   {
+    "de": "Wir arbeiten an der Behebung des Problems.",
+    "en": "We are working on solving the problem."
+   }
+  ]
+ },
+ {
+  "term": "die Missachtung",
+  "en": "disregard",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Das ist eine Missachtung des Gerichts.",
+    "en": "That is contempt of court."
+   },
+   {
+    "de": "Die Missachtung der Regeln wird bestraft.",
+    "en": "Disregarding the rules is punished."
+   }
+  ]
+ },
+ {
+  "term": "haltlos",
+  "en": "unfounded, baseless",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Die Vorwürfe sind völlig haltlos.",
+    "en": "The accusations are completely unfounded."
+   },
+   {
+    "de": "Sie weinte haltlos.",
+    "en": "She wept uncontrollably."
+   }
+  ]
+ },
+ {
+  "term": "die Erbschaft",
+  "en": "inheritance",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Personal finance",
+  "ex": [
+   {
+    "de": "Er hat eine große Erbschaft gemacht.",
+    "en": "He came into a large inheritance."
+   },
+   {
+    "de": "Auf die Erbschaft muss man Steuern zahlen.",
+    "en": "You have to pay tax on the inheritance."
+   }
+  ]
+ },
+ {
+  "term": "die Verschwendung",
+  "en": "waste",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Environment",
+  "ex": [
+   {
+    "de": "Das ist eine Verschwendung von Zeit und Geld.",
+    "en": "That is a waste of time and money."
+   },
+   {
+    "de": "Die Verschwendung von Lebensmitteln ist ein Problem.",
+    "en": "Food waste is a problem."
+   }
+  ]
+ },
+ {
+  "term": "begehbar",
+  "en": "walk-in; accessible on foot",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Sie träumt von einem begehbaren Kleiderschrank.",
+    "en": "She dreams of a walk-in wardrobe."
+   },
+   {
+    "de": "Der Weg ist im Winter nicht begehbar.",
+    "en": "The path cannot be walked in winter."
+   }
+  ]
+ },
+ {
+  "term": "die Vergrößerung",
+  "en": "enlargement, magnification",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Unter dem Mikroskop sieht man die Zellen in starker Vergrößerung.",
+    "en": "Under the microscope you see the cells at high magnification."
+   },
+   {
+    "de": "Ich hätte gern eine Vergrößerung dieses Fotos.",
+    "en": "I'd like an enlargement of this photo."
+   }
+  ]
+ },
+ {
+  "term": "die Unregelmäßigkeit",
+  "en": "irregularity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Bei der Wahl gab es Unregelmäßigkeiten.",
+    "en": "There were irregularities in the election."
+   },
+   {
+    "de": "Der Arzt stellte eine Unregelmäßigkeit im Herzschlag fest.",
+    "en": "The doctor found an irregularity in the heartbeat."
+   }
+  ]
+ },
+ {
+  "term": "unproblematisch",
+  "en": "unproblematic",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Die Anmeldung war völlig unproblematisch.",
+    "en": "Registration was completely straightforward."
+   },
+   {
+    "de": "Das ist nicht ganz unproblematisch.",
+    "en": "That is not entirely unproblematic."
+   }
+  ]
+ },
+ {
+  "term": "die Bekanntschaft",
+  "en": "acquaintance",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Social life",
+  "ex": [
+   {
+    "de": "Ich habe eine nette Bekanntschaft gemacht.",
+    "en": "I made a nice acquaintance."
+   },
+   {
+    "de": "Unsere Bekanntschaft ist noch ganz neu.",
+    "en": "Our acquaintance is still quite new."
+   }
+  ]
+ },
+ {
+  "term": "geschmacklich",
+  "en": "in terms of taste",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Geschmacklich war das Essen hervorragend.",
+    "en": "In terms of taste the food was excellent."
+   },
+   {
+    "de": "Es gibt geschmackliche Unterschiede.",
+    "en": "There are differences in taste."
+   }
+  ]
+ },
+ {
+  "term": "der Züchter",
+  "en": "breeder, grower",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Farm",
+  "ex": [
+   {
+    "de": "Wir haben den Hund von einem Züchter gekauft.",
+    "en": "We bought the dog from a breeder."
+   },
+   {
+    "de": "Der Züchter hat eine neue Rosensorte entwickelt.",
+    "en": "The grower has developed a new variety of rose."
+   }
+  ]
+ },
+ {
+  "term": "die Überschreitung",
+  "en": "exceeding; crossing",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Für die Überschreitung der Geschwindigkeit gibt es ein Bußgeld.",
+    "en": "There is a fine for exceeding the speed limit."
+   },
+   {
+    "de": "Die Überschreitung der Frist hat Folgen.",
+    "en": "Missing the deadline has consequences."
+   }
+  ]
+ },
+ {
+  "term": "die Bombardierung",
+  "en": "bombing",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Die Bombardierung der Stadt dauerte Wochen.",
+    "en": "The bombing of the city lasted weeks."
+   },
+   {
+    "de": "Viele Gebäude wurden bei der Bombardierung zerstört.",
+    "en": "Many buildings were destroyed in the bombing."
+   }
+  ]
+ },
+ {
+  "term": "die Löschung",
+  "en": "deletion",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Sie können die Löschung Ihrer Daten verlangen.",
+    "en": "You can request the deletion of your data."
+   },
+   {
+    "de": "Die Löschung des Kontos dauert einige Tage.",
+    "en": "Deleting the account takes a few days."
+   }
+  ]
+ },
+ {
+  "term": "die Abholung",
+  "en": "collection, pick-up",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Money & shopping",
+  "ex": [
+   {
+    "de": "Die Ware steht zur Abholung bereit.",
+    "en": "The goods are ready for collection."
+   },
+   {
+    "de": "Die Abholung ist ab Montag möglich.",
+    "en": "Pick-up is possible from Monday."
+   }
+  ]
+ },
+ {
+  "term": "die Ernsthaftigkeit",
+  "en": "seriousness",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Er bezweifelt die Ernsthaftigkeit des Angebots.",
+    "en": "He doubts the seriousness of the offer."
+   },
+   {
+    "de": "Sie arbeitet mit großer Ernsthaftigkeit.",
+    "en": "She works with great earnestness."
+   }
+  ]
+ },
+ {
+  "term": "die Schenkung",
+  "en": "gift, donation (legal)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Schenkung des Hauses muss beim Notar beurkundet werden.",
+    "en": "The gift of the house must be certified by a notary."
+   },
+   {
+    "de": "Das Museum erhielt eine großzügige Schenkung.",
+    "en": "The museum received a generous donation."
+   }
+  ]
+ },
+ {
+  "term": "die Unterscheidung",
+  "en": "distinction",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Academic Writing",
+  "ex": [
+   {
+    "de": "Die Unterscheidung zwischen den beiden Begriffen ist wichtig.",
+    "en": "The distinction between the two terms is important."
+   },
+   {
+    "de": "Er macht keine Unterscheidung zwischen Arm und Reich.",
+    "en": "He makes no distinction between rich and poor."
+   }
+  ]
+ },
+ {
+  "term": "die Bewunderung",
+  "en": "admiration",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Ich habe große Bewunderung für sie.",
+    "en": "I have great admiration for her."
+   },
+   {
+    "de": "Die Zuschauer staunten voller Bewunderung.",
+    "en": "The audience marvelled in admiration."
+   }
+  ]
+ },
+ {
+  "term": "unveröffentlicht",
+  "en": "unpublished",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Literature",
+  "ex": [
+   {
+    "de": "Der Roman blieb unveröffentlicht.",
+    "en": "The novel remained unpublished."
+   },
+   {
+    "de": "Man fand unveröffentlichte Briefe des Dichters.",
+    "en": "Unpublished letters by the poet were found."
+   }
+  ]
+ },
+ {
+  "term": "die Koordinierung",
+  "en": "coordination",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Sie ist für die Koordinierung der Projekte zuständig.",
+    "en": "She is responsible for coordinating the projects."
+   },
+   {
+    "de": "Die Koordinierung zwischen den Behörden funktionierte schlecht.",
+    "en": "Coordination between the authorities worked badly."
+   }
+  ]
+ },
+ {
+  "term": "die Traurigkeit",
+  "en": "sadness",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Eine tiefe Traurigkeit erfasste ihn.",
+    "en": "A deep sadness came over him."
+   },
+   {
+    "de": "In ihren Augen lag Traurigkeit.",
+    "en": "There was sadness in her eyes."
+   }
+  ]
+ },
+ {
+  "term": "der Zusteller",
+  "en": "delivery person, postman",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Post & Communication",
+  "ex": [
+   {
+    "de": "Der Zusteller hat das Paket beim Nachbarn abgegeben.",
+    "en": "The delivery man left the parcel with the neighbour."
+   },
+   {
+    "de": "Die Zusteller haben vor Weihnachten viel zu tun.",
+    "en": "Delivery drivers are very busy before Christmas."
+   }
+  ]
+ },
+ {
+  "term": "fruchtig",
+  "en": "fruity",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Der Wein schmeckt fruchtig.",
+    "en": "The wine tastes fruity."
+   },
+   {
+    "de": "Ich mag fruchtige Getränke.",
+    "en": "I like fruity drinks."
+   }
+  ]
+ },
+ {
+  "term": "unwirksam",
+  "en": "ineffective; invalid",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Kündigung ist unwirksam.",
+    "en": "The termination is invalid."
+   },
+   {
+    "de": "Das Mittel erwies sich als unwirksam.",
+    "en": "The remedy proved ineffective."
+   }
+  ]
+ },
+ {
+  "term": "die Freundlichkeit",
+  "en": "friendliness, kindness",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Social life",
+  "ex": [
+   {
+    "de": "Danke für Ihre Freundlichkeit!",
+    "en": "Thank you for your kindness!"
+   },
+   {
+    "de": "Die Freundlichkeit der Menschen hat uns beeindruckt.",
+    "en": "The friendliness of the people impressed us."
+   }
+  ]
+ },
+ {
+  "term": "genüsslich",
+  "en": "with relish",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Er trank genüsslich seinen Kaffee.",
+    "en": "He drank his coffee with relish."
+   },
+   {
+    "de": "Die Katze streckte sich genüsslich.",
+    "en": "The cat stretched luxuriously."
+   }
+  ]
+ },
+ {
+  "term": "die Verantwortlichkeit",
+  "en": "responsibility",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Die Verantwortlichkeiten im Team sind klar verteilt.",
+    "en": "Responsibilities in the team are clearly divided."
+   },
+   {
+    "de": "Die Frage der Verantwortlichkeit ist ungeklärt.",
+    "en": "The question of responsibility is unresolved."
+   }
+  ]
+ },
+ {
+  "term": "fantasievoll",
+  "en": "imaginative",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Arts and culture",
+  "ex": [
+   {
+    "de": "Die Kinder malten fantasievolle Bilder.",
+    "en": "The children painted imaginative pictures."
+   },
+   {
+    "de": "Sie ist sehr fantasievoll.",
+    "en": "She is very imaginative."
+   }
+  ]
+ },
+ {
+  "term": "wahrnehmbar",
+  "en": "perceptible, noticeable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Science concepts",
+  "ex": [
+   {
+    "de": "Der Geruch ist kaum wahrnehmbar.",
+    "en": "The smell is barely perceptible."
+   },
+   {
+    "de": "Es gab eine deutlich wahrnehmbare Veränderung.",
+    "en": "There was a clearly noticeable change."
+   }
+  ]
+ },
+ {
+  "term": "fotografisch",
+  "en": "photographic",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Visual Arts",
+  "ex": [
+   {
+    "de": "Sie hat ein fotografisches Gedächtnis.",
+    "en": "She has a photographic memory."
+   },
+   {
+    "de": "Die Ausstellung zeigt fotografische Arbeiten.",
+    "en": "The exhibition shows photographic works."
+   }
+  ]
+ },
+ {
+  "term": "die Verwirklichung",
+  "en": "realization, fulfilment",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Die Verwirklichung des Traums dauerte Jahre.",
+    "en": "Realizing the dream took years."
+   },
+   {
+    "de": "Er strebt nach Verwirklichung seiner Ideen.",
+    "en": "He strives to put his ideas into practice."
+   }
+  ]
+ },
+ {
+  "term": "händisch",
+  "en": "by hand, manual",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Die Daten müssen händisch eingegeben werden.",
+    "en": "The data must be entered manually."
+   },
+   {
+    "de": "Das ist eine händische Arbeit.",
+    "en": "That is manual work."
+   }
+  ]
+ },
+ {
+  "term": "die Sauberkeit",
+  "en": "cleanliness",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "In der Küche ist Sauberkeit wichtig.",
+    "en": "Cleanliness is important in the kitchen."
+   },
+   {
+    "de": "Das Hotel war für seine Sauberkeit bekannt.",
+    "en": "The hotel was known for its cleanliness."
+   }
+  ]
+ },
+ {
+  "term": "die Süße",
+  "en": "sweetness",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Die Süße der Früchte ist natürlich.",
+    "en": "The sweetness of the fruit is natural."
+   },
+   {
+    "de": "Der Wein hat eine angenehme Süße.",
+    "en": "The wine has a pleasant sweetness."
+   }
+  ]
+ },
+ {
+  "term": "scherzhaft",
+  "en": "joking, jocular",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Das war nur scherzhaft gemeint.",
+    "en": "That was only meant as a joke."
+   },
+   {
+    "de": "Er nannte sie scherzhaft die Chefin.",
+    "en": "He jokingly called her the boss."
+   }
+  ]
+ },
+ {
+  "term": "die Wachsamkeit",
+  "en": "vigilance",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Die Polizei ruft zur Wachsamkeit auf.",
+    "en": "The police are calling for vigilance."
+   },
+   {
+    "de": "Ihre Wachsamkeit hat Schlimmeres verhindert.",
+    "en": "Her vigilance prevented something worse."
+   }
+  ]
+ },
+ {
+  "term": "die Beweglichkeit",
+  "en": "agility, flexibility",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Fitness and training",
+  "ex": [
+   {
+    "de": "Yoga verbessert die Beweglichkeit.",
+    "en": "Yoga improves flexibility."
+   },
+   {
+    "de": "Im Alter lässt die Beweglichkeit nach.",
+    "en": "Mobility decreases with age."
+   }
+  ]
+ },
+ {
+  "term": "die Bewölkung",
+  "en": "cloud cover",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Weather report",
+  "ex": [
+   {
+    "de": "Am Nachmittag nimmt die Bewölkung zu.",
+    "en": "Cloud cover increases in the afternoon."
+   },
+   {
+    "de": "Bei starker Bewölkung bleibt es kühl.",
+    "en": "With heavy cloud it stays cool."
+   }
+  ]
+ },
+ {
+  "term": "unzumutbar",
+  "en": "unreasonable, unacceptable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Services & Complaints",
+  "ex": [
+   {
+    "de": "Die Wartezeiten sind unzumutbar.",
+    "en": "The waiting times are unacceptable."
+   },
+   {
+    "de": "Die Wohnung ist in einem unzumutbaren Zustand.",
+    "en": "The flat is in an unacceptable state."
+   }
+  ]
+ },
+ {
+  "term": "die Auslegung",
+  "en": "interpretation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Das ist eine Frage der Auslegung.",
+    "en": "That is a question of interpretation."
+   },
+   {
+    "de": "Die Auslegung des Gesetzes ist umstritten.",
+    "en": "The interpretation of the law is disputed."
+   }
+  ]
+ },
+ {
+  "term": "der Bohrer",
+  "en": "drill",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Kannst du mir den Bohrer leihen?",
+    "en": "Can you lend me the drill?"
+   },
+   {
+    "de": "Der Zahnarzt nahm den Bohrer in die Hand.",
+    "en": "The dentist picked up the drill."
+   }
+  ]
+ },
+ {
+  "term": "die Verachtung",
+  "en": "contempt",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Er sah sie voller Verachtung an.",
+    "en": "He looked at her full of contempt."
+   },
+   {
+    "de": "Sie empfindet Verachtung für Lügner.",
+    "en": "She feels contempt for liars."
+   }
+  ]
+ },
+ {
+  "term": "die Nässe",
+  "en": "wetness",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Weather conditions",
+  "ex": [
+   {
+    "de": "Bei Nässe ist die Straße gefährlich.",
+    "en": "The road is dangerous when wet."
+   },
+   {
+    "de": "Die Schuhe schützen vor Nässe.",
+    "en": "The shoes protect against wet."
+   }
+  ]
+ },
+ {
+  "term": "die Geborgenheit",
+  "en": "sense of security, safety",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Kinder brauchen Geborgenheit.",
+    "en": "Children need a sense of security."
+   },
+   {
+    "de": "Bei ihr fand er Geborgenheit.",
+    "en": "With her he found security."
+   }
+  ]
+ },
+ {
+  "term": "die Verhältnismäßigkeit",
+  "en": "proportionality",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Polizei muss die Verhältnismäßigkeit wahren.",
+    "en": "The police must act proportionately."
+   },
+   {
+    "de": "Das Gericht prüfte die Verhältnismäßigkeit der Strafe.",
+    "en": "The court examined the proportionality of the sentence."
+   }
+  ]
+ },
+ {
+  "term": "die Beanstandung",
+  "en": "complaint, objection",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Services & Complaints",
+  "ex": [
+   {
+    "de": "Bei der Kontrolle gab es keine Beanstandungen.",
+    "en": "There were no objections at the inspection."
+   },
+   {
+    "de": "Bitte richten Sie Beanstandungen an den Kundenservice.",
+    "en": "Please address complaints to customer service."
+   }
+  ]
+ },
+ {
+  "term": "die Unwahrheit",
+  "en": "untruth",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Er hat die Unwahrheit gesagt.",
+    "en": "He told an untruth."
+   },
+   {
+    "de": "Das ist eine glatte Unwahrheit.",
+    "en": "That is a flat lie."
+   }
+  ]
+ },
+ {
+  "term": "metallisch",
+  "en": "metallic",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Das Auto hat eine metallische Farbe.",
+    "en": "The car has a metallic colour."
+   },
+   {
+    "de": "Man hörte ein metallisches Geräusch.",
+    "en": "A metallic noise could be heard."
+   }
+  ]
+ },
+ {
+  "term": "die Herzlichkeit",
+  "en": "warmth, cordiality",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Social life",
+  "ex": [
+   {
+    "de": "Wir wurden mit großer Herzlichkeit empfangen.",
+    "en": "We were received with great warmth."
+   },
+   {
+    "de": "Ihre Herzlichkeit ist ansteckend.",
+    "en": "Her warmth is infectious."
+   }
+  ]
+ },
+ {
+  "term": "die Bescheidenheit",
+  "en": "modesty",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Bescheidenheit ist eine Tugend.",
+    "en": "Modesty is a virtue."
+   },
+   {
+    "de": "Trotz seines Erfolgs hat er seine Bescheidenheit nicht verloren.",
+    "en": "Despite his success he hasn't lost his modesty."
+   }
+  ]
+ },
+ {
+  "term": "die Bestechung",
+  "en": "bribery",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Der Politiker wurde wegen Bestechung angeklagt.",
+    "en": "The politician was charged with bribery."
+   },
+   {
+    "de": "Bestechung ist strafbar.",
+    "en": "Bribery is a criminal offence."
+   }
+  ]
+ },
+ {
+  "term": "ersatzlos",
+  "en": "without replacement",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Administration",
+  "ex": [
+   {
+    "de": "Die Stelle wird ersatzlos gestrichen.",
+    "en": "The position is being cut without replacement."
+   },
+   {
+    "de": "Der Zug fällt ersatzlos aus.",
+    "en": "The train is cancelled with no replacement service."
+   }
+  ]
+ },
+ {
+  "term": "die Aufbewahrung",
+  "en": "storage, safekeeping",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Die Dokumente sind zur Aufbewahrung im Tresor.",
+    "en": "The documents are in the safe for safekeeping."
+   },
+   {
+    "de": "Hinweise zur Aufbewahrung finden Sie auf der Packung.",
+    "en": "Storage instructions can be found on the pack."
+   }
+  ]
+ },
+ {
+  "term": "unsäglich",
+  "en": "unspeakable, dreadful",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Das war eine unsägliche Debatte.",
+    "en": "That was a dreadful debate."
+   },
+   {
+    "de": "Sie litten unsäglich.",
+    "en": "They suffered unspeakably."
+   }
+  ]
+ },
+ {
+  "term": "die Einmischung",
+  "en": "interference",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Das ist eine Einmischung in innere Angelegenheiten.",
+    "en": "That is interference in internal affairs."
+   },
+   {
+    "de": "Sie verbittet sich jede Einmischung.",
+    "en": "She won't tolerate any interference."
+   }
+  ]
+ },
+ {
+  "term": "die Fertigkeit",
+  "en": "skill, proficiency",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Für den Job braucht man handwerkliche Fertigkeiten.",
+    "en": "The job requires manual skills."
+   },
+   {
+    "de": "Er hat seine Fertigkeiten im Kurs verbessert.",
+    "en": "He improved his skills on the course."
+   }
+  ]
+ },
+ {
+  "term": "die Gesamtheit",
+  "en": "entirety, totality",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Man muss das Problem in seiner Gesamtheit betrachten.",
+    "en": "You have to look at the problem as a whole."
+   },
+   {
+    "de": "Die Gesamtheit der Bürger ist betroffen.",
+    "en": "All citizens are affected."
+   }
+  ]
+ },
+ {
+  "term": "die Entfaltung",
+  "en": "development, unfolding",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Kinder brauchen Raum zur freien Entfaltung.",
+    "en": "Children need space to develop freely."
+   },
+   {
+    "de": "Das Aroma kommt erst nach einigen Minuten zur Entfaltung.",
+    "en": "The aroma only unfolds after a few minutes."
+   }
+  ]
+ },
+ {
+  "term": "die Priorisierung",
+  "en": "prioritization",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Business & Workplace",
+  "ex": [
+   {
+    "de": "Die Priorisierung der Aufgaben ist entscheidend.",
+    "en": "Prioritizing tasks is crucial."
+   },
+   {
+    "de": "Es gab eine Priorisierung bei der Impfung.",
+    "en": "There was a prioritization in vaccination."
+   }
+  ]
+ },
+ {
+  "term": "die Unterstellung",
+  "en": "insinuation, imputation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Das ist eine böse Unterstellung!",
+    "en": "That is a nasty insinuation!"
+   },
+   {
+    "de": "Ich weise diese Unterstellung entschieden zurück.",
+    "en": "I firmly reject this insinuation."
+   }
+  ]
+ },
+ {
+  "term": "die Respektlosigkeit",
+  "en": "disrespect",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Rules & Etiquette",
+  "ex": [
+   {
+    "de": "Das ist eine Respektlosigkeit gegenüber den Opfern.",
+    "en": "That is disrespectful to the victims."
+   },
+   {
+    "de": "Er reagierte empfindlich auf jede Respektlosigkeit.",
+    "en": "He reacted sensitively to any disrespect."
+   }
+  ]
+ },
+ {
+  "term": "studentisch",
+  "en": "student",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "University & study",
+  "ex": [
+   {
+    "de": "Er arbeitet als studentische Hilfskraft.",
+    "en": "He works as a student assistant."
+   },
+   {
+    "de": "Das Viertel ist sehr studentisch geprägt.",
+    "en": "The neighbourhood has a strong student character."
+   }
+  ]
+ },
+ {
+  "term": "bargeldlos",
+  "en": "cashless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "At the bank",
+  "ex": [
+   {
+    "de": "Man kann hier bargeldlos bezahlen.",
+    "en": "You can pay cashless here."
+   },
+   {
+    "de": "Der bargeldlose Zahlungsverkehr nimmt zu.",
+    "en": "Cashless payment is increasing."
+   }
+  ]
+ },
+ {
+  "term": "glücklos",
+  "en": "luckless, unfortunate",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Everyday Luck & Accidents",
+  "ex": [
+   {
+    "de": "Der Trainer blieb in dieser Saison glücklos.",
+    "en": "The coach was luckless this season."
+   },
+   {
+    "de": "Es war ein glückloser Versuch.",
+    "en": "It was an unlucky attempt."
+   }
+  ]
+ },
+ {
+  "term": "eingängig",
+  "en": "catchy",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Music & Theatre",
+  "ex": [
+   {
+    "de": "Die Melodie ist sehr eingängig.",
+    "en": "The melody is very catchy."
+   },
+   {
+    "de": "Er schreibt eingängige Popsongs.",
+    "en": "He writes catchy pop songs."
+   }
+  ]
+ },
+ {
+  "term": "abbaubar",
+  "en": "degradable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Environment",
+  "ex": [
+   {
+    "de": "Die Verpackung ist biologisch abbaubar.",
+    "en": "The packaging is biodegradable."
+   },
+   {
+    "de": "Plastik ist kaum abbaubar.",
+    "en": "Plastic hardly degrades."
+   }
+  ]
+ },
+ {
+  "term": "quadratisch",
+  "en": "square",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Spatial relations",
+  "ex": [
+   {
+    "de": "Der Tisch ist quadratisch.",
+    "en": "The table is square."
+   },
+   {
+    "de": "Sie schnitt das Papier in quadratische Stücke.",
+    "en": "She cut the paper into square pieces."
+   }
+  ]
+ },
+ {
+  "term": "vordergründig",
+  "en": "superficial, on the surface",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Argument & Thesis",
+  "ex": [
+   {
+    "de": "Vordergründig geht es um Geld.",
+    "en": "On the surface it's about money."
+   },
+   {
+    "de": "Das ist eine sehr vordergründige Erklärung.",
+    "en": "That is a very superficial explanation."
+   }
+  ]
+ },
+ {
+  "term": "der Scanner",
+  "en": "scanner",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Technology & Devices",
+  "ex": [
+   {
+    "de": "Ich lege das Dokument in den Scanner.",
+    "en": "I'm putting the document in the scanner."
+   },
+   {
+    "de": "Der Scanner funktioniert nicht.",
+    "en": "The scanner isn't working."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "die Versetzung",
+  "en": "transfer; moving up a year",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Er hat um seine Versetzung nach Berlin gebeten.",
+    "en": "He asked to be transferred to Berlin."
+   },
+   {
+    "de": "Ihre Versetzung in die nächste Klasse ist gefährdet.",
+    "en": "Her moving up to the next year is at risk."
+   }
+  ]
+ },
+ {
+  "term": "die Sterblichkeit",
+  "en": "mortality",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Die Sterblichkeit bei Kindern ist gesunken.",
+    "en": "Child mortality has fallen."
+   },
+   {
+    "de": "Die Krankheit hat eine hohe Sterblichkeit.",
+    "en": "The disease has a high mortality rate."
+   }
+  ]
+ },
+ {
+  "term": "fieberhaft",
+  "en": "feverish",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Polizei sucht fieberhaft nach dem Täter.",
+    "en": "The police are searching feverishly for the perpetrator."
+   },
+   {
+    "de": "Es herrschte fieberhafte Aktivität.",
+    "en": "There was feverish activity."
+   }
+  ]
+ },
+ {
+  "term": "die Einzahlung",
+  "en": "deposit, payment in",
+  "pos": "noun",
+  "level": "B2",
+  "field": "At the bank",
+  "ex": [
+   {
+    "de": "Ich möchte eine Einzahlung machen.",
+    "en": "I would like to make a deposit."
+   },
+   {
+    "de": "Die Einzahlung ist am Automaten möglich.",
+    "en": "Deposits are possible at the machine."
+   }
+  ]
+ },
+ {
+  "term": "schicksalhaft",
+  "en": "fateful",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Es war eine schicksalhafte Begegnung.",
+    "en": "It was a fateful encounter."
+   },
+   {
+    "de": "Die Entscheidung erwies sich als schicksalhaft.",
+    "en": "The decision proved fateful."
+   }
+  ]
+ },
+ {
+  "term": "die Verärgerung",
+  "en": "annoyance",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Entscheidung sorgte für Verärgerung.",
+    "en": "The decision caused annoyance."
+   },
+   {
+    "de": "Er konnte seine Verärgerung kaum verbergen.",
+    "en": "He could hardly hide his annoyance."
+   }
+  ]
+ },
+ {
+  "term": "die Erfrischung",
+  "en": "refreshment",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Nach der Wanderung brauchen wir eine Erfrischung.",
+    "en": "After the hike we need some refreshment."
+   },
+   {
+    "de": "Ein Sprung ins Wasser ist eine tolle Erfrischung.",
+    "en": "A jump into the water is a great way to cool off."
+   }
+  ]
+ },
+ {
+  "term": "die Hilflosigkeit",
+  "en": "helplessness",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Ein Gefühl der Hilflosigkeit überkam sie.",
+    "en": "A feeling of helplessness came over her."
+   },
+   {
+    "de": "Seine Hilflosigkeit war offensichtlich.",
+    "en": "His helplessness was obvious."
+   }
+  ]
+ },
+ {
+  "term": "fraglos",
+  "en": "unquestionably",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Sie ist fraglos die beste Kandidatin.",
+    "en": "She is unquestionably the best candidate."
+   },
+   {
+    "de": "Das ist fraglos ein Fortschritt.",
+    "en": "That is undoubtedly progress."
+   }
+  ]
+ },
+ {
+  "term": "die Regelmäßigkeit",
+  "en": "regularity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Die Busse fahren mit großer Regelmäßigkeit.",
+    "en": "The buses run with great regularity."
+   },
+   {
+    "de": "Regelmäßigkeit ist beim Lernen wichtig.",
+    "en": "Regularity is important when learning."
+   }
+  ]
+ },
+ {
+  "term": "die Beruhigung",
+  "en": "reassurance; calming",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Zur Beruhigung trank sie einen Tee.",
+    "en": "She drank a tea to calm down."
+   },
+   {
+    "de": "Das Ergebnis ist eine große Beruhigung.",
+    "en": "The result is a great reassurance."
+   }
+  ]
+ },
+ {
+  "term": "abschüssig",
+  "en": "steep, sloping",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Die Straße ist hier sehr abschüssig.",
+    "en": "The road is very steep here."
+   },
+   {
+    "de": "Sie parkten auf einem abschüssigen Gelände.",
+    "en": "They parked on sloping ground."
+   }
+  ]
+ },
+ {
+  "term": "die Isolierung",
+  "en": "insulation; isolation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Real Estate & Moving",
+  "ex": [
+   {
+    "de": "Eine gute Isolierung spart Heizkosten.",
+    "en": "Good insulation saves heating costs."
+   },
+   {
+    "de": "Die Isolierung der Patienten verhindert Ansteckungen.",
+    "en": "Isolating the patients prevents infections."
+   }
+  ]
+ },
+ {
+  "term": "handlich",
+  "en": "handy, compact",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Technology & Devices",
+  "ex": [
+   {
+    "de": "Das Gerät ist klein und handlich.",
+    "en": "The device is small and handy."
+   },
+   {
+    "de": "Ich suche einen handlichen Regenschirm.",
+    "en": "I'm looking for a compact umbrella."
+   }
+  ]
+ },
+ {
+  "term": "die Fütterung",
+  "en": "feeding",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Animals",
+  "ex": [
+   {
+    "de": "Die Fütterung der Tiere ist um zehn Uhr.",
+    "en": "Feeding time for the animals is at ten."
+   },
+   {
+    "de": "Bitte keine Fütterung durch Besucher!",
+    "en": "Visitors are asked not to feed the animals."
+   }
+  ]
+ },
+ {
+  "term": "die Sachlichkeit",
+  "en": "objectivity, matter-of-factness",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Rhetoric & Debate",
+  "ex": [
+   {
+    "de": "Ich bitte um mehr Sachlichkeit in der Diskussion.",
+    "en": "I ask for more objectivity in the discussion."
+   },
+   {
+    "de": "Er erklärte die Lage mit großer Sachlichkeit.",
+    "en": "He explained the situation very matter-of-factly."
+   }
+  ]
+ },
+ {
+  "term": "grenzwertig",
+  "en": "borderline",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Der Witz war ziemlich grenzwertig.",
+    "en": "The joke was pretty borderline."
+   },
+   {
+    "de": "Die Werte sind grenzwertig hoch.",
+    "en": "The values are borderline high."
+   }
+  ]
+ },
+ {
+  "term": "unkritisch",
+  "en": "uncritical",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Media Critique",
+  "ex": [
+   {
+    "de": "Viele übernehmen die Nachrichten unkritisch.",
+    "en": "Many people accept the news uncritically."
+   },
+   {
+    "de": "Das ist eine unkritische Haltung.",
+    "en": "That is an uncritical attitude."
+   }
+  ]
+ },
+ {
+  "term": "partnerschaftlich",
+  "en": "cooperative, as partners",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Sie teilen sich die Hausarbeit partnerschaftlich.",
+    "en": "They share the housework as equal partners."
+   },
+   {
+    "de": "Wir streben eine partnerschaftliche Zusammenarbeit an.",
+    "en": "We are aiming for a cooperative partnership."
+   }
+  ]
+ },
+ {
+  "term": "der Überflieger",
+  "en": "high-flyer",
+  "pos": "noun",
+  "level": "C1",
+  "field": "School",
+  "ex": [
+   {
+    "de": "Er war schon in der Schule ein Überflieger.",
+    "en": "He was a high-flyer even at school."
+   },
+   {
+    "de": "Die Firma gilt als Überflieger der Branche.",
+    "en": "The company is considered the high-flyer of the sector."
+   }
+  ]
+ },
+ {
+  "term": "die Vorbestellung",
+  "en": "advance order, pre-order",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Money & shopping",
+  "ex": [
+   {
+    "de": "Das Buch ist ab sofort zur Vorbestellung verfügbar.",
+    "en": "The book is now available for pre-order."
+   },
+   {
+    "de": "Eine Vorbestellung ist nicht nötig.",
+    "en": "Booking in advance is not necessary."
+   }
+  ]
+ },
+ {
+  "term": "missbräuchlich",
+  "en": "improper, abusive",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die missbräuchliche Nutzung der Daten ist verboten.",
+    "en": "Improper use of the data is prohibited."
+   },
+   {
+    "de": "Der Notruf wurde missbräuchlich gewählt.",
+    "en": "The emergency number was misused."
+   }
+  ]
+ },
+ {
+  "term": "kantig",
+  "en": "angular",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Body",
+  "ex": [
+   {
+    "de": "Er hat ein kantiges Gesicht.",
+    "en": "He has an angular face."
+   },
+   {
+    "de": "Das Design ist bewusst kantig.",
+    "en": "The design is deliberately angular."
+   }
+  ]
+ },
+ {
+  "term": "die Verdauung",
+  "en": "digestion",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Ballaststoffe sind gut für die Verdauung.",
+    "en": "Fibre is good for digestion."
+   },
+   {
+    "de": "Nach dem Essen hilft ein Spaziergang der Verdauung.",
+    "en": "A walk after the meal helps digestion."
+   }
+  ]
+ },
+ {
+  "term": "schlammig",
+  "en": "muddy",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Nach dem Regen war der Weg schlammig.",
+    "en": "After the rain the path was muddy."
+   },
+   {
+    "de": "Die Kinder kamen mit schlammigen Schuhen nach Hause.",
+    "en": "The children came home with muddy shoes."
+   }
+  ]
+ },
+ {
+  "term": "unpolitisch",
+  "en": "apolitical",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Er bezeichnet sich als unpolitisch.",
+    "en": "He describes himself as apolitical."
+   },
+   {
+    "de": "Kunst ist nie ganz unpolitisch.",
+    "en": "Art is never entirely apolitical."
+   }
+  ]
+ },
+ {
+  "term": "die Empfindung",
+  "en": "sensation, feeling",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Er hatte eine seltsame Empfindung im Bein.",
+    "en": "He had a strange sensation in his leg."
+   },
+   {
+    "de": "Schmerz ist eine subjektive Empfindung.",
+    "en": "Pain is a subjective sensation."
+   }
+  ]
+ },
+ {
+  "term": "die Klarstellung",
+  "en": "clarification",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Ich möchte eine kurze Klarstellung machen.",
+    "en": "I would like to make a brief clarification."
+   },
+   {
+    "de": "Nach der Klarstellung war alles gut.",
+    "en": "After the clarification everything was fine."
+   }
+  ]
+ }
+]

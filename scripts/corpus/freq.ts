@@ -72,8 +72,9 @@
 // Deterministic, needs no network, touches nothing but its own output.
 //
 // Run: npm run corpus:freq
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { loadFrequency } from './sources/frequency.ts';
 
 const ROOT = join(import.meta.dirname, '..', '..');
 const PROVENANCE = join(ROOT, 'public/data/provenance.json');
@@ -166,9 +167,26 @@ for (const row of prov) {
   provRank.set(row.id, row.freqRank);
 }
 
+// ## The newswire tail *(2026-10-16)*
+//
+// A card authored by hand — the family members `corpus:families` proposes, a word
+// off a course-book page — has no provenance rank, because it was not *found*
+// through a list, even when it was chosen *by* one. 2,613 cards had no rank and
+// sorted in build order within their band, and a C1 *Wärme* waited behind a C1
+// *Gänze*. The Leipzig news list (CC BY 4.0, the same source provenance ranks came
+// from) ranks the headword's own surface form, and that rank joins provenance's
+// tier — offset past the reference, so it still never outranks a word the core list
+// knows. The raw list is a maintainer download; without it the tier is skipped,
+// loudly, rather than shipping a file that silently lost 2,000 ranks.
+const LEIPZIG = join(import.meta.dirname, 'data', 'raw', 'leipzig-words.txt');
+const newswire = new Map<string, number>();
+if (existsSync(LEIPZIG)) for (const e of loadFrequency(LEIPZIG)) newswire.set(e.word.toLowerCase(), e.rank);
+else console.warn(`  ⚠ ${LEIPZIG} missing — the newswire tail is skipped (run corpus:fetch first)`);
+
 const out: Record<string, number> = {};
 let fromReference = 0;
 let fromProvenance = 0;
+let fromNewswire = 0;
 for (const w of vocab) {
   // The 110 `kind: 'grammar'` rows are filtered at load (`src/data/index.ts`) and
   // never reach a session, so a rank for one is a byte the app downloads to drop.
@@ -176,7 +194,9 @@ for (const w of vocab) {
   const r = reference.get(fold(w.term)) ?? phraseRank(w);
   if (r != null) { out[w.id] = r; fromReference++; continue; }
   const p = provRank.get(w.id);
-  if (p != null) { out[w.id] = CORE_CEILING + p; fromProvenance++; }
+  if (p != null) { out[w.id] = CORE_CEILING + p; fromProvenance++; continue; }
+  const n = w.pos === 'phrase' ? undefined : newswire.get(fold(w.term));
+  if (n != null) { out[w.id] = CORE_CEILING + n; fromNewswire++; }
 }
 
 // Sorted by id so the file is diff-stable: without this a reorder upstream would
@@ -193,7 +213,7 @@ const pct = (n: number, d: number) => `${((n / d) * 100).toFixed(1)}%`;
 const bytes = readFileSync(OUT).length;
 
 console.log(`freq.json: ${covered} of ${words.length} cards (${pct(covered, words.length)}), ${(bytes / 1024).toFixed(0)} KB`);
-console.log(`  ${fromReference} from the Kernwortschatz reference, ${fromProvenance} from provenance (offset past ${CORE_CEILING})`);
+console.log(`  ${fromReference} from the Kernwortschatz reference, ${fromProvenance} from provenance, ${fromNewswire} from the newswire tail (both offset past ${CORE_CEILING})`);
 console.log(`  A1: ${a1Covered} of ${a1.length} (${pct(a1Covered, a1.length)}) — this is the band the first session comes from`);
 if (dangling) console.log(`  skipped ${dangling} rank(s) for ids the corpus no longer ships`);
 if (covered < words.length) {

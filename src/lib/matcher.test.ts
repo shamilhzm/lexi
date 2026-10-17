@@ -355,3 +355,74 @@ describe('capitalised mid-sentence tokens prefer the noun', () => {
     expect(at('Ein Verdächtiger wurde gesehen.', 'Verdächtiger')).toBe('der/die Verdächtige');
   });
 });
+
+// ── Rule 4c: a lowercase token is never a noun (2026-10-16) ─────────────────
+//
+// Measured over every example sentence: 239 tokens change owner (121 of them
+// *alte/alten*, which had been *das Alter*), 9 gain their own card, none lose it.
+describe('lowercase tokens prefer the adjective over a same-spelled noun', () => {
+  const words: Word[] = [
+    w({ id: 'n:alter', term: 'das Alter', pos: 'noun', gender: 'das', plural: 'die Alter' }),
+    w({ id: 'a:alt', term: 'alt', pos: 'adjective' }),
+    w({ id: 'n:junge', term: 'der Junge', pos: 'noun', gender: 'der', plural: 'die Jungen' }),
+    w({ id: 'a:jung', term: 'jung', pos: 'adjective' }),
+  ];
+  const mm = buildMatcher(words);
+  const at = (s: string, tok: string) => mm.annotate(s).find((x) => x.text === tok)?.word?.term ?? null;
+
+  it('reads alte / junge as the adjective', () => {
+    expect(at('Das ist eine alte Kirche.', 'alte')).toBe('alt');
+    expect(at('Die junge Frau lacht.', 'junge')).toBe('jung');
+  });
+
+  it('keeps the capitalised noun', () => {
+    expect(at('Im Alter wird man ruhiger.', 'Alter')).toBe('das Alter');
+    expect(at('Der Junge spielt Fußball.', 'Junge')).toBe('der Junge');
+  });
+
+  it('reads a sentence-initial adjective before a noun as the adjective (4d)', () => {
+    expect(at('Alte Möbel stehen im Keller.', 'Alte')).toBe('alt');
+    expect(at('Junge Leute tanzen.', 'Junge')).toBe('jung');
+  });
+});
+
+// ── 2026-10-17: verbs over nouns, particles at the clause end ────────────────
+//
+// Measured over every example sentence: 706 tokens changed owner, 29 gained their
+// own card, none lost it — *Ich komme aus Spanien* had been `auskommen`, *Ich gehe
+// nach Hause* `nachgehen`, *Er macht* `die Macht`.
+describe('verb readings and separable particles', () => {
+  const words: Word[] = [
+    w({ id: 'n:macht', term: 'die Macht', pos: 'noun', gender: 'die', plural: 'die Mächte' }),
+    w({ id: 'v:machen', term: 'machen', pos: 'verb' }),
+    w({ id: 'v:kommen', term: 'kommen', pos: 'verb' }),
+    w({ id: 'v:auskommen', term: 'auskommen', pos: 'verb' }),
+    w({ id: 'v:aussehen', term: 'aussehen', pos: 'verb' }),
+    w({ id: 'v:sehen', term: 'sehen', pos: 'verb' }),
+    w({ id: 'v:profitieren', term: 'profitieren von + D', pos: 'verb' }),
+    w({ id: 'p:wer', term: 'wer', pos: 'pronoun' }),
+    w({ id: 'n:arm', term: 'der Arm', pos: 'noun', gender: 'der', plural: 'die Arme' }),
+    w({ id: 'a:arm', term: 'arm', pos: 'adjective' }),
+  ];
+  const mm = buildMatcher(words);
+  const at = (s: string, tok: string) => mm.annotate(s).find((x) => x.text === tok)?.word?.term ?? null;
+
+  it('reads a lowercase verb form as the verb, not the noun it spells', () => {
+    expect(at('Er macht seine Hausaufgaben.', 'macht')).toBe('machen');
+  });
+
+  it('wants the particle at the end of the clause, not merely after the verb', () => {
+    expect(at('Ich komme aus Spanien.', 'komme')).toBe('kommen');
+    expect(at('Wir kommen mit wenig Geld aus.', 'kommen')).toBe('auskommen');
+    expect(at('Er sah aus wie sein Vater.', 'sah')).toBe('aussehen');
+  });
+
+  it('accepts a pronominal adverb as the governed preposition', () => {
+    expect(at('Alle wollen davon profitieren.', 'profitieren')).toBe('profitieren von + D');
+  });
+
+  it('reads the cases of wer, and an adjective a dative plural only spells', () => {
+    expect(at('Wem gehört das?', 'Wem')).toBe('wer');
+    expect(at('Er kommt aus einer armen Familie.', 'armen')).toBe('arm');
+  });
+});

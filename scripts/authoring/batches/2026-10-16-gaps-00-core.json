@@ -1,0 +1,649 @@
+[
+ {
+  "term": "dreizehn",
+  "en": "thirteen",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Mein Bruder ist dreizehn Jahre alt.",
+    "en": "My brother is thirteen years old."
+   },
+   {
+    "de": "Der Bus kommt in dreizehn Minuten.",
+    "en": "The bus comes in thirteen minutes."
+   }
+  ]
+ },
+ {
+  "term": "vierzehn",
+  "en": "fourteen",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Wir bleiben vierzehn Tage in Italien.",
+    "en": "We're staying in Italy for a fortnight."
+   },
+   {
+    "de": "Das Kind ist vierzehn.",
+    "en": "The child is fourteen."
+   }
+  ]
+ },
+ {
+  "term": "fünfzehn",
+  "en": "fifteen",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Der Film beginnt in fünfzehn Minuten.",
+    "en": "The film starts in fifteen minutes."
+   },
+   {
+    "de": "Sie war damals fünfzehn Jahre alt.",
+    "en": "She was fifteen at the time."
+   }
+  ]
+ },
+ {
+  "term": "sechzehn",
+  "en": "sixteen",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Mit sechzehn darf man in Deutschland Bier trinken.",
+    "en": "At sixteen you're allowed to drink beer in Germany."
+   },
+   {
+    "de": "Die Klasse hat sechzehn Schüler.",
+    "en": "The class has sixteen pupils."
+   }
+  ]
+ },
+ {
+  "term": "siebzehn",
+  "en": "seventeen",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Er wohnt in Hausnummer siebzehn.",
+    "en": "He lives at number seventeen."
+   },
+   {
+    "de": "Mit siebzehn hat sie den Führerschein gemacht.",
+    "en": "She got her driving licence at seventeen."
+   }
+  ]
+ },
+ {
+  "term": "achtzehn",
+  "en": "eighteen",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Mit achtzehn ist man in Deutschland volljährig.",
+    "en": "In Germany you come of age at eighteen."
+   },
+   {
+    "de": "Das kostet achtzehn Euro.",
+    "en": "That costs eighteen euros."
+   }
+  ]
+ },
+ {
+  "term": "neunzehn",
+  "en": "nineteen",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Der Zug fährt um neunzehn Uhr.",
+    "en": "The train leaves at seven p.m."
+   },
+   {
+    "de": "Sie ist erst neunzehn.",
+    "en": "She's only nineteen."
+   }
+  ]
+ },
+ {
+  "term": "dreißig",
+  "en": "thirty",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Mein Vater ist dreißig Jahre alt.",
+    "en": "My father is thirty years old."
+   },
+   {
+    "de": "Das dauert ungefähr dreißig Minuten.",
+    "en": "That takes about thirty minutes."
+   }
+  ]
+ },
+ {
+  "term": "vierzig",
+  "en": "forty",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Das Hemd kostet vierzig Euro.",
+    "en": "The shirt costs forty euros."
+   },
+   {
+    "de": "Sie hat vierzig Gäste eingeladen.",
+    "en": "She has invited forty guests."
+   }
+  ]
+ },
+ {
+  "term": "fünfzig",
+  "en": "fifty",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Meine Mutter wird nächste Woche fünfzig.",
+    "en": "My mother turns fifty next week."
+   },
+   {
+    "de": "Hier darf man nur fünfzig fahren.",
+    "en": "You can only drive at fifty here."
+   }
+  ]
+ },
+ {
+  "term": "sechzig",
+  "en": "sixty",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Eine Stunde hat sechzig Minuten.",
+    "en": "An hour has sixty minutes."
+   },
+   {
+    "de": "Mein Opa ist über sechzig.",
+    "en": "My grandpa is over sixty."
+   }
+  ]
+ },
+ {
+  "term": "siebzig",
+  "en": "seventy",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Die Oma ist siebzig Jahre alt.",
+    "en": "Grandma is seventy years old."
+   },
+   {
+    "de": "Das Buch hat siebzig Seiten.",
+    "en": "The book has seventy pages."
+   }
+  ]
+ },
+ {
+  "term": "achtzig",
+  "en": "eighty",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Auf der Landstraße darf man achtzig fahren.",
+    "en": "On country roads you may drive at eighty."
+   },
+   {
+    "de": "Er ist achtzig geworden.",
+    "en": "He has turned eighty."
+   }
+  ]
+ },
+ {
+  "term": "neunzig",
+  "en": "ninety",
+  "pos": "number",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Das Konzert dauert neunzig Minuten.",
+    "en": "The concert lasts ninety minutes."
+   },
+   {
+    "de": "Sie lebte, bis sie neunzig war.",
+    "en": "She lived until she was ninety."
+   }
+  ]
+ },
+ {
+  "term": "erste",
+  "en": "first",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Das ist mein erster Tag in Berlin.",
+    "en": "This is my first day in Berlin."
+   },
+   {
+    "de": "Wir wohnen im ersten Stock.",
+    "en": "We live on the first floor."
+   }
+  ]
+ },
+ {
+  "term": "zweite",
+  "en": "second",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Nimm die zweite Straße links.",
+    "en": "Take the second street on the left."
+   },
+   {
+    "de": "Das ist schon mein zweiter Kaffee.",
+    "en": "That's already my second coffee."
+   }
+  ]
+ },
+ {
+  "term": "dritte",
+  "en": "third",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Am dritten Tag hat es geregnet.",
+    "en": "On the third day it rained."
+   },
+   {
+    "de": "Sie wohnt im dritten Stock.",
+    "en": "She lives on the third floor."
+   }
+  ]
+ },
+ {
+  "term": "vierte",
+  "en": "fourth",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Er ist im Rennen Vierter geworden.",
+    "en": "He came fourth in the race."
+   },
+   {
+    "de": "Das ist ihr viertes Kind.",
+    "en": "That's her fourth child."
+   }
+  ]
+ },
+ {
+  "term": "fünfte",
+  "en": "fifth",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Heute ist der fünfte Mai.",
+    "en": "Today is the fifth of May."
+   },
+   {
+    "de": "Das ist schon das fünfte Mal!",
+    "en": "That's already the fifth time!"
+   }
+  ]
+ },
+ {
+  "term": "sechste",
+  "en": "sixth",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Sie geht in die sechste Klasse.",
+    "en": "She's in sixth grade."
+   },
+   {
+    "de": "Am sechsten Juni habe ich Geburtstag.",
+    "en": "My birthday is on the sixth of June."
+   }
+  ]
+ },
+ {
+  "term": "siebte",
+  "en": "seventh",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Ich fühle mich wie im siebten Himmel.",
+    "en": "I feel like I'm in seventh heaven."
+   },
+   {
+    "de": "Der siebte Tag ist ein Sonntag.",
+    "en": "The seventh day is a Sunday."
+   }
+  ]
+ },
+ {
+  "term": "achte",
+  "en": "eighth",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Wir treffen uns am achten März.",
+    "en": "We're meeting on the eighth of March."
+   },
+   {
+    "de": "Das ist ihre achte Reise nach Spanien.",
+    "en": "That's her eighth trip to Spain."
+   }
+  ]
+ },
+ {
+  "term": "neunte",
+  "en": "ninth",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Beethovens neunte Sinfonie ist berühmt.",
+    "en": "Beethoven's ninth symphony is famous."
+   },
+   {
+    "de": "Er wohnt im neunten Stock.",
+    "en": "He lives on the ninth floor."
+   }
+  ]
+ },
+ {
+  "term": "zehnte",
+  "en": "tenth",
+  "pos": "adjective",
+  "level": "A1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Das ist der zehnte Versuch.",
+    "en": "That's the tenth attempt."
+   },
+   {
+    "de": "Am zehnten Oktober fängt der Kurs an.",
+    "en": "The course starts on the tenth of October."
+   }
+  ]
+ },
+ {
+  "term": "elfte",
+  "en": "eleventh",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Er wurde im elften Jahrhundert gebaut.",
+    "en": "It was built in the eleventh century."
+   },
+   {
+    "de": "Sie ist in der elften Klasse.",
+    "en": "She's in eleventh grade."
+   }
+  ]
+ },
+ {
+  "term": "zwölfte",
+  "en": "twelfth",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Der zwölfte Monat ist der Dezember.",
+    "en": "The twelfth month is December."
+   },
+   {
+    "de": "Das ist sein zwölftes Tor.",
+    "en": "That's his twelfth goal."
+   }
+  ]
+ },
+ {
+  "term": "zwanzigste",
+  "en": "twentieth",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Das ist ein Gebäude aus dem zwanzigsten Jahrhundert.",
+    "en": "That is a twentieth-century building."
+   },
+   {
+    "de": "Heute ist der zwanzigste Juli.",
+    "en": "Today is the twentieth of July."
+   }
+  ]
+ },
+ {
+  "term": "hundertste",
+  "en": "hundredth",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Numbers",
+  "ex": [
+   {
+    "de": "Zum hundertsten Mal: Mach die Tür zu!",
+    "en": "For the hundredth time: close the door!"
+   },
+   {
+    "de": "Sie feiert ihren hundertsten Geburtstag.",
+    "en": "She is celebrating her hundredth birthday."
+   }
+  ]
+ },
+ {
+  "term": "sogenannt",
+  "en": "so-called",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Das ist der sogenannte Brückentag.",
+    "en": "That's the so-called bridge day."
+   },
+   {
+    "de": "Die sogenannten Experten lagen falsch.",
+    "en": "The so-called experts were wrong."
+   }
+  ]
+ },
+ {
+  "term": "der/die Jugendliche",
+  "en": "young person, teenager",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Viele Jugendliche verbringen viel Zeit am Handy.",
+    "en": "Many young people spend a lot of time on their phones."
+   },
+   {
+    "de": "Der Jugendliche wurde von der Polizei angehalten.",
+    "en": "The teenager was stopped by the police."
+   }
+  ]
+ },
+ {
+  "term": "der/die Angeklagte",
+  "en": "the accused, defendant",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Die Angeklagte hat alles gestanden.",
+    "en": "The defendant confessed to everything."
+   },
+   {
+    "de": "Der Richter fragte den Angeklagten nach seinem Alibi.",
+    "en": "The judge asked the accused about his alibi."
+   }
+  ]
+ },
+ {
+  "term": "ächten",
+  "en": "to ostracise, to outlaw",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Die Gesellschaft ächtet Gewalt gegen Kinder.",
+    "en": "Society condemns violence against children."
+   },
+   {
+    "de": "Nach dem Skandal wurde er von allen geächtet.",
+    "en": "After the scandal he was shunned by everyone."
+   }
+  ]
+ },
+ {
+  "term": "die Eintracht",
+  "en": "harmony, unity",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Die Nachbarn leben in Eintracht miteinander.",
+    "en": "The neighbours live in harmony with each other."
+   },
+   {
+    "de": "Die Familie saß in schöner Eintracht am Tisch.",
+    "en": "The family sat together at the table in perfect harmony."
+   }
+  ]
+ },
+ {
+  "term": "der Senior",
+  "en": "senior citizen; senior (partner)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Generations & Society",
+  "ex": [
+   {
+    "de": "Der Kurs ist speziell für Senioren.",
+    "en": "The course is specially for senior citizens."
+   },
+   {
+    "de": "Der Senior der Firma ist fast achtzig.",
+    "en": "The firm's senior partner is almost eighty."
+   }
+  ]
+ },
+ {
+  "term": "der Champion",
+  "en": "champion",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Er ist der neue Champion im Boxen.",
+    "en": "He is the new boxing champion."
+   },
+   {
+    "de": "Die Champions feierten die ganze Nacht.",
+    "en": "The champions celebrated all night."
+   }
+  ],
+  "sameAsGerman": true
+ },
+ {
+  "term": "an Bord",
+  "en": "on board",
+  "pos": "phrase",
+  "level": "B1",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Willkommen an Bord!",
+    "en": "Welcome on board!"
+   },
+   {
+    "de": "Wie viele Passagiere sind an Bord?",
+    "en": "How many passengers are on board?"
+   }
+  ]
+ },
+ {
+  "term": "der Kai",
+  "en": "quay, wharf",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Travel & Transport",
+  "ex": [
+   {
+    "de": "Das Schiff liegt am Kai.",
+    "en": "The ship is lying at the quay."
+   },
+   {
+    "de": "Wir sind den Kai entlang spaziert.",
+    "en": "We walked along the quay."
+   }
+  ]
+ },
+ {
+  "term": "die Scheiße",
+  "en": "(vulgar) shit; crap",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Register & Style",
+  "ex": [
+   {
+    "de": "So eine Scheiße!",
+    "en": "What a load of crap!"
+   },
+   {
+    "de": "Der Film war echt Scheiße.",
+    "en": "The film was really crap."
+   }
+  ]
+ }
+]

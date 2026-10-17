@@ -1200,6 +1200,20 @@
       }
     ]
   },
+  "voc:B1:achten": {
+    "ex": [
+      {
+        "de": "Man sollte die Meinung anderer achten.",
+        "en": "One should respect other people's opinions.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie wird von allen Kollegen geachtet.",
+        "en": "She is respected by all her colleagues.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:achten auf + A": {
     "def": "To watch or take care about something.",
     "ex": [
@@ -1389,6 +1403,20 @@
         "de": "Der Eingriff wird ambulant durchgeführt.",
         "en": "The procedure is carried out on an outpatient basis.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:an Bord": {
+    "ex": [
+      {
+        "de": "Willkommen an Bord!",
+        "en": "Welcome on board!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wie viele Passagiere sind an Bord?",
+        "en": "How many passengers are on board?",
+        "lvl": "B1"
       }
     ]
   },
@@ -8651,6 +8679,20 @@
       }
     ]
   },
+  "voc:B1:das Weltall": {
+    "ex": [
+      {
+        "de": "Die Erde ist nur ein kleiner Teil des Weltalls.",
+        "en": "The earth is only a small part of the universe.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Weltall gibt es keine Luft.",
+        "en": "There is no air in space.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Werk": {
     "def": "work, achievement (the result of working); work, piece (of art, literature, or the like)",
     "ex": [
@@ -12937,6 +12979,20 @@
       }
     ]
   },
+  "voc:B1:der Kleber": {
+    "ex": [
+      {
+        "de": "Hast du Kleber für Papier?",
+        "en": "Do you have glue for paper?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Kleber muss eine Stunde trocknen.",
+        "en": "The glue has to dry for an hour.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Kleiderhaken": {
     "def": "coat peg, coathook, clothes hook",
     "ex": [
@@ -14662,6 +14718,20 @@
       }
     ]
   },
+  "voc:B1:der Planet": {
+    "ex": [
+      {
+        "de": "Die Erde ist ein Planet.",
+        "en": "The earth is a planet.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir haben nur diesen einen Planeten.",
+        "en": "We only have this one planet.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Plattenspieler": {
     "def": "A machine that plays music from vinyl records.",
     "ex": [
@@ -15823,6 +15893,20 @@
       }
     ]
   },
+  "voc:B1:der Schwimmer": {
+    "ex": [
+      {
+        "de": "Er ist ein guter Schwimmer.",
+        "en": "He's a good swimmer.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Schwimmer stehen am Start.",
+        "en": "The swimmers are at the start.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Schädel": {
     "def": "The bony frame of the head.",
     "ex": [
@@ -15941,6 +16025,20 @@
       {
         "de": "Alle drei Sender strahlen jeden Tag auch Lokalnachrichten, Sport und Verkehrsmeldungen aus.",
         "en": "All three stations also carry local news, sport and traffic bulletins every day.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Senior": {
+    "ex": [
+      {
+        "de": "Der Kurs ist speziell für Senioren.",
+        "en": "The course is specially for senior citizens.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Senior der Firma ist fast achtzig.",
+        "en": "The firm's senior partner is almost eighty.",
         "lvl": "B1"
       }
     ]
@@ -16464,6 +16562,20 @@
       {
         "de": "Die Polizei sucht ihn mit einem Steckbrief.",
         "en": "The police are looking for him with a wanted poster.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Stecker": {
+    "ex": [
+      {
+        "de": "Zieh bitte den Stecker aus der Steckdose.",
+        "en": "Please pull the plug out of the socket.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Stecker passt nicht in die Steckdose.",
+        "en": "The plug doesn't fit the socket.",
         "lvl": "B1"
       }
     ]
@@ -18447,6 +18559,20 @@
         "de": "Die Integration der Geflüchteten gelingt am besten über Arbeit und Bildung.",
         "en": "The integration of refugees succeeds best through work and education.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der/die Unbekannte": {
+    "ex": [
+      {
+        "de": "Ein Unbekannter hat das Fenster eingeschlagen.",
+        "en": "An unknown person smashed the window.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Polizei sucht nach der Unbekannten.",
+        "en": "The police are looking for the unknown woman.",
+        "lvl": "B1"
       }
     ]
   },
@@ -22489,6 +22615,20 @@
       }
     ]
   },
+  "voc:B1:die Freundlichkeit": {
+    "ex": [
+      {
+        "de": "Danke für Ihre Freundlichkeit!",
+        "en": "Thank you for your kindness!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Freundlichkeit der Menschen hat uns beeindruckt.",
+        "en": "The friendliness of the people impressed us.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Freundschaft": {
     "def": "A close, friendly relationship between people.",
     "ex": [
@@ -23643,6 +23783,20 @@
       {
         "de": "Bei der Hitze trinkt man am besten viel Wasser.",
         "en": "In the heat it's best to drink a lot of water.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Hitzewelle": {
+    "ex": [
+      {
+        "de": "Europa erlebt eine Hitzewelle.",
+        "en": "Europe is experiencing a heatwave.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Während der Hitzewelle sollte man viel trinken.",
+        "en": "During the heatwave you should drink a lot.",
         "lvl": "B1"
       }
     ]
@@ -25118,6 +25272,20 @@
       }
     ]
   },
+  "voc:B1:die Lautstärke": {
+    "ex": [
+      {
+        "de": "Kannst du die Lautstärke herunterdrehen?",
+        "en": "Can you turn the volume down?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Musik lief in voller Lautstärke.",
+        "en": "The music was playing at full volume.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Lawine": {
     "def": "A mass of snow that slides suddenly down a mountain.",
     "ex": [
@@ -25509,6 +25677,20 @@
       {
         "de": "sich in die Materie einarbeiten",
         "en": "to familiarize oneself with the subject matter",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Matte": {
+    "ex": [
+      {
+        "de": "Wir turnen auf der Matte.",
+        "en": "We do gymnastics on the mat.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er rollte die Matte aus.",
+        "en": "He rolled out the mat.",
         "lvl": "B1"
       }
     ]
@@ -27160,6 +27342,20 @@
       }
     ]
   },
+  "voc:B1:die Pünktlichkeit": {
+    "ex": [
+      {
+        "de": "Pünktlichkeit ist in Deutschland sehr wichtig.",
+        "en": "Punctuality is very important in Germany.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Chef legt großen Wert auf Pünktlichkeit.",
+        "en": "The boss attaches great importance to punctuality.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Qualität": {
     "def": "quality (level of excellence, level of being free from defects)",
     "ex": [
@@ -27739,6 +27935,20 @@
       {
         "de": "In der letzten Saison hat er zwanzig Tore geschossen.",
         "en": "He scored twenty goals last season.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Sauberkeit": {
+    "ex": [
+      {
+        "de": "In der Küche ist Sauberkeit wichtig.",
+        "en": "Cleanliness is important in the kitchen.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Hotel war für seine Sauberkeit bekannt.",
+        "en": "The hotel was known for its cleanliness.",
         "lvl": "B1"
       }
     ]
@@ -29359,6 +29569,20 @@
         "de": "Wer blind auf der Tastatur schreibt, arbeitet deutlich schneller.",
         "en": "Those who touch-type on the keyboard work noticeably faster.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Taube": {
+    "ex": [
+      {
+        "de": "Auf dem Platz gibt es viele Tauben.",
+        "en": "There are lots of pigeons in the square.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die weiße Taube ist ein Symbol des Friedens.",
+        "en": "The white dove is a symbol of peace.",
+        "lvl": "B1"
       }
     ]
   },
@@ -31256,6 +31480,20 @@
         "de": "Die Einführung einer gemeinsamen Währung war historisch.",
         "en": "The introduction of a common currency was historic.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Wärme": {
+    "ex": [
+      {
+        "de": "Die Wärme der Sonne tut gut.",
+        "en": "The warmth of the sun feels good.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie empfing uns mit großer Wärme.",
+        "en": "She welcomed us with great warmth.",
+        "lvl": "B1"
       }
     ]
   },
@@ -35309,6 +35547,20 @@
       }
     ]
   },
+  "voc:B1:hundertste": {
+    "ex": [
+      {
+        "de": "Zum hundertsten Mal: Mach die Tür zu!",
+        "en": "For the hundredth time: close the door!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie feiert ihren hundertsten Geburtstag.",
+        "en": "She is celebrating her hundredth birthday.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:hupen": {
     "def": "To sound a vehicle’s horn.",
     "defDe": "eine Hupe am Kraftfahrzeug betätigen, um ein akustisches Signal zu erzeugen",
@@ -36077,6 +36329,20 @@
       }
     ]
   },
+  "voc:B1:kindisch": {
+    "ex": [
+      {
+        "de": "Hör auf, so kindisch zu sein!",
+        "en": "Stop being so childish!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war ein kindisches Verhalten.",
+        "en": "That was childish behaviour.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:klappen": {
     "def": "To go as intended and come off successfully.",
     "ex": [
@@ -36228,6 +36494,20 @@
       {
         "de": "Hast du Tom kontaktiert?",
         "en": "Did you get in touch with Tom?",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:koreanisch": {
+    "ex": [
+      {
+        "de": "Ich esse gern koreanisch.",
+        "en": "I like eating Korean food.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie lernt die koreanische Sprache.",
+        "en": "She is learning the Korean language.",
         "lvl": "B1"
       }
     ]
@@ -38990,6 +39270,20 @@
       }
     ]
   },
+  "voc:B1:schaden": {
+    "ex": [
+      {
+        "de": "Rauchen schadet der Gesundheit.",
+        "en": "Smoking damages your health.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ein bisschen Bewegung kann nicht schaden.",
+        "en": "A little exercise can't hurt.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:schalten": {
     "def": "to switch; to shift gears",
     "ex": [
@@ -40534,6 +40828,20 @@
       }
     ]
   },
+  "voc:B1:sogenannt": {
+    "ex": [
+      {
+        "de": "Das ist der sogenannte Brückentag.",
+        "en": "That's the so-called bridge day.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die sogenannten Experten lagen falsch.",
+        "en": "The so-called experts were wrong.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:solange": {
     "def": "During the time that; on condition that.",
     "ex": [
@@ -41882,6 +42190,20 @@
       }
     ]
   },
+  "voc:B1:ungeschickt": {
+    "ex": [
+      {
+        "de": "Ich bin so ungeschickt!",
+        "en": "I'm so clumsy!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das war eine ungeschickte Bemerkung.",
+        "en": "That was a clumsy remark.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:unglücklich": {
     "ex": [
       {
@@ -41966,6 +42288,20 @@
       {
         "de": "Das war unnötig.",
         "en": "That was unnecessary.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:unordentlich": {
+    "ex": [
+      {
+        "de": "Sein Zimmer ist immer unordentlich.",
+        "en": "His room is always messy.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie schreibt sehr unordentlich.",
+        "en": "She writes very untidily.",
         "lvl": "B1"
       }
     ]
@@ -44435,6 +44771,20 @@
       }
     ]
   },
+  "voc:B1:wolkig": {
+    "ex": [
+      {
+        "de": "Morgen wird es wolkig.",
+        "en": "Tomorrow will be cloudy.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Es bleibt wolkig mit einzelnen Schauern.",
+        "en": "It stays cloudy with occasional showers.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:womit": {
     "def": "with what, what…with; with which; by which",
     "ex": [
@@ -45110,6 +45460,20 @@
       }
     ]
   },
+  "voc:B1:zusammenarbeiten": {
+    "ex": [
+      {
+        "de": "Wir arbeiten eng zusammen.",
+        "en": "We work closely together.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Länder müssen beim Klimaschutz zusammenarbeiten.",
+        "en": "Countries must cooperate on climate protection.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:zustellen": {
     "def": "to block (fill up an opening, window, door etc. with items, making it impossible to pass); to deliver (a letter, parcel etc.); to deliver by post, to mail; to serve (a notice)",
     "ex": [
@@ -45363,6 +45727,20 @@
       {
         "de": "Durch Ägypten fließt der Nil.",
         "en": "The Nile flows through Egypt.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:ägyptisch": {
+    "ex": [
+      {
+        "de": "Wir haben ägyptische Pyramiden besichtigt.",
+        "en": "We visited Egyptian pyramids.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er kocht ägyptisch.",
+        "en": "He cooks Egyptian food.",
         "lvl": "B1"
       }
     ]

@@ -11,6 +11,71 @@ it is already built.
 
 ---
 
+### Shipped 2026-10-17 — word families built out; the owner's discussion themes; particles where they land
+
+**Why.** The owner asked for the gaps across the corpus filled and every word's family
+built out, then sent three pages of discussion questions (climate adaptation, medical
+research, space travel, cost of living, climate policy) to be covered too.
+
+- **746 cards** (10,313 → 11,059; 10,949 word cards). `npm run corpus:families` is
+  new: it applies German's productive derivations to every card (verb → *-ung*, agent
+  *-er*, *-bar*, *un…bar/lich*; noun → *-lich/-ig/-isch/-los/-voll/-haft*, *-schaft*;
+  adjective → *-heit/-keit/-igkeit*, *un-*, the quality noun in *-e*, *-erweise*),
+  keeps only what the dictionary layer attests with that part of speech, and ranks by
+  Leipzig + OpenSubtitles use. It proposes; `authoring:new` still admits. Family
+  members with ≥20 uses not taught: **728 → 102**, and roughly half of the 102 are
+  refused on purpose — colour nominalisations (*Grüne, Linke, Rote*), regional
+  adjectives, and agent nouns that are really homographs (*Weber, Esser, Finder*).
+- **The theme pages** now resolve to cards except *Mars*: *wohlhabend, das Weltall,
+  die Raumfahrt, der Raumfahrer, die Raumstation, der Asteroid, der Planet, der
+  Himmelskörper, die Besiedlung, experimentell, die Freisetzung, der Permafrost,
+  verlangsamen, die Hitzewelle, das Treibhausgas, der Industriestaat, aufwerfen,
+  gerechtfertigt, gespalten, …* and their neighbours (*die Gentechnik, die
+  Stammzelle, die Sterbehilfe, der Tierversuch, die Armutsgrenze, umverteilen, der
+  Kohleausstieg, die Gletscherschmelze*). Three basic words turned up missing on the
+  way: **arm** (*poor* — only *der Arm* existed), **nähen**, and plain **achten**
+  (*respect*; ruled `keep` beside *achten auf + A*).
+- **Words de.wiktionary has no page for** (*Einstufung, Platzierung, unverzeihlich,
+  Abholung, …*) are admitted on **Wikidata lexeme rulings** — class, gender and
+  nominative plural, each row citing its L-id. Where every part is transcribed the
+  IPA is composed (*schmerzlos, ungehörig, Sicherstellung*); where not, the card is
+  in `ipa-absent.tsv` with Wikidata checked for a pronunciation first. This reverses
+  the 2026-10-16 "not added" on *Positionierung*: the absence is now ruled, not a
+  reason to leave the word out.
+- **The gate**: a `der/die` card whose feminine page is a stub with no gender line
+  (*Anwesende*) may take the feminine half from a ruling — only the silent half.
+
+**The matcher** — every change measured as token ownership over all example sentences:
+
+- **Rule 4c, the lowercase half of 4b.** A lowercase token is never a noun: where an
+  adjective reading exists it wins (*alte* had been *das Alter* ×121), and where a
+  verb does it wins (*er macht* had been *die Macht* ×88, *sucht* *die Sucht* ×40).
+  Spelled both ways (*reifen*, *bekannte*), a capital next decides: an inflected
+  adjective stands before its noun. Separable particles (*viel los*, *nehmen teil*)
+  are excluded.
+- **4d, the sentence-initial half.** *Moderne Geräte*, *Leere Flaschen*, *Alte
+  Möbel* opened on the quality nouns; a capitalised next token now picks the
+  adjective (18 owners, all correct).
+- **The dative-plural fallback** no longer turns a lowercase adjective into a noun
+  (*einer armen Familie* was *der Arm*; *schweren Zeiten* had become *die Schwere* the
+  moment that card shipped).
+- **A separable particle must close its clause** — the last token before a comma or
+  the end, or directly before *und/oder/aber/als/wie/bis*. *Ich komme aus Spanien*
+  was `auskommen`, *Ich gehe nach Hause* `nachgehen`, *Es gibt ein Restaurant*
+  `eingeben`: **706 owners changed, 29 cards gained their own word, none lost one.**
+  The same rule now holds for governed separable verbs, which claimed their stems
+  bare (*Zur Arbeit trägt er ein Hemd* was `beitragen zu + D`).
+- **Pronominal adverbs** count as the governed preposition: *davon profitieren*,
+  *darauf achten*, *woran denkt ihr*.
+- *wen / wem / wessen* resolve to *wer*.
+
+**Frequency.** `corpus:freq` gains a third tier: a card neither the Kernwortschatz
+nor provenance ranks takes its Leipzig news rank, offset past the reference like
+provenance's. Ranked share 74.5% → 96.9%, A1 85.2% → 95.5% (*sieben, zehn, die
+Haltestelle* were unranked and sorted last in their band). `freq.json` 195 → 275 KB.
+
+---
+
 ### Shipped 2026-10-16 — der/die/das at large text; the owner's word list and its families
 
 **Why.** The der/die/das keys broke at accessibility text sizes, and the owner sent a

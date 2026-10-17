@@ -1,0 +1,18 @@
+[
+  {
+    "id": "voc:B2:unverzeihlich",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʊnfɛɐ̯ˌt͡saɪ̯lɪç",
+    "src": "un- /ʊn/ + verzeihlich /fɛɐ̯ˈt͡saɪ̯lɪç/"
+  },
+  {
+    "id": "voc:B2:schmerzlos",
+    "expect": {
+      "ipa": null
+    },
+    "ipa": "ˈʃmɛʁt͡sˌloːs",
+    "src": "Schmerz /ʃmɛʁt͡s/ + los /loːs/"
+  }
+]

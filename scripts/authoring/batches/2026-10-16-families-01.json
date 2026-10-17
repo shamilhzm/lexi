@@ -1,0 +1,1277 @@
+[
+ {
+  "term": "königlich",
+  "en": "royal, regal",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Die königliche Familie lebt in London.",
+    "en": "The royal family lives in London."
+   },
+   {
+    "de": "Das Essen war wirklich königlich.",
+    "en": "The food was truly fit for a king."
+   }
+  ]
+ },
+ {
+  "term": "gnädig",
+  "en": "gracious, merciful",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Religion",
+  "ex": [
+   {
+    "de": "Der Richter war gnädig mit ihm.",
+    "en": "The judge was lenient with him."
+   },
+   {
+    "de": "Gnädige Frau, darf ich Ihnen helfen?",
+    "en": "Madam, may I help you?"
+   }
+  ]
+ },
+ {
+  "term": "jugendlich",
+  "en": "youthful; juvenile",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Life Stages",
+  "ex": [
+   {
+    "de": "Sie sieht noch sehr jugendlich aus.",
+    "en": "She still looks very youthful."
+   },
+   {
+    "de": "Sie hat ein jugendliches Gesicht.",
+    "en": "She has a youthful face."
+   }
+  ]
+ },
+ {
+  "term": "flüchtig",
+  "en": "fleeting, cursory; fugitive",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Ich habe den Text nur flüchtig gelesen.",
+    "en": "I only skimmed the text."
+   },
+   {
+    "de": "Der Täter ist noch flüchtig.",
+    "en": "The offender is still at large."
+   }
+  ]
+ },
+ {
+  "term": "ungut",
+  "en": "bad, uneasy",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Ich habe ein ungutes Gefühl dabei.",
+    "en": "I have a bad feeling about it."
+   },
+   {
+    "de": "Nichts für ungut!",
+    "en": "No offence!"
+   }
+  ]
+ },
+ {
+  "term": "römisch",
+  "en": "Roman",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Hier stehen noch römische Mauern.",
+    "en": "Roman walls are still standing here."
+   },
+   {
+    "de": "Die römische Kultur hat Europa geprägt.",
+    "en": "Roman culture shaped Europe."
+   }
+  ]
+ },
+ {
+  "term": "göttlich",
+  "en": "divine",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Religion",
+  "ex": [
+   {
+    "de": "Das Essen schmeckt göttlich.",
+    "en": "The food tastes divine."
+   },
+   {
+    "de": "Viele glauben an eine göttliche Ordnung.",
+    "en": "Many believe in a divine order."
+   }
+  ]
+ },
+ {
+  "term": "österreichisch",
+  "en": "Austrian",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Countries & Nationalities",
+  "ex": [
+   {
+    "de": "Sie spricht mit österreichischem Akzent.",
+    "en": "She speaks with an Austrian accent."
+   },
+   {
+    "de": "Ich mag die österreichische Küche.",
+    "en": "I like Austrian cuisine."
+   }
+  ]
+ },
+ {
+  "term": "idiotisch",
+  "en": "idiotic",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Das war eine idiotische Idee.",
+    "en": "That was an idiotic idea."
+   },
+   {
+    "de": "Ich finde die Regel idiotisch.",
+    "en": "I think the rule is idiotic."
+   }
+  ]
+ },
+ {
+  "term": "unauffällig",
+  "en": "inconspicuous, unobtrusive",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Er trug unauffällige Kleidung.",
+    "en": "He wore inconspicuous clothes."
+   },
+   {
+    "de": "Sie verließ unauffällig den Raum.",
+    "en": "She left the room unobtrusively."
+   }
+  ]
+ },
+ {
+  "term": "gläubig",
+  "en": "religious, devout",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Religion",
+  "ex": [
+   {
+    "de": "Ihre Großmutter ist sehr gläubig.",
+    "en": "Her grandmother is very devout."
+   },
+   {
+    "de": "Gläubige Menschen gehen oft in die Kirche.",
+    "en": "Religious people often go to church."
+   }
+  ]
+ },
+ {
+  "term": "kindisch",
+  "en": "childish",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Hör auf, so kindisch zu sein!",
+    "en": "Stop being so childish!"
+   },
+   {
+    "de": "Das war ein kindisches Verhalten.",
+    "en": "That was childish behaviour."
+   }
+  ]
+ },
+ {
+  "term": "lästig",
+  "en": "annoying, bothersome",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Mücken sind wirklich lästig.",
+    "en": "The mosquitoes are really annoying."
+   },
+   {
+    "de": "Ich will dir nicht lästig fallen.",
+    "en": "I don't want to be a nuisance to you."
+   }
+  ]
+ },
+ {
+  "term": "unbewaffnet",
+  "en": "unarmed",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Die Demonstranten waren unbewaffnet.",
+    "en": "The protesters were unarmed."
+   },
+   {
+    "de": "Er griff einen unbewaffneten Mann an.",
+    "en": "He attacked an unarmed man."
+   }
+  ]
+ },
+ {
+  "term": "lausig",
+  "en": "lousy",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Das Wetter war lausig.",
+    "en": "The weather was lousy."
+   },
+   {
+    "de": "Er hat eine lausige Arbeit abgeliefert.",
+    "en": "He turned in lousy work."
+   }
+  ]
+ },
+ {
+  "term": "unglücklicherweise",
+  "en": "unfortunately",
+  "pos": "adverb",
+  "level": "B2",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Unglücklicherweise habe ich den Zug verpasst.",
+    "en": "Unfortunately I missed the train."
+   },
+   {
+    "de": "Der Laden war unglücklicherweise schon zu.",
+    "en": "Unfortunately the shop was already closed."
+   }
+  ]
+ },
+ {
+  "term": "taktisch",
+  "en": "tactical",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Sport",
+  "ex": [
+   {
+    "de": "Das war ein taktischer Fehler.",
+    "en": "That was a tactical mistake."
+   },
+   {
+    "de": "Die Mannschaft spielte taktisch klug.",
+    "en": "The team played cleverly in tactical terms."
+   }
+  ]
+ },
+ {
+  "term": "undankbar",
+  "en": "ungrateful; thankless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Sei nicht so undankbar!",
+    "en": "Don't be so ungrateful!"
+   },
+   {
+    "de": "Das ist eine undankbare Aufgabe.",
+    "en": "That's a thankless task."
+   }
+  ]
+ },
+ {
+  "term": "durstig",
+  "en": "thirsty",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Nach dem Sport bin ich immer durstig.",
+    "en": "I'm always thirsty after sport."
+   },
+   {
+    "de": "Die durstigen Kinder tranken das ganze Wasser.",
+    "en": "The thirsty children drank all the water."
+   }
+  ]
+ },
+ {
+  "term": "kaiserlich",
+  "en": "imperial",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Politics & History",
+  "ex": [
+   {
+    "de": "Wien war eine kaiserliche Residenz.",
+    "en": "Vienna was an imperial residence."
+   },
+   {
+    "de": "Die kaiserliche Familie floh ins Ausland.",
+    "en": "The imperial family fled abroad."
+   }
+  ]
+ },
+ {
+  "term": "höllisch",
+  "en": "hellish, infernal",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Wunde tut höllisch weh.",
+    "en": "The wound hurts like hell."
+   },
+   {
+    "de": "Es war eine höllische Hitze.",
+    "en": "It was a hellish heat."
+   }
+  ]
+ },
+ {
+  "term": "untreu",
+  "en": "unfaithful",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Relationships",
+  "ex": [
+   {
+    "de": "Er war seiner Frau untreu.",
+    "en": "He was unfaithful to his wife."
+   },
+   {
+    "de": "Sie hat ihren untreuen Freund verlassen.",
+    "en": "She left her unfaithful boyfriend."
+   }
+  ]
+ },
+ {
+  "term": "oberflächlich",
+  "en": "superficial",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Er ist ein sehr oberflächlicher Mensch.",
+    "en": "He is a very superficial person."
+   },
+   {
+    "de": "Die Wunde ist nur oberflächlich.",
+    "en": "The wound is only superficial."
+   }
+  ]
+ },
+ {
+  "term": "unbedeutend",
+  "en": "insignificant",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das ist ein unbedeutendes Detail.",
+    "en": "That's an insignificant detail."
+   },
+   {
+    "de": "Der Unterschied ist unbedeutend.",
+    "en": "The difference is insignificant."
+   }
+  ]
+ },
+ {
+  "term": "unvorstellbar",
+  "en": "unimaginable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Hitze war unvorstellbar.",
+    "en": "The heat was unimaginable."
+   },
+   {
+    "de": "Vor zwanzig Jahren war das noch unvorstellbar.",
+    "en": "Twenty years ago that was still unimaginable."
+   }
+  ]
+ },
+ {
+  "term": "respektlos",
+  "en": "disrespectful",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Sein Verhalten war respektlos.",
+    "en": "His behaviour was disrespectful."
+   },
+   {
+    "de": "Das ist eine respektlose Bemerkung.",
+    "en": "That's a disrespectful remark."
+   }
+  ]
+ },
+ {
+  "term": "unbesorgt",
+  "en": "unconcerned",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Seien Sie unbesorgt, wir kümmern uns darum.",
+    "en": "Don't worry, we'll take care of it."
+   },
+   {
+    "de": "Die Kinder spielten unbesorgt im Garten.",
+    "en": "The children played carefree in the garden."
+   }
+  ]
+ },
+ {
+  "term": "spaßig",
+  "en": "funny, amusing",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Das war ein spaßiger Abend.",
+    "en": "That was a fun evening."
+   },
+   {
+    "de": "Die Geschichte ist sehr spaßig.",
+    "en": "The story is very amusing."
+   }
+  ]
+ },
+ {
+  "term": "vorsätzlich",
+  "en": "intentional, premeditated",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Er hat das Feuer vorsätzlich gelegt.",
+    "en": "He started the fire deliberately."
+   },
+   {
+    "de": "Es war vorsätzlicher Mord.",
+    "en": "It was premeditated murder."
+   }
+  ]
+ },
+ {
+  "term": "spurlos",
+  "en": "without a trace",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Das Kind ist spurlos verschwunden.",
+    "en": "The child has vanished without a trace."
+   },
+   {
+    "de": "Die Krise ging nicht spurlos an ihm vorbei.",
+    "en": "The crisis did not leave him unmarked."
+   }
+  ]
+ },
+ {
+  "term": "grundlos",
+  "en": "groundless, for no reason",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Opinion",
+  "ex": [
+   {
+    "de": "Sie hat grundlos geweint.",
+    "en": "She cried for no reason."
+   },
+   {
+    "de": "Deine Angst ist völlig grundlos.",
+    "en": "Your fear is completely groundless."
+   }
+  ]
+ },
+ {
+  "term": "zerbrechlich",
+  "en": "fragile",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Vorsicht, das Paket ist zerbrechlich!",
+    "en": "Careful, the parcel is fragile!"
+   },
+   {
+    "de": "Sie wirkt sehr zerbrechlich.",
+    "en": "She seems very fragile."
+   }
+  ]
+ },
+ {
+  "term": "leiblich",
+  "en": "biological (parent, child); bodily",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Er ist nicht ihr leiblicher Vater.",
+    "en": "He is not her biological father."
+   },
+   {
+    "de": "Sie sucht ihre leibliche Mutter.",
+    "en": "She is looking for her birth mother."
+   }
+  ]
+ },
+ {
+  "term": "undicht",
+  "en": "leaky",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Home",
+  "ex": [
+   {
+    "de": "Das Dach ist undicht.",
+    "en": "The roof is leaking."
+   },
+   {
+    "de": "Wir müssen das undichte Fenster reparieren.",
+    "en": "We need to fix the leaky window."
+   }
+  ]
+ },
+ {
+  "term": "nächtlich",
+  "en": "nightly, nocturnal",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Time",
+  "ex": [
+   {
+    "de": "Die nächtliche Ruhe wurde gestört.",
+    "en": "The peace of the night was disturbed."
+   },
+   {
+    "de": "Nächtliche Spaziergänge beruhigen mich.",
+    "en": "Night-time walks calm me down."
+   }
+  ]
+ },
+ {
+  "term": "zornig",
+  "en": "angry, wrathful",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Der Vater wurde sehr zornig.",
+    "en": "The father became very angry."
+   },
+   {
+    "de": "Sie warf ihm einen zornigen Blick zu.",
+    "en": "She shot him an angry look."
+   }
+  ]
+ },
+ {
+  "term": "lautlos",
+  "en": "silent, soundless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Katze schlich lautlos durchs Zimmer.",
+    "en": "The cat crept silently through the room."
+   },
+   {
+    "de": "Stell dein Handy auf lautlos.",
+    "en": "Put your phone on silent."
+   }
+  ]
+ },
+ {
+  "term": "ungeschickt",
+  "en": "clumsy",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Ich bin so ungeschickt!",
+    "en": "I'm so clumsy!"
+   },
+   {
+    "de": "Das war eine ungeschickte Bemerkung.",
+    "en": "That was a clumsy remark."
+   }
+  ]
+ },
+ {
+  "term": "geistlich",
+  "en": "spiritual, religious",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Religion",
+  "ex": [
+   {
+    "de": "Er singt in einem geistlichen Chor.",
+    "en": "He sings in a sacred music choir."
+   },
+   {
+    "de": "Sie sucht geistliche Begleitung.",
+    "en": "She is looking for spiritual guidance."
+   }
+  ]
+ },
+ {
+  "term": "morgig",
+  "en": "tomorrow's",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Basic time concepts",
+  "ex": [
+   {
+    "de": "Hast du dich auf die morgige Prüfung vorbereitet?",
+    "en": "Have you prepared for tomorrow's exam?"
+   },
+   {
+    "de": "Das morgige Treffen fällt aus.",
+    "en": "Tomorrow's meeting is cancelled."
+   }
+  ]
+ },
+ {
+  "term": "lieblich",
+  "en": "lovely; (wine) sweet",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Taste & Judgement",
+  "ex": [
+   {
+    "de": "Das Tal ist lieblich und grün.",
+    "en": "The valley is lovely and green."
+   },
+   {
+    "de": "Ich mag lieblichen Wein nicht.",
+    "en": "I don't like sweet wine."
+   }
+  ]
+ },
+ {
+  "term": "furchtlos",
+  "en": "fearless",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Das Mädchen war völlig furchtlos.",
+    "en": "The girl was completely fearless."
+   },
+   {
+    "de": "Er ist ein furchtloser Kämpfer.",
+    "en": "He is a fearless fighter."
+   }
+  ]
+ },
+ {
+  "term": "unangebracht",
+  "en": "inappropriate, uncalled-for",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Rules & Etiquette",
+  "ex": [
+   {
+    "de": "Deine Bemerkung war unangebracht.",
+    "en": "Your remark was uncalled-for."
+   },
+   {
+    "de": "Hier ist Kritik völlig unangebracht.",
+    "en": "Criticism is completely out of place here."
+   }
+  ]
+ },
+ {
+  "term": "beträchtlich",
+  "en": "considerable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Die Kosten sind beträchtlich gestiegen.",
+    "en": "The costs have risen considerably."
+   },
+   {
+    "de": "Er hat ein beträchtliches Vermögen.",
+    "en": "He has a considerable fortune."
+   }
+  ]
+ },
+ {
+  "term": "sprachlos",
+  "en": "speechless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Ich bin sprachlos!",
+    "en": "I'm speechless!"
+   },
+   {
+    "de": "Die Nachricht machte sie sprachlos.",
+    "en": "The news left her speechless."
+   }
+  ]
+ },
+ {
+  "term": "herzlos",
+  "en": "heartless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Wie kannst du so herzlos sein?",
+    "en": "How can you be so heartless?"
+   },
+   {
+    "de": "Das war eine herzlose Antwort.",
+    "en": "That was a heartless answer."
+   }
+  ]
+ },
+ {
+  "term": "saftig",
+  "en": "juicy; (prices) steep",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Food & drink",
+  "ex": [
+   {
+    "de": "Die Pfirsiche sind schön saftig.",
+    "en": "The peaches are nice and juicy."
+   },
+   {
+    "de": "Wir mussten eine saftige Strafe zahlen.",
+    "en": "We had to pay a hefty fine."
+   }
+  ]
+ },
+ {
+  "term": "mörderisch",
+  "en": "murderous; (informal) terrible",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Legal Terms",
+  "ex": [
+   {
+    "de": "Es herrschte eine mörderische Hitze.",
+    "en": "There was murderous heat."
+   },
+   {
+    "de": "Er hatte mörderische Absichten.",
+    "en": "He had murderous intentions."
+   }
+  ]
+ },
+ {
+  "term": "undeutlich",
+  "en": "unclear, indistinct",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Communication",
+  "ex": [
+   {
+    "de": "Er spricht sehr undeutlich.",
+    "en": "He speaks very indistinctly."
+   },
+   {
+    "de": "Das Foto ist leider undeutlich.",
+    "en": "Unfortunately the photo is blurry."
+   }
+  ]
+ },
+ {
+  "term": "rätselhaft",
+  "en": "mysterious, puzzling",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Sein Verschwinden ist rätselhaft.",
+    "en": "His disappearance is mysterious."
+   },
+   {
+    "de": "Sie lächelte rätselhaft.",
+    "en": "She smiled mysteriously."
+   }
+  ]
+ },
+ {
+  "term": "freudig",
+  "en": "joyful",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Wir haben eine freudige Nachricht.",
+    "en": "We have some joyful news."
+   },
+   {
+    "de": "Der Hund begrüßte uns freudig.",
+    "en": "The dog greeted us joyfully."
+   }
+  ]
+ },
+ {
+  "term": "koreanisch",
+  "en": "Korean",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Countries & Nationalities",
+  "ex": [
+   {
+    "de": "Ich esse gern koreanisch.",
+    "en": "I like eating Korean food."
+   },
+   {
+    "de": "Sie lernt die koreanische Sprache.",
+    "en": "She is learning the Korean language."
+   }
+  ]
+ },
+ {
+  "term": "unwiderstehlich",
+  "en": "irresistible",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Der Kuchen war unwiderstehlich.",
+    "en": "The cake was irresistible."
+   },
+   {
+    "de": "Er hat ein unwiderstehliches Lächeln.",
+    "en": "He has an irresistible smile."
+   }
+  ]
+ },
+ {
+  "term": "haarig",
+  "en": "hairy; tricky",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Body",
+  "ex": [
+   {
+    "de": "Er hat haarige Arme.",
+    "en": "He has hairy arms."
+   },
+   {
+    "de": "Das wird eine haarige Angelegenheit.",
+    "en": "That will be a tricky business."
+   }
+  ]
+ },
+ {
+  "term": "geschmacklos",
+  "en": "tasteless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Taste & Judgement",
+  "ex": [
+   {
+    "de": "Die Suppe ist völlig geschmacklos.",
+    "en": "The soup is completely tasteless."
+   },
+   {
+    "de": "Das war ein geschmackloser Witz.",
+    "en": "That was a tasteless joke."
+   }
+  ]
+ },
+ {
+  "term": "verwundbar",
+  "en": "vulnerable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Military concepts",
+  "ex": [
+   {
+    "de": "Ohne Schutz sind wir verwundbar.",
+    "en": "Without protection we are vulnerable."
+   },
+   {
+    "de": "Das macht ihn verwundbar.",
+    "en": "That makes him vulnerable."
+   }
+  ]
+ },
+ {
+  "term": "unerwünscht",
+  "en": "unwanted, undesirable",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Hier sind Hunde unerwünscht.",
+    "en": "Dogs are not welcome here."
+   },
+   {
+    "de": "Das Medikament hat unerwünschte Nebenwirkungen.",
+    "en": "The drug has undesirable side effects."
+   }
+  ]
+ },
+ {
+  "term": "leichtsinnig",
+  "en": "careless, reckless",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Das war sehr leichtsinnig von dir.",
+    "en": "That was very reckless of you."
+   },
+   {
+    "de": "Leichtsinniges Fahren kann tödlich sein.",
+    "en": "Reckless driving can be fatal."
+   }
+  ]
+ },
+ {
+  "term": "gebürtig",
+  "en": "native, born in",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Emigration & immigration",
+  "ex": [
+   {
+    "de": "Sie ist gebürtige Berlinerin.",
+    "en": "She is a native Berliner."
+   },
+   {
+    "de": "Er ist gebürtig aus Polen.",
+    "en": "He was born in Poland."
+   }
+  ]
+ },
+ {
+  "term": "ungünstig",
+  "en": "unfavourable, inconvenient",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Das ist ein ungünstiger Zeitpunkt.",
+    "en": "This is an inconvenient time."
+   },
+   {
+    "de": "Die Bedingungen sind ungünstig.",
+    "en": "The conditions are unfavourable."
+   }
+  ]
+ },
+ {
+  "term": "ägyptisch",
+  "en": "Egyptian",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Countries & Nationalities",
+  "ex": [
+   {
+    "de": "Wir haben ägyptische Pyramiden besichtigt.",
+    "en": "We visited Egyptian pyramids."
+   },
+   {
+    "de": "Er kocht ägyptisch.",
+    "en": "He cooks Egyptian food."
+   }
+  ]
+ },
+ {
+  "term": "bedauerlicherweise",
+  "en": "regrettably",
+  "pos": "adverb",
+  "level": "C1",
+  "field": "Adverbs",
+  "ex": [
+   {
+    "de": "Bedauerlicherweise müssen wir absagen.",
+    "en": "Regrettably we have to cancel."
+   },
+   {
+    "de": "Der Termin ist bedauerlicherweise schon vergeben.",
+    "en": "Regrettably the appointment has already been taken."
+   }
+  ]
+ },
+ {
+  "term": "gefühlvoll",
+  "en": "sensitive, full of feeling",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Sie sang ein gefühlvolles Lied.",
+    "en": "She sang a soulful song."
+   },
+   {
+    "de": "Er spielt sehr gefühlvoll Klavier.",
+    "en": "He plays the piano with great feeling."
+   }
+  ]
+ },
+ {
+  "term": "kitschig",
+  "en": "kitschy, cheesy",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Aesthetic Concepts",
+  "ex": [
+   {
+    "de": "Der Film war mir zu kitschig.",
+    "en": "The film was too cheesy for me."
+   },
+   {
+    "de": "Sie kauft gern kitschige Souvenirs.",
+    "en": "She likes buying kitschy souvenirs."
+   }
+  ]
+ },
+ {
+  "term": "verletzlich",
+  "en": "vulnerable, sensitive",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Nach der Trennung war sie sehr verletzlich.",
+    "en": "After the break-up she was very vulnerable."
+   },
+   {
+    "de": "Kinder sind besonders verletzlich.",
+    "en": "Children are especially vulnerable."
+   }
+  ]
+ },
+ {
+  "term": "kommunistisch",
+  "en": "communist",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Politics",
+  "ex": [
+   {
+    "de": "Das Land hatte eine kommunistische Regierung.",
+    "en": "The country had a communist government."
+   },
+   {
+    "de": "Er war Mitglied der kommunistischen Partei.",
+    "en": "He was a member of the communist party."
+   }
+  ]
+ },
+ {
+  "term": "artig",
+  "en": "well-behaved",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Family",
+  "ex": [
+   {
+    "de": "Die Kinder waren heute sehr artig.",
+    "en": "The children were very well-behaved today."
+   },
+   {
+    "de": "Sei artig und iss dein Gemüse!",
+    "en": "Be good and eat your vegetables!"
+   }
+  ]
+ },
+ {
+  "term": "fehlerhaft",
+  "en": "faulty, defective",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Services & Complaints",
+  "ex": [
+   {
+    "de": "Das Gerät ist fehlerhaft.",
+    "en": "The device is faulty."
+   },
+   {
+    "de": "Wir tauschen fehlerhafte Ware um.",
+    "en": "We exchange defective goods."
+   }
+  ]
+ },
+ {
+  "term": "ländlich",
+  "en": "rural",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Landscape & nature",
+  "ex": [
+   {
+    "de": "Sie wohnen in einer ländlichen Gegend.",
+    "en": "They live in a rural area."
+   },
+   {
+    "de": "Ich mag die ländliche Ruhe.",
+    "en": "I like the rural peace and quiet."
+   }
+  ]
+ },
+ {
+  "term": "vorzüglich",
+  "en": "excellent, exquisite",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Taste & Judgement",
+  "ex": [
+   {
+    "de": "Das Essen war vorzüglich.",
+    "en": "The food was excellent."
+   },
+   {
+    "de": "Er spricht ein vorzügliches Englisch.",
+    "en": "He speaks excellent English."
+   }
+  ]
+ },
+ {
+  "term": "unecht",
+  "en": "fake, false",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Der Schmuck ist unecht.",
+    "en": "The jewellery is fake."
+   },
+   {
+    "de": "Ihr Lächeln wirkte unecht.",
+    "en": "Her smile seemed fake."
+   }
+  ]
+ },
+ {
+  "term": "ungesund",
+  "en": "unhealthy",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Health",
+  "ex": [
+   {
+    "de": "Zu viel Zucker ist ungesund.",
+    "en": "Too much sugar is unhealthy."
+   },
+   {
+    "de": "Er ernährt sich sehr ungesund.",
+    "en": "He eats very unhealthily."
+   }
+  ]
+ },
+ {
+  "term": "unverantwortlich",
+  "en": "irresponsible",
+  "pos": "adjective",
+  "level": "B2",
+  "field": "Ethics & Responsibility",
+  "ex": [
+   {
+    "de": "Das war unverantwortlich von ihm.",
+    "en": "That was irresponsible of him."
+   },
+   {
+    "de": "Sie fuhr unverantwortlich schnell.",
+    "en": "She drove irresponsibly fast."
+   }
+  ]
+ },
+ {
+  "term": "schamlos",
+  "en": "shameless",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Values & Norms",
+  "ex": [
+   {
+    "de": "Er hat mich schamlos angelogen.",
+    "en": "He lied to me shamelessly."
+   },
+   {
+    "de": "Das ist schamlose Werbung.",
+    "en": "That is shameless advertising."
+   }
+  ]
+ },
+ {
+  "term": "unfreundlich",
+  "en": "unfriendly",
+  "pos": "adjective",
+  "level": "A2",
+  "field": "Adjectives",
+  "ex": [
+   {
+    "de": "Der Kellner war sehr unfreundlich.",
+    "en": "The waiter was very unfriendly."
+   },
+   {
+    "de": "Warum bist du so unfreundlich zu ihr?",
+    "en": "Why are you so unfriendly to her?"
+   }
+  ]
+ }
+]

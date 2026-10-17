@@ -1,0 +1,8 @@
+[
+  {
+    "id": "voc:C1:die Wiederherstellung",
+    "expect": { "plural": null },
+    "plural": "die Wiederherstellungen",
+    "src": "de.wiktionary.org/wiki/Wiederherstellung — Übersicht Nominativ Plural=Wiederherstellungen; Worttrennung marks the plural selten, which is why fetch-plurals left it for a decision: it is the only plural form, so it is the one taught"
+  }
+]

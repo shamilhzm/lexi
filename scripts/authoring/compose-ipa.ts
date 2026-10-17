@@ -50,6 +50,23 @@ const SEGMENTS: Record<string, string[]> = {
   // dictionary transcribes it, and both parts are transcribed.
   'voc:C1:gleichgesinnt':        ['gleich', 'gesinnt'],
   'voc:C1:der/die Personalverantwortliche': ['Personal', 'Verantwortliche'],
+  // 2026-10-16, the families build-out: Wikidata attests the class, de.wiktionary
+  // has no page, and both parts are transcribed. (*Einstufung*, *unersetzlich*,
+  // *verräterisch* and *traurigerweise* have a part without one — ipa-absent.tsv.)
+  'voc:B2:unverzeihlich':        ['un-', 'verzeihlich'],
+  'voc:B2:schmerzlos':           ['Schmerz', 'los'],
+  'voc:C1:ruhelos':              ['Ruhe', 'los'],
+  'voc:C1:schuldlos':            ['Schuld', 'los'],
+  'voc:C1:ungehörig':            ['un-', 'gehörig'],
+  'voc:C1:blödsinnig':           ['blöd', 'sinnig'],
+  'voc:C1:die Sicherstellung':   ['sicher', 'Stellung'],
+  'voc:C1:die Aussetzung':       ['aus', 'Setzung'],
+  'voc:C1:die Einbindung':       ['ein', 'Bindung'],
+  'voc:C1:die Absenkung':        ['ab', 'Senkung'],
+  // 2026-10-17, families tranche 4.
+  'voc:C1:ungerechtfertigt':     ['un-', 'gerechtfertigt'],
+  'voc:C1:glücklos':             ['Glück', 'los'],
+  'voc:B2:die Vorbestellung':    ['vor', 'Bestellung'],
 };
 
 const arg = (n: string): string | undefined => {

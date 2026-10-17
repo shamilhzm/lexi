@@ -1,0 +1,66 @@
+[
+  {
+    "id": "voc:C1:die Moderne",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Moderne"
+  },
+  {
+    "id": "voc:B2:die Treue",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Treue"
+  },
+  {
+    "id": "voc:C1:die Wettbewerbsfähigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wettbewerbsfähigkeit"
+  },
+  {
+    "id": "voc:B2:die Unzufriedenheit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Unzufriedenheit"
+  },
+  {
+    "id": "voc:B2:die Leere",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Leere"
+  },
+  {
+    "id": "voc:C1:die Leichtigkeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Leichtigkeit"
+  },
+  {
+    "id": "voc:C1:die Glätte",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Glätte"
+  },
+  {
+    "id": "voc:C1:die Untreue",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Untreue"
+  }
+]

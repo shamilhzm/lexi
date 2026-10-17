@@ -1107,6 +1107,48 @@
       }
     ]
   },
+  "voc:A1:achte": {
+    "ex": [
+      {
+        "de": "Wir treffen uns am achten März.",
+        "en": "We're meeting on the eighth of March.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist ihre achte Reise nach Spanien.",
+        "en": "That's her eighth trip to Spain.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:achtzehn": {
+    "ex": [
+      {
+        "de": "Mit achtzehn ist man in Deutschland volljährig.",
+        "en": "In Germany you come of age at eighteen.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das kostet achtzehn Euro.",
+        "en": "That costs eighteen euros.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:achtzig": {
+    "ex": [
+      {
+        "de": "Auf der Landstraße darf man achtzig fahren.",
+        "en": "On country roads you may drive at eighty.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Er ist achtzig geworden.",
+        "en": "He has turned eighty.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:alle": {
     "def": "finished; gone",
     "ex": [
@@ -18677,6 +18719,48 @@
       }
     ]
   },
+  "voc:A1:dreizehn": {
+    "ex": [
+      {
+        "de": "Mein Bruder ist dreizehn Jahre alt.",
+        "en": "My brother is thirteen years old.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der Bus kommt in dreizehn Minuten.",
+        "en": "The bus comes in thirteen minutes.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:dreißig": {
+    "ex": [
+      {
+        "de": "Mein Vater ist dreißig Jahre alt.",
+        "en": "My father is thirty years old.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das dauert ungefähr dreißig Minuten.",
+        "en": "That takes about thirty minutes.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:dritte": {
+    "ex": [
+      {
+        "de": "Am dritten Tag hat es geregnet.",
+        "en": "On the third day it rained.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie wohnt im dritten Stock.",
+        "en": "She lives on the third floor.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:drucken": {
     "def": "To produce text or pictures on paper with a machine — not to be confused with drücken, to press.",
     "ex": [
@@ -19453,6 +19537,20 @@
       }
     ]
   },
+  "voc:A1:erste": {
+    "ex": [
+      {
+        "de": "Das ist mein erster Tag in Berlin.",
+        "en": "This is my first day in Berlin.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir wohnen im ersten Stock.",
+        "en": "We live on the first floor.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:erzählen": {
     "def": "To tell someone about something, recounting it in sequence.",
     "ex": [
@@ -20094,6 +20192,48 @@
         "de": "Nur fünf von zwanzig Plätzen waren noch frei.",
         "en": "Only five of twenty seats were still free.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:fünfte": {
+    "ex": [
+      {
+        "de": "Heute ist der fünfte Mai.",
+        "en": "Today is the fifth of May.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist schon das fünfte Mal!",
+        "en": "That's already the fifth time!",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:fünfzehn": {
+    "ex": [
+      {
+        "de": "Der Film beginnt in fünfzehn Minuten.",
+        "en": "The film starts in fifteen minutes.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie war damals fünfzehn Jahre alt.",
+        "en": "She was fifteen at the time.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:fünfzig": {
+    "ex": [
+      {
+        "de": "Meine Mutter wird nächste Woche fünfzig.",
+        "en": "My mother turns fifty next week.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Hier darf man nur fünfzig fahren.",
+        "en": "You can only drive at fifty here.",
+        "lvl": "A1"
       }
     ]
   },
@@ -23248,6 +23388,48 @@
       }
     ]
   },
+  "voc:A1:neunte": {
+    "ex": [
+      {
+        "de": "Beethovens neunte Sinfonie ist berühmt.",
+        "en": "Beethoven's ninth symphony is famous.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Er wohnt im neunten Stock.",
+        "en": "He lives on the ninth floor.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:neunzehn": {
+    "ex": [
+      {
+        "de": "Der Zug fährt um neunzehn Uhr.",
+        "en": "The train leaves at seven p.m.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie ist erst neunzehn.",
+        "en": "She's only nineteen.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:neunzig": {
+    "ex": [
+      {
+        "de": "Das Konzert dauert neunzig Minuten.",
+        "en": "The concert lasts ninety minutes.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie lebte, bis sie neunzig war.",
+        "en": "She lived until she was ninety.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:nicht": {
     "def": "not, non- (negates the meaning of a verb, adjective, or adverb)",
     "ex": [
@@ -24363,6 +24545,48 @@
       }
     ]
   },
+  "voc:A1:sechste": {
+    "ex": [
+      {
+        "de": "Sie geht in die sechste Klasse.",
+        "en": "She's in sixth grade.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Am sechsten Juni habe ich Geburtstag.",
+        "en": "My birthday is on the sixth of June.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:sechzehn": {
+    "ex": [
+      {
+        "de": "Mit sechzehn darf man in Deutschland Bier trinken.",
+        "en": "At sixteen you're allowed to drink beer in Germany.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Die Klasse hat sechzehn Schüler.",
+        "en": "The class has sixteen pupils.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:sechzig": {
+    "ex": [
+      {
+        "de": "Eine Stunde hat sechzig Minuten.",
+        "en": "An hour has sixty minutes.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mein Opa ist über sechzig.",
+        "en": "My grandpa is over sixty.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:sehen": {
     "def": "to see; to have sight; to see (something); to perceive by vision",
     "ex": [
@@ -24609,6 +24833,48 @@
         "de": "Im Märchen geht es um sieben Zwerge.",
         "en": "The fairy tale is about seven dwarfs.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:siebte": {
+    "ex": [
+      {
+        "de": "Ich fühle mich wie im siebten Himmel.",
+        "en": "I feel like I'm in seventh heaven.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Der siebte Tag ist ein Sonntag.",
+        "en": "The seventh day is a Sunday.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:siebzehn": {
+    "ex": [
+      {
+        "de": "Er wohnt in Hausnummer siebzehn.",
+        "en": "He lives at number seventeen.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Mit siebzehn hat sie den Führerschein gemacht.",
+        "en": "She got her driving licence at seventeen.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:siebzig": {
+    "ex": [
+      {
+        "de": "Die Oma ist siebzig Jahre alt.",
+        "en": "Grandma is seventy years old.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Buch hat siebzig Seiten.",
+        "en": "The book has seventy pages.",
+        "lvl": "A1"
       }
     ]
   },
@@ -25963,6 +26229,48 @@
       }
     ]
   },
+  "voc:A1:vierte": {
+    "ex": [
+      {
+        "de": "Er ist im Rennen Vierter geworden.",
+        "en": "He came fourth in the race.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist ihr viertes Kind.",
+        "en": "That's her fourth child.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:vierzehn": {
+    "ex": [
+      {
+        "de": "Wir bleiben vierzehn Tage in Italien.",
+        "en": "We're staying in Italy for a fortnight.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Kind ist vierzehn.",
+        "en": "The child is fourteen.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:vierzig": {
+    "ex": [
+      {
+        "de": "Das Hemd kostet vierzig Euro.",
+        "en": "The shirt costs forty euros.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie hat vierzig Gäste eingeladen.",
+        "en": "She has invited forty guests.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:voll": {
     "def": "fully",
     "ex": [
@@ -26764,6 +27072,20 @@
       }
     ]
   },
+  "voc:A1:zehnte": {
+    "ex": [
+      {
+        "de": "Das ist der zehnte Versuch.",
+        "en": "That's the tenth attempt.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Am zehnten Oktober fängt der Kurs an.",
+        "en": "The course starts on the tenth of October.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:ziemlich": {
     "def": "pretty, quite, rather, fairly, kind of; pretty much, quite a bit",
     "ex": [
@@ -26945,6 +27267,20 @@
         "de": "Zwischen den zwei Häusern liegt ein kleiner Garten.",
         "en": "Between the two houses there is a small garden.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:zweite": {
+    "ex": [
+      {
+        "de": "Nimm die zweite Straße links.",
+        "en": "Take the second street on the left.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das ist schon mein zweiter Kaffee.",
+        "en": "That's already my second coffee.",
+        "lvl": "A1"
       }
     ]
   },
