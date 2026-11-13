@@ -81,7 +81,7 @@ export default function WordDetail({ word, onClose, onPractise }: {
               instruction (*teach me this*), the cap is *test me on it now*. */}
           {onPractise && (
             <>
-              <div className="mt-5 flex items-center justify-center gap-8">
+              <div className="mt-3 flex items-center justify-center gap-8">
                 <button aria-pressed={saved}
                   onClick={() => { setSaved(toggleSaved(word.id)); haptic('grade'); }}
                   className={`tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition active:scale-90 ${saved ? 'text-accent' : 'text-txt hover:text-accent'}`}>
@@ -95,7 +95,9 @@ export default function WordDetail({ word, onClose, onPractise }: {
                   <span className="sr-only">Practise <span lang="de">{word.term}</span> now — every drill for this word</span>
                 </button>
               </div>
-              <p aria-hidden className={`mt-1 text-xs text-dim transition-opacity ${saved ? 'opacity-100' : 'opacity-0'}`}>
+              {/* Its line is always there, so pressing the bookmark does not push
+                  the entry down by one row of text. */}
+              <p aria-hidden className={`h-4 text-xs leading-4 text-dim transition-opacity ${saved ? 'opacity-100' : 'opacity-0'}`}>
                 Saved — Üben teaches it next.
               </p>
             </>

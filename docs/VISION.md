@@ -347,6 +347,24 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   `gram:*`. `src/focus.test.ts` pins the flags, so walking this back is a decision,
   not a drift. The refocus of 2026-09-05 narrowed what Lexi *teaches*; this narrows
   what a learner is *asked to configure and practise*.
+- **Exam vocabulary is measured; exam prep stays refused** *(2026-11-10, the owner's
+  choice between the two)*. Asked what a candidate needs to pass Goethe or telc, Lexi
+  answers the half that is vocabulary. `npm run corpus:examcov` holds the corpus to
+  Goethe's A1, A2 and B1 Wortlisten, and a card is filed at the level the exam names
+  the word at. Above B1 neither body publishes a list, and Lexi says so rather than
+  inventing one. **Unchanged:** no exam room, no papers, no *am I ready* (Track E #10).
+  The lists are fetched, never shipped; whether a card may be *labelled* as on an exam
+  list in the app is the same question as open decision 2b and is not decided.
+- **A tenth drill — the preposition a word takes** *(2026-11-13)*. *warten auf*,
+  *sich kümmern um*, *stolz auf*. It passes the vocabulary ruling the way conjugation
+  does — nothing about *warten* predicts *auf* — and it is the word property the
+  certificate papers test hardest. **What it may never do:** print or ask the *case*
+  (that is the half Focus hides), offer as a wrong answer a preposition the corpus
+  attests for the same word, or take a fact from a sentence by itself. Where a card's
+  headword does not name its preposition, the fact comes from `src/data/government.ts`
+  — ruled by hand, and refused by a test unless that card's own examples already show
+  it. `eligibleModes` is still the original three: this drill is asked for, or comes
+  back on the schedule of a learner who has met it.
 - **Hören — German in the background** *(2026-10-02, at the owner's direction)*.
   Walk mode was hard to find and the wrong shape for the ask: "the audio to just run
   in the background while I do other things … without having to have my headphones

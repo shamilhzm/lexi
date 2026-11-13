@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs';
 import { registerWords } from '../data/index.ts';
 import { resetSurfaceIndex } from '../lib/surface.ts';
 import { government } from '../lib/matcher.ts';
-import { prepOf, prepOptions, practiceModes, eligibleModes, canAsk, GOVERNED_PREPS, MODE_TAG, type Mode } from './drills.tsx';
+import { prepOf, prepOptions, prepsFor, practiceModes, eligibleModes, canAsk, GOVERNED_PREPS, MODE_TAG, type Mode } from './drills.tsx';
 import type { Word } from '../types.ts';
 
 const corpus: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
@@ -22,7 +22,7 @@ const byTerm = (t: string) => words.find((w) => w.term === t)!;
 
 describe('prepOf — which cards have a preposition to ask for', () => {
   it('finds the governed cards, reflexive and adjective alike', () => {
-    expect(governed.length).toBeGreaterThan(30);
+    expect(governed.length).toBeGreaterThan(80);
     expect(prepOf(byTerm('warten auf + A'))).toMatchObject({ prep: 'auf', head: 'warten' });
     expect(prepOf(byTerm('sich interessieren für + A'))).toMatchObject({ prep: 'für', head: 'sich interessieren' });
   });
@@ -57,21 +57,30 @@ describe('prepOptions — four choices, and only one of them is German', () => {
     }
   });
 
-  it('never offers a preposition another card attests for the same word', () => {
-    const preps = new Map<string, Set<string>>();
-    for (const w of words) {
-      const g = government(w.term);
-      if (g) (preps.get(g.lemma.toLowerCase()) ?? preps.set(g.lemma.toLowerCase(), new Set()).get(g.lemma.toLowerCase())!).add(g.prep);
-    }
+  it('never offers a preposition the corpus attests for the same word', () => {
     for (const w of governed) {
-      const mine = prepOf(w)!;
+      const valid = prepsFor(w, words);
+      expect(valid.has(prepOf(w)!.prep), w.term).toBe(true);
       // Random distractors: ask each card several times.
-      for (let n = 0; n < 8; n++) {
+      for (let n = 0; n < 6; n++) {
         const mc = prepOptions(w, words)!;
         const wrong = mc.options.filter((_, i) => i !== mc.correct);
-        for (const o of wrong) expect(preps.get(mine.lemma.toLowerCase())!.has(o), `${w.term} offered ${o}`).toBe(false);
+        for (const o of wrong) expect(valid.has(o), `${w.term} offered ${o}`).toBe(false);
       }
     }
+  });
+
+  it('knows a verb by all its cards: sich freuen takes auf and über', () => {
+    const valid = prepsFor(byTerm('sich freuen auf + A'), words);
+    expect(valid.has('auf') && valid.has('über')).toBe(true);
+    expect(prepsFor(byTerm('sich freuen'), words).has('auf')).toBe(true);
+  });
+
+  it('asks a plain card for the preposition its own examples show', () => {
+    expect(prepOf(byTerm('antworten'))).toMatchObject({ prep: 'auf', head: 'antworten' });
+    expect(prepOf(byTerm('sich kümmern'))).toMatchObject({ prep: 'um', head: 'sich kümmern' });
+    expect(prepOf(byTerm('leiden (unter)'))).toMatchObject({ prep: 'unter', head: 'leiden' });
+    expect(prepOf(byTerm('gehen'))).toBeNull();
   });
 
   it('prints the word without its preposition or its case', () => {

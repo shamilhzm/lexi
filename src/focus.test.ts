@@ -111,3 +111,34 @@ describe('focus: vocabulary only', () => {
     expect(store.cardOf('gym:conjugate:gehen')).toBeTruthy();
   });
 });
+
+// The headword half of the same ruling: *`warten auf` stays; `+ Akkusativ` goes*.
+// The entry's "Takes" line obeyed it from the start; the headword above it printed
+// `warten auf + A` on every surface until 2026-11-13.
+describe('focus — a governed headword is shown without its case', () => {
+  it('keeps the preposition and drops the case', async () => {
+    const { shownTerm } = await import('./lib/focus.ts');
+    expect(shownTerm('warten auf + A')).toBe('warten auf');
+    expect(shownTerm('sich interessieren für + A')).toBe('sich interessieren für');
+    expect(shownTerm('nachdenken über + A')).toBe('nachdenken über');
+    expect(shownTerm('verantwortlich für + A')).toBe('verantwortlich für');
+  });
+
+  it("leaves a bare preposition's own case, and every ordinary word, alone", async () => {
+    const { shownTerm } = await import('./lib/focus.ts');
+    expect(shownTerm('wegen + G')).toBe('wegen + G');
+    expect(shownTerm('der Tisch')).toBe('der Tisch');
+    expect(shownTerm('ansprechen (Person)')).toBe('ansprechen (Person)');
+  });
+
+  it('covers every governed card in the corpus', async () => {
+    const { shownTerm } = await import('./lib/focus.ts');
+    const { readFileSync } = await import('node:fs');
+    const corpus = JSON.parse(readFileSync('public/data/vocab.json', 'utf8')) as Word[];
+    const { government } = await import('./lib/matcher.ts');
+    const PREPS = new Set(['an', 'auf', 'aus', 'bei', 'für', 'gegen', 'in', 'mit', 'nach', 'über', 'um', 'unter', 'von', 'vor', 'zu']);
+    const governed = corpus.filter((w) => { const g = government(w.term); return !!g && PREPS.has(g.prep); });
+    expect(governed.length).toBeGreaterThan(30);
+    for (const w of governed) expect(shownTerm(w.term), w.term).not.toMatch(/\+/);
+  });
+});

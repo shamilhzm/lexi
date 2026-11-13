@@ -44,6 +44,7 @@ import { statusOf, isWanted, noteWanted } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
 import { genderColor, haptic, fmt } from '../lib/ui.ts';
+import { shownTerm } from '../lib/focus.ts';
 import { WORDS } from '../data/index.ts';
 import WordDetail from './WordDetail.tsx';
 import WordDrill from './WordDrill.tsx';
@@ -91,6 +92,15 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
   const taught = useMemo(
     () => new Set(cardHits.map((w) => w.term.replace(/^(der|die|das)\s+/i, '').toLowerCase())),
     [cardHits]);
+
+  // **A word Lexi teaches is not "a form of" something else.** Typing *warten auf*
+  // found the card — and, under it, the dictionary's guess that the two words are
+  // the separated halves of *aufwarten* (to wait at table). True of the string,
+  // false of the question. Where the query is a card's own headword, the
+  // dictionary's inflection guess is withheld; a direct dictionary hit still shows.
+  const asked = q.trim().toLowerCase();
+  const isHeadword = hits.some((w) => shownTerm(w.term).replace(/^(der|die|das)\s+/i, '').toLowerCase() === asked);
+  const lexShown = lex.via && isHeadword ? [] : lexEntries;
 
   const nothing = asking && cardHits.length === 0 && lexEntries.length === 0;
 
@@ -171,7 +181,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
                     <span className="flex-1 min-w-0">
                       <span className="flex items-baseline gap-1.5 flex-wrap">
                         <span lang="de" className="headword text-base font-semibold break-words"
-                          style={{ color: genderColor(w.gender) }}>{w.term}</span>
+                          style={{ color: genderColor(w.gender) }}>{shownTerm(w.term)}</span>
                         <span className="font-mono text-2xs text-dim">{w.level}</span>
                       </span>
                       <span className="block text-xs text-dim truncate">{w.en}</span>
@@ -192,13 +202,13 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
         {/* The dictionary. Below the cards, always, and built so it cannot be
             mistaken for them: its own heading that says where it came from, a
             quieter surface, and no way in to studying anything. */}
-        {asking && lexEntries.length > 0 && (
+        {asking && lexShown.length > 0 && (
           <section className="mt-5">
             <Kicker className="block mb-2">
               {lex.via ? <>from the dictionary · {lex.via} is a form of</> : 'from the dictionary'}
             </Kicker>
             <ul className="divide-y divide-line rounded-lg border border-line overflow-hidden bg-panel2">
-              {lexEntries.map((e, k) => (
+              {lexShown.map((e, k) => (
                 <li key={`${e.w}-${e.p}-${k}`} className="px-3.5 py-3">
                   <div className="flex items-baseline gap-1.5 flex-wrap">
                     <span lang="de" className="headword text-base font-semibold break-words"

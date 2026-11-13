@@ -38,6 +38,7 @@
 //      zwischen) cannot: which case they take *is* the verb's government, and
 //      that is exactly the fact we are missing. Those are refused, not guessed.
 import type { Word } from '../types.ts';
+import { governed } from '../data/government.ts';
 
 export type Kase = 'Akkusativ' | 'Dativ';
 
@@ -95,10 +96,45 @@ export function parseValency(term: string): Valency | null {
   return { verb, prep, kase };
 }
 
-/** The government of a card, or null when it has none or is not a verb. */
+/** The government of a card, or null when it has none or is not a verb.
+ *
+ *  The headword first, where it says so; then the ruled table for the plain
+ *  cards whose own examples show the pattern (`data/government.ts`). */
 export function valencyOf(w: Word): Valency | null {
   if (w.kind !== 'word' || w.pos !== 'verb') return null;
-  return parseValency(w.term);
+  const own = parseValency(w.term);
+  if (own) return own;
+  const [first] = governed(w.term);
+  return first ? { verb: w.term, prep: first.prep, kase: CASE_OF[first.kase] } : null;
+}
+
+/** The prepositions the drill can ask for and offer. */
+export const DRILL_PREPS: ReadonlySet<string> = new Set(
+  ['an', 'auf', 'aus', 'bei', 'für', 'gegen', 'in', 'mit', 'nach', 'über', 'um', 'unter', 'von', 'vor', 'zu']);
+
+/** A headword that names its own preposition, in any of the three ways the
+ *  corpus writes one — and the headword with it taken out:
+ *
+ *    warten auf + A          the authored marker            → warten · auf
+ *    beitragen zu            preposition, no case            → beitragen · zu
+ *    leiden (unter)          in brackets                     → leiden · unter
+ *    kümmern (sich um)       in brackets, with the reflexive → sich kümmern · um
+ *
+ *  Null for everything else. The bare shape must end a *verb* phrase, which is
+ *  what keeps `in der Nähe von` and `nach wie vor` out; `wegen + G` has no word
+ *  before its marker for a preposition to be, and `gelten als + N`, `es gibt + A`
+ *  end in words that are not prepositions. `\p{L}`, never `\w` (LESSONS). */
+export function headPrep(term: string): { head: string; prep: string } | null {
+  const t = term.trim();
+  let m = /^(.*\S)\s+(\p{L}+)\s*\+\s*[ADG]$/u.exec(t);
+  if (m) return DRILL_PREPS.has(m[2].toLowerCase()) ? { head: m[1], prep: m[2].toLowerCase() } : null;
+  m = /^(.*\S)\s+\((sich\s+)?(\p{L}+)\)$/u.exec(t);
+  if (m) return DRILL_PREPS.has(m[3].toLowerCase()) ? { head: (m[2] ? 'sich ' : '') + m[1], prep: m[3].toLowerCase() } : null;
+  m = /^(.*\S)\s+(\p{L}+)$/u.exec(t);
+  if (m && DRILL_PREPS.has(m[2].toLowerCase()) && /(?:^|\s)(?:\p{Ll}+(?:en|ern|eln)|sein|tun)$/u.test(m[1])) {
+    return { head: m[1], prep: m[2].toLowerCase() };
+  }
+  return null;
 }
 
 /** How to say it on a card: "warten auf + Akkusativ", or "beitragen zu + Dativ",

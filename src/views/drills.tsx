@@ -38,8 +38,10 @@ import { ArrowLeft, CircleDot, Layers3, PenLine, Venus, Mars, Check, X } from 'l
 import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { conjugate, canConjugate } from '../lib/conjugate.ts';
-import { visibleMode } from '../lib/focus.ts';
-import { pluralForms, government } from '../lib/matcher.ts';
+import { visibleMode, shownTerm } from '../lib/focus.ts';
+import { pluralForms } from '../lib/matcher.ts';
+import { headPrep, DRILL_PREPS } from '../lib/valency.ts';
+import { governed } from '../data/government.ts';
 import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
@@ -526,7 +528,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   };
   return (
     <Card>
-      <Prompt small="Which article goes with it?" gloss={word.en}>{stripArticle(word.term)}</Prompt>
+      <Prompt small="Which article goes with it?" gloss={word.en}>{shownTerm(stripArticle(word.term))}</Prompt>
       {/* **Three across, or one column — never two-and-one** *(2026-10-16)*. A fixed
           third of a 375pt card was 67px at an accessibility size, for a 41px "der", and
           the word broke inside its own key. `.gender-keys` stacks them from the app's
@@ -697,7 +699,7 @@ export function MeaningItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   // first and the gender item second, so a prompt reading a pink *die* Hose
   // prints the answer to the next question above the current one. `GenderItem`
   // strips for exactly the same reason; this matches it.
-  return <MCItem prompt={stripArticle(word.term)} big
+  return <MCItem prompt={shownTerm(stripArticle(word.term))} big
     sub="What does it mean?" options={mc.options} correct={mc.correct} optLang="en" onGrade={onGrade} />;
 }
 
@@ -841,8 +843,11 @@ export function ReverseItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     const same = WORDS.filter((w) => w.kind === 'word' && w.id !== word.id && w.pos === word.pos
       && !glossOverlap(w.en, word.en) && !synKeys(word).has(canon(stripArticle(w.term))));
     const near = same.filter((w) => w.level === word.level);
-    const pool = (near.length >= 3 ? near : same).map((w) => w.term);
-    return buildMC(word.term, pickN(pool, 3, new Set([norm(word.term)])));
+    // `shownTerm` on the options as on every headword: `+ A` is notation, and an
+    // option that carries it among three that do not is answerable by its shape.
+    const pool = (near.length >= 3 ? near : same).map((w) => shownTerm(w.term));
+    const mine = shownTerm(word.term);
+    return buildMC(mine, pickN(pool, 3, new Set([norm(mine)])));
   }, [word.id]);
   if (mc.options.length < 2) return null;
   return <MCItem prompt={word.en} big sub="Which word is it?"
@@ -943,7 +948,7 @@ export function UsageItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     return buildMC(mine, distract);
   }, [word.id]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{stripArticle(word.term)}</span>} big
+  return <MCItem prompt={<span lang="de">{shownTerm(stripArticle(word.term))}</span>} big
     sub="Which sentence uses it?" hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
@@ -971,7 +976,7 @@ export function ConjugateItem({ word, onGrade }: { word: Word; onGrade: Grade })
   }, [word.id]);
   if (!mc) return null;
   return <MCItem prompt={<span lang="de">{mc.person} <span className="text-accent">·····</span></span>}
-    big sub={`Which form of ${stripArticle(word.term)}?`} hint={word.en}
+    big sub={`Which form of ${shownTerm(stripArticle(word.term))}?`} hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
 
@@ -988,7 +993,7 @@ export function DegreeItem({ word, forms, onGrade }: { word: Word; forms: string
     return buildMC(target, distract);
   }, [word.id, forms]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{stripArticle(word.term)} → <span className="text-accent">·····</span></span>}
+  return <MCItem prompt={<span lang="de">{shownTerm(stripArticle(word.term))} → <span className="text-accent">·····</span></span>}
     big sub="Which is the comparative?" hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
@@ -1006,7 +1011,7 @@ export function SynonymItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     return buildMC(target, distract);
   }, [word.id]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{stripArticle(word.term)}</span>} big
+  return <MCItem prompt={<span lang="de">{shownTerm(stripArticle(word.term))}</span>} big
     sub="Which word means the same?" hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
@@ -1024,30 +1029,52 @@ export function SynonymItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
 // prints it.
 
 /** The prepositions a governed card can name — the distractor pool. */
-export const GOVERNED_PREPS = ['an', 'auf', 'aus', 'bei', 'für', 'gegen', 'in', 'mit', 'nach', 'über', 'um', 'unter', 'von', 'vor', 'zu'];
+export const GOVERNED_PREPS = [...DRILL_PREPS];
 
-/** A governed card's preposition, and its headword with the preposition taken
- *  out (*sich freuen*, not *freuen* — the reflexive is part of the word). Null
- *  for everything else, including the bare-preposition cards (`wegen + G`), whose
- *  headword *is* the preposition. */
+/** What the preposition drill needs from a card: the preposition it takes, the
+ *  headword with that preposition taken out (*sich freuen*, not *freuen* — the
+ *  reflexive is part of the word), and the bare lemma that ties a verb's cards
+ *  together. Two sources, in order:
+ *
+ *    the headword       `warten auf + A` · `beitragen zu` · `leiden (unter)`
+ *    the ruled table    plain cards whose examples show it — `antworten` → *auf*
+ *
+ *  Null for everything else, including the bare-preposition cards (`wegen + G`),
+ *  whose headword *is* the preposition. */
 export function prepOf(w: Word): { lemma: string; prep: string; head: string } | null {
-  const g = government(w.term);
-  if (!g || !GOVERNED_PREPS.includes(g.prep)) return null;
-  const head = w.term.replace(/\s+\S+\s*\+\s*[ADGN]$/u, '').trim();
-  return { ...g, head };
+  if (w.kind !== 'word' || !PREP_POS.has(w.pos)) return null;
+  const term = stripArticle(w.term);
+  const own = headPrep(term);
+  if (own) return { ...own, lemma: lemmaKey(own.head) };
+  const [ruled] = w.pos === 'verb' ? governed(term) : [];
+  return ruled ? { prep: ruled.prep, head: term, lemma: lemmaKey(term) } : null;
+}
+const PREP_POS = new Set(['verb', 'adjective', 'phrase']);
+const lemmaKey = (head: string) => head.replace(/^sich\s+/i, '').replace(/\s*\([^)]*\)$/u, '').trim().toLowerCase();
+
+/** Every preposition the corpus attests for a card's word — its own, any other
+ *  card's for the same verb, and every one the table rules. */
+export function prepsFor(word: Word, pool: Word[] = WORDS): Set<string> {
+  const mine = prepOf(word);
+  const out = new Set<string>();
+  if (!mine) return out;
+  for (const w of pool) {
+    const p = w === word ? mine : prepOf(w);
+    if (!p || p.lemma !== mine.lemma) continue;
+    out.add(p.prep);
+    for (const g of governed(stripArticle(w.term))) out.add(g.prep);
+  }
+  for (const g of governed(stripArticle(word.term))) out.add(g.prep);
+  return out;
 }
 
-/** Four prepositions, one right. A preposition another card attests for the same
+/** Four prepositions, one right. A preposition the corpus attests for the same
  *  word is never a distractor: *sich freuen* takes *auf* and *über*, and offering
  *  one as the wrong answer to the other marks correct German wrong. */
 export function prepOptions(word: Word, pool: Word[] = WORDS): { options: string[]; correct: number; head: string } | null {
   const mine = prepOf(word);
   if (!mine) return null;
-  const valid = new Set<string>([mine.prep]);
-  for (const w of pool) {
-    const g = government(w.term);
-    if (g && g.lemma.toLowerCase() === mine.lemma.toLowerCase()) valid.add(g.prep);
-  }
+  const valid = prepsFor(word, pool);
   const distract = pickN(GOVERNED_PREPS.filter((p) => !valid.has(p)), 3, new Set());
   if (distract.length < 3) return null;
   return { ...buildMC(mine.prep, distract), head: mine.head };

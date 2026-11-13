@@ -43,6 +43,38 @@
 >
 > ---
 >
+> ## What is open after 2026-11-13 — the exam audit
+>
+> *The owner asked what a Goethe/telc candidate is missing and chose the word-level
+> answer (VISION, settled decisions; CHANGELOG 2026-11-10 and 2026-11-13).*
+>
+> **Corpus — measured by `npm run corpus:examcov`:**
+> 1. **B1's remaining 216 list entries.** 58 are feminine *-in* forms, ~40 Austrian or
+>    Swiss variants (*Billett, Marille, Velo*), 42 stems, 24 multi-word entries. Decide
+>    the regional variants before authoring any: a D-A-CH list, one learner's country.
+> 2. **Five words the gate refused**: *die Kosten*, *die Personalien* (plural-only: "no
+>    gender stated"), *die Kosmetik* (plural disputed), *leidtun* (the matcher cannot
+>    prove «Es tut mir leid»), *Europa* (the page's first sense is the moon). Each is a
+>    gate blind spot, not a missing fact.
+> 3. **B2–C2 have no list.** `corpus:kernwortschatz` is the proxy: 459 content words
+>    owed in the top 5,000, 2,507 in the top 10,000. `origin/corpus/class-list-2026-11-02`
+>    holds an unapplied batch of 82 C1 cards.
+> 4. **More verbs for `data/government.ts`.** 40 rows today. A row needs an example on
+>    the card that shows the pattern first — *danken für*, *glauben an*, *riechen nach*,
+>    *warnen vor*, *sterben an* have none yet.
+> 5. **Seven `def` fields are grammar notes** («takes the dative: jemandem helfen») —
+>    a word fact filed where a definition goes.
+>
+> **App:**
+> 6. **The preposition drill in the scheduler.** It is asked for, never woven. Whether
+>    `eligibleModes` should carry it for governed cards is a VISION change, not a patch.
+> 7. **Lazy chunks are not pre-cached**; the offline pack is the only way to hold all
+>    of the app. The entry is 280 KB gzipped — motion ~45, the id map 18.
+> 8. **The owner's Claude chat export** could not be read (the links need the owner's
+>    login). Nothing in this pass came from it.
+>
+> ---
+>
 > ## What is open after 2026-10-04 — the second panel
 >
 > *Ten app-developer seats reviewed Focus and Hören and agreed a path

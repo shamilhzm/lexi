@@ -17,6 +17,7 @@ import { useEffect, useState } from 'react';
 import { Info, TriangleAlert, Volume2, VolumeX } from 'lucide-react';
 import { speak, useGermanVoice } from '../lib/tts.ts';
 import { genderColor } from '../lib/ui.ts';
+import { shownTerm } from '../lib/focus.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
 import { loadProvenance, freqBand, exampleCitation, levelBasis, type Provenance } from '../lib/provenance.ts';
 import { loadAudioManifest, creditFor, type AudioEntry } from '../lib/audio.ts';
@@ -123,7 +124,7 @@ export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id 
    *  term in a second attribute that can drift. */
   id?: string;
 }) {
-  const bare = term.replace(/^(der|die|das)\s+/i, '');
+  const bare = shownTerm(term.replace(/^(der|die|das)\s+/i, ''));
   return (
     <Tag lang="de" id={id} className={className}>
       {gender && <span style={{ color: genderColor(gender) }}>{gender} </span>}

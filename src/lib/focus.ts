@@ -34,3 +34,19 @@ export const GRAMMAR_MODES: ReadonlySet<string> = new Set(['conjugate', 'degree'
 export function visibleMode(m: string): boolean {
   return FOCUS.grammar || !GRAMMAR_MODES.has(m);
 }
+
+/** A headword as the learner reads it.
+ *
+ *  The corpus writes a governed word as notation — `warten auf + A`. The focus
+ *  ruling is explicit about which half of that is vocabulary: *`warten auf` stays;
+ *  `+ Akkusativ` goes*. The entry's "Takes" line obeyed it and the headword above
+ *  it did not, on the feed, the flip and the search row alike (found 2026-11-13,
+ *  on the simulator, in 40-point type).
+ *
+ *  Only where a preposition precedes the case. A bare preposition's case —
+ *  `wegen + G` — is that word's own property, the way a noun's gender is, and
+ *  it stays. No `\w`: it stops at *ü* (LESSONS). */
+export function shownTerm(term: string): string {
+  if (FOCUS.grammar) return term;
+  return term.replace(/(\s(?:an|auf|aus|bei|für|gegen|in|mit|nach|über|um|unter|von|vor|zu))\s*\+\s*[ADG]$/u, '$1');
+}

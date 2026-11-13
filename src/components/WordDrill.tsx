@@ -39,11 +39,12 @@ import { review, logAttempt, logMiss } from '../store.ts';
 import { Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import {
-  practiceModes, gymId, stripArticle, MODE_TAG,
+  practiceModes, gymId, stripArticle, prepOf, MODE_TAG,
   MeaningItem, ModeItem,
   type Mode, type Grade,
 } from '../views/drills.tsx';
 import { inflections } from '../lib/inflections.ts';
+import { shownTerm } from '../lib/focus.ts';
 import Button from './ui/Button.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Word } from '../types.ts';
@@ -151,7 +152,11 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
                 step two — so `die Hose` up here is the answer printed above the
                 question, whether or not the *die* is pink. Caught by walking a
                 noun through the sheet, not by reading this file. */}
-            <span lang="de" className="block text-base font-semibold truncate">{stripArticle(word.term)}</span>
+            {/* …and no preposition, for the same reason: a governed word's run
+                asks which one it takes, and *warten auf* up here answered it. */}
+            <span lang="de" className="block text-base font-semibold truncate">
+              {steps.includes('prep') ? prepOf(word)?.head ?? shownTerm(stripArticle(word.term)) : shownTerm(stripArticle(word.term))}
+            </span>
           </div>
           {/* Where you are, as objects rather than "2 / 4" — with four steps at
               most, dots are read at a glance and a fraction is read. */}
@@ -201,7 +206,7 @@ function Done({ word, right, of, onClose, backLabel }: { word: Word; right: numb
         {right} of {of} right
       </p>
       <p className="text-dim text-sm max-w-[34ch] mx-auto leading-relaxed mb-7">
-        <span lang="de" className="text-txt">{word.term}</span>{' '}
+        <span lang="de" className="text-txt">{shownTerm(word.term)}</span>{' '}
         {perfect
           ? 'is in your schedule now — Üben will bring it back just before you’d have forgotten it.'
           : 'is in your schedule now, and the parts you missed will come back soonest.'}

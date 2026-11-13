@@ -11,15 +11,43 @@ it is already built.
 
 ---
 
-### Shipped 2026-11-10 — the exam word lists, measured and filled; an offline pack
+### Shipped 2026-11-13 — the preposition a word takes; search opens what it finds
 
-*Not yet driven on the simulator. The preposition drill named below is not built.*
+*Driven on the iPhone 17e simulator (Safari, seeded B1): search → entry → practise →
+the new drill → Fortschritt's blind-spot row → a run of twenty. Deployed.*
+
+- **A tenth drill: the preposition a word takes** (`prep`). *warten ·····* → auf. The
+  word property the certificate papers test hardest, and nothing asked for it except
+  typed recall. It never prints the case. **100 cards** qualify (88 at A1–B1): 60 name
+  the preposition in their headword — now read in all three shapes the corpus writes
+  (`warten auf + A`, `beitragen zu`, `leiden (unter)`) — and 40 plain cards get it from
+  `src/data/government.ts`, a **ruled** table held to the corpus: a row is refused
+  unless the card's own examples use the verb with that preposition. A preposition the
+  corpus attests for the same verb is never offered as a wrong answer. In the practice
+  bank and the blind-spot run; **not** in what the scheduler weaves (VISION).
+- **Every drill surface renders through `ModeItem`.** The session ended its chain in
+  `: <RecallItem>`, so a due practice-sheet drill (`gym:reverse`, `gym:usage` …) came
+  back as typed recall under the caption "Drill", graded onto the wrong schedule. It
+  now comes back as itself, and only when it can be asked (`canAsk`). LESSONS.
+- **Search opened its entry behind itself** since 2026-09-06 — tapping a taught word
+  did nothing visible. The sheet now stands aside; the entry carries the feed's own
+  *save* and *practise*, and the practice sheet returns to the results. LESSONS.
+- **`shownTerm`**: a governed headword prints as *warten auf*, not *warten auf + A* —
+  the Focus ruling the "Takes" line already obeyed. A plain card's entry now has a
+  "Takes" line too (*antworten auf*).
+- **Search no longer calls a taught word "a form of" another** (*warten auf* → "a form
+  of *aufwarten*").
+- **Offline pack**: the claim is read back from Cache Storage, so a browser that kept
+  nothing says so. Two spacing defects in Settings.
+
+### Shipped 2026-11-10 — the exam word lists, measured and filled; an offline pack
 
 - **`npm run corpus:examcov`** — Goethe's A1, A2 and B1 Wortlisten against the corpus,
   with a part-of-speech guard. `goethe-wordlist.py` extracts the A2/B1 lists by column
   position; the lists stay gitignored. Before → after, cards at the list's level:
   **A1 95.7% → 97.1% · A2 85.8% → 97.4% · B1 81.0% → 92.7%**. B2–C2 have no published
-  list; `corpus:kernwortschatz` is the proxy (87.6% of the top 5,000 taught).
+  list; `corpus:kernwortschatz` is the proxy (88.4% of the top 5,000 taught, 70.2% of
+  the top 10,000).
 - **289 cards relevelled** to the level the exam names them at (`relevel-rulings.tsv`,
   id map carries every schedule): *das Klavier*, *parken*, *der Zoo* were B2.
 - **186 new cards** through the gate (`2026-11-10-goethe-exam.json`) — *singen*,

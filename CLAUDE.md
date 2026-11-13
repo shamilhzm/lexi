@@ -52,13 +52,14 @@ four surfaces look like four apps.
 
 - **Stack**: Vite 6 · React 19 · TypeScript · Tailwind 4 · motion · lucide-react · ts-fsrs. Local-first, no backend — this is the *shipping* behaviour and the ruling in `docs/VISION.md`. (`docs/BACKEND.md` designs an account/sync future and says the opposite; it is marked proposal, not policy, and the decision is open.)
 - **Commands**: `npm run dev`, `npm run build`, `npm run typecheck`, `npm test` (Vitest over the pure logic: conjugate, treemap, corpus matcher, the drills). Corpus pipeline: `npm run corpus:*` — build-time only, on a maintainer's machine.
-- **Entry points**: `src/main.tsx` (boot: loads lexicon + hydrates progress before first paint; kicks off `lib/inflections` *after* first paint), `src/App.tsx` (nav/IA — four doors, feed first, `#layer-root`), `src/store.ts` (state, FSRS stats, saved words, exposures, IndexedDB persistence), `src/session.ts` (the queue builder + `SESSION_CEILING`), `src/views/drills.tsx` (**nine** exercise types and the typed-answer grading), `src/components/Layer.tsx` (the sliding panel every sheet uses), `src/views/` (surfaces), `public/data/*.json` (the lexicon, fetched at runtime).
+- **Entry points**: `src/main.tsx` (boot: loads lexicon + hydrates progress before first paint; kicks off `lib/inflections` *after* first paint), `src/App.tsx` (nav/IA — four doors, feed first, `#layer-root`), `src/store.ts` (state, FSRS stats, saved words, exposures, IndexedDB persistence), `src/session.ts` (the queue builder + `SESSION_CEILING`), `src/views/drills.tsx` (**ten** exercise types and the typed-answer grading), `src/components/Layer.tsx` (the sliding panel every sheet uses), `src/views/` (surfaces), `public/data/*.json` (the lexicon, fetched at runtime).
 - **Two drill banks, deliberately.** `eligibleModes` is what the *scheduler* weaves
   into a session — still only gender · plural · recall, because `reverse` and `cloze`
   apply to every card and merging them grew a drill onto every flip. `practiceModes`
   is the full bank behind the graduation cap: meaning · reverse · cloze/usage · gender
-  · plural · conjugate · degree · synonym · recall, cut to a run of four with the ends
-  pinned (meaning opens, recall closes) and the middle shuffled.
+  · plural · conjugate · degree · synonym · prep (the preposition a word takes) ·
+  recall, cut to a run of four with the ends pinned (meaning opens, recall closes) and
+  the middle shuffled. Every surface renders a drill through `ModeItem`.
 - **Search is global**: a magnifier in `TopBar` on every surface opens
   `components/SearchSheet.tsx`; `lib/search.ts` is the one ranking, shared with
   Themen. A miss offers "note this word" → `store.noteWanted` → listed in Profile
