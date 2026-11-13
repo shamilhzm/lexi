@@ -40,8 +40,7 @@ import { Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import {
   practiceModes, gymId, stripArticle, MODE_TAG,
-  MeaningItem, ReverseItem, ClozeItem, UsageItem, GenderItem, PluralItem,
-  ConjugateItem, DegreeItem, SynonymItem, RecallItem,
+  MeaningItem, ModeItem,
   type Mode, type Grade,
 } from '../views/drills.tsx';
 import { inflections } from '../lib/inflections.ts';
@@ -61,6 +60,7 @@ const STEP_LABEL: Record<Step, string> = {
   conjugate: 'Forms',
   degree: 'Comparative',
   synonym: 'Same meaning',
+  prep: 'Preposition',
   recall: 'Recall',
 };
 
@@ -102,7 +102,11 @@ export function stepsFor(word: Word, attested: string[] = []): Step[] {
   return [...first, ...middle.slice(0, room), ...last];
 }
 
-export default function WordDrill({ word, onClose }: { word: Word; onClose: () => void }) {
+export default function WordDrill({ word, onClose, backLabel = 'Back to the feed' }: {
+  word: Word; onClose: () => void;
+  /** Where closing lands — the sheet is opened from the feed and from search. */
+  backLabel?: string;
+}) {
   // Read once, when the sheet opens — `stepsFor` shuffles, so recomputing would
   // reorder the run underneath the learner mid-answer.
   const steps = useMemo(() => stepsFor(word, inflections()?.[word.id] ?? []), [word.id]);
@@ -166,20 +170,13 @@ export default function WordDrill({ word, onClose }: { word: Word; onClose: () =
             {/* Keyed on the step so each item mounts fresh — an MC item that
                 kept its `picked` state across a step change would render the
                 next question already answered. */}
-            {step === 'meaning' && <MeaningItem key="meaning" word={word} onGrade={grade} />}
-            {step === 'reverse' && <ReverseItem key="reverse" word={word} onGrade={grade} />}
-            {step === 'cloze' && <ClozeItem key="cloze" word={word} forms={forms} onGrade={grade} />}
-            {step === 'usage' && <UsageItem key="usage" word={word} onGrade={grade} />}
-            {step === 'gender' && <GenderItem key="gender" word={word} onGrade={grade} />}
-            {step === 'plural' && <PluralItem key="plural" word={word} onGrade={grade} />}
-            {step === 'conjugate' && <ConjugateItem key="conjugate" word={word} onGrade={grade} />}
-            {step === 'degree' && <DegreeItem key="degree" word={word} forms={forms} onGrade={grade} />}
-            {step === 'synonym' && <SynonymItem key="synonym" word={word} onGrade={grade} />}
-            {step === 'recall' && <RecallItem key="recall" word={word} onGrade={grade} />}
+            {step === 'meaning'
+              ? <MeaningItem key="meaning" word={word} onGrade={grade} />
+              : <ModeItem key={step} mode={step} word={word} forms={forms} onGrade={grade} />}
           </>
         )}
 
-        {!step && <Done word={word} right={right} of={steps.length} onClose={onClose} />}
+        {!step && <Done word={word} right={right} of={steps.length} onClose={onClose} backLabel={backLabel} />}
       </div>
     </Layer>
   );
@@ -192,7 +189,7 @@ export default function WordDrill({ word, onClose }: { word: Word; onClose: () =
  *  sentence is the entire difference between this and a quiz — and without it a
  *  learner has no reason to think one drill in the feed was worth more than
  *  reading the card. */
-function Done({ word, right, of, onClose }: { word: Word; right: number; of: number; onClose: () => void }) {
+function Done({ word, right, of, onClose, backLabel }: { word: Word; right: number; of: number; onClose: () => void; backLabel: string }) {
   const perfect = right === of;
   return (
     <div className="text-center pt-8">
@@ -209,7 +206,7 @@ function Done({ word, right, of, onClose }: { word: Word; right: number; of: num
           ? 'is in your schedule now — Üben will bring it back just before you’d have forgotten it.'
           : 'is in your schedule now, and the parts you missed will come back soonest.'}
       </p>
-      <Button onClick={onClose}>Back to the feed</Button>
+      <Button onClick={onClose}>{backLabel}</Button>
     </div>
   );
 }

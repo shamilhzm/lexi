@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### Shipped 2026-11-10 — the exam word lists, measured and filled; an offline pack
+
+*Not yet driven on the simulator. The preposition drill named below is not built.*
+
+- **`npm run corpus:examcov`** — Goethe's A1, A2 and B1 Wortlisten against the corpus,
+  with a part-of-speech guard. `goethe-wordlist.py` extracts the A2/B1 lists by column
+  position; the lists stay gitignored. Before → after, cards at the list's level:
+  **A1 95.7% → 97.1% · A2 85.8% → 97.4% · B1 81.0% → 92.7%**. B2–C2 have no published
+  list; `corpus:kernwortschatz` is the proxy (87.6% of the top 5,000 taught).
+- **289 cards relevelled** to the level the exam names them at (`relevel-rulings.tsv`,
+  id map carries every schedule): *das Klavier*, *parken*, *der Zoo* were B2.
+- **186 new cards** through the gate (`2026-11-10-goethe-exam.json`) — *singen*,
+  *reisen*, *das Leben*, *tief*, *der Wert*, *trotz* had no card, only same-spelled
+  twins. Three sense-scoped plurals repaired by guarded fix (*der Handel*, *das Zeug*,
+  *der Halt*). 11,135 word cards.
+- **Not filled, on purpose:** 58 feminine *-in* forms, the Austrian/Swiss variants
+  (*Billett*, *Marille*, *Velo*), stems and multi-word entries; *die Kosten*, *die
+  Personalien*, *die Kosmetik*, *leidtun*, *Europa* were refused by the gate.
+- **The government fold was ASCII** in four files (LESSONS): 15 `für`/`über`/bare-
+  preposition cards had no frequency rank and read as missing.
+- **Conjugation:** 14 strong roots gained rows (*rennen* had been «rennte, gerennt»).
+  **Matcher rule 4e:** a sentence-opening imperative (*Klick bitte …*) is the verb.
+- **Settings → Use Lexi offline** (`lib/offline.ts`): one tap fetches every level's
+  examples, the inflections and the lazy screens (~2 MB), optionally the dictionary
+  (~29 MB), through the worker's own cache, and asks for persistent storage.
+
 ### Shipped 2026-10-17 — word families built out; the owner's discussion themes; particles where they land
 
 **Why.** The owner asked for the gaps across the corpus filled and every word's family

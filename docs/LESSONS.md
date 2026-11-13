@@ -1899,3 +1899,73 @@ gap.
 **Rule:** when a coverage test fails after the corpus grows, ask what the uncovered
 rows are before touching the number. A floor is lowered only with a measurement of
 why the uncovered rows do not matter, written next to it.
+
+## `\w` is ASCII, and the government strip was copied four times *(added 2026-11-10)*
+
+**Believed:** `.replace(/\s+\w+\s+\+\s+[ADG]$/i, '')` folds a governed card to its
+lemma — `achten auf + A` → `achten` — and the checklist's rule about `\b` covered it.
+
+**True:** `\w` stops at *ü*, so every card governed by **für** or **über** kept its
+tail (`nachdenken über + A`, `sich eignen für + A`, `sich interessieren für + A` …),
+and the five bare prepositions written `wegen + G`, `dank + G`, `statt + G`,
+`während + G`, `innerhalb + G` have no word for `\w+` to eat at all. Fifteen cards.
+The pattern lived in `freq.ts` (no rank, so they sorted last in their band),
+`kernwortschatz.ts` and `candidates.ts` (reported as owed), and `asr-match.ts` (the
+spoken lemma kept its `+ A`). It was found only because the new exam-coverage check
+copied the line, called `wegen` and `nachdenken` missing, and the authoring gate
+refused the second `nachdenken` on its example — a batch had `wegen` in it and the
+gate would have **written** that one, as a twin of `wegen + G`.
+
+**Rule:** the checklist line about `\b` is about `\w` too — over German text use
+`\p{L}` with the `u` flag. And a normalisation that exists in more than one file is
+one bug in several places: when a comparison of headwords says a common word is
+missing, check the fold before the corpus.
+
+## A new check relearns the old check's lesson *(added 2026-11-10)*
+
+**Believed:** matching Goethe's lists on the article-stripped lemma was enough for a
+coverage number.
+
+**True:** `relevel-a1.ts` had already written down why not, in a comment — `der Dank`
+finds the preposition `dank`, `das Lokal` the adjective `lokal`, `reisen` the noun
+`das Reisen`. The first run of `corpus:examcov` had no part-of-speech guard and
+reported all three as covered; with it, `singen`, `reisen`, `fotografieren`, `tief`,
+`das Leben` and `der Wert` turned out to have **no card at all** — only their
+nominalised or same-spelled twins did.
+
+**Rule:** before writing a second instrument over the same input, read the first
+one's header. The guard that cost a session to find is in a comment, not in a library.
+
+## A fallthrough `else` is an enumeration with one case missing *(added 2026-11-13)*
+
+**Believed:** the session renders three drill kinds, so `gender ? … : plural ? … :
+<RecallItem>` in `Review.tsx` is complete — the scheduler only weaves those three.
+
+**True:** the *orphan* path does not go through the scheduler's three. It resurfaces
+any due `gym:<mode>:<id>` whose mode is in `MODE_TAG`, and since 2026-09-06 the
+practice sheet has been writing `gym:reverse`, `gym:cloze`, `gym:usage` and
+`gym:synonym` schedules. So a word practised once in the sheet came back days later
+in Üben as a **typed recall** — under the caption "Drill", for a word that may never
+have been known, graded onto the *recognition* card's schedule. Found by reading
+where a tenth mode would have to be registered, not by a failing test: nothing
+enumerated the modes the session can be handed.
+
+**Rule:** the checklist's line on enumerations applies to a ternary chain too. When
+a union grows, grep for every `: <Default` and every `Record<string, …>` beside it —
+a `Record<Mode, …>` fails the build when a case is missing, and a fallthrough ships.
+
+## Moving a layer moves it for every caller *(added 2026-11-13)*
+
+**Believed:** search works — type a word, tap the card Lexi teaches, read its entry.
+
+**True:** on 2026-09-06 `Layer` stopped being a `fixed z-[200]` portal on `body` and
+began rendering into `#layer-root` at `z-40`, *inside* the shell, so the bars stay
+visible. `SearchSheet` stayed a `fixed inset-0 z-[190]` portal on `body`, and it
+opens `WordDetail` — a `Layer`. So for two months the entry opened **behind** the
+sheet that asked for it: tapping a search result did nothing a learner could see.
+No test fails, because the dialog is in the DOM with the right label; the browser
+pane cannot see it either. It was found by trying to reach a word on the simulator.
+
+**Rule:** when a shared container changes where it mounts, list every component
+that renders it and ask what is on top of each one. And "is in the document" is not
+"is on screen" — a test for an overlay has to ask what covers it.

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "voc:B1:der Handel",
+    "expect": {
+      "plural": "die Händel"
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Handel — «die Händel» is the plural of sense [3] (a quarrel); the trade sense is {{K|nur Singular}}. The gate copies the page's table and cannot be told which sense a card means."
+  },
+  {
+    "id": "voc:B1:das Zeug",
+    "expect": {
+      "plural": "die Zeuge"
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zeug — «die Zeuge» is the plural of the technical senses (fabrics, gear); the card is the mass noun «stuff», which has none. Left as it was, «Der vermeintliche Zeuge» resolved to this card instead of der Zeuge."
+  },
+  {
+    "id": "voc:B1:der Halt",
+    "expect": {
+      "plural": "die Halte / die Halts"
+    },
+    "plural": "die Halts",
+    "src": "de.wiktionary.org/wiki/Halt attests both; one is stated because «Halte» is also the imperative of halten, and four example sentences opening «Halte …» resolved to this noun."
+  }
+]

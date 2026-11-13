@@ -450,6 +450,32 @@ describe('buildMixedSession', () => {
     }
   });
 
+  // The practice sheet schedules `gym:usage`, `gym:reverse` … as well as the
+  // scheduler's three. A due one is resurfaced under its own mode — and only
+  // when it can be asked: a sentence drill on a word whose examples have not
+  // arrived would render nothing and strand the session (2026-11-13).
+  it('resurfaces a due practice-sheet drill only when it can be asked', async () => {
+    const { data, store, session, srs, drillsMod } = await fresh();
+    data.registerWords([
+      word('s0', 'Sheet', { gender: 'die', pos: 'x' }),
+      word('s1', 'Sheet', { gender: 'die', pos: 'x', ex: [] }),
+      word('s2', 'Sheet', { gender: 'die', pos: 'x', ex: [{ de: 'Ein Satz mit s2.', en: 'A sentence.', lvl: 'A1' }] }),
+    ]);
+    const bare = drillsMod.gymId('usage', word('s1', 'Sheet'));
+    const full = drillsMod.gymId('usage', word('s2', 'Sheet'));
+    store.review(bare, srs.Rating.Again);
+    store.review(full, srs.Rating.Again);
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date(Date.now() + 30 * 86_400_000));
+      const orphans = session.buildMixedSession(custom(['s0'])).filter((it) => it.reason.kind === 'orphan');
+      expect(orphans.map((it) => it.srsId)).toEqual([full]);
+      expect(orphans[0].type).toBe('usage');
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('gives every item a reason — nothing enters a session unexplained', async () => {
     const { data, session } = await fresh();
     const words = ['g0', 'g1', 'g2'].map((id) => word(id, 'Nouns', { gender: 'die', pos: 'x' }));

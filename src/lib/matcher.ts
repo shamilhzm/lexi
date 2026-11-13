@@ -717,6 +717,10 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     'einem', 'keinem', 'meinem', 'deinem', 'seinem', 'ihrem', 'unserem', 'eurem', 'diesem', 'jedem', 'dieses', 'jedes']);
   /** …and the ones that can, which cancel the singular reading when both are near. */
   const PLURAL_CAPABLE = new Set(['die', 'den', 'der', 'keine', 'meine', 'deine', 'seine', 'ihre', 'unsere', 'eure', 'diese', 'alle', 'viele', 'zwei', 'drei']);
+  /** What stands directly after a sentence-opening imperative (rule 4e): a
+   *  softener, an object pronoun, or the polite *Sie*. Matched on the raw token,
+   *  so *Sie* is the capitalised pronoun and never *sie*. */
+  const IMPERATIVE_COMPANY = new Set(['bitte', 'mal', 'doch', 'dich', 'dir', 'mich', 'mir', 'euch', 'uns', 'Sie']);
 
   /** @param after tokens following this one in the same sentence, lowercased —
    *  used only to confirm a separable verb's particle actually landed.
@@ -884,6 +888,15 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     if (direct && direct.pos === 'noun' && pos === 0 && next && next[0] !== next[0].toLowerCase()) {
       const adj = adjIndex.get(lc) ?? deinflectAdjective(lc);
       if (adj) return adj;
+    }
+    // 4e. The imperative that opens a sentence *(2026-11-10)*. *Klick bitte auf den
+    //    Link*, *Halte dich an die Regeln* went to *der Klick* and *der Halt* the
+    //    moment those cards shipped: position 0 is capitalised whatever the class.
+    //    The tell is what follows — a softener or an object pronoun directly after
+    //    the first word is an imperative's company, not a noun's.
+    if (direct && direct.pos === 'noun' && pos === 0 && next && IMPERATIVE_COMPANY.has(next)) {
+      const verb = verbIndex.get(lc);
+      if (verb) return verb;
     }
     if (direct) return direct;
     // 5. A verb form that lost the first-wins race to an unrelated lemma.

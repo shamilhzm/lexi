@@ -110,7 +110,7 @@ const STEM_FORMS: Record<string, string[]> = {
 export const fold = (t: string) => t
   .replace(/^(der|die|das)\s+/i, '')
   .replace(/^sich\s+/i, '')
-  .replace(/\s+\w+\s+\+\s+[ADG]$/i, '')
+  .replace(/(\s+\p{L}+)?\s+\+\s+[ADG]$/iu, '')
   .trim()
   .toLowerCase();
 

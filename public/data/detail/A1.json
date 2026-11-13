@@ -4712,6 +4712,20 @@
       }
     ]
   },
+  "voc:A1:das Leben": {
+    "ex": [
+      {
+        "de": "Das Leben in Berlin ist teuer.",
+        "en": "Life in Berlin is expensive.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Sie hat ihr ganzes Leben hier gewohnt.",
+        "en": "She has lived here her whole life.",
+        "lvl": "A1"
+      }
+    ]
+  },
   "voc:A1:das Leder": {
     "def": "Material made from treated animal skin.",
     "ex": [
@@ -4774,6 +4788,20 @@
         "de": "Manche Lieder erinnern uns sofort an bestimmte Zeiten.",
         "en": "Some songs immediately remind us of particular times.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:das Lokal": {
+    "ex": [
+      {
+        "de": "Das Lokal an der Ecke ist sehr gemütlich.",
+        "en": "The pub on the corner is very cosy.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Wir treffen uns heute Abend in einem Lokal.",
+        "en": "We're meeting in a pub tonight.",
+        "lvl": "A1"
       }
     ]
   },
@@ -7506,6 +7534,20 @@
         "de": "Ich habe mir einen neuen Computer gekauft.",
         "en": "I bought myself a new computer.",
         "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A1:der Dank": {
+    "ex": [
+      {
+        "de": "Vielen Dank für Ihre Hilfe!",
+        "en": "Many thanks for your help!",
+        "lvl": "A1"
+      },
+      {
+        "de": "Herzlichen Dank für die Einladung.",
+        "en": "Thank you very much for the invitation.",
+        "lvl": "A1"
       }
     ]
   },
@@ -13096,6 +13138,34 @@
         "de": "Er ist ein Bekannter aus der Arbeit.",
         "en": "He is an acquaintance from work.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:der/die Erwachsene": {
+    "ex": [
+      {
+        "de": "Der Eintritt kostet für Erwachsene zehn Euro.",
+        "en": "Admission costs ten euros for adults.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Das Buch ist für Kinder und Erwachsene.",
+        "en": "The book is for children and adults.",
+        "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:der/die Jugendliche": {
+    "ex": [
+      {
+        "de": "Viele Jugendliche verbringen viel Zeit am Handy.",
+        "en": "Many young people spend a lot of time on their phones.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Jugendliche wurde von der Polizei angehalten.",
+        "en": "The teenager was stopped by the police.",
+        "lvl": "A2"
       }
     ]
   },
@@ -22574,6 +22644,21 @@
       }
     ]
   },
+  "voc:A1:lieb": {
+    "def": "lovable; dear; darling; sweet; good-hearted; kind; dear",
+    "ex": [
+      {
+        "de": "Lieb mich!",
+        "en": "Love me!",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich liebe es!",
+        "en": "I love it!",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A1:lieben": {
     "def": "to love, to have a strong affection for (someone or something); to love one another",
     "ex": [
@@ -22820,6 +22905,21 @@
         "de": "Mein Bruder heißt Tom.",
         "en": "My brother is called Tom.",
         "lvl": "A1"
+      }
+    ]
+  },
+  "voc:A1:meist": {
+    "def": "In most cases; most of the time.",
+    "ex": [
+      {
+        "de": "Tom surft meist.",
+        "en": "Tom spends most of his time surfing.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er blieb meist für sich.",
+        "en": "He mostly kept to himself.",
+        "lvl": "A2"
       }
     ]
   },
@@ -23907,6 +24007,20 @@
         "de": "Es regnete in Strömen, als wir ankamen.",
         "en": "It was pouring with rain when we arrived.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A1:reisen": {
+    "ex": [
+      {
+        "de": "Wir reisen gern mit dem Zug.",
+        "en": "We like travelling by train.",
+        "lvl": "A1"
+      },
+      {
+        "de": "Im Sommer reist er nach Italien.",
+        "en": "In summer he travels to Italy.",
+        "lvl": "A1"
       }
     ]
   },
@@ -26528,6 +26642,21 @@
         "de": "Über die Feiertage fahren viele Familien weg.",
         "en": "Over the holidays many families go away.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A1:weh tun": {
+    "def": "To cause pain, or to feel pain.",
+    "ex": [
+      {
+        "de": "Mein Rücken tut weh.",
+        "en": "My back hurts.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Meine Füße tun nach dem Wandern weh.",
+        "en": "My feet hurt after the hike.",
+        "lvl": "A2"
       }
     ]
   },

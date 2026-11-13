@@ -500,21 +500,6 @@
       }
     ]
   },
-  "voc:C2:das Symbol": {
-    "def": "Something that stands for or represents something else.",
-    "ex": [
-      {
-        "de": "Die blaue Blume ist das Symbol der romantischen Sehnsucht.",
-        "en": "The blue flower is the symbol of Romantic longing.",
-        "lvl": "C2"
-      },
-      {
-        "de": "Der Schlüssel ist in diesem Film ein Symbol für Vertrauen.",
-        "en": "In this film the key is a symbol of trust.",
-        "lvl": "C2"
-      }
-    ]
-  },
   "voc:C2:das Ungemach": {
     "ex": [
       {
@@ -599,21 +584,6 @@
       {
         "de": "Das Wort trägt einen deutlich abwertenden Beiklang.",
         "en": "The word carries a clearly pejorative overtone.",
-        "lvl": "C2"
-      }
-    ]
-  },
-  "voc:C2:der Beleg": {
-    "def": "A proof or record that supports a claim.",
-    "ex": [
-      {
-        "de": "Für diese Behauptung fehlt bislang jeder Beleg.",
-        "en": "So far there is no evidence whatsoever for this claim.",
-        "lvl": "C2"
-      },
-      {
-        "de": "Als Beleg dient ein Brief aus dem Jahr 1912.",
-        "en": "A letter from 1912 serves as evidence.",
         "lvl": "C2"
       }
     ]
@@ -935,21 +905,6 @@
       {
         "de": "Der Vormund entscheidet für das Kind.",
         "en": "The guardian decides on the child's behalf.",
-        "lvl": "C2"
-      }
-    ]
-  },
-  "voc:C2:der Vortrag": {
-    "def": "A formal spoken presentation to an audience.",
-    "ex": [
-      {
-        "de": "Ihr Vortrag über Kafka war brillant gegliedert.",
-        "en": "Her lecture on Kafka was brilliantly structured.",
-        "lvl": "C2"
-      },
-      {
-        "de": "Nach dem Vortrag blieb noch Zeit für Fragen.",
-        "en": "After the talk there was still time for questions.",
         "lvl": "C2"
       }
     ]

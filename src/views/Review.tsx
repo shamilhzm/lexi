@@ -20,7 +20,8 @@ import { loadDetailFor, detailLoadedFor } from '../data/detail.ts';
 // `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
 // drill callback type is aliased rather than renamed at its definition, where
 // `Grade` is the honest name.
-import { GenderItem, PluralItem, RecallItem, MODE_TAG, type Grade as DrillGrade } from './drills.tsx';
+import { ModeItem, MODE_TAG, type Mode, type Grade as DrillGrade } from './drills.tsx';
+import { inflections } from '../lib/inflections.ts';
 import { useStore } from '../useStore.ts';
 import { useMedia } from '../lib/useMedia.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
@@ -49,7 +50,12 @@ import Tour, { useSwipeDemo, type TourStep } from '../components/Tour.tsx';
 import { ALL_LEVELS } from '../types.ts';
 import type { Target, Word, CEFR } from '../types.ts';
 
-const DRILL_TAG: Record<string, string> = { gender: 'Gender', plural: 'Plural', recall: 'Recall' };
+/** The caption over a drill. A `Record<Mode, …>` on purpose: a mode with no row
+ *  is a build error rather than the word "Drill" over an exercise nobody named. */
+const DRILL_TAG: Record<Mode, string> = {
+  gender: 'Gender', plural: 'Plural', recall: 'Recall', reverse: 'Find it', cloze: 'In a sentence',
+  usage: 'Its sentence', conjugate: 'Forms', degree: 'Comparative', synonym: 'Same meaning', prep: 'Preposition',
+};
 const SWIPE_PX = 80; // horizontal travel that commits a grade: right knew it, left didn't
 const THROW_MS = 160; // the thrown card's flight before the grade commits
 
@@ -490,7 +496,6 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     onDone={onDone} onPick={onPick} onGame={onGame} onProfile={onProfile} />;
 
   const card = item.word;
-  const drill = item.type !== 'flip';
   // No memo: familyOf keeps its own reverse index, so this is a Map lookup.
   const family = familyOf(card, WORDS);
   // Cheap: a regex over one short string, and only for verbs.
@@ -647,16 +652,14 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
               instruction first, so the pill floated in the middle of them.
               In flow, it cannot collide with anything, and it reads in the order
               the learner needs it — *what am I being asked*, then *why*. */}
-          {drill && (
-            <Kicker tone="accent" className="block mb-1.5">{DRILL_TAG[item.type] ?? 'Drill'}</Kicker>
+          {item.type !== 'flip' && (
+            <Kicker tone="accent" className="block mb-1.5">{DRILL_TAG[item.type]}</Kicker>
           )}
           <WhyThisCard reason={item.reason} />
 
-          {drill ? (
+          {item.type !== 'flip' ? (
             <div className="w-full max-w-[580px]">
-              {item.type === 'gender' ? <GenderItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : item.type === 'plural' ? <PluralItem key={item.srsId} word={card} onGrade={gradeDrill} />
-                : <RecallItem key={item.srsId} word={card} onGrade={gradeDrill} />}
+              <ModeItem key={item.srsId} mode={item.type} word={card} forms={inflections()?.[card.id]} onGrade={gradeDrill} />
             </div>
           ) : (<>
           <SwipeCard key={item.srsId} onFlip={flip} onSwipe={(knew) => grade(knew ? Rating.Good : Rating.Again, 'swipe')} onThrow={() => tick('swipe')} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>

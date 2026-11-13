@@ -22,6 +22,7 @@ import AiSettings from '../components/AiSettings.tsx';
 import NewsTopicsSettings from '../components/reader/NewsTopicsSettings.tsx';
 import { storiesAvailable } from '../lib/platform.ts';
 import { resetTours } from '../lib/hints.ts';
+import OfflinePack from '../components/OfflinePack.tsx';
 
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
@@ -219,6 +220,8 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       {storiesAvailable() && <NewsTopicsSettings />}
       {storiesAvailable() && <AiSettings />}
 
+      <OfflinePack />
+
       {/* Your data — backup & restore (local-first insurance) */}
       <Card as="section" className="mt-4">
         <div className="flex items-center gap-2 mb-1"><Archive size={16} className="text-accent" /><h2 className="text-base font-semibold">Your data</h2></div>
@@ -258,7 +261,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
           reloading and hoping — a fix that landed and a fix that did not looked
           identical. The stamp says what is running; the check asks the server what
           is deployed and compares. See lib/build.ts. */}
-      <Card pad="none" className="p-4">
+      <Card pad="none" className="p-4 mt-4">
         <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><Info size={16} className="text-accent" /> Version</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
           What this device is running. If you’ve just been sent a fix, check here before
@@ -289,7 +292,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
             <History size={14} /> Open the old version
           </a>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2 mt-3">
           <Button size="sm" variant="secondary" onClick={check} disabled={checking}>
             {checking ? <Loader2 size={14} className="animate-spin" /> : <RefreshCw size={14} />}
             {checking ? 'Checking…' : 'Check for updates'}

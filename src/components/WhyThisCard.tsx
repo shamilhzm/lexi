@@ -31,6 +31,7 @@ const DRILL_TAIL: Record<Mode, string> = {
   conjugate: 'now its forms',
   degree: 'now its comparative',
   synonym: 'now what else says it',
+  prep: 'now its preposition',
 };
 
 export interface WhyLine {

@@ -11,14 +11,16 @@
 // A sheet rather than a route: you came from a specific word in a specific scroll
 // position, and closing this has to put you back exactly there. A route would
 // rebuild the feed.
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Bookmark, GraduationCap } from 'lucide-react';
 import Layer from './Layer.tsx';
 import { loadDetailFor } from '../data/detail.ts';
 import { valencyOf, valencyLabel } from '../lib/valency.ts';
 import { FOCUS } from '../lib/focus.ts';
 import { familyOf } from '../lib/family.ts';
 import { showsGermanDefs } from '../views/Review.tsx';
-import { placementLevel } from '../store.ts';
+import { placementLevel, isSaved, toggleSaved } from '../store.ts';
+import { haptic } from '../lib/ui.ts';
 import { WORDS } from '../data/index.ts';
 import { GenderTerm, SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, CardSource } from './Reveal.tsx';
 import Picto from './Picto.tsx';
@@ -26,7 +28,16 @@ import Kicker from './ui/Kicker.tsx';
 import ReportFlag from './ReportFlag.tsx';
 import type { Word } from '../types.ts';
 
-export default function WordDetail({ word, onClose }: { word: Word; onClose: () => void }) {
+export default function WordDetail({ word, onClose, onPractise }: {
+  word: Word; onClose: () => void;
+  /** Set where the entry was reached without passing the word's own actions —
+   *  search. The feed opens this sheet from a slot that already carries *save*
+   *  and *practise*, so there it stays what it was: the entry and nothing else.
+   *  From search it was a dead end: Lexi said it teaches the word and offered no
+   *  way to be taught it (2026-11-13). */
+  onPractise?: () => void;
+}) {
+  const [saved, setSaved] = useState(() => isSaved(word.id));
   // Search reaches every level, and detail ships one file per level — so the sheet
   // asks for the one this word is in. On the feed's ⓘ it is already there and this
   // costs nothing; from a C1 lookup by an A1 learner it is the only thing that puts
@@ -65,6 +76,30 @@ export default function WordDetail({ word, onClose }: { word: Word; onClose: () 
             <span className="text-dim">({word.pos})</span> {word.en}
           </p>
           <Kicker className="block mt-2">{word.level} · {word.field}</Kicker>
+
+          {/* The feed's own two marks, for the same two acts: the bookmark is the
+              instruction (*teach me this*), the cap is *test me on it now*. */}
+          {onPractise && (
+            <>
+              <div className="mt-5 flex items-center justify-center gap-8">
+                <button aria-pressed={saved}
+                  onClick={() => { setSaved(toggleSaved(word.id)); haptic('grade'); }}
+                  className={`tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition active:scale-90 ${saved ? 'text-accent' : 'text-txt hover:text-accent'}`}>
+                  <Bookmark size={24} strokeWidth={1.6} className={saved ? 'fill-current' : ''} />
+                  <span className="sr-only">{saved ? <>Stop learning <span lang="de">{word.term}</span></>
+                    : <>Learn <span lang="de">{word.term}</span> — put it in my next session</>}</span>
+                </button>
+                <button onClick={onPractise}
+                  className="tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition active:scale-90 text-txt hover:text-accent">
+                  <GraduationCap size={24} strokeWidth={1.6} />
+                  <span className="sr-only">Practise <span lang="de">{word.term}</span> now — every drill for this word</span>
+                </button>
+              </div>
+              <p aria-hidden className={`mt-1 text-xs text-dim transition-opacity ${saved ? 'opacity-100' : 'opacity-0'}`}>
+                Saved — Üben teaches it next.
+              </p>
+            </>
+          )}
         </div>
 
         <div className="mt-6 text-left">

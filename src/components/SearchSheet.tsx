@@ -46,6 +46,7 @@ import { speak } from '../lib/tts.ts';
 import { genderColor, haptic, fmt } from '../lib/ui.ts';
 import { WORDS } from '../data/index.ts';
 import WordDetail from './WordDetail.tsx';
+import WordDrill from './WordDrill.tsx';
 import Chip from './ui/Chip.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Word } from '../types.ts';
@@ -54,6 +55,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
   const v = useStore();
   const [q, setQ] = useState('');
   const [detail, setDetail] = useState<Word | null>(null);
+  const [drill, setDrill] = useState<Word | null>(null);
   const [noted, setNoted] = useState(false);
   const input = useRef<HTMLInputElement>(null);
 
@@ -98,7 +100,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
     primeLexicon();
     // Focus without scrolling the page behind the portal.
     input.current?.focus({ preventScroll: true });
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && !detail) onClose(); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && !detail && !drill) onClose(); };
     window.addEventListener('keydown', onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -106,7 +108,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = prev;
     };
-  }, [onClose, detail]);
+  }, [onClose, detail, drill]);
 
   // A new query is a new question; the "noted" acknowledgement belongs to the
   // old one.
@@ -115,8 +117,13 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
   const already = isWanted(q) || noted;
 
   return createPortal(
-    <div className="fixed inset-0 z-[190] bg-bg flex flex-col sheet-in" role="dialog" aria-modal="true"
-      aria-label="Look up a German word">
+    // **Stands aside while an entry is open.** The entry is a `Layer`, and layers
+    // mount in `#layer-root` under the bars (z-40) — below this sheet. Left
+    // visible, the sheet covered the very entry it had opened, and tapping a
+    // result did nothing anyone could see (LESSONS, 2026-11-13). Hidden rather
+    // than unmounted, so closing the entry lands back on the same results.
+    <div className={`fixed inset-0 z-[190] bg-bg flex flex-col sheet-in ${detail || drill ? 'invisible' : ''}`}
+      role="dialog" aria-modal="true" aria-label="Look up a German word">
 
       {/* The field is the header. Nothing above it, because the only reason this
           sheet exists is to be typed into. */}
@@ -277,7 +284,9 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
         )}
       </div>
 
-      {detail && <WordDetail word={detail} onClose={() => setDetail(null)} />}
+      {detail && <WordDetail word={detail} onClose={() => setDetail(null)}
+        onPractise={() => { setDrill(detail); setDetail(null); }} />}
+      {drill && <WordDrill word={drill} onClose={() => setDrill(null)} backLabel="Back to search" />}
     </div>,
     document.body,
   );

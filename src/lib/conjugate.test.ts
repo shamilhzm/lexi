@@ -542,3 +542,28 @@ describe('Perfekt auxiliary — verbs of motion and change of state take sein', 
     }
   });
 });
+
+// Found by the authoring gate, 2026-11-10: «Ich bin zum Bus gerannt» was refused as
+// not containing *rennen*, because the weak generator had answered «gerennt».
+describe('strong roots that had no row', () => {
+  it('rennen is mixed, and takes sein', () => {
+    const c = conjugate('rennen');
+    expect(c.praeteritum[2]).toBe('rannte');
+    expect(c.partizip).toBe('gerannt');
+    expect(c.aux).toBe('sein');
+    expect(c.reliable).toBe(true);
+  });
+
+  it('geschehen, gießen, schmelzen, stechen', () => {
+    expect(conjugate('geschehen').praesens[2]).toBe('geschieht');
+    expect(conjugate('geschehen').praeteritum[2]).toBe('geschah');
+    expect(conjugate('gießen').partizip).toBe('gegossen');
+    expect(conjugate('schmelzen').praesens[2]).toBe('schmilzt');
+    expect(conjugate('stechen').praeteritum[0]).toBe('stach');
+  });
+
+  it('carries a prefixed verb through its root', () => {
+    expect(conjugate('eindringen').partizip).toBe('eingedrungen');
+    expect(conjugate('abbiegen').praeteritum[2]).toBe('bog ab');
+  });
+});

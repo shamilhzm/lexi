@@ -2,7 +2,7 @@
 
 **Scroll German. Save a word. Lexi makes it stick.**
 
-A free, open-source German vocabulary app for English speakers: **10,000+ words** from
+A free, open-source German vocabulary app for English speakers: **11,000+ words** from
 A1 to C2 to learn, and a dictionary of **93,000+** headwords to look things up in. No account,
 no ads, nothing to cancel — and your progress stays on your device.
 
@@ -72,7 +72,7 @@ what is still undecided. [`docs/BACKLOG.md`](docs/BACKLOG.md) is what's next;
 Measured against the shipped corpus on 2026-09-26. The two headline counts are
 guarded by `src/lib/publicCopy.test.ts`, which fails when the corpus outgrows them.
 
-- **10,000+ word cards** across all six CEFR levels, every one with **at least two
+- **11,000+ word cards** across all six CEFR levels, every one with **at least two
   usage examples**, German and English, and all but a handful with IPA.
 - Cards carry a gloss, gender and plural, synonyms and antonyms, word family and — from
   B2 — a German-language definition.

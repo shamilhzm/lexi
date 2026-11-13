@@ -850,21 +850,6 @@
       }
     ]
   },
-  "voc:C1:angeben": {
-    "def": "To state a detail; also to show off.",
-    "ex": [
-      {
-        "de": "Ich wollte angeben.",
-        "en": "I was trying to show off.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Ich wollte nicht angeben.",
-        "en": "I didn't want to brag.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:angeboren": {
     "ex": [
       {
@@ -3750,20 +3735,6 @@
       }
     ]
   },
-  "voc:C1:das Asyl": {
-    "ex": [
-      {
-        "de": "Er hat in Deutschland Asyl beantragt.",
-        "en": "He applied for asylum in Germany.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Das Asyl wurde nach zwei Jahren gewährt.",
-        "en": "The asylum was granted after two years.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:das Attentat": {
     "ex": [
       {
@@ -5626,21 +5597,6 @@
       }
     ]
   },
-  "voc:C1:das Plakat": {
-    "def": "A large printed notice displayed in a public place.",
-    "ex": [
-      {
-        "de": "Was steht auf dem Plakat?",
-        "en": "What's written on the placard?",
-        "lvl": "C1"
-      },
-      {
-        "de": "Er hielt an, um das Plakat anzusehen.",
-        "en": "He paused to look at the poster.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:das Platzangebot": {
     "ex": [
       {
@@ -5764,20 +5720,6 @@
       {
         "de": "Die Präsente wurden persönlich überreicht.",
         "en": "The gifts were handed over in person.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:das Quartier": {
-    "ex": [
-      {
-        "de": "Auf dem alten Gelände entsteht ein neues Quartier.",
-        "en": "A new district is being built on the old site.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Für die Nacht suchen wir noch ein Quartier.",
-        "en": "We are still looking for somewhere to stay for the night.",
         "lvl": "C1"
       }
     ]
@@ -6017,21 +5959,6 @@
       {
         "de": "Das Schlusslicht am Fahrrad ist kaputt.",
         "en": "The rear light on the bike is broken.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:das Schreiben": {
-    "def": "A formal written message or document.",
-    "ex": [
-      {
-        "de": "Ihr Schreiben vom 3. Mai haben wir erhalten.",
-        "en": "We have received your letter of 3 May.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Ein anwaltliches Schreiben brachte die Sache in Bewegung.",
-        "en": "A lawyer's letter got things moving.",
         "lvl": "C1"
       }
     ]
@@ -6842,21 +6769,6 @@
       {
         "de": "Der Zahnarzt macht einen Abdruck.",
         "en": "The dentist takes an impression.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:der Abfall": {
-    "def": "Material thrown away as no longer useful; also a decline.",
-    "ex": [
-      {
-        "de": "Er sammelte alle Abfälle.",
-        "en": "He collected all the garbage.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Lassen Sie keine Abfälle zurück.",
-        "en": "Don't litter!",
         "lvl": "C1"
       }
     ]
@@ -7719,21 +7631,6 @@
       {
         "de": "Für einen neutralen Betrachter war das Spiel spannend.",
         "en": "For a neutral observer the game was exciting.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:der Betreuer": {
-    "def": "A person who looks after or supports others.",
-    "ex": [
-      {
-        "de": "Ich mag unseren neuen Betreuer.",
-        "en": "I like our new coach.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Mein Betreuer schimpfte mit mir, wegen meines dummen Benehmens.",
-        "en": "My tutor scolded me for my stupid behaviour.",
         "lvl": "C1"
       }
     ]
@@ -10728,21 +10625,6 @@
       }
     ]
   },
-  "voc:C1:der Protest": {
-    "def": "A public expression of strong objection.",
-    "ex": [
-      {
-        "de": "Der Protest gegen die Schließung blieb friedlich.",
-        "en": "The protest against the closure remained peaceful.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Aus Protest gegen die Kürzungen trat sie zurück.",
-        "en": "She resigned in protest against the cuts.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:der Proviant": {
     "ex": [
       {
@@ -11204,20 +11086,6 @@
       {
         "de": "Sie bringt viel Sachverstand mit.",
         "en": "She brings a lot of expertise.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:der Salon": {
-    "ex": [
-      {
-        "de": "Sie geht jede Woche in den Salon zum Friseur.",
-        "en": "She goes to the hair salon every week.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Im Salon diskutierten Künstler und Politiker.",
-        "en": "Artists and politicians debated in the salon.",
         "lvl": "C1"
       }
     ]
@@ -13301,20 +13169,6 @@
       {
         "de": "Sie hat eine didaktische Ausbildung.",
         "en": "She has teacher training.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:die Abbildung": {
-    "ex": [
-      {
-        "de": "Die Abbildung zeigt die Entwicklung der Preise.",
-        "en": "The figure shows how prices have developed.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Siehe Abbildung drei auf Seite zehn.",
-        "en": "See figure three on page ten.",
         "lvl": "C1"
       }
     ]
@@ -17245,21 +17099,6 @@
       }
     ]
   },
-  "voc:C1:die Festplatte": {
-    "def": "A device inside a computer that stores data permanently.",
-    "ex": [
-      {
-        "de": "Meine Festplatte ist fast voll.",
-        "en": "My hard drive is almost full.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Sie formatierte ihre Festplatte neu.",
-        "en": "She reformatted her hard drive.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:die Feststellung": {
     "ex": [
       {
@@ -17411,21 +17250,6 @@
       {
         "de": "Die Flugzeuge fliegen in Formation.",
         "en": "The planes are flying in formation.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:die Fotografie": {
-    "def": "The art of taking pictures with a camera; also a photograph.",
-    "ex": [
-      {
-        "de": "Hast du die Fotografie gesehen?",
-        "en": "Did you see the photograph?",
-        "lvl": "C1"
-      },
-      {
-        "de": "Habt ihr die Fotografie gesehen?",
-        "en": "Did you see the photograph?",
         "lvl": "C1"
       }
     ]
@@ -17639,21 +17463,6 @@
       {
         "de": "Die Föderation hat neue Regeln beschlossen.",
         "en": "The federation has adopted new rules.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:die Förderung": {
-    "def": "Financial or practical support given to help something develop.",
-    "ex": [
-      {
-        "de": "Ohne staatliche Förderung wäre das Projekt nie zustande gekommen.",
-        "en": "Without state funding the project would never have come about.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Sie bewarb sich um eine Förderung für ihr Promotionsvorhaben.",
-        "en": "She applied for funding for her doctoral project.",
         "lvl": "C1"
       }
     ]
@@ -23948,34 +23757,6 @@
       }
     ]
   },
-  "voc:C1:die Vermietung": {
-    "ex": [
-      {
-        "de": "Die Vermietung der Wohnung bringt 900 Euro im Monat.",
-        "en": "Renting out the flat brings in 900 euros a month.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Die Vermietung an Touristen ist hier verboten.",
-        "en": "Letting to tourists is banned here.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:die Vermittlung": {
-    "ex": [
-      {
-        "de": "Die Agentur hilft bei der Vermittlung von Jobs.",
-        "en": "The agency helps with job placement.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Die Vermittlung zwischen den Parteien war schwierig.",
-        "en": "Mediating between the parties was difficult.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:die Vernachlässigung": {
     "ex": [
       {
@@ -24449,21 +24230,6 @@
       }
     ]
   },
-  "voc:C1:die Vorschrift": {
-    "def": "An official rule that must be followed.",
-    "ex": [
-      {
-        "de": "Er hasst Vorschriften.",
-        "en": "He hates rules.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Tom hasst Vorschriften.",
-        "en": "Tom hates the rules.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:die Wachsamkeit": {
     "ex": [
       {
@@ -24917,36 +24683,6 @@
       {
         "de": "In seiner Würdigung lobte er ihre Arbeit.",
         "en": "In his tribute he praised her work.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:die Zeichnung": {
-    "def": "A picture made with a pen or pencil; also a marking pattern.",
-    "ex": [
-      {
-        "de": "Das ist Toms Zeichnung.",
-        "en": "That's Tom's drawing.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Ich mag diese Zeichnung.",
-        "en": "I like this drawing.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:die Zeile": {
-    "def": "A single row of written or printed words.",
-    "ex": [
-      {
-        "de": "Lies ab Zeile 13.",
-        "en": "Start reading at line thirteen.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Lest ab Zeile 13.",
-        "en": "Start reading at line thirteen.",
         "lvl": "C1"
       }
     ]
@@ -26047,21 +25783,6 @@
       }
     ]
   },
-  "voc:C1:einführen": {
-    "def": "To bring something new into use; also to lead in or insert.",
-    "ex": [
-      {
-        "de": "Der Premierminister sagte, dass er keine neuen Steuern ohne die Zustimmung der Öffentlichkeit einführen werde.",
-        "en": "The Prime Minister stated that he would not introduce a new tax without the consensus of public opinion.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Die Schule führt ab Herbst ein neues Fach ein.",
-        "en": "From autumn the school is introducing a new subject.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:eingebildet": {
     "def": "Having too high an opinion of oneself; also imagined.",
     "ex": [
@@ -26774,21 +26495,6 @@
       }
     ]
   },
-  "voc:C1:erfordern": {
-    "def": "To make something necessary.",
-    "ex": [
-      {
-        "de": "Es erfordert Mut.",
-        "en": "It takes courage.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Das erfordert Mut.",
-        "en": "It takes courage.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:ergebnislos": {
     "ex": [
       {
@@ -27068,21 +26774,6 @@
       {
         "de": "Der Akku ist leicht ersetzbar.",
         "en": "The battery is easy to replace.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:ersetzen": {
-    "def": "To take the place of something, or put something new in its place.",
-    "ex": [
-      {
-        "de": "Maschinen ersetzen zunehmend Routinetätigkeiten.",
-        "en": "Machines are increasingly replacing routine tasks.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Dieser Vertrag ersetzt alle früheren Vereinbarungen.",
-        "en": "This contract replaces all earlier agreements.",
         "lvl": "C1"
       }
     ]
@@ -30180,21 +29871,6 @@
       }
     ]
   },
-  "voc:C1:kleben": {
-    "def": "To join things with an adhesive; also to be sticky.",
-    "ex": [
-      {
-        "de": "Dieses Klebeband klebt nicht.",
-        "en": "This tape isn't sticky.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Tom klebte an seinem Telefon.",
-        "en": "Tom was glued to his phone.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:klinisch": {
     "ex": [
       {
@@ -30596,21 +30272,6 @@
       {
         "de": "Er handelte völlig kopflos.",
         "en": "He acted completely rashly.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:korrigieren": {
-    "def": "To put right a mistake or error.",
-    "ex": [
-      {
-        "de": "Tom korrigierte es.",
-        "en": "Tom corrected it.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Er korrigierte sich.",
-        "en": "He corrected himself.",
         "lvl": "C1"
       }
     ]
@@ -37862,20 +37523,6 @@
       }
     ]
   },
-  "voc:C1:vergeblich": {
-    "ex": [
-      {
-        "de": "Alle Versuche waren vergeblich.",
-        "en": "All attempts were in vain.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Wir haben vergeblich auf ihn gewartet.",
-        "en": "We waited for him in vain.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:vergeuden": {
     "ex": [
       {
@@ -37928,21 +37575,6 @@
       {
         "de": "Die Tickets waren in Minuten vergriffen.",
         "en": "The tickets sold out in minutes.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:vergrößern": {
-    "def": "To make something bigger.",
-    "ex": [
-      {
-        "de": "Sie wollen es vergrößern.",
-        "en": "They want to make it bigger.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Sie vergrößerte ihre Leiden.",
-        "en": "She magnified her sufferings.",
         "lvl": "C1"
       }
     ]
@@ -38452,21 +38084,6 @@
       {
         "de": "Die App will ihre Nutzerzahl vervielfachen.",
         "en": "The app wants to multiply its user numbers.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:verwechseln": {
-    "def": "To mistake one person or thing for another.",
-    "ex": [
-      {
-        "de": "Du musst mich verwechseln.",
-        "en": "You must've confused me with someone else.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Ihr müsst mich verwechseln.",
-        "en": "You must've confused me with someone else.",
         "lvl": "C1"
       }
     ]
@@ -40034,20 +39651,6 @@
       }
     ]
   },
-  "voc:C1:äußerlich": {
-    "ex": [
-      {
-        "de": "Äußerlich wirkt er ganz ruhig.",
-        "en": "Outwardly he seems quite calm.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Die Salbe ist nur zur äußerlichen Anwendung.",
-        "en": "The ointment is for external use only.",
-        "lvl": "C1"
-      }
-    ]
-  },
   "voc:C1:ökonomisch": {
     "ex": [
       {
@@ -40200,21 +39803,6 @@
       {
         "de": "Die Miete ist nicht übermäßig hoch.",
         "en": "The rent isn't excessively high.",
-        "lvl": "C1"
-      }
-    ]
-  },
-  "voc:C1:übernehmen": {
-    "def": "To take responsibility or control of something; also to adopt.",
-    "ex": [
-      {
-        "de": "Sie übernahm die Leitung des gesamten Projekts.",
-        "en": "She took over the management of the entire project.",
-        "lvl": "C1"
-      },
-      {
-        "de": "Er übernahm die Formulierung wörtlich aus der Vorlage.",
-        "en": "He adopted the wording verbatim from the template.",
         "lvl": "C1"
       }
     ]

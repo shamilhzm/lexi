@@ -173,7 +173,7 @@ for await (const line of rl) {
 const TAUGHT_LEMMAS = new Set(corpus.map((w) => w.term
   .replace(/^(der|die|das)\s+/i, '')
   .replace(/^sich\s+/i, '')
-  .replace(/\s+\w+\s+\+\s+[ADG]$/i, '')
+  .replace(/(\s+\p{L}+)?\s+\+\s+[ADG]$/iu, '')
   .trim().toLowerCase()));
 const alreadyTaught = [...found.keys()].filter((k) => TAUGHT_LEMMAS.has(k));
 for (const k of alreadyTaught) found.delete(k);

@@ -4829,7 +4829,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:lieb",
+    "id": "voc:A1:lieb",
     "lemma": "lieb",
     "level": "A2",
     "levelSource": "reference",
@@ -4917,7 +4917,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:A2:meist",
+    "id": "voc:A1:meist",
     "lemma": "meist",
     "level": "A2",
     "levelSource": "frequency",
@@ -6435,7 +6435,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:aktuell",
+    "id": "voc:A2:aktuell",
     "lemma": "aktuell",
     "level": "B1",
     "levelSource": "reference",
@@ -6622,7 +6622,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:aufregend",
+    "id": "voc:A2:aufregend",
     "lemma": "aufregend",
     "level": "B1",
     "levelSource": "reference",
@@ -6732,7 +6732,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:außerhalb",
+    "id": "voc:A2:außerhalb",
     "lemma": "außerhalb",
     "level": "B1",
     "levelSource": "reference",
@@ -7161,7 +7161,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:dabei",
+    "id": "voc:A2:dabei",
     "lemma": "dabei",
     "level": "B1",
     "levelSource": "reference",
@@ -7172,7 +7172,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:dafür",
+    "id": "voc:A2:dafür",
     "lemma": "dafür",
     "level": "B1",
     "levelSource": "reference",
@@ -7183,7 +7183,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:dagegen",
+    "id": "voc:A2:dagegen",
     "lemma": "dagegen",
     "level": "B1",
     "levelSource": "reference",
@@ -7535,7 +7535,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:das Mittel",
+    "id": "voc:A2:das Mittel",
     "lemma": "Mittel",
     "level": "B1",
     "levelSource": "reference",
@@ -8063,7 +8063,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:der Flug",
+    "id": "voc:A2:der Flug",
     "lemma": "Flug",
     "level": "B1",
     "levelSource": "reference",
@@ -8800,7 +8800,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:der Stock",
+    "id": "voc:A2:der Stock",
     "lemma": "Stock",
     "level": "B1",
     "levelSource": "reference",
@@ -8811,7 +8811,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:der Strand",
+    "id": "voc:A2:der Strand",
     "lemma": "Strand",
     "level": "B1",
     "levelSource": "reference",
@@ -10571,7 +10571,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:die Messe",
+    "id": "voc:A2:die Messe",
     "lemma": "Messe",
     "level": "B1",
     "levelSource": "reference",
@@ -10846,7 +10846,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:die Qualität",
+    "id": "voc:A2:die Qualität",
     "lemma": "Qualität",
     "level": "B1",
     "levelSource": "reference",
@@ -11572,7 +11572,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:drüben",
+    "id": "voc:A2:drüben",
     "lemma": "drüben",
     "level": "B1",
     "levelSource": "reference",
@@ -11715,7 +11715,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:einverstanden",
+    "id": "voc:A2:einverstanden",
     "lemma": "einverstanden",
     "level": "B1",
     "levelSource": "reference",
@@ -12419,7 +12419,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:herein",
+    "id": "voc:A2:herein",
     "lemma": "herein",
     "level": "B1",
     "levelSource": "reference",
@@ -12606,7 +12606,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B1:intelligent",
+    "id": "voc:A2:intelligent",
     "lemma": "intelligent",
     "level": "B1",
     "levelSource": "reference",
@@ -12870,7 +12870,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:liefern",
+    "id": "voc:A2:liefern",
     "lemma": "liefern",
     "level": "B1",
     "levelSource": "reference",
@@ -13156,7 +13156,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:online",
+    "id": "voc:A2:online",
     "lemma": "online",
     "level": "B1",
     "levelSource": "reference",
@@ -13310,7 +13310,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:rein",
+    "id": "voc:A2:rein",
     "lemma": "rein",
     "level": "B1",
     "levelSource": "reference",
@@ -13376,7 +13376,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:rund",
+    "id": "voc:A2:rund",
     "lemma": "rund",
     "level": "B1",
     "levelSource": "reference",
@@ -13486,7 +13486,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:schrecklich",
+    "id": "voc:A2:schrecklich",
     "lemma": "schrecklich",
     "level": "B1",
     "levelSource": "reference",
@@ -13750,7 +13750,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:streng",
+    "id": "voc:A2:streng",
     "lemma": "streng",
     "level": "B1",
     "levelSource": "reference",
@@ -13948,7 +13948,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:unbedingt",
+    "id": "voc:A2:unbedingt",
     "lemma": "unbedingt",
     "level": "B1",
     "levelSource": "reference",
@@ -14256,7 +14256,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:verschieben",
+    "id": "voc:A2:verschieben",
     "lemma": "verschieben",
     "level": "B1",
     "levelSource": "reference",
@@ -14410,7 +14410,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:vorwärts",
+    "id": "voc:A2:vorwärts",
     "lemma": "vorwärts",
     "level": "B1",
     "levelSource": "reference",
@@ -14465,7 +14465,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:wenigstens",
+    "id": "voc:A2:wenigstens",
     "lemma": "wenigstens",
     "level": "B1",
     "levelSource": "reference",
@@ -14542,7 +14542,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:witzig",
+    "id": "voc:A2:witzig",
     "lemma": "witzig",
     "level": "B1",
     "levelSource": "reference",
@@ -14784,7 +14784,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B1:zuletzt",
+    "id": "voc:A2:zuletzt",
     "lemma": "zuletzt",
     "level": "B1",
     "levelSource": "reference",
@@ -15026,7 +15026,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:anschließen",
+    "id": "voc:B1:anschließen",
     "lemma": "anschließen",
     "level": "B2",
     "levelSource": "reference",
@@ -15048,7 +15048,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:anwesend",
+    "id": "voc:B1:anwesend",
     "lemma": "anwesend",
     "level": "B2",
     "levelSource": "reference",
@@ -15158,7 +15158,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:ausschließlich",
+    "id": "voc:B1:ausschließlich",
     "lemma": "ausschließlich",
     "level": "B2",
     "levelSource": "reference",
@@ -15169,7 +15169,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:aussprechen",
+    "id": "voc:A2:aussprechen",
     "lemma": "aussprechen",
     "level": "B2",
     "levelSource": "reference",
@@ -15246,7 +15246,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:beleidigen",
+    "id": "voc:B1:beleidigen",
     "lemma": "beleidigen",
     "level": "B2",
     "levelSource": "reference",
@@ -15268,7 +15268,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:bemerken",
+    "id": "voc:B1:bemerken",
     "lemma": "bemerken",
     "level": "B2",
     "levelSource": "reference",
@@ -15290,7 +15290,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:besetzen",
+    "id": "voc:B1:besetzen",
     "lemma": "besetzen",
     "level": "B2",
     "levelSource": "reference",
@@ -15521,7 +15521,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:das Ehepaar",
+    "id": "voc:B1:das Ehepaar",
     "lemma": "Ehepaar",
     "level": "B2",
     "levelSource": "reference",
@@ -15543,7 +15543,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:das Forum",
+    "id": "voc:B1:das Forum",
     "lemma": "Forum",
     "level": "B2",
     "levelSource": "reference",
@@ -15653,7 +15653,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:das Klavier",
+    "id": "voc:A2:das Klavier",
     "lemma": "Klavier",
     "level": "B2",
     "levelSource": "reference",
@@ -15697,7 +15697,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:das Laster",
+    "id": "voc:B1:das Laster",
     "lemma": "Laster",
     "level": "B2",
     "levelSource": "reference",
@@ -15719,7 +15719,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:das Magazin",
+    "id": "voc:B1:das Magazin",
     "lemma": "Magazin",
     "level": "B2",
     "levelSource": "reference",
@@ -15730,7 +15730,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:das Motorrad",
+    "id": "voc:B1:das Motorrad",
     "lemma": "Motorrad",
     "level": "B2",
     "levelSource": "reference",
@@ -15741,7 +15741,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:das Personal",
+    "id": "voc:B1:das Personal",
     "lemma": "Personal",
     "level": "B2",
     "levelSource": "reference",
@@ -15873,7 +15873,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Anbieter",
+    "id": "voc:B1:der Anbieter",
     "lemma": "Anbieter",
     "level": "B2",
     "levelSource": "reference",
@@ -15906,7 +15906,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:der Apparat",
+    "id": "voc:A2:der Apparat",
     "lemma": "Apparat",
     "level": "B2",
     "levelSource": "reference",
@@ -16225,7 +16225,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Kanal",
+    "id": "voc:B1:der Kanal",
     "lemma": "Kanal",
     "level": "B2",
     "levelSource": "reference",
@@ -16335,7 +16335,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Profi",
+    "id": "voc:B1:der Profi",
     "lemma": "Profi",
     "level": "B2",
     "levelSource": "reference",
@@ -16346,7 +16346,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Rand",
+    "id": "voc:B1:der Rand",
     "lemma": "Rand",
     "level": "B2",
     "levelSource": "reference",
@@ -16489,7 +16489,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Transport",
+    "id": "voc:B1:der Transport",
     "lemma": "Transport",
     "level": "B2",
     "levelSource": "reference",
@@ -16588,7 +16588,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Zirkus",
+    "id": "voc:A2:der Zirkus",
     "lemma": "Zirkus",
     "level": "B2",
     "levelSource": "reference",
@@ -16599,7 +16599,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:der Zoo",
+    "id": "voc:A2:der Zoo",
     "lemma": "Zoo",
     "level": "B2",
     "levelSource": "reference",
@@ -16984,7 +16984,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:die Burg",
+    "id": "voc:B1:die Burg",
     "lemma": "Burg",
     "level": "B2",
     "levelSource": "reference",
@@ -16995,7 +16995,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:die Darstellung",
+    "id": "voc:B1:die Darstellung",
     "lemma": "Darstellung",
     "level": "B2",
     "levelSource": "reference",
@@ -17127,7 +17127,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:die Erhöhung",
+    "id": "voc:B1:die Erhöhung",
     "lemma": "Erhöhung",
     "level": "B2",
     "levelSource": "reference",
@@ -17358,7 +17358,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:die Gewerkschaft",
+    "id": "voc:B1:die Gewerkschaft",
     "lemma": "Gewerkschaft",
     "level": "B2",
     "levelSource": "reference",
@@ -17479,7 +17479,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:die Intelligenz",
+    "id": "voc:B1:die Intelligenz",
     "lemma": "Intelligenz",
     "level": "B2",
     "levelSource": "reference",
@@ -17578,7 +17578,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:die Kriminalpolizei",
+    "id": "voc:B1:die Kriminalpolizei",
     "lemma": "Kriminalpolizei",
     "level": "B2",
     "levelSource": "reference",
@@ -17688,7 +17688,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:die Mobilität",
+    "id": "voc:B1:die Mobilität",
     "lemma": "Mobilität",
     "level": "B2",
     "levelSource": "reference",
@@ -17820,7 +17820,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:die Richterin",
+    "id": "voc:B1:die Richterin",
     "lemma": "Richterin",
     "level": "B2",
     "levelSource": "reference",
@@ -18216,7 +18216,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:einigen",
+    "id": "voc:B1:einigen",
     "lemma": "einigen",
     "level": "B2",
     "levelSource": "reference",
@@ -18227,7 +18227,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:einnehmen",
+    "id": "voc:B1:einnehmen",
     "lemma": "einnehmen",
     "level": "B2",
     "levelSource": "reference",
@@ -18249,7 +18249,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:einschließlich",
+    "id": "voc:B1:einschließlich",
     "lemma": "einschließlich",
     "level": "B2",
     "levelSource": "reference",
@@ -18337,7 +18337,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:entschlossen",
+    "id": "voc:B1:entschlossen",
     "lemma": "entschlossen",
     "level": "B2",
     "levelSource": "reference",
@@ -18359,7 +18359,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:erfinden",
+    "id": "voc:B1:erfinden",
     "lemma": "erfinden",
     "level": "B2",
     "levelSource": "reference",
@@ -18370,7 +18370,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:erforderlich",
+    "id": "voc:B1:erforderlich",
     "lemma": "erforderlich",
     "level": "B2",
     "levelSource": "reference",
@@ -18436,7 +18436,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:erleichtern",
+    "id": "voc:B1:erleichtern",
     "lemma": "erleichtern",
     "level": "B2",
     "levelSource": "reference",
@@ -18480,7 +18480,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:ernähren",
+    "id": "voc:B1:ernähren",
     "lemma": "ernähren",
     "level": "B2",
     "levelSource": "reference",
@@ -18623,7 +18623,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:fällig",
+    "id": "voc:B1:fällig",
     "lemma": "fällig",
     "level": "B2",
     "levelSource": "reference",
@@ -18634,7 +18634,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:garantieren",
+    "id": "voc:B1:garantieren",
     "lemma": "garantieren",
     "level": "B2",
     "levelSource": "reference",
@@ -18766,7 +18766,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:gratis",
+    "id": "voc:B1:gratis",
     "lemma": "gratis",
     "level": "B2",
     "levelSource": "reference",
@@ -18898,7 +18898,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:hinterlassen",
+    "id": "voc:B1:hinterlassen",
     "lemma": "hinterlassen",
     "level": "B2",
     "levelSource": "reference",
@@ -18953,7 +18953,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:jeweils",
+    "id": "voc:B1:jeweils",
     "lemma": "jeweils",
     "level": "B2",
     "levelSource": "reference",
@@ -19074,7 +19074,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:B2:kürzlich",
+    "id": "voc:B1:kürzlich",
     "lemma": "kürzlich",
     "level": "B2",
     "levelSource": "reference",
@@ -19151,7 +19151,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:maximal",
+    "id": "voc:B1:maximal",
     "lemma": "maximal",
     "level": "B2",
     "levelSource": "reference",
@@ -19184,7 +19184,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:meinetwegen",
+    "id": "voc:B1:meinetwegen",
     "lemma": "meinetwegen",
     "level": "B2",
     "levelSource": "reference",
@@ -19228,7 +19228,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:nebenbei",
+    "id": "voc:B1:nebenbei",
     "lemma": "nebenbei",
     "level": "B2",
     "levelSource": "reference",
@@ -19250,7 +19250,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:offenbar",
+    "id": "voc:B1:offenbar",
     "lemma": "offenbar",
     "level": "B2",
     "levelSource": "reference",
@@ -19272,7 +19272,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:operieren",
+    "id": "voc:B1:operieren",
     "lemma": "operieren",
     "level": "B2",
     "levelSource": "reference",
@@ -19294,7 +19294,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:parken",
+    "id": "voc:A2:parken",
     "lemma": "parken",
     "level": "B2",
     "levelSource": "reference",
@@ -19371,7 +19371,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:rückwärts",
+    "id": "voc:B1:rückwärts",
     "lemma": "rückwärts",
     "level": "B2",
     "levelSource": "reference",
@@ -19844,7 +19844,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:verurteilen",
+    "id": "voc:B1:verurteilen",
     "lemma": "verurteilen",
     "level": "B2",
     "levelSource": "reference",
@@ -19976,7 +19976,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:vorlesen",
+    "id": "voc:B1:vorlesen",
     "lemma": "vorlesen",
     "level": "B2",
     "levelSource": "reference",
@@ -20097,7 +20097,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:zugänglich",
+    "id": "voc:B1:zugänglich",
     "lemma": "zugänglich",
     "level": "B2",
     "levelSource": "reference",
@@ -20207,7 +20207,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:B2:überfahren",
+    "id": "voc:B1:überfahren",
     "lemma": "überfahren",
     "level": "B2",
     "levelSource": "reference",
@@ -20273,7 +20273,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:angeben",
+    "id": "voc:B1:angeben",
     "lemma": "angeben",
     "level": "C1",
     "levelSource": "reference",
@@ -20614,7 +20614,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:das Plakat",
+    "id": "voc:A2:das Plakat",
     "lemma": "Plakat",
     "level": "C1",
     "levelSource": "reference",
@@ -20658,7 +20658,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:der Abfall",
+    "id": "voc:B1:der Abfall",
     "lemma": "Abfall",
     "level": "C1",
     "levelSource": "reference",
@@ -20669,7 +20669,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:der Betreuer",
+    "id": "voc:B1:der Betreuer",
     "lemma": "Betreuer",
     "level": "C1",
     "levelSource": "reference",
@@ -20845,7 +20845,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:die Festplatte",
+    "id": "voc:B1:die Festplatte",
     "lemma": "Festplatte",
     "level": "C1",
     "levelSource": "reference",
@@ -20856,7 +20856,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:die Fotografie",
+    "id": "voc:B1:die Fotografie",
     "lemma": "Fotografie",
     "level": "C1",
     "levelSource": "reference",
@@ -21021,7 +21021,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:die Vorschrift",
+    "id": "voc:B1:die Vorschrift",
     "lemma": "Vorschrift",
     "level": "C1",
     "levelSource": "reference",
@@ -21043,7 +21043,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:die Zeichnung",
+    "id": "voc:B1:die Zeichnung",
     "lemma": "Zeichnung",
     "level": "C1",
     "levelSource": "reference",
@@ -21054,7 +21054,7 @@
     "fieldSource": "default"
   },
   {
-    "id": "voc:C1:die Zeile",
+    "id": "voc:B1:die Zeile",
     "lemma": "Zeile",
     "level": "C1",
     "levelSource": "reference",
@@ -21098,7 +21098,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:einführen",
+    "id": "voc:B1:einführen",
     "lemma": "einführen",
     "level": "C1",
     "levelSource": "reference",
@@ -21153,7 +21153,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:erfordern",
+    "id": "voc:B1:erfordern",
     "lemma": "erfordern",
     "level": "C1",
     "levelSource": "reference",
@@ -21340,7 +21340,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:kleben",
+    "id": "voc:B1:kleben",
     "lemma": "kleben",
     "level": "C1",
     "levelSource": "reference",
@@ -21362,7 +21362,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:korrigieren",
+    "id": "voc:B1:korrigieren",
     "lemma": "korrigieren",
     "level": "C1",
     "levelSource": "reference",
@@ -21648,7 +21648,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:vergrößern",
+    "id": "voc:B1:vergrößern",
     "lemma": "vergrößern",
     "level": "C1",
     "levelSource": "reference",
@@ -21670,7 +21670,7 @@
     "fieldSource": "llm"
   },
   {
-    "id": "voc:C1:verwechseln",
+    "id": "voc:B1:verwechseln",
     "lemma": "verwechseln",
     "level": "C1",
     "levelSource": "reference",

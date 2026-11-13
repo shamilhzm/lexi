@@ -161,7 +161,7 @@ const fold = (t: string) => t
   // has `achten`, because a corpus counts verbs, not the prepositions they take.
   // Every governed card was invisible to this check, which reported them as owed
   // and nearly had one of them authored a second time.
-  .replace(/\s+\w+\s+\+\s+[ADG]$/i, '')
+  .replace(/(\s+\p{L}+)?\s+\+\s+[ADG]$/iu, '')
   .trim()
   .toLowerCase();
 

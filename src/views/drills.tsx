@@ -39,7 +39,7 @@ import type { LucideIcon } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { conjugate, canConjugate } from '../lib/conjugate.ts';
 import { visibleMode } from '../lib/focus.ts';
-import { pluralForms } from '../lib/matcher.ts';
+import { pluralForms, government } from '../lib/matcher.ts';
 import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
@@ -53,7 +53,7 @@ import Button from '../components/ui/Button.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { Word, Example } from '../types.ts';
 
-export type Mode = 'gender' | 'plural' | 'recall' | 'reverse' | 'cloze' | 'usage' | 'conjugate' | 'degree' | 'synonym';
+export type Mode = 'gender' | 'plural' | 'recall' | 'reverse' | 'cloze' | 'usage' | 'conjugate' | 'degree' | 'synonym' | 'prep';
 
 /** How every drill item reports its result.
  *
@@ -359,6 +359,7 @@ function inLevels(w: Word) { return levels().has(w.level); }
 const genderPool = () => WORDS.filter((w) => w.kind === 'word' && w.gender && inLevels(w));
 const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && askablePlural(w) && inLevels(w));
 const recallPool = () => WORDS.filter((w) => inLevels(w) && recallSafe(w));
+const prepPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && prepOf(w));
 
 /** FSRS card id for a word's drill in a given mode. */
 export const gymId = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
@@ -411,6 +412,9 @@ export function practiceModes(w: Word, attested: string[] = []): Mode[] {
   if (w.pos === 'verb' && canConjugate(stripArticle(w.term))) out.push('conjugate');
   if (w.pos === 'adjective' && attested.length > 0) out.push('degree');
   if (w.syn.some((t) => /^(der |die |das )?[A-Za-zÄÖÜäöüß-]+$/.test(t))) out.push('synonym');
+  // *warten **auf***: which preposition a word takes is a fact about that word and
+  // nothing else — the one word property the certificate papers test hardest.
+  if (prepOf(w)) out.push('prep');
   // Production last and gated exactly as the scheduler gates it: asking for a
   // word cold before the form–meaning link exists is a lapse on nothing.
   if (recallSafe(w) && statusOf(w.id) === 'known') out.push('recall');
@@ -431,6 +435,7 @@ export const MODE_TAG: Record<Mode, string> = {
   conjugate: 'Verb forms',
   degree: 'Comparative and superlative',
   synonym: 'Words that mean the same',
+  prep: 'The preposition a word takes',
 };
 
 export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[] = [
@@ -441,7 +446,8 @@ export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[]
 
 /** Words for a mode, due-first then unseen, shuffled within each band. */
 function queue(mode: Mode): Word[] {
-  const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool() : recallPool();
+  const pool = mode === 'gender' ? genderPool() : mode === 'plural' ? pluralPool()
+    : mode === 'prep' ? prepPool() : recallPool();
   const now = Date.now();
   const due: Word[] = [], fresh: Word[] = [];
   for (const w of pool) {
@@ -480,9 +486,7 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
 
   return (
     <Shell title={title} onExit={onExit} progress={`${done}/${q.length}`} score={done ? Math.round((correct / done) * 100) : null}>
-      {mode === 'gender' && <GenderItem key={word.id} word={word} onGrade={advance} />}
-      {mode === 'plural' && <PluralItem key={word.id} word={word} onGrade={advance} />}
-      {mode === 'recall' && <RecallItem key={word.id} word={word} onGrade={advance} />}
+      <ModeItem key={word.id} mode={mode} word={word} onGrade={advance} />
     </Shell>
   );
 }
@@ -1005,6 +1009,101 @@ export function SynonymItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   return <MCItem prompt={<span lang="de">{stripArticle(word.term)}</span>} big
     sub="Which word means the same?" hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
+// ---- the preposition a word takes ------------------------------------------
+//
+// *warten auf*, *sich freuen über*, *verantwortlich für*. Added 2026-11-10 from the
+// exam audit: it is the word property the certificate papers test hardest (telc's
+// *Sprachbausteine*, Goethe's gap texts), the corpus already carried it in the
+// headword, and nothing asked for it except typed recall.
+//
+// It passes the vocabulary ruling for the reason conjugation does: nothing about
+// *warten* predicts *auf*. What it deliberately does **not** ask is the case the
+// preposition governs — that is the half `lib/focus.ts` hides, and the item never
+// prints it.
+
+/** The prepositions a governed card can name — the distractor pool. */
+export const GOVERNED_PREPS = ['an', 'auf', 'aus', 'bei', 'für', 'gegen', 'in', 'mit', 'nach', 'über', 'um', 'unter', 'von', 'vor', 'zu'];
+
+/** A governed card's preposition, and its headword with the preposition taken
+ *  out (*sich freuen*, not *freuen* — the reflexive is part of the word). Null
+ *  for everything else, including the bare-preposition cards (`wegen + G`), whose
+ *  headword *is* the preposition. */
+export function prepOf(w: Word): { lemma: string; prep: string; head: string } | null {
+  const g = government(w.term);
+  if (!g || !GOVERNED_PREPS.includes(g.prep)) return null;
+  const head = w.term.replace(/\s+\S+\s*\+\s*[ADGN]$/u, '').trim();
+  return { ...g, head };
+}
+
+/** Four prepositions, one right. A preposition another card attests for the same
+ *  word is never a distractor: *sich freuen* takes *auf* and *über*, and offering
+ *  one as the wrong answer to the other marks correct German wrong. */
+export function prepOptions(word: Word, pool: Word[] = WORDS): { options: string[]; correct: number; head: string } | null {
+  const mine = prepOf(word);
+  if (!mine) return null;
+  const valid = new Set<string>([mine.prep]);
+  for (const w of pool) {
+    const g = government(w.term);
+    if (g && g.lemma.toLowerCase() === mine.lemma.toLowerCase()) valid.add(g.prep);
+  }
+  const distract = pickN(GOVERNED_PREPS.filter((p) => !valid.has(p)), 3, new Set());
+  if (distract.length < 3) return null;
+  return { ...buildMC(mine.prep, distract), head: mine.head };
+}
+
+export function PrepItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
+  const mc = useMemo(() => prepOptions(word), [word.id]);
+  if (!mc) return null;
+  return <MCItem prompt={<span lang="de">{mc.head} <span className="text-accent">·····</span></span>} big
+    sub="Which preposition does it take?" hint={word.en}
+    askedLabel={`${mc.head} ${mc.options[mc.correct]}`}
+    options={mc.options} correct={mc.correct} onGrade={onGrade} />;
+}
+
+// ---- one place that knows every mode ---------------------------------------
+
+/** Can this drill be put to this word **right now**? The session asks before it
+ *  resurfaces a due drill card, because two of the items need data that arrives
+ *  after first paint (examples, the inflection table) and an item that renders
+ *  nothing strands the session on an empty screen. A drill that cannot be asked
+ *  today is still due tomorrow. */
+export function canAsk(mode: Mode, w: Word, forms: string[] = []): boolean {
+  switch (mode) {
+    case 'gender': return w.kind === 'word' && !!w.gender;
+    case 'plural': return w.kind === 'word' && !!askablePlural(w);
+    case 'recall': return recallSafe(w);
+    case 'reverse': return w.kind === 'word';
+    case 'cloze': return !!clozeParts(w, forms);
+    case 'usage': return !!w.ex[0]?.de;
+    case 'conjugate': return w.pos === 'verb' && canConjugate(stripArticle(w.term));
+    case 'degree': return w.pos === 'adjective' && forms.length > 0;
+    case 'synonym': return w.syn.some((t) => /^(der |die |das )?[A-Za-zÄÖÜäöüß-]+$/.test(t));
+    case 'prep': return !!prepOf(w);
+  }
+}
+
+/** The item for a mode. Every surface that renders a drill goes through this, so
+ *  a mode added to the union is a compile error here and nowhere a silent
+ *  fallthrough — `Review.tsx` used to end its chain in `: <RecallItem>`, and
+ *  every due practice-sheet drill came back as typed recall (LESSONS). */
+const NO_FORMS: string[] = [];   // one identity, or every render reshuffles a gap item
+export function ModeItem({ mode, word, forms = NO_FORMS, onGrade }: {
+  mode: Mode; word: Word; forms?: string[]; onGrade: Grade;
+}) {
+  switch (mode) {
+    case 'gender': return <GenderItem word={word} onGrade={onGrade} />;
+    case 'plural': return <PluralItem word={word} onGrade={onGrade} />;
+    case 'recall': return <RecallItem word={word} onGrade={onGrade} />;
+    case 'reverse': return <ReverseItem word={word} onGrade={onGrade} />;
+    case 'cloze': return <ClozeItem word={word} forms={forms} onGrade={onGrade} />;
+    case 'usage': return <UsageItem word={word} onGrade={onGrade} />;
+    case 'conjugate': return <ConjugateItem word={word} onGrade={onGrade} />;
+    case 'degree': return <DegreeItem word={word} forms={forms} onGrade={onGrade} />;
+    case 'synonym': return <SynonymItem word={word} onGrade={onGrade} />;
+    case 'prep': return <PrepItem word={word} onGrade={onGrade} />;
+  }
 }
 
 // ---- the typed-answer widget ----------------------------------------------

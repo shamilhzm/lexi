@@ -18,7 +18,8 @@ import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, m
 import { BY_ID } from './data/index.ts';
 import { savedFrom } from './lib/news/library.ts';
 import { isDue, State, Rating, type Grade } from './srs.ts';
-import { eligibleModes, gymId, MODE_TAG, type Mode } from './views/drills.tsx';
+import { eligibleModes, canAsk, gymId, MODE_TAG, type Mode } from './views/drills.tsx';
+import { inflections } from './lib/inflections.ts';
 
 /** Why an item is in this session.
  *
@@ -408,6 +409,9 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
     if (!(mode in MODE_TAG) || !modeEnabled(mode) || inQueue.has(wordId) || !scope.has(wordId)) continue;
     const w = BY_ID.get(wordId);
     if (!w) continue;
+    // Examples and the inflection table arrive after first paint; a gap or a
+    // sentence drill that cannot be built yet waits for a later session.
+    if (!canAsk(mode, w, inflections()?.[w.id] ?? [])) continue;
     orphanBudget--;
     out.splice(Math.floor(Math.random() * (out.length + 1)), 0, {
       type: mode, word: w, srsId: rawId,

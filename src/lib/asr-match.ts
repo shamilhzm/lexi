@@ -52,7 +52,7 @@ export function lemmaOf(term: string): string {
   return term
     .replace(/^(der|die|das)\s+/i, '')
     .replace(/^sich\s+/i, '')
-    .replace(/\s+\w+\s+\+\s+[ADG]$/i, '')
+    .replace(/(\s+\p{L}+)?\s+\+\s+[ADG]$/iu, '')
     .split(/[(,]/)[0]
     .trim();
 }

@@ -409,7 +409,7 @@ export const FORM_RULINGS: FormRuling[] = [
       + 'optional. Keeper takes B1, the lower level.',
   },
   {
-    rule: 'merge', form: 'voc:B1:beschweren', lemma: 'voc:B1:sich beschweren', level: 'B1',
+    rule: 'merge', form: 'voc:B1:beschweren', lemma: 'voc:A2:sich beschweren', level: 'B1',
     why: 'Plain beschweren means to weigh something down. The B1 card is glossed "to complain" '
       + 'and illustrated «Er hat **sich** beim Manager über den Lärm beschwert» — so it is the '
       + 'reflexive verb, carded a second time without its pronoun. Same level, straight absorb.',
@@ -513,7 +513,7 @@ export const FORM_RULINGS: FormRuling[] = [
       + 'people meeting up. Also treffen = to hit a target, which the reflexive never means.',
   },
   {
-    rule: 'keep', form: 'voc:B1:unterhalten', lemma: 'voc:B1:sich unterhalten',
+    rule: 'keep', form: 'voc:B1:unterhalten', lemma: 'voc:A2:sich unterhalten',
     why: 'unterhalten maintains or supports; sich unterhalten holds a conversation. Same level, '
       + 'and still two words.',
   },
@@ -634,7 +634,7 @@ export const FORM_RULINGS: FormRuling[] = [
     why: 'jemanden beschäftigen employs or keeps somebody busy; sich beschäftigen mit occupies yourself with a subject.',
   },
   {
-    rule: 'keep', form: 'voc:B1:ziehen', lemma: 'voc:B1:ziehen nach + D',
+    rule: 'keep', form: 'voc:B1:ziehen', lemma: 'voc:A2:ziehen nach + D',
     why: 'ziehen pulls; ziehen nach moves house. The second is idiomatic and unguessable from the first.',
   },
   {

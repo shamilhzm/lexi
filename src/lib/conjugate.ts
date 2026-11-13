@@ -254,6 +254,26 @@ const TABLE: Record<string, Entry> = {
   schießen:  { praesens: six('schieße','schießt','schießt','schießen','schießt','schießen'), praeteritum: six('schoss','schossest','schoss','schossen','schosst','schossen'), partizip: 'geschossen', aux: 'haben' },
   schreien:  { praesens: six('schreie','schreist','schreit','schreien','schreit','schreien'), praeteritum: six('schrie','schriest','schrie','schrien','schriet','schrien'), partizip: 'geschrien', aux: 'haben' },
   fressen:   { praesens: six('fresse','frisst','frisst','fressen','fresst','fressen'), praeteritum: six('fraß','fraßest','fraß','fraßen','fraßt','fraßen'), partizip: 'gefressen', aux: 'haben' },
+  // Fourteen strong roots that had cards (or were about to) and no row *(2026-11-10)*.
+  // `rennen` had no gate miss — it fell through to the weak generator and came back
+  // «rennte, gerennt», marked reliable; `geschehen` was gated and so `reliable:
+  // false`, which meant «geschah» resolved to nothing. Found when the authoring
+  // gate refused «Ich bin zum Bus gerannt» as not containing *rennen*. The roots
+  // also carry their prefixed cards: *eindringen*, *verschmelzen*, *abbiegen*.
+  rennen:    { praesens: six('renne','rennst','rennt','rennen','rennt','rennen'), praeteritum: six('rannte','ranntest','rannte','rannten','ranntet','rannten'), partizip: 'gerannt', aux: 'sein' },
+  geschehen: { praesens: six('geschehe','geschiehst','geschieht','geschehen','gescheht','geschehen'), praeteritum: six('geschah','geschahst','geschah','geschahen','geschaht','geschahen'), partizip: 'geschehen', aux: 'sein' },
+  schleichen:{ praesens: six('schleiche','schleichst','schleicht','schleichen','schleicht','schleichen'), praeteritum: six('schlich','schlichst','schlich','schlichen','schlicht','schlichen'), partizip: 'geschlichen', aux: 'sein' },
+  kriechen:  { praesens: six('krieche','kriechst','kriecht','kriechen','kriecht','kriechen'), praeteritum: six('kroch','krochst','kroch','krochen','krocht','krochen'), partizip: 'gekrochen', aux: 'sein' },
+  biegen:    { praesens: six('biege','biegst','biegt','biegen','biegt','biegen'), praeteritum: six('bog','bogst','bog','bogen','bogt','bogen'), partizip: 'gebogen', aux: 'haben' },
+  dringen:   { praesens: six('dringe','dringst','dringt','dringen','dringt','dringen'), praeteritum: six('drang','drangst','drang','drangen','drangt','drangen'), partizip: 'gedrungen', aux: 'sein' },
+  stinken:   { praesens: six('stinke','stinkst','stinkt','stinken','stinkt','stinken'), praeteritum: six('stank','stankst','stank','stanken','stankt','stanken'), partizip: 'gestunken', aux: 'haben' },
+  verderben: { praesens: six('verderbe','verdirbst','verdirbt','verderben','verderbt','verderben'), praeteritum: six('verdarb','verdarbst','verdarb','verdarben','verdarbt','verdarben'), partizip: 'verdorben', aux: 'haben' },
+  pfeifen:   { praesens: six('pfeife','pfeifst','pfeift','pfeifen','pfeift','pfeifen'), praeteritum: six('pfiff','pfiffst','pfiff','pfiffen','pfifft','pfiffen'), partizip: 'gepfiffen', aux: 'haben' },
+  stechen:   { praesens: six('steche','stichst','sticht','stechen','stecht','stechen'), praeteritum: six('stach','stachst','stach','stachen','stacht','stachen'), partizip: 'gestochen', aux: 'haben' },
+  gebären:   { praesens: six('gebäre','gebärst','gebärt','gebären','gebärt','gebären'), praeteritum: six('gebar','gebarst','gebar','gebaren','gebart','gebaren'), partizip: 'geboren', aux: 'haben' },
+  gießen:    { praesens: six('gieße','gießt','gießt','gießen','gießt','gießen'), praeteritum: six('goss','gossest','goss','gossen','gosst','gossen'), partizip: 'gegossen', aux: 'haben' },
+  schmelzen: { praesens: six('schmelze','schmilzt','schmilzt','schmelzen','schmelzt','schmelzen'), praeteritum: six('schmolz','schmolzest','schmolz','schmolzen','schmolzt','schmolzen'), partizip: 'geschmolzen', aux: 'sein' },
+  reiben:    { praesens: six('reibe','reibst','reibt','reiben','reibt','reiben'), praeteritum: six('rieb','riebst','rieb','rieben','riebt','rieben'), partizip: 'gerieben', aux: 'haben' },
   brennen:   { praesens: six('brenne','brennst','brennt','brennen','brennt','brennen'), praeteritum: six('brannte','branntest','brannte','brannten','branntet','brannten'), partizip: 'gebrannt', aux: 'haben' },
   wiegen:    { praesens: six('wiege','wiegst','wiegt','wiegen','wiegt','wiegen'), praeteritum: six('wog','wogst','wog','wogen','wogt','wogen'), partizip: 'gewogen', aux: 'haben' },
   heben:     { praesens: six('hebe','hebst','hebt','heben','hebt','heben'), praeteritum: six('hob','hobst','hob','hoben','hobt','hoben'), partizip: 'gehoben', aux: 'haben' },

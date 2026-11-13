@@ -426,3 +426,30 @@ describe('verb readings and separable particles', () => {
     expect(at('Er kommt aus einer armen Familie.', 'armen')).toBe('arm');
   });
 });
+
+// ── Rule 4e: a sentence-opening imperative is the verb (2026-11-10) ──────────
+//
+// *der Klick* and *der Halt* shipped with the exam batch, and «Klick bitte auf den
+// Link» went to the noun at once: position 0 is capitalised whatever the class.
+describe('a sentence-opening imperative is the verb, not the noun spelled like it', () => {
+  const mm = buildMatcher([
+    w({ id: 'v:klicken', term: 'klicken', pos: 'verb' }),
+    w({ id: 'n:klick', term: 'der Klick', pos: 'noun', gender: 'der', plural: 'die Klicks' }),
+    w({ id: 'v:halten', term: 'halten', pos: 'verb' }),
+    w({ id: 'n:halt', term: 'der Halt', pos: 'noun', gender: 'der', plural: 'die Halts' }),
+  ]);
+  const first = (s: string) => mm.annotate(s)[0]?.word?.term ?? null;
+
+  it('reads the verb before a softener, an object pronoun or the polite Sie', () => {
+    expect(first('Klick bitte auf den Link.')).toBe('klicken');
+    expect(first('Klick mal hier.')).toBe('klicken');
+    expect(first('Halt dich fest!')).toBe('halten');
+    expect(first('Halt mir bitte die Tür auf.')).toBe('halten');
+  });
+
+  it('leaves the noun where nothing says imperative', () => {
+    expect(first('Klick und Maus gehören zusammen.')).toBe('der Klick');
+    expect(mm.annotate('Das war ein versehentlicher Klick.').at(-2)?.word?.term ?? mm.annotate('Das war ein versehentlicher Klick.').find((x) => x.text === 'Klick')?.word?.term).toBe('der Klick');
+    expect(mm.annotate('Der Zug fährt ohne Halt.').find((x) => x.text === 'Halt')?.word?.term).toBe('der Halt');
+  });
+});
