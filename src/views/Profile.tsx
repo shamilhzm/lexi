@@ -3,6 +3,7 @@
 // data backup live inside it (reached from the sidebar’s profile button).
 import { useState } from 'react';
 import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight, Scale } from 'lucide-react';
+import { FOCUS } from '../lib/focus.ts';
 import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { supportLinkShown } from '../lib/platform.ts';
@@ -68,7 +69,7 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
         <Stat label="Due" value={t.due} />
       </div>
 
-      {/* One clear goal (level + date) → the pace sentence on Today. */}
+      {/* One clear goal (level + date) → the pace sentence on Fortschritt. */}
       <GoalCard />
 
       {/* Interest topics — bias the daily fresh-vocabulary pick. */}
@@ -99,7 +100,11 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
         </span>
         <span className="flex-1 min-w-0">
           <span className="block text-base font-semibold">Settings</span>
-          <span className="block text-2xs text-dim">Appearance, pace, drills, voice, backup</span>
+          {/* Names what is behind the door today. It listed "pace, drills" for six
+              weeks after `lib/focus.ts` hid both. */}
+          <span className="block text-2xs text-dim">
+            Appearance, text size{FOCUS.tuning ? ', pace' : ''}{FOCUS.grammar ? ', drills' : ''}, voice, offline, backup
+          </span>
         </span>
         <ChevronRight size={16} className="text-dim flex-shrink-0" />
       </Card>
@@ -138,7 +143,10 @@ function GoalCard() {
         <Target size={16} className="text-accent" />
         <h2 className="text-base font-semibold">Your goal</h2>
       </div>
-      <p className="text-xs text-dim mb-3">A level and a date — Today shows whether your pace gets you there.</p>
+      {/* It said "Today shows" — the briefing that went on 2026-09-05. The sentence
+          has lived on Fortschritt since; the card kept pointing at a screen that
+          no longer exists (found on the simulator, 2026-11-14). */}
+      <p className="text-xs text-dim mb-3">A level and a date — Fortschritt shows whether your pace gets you there.</p>
       <div className="flex items-center gap-2.5 flex-wrap">
         <label className="sr-only" htmlFor="goal-level">Target level</label>
         <select id="goal-level" value={level} onChange={(e) => setLevel(e.target.value as CEFR)}
@@ -147,8 +155,18 @@ function GoalCard() {
         </select>
         <span className="text-dim text-xs" aria-hidden>by</span>
         <label className="sr-only" htmlFor="goal-date">Target date</label>
-        <input id="goal-date" type="date" value={date} min={today} onChange={(e) => setDate(e.target.value)}
-          className="tap-44 bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-accent" />
+        {/* iOS draws an empty date field as an empty box — no placeholder, no
+            glyph — so an unset goal read as a blank beige rectangle after the word
+            "by". The hint sits under the field and lets every tap through. */}
+        <span className="relative inline-flex">
+          <input id="goal-date" type="date" value={date} min={today} onChange={(e) => setDate(e.target.value)}
+            className="tap-44 min-w-[9.5rem] bg-panel2 border border-line rounded-md px-2.5 py-1.5 text-sm outline-none focus:border-accent" />
+          {!date && (
+            <span aria-hidden className="pointer-events-none absolute inset-0 flex items-center px-2.5 text-sm text-dim">
+              pick a date
+            </span>
+          )}
+        </span>
         {dirty && valid && <Button size="sm" onClick={() => setGoal({ level, date })}>Set</Button>}
         {g && (
           <button onClick={() => { setGoal(null); setDate(''); }}

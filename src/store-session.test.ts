@@ -1403,3 +1403,52 @@ describe('words the corpus did not have', () => {
     expect(Object.keys(JSON.parse(store.exportData()).settings)).toContain('lexi.wanted.v1');
   });
 });
+
+// ── A word the learner chose is in scope, whatever its level ─────────────────
+//
+// The level filter is the app's guess at what to offer; a bookmark is the
+// learner's instruction. A learner placed at B1 who saved the C1 words from their
+// class was never taught them: `buildBriefing` looked for saved words only inside
+// the filter, and a custom session dropped them on the way in (2026-11-14).
+describe('a saved word outranks the level filter', () => {
+  it('is served first even when its level is filtered out', async () => {
+    const { data, store } = await fresh();
+    data.registerWords([word('a0', 'S', { level: 'A1' }), word('c0', 'S', { level: 'C1' })]);
+    store.setLevels(new Set(['A1']));
+    store.toggleSaved('c0');
+    expect(store.buildBriefing().ids[0]).toBe('c0');
+  });
+
+  it('keeps coming back for review once it has been learned', async () => {
+    const { data, store, srs } = await fresh();
+    data.registerWords([word('a0', 'S', { level: 'A1' }), word('c0', 'S', { level: 'C1' })]);
+    store.setLevels(new Set(['A1']));
+    store.toggleSaved('c0');
+    store.review('c0', srs.Rating.Again);
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date(Date.now() + 30 * 86_400_000));
+      expect(store.buildBriefing().ids).toContain('c0');
+    } finally { vi.useRealTimers(); }
+  });
+
+  it('survives the trip into a session', async () => {
+    const { data, store, session } = await fresh();
+    data.registerWords([word('a0', 'S', { level: 'A1' }), word('c0', 'S', { level: 'C1' })]);
+    store.setLevels(new Set(['A1']));
+    store.toggleSaved('c0');
+    const items = session.buildMixedSession({ kind: 'custom', name: 'Today', ids: store.buildBriefing().ids });
+    expect(items.map((it) => it.word.id)).toContain('c0');
+  });
+
+  it("serves the learner's own text whole, and still filters a list nobody chose", async () => {
+    const { data, store, session } = await fresh();
+    data.registerWords([word('a0', 'S', { level: 'A1' }), word('c0', 'S', { level: 'C1' })]);
+    store.setLevels(new Set(['A1']));
+    const ids = ['a0', 'c0'];
+    const own = session.buildMixedSession({ kind: 'custom', name: 'Unlock this text', ids, unlockText: 'Ein Text …' });
+    expect(own.map((it) => it.word.id)).toEqual(expect.arrayContaining(['a0', 'c0']));
+    const plain = session.buildMixedSession({ kind: 'custom', name: 'x', ids });
+    expect(plain.map((it) => it.word.id)).not.toContain('c0');
+  });
+});

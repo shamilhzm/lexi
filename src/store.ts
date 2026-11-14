@@ -431,9 +431,15 @@ export function restoreCard(id: string, snap: Card | undefined, wasAgain = false
 function poolFor(target: Target): Word[] {
   let pool: Word[];
   if (target.kind === 'custom') {
-    // Explicit id list (briefing / mining). Preserve given order; honour levels.
+    // Explicit id list (briefing / mining). Preserve given order; honour levels —
+    // **except for a word the learner chose.** The level filter is the app's guess
+    // at what to offer; a bookmark, or a word from a text the learner pasted, is an
+    // instruction, and it used to be dropped here without a word (LESSONS,
+    // 2026-11-14). A list nobody chose is still filtered.
     pool = target.ids.map((id) => BY_ID.get(id)).filter((w): w is Word => !!w);
-    return pool.filter(inLevels);
+    const own = target.unlockText !== undefined;
+    const saved = new Set(savedWords());
+    return pool.filter((w) => inLevels(w) || own || saved.has(w.id));
   }
   if (target.kind === 'sector') pool = WORDS_BY_SECTOR.get(target.name) ?? [];
   else if (target.kind === 'group') pool = WORDS.filter((w) => SECTOR_GROUP.get(w.field) === target.name);
@@ -553,8 +559,13 @@ export function freshBudget(dueTotal: number): { saved: number; other: number; i
 export function buildBriefing(): Briefing {
   const now = Date.now();
   const inScope = WORDS.filter(inLevels);
+  // A saved word is in scope whatever its level: the filter is a guess, the
+  // bookmark is an instruction (see `poolFor`). Its reviews follow it for as long
+  // as it stays saved.
+  const saved = new Set(savedWords());
+  const chosen = saved.size ? WORDS.filter((w) => saved.has(w.id) && !inLevels(w)) : [];
   const dueReview: { id: string; due: number }[] = [];
-  for (const w of inScope) {
+  for (const w of [...inScope, ...chosen]) {
     const c = live.get(w.id);
     if (!c || c.state === State.New) continue;
     if (isDue(c, now)) dueReview.push({ id: w.id, due: new Date(c.due).getTime() });
@@ -580,9 +591,8 @@ export function buildBriefing(): Briefing {
   // next session *starts* with them, and `SESSION_CEILING` cuts a session from the
   // back: behind sixty due reviews they were sliced off every day, which was the
   // other half of the stall.
-  const saved = new Set(savedWords());
   if (saved.size) {
-    for (const w of inScope) {
+    for (const w of [...chosen, ...inScope]) {
       if (savedIds.length >= budget.saved) break;
       if (!saved.has(w.id) || statusOf(w.id) !== 'new') continue;
       savedIds.push(w.id);

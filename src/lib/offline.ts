@@ -17,8 +17,12 @@
 // Two sizes, because they are different promises:
 //
 //   the words        every card's examples and definitions, the inflection table,
-//                    the pictograms, the screens that load on demand — ~2 MB
-//   the dictionary   the 93,046-headword lookup layer, 232 shards — ~29 MB
+//                    the pictograms, the screens that load on demand
+//   the dictionary   the 93,046-headword lookup layer, 232 shards
+//
+// Measured on the 2026-11-14 build, gzipped as a host serves them: **1.43 MB** for
+// the words, **4.40 MB** for the dictionary (19.8 MB once stored). The first labels
+// on the buttons said 2 and 29, which were a guess and a `du`.
 //
 // The voice is not here: it has its own switch in Settings and its own 75 MB.
 

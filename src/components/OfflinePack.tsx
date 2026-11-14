@@ -40,8 +40,8 @@ export default function OfflinePack() {
       <p className="text-dim text-xs mb-3 max-w-[60ch]">
         Lexi keeps what you have opened. This puts the rest on this device too — every
         word’s examples at every level, and the screens you have not visited yet — so
-        nothing is missing without a connection. The dictionary is separate because it
-        is large.
+        nothing is missing without a connection. The dictionary is separate: a larger
+        download, and about 20 MB on the device once unpacked.
       </p>
 
       {progress ? (
@@ -60,11 +60,11 @@ export default function OfflinePack() {
         <div className="flex flex-wrap gap-2 items-center">
           <Button variant={hasWords && !stale ? 'secondary' : 'primary'} onClick={() => { void run(false); }} disabled={!online}>
             <Download size={15} /> {hasWords ? 'Refresh the words' : 'Download the words'}
-            <span className="font-normal opacity-70">· about 2 MB</span>
+            <span className="font-normal opacity-70">· about 1.5 MB</span>
           </Button>
           <Button variant="secondary" onClick={() => { void run(true); }} disabled={!online}>
             <Download size={14} className="text-accent" /> {hasDictionary ? 'Refresh the dictionary too' : 'Add the dictionary'}
-            <span className="font-normal opacity-70">· about 29 MB</span>
+            <span className="font-normal opacity-70">· about 4.5 MB</span>
           </Button>
         </div>
       )}

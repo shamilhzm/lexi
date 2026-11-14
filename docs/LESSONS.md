@@ -2004,3 +2004,23 @@ matcher bug, and the edit overrode the dictionary to do it.
 **Rule:** when a card "needs" a fact changed so that the matcher behaves, the
 matcher is the suspect. And a comment that states an invariant is a claim to test,
 not a description to trust: write the two-card case it implies.
+
+## The filter the app chose overrode the word the learner chose *(added 2026-11-14)*
+
+**Believed:** a bookmark is an instruction — VISION says so, the feed says so, and
+`buildBriefing`'s own comment says a scheduler that then taught something else
+"would be telling them their attention does not count".
+
+**True:** the saved words were looked for **inside the level filter**. Placement
+narrows that filter to A1…placed, and search, the feed's entry and the text scanner
+all let a learner save a card from any level. So a learner placed at B1 who saved
+the C1 words from their class was never taught one of them, with nothing on screen
+saying so; and the scanner's *Study these N* dropped the same words on the way into
+the session, because a custom id list "honours levels". Four tests written against
+the premise failed before a line was changed. Found from the outside — by asking why
+somebody with 157 of their class words already in the app was learning them in a
+chat instead.
+
+**Rule:** when two of the app's own rules meet, the one the learner stated wins over
+the one the app inferred — and the place to check is every `filter(inLevels)` on a
+path that begins with a deliberate press.

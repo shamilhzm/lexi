@@ -134,7 +134,7 @@ function Index({ onOpenGroup, onText, onGame }: {
         <span className="flex-1 min-w-0">
           <span lang="de" className="block text-lg font-semibold leading-tight">Wörter aus einem Text</span>
           <span className="block text-xs text-dim mt-1">
-            Paste German you want to read — Lexi marks what you know and builds a session from the rest.
+            Paste an article, or the words from today’s class — Lexi marks what you know and saves the rest for Üben.
           </span>
         </span>
         <ChevronRight size={18} className="text-dim flex-shrink-0" />

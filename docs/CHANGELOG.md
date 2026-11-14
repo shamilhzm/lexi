@@ -53,6 +53,18 @@ a third of them *not in the corpus*: they were typed on a US keyboard.
   to work around that matcher bug, against a dictionary page that says *Zeuge*; it is
   restored. And *der Totschlag* was given a plural from memory with a `src` naming a
   page that says `kPl.`; corrected. LESSONS has both.
+- **A saved word outranks the level filter.** `buildBriefing` looked for saved words
+  only inside the filter, and a custom session dropped out-of-level ids, so a learner
+  placed at B1 who saved C1 words was never taught them. A bookmark, or a word from a
+  text the learner pasted, is now in scope whatever its level; a list nobody chose is
+  still filtered. LESSONS.
+- **The offline download, checked against a real service worker** (`npm run preview`):
+  after one press Cache Storage holds all six detail levels, the inflections,
+  provenance, the dictionary index and every lazy chunk. Its two size labels were an
+  estimate and are now the measured 1.5 and 4.5 MB.
+- **Profile:** the goal card pointed at *Today*, a screen removed on 2026-09-05 (the
+  sentence lives on Fortschritt); an unset date was an empty box on iOS; the Settings
+  row still listed *pace, drills*.
 - `vorweg-` is one separable prefix (*nimmt vorweg*, *vorweggenommen*).
 
 ### Shipped 2026-11-13 — the preposition a word takes; search opens what it finds
@@ -106,8 +118,9 @@ the new drill → Fortschritt's blind-spot row → a run of twenty. Deployed.*
 - **Conjugation:** 14 strong roots gained rows (*rennen* had been «rennte, gerennt»).
   **Matcher rule 4e:** a sentence-opening imperative (*Klick bitte …*) is the verb.
 - **Settings → Use Lexi offline** (`lib/offline.ts`): one tap fetches every level's
-  examples, the inflections and the lazy screens (~2 MB), optionally the dictionary
-  (~29 MB), through the worker's own cache, and asks for persistent storage.
+  examples, the inflections and the lazy screens, optionally the dictionary, through
+  the worker's own cache, and asks for persistent storage. *(Sizes measured
+  2026-11-14: 1.43 MB and 4.40 MB gzipped — this entry first said ~2 and ~29.)*
 
 ### Shipped 2026-10-17 — word families built out; the owner's discussion themes; particles where they land
 
