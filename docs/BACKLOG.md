@@ -43,6 +43,43 @@
 >
 > ---
 >
+> ## What the first learner's chats asked for — read 2026-11-14
+>
+> *The owner exported their Claude conversations; 27 of 204 were about German. This is
+> what they went to a chat for, measured against what Lexi does. Nothing personal from
+> them is recorded here.*
+>
+> **Done from it** (CHANGELOG 2026-11-14): their four word lists are cards or noted,
+> and the scanner now takes a list typed on an English keyboard.
+>
+> **Open, inside the vocabulary ruling:**
+> 1. **Twelve listed words the gate refused** for want of a de.wiktionary page
+>    (*der Volkswirt, das Nebenfach, minderbemittelt …* — CHANGELOG has the list). Each
+>    needs a row in `verify-rulings.tsv` with a citation somebody consulted.
+> 2. **Two-slip typos.** *verantwörtlung*, *tatschalg*, *äusserrungen* are two edits
+>    from their card; `nearHeadword` stops at one, on purpose. Wider needs a measure of
+>    how often the second edit lands on a different word.
+> 3. **Separable or not — *um*fahren and um*fahren*.** Asked about twice. Which reading
+>    a prefix verb has is a fact about that verb; 146 verb cards are gated as
+>    unreliable for exactly this and nothing teaches the difference.
+> 4. **Guess-before-reveal on compounds.** *Handschuh* is *Hand* + *Schuh*; the chat's
+>    own answer to "what would make Lexi hold attention" was to open the gap before
+>    closing it. Track E #6 refused composition for *prefix verbs*; noun compounds
+>    whose parts are both cards were filed, not decided.
+> 5. **Connectors as a set** (*obwohl, als ob, weder … noch, dadurch dass*). 38
+>    conjunction cards exist; the learner asked a chat for "the B2 connectors" and got
+>    a list. A deck is an afternoon.
+>
+> **Open, and outside it — recorded so the next request is not a surprise:**
+> - Text rewritten to a level ("C1 might be too much — B2"), a daily brief, exemplar
+>   exam answers, corrections of the learner's own writing. All need a model; the
+>   optional tutor does two narrow jobs and VISION keeps it there.
+> - "Which case does *auf* take" — a rule of the language.
+> - Louder, better audio for listening on a run. Hören exists; loudness
+>   normalisation is already item 6 of the 2026-10-04 list below.
+>
+> ---
+>
 > ## What is open after 2026-11-13 — the exam audit
 >
 > *The owner asked what a Goethe/telc candidate is missing and chose the word-level
@@ -57,8 +94,8 @@
 >    prove «Es tut mir leid»), *Europa* (the page's first sense is the moon). Each is a
 >    gate blind spot, not a missing fact.
 > 3. **B2–C2 have no list.** `corpus:kernwortschatz` is the proxy: 459 content words
->    owed in the top 5,000, 2,507 in the top 10,000. `origin/corpus/class-list-2026-11-02`
->    holds an unapplied batch of 82 C1 cards.
+>    owed in the top 5,000, 2,507 in the top 10,000. *(2026-11-14: 456 and 2,489 after the
+>    class-list batch, which is now applied.)*
 > 4. **More verbs for `data/government.ts`.** 40 rows today. A row needs an example on
 >    the card that shows the pattern first — *danken für*, *glauben an*, *riechen nach*,
 >    *warnen vor*, *sterben an* have none yet.
@@ -70,8 +107,8 @@
 >    `eligibleModes` should carry it for governed cards is a VISION change, not a patch.
 > 7. **Lazy chunks are not pre-cached**; the offline pack is the only way to hold all
 >    of the app. The entry is 280 KB gzipped — motion ~45, the id map 18.
-> 8. **The owner's Claude chat export** could not be read (the links need the owner's
->    login). Nothing in this pass came from it.
+> 8. ~~The owner's Claude chat export could not be read.~~ Read 2026-11-14; see the
+>    section above.
 >
 > ---
 >

@@ -332234,7 +332234,7 @@
     "pos": "noun",
     "level": "B1",
     "gender": "das",
-    "plural": "nur Singular",
+    "plural": "die Zeuge",
     "ipa": "t͡sɔɪ̯k",
     "def": null,
     "syn": [],
@@ -332279,6 +332279,2301 @@
       }
     ],
     "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Notlage",
+    "term": "die Notlage",
+    "en": "emergency, plight, predicament",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Notlagen",
+    "ipa": "ˈnoːtˌlaːɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele Familien geraten durch die hohen Mieten in eine finanzielle Notlage.",
+        "en": "Many families end up in financial difficulty because of high rents.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In einer Notlage sollte man nicht zögern, um Hilfe zu bitten.",
+        "en": "In an emergency you shouldn't hesitate to ask for help.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:sich einwählen",
+    "term": "sich einwählen",
+    "en": "to dial in, to log on (to a call or network)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯nˌvɛːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich wähle mich um neun Uhr in die Videokonferenz ein.",
+        "en": "I'll dial into the video conference at nine.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wer sich ins WLAN einwählen will, braucht das Passwort.",
+        "en": "Anyone who wants to connect to the Wi-Fi needs the password.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Media & technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Behördengang",
+    "term": "der Behördengang",
+    "en": "trip to a government office, official errand",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Behördengänge",
+    "ipa": "bəˈhøːɐ̯dn̩ˌɡaŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Nach dem Umzug standen viele Behördengänge an.",
+        "en": "After the move there were lots of trips to government offices to make.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für den Behördengang am Montag habe ich einen Termin.",
+        "en": "I have an appointment for my visit to the authorities on Monday.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:anfallen",
+    "term": "anfallen",
+    "en": "to arise, to be incurred (costs, work)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌfalən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für die Reparatur fallen zusätzliche Kosten an.",
+        "en": "Additional costs arise for the repair.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Am Monatsende fällt immer viel Arbeit an.",
+        "en": "There's always a lot of work at the end of the month.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Administration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:Verantwortung übernehmen",
+    "term": "Verantwortung übernehmen",
+    "en": "to take responsibility",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈʔantvɔʁtʊŋ yːbɐˈneːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wer Fehler macht, sollte auch Verantwortung übernehmen.",
+        "en": "Anyone who makes mistakes should also take responsibility.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im neuen Job möchte ich mehr Verantwortung übernehmen.",
+        "en": "In my new job I'd like to take on more responsibility.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Ethics & Responsibility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Gelegenheit nutzen",
+    "term": "die Gelegenheit nutzen",
+    "en": "to take the opportunity",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "diː ɡəˈleːɡn̩haɪ̯t ˈnʊt͡sn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich möchte die Gelegenheit nutzen, mich bei allen zu bedanken.",
+        "en": "I'd like to take the opportunity to thank everyone.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir sollten die Gelegenheit nutzen, solange sie da ist.",
+        "en": "We should take the opportunity while it's there.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:aus einer Mücke einen Elefanten machen",
+    "term": "aus einer Mücke einen Elefanten machen",
+    "en": "to make a mountain out of a molehill",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "aʊ̯s ˈaɪ̯nɐ ˈmʏkə ˈaɪ̯nən eleˈfantn̩ ˈmaxn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Lass uns nicht aus einer Mücke einen Elefanten machen.",
+        "en": "Let's not make a mountain out of a molehill.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es war nur ein Kratzer, du musst nicht aus einer Mücke einen Elefanten machen.",
+        "en": "It was only a scratch; you don't have to make a mountain out of a molehill.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:zwei Fliegen mit einer Klappe schlagen",
+    "term": "zwei Fliegen mit einer Klappe schlagen",
+    "en": "to kill two birds with one stone",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "t͡svaɪ̯ ˈfliːɡn̩ mɪt ˈaɪ̯nɐ ˈklapə ˈʃlaːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wenn ich mit dem Rad zur Arbeit fahre, kann ich zwei Fliegen mit einer Klappe schlagen.",
+        "en": "If I cycle to work, I can kill two birds with one stone.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit diesem Termin wollen wir zwei Fliegen mit einer Klappe schlagen.",
+        "en": "With this meeting we want to kill two birds with one stone.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:Da wird der Hund in der Pfanne verrückt!",
+    "term": "Da wird der Hund in der Pfanne verrückt!",
+    "en": "well I'll be! that's unbelievable!",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "daː vɪʁt deːɐ̯ hʊnt ɪn deːɐ̯ ˈp͡fanə fɛɐ̯ˈʁʏkt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Zug ist pünktlich? Da wird der Hund in der Pfanne verrückt!",
+        "en": "The train is on time? Well, I'll be!",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat ohne Lernen bestanden? Da wird der Hund in der Pfanne verrückt!",
+        "en": "He passed without studying? That's unbelievable!",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Kirche im Dorf lassen",
+    "term": "die Kirche im Dorf lassen",
+    "en": "to keep things in proportion, not to get carried away",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "diː ˈkɪʁçə ɪm dɔʁf ˈlasn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Wir sollten die Kirche im Dorf lassen: Es ist nur ein Übungstest.",
+        "en": "Let's keep things in proportion: it's only a practice test.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man muss auch mal die Kirche im Dorf lassen.",
+        "en": "Sometimes you have to keep a sense of proportion.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:verwunderlich",
+    "term": "verwunderlich",
+    "en": "surprising, odd",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈvʊndɐlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Es ist nicht verwunderlich, dass die Preise gestiegen sind.",
+        "en": "It's not surprising that prices have risen.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Schweigen fand ich ziemlich verwunderlich.",
+        "en": "I found his silence rather odd.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Opinion",
+    "kind": "word"
+  },
+  {
+    "id": "voc:A2:wie zum Beispiel",
+    "term": "wie zum Beispiel",
+    "en": "such as, for example",
+    "pos": "phrase",
+    "level": "A2",
+    "gender": null,
+    "plural": null,
+    "ipa": "viː t͡sʊm ˈbaɪ̯ˌʃpiːl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Man kann Extras bekommen, wie zum Beispiel ein kostenloses Upgrade.",
+        "en": "You can get extras, such as a free upgrade.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich mag Sportarten wie zum Beispiel Laufen und Radfahren.",
+        "en": "I like sports such as running and cycling.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Überlegenheit",
+    "term": "die Überlegenheit",
+    "en": "superiority",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Überlegenheiten",
+    "ipa": "yːbɐˈleːɡn̩haɪ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Mannschaft zeigte ihre Überlegenheit schon in der ersten Halbzeit.",
+        "en": "The team showed its superiority in the first half.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er spricht mit einem Gefühl moralischer Überlegenheit.",
+        "en": "He speaks with a sense of moral superiority.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Gewalttat",
+    "term": "die Gewalttat",
+    "en": "act of violence",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Gewalttaten",
+    "ipa": "ɡəˈvaltˌtaːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Polizei ermittelt nach einer Gewalttat in der Innenstadt.",
+        "en": "The police are investigating after an act of violence in the city centre.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nichts rechtfertigt eine Gewalttat.",
+        "en": "Nothing justifies an act of violence.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Gewaltverbrechen",
+    "term": "das Gewaltverbrechen",
+    "en": "violent crime",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Gewaltverbrechen",
+    "ipa": "ɡəˈvaltfɛɐ̯ˌbʁɛçn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Zahl der Gewaltverbrechen ist leicht gesunken.",
+        "en": "The number of violent crimes has fallen slightly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er wurde wegen eines Gewaltverbrechens verurteilt.",
+        "en": "He was convicted of a violent crime.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:erwürgen",
+    "term": "erwürgen",
+    "en": "to strangle",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛɐ̯ˈvʏʁɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Laut Anklage soll der Mann das Opfer erwürgt haben.",
+        "en": "According to the indictment, the man is alleged to have strangled the victim.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Krimi erwürgt der Täter sein Opfer im Keller.",
+        "en": "In the crime novel the murderer strangles his victim in the cellar.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der/die Tatverdächtige",
+    "term": "der/die Tatverdächtige",
+    "en": "suspect (in a crime)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Tatverdächtigen",
+    "ipa": "ˈtaːtfɛɐ̯ˌdɛçtɪɡə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Polizei hat einen Tatverdächtigen festgenommen.",
+        "en": "The police have arrested a suspect.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Tatverdächtige schweigt bisher zu den Vorwürfen.",
+        "en": "The suspect has so far remained silent about the allegations.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Groll",
+    "term": "der Groll",
+    "en": "resentment, grudge",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "nur Singular",
+    "ipa": "ɡʁɔl",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hegt noch immer einen Groll gegen seinen alten Chef.",
+        "en": "He still bears a grudge against his old boss.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ohne Groll blickte sie auf die Trennung zurück.",
+        "en": "She looked back on the break-up without resentment.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Totschlag",
+    "term": "der Totschlag",
+    "en": "manslaughter",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "nur Singular",
+    "ipa": "ˈtoːtˌʃlaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Gericht verurteilte ihn wegen Totschlags.",
+        "en": "The court convicted him of manslaughter.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Anklage lautet nicht auf Mord, sondern auf Totschlag.",
+        "en": "The charge is not murder but manslaughter.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:wortwörtlich",
+    "term": "wortwörtlich",
+    "en": "literally, word for word",
+    "pos": "adjective",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈvɔʁtˈvœʁtlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat den Text wortwörtlich übersetzt.",
+        "en": "He translated the text word for word.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das darfst du nicht wortwörtlich nehmen.",
+        "en": "You mustn't take that literally.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:anklagen",
+    "term": "anklagen",
+    "en": "to charge, to accuse",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌklaːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Staatsanwalt will den Politiker wegen Bestechung anklagen.",
+        "en": "The prosecutor wants to charge the politician with bribery.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man kann niemanden ohne Beweise anklagen.",
+        "en": "You can't charge anyone without evidence.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Legal Terms",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:imponieren",
+    "term": "imponieren",
+    "en": "to impress (+ dative)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪmpoˈniːʁən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihre Ruhe hat mir sehr imponiert.",
+        "en": "Her calm really impressed me.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit teuren Autos kann er niemandem imponieren.",
+        "en": "He can't impress anyone with expensive cars.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:verblüffen",
+    "term": "verblüffen",
+    "en": "to astonish, to amaze",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈblʏfn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Ergebnis verblüffte sogar die Forscher.",
+        "en": "The result astonished even the researchers.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Seine Antwort hat mich völlig verblüfft.",
+        "en": "His answer completely amazed me.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Verrohung",
+    "term": "die Verrohung",
+    "en": "brutalisation, coarsening (of manners or language)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Verrohungen",
+    "ipa": "fɛɐ̯ˈʁoːʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele beklagen eine Verrohung der Sprache im Internet.",
+        "en": "Many people lament a coarsening of language online.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Verrohung der Debatte macht mir Sorgen.",
+        "en": "The brutalisation of the debate worries me.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unüberschaubar",
+    "term": "unüberschaubar",
+    "en": "vast, impossible to keep track of",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˌʊnʔyːbɐˈʃaʊ̯baːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Angebot an Apps ist inzwischen unüberschaubar.",
+        "en": "The range of apps is now impossible to keep track of.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Folgen der Entscheidung sind noch unüberschaubar.",
+        "en": "The consequences of the decision can't yet be assessed.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Intermediate descriptive adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich gezwungen sehen",
+    "term": "sich gezwungen sehen",
+    "en": "to feel compelled, to find oneself forced",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "zɪç ɡəˈt͡svʊŋən ˈzeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Firma könnte sich gezwungen sehen, Stellen abzubauen.",
+        "en": "The company could find itself forced to cut jobs.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Mieter werden sich gezwungen sehen, aus der Stadt wegzuziehen.",
+        "en": "Many tenants will feel compelled to move out of the city.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Argument & Thesis",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich begnügen",
+    "term": "sich begnügen",
+    "en": "to be content with, to settle for (mit)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈɡnyːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich begnüge mich heute mit einem Kaffee.",
+        "en": "I'll make do with a coffee today.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie wollte sich nicht mit dem zweiten Platz begnügen.",
+        "en": "She didn't want to settle for second place.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Intermediate everyday verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Begierde",
+    "term": "die Begierde",
+    "en": "desire, craving",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Begierden",
+    "ipa": "bəˈɡiːɐ̯də",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Philosophie wird die Vernunft oft der Begierde gegenübergestellt.",
+        "en": "In philosophy, reason is often contrasted with desire.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er konnte seine Begierde nach Anerkennung kaum verbergen.",
+        "en": "He could hardly hide his craving for recognition.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Höhlengleichnis",
+    "term": "das Höhlengleichnis",
+    "en": "Plato's allegory of the cave",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "nur Singular",
+    "ipa": "ˈhøːlənˌɡlaɪ̯çnɪs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Höhlengleichnis halten die Gefangenen Schatten für die Wirklichkeit.",
+        "en": "In the allegory of the cave, the prisoners take shadows for reality.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Platon erzählt das Höhlengleichnis im siebten Buch der Politeia.",
+        "en": "Plato tells the allegory of the cave in the seventh book of the Republic.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Political and legal philosophy",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Richtungswechsel",
+    "term": "der Richtungswechsel",
+    "en": "change of direction",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Richtungswechsel",
+    "ipa": "ˈʁɪçtʊŋsˌvɛksl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Partei vollzog einen deutlichen Richtungswechsel.",
+        "en": "The party made a clear change of direction.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Studium wagte sie einen beruflichen Richtungswechsel.",
+        "en": "After university she dared to change career direction.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:geradlinig",
+    "term": "geradlinig",
+    "en": "straightforward, direct; straight",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈʁaːtˌliːnɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er ist ein geradliniger Mensch, der sagt, was er denkt.",
+        "en": "He's a straightforward person who says what he thinks.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihr Lebenslauf verlief nicht ganz geradlinig.",
+        "en": "Her career path wasn't entirely straight.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Intermediate descriptive adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:schlüssig darlegen",
+    "term": "schlüssig darlegen",
+    "en": "to set out coherently, to argue convincingly",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃlʏsɪç ˈdaːɐ̯ˌleːɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Aufsatz musst du deine Position schlüssig darlegen.",
+        "en": "In the essay you have to set out your position coherently.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er konnte seine Gründe nicht schlüssig darlegen.",
+        "en": "He couldn't present his reasons convincingly.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Argument & Thesis",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:auf Biegen und Brechen",
+    "term": "auf Biegen und Brechen",
+    "en": "at all costs, by hook or by crook",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "aʊ̯f ˈbiːɡn̩ ʊnt ˈbʁɛçn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er wollte das Projekt auf Biegen und Brechen durchsetzen.",
+        "en": "He wanted to push the project through at all costs.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man sollte eine Beziehung nicht auf Biegen und Brechen retten wollen.",
+        "en": "You shouldn't try to save a relationship at all costs.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:im Zweifel",
+    "term": "im Zweifel",
+    "en": "when in doubt, if in doubt",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪm ˈt͡svaɪ̯fl̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich frage im Zweifel lieber noch einmal nach.",
+        "en": "When in doubt, I'd rather ask again.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der Prüfung solltest du im Zweifel die einfachere Struktur wählen.",
+        "en": "In the exam, if in doubt, you should choose the simpler structure.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:vorwegnehmen",
+    "term": "vorwegnehmen",
+    "en": "to anticipate; to give away in advance",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "foːɐ̯ˈvɛkˌneːmən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ich will das Ende des Films nicht vorwegnehmen.",
+        "en": "I don't want to give away the end of the film.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er wollte die Kritik vorwegnehmen und nannte die Schwächen selbst.",
+        "en": "He wanted to anticipate the criticism and named the weaknesses himself.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Argument & Thesis",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:standhaft",
+    "term": "standhaft",
+    "en": "steadfast, unwavering",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʃtanthaft",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Trotz des Drucks blieb sie standhaft.",
+        "en": "Despite the pressure she stood firm.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er weigerte sich standhaft, den Vertrag zu unterschreiben.",
+        "en": "He steadfastly refused to sign the contract.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Intermediate descriptive adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:unerschöpflich",
+    "term": "unerschöpflich",
+    "en": "inexhaustible",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ʊnʔɛɐ̯ˈʃœp͡flɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ihre Geduld scheint unerschöpflich zu sein.",
+        "en": "Her patience seems to be inexhaustible.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Sonne ist eine fast unerschöpfliche Energiequelle.",
+        "en": "The sun is an almost inexhaustible source of energy.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Intermediate descriptive adjectives",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:zwischenmenschlich",
+    "term": "zwischenmenschlich",
+    "en": "interpersonal",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡svɪʃn̩ˌmɛnʃlɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Job sind zwischenmenschliche Fähigkeiten oft wichtiger als Fachwissen.",
+        "en": "At work, interpersonal skills often matter more than expertise.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gab einige zwischenmenschliche Spannungen im Team.",
+        "en": "There were some interpersonal tensions in the team.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Relationships",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Bezugswort",
+    "term": "das Bezugswort",
+    "en": "antecedent, the word a pronoun refers to",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "die Bezugswörter",
+    "ipa": "bəˈt͡suːksˌvɔʁt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Relativpronomen richtet sich nach seinem Bezugswort.",
+        "en": "The relative pronoun agrees with its antecedent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Unterstreiche in jedem Satz das Bezugswort.",
+        "en": "Underline the antecedent in each sentence.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Hemmung",
+    "term": "die Hemmung",
+    "en": "inhibition",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Hemmungen",
+    "ipa": "ˈhɛmʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Beim Sprechen habe ich manchmal noch Hemmungen.",
+        "en": "I still sometimes feel inhibited when speaking.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hatte keine Hemmungen, die Wahrheit zu sagen.",
+        "en": "He had no qualms about telling the truth.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Ansehen",
+    "term": "das Ansehen",
+    "en": "reputation, standing",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "nur Singular",
+    "ipa": "ˈanˌzeːən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Skandal hat dem Ansehen der Firma geschadet.",
+        "en": "The scandal damaged the company's reputation.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie genießt unter Kollegen hohes Ansehen.",
+        "en": "She is highly regarded among colleagues.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:abgesehen von",
+    "term": "abgesehen von",
+    "en": "apart from, aside from",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapɡəˌzeːən fɔn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Urlaub war schön, abgesehen von dem Regen am letzten Tag.",
+        "en": "The holiday was lovely, apart from the rain on the last day.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe abgesehen von einer Frage alles verstanden.",
+        "en": "Apart from one question, I understood everything.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Connectors",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:rösten",
+    "term": "rösten",
+    "en": "to roast, to toast",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁœstn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Bohnen werden in einer kleinen Rösterei geröstet.",
+        "en": "The beans are roasted in a small roastery.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich röste das Brot kurz in der Pfanne.",
+        "en": "I toast the bread briefly in the pan.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Food & drink",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Stolperstein",
+    "term": "der Stolperstein",
+    "en": "stumbling block; brass memorial stone for victims of the Nazis",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Stolpersteine",
+    "ipa": "ˈʃtɔlpɐˌʃtaɪ̯n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Bürokratie war der größte Stolperstein bei der Gründung.",
+        "en": "Bureaucracy was the biggest stumbling block in setting up the company.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Vor dem Haus erinnern zwei Stolpersteine an die früheren Bewohner.",
+        "en": "In front of the house, two memorial stones commemorate the former residents.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:überrumpeln",
+    "term": "überrumpeln",
+    "en": "to catch off guard, to take by surprise",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "yːbɐˈʁʊmpl̩n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Frage hat mich völlig überrumpelt.",
+        "en": "The question caught me completely off guard.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Lass dich vom Verkäufer nicht überrumpeln.",
+        "en": "Don't let the salesperson rush you.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Intermediate everyday verbs",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:anhaften",
+    "term": "anhaften",
+    "en": "to cling to, to stick to (a reputation, a flaw)",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌhaftn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ein schlechter Ruf kann einem Viertel lange anhaften.",
+        "en": "A bad reputation can cling to a neighbourhood for a long time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Diesem Begriff kann leicht etwas Altmodisches anhaften.",
+        "en": "Something old-fashioned can easily cling to this term.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:beschnuppern",
+    "term": "beschnuppern",
+    "en": "to sniff at; to size each other up, to get acquainted",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈʃnʊpɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Hund beschnuppert den Besucher neugierig.",
+        "en": "The dog sniffs the visitor curiously.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der ersten Woche haben wir uns erst einmal beschnuppert.",
+        "en": "In the first week we started by getting to know each other.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Relationships",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:angehend",
+    "term": "angehend",
+    "en": "prospective, budding, trainee",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈanˌɡeːənt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kurs richtet sich an angehende Lehrerinnen und Lehrer.",
+        "en": "The course is aimed at trainee teachers.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Als angehender Ingenieur interessiert er sich für Raumfahrt.",
+        "en": "As a budding engineer he's interested in space travel.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:raufen",
+    "term": "raufen",
+    "en": "to scuffle, to brawl; (sich die Haare raufen) to tear one's hair out",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁaʊ̯fn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Kinder raufen auf dem Schulhof.",
+        "en": "The children are scuffling in the playground.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei dieser Bürokratie könnte ich mir die Haare raufen.",
+        "en": "This bureaucracy makes me want to tear my hair out.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:krachend scheitern",
+    "term": "krachend scheitern",
+    "en": "to fail spectacularly",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkʁaxn̩t ˈʃaɪ̯tɐn",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Ohne Plan könnte das Projekt krachend scheitern.",
+        "en": "Without a plan the project could fail spectacularly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Niemand will vor Publikum krachend scheitern.",
+        "en": "Nobody wants to fail spectacularly in front of an audience.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Idioms & Nuance",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:das Streben",
+    "term": "das Streben",
+    "en": "striving, aspiration",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "das",
+    "plural": "nur Singular",
+    "ipa": "ˈʃtʁeːbn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Streben nach Glück ist ein menschliches Grundbedürfnis.",
+        "en": "The pursuit of happiness is a basic human need.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Streben nach Perfektion macht ihn manchmal unglücklich.",
+        "en": "His striving for perfection sometimes makes him unhappy.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der/die Lernende",
+    "term": "der/die Lernende",
+    "en": "learner",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Lernenden",
+    "ipa": "ˈlɛʁnəndə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die App richtet sich an Lernende aller Niveaus.",
+        "en": "The app is aimed at learners of all levels.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bleib ein Lernender, auch wenn du schon viel weißt.",
+        "en": "Stay a learner, even when you already know a lot.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "University & study",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Demut",
+    "term": "die Demut",
+    "en": "humility",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "nur Singular",
+    "ipa": "ˈdeːmuːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er nahm den Preis mit großer Demut entgegen.",
+        "en": "He accepted the prize with great humility.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Demut und Neugier helfen beim Lernen einer Sprache.",
+        "en": "Humility and curiosity help when learning a language.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Ethics & Responsibility",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Einsicht",
+    "term": "die Einsicht",
+    "en": "insight; realisation, understanding",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Einsichten",
+    "ipa": "ˈaɪ̯nzɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er kam zu der Einsicht, dass er sich geirrt hatte.",
+        "en": "He came to realise that he had been wrong.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Studie bietet neue Einsichten in das Lernverhalten.",
+        "en": "The study offers new insights into learning behaviour.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:in vielerlei Hinsicht",
+    "term": "in vielerlei Hinsicht",
+    "en": "in many respects",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɪn ˈfiːlɐlaɪ̯ ˈhɪnˌzɪçt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Zuwanderung hat das Land in vielerlei Hinsicht bereichert.",
+        "en": "Immigration has enriched the country in many respects.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Umzug war in vielerlei Hinsicht ein Gewinn.",
+        "en": "The move was a gain in many respects.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Argument & Thesis",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Anwerbung",
+    "term": "die Anwerbung",
+    "en": "recruitment",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "die Anwerbungen",
+    "ipa": "ˈanˌvɛʁbʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Anwerbung von Gastarbeitern begann in den Fünfzigerjahren.",
+        "en": "The recruitment of guest workers began in the fifties.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma setzt auf die gezielte Anwerbung von Fachkräften.",
+        "en": "The company relies on the targeted recruitment of skilled workers.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Aussiedler",
+    "term": "der Aussiedler",
+    "en": "ethnic German resettler (from Eastern Europe)",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Aussiedler",
+    "ipa": "ˈaʊ̯sˌziːdlɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In den Neunzigerjahren kamen viele Aussiedler aus der ehemaligen Sowjetunion.",
+        "en": "In the nineties many ethnic German resettlers came from the former Soviet Union.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihr Großvater kam als Aussiedler aus Polen.",
+        "en": "Her grandfather came from Poland as an ethnic German resettler.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Asylantrag",
+    "term": "der Asylantrag",
+    "en": "asylum application",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Asylanträge",
+    "ipa": "aˈzyːlʔanˌtʁaːk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er hat in Deutschland einen Asylantrag gestellt.",
+        "en": "He has applied for asylum in Germany.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zahl der Asylanträge ist gestiegen.",
+        "en": "The number of asylum applications has risen.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Migration & Integration",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Kurfürst",
+    "term": "der Kurfürst",
+    "en": "prince-elector",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Kurfürsten",
+    "ipa": "ˈkuːɐ̯ˌfʏʁst",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Kurfürst lud verfolgte Hugenotten nach Brandenburg ein.",
+        "en": "The elector invited persecuted Huguenots to Brandenburg.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Mittelalter wählten die Kurfürsten den König.",
+        "en": "In the Middle Ages the prince-electors chose the king.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Politics & History",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:die Religionsausübung",
+    "term": "die Religionsausübung",
+    "en": "practice of religion, religious worship",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "die",
+    "plural": "nur Singular",
+    "ipa": "ʁeliˈɡi̯oːnsʔaʊ̯sˌyːbʊŋ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Grundgesetz garantiert die ungestörte Religionsausübung.",
+        "en": "The Basic Law guarantees the undisturbed practice of religion.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Flüchtlinge hofften auf freie Religionsausübung.",
+        "en": "The refugees hoped to practise their religion freely.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Society",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:verwüsten",
+    "term": "verwüsten",
+    "en": "to devastate, to ravage",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈvyːstn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Krieg verwüstete weite Teile des Landes.",
+        "en": "The war devastated large parts of the country.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein Sturm hat den Park verwüstet.",
+        "en": "A storm has wrecked the park.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Politics & History",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Ruhrgebiet",
+    "term": "das Ruhrgebiet",
+    "en": "the Ruhr (industrial region in western Germany)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "nur Singular",
+    "ipa": "ˈʁuːɐ̯ɡəˌbiːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Viele Menschen zogen zur Arbeit ins Ruhrgebiet.",
+        "en": "Many people moved to the Ruhr for work.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Ruhrgebiet war lange vom Bergbau geprägt.",
+        "en": "The Ruhr was shaped by mining for a long time.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Politics & History",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:weit verbreitet",
+    "term": "weit verbreitet",
+    "en": "widespread",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "vaɪ̯t fɛɐ̯ˈbʁaɪ̯tət",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Diese Meinung ist weit verbreitet.",
+        "en": "This opinion is widespread.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Englisch ist in der Arbeitswelt weit verbreitet.",
+        "en": "English is widespread in the working world.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:Segen oder Fluch",
+    "term": "Segen oder Fluch",
+    "en": "blessing or curse",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈzeːɡn̩ ˈoːdɐ fluːx",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Soziale Medien: Segen oder Fluch?",
+        "en": "Social media: blessing or curse?",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ist künstliche Intelligenz Segen oder Fluch für die Arbeitswelt?",
+        "en": "Is artificial intelligence a blessing or a curse for the working world?",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Argument & Thesis",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:als Vorlage dienen",
+    "term": "als Vorlage dienen",
+    "en": "to serve as a template or model",
+    "pos": "phrase",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "als ˈfoːɐ̯ˌlaːɡə ˈdiːnən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Dieser Brief kann dir als Vorlage dienen.",
+        "en": "This letter can serve you as a template.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die alte Studie soll als Vorlage dienen.",
+        "en": "The old study is to serve as a model.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Argument & Thesis",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:eine Frage des Alters",
+    "term": "eine Frage des Alters",
+    "en": "a question of age",
+    "pos": "phrase",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaɪ̯nə ˈfʁaːɡə dɛs ˈaltɐs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Für ihn ist Erfolg vor allem eine Frage des Alters und der Erfahrung.",
+        "en": "For him, success is above all a question of age and experience.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ob man Sprachen leicht lernt, ist nicht nur eine Frage des Alters.",
+        "en": "Whether you learn languages easily isn't only a question of age.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Useful Phrases",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Verbraucherzentrale",
+    "term": "die Verbraucherzentrale",
+    "en": "consumer advice centre",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Verbraucherzentralen",
+    "ipa": "fɛɐ̯ˈbʁaʊ̯xɐt͡sɛnˌtʁaːlə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Verbraucherzentrale berät bei Problemen mit Verträgen.",
+        "en": "The consumer advice centre gives advice on problems with contracts.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe mich bei der Verbraucherzentrale über meine Rechte informiert.",
+        "en": "I asked the consumer advice centre about my rights.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Advertising & Consumption",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:enttäuschend",
+    "term": "enttäuschend",
+    "en": "disappointing",
+    "pos": "adjective",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɛntˈtɔɪ̯ʃn̩t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Ergebnis war enttäuschend.",
+        "en": "The result was disappointing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach dem enttäuschenden Spiel gingen die Fans früh nach Hause.",
+        "en": "After the disappointing match the fans went home early.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:zuschicken",
+    "term": "zuschicken",
+    "en": "to send (to someone)",
+    "pos": "verb",
+    "level": "B1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈt͡suːˌʃɪkn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Können Sie mir die Unterlagen zuschicken?",
+        "en": "Can you send me the documents?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Rechnung wird Ihnen per Post zugeschickt.",
+        "en": "The invoice will be sent to you by post.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Post & Communication",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:die Hauptfigur",
+    "term": "die Hauptfigur",
+    "en": "main character, protagonist",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "die",
+    "plural": "die Hauptfiguren",
+    "ipa": "ˈhaʊ̯ptfiˌɡuːɐ̯",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Hauptfigur des Romans ist eine junge Ärztin.",
+        "en": "The main character of the novel is a young doctor.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit der Hauptfigur konnte ich mich gut identifizieren.",
+        "en": "I could identify well with the main character.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Literature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:langatmig",
+    "term": "langatmig",
+    "en": "long-winded",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈlaŋˌʔaːtmɪç",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Film war mir zu langatmig.",
+        "en": "The film was too long-winded for me.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hielt eine langatmige Rede.",
+        "en": "He gave a long-winded speech.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Taste & Judgement",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der/die Einheimische",
+    "term": "der/die Einheimische",
+    "en": "local (person), native",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Einheimischen",
+    "ipa": "ˈaɪ̯nˌhaɪ̯mɪʃə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Einheimischen kennen die besten Restaurants.",
+        "en": "The locals know the best restaurants.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein Einheimischer hat uns den Weg gezeigt.",
+        "en": "A local showed us the way.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Travel",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:abstürzen",
+    "term": "abstürzen",
+    "en": "to crash; to fall (from a height)",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈapˌʃtʏʁt͡sn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Mein Computer ist schon wieder abgestürzt.",
+        "en": "My computer has crashed again.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Flugzeug stürzte kurz nach dem Start ab.",
+        "en": "The plane crashed shortly after take-off.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Technology",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:nachwachsend",
+    "term": "nachwachsend",
+    "en": "renewable, regrowing",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈnaːxˌvaksn̩t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Holz ist ein nachwachsender Rohstoff.",
+        "en": "Wood is a renewable raw material.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma setzt auf nachwachsende Rohstoffe.",
+        "en": "The company relies on renewable raw materials.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Energy & Resources",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:begünstigen",
+    "term": "begünstigen",
+    "en": "to favour, to promote",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "bəˈɡʏnstɪɡn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das warme Wetter begünstigt das Wachstum der Pflanzen.",
+        "en": "The warm weather favours the growth of the plants.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Niedrige Zinsen haben den Immobilienboom begünstigt.",
+        "en": "Low interest rates fuelled the property boom.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Abstract",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:hemmungslos",
+    "term": "hemmungslos",
+    "en": "unrestrained, uninhibited",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈhɛmʊŋsˌloːs",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Sie fing hemmungslos an zu weinen.",
+        "en": "She began to cry uncontrollably.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er gibt sein Geld hemmungslos aus.",
+        "en": "He spends his money without restraint.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:rosten",
+    "term": "rosten",
+    "en": "to rust",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈʁɔstn̩",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Fahrrad rostet, wenn es im Regen steht.",
+        "en": "The bike rusts if it is left out in the rain.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wer rastet, der rostet.",
+        "en": "If you rest, you rust.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Objects & Materials",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:sich verzetteln",
+    "term": "sich verzetteln",
+    "en": "to get bogged down, to spread oneself too thin",
+    "pos": "verb",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "fɛɐ̯ˈt͡sɛtl̩n",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er verzettelt sich oft in Details.",
+        "en": "He often gets bogged down in details.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wer sich verzettelt, wird nie fertig.",
+        "en": "If you spread yourself too thin, you never finish.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:quälen",
+    "term": "quälen",
+    "en": "to torment, to torture",
+    "pos": "verb",
+    "level": "B2",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈkvɛːlən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Hitze quält die Menschen in der Stadt.",
+        "en": "The heat is tormenting people in the city.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er hat sich durch die Prüfung gequält.",
+        "en": "He struggled his way through the exam.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Emotions",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:aufgebläht",
+    "term": "aufgebläht",
+    "en": "bloated, inflated",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈaʊ̯fɡəˌblɛːt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Verwaltung ist völlig aufgebläht.",
+        "en": "The administration is completely bloated.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Essen fühlte er sich aufgebläht.",
+        "en": "After the meal he felt bloated.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Economy & Markets",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der/die Gelehrte",
+    "term": "der/die Gelehrte",
+    "en": "scholar",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Gelehrten",
+    "ipa": "ɡəˈleːɐ̯tə",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Die Gelehrten des Mittelalters schrieben auf Latein.",
+        "en": "The scholars of the Middle Ages wrote in Latin.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein Gelehrter widmet sein Leben der Wissenschaft.",
+        "en": "A scholar devotes his life to learning.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Knowledge & Truth",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Freidenker",
+    "term": "der Freidenker",
+    "en": "freethinker",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Freidenker",
+    "ipa": "ˈfʁaɪ̯ˌdɛŋkɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Er galt schon in der Schule als Freidenker.",
+        "en": "Even at school he was regarded as a freethinker.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Freidenker stellen Traditionen infrage.",
+        "en": "Freethinkers question traditions.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Knowledge & Truth",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:der Band",
+    "term": "der Band",
+    "en": "volume (of a book series)",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "der",
+    "plural": "die Bände",
+    "ipa": "bant",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Das Lexikon erscheint in zwanzig Bänden.",
+        "en": "The encyclopedia is published in twenty volumes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Reihe umfasst inzwischen zwölf Bände.",
+        "en": "The series now runs to twelve volumes.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Literature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:geschult",
+    "term": "geschult",
+    "en": "trained",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ɡəˈʃuːlt",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Unsere Mitarbeiter sind gut geschult.",
+        "en": "Our staff are well trained.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein geschultes Auge erkennt den Unterschied sofort.",
+        "en": "A trained eye spots the difference at once.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Work",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:nervenstark",
+    "term": "nervenstark",
+    "en": "having strong nerves, unflappable",
+    "pos": "adjective",
+    "level": "C1",
+    "gender": null,
+    "plural": null,
+    "ipa": "ˈnɛʁfn̩ˌʃtaʁk",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "In der Prüfung blieb sie nervenstark.",
+        "en": "She kept her nerve in the exam.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für diesen Beruf muss man nervenstark sein.",
+        "en": "You need strong nerves for this job.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Emotions",
     "kind": "word"
   }
 ]

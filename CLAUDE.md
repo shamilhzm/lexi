@@ -6,7 +6,7 @@ You're an incredible engineer with a background in languages, pedagogy, computer
 tutor, not an exam prep app — all three existed here and were removed on 2026-09-05.
 `docs/VISION.md` carries the ruling that did it and is the anchor for everything else.
 
-**Two layers, one search box** *(2026-09-05)*. Lexi **teaches** 11,135 cards *(2026-11-10)* and
+**Two layers, one search box** *(2026-09-05)*. Lexi **teaches** 11,220 cards *(2026-11-14)* and
 **answers** 93,046 dictionary headwords. They are different things and must never
 wear the same chrome: a card is machine-verified and studiable, an entry is an
 unverified Wiktionary gloss with one action — *note this word*. See
@@ -60,6 +60,10 @@ four surfaces look like four apps.
   · plural · conjugate · degree · synonym · prep (the preposition a word takes) ·
   recall, cut to a run of four with the ends pinned (meaning opens, recall closes) and
   the middle shuffled. Every surface renders a drill through `ModeItem`.
+- **The text scanner takes word lists** *(2026-11-14)*. `views/TextGaps.tsx` saves every
+  card in a pasted text for Üben and notes the rest; `lib/coverage.ts` reads words typed
+  without umlauts (`respell`) and *offers* one-slip typos (`nearHeadword`) — it never
+  assumes one.
 - **Search is global**: a magnifier in `TopBar` on every surface opens
   `components/SearchSheet.tsx`; `lib/search.ts` is the one ranking, shared with
   Themen. A miss offers "note this word" → `store.noteWanted` → listed in Profile

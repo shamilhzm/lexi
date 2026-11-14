@@ -35327,6 +35327,20 @@
       }
     ]
   },
+  "voc:B1:enttäuschend": {
+    "ex": [
+      {
+        "de": "Das Ergebnis war enttäuschend.",
+        "en": "The result was disappointing.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach dem enttäuschenden Spiel gingen die Fans früh nach Hause.",
+        "en": "After the disappointing match the fans went home early.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:erfinden": {
     "def": "to invent; to fabricate (something untrue); to make up (a story)",
     "ex": [
@@ -48700,6 +48714,20 @@
         "de": "Der Artikel lässt sich in einem einzigen Satz zusammenfassen.",
         "en": "The article can be summarised in a single sentence.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:zuschicken": {
+    "ex": [
+      {
+        "de": "Können Sie mir die Unterlagen zuschicken?",
+        "en": "Can you send me the documents?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Rechnung wird Ihnen per Post zugeschickt.",
+        "en": "The invoice will be sent to you by post.",
+        "lvl": "B1"
       }
     ]
   },

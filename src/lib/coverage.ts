@@ -77,6 +77,10 @@ export interface CoverageToken {
   counted: boolean;
   /** `null` for punctuation and excluded tokens. */
   state: TokenState | null;
+  /** Set when the token only resolved after its umlauts were put back —
+   *  *verfugung* read as *Verfügung*. The spelling it was read as, so the screen
+   *  can say what it assumed. See `respell`. */
+  respelled?: string;
 }
 
 export interface Unlock {
@@ -138,6 +142,98 @@ function inAddress(segs: { text: string; isWord: boolean }[], i: number): boolea
 const shortfall = (known: number, counted: number, target: number) =>
   Math.max(0, Math.ceil(target * counted - known));
 
+/** What an English keyboard does to a German word: *verfugung*, *einschatzung*,
+ *  *uberrumpelt*, *strasse*, *fuer*. Every spelling reachable by putting one or
+ *  two umlauts (or an ß) back, nearest first.
+ *
+ *  This exists because of how the app's first learner actually used it
+ *  (2026-11-14): the word lists from a German class were typed on a US keyboard
+ *  and pasted into a chat, not into Lexi, because Lexi called a third of them
+ *  *not in the corpus*. They were in the corpus. */
+export function respellings(tok: string): string[] {
+  const spots: { at: number; len: number; to: string }[] = [];
+  const lower = tok.toLowerCase();
+  const up = (i: number, ch: string) => (tok[i] !== lower[i] ? ch.toUpperCase() : ch);
+  for (let i = 0; i < lower.length; i++) {
+    const c = lower[i], two = lower.slice(i, i + 2);
+    if (two === 'ae' || two === 'oe' || two === 'ue') spots.push({ at: i, len: 2, to: up(i, two === 'ae' ? 'ä' : two === 'oe' ? 'ö' : 'ü') });
+    if (two === 'ss') spots.push({ at: i, len: 2, to: 'ß' });
+    if (c === 'a' || c === 'o' || c === 'u') spots.push({ at: i, len: 1, to: up(i, c === 'a' ? 'ä' : c === 'o' ? 'ö' : 'ü') });
+  }
+  if (spots.length === 0 || spots.length > 8) return [];
+  const apply = (picks: typeof spots) => {
+    let out = tok;
+    for (const p of [...picks].sort((a, b) => b.at - a.at)) out = out.slice(0, p.at) + p.to + out.slice(p.at + p.len);
+    return out;
+  };
+  const out: string[] = spots.map((p) => apply([p]));
+  for (let i = 0; i < spots.length; i++) {
+    for (let j = i + 1; j < spots.length; j++) {
+      if (spots[j].at < spots[i].at + spots[i].len) continue;      // overlapping (the u of «ue»)
+      out.push(apply([spots[i], spots[j]]));
+    }
+  }
+  return [...new Set(out)].filter((v) => v !== tok);
+}
+
+/** The one card a mistyped token can only mean, or null.
+ *
+ *  Asked only of a token the corpus could not read as written — so *schon* is
+ *  never turned into *schön*, nor *fordern* into *fördern*: a spelling that is a
+ *  word stays that word. And it must be unambiguous: where two respellings reach
+ *  two different cards, the token stays unread rather than guessed. */
+function respell(tok: string): { word: Word; as: string } | null {
+  let hit: { word: Word; as: string } | null = null;
+  for (const v of respellings(tok)) {
+    const seg = appMatcher().annotate(v).find((s) => s.isWord);
+    if (!seg?.word || seg.viaCompound) continue;
+    if (hit && hit.word.id !== seg.word.id) return null;
+    hit ??= { word: seg.word, as: v };
+  }
+  return hit;
+}
+
+/** One edit apart: a letter dropped, added, swapped for another, or two
+ *  neighbours transposed. */
+function withinOne(a: string, b: string): boolean {
+  if (a === b) return false;
+  const la = a.length, lb = b.length;
+  if (Math.abs(la - lb) > 1) return false;
+  let i = 0;
+  while (i < la && i < lb && a[i] === b[i]) i++;
+  if (la === lb) {
+    if (a.slice(i + 1) === b.slice(i + 1)) return true;                                   // substitution
+    return a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2);    // transposition
+  }
+  const [short, long] = la < lb ? [a, b] : [b, a];
+  return short.slice(i) === long.slice(i + 1);                                             // one letter more
+}
+
+/** The one headword a token is a single slip away from — *erforden* → *erfordern*,
+ *  *betreung* → *die Betreuung* — or null.
+ *
+ *  **A suggestion, never a reading.** `respell` may read a token on the learner's
+ *  behalf because an umlaut typed as its base vowel is one keyboard's habit and
+ *  the word it makes is not otherwise a word. A dropped letter is a guess: the
+ *  token may be a real word Lexi simply does not teach, one letter from a card it
+ *  does. So this is offered for a tap and counted as *absent* until taken.
+ *
+ *  Unique or nothing, headwords only, five letters and up — a short token is one
+ *  edit from too many things (*zeck*: *Zweck*, *Zeck*, *Zecke*, *Deck*). */
+export function nearHeadword(tok: string, pool: readonly Word[]): Word | null {
+  const t = tok.toLowerCase();
+  if (t.length < 5) return null;
+  let hit: Word | null = null;
+  for (const w of pool) {
+    if (w.kind !== 'word') continue;
+    const head = w.term.replace(/^(der\/die|der|die|das|sich)\s+/i, '').toLowerCase();
+    if (head.includes(' ') || !withinOne(t, head)) continue;
+    if (hit && hit.term !== w.term) return null;
+    hit ??= w;
+  }
+  return hit;
+}
+
 export interface CoverageOptions {
   /** What the learner has done with a word the corpus knows. */
   stateOf: (w: Word) => WordState;
@@ -176,14 +272,16 @@ export function coverageOf(text: string, opts: CoverageOptions): Coverage {
       continue;
     }
 
-    const word = seg.word;
+    // Read as written first; only a token nothing could read gets its umlauts back.
+    const fixed = seg.word ? null : respell(tok);
+    const word = seg.word ?? fixed?.word ?? null;
     // A compound the matcher could only decompose is its own state, and it is
     // **not** `known` however well the learner knows the head. *Schadenfreude* is
     // not a kind of joy; scoring it as read because *Freude* is read is the
     // meter telling somebody they understood a sentence they did not. It is not
     // `absent` either — they can get most of the way there — so it counts toward
     // the denominator and is shown as its own thing. See `Segment.viaCompound`.
-    const state: TokenState = !word ? 'absent' : seg.viaCompound ? 'compound' : stateOf(word);
+    const state: TokenState = !word ? 'absent' : seg.viaCompound && !fixed ? 'compound' : stateOf(word);
     counted++;
     if (state === 'known') known++;
     else if (state === 'learning') learning++;
@@ -198,7 +296,7 @@ export function coverageOf(text: string, opts: CoverageOptions): Coverage {
       e.n++;
       occurrences.set(word.id, e);
     }
-    tokens.push({ text: tok, isWord: true, word, counted: true, state });
+    tokens.push({ text: tok, isWord: true, word, counted: true, state, ...(fixed ? { respelled: fixed.as } : {}) });
   }
 
   // Rank the unlockable words. "Frequency × recurrence in this text": recurrence

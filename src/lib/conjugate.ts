@@ -510,7 +510,9 @@ const SEPARABLE = [
   // scanned longest-first below, so this cannot shadow `ent` for a verb that
   // really is ent-prefixed.
   'entgegen',
-  'vor', 'voran', 'voraus',
+  // `vorweg` whole, for the reason `entgegen` is: as `vor` + *wegnehmen* the verb
+  // came back «nimmt wegvor» (2026-11-14, from a learner's own word list).
+  'vor', 'voran', 'voraus', 'vorweg',
   'vorbei', 'weg', 'weiter', 'zu', 'zurecht', 'zurück', 'zusammen',
   // Added 2026-08-26, same failure as the 08-24 batch below and found the same way
   // — by conjugating every verb in the corpus and looking for a participle that

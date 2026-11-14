@@ -14,13 +14,14 @@
 // Opened from Wortschatz, not from the nav: it is one of the two ways to choose
 // words, and the other one is the deck list it sits under.
 import { useMemo, useState } from 'react';
-import { ArrowLeft, Sparkle, Bookmark, X } from 'lucide-react';
+import { ArrowLeft, Sparkle, Bookmark, X, Plus, Check } from 'lucide-react';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
-import { coverageOf, unlocksToReach, ASSISTED, INDEPENDENT, type Coverage, type WordState } from '../lib/coverage.ts';
-import { cardOf, savedTexts, saveText, removeText } from '../store.ts';
+import { coverageOf, unlocksToReach, nearHeadword, ASSISTED, INDEPENDENT, type Coverage, type WordState } from '../lib/coverage.ts';
+import { WORDS } from '../data/index.ts';
+import { cardOf, savedTexts, saveText, removeText, isSaved, toggleSaved, noteWanted, isWanted } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { State } from '../srs.ts';
 import type { Target, Word } from '../types.ts';
@@ -85,6 +86,42 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
   );
   const plan = useMemo(() => (cov ? unlocksToReach(cov, ASSISTED) : null), [cov]);
 
+  // **The whole text, not only the 95% picks** *(2026-11-14)*. The plan below
+  // answers "what unlocks this article". A learner who pastes a *word list* —
+  // forty words from this morning's class — is asking something else: take all of
+  // these. So the meter offers both halves of that in one press each: every word
+  // Lexi teaches goes to Üben, and every word it does not is noted for authoring.
+  const fresh = useMemo(
+    () => (cov ? cov.unlocks.filter((u) => stateOf(u.word) === 'new').map((u) => u.word) : []),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [cov, v],
+  );
+  const unsaved = fresh.filter((w) => !isSaved(w.id));
+  const absent = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const t of cov?.tokens ?? []) {
+      if (t.counted && t.state === 'absent' && !seen.has(t.text.toLowerCase())) seen.set(t.text.toLowerCase(), t.text);
+    }
+    return [...seen.values()];
+  }, [cov]);
+  // A token one slip from a card is offered, not read (see `nearHeadword`) — and
+  // kept out of the note list, because noting a typo asks the authoring queue for
+  // a word that does not exist.
+  const slips = useMemo(
+    () => absent.map((t) => ({ typed: t, word: nearHeadword(t, WORDS) })).filter((x): x is { typed: string; word: Word } => !!x.word),
+    [absent],
+  );
+  const slipped = new Set(slips.map((x) => x.typed));
+  const missing = absent.filter((t) => !slipped.has(t));
+  const unnoted = missing.filter((t) => !isWanted(t));
+  // What the meter assumed, said out loud: a token read only after its umlauts
+  // were put back. One line per distinct spelling.
+  const respelled = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const t of cov?.tokens ?? []) if (t.respelled && t.word) seen.set(t.text.toLowerCase(), `${t.text} → ${t.word.term}`);
+    return [...seen.values()];
+  }, [cov]);
+
   const pct = cov ? Math.round(cov.ratio * 100) : 0;
   const band = cov ? BAND_COPY[cov.band] : null;
 
@@ -98,15 +135,15 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
           <Kicker className="block mb-0.5">From a text</Kicker>
           <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Wörter aus einem Text</h1>
           <p className="text-dim text-xs max-w-[56ch]">
-            Paste German you actually want to read. Lexi marks what you already know, counts the
-            gap, and can build a session out of the words standing in the way.
+            Paste German you actually want to read, or a list of words you met. Lexi marks what
+            you already know, counts the gap, and can save every word it teaches for Üben.
           </p>
         </div>
       </div>
 
       <Card tone="panel" pad="md">
         <label htmlFor="read-input" className="block text-sm text-dim mb-2">
-          An article, an email, a page of a book, a message from a friend.
+          An article, an email, a page of a book — or the list of words from today’s class.
         </label>
         <textarea
           id="read-input"
@@ -114,6 +151,11 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
           onChange={(e) => setText(e.target.value)}
           rows={6}
           spellCheck={false}
+          // An English keyboard's autocorrect rewrites German as it is typed —
+          // *betrachte* became «Berra the» on the first word of the first list
+          // driven through this field (2026-11-14). The search box and the recall
+          // field already switch it off; this one had not.
+          autoCorrect="off" autoCapitalize="none" autoComplete="off"
           lang="de"
           className="w-full rounded-md bg-panel2 border border-line p-3 text-sm leading-relaxed
                      focus:border-accent focus:outline-none"
@@ -163,6 +205,13 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                   ? <>{cov.toIndependent} more {cov.toIndependent === 1 ? 'word' : 'words'} to read it without help.</>
                   : <>{cov.toAssisted} more {cov.toAssisted === 1 ? 'word' : 'words'} to reach the 95% mark.</>}
             </p>
+            {respelled.length > 0 && (
+              <p className="mt-2 text-xs text-dim border-t border-line pt-2">
+                Read without their umlauts as typed:{' '}
+                <span lang="de" className="text-txt">{respelled.slice(0, 8).join(' · ')}</span>
+                {respelled.length > 8 && <> and {respelled.length - 8} more</>}.
+              </p>
+            )}
             {/* Honesty about the cap, when there is one worth saying. */}
             {cov.ceiling < ASSISTED && (
               <p className="mt-2 text-xs text-dim border-t border-line pt-2">
@@ -172,6 +221,66 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
               </p>
             )}
           </Card>
+
+          {(fresh.length > 0 || absent.length > 0) && (
+            <Card tone="panel" pad="md">
+              <Kicker>All of it</Kicker>
+              <div className="mt-2 flex flex-col gap-3">
+                {fresh.length > 0 && (
+                  <div>
+                    <Button variant={unsaved.length ? 'primary' : 'secondary'} disabled={unsaved.length === 0}
+                      onClick={() => { for (const w of unsaved) toggleSaved(w.id); }}>
+                      {unsaved.length
+                        ? <><Bookmark size={15} /> Save all {unsaved.length} new {unsaved.length === 1 ? 'word' : 'words'}</>
+                        : <><Check size={15} /> {fresh.length} saved</>}
+                    </Button>
+                    <p className="mt-1.5 text-xs text-dim max-w-[52ch]">
+                      Lexi teaches {fresh.length === 1 ? 'this one' : `these ${fresh.length}`} and you have not started
+                      {fresh.length === 1 ? ' it' : ' them'}. Saved words are what Üben teaches first.
+                    </p>
+                  </div>
+                )}
+                {slips.length > 0 && (
+                  <div>
+                    <p className="text-xs text-dim mb-1.5">
+                      Probably a slip of the keyboard — tap the ones you meant, and they are saved too.
+                    </p>
+                    <ul className="flex flex-wrap gap-2">
+                      {slips.map(({ typed, word }) => {
+                        const has = isSaved(word.id);
+                        return (
+                          <li key={typed}>
+                            <button aria-pressed={has} onClick={() => { if (!has) toggleSaved(word.id); }}
+                              className={`tap-44 flex items-center gap-1.5 rounded-md border px-3 py-2 text-sm transition-colors
+                                ${has ? 'border-accent bg-panel2 text-accent' : 'border-line bg-panel2 hover:border-accent'}`}>
+                              {has && <Check size={13} />}
+                              <span lang="de" className="text-dim line-through decoration-dim/50">{typed}</span>
+                              <span aria-hidden>→</span>
+                              <span lang="de" className="font-semibold">{word.term}</span>
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
+                {missing.length > 0 && (
+                  <div>
+                    <Button variant="secondary" disabled={unnoted.length === 0}
+                      onClick={() => { for (const t of unnoted) noteWanted(t, { ex: snippet(submitted, 80), src: 'a text you pasted' }); }}>
+                      {unnoted.length
+                        ? <><Plus size={14} className="text-accent" /> Note the {unnoted.length} Lexi doesn’t teach</>
+                        : <><Check size={14} /> {missing.length} noted</>}
+                    </Button>
+                    <p className="mt-1.5 text-xs text-dim max-w-[52ch]">
+                      <span lang="de" className="text-txt">{missing.slice(0, 6).join(', ')}</span>{missing.length > 6 && ' …'} —
+                      kept in your profile. A dictionary check decides which become cards, not the note.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </Card>
+          )}
 
           {plan && plan.picks.length > 0 && (
             <Card tone="panel" pad="md">

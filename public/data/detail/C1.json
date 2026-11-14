@@ -56,6 +56,20 @@
       }
     ]
   },
+  "voc:C1:Da wird der Hund in der Pfanne verrückt!": {
+    "ex": [
+      {
+        "de": "Der Zug ist pünktlich? Da wird der Hund in der Pfanne verrückt!",
+        "en": "The train is on time? Well, I'll be!",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hat ohne Lernen bestanden? Da wird der Hund in der Pfanne verrückt!",
+        "en": "He passed without studying? That's unbelievable!",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:Maßstäbe setzen": {
     "def": "To establish a benchmark that others follow.",
     "ex": [
@@ -82,6 +96,20 @@
       {
         "de": "Der Zeitplan trägt den Schulferien Rechnung.",
         "en": "The schedule takes account of the school holidays.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:Segen oder Fluch": {
+    "ex": [
+      {
+        "de": "Soziale Medien: Segen oder Fluch?",
+        "en": "Social media: blessing or curse?",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ist künstliche Intelligenz Segen oder Fluch für die Arbeitswelt?",
+        "en": "Is artificial intelligence a blessing or a curse for the working world?",
         "lvl": "C1"
       }
     ]
@@ -652,6 +680,20 @@
       }
     ]
   },
+  "voc:C1:als Vorlage dienen": {
+    "ex": [
+      {
+        "de": "Dieser Brief kann dir als Vorlage dienen.",
+        "en": "This letter can serve you as a template.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die alte Studie soll als Vorlage dienen.",
+        "en": "The old study is to serve as a model.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:altbacken": {
     "ex": [
       {
@@ -808,6 +850,20 @@
       }
     ]
   },
+  "voc:C1:anfallen": {
+    "ex": [
+      {
+        "de": "Für die Reparatur fallen zusätzliche Kosten an.",
+        "en": "Additional costs arise for the repair.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Am Monatsende fällt immer viel Arbeit an.",
+        "en": "There's always a lot of work at the end of the month.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:anfallend": {
     "ex": [
       {
@@ -860,6 +916,20 @@
       {
         "de": "Talent ist nicht immer angeboren.",
         "en": "Talent isn't always innate.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:angehend": {
+    "ex": [
+      {
+        "de": "Der Kurs richtet sich an angehende Lehrerinnen und Lehrer.",
+        "en": "The course is aimed at trainee teachers.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Als angehender Ingenieur interessiert er sich für Raumfahrt.",
+        "en": "As a budding engineer he's interested in space travel.",
         "lvl": "C1"
       }
     ]
@@ -936,6 +1006,20 @@
       }
     ]
   },
+  "voc:C1:anhaften": {
+    "ex": [
+      {
+        "de": "Ein schlechter Ruf kann einem Viertel lange anhaften.",
+        "en": "A bad reputation can cling to a neighbourhood for a long time.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Diesem Begriff kann leicht etwas Altmodisches anhaften.",
+        "en": "Something old-fashioned can easily cling to this term.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:anhand": {
     "def": "By using something as a guide or evidence.",
     "ex": [
@@ -961,6 +1045,20 @@
       {
         "de": "Das Kind ist im Moment sehr anhänglich.",
         "en": "The child is very clingy at the moment.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:anklagen": {
+    "ex": [
+      {
+        "de": "Der Staatsanwalt will den Politiker wegen Bestechung anklagen.",
+        "en": "The prosecutor wants to charge the politician with bribery.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man kann niemanden ohne Beweise anklagen.",
+        "en": "You can't charge anyone without evidence.",
         "lvl": "C1"
       }
     ]
@@ -1305,6 +1403,20 @@
       }
     ]
   },
+  "voc:C1:auf Biegen und Brechen": {
+    "ex": [
+      {
+        "de": "Er wollte das Projekt auf Biegen und Brechen durchsetzen.",
+        "en": "He wanted to push the project through at all costs.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man sollte eine Beziehung nicht auf Biegen und Brechen retten wollen.",
+        "en": "You shouldn't try to save a relationship at all costs.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:auf Kosten künftiger Generationen": {
     "def": "In a way that burdens the people who come after us.",
     "ex": [
@@ -1416,6 +1528,20 @@
       {
         "de": "Die Unterlagen sind nicht aufzufinden.",
         "en": "The documents can't be found.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:aufgebläht": {
+    "ex": [
+      {
+        "de": "Die Verwaltung ist völlig aufgebläht.",
+        "en": "The administration is completely bloated.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Essen fühlte er sich aufgebläht.",
+        "en": "After the meal he felt bloated.",
         "lvl": "C1"
       }
     ]
@@ -1702,6 +1828,20 @@
       {
         "de": "Hör auf, mich aufzuziehen!",
         "en": "Stop teasing me!",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:aus einer Mücke einen Elefanten machen": {
+    "ex": [
+      {
+        "de": "Lass uns nicht aus einer Mücke einen Elefanten machen.",
+        "en": "Let's not make a mountain out of a molehill.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es war nur ein Kratzer, du musst nicht aus einer Mücke einen Elefanten machen.",
+        "en": "It was only a scratch; you don't have to make a mountain out of a molehill.",
         "lvl": "C1"
       }
     ]
@@ -2443,6 +2583,20 @@
       }
     ]
   },
+  "voc:C1:begünstigen": {
+    "ex": [
+      {
+        "de": "Das warme Wetter begünstigt das Wachstum der Pflanzen.",
+        "en": "The warm weather favours the growth of the plants.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Niedrige Zinsen haben den Immobilienboom begünstigt.",
+        "en": "Low interest rates fuelled the property boom.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:beharren": {
     "ex": [
       {
@@ -2964,6 +3118,20 @@
       {
         "de": "Der Zug beschleunigt auf über zweihundert Stundenkilometer.",
         "en": "The train accelerates to over two hundred kilometres an hour.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:beschnuppern": {
+    "ex": [
+      {
+        "de": "Der Hund beschnuppert den Besucher neugierig.",
+        "en": "The dog sniffs the visitor curiously.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der ersten Woche haben wir uns erst einmal beschnuppert.",
+        "en": "In the first week we started by getting to know each other.",
         "lvl": "C1"
       }
     ]
@@ -3707,6 +3875,20 @@
       }
     ]
   },
+  "voc:C1:das Ansehen": {
+    "ex": [
+      {
+        "de": "Der Skandal hat dem Ansehen der Firma geschadet.",
+        "en": "The scandal damaged the company's reputation.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie genießt unter Kollegen hohes Ansehen.",
+        "en": "She is highly regarded among colleagues.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Anwesen": {
     "ex": [
       {
@@ -3915,6 +4097,20 @@
       {
         "de": "Was ist dein liebstes Betriebssystem?",
         "en": "What's your favourite operating system?",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Bezugswort": {
+    "ex": [
+      {
+        "de": "Das Relativpronomen richtet sich nach seinem Bezugswort.",
+        "en": "The relative pronoun agrees with its antecedent.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Unterstreiche in jedem Satz das Bezugswort.",
+        "en": "Underline the antecedent in each sentence.",
         "lvl": "C1"
       }
     ]
@@ -4776,6 +4972,20 @@
       }
     ]
   },
+  "voc:C1:das Gewaltverbrechen": {
+    "ex": [
+      {
+        "de": "Die Zahl der Gewaltverbrechen ist leicht gesunken.",
+        "en": "The number of violent crimes has fallen slightly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er wurde wegen eines Gewaltverbrechens verurteilt.",
+        "en": "He was convicted of a violent crime.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:das Gewebe": {
     "ex": [
       {
@@ -4944,6 +5154,20 @@
       {
         "de": "Er hat kein gutes Händchen bei Transfers.",
         "en": "He doesn't have the knack for transfers.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Höhlengleichnis": {
+    "ex": [
+      {
+        "de": "Im Höhlengleichnis halten die Gefangenen Schatten für die Wirklichkeit.",
+        "en": "In the allegory of the cave, the prisoners take shadows for reality.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Platon erzählt das Höhlengleichnis im siebten Buch der Politeia.",
+        "en": "Plato tells the allegory of the cave in the seventh book of the Republic.",
         "lvl": "C1"
       }
     ]
@@ -6159,6 +6383,20 @@
       {
         "de": "Frauen bekamen 1918 in Deutschland das Stimmrecht.",
         "en": "Women in Germany got the right to vote in 1918.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:das Streben": {
+    "ex": [
+      {
+        "de": "Das Streben nach Glück ist ein menschliches Grundbedürfnis.",
+        "en": "The pursuit of happiness is a basic human need.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Streben nach Perfektion macht ihn manchmal unglücklich.",
+        "en": "His striving for perfection sometimes makes him unhappy.",
         "lvl": "C1"
       }
     ]
@@ -7394,6 +7632,20 @@
       }
     ]
   },
+  "voc:C1:der Aussiedler": {
+    "ex": [
+      {
+        "de": "In den Neunzigerjahren kamen viele Aussiedler aus der ehemaligen Sowjetunion.",
+        "en": "In the nineties many ethnic German resettlers came from the former Soviet Union.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihr Großvater kam als Aussiedler aus Polen.",
+        "en": "Her grandfather came from Poland as an ethnic German resettler.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Ausspruch": {
     "ex": [
       {
@@ -8457,6 +8709,20 @@
       }
     ]
   },
+  "voc:C1:der Freidenker": {
+    "ex": [
+      {
+        "de": "Er galt schon in der Schule als Freidenker.",
+        "en": "Even at school he was regarded as a freethinker.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Freidenker stellen Traditionen infrage.",
+        "en": "Freethinkers question traditions.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Freistaat": {
     "ex": [
       {
@@ -8833,6 +9099,20 @@
       {
         "de": "Der gemessene Wert liegt knapp unter dem gesetzlichen Grenzwert.",
         "en": "The measured value is just below the statutory limit.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Groll": {
+    "ex": [
+      {
+        "de": "Er hegt noch immer einen Groll gegen seinen alten Chef.",
+        "en": "He still bears a grudge against his old boss.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ohne Groll blickte sie auf die Trennung zurück.",
+        "en": "She looked back on the break-up without resentment.",
         "lvl": "C1"
       }
     ]
@@ -9732,6 +10012,20 @@
       {
         "de": "Sie arbeitet als Kuratorin im Museum Ludwig.",
         "en": "She works as a curator at the Museum Ludwig.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Kurfürst": {
+    "ex": [
+      {
+        "de": "Der Kurfürst lud verfolgte Hugenotten nach Brandenburg ein.",
+        "en": "The elector invited persecuted Huguenots to Brandenburg.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Mittelalter wählten die Kurfürsten den König.",
+        "en": "In the Middle Ages the prince-electors chose the king.",
         "lvl": "C1"
       }
     ]
@@ -10935,6 +11229,20 @@
       }
     ]
   },
+  "voc:C1:der Richtungswechsel": {
+    "ex": [
+      {
+        "de": "Die Partei vollzog einen deutlichen Richtungswechsel.",
+        "en": "The party made a clear change of direction.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nach dem Studium wagte sie einen beruflichen Richtungswechsel.",
+        "en": "After university she dared to change career direction.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Rivale": {
     "ex": [
       {
@@ -11687,6 +11995,20 @@
       }
     ]
   },
+  "voc:C1:der Stolperstein": {
+    "ex": [
+      {
+        "de": "Die Bürokratie war der größte Stolperstein bei der Gründung.",
+        "en": "Bureaucracy was the biggest stumbling block in setting up the company.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Vor dem Haus erinnern zwei Stolpersteine an die früheren Bewohner.",
+        "en": "In front of the house, two memorial stones commemorate the former residents.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Stoß": {
     "def": "A sudden forceful thrust; also a pile or stack.",
     "ex": [
@@ -11927,6 +12249,20 @@
       {
         "de": "In sachlichem Tonfall trug er seine Beschwerde vor.",
         "en": "He presented his complaint in a matter-of-fact tone.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Totschlag": {
+    "ex": [
+      {
+        "de": "Das Gericht verurteilte ihn wegen Totschlags.",
+        "en": "The court convicted him of manslaughter.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Anklage lautet nicht auf Mord, sondern auf Totschlag.",
+        "en": "The charge is not murder but manslaughter.",
         "lvl": "C1"
       }
     ]
@@ -13061,6 +13397,20 @@
       }
     ]
   },
+  "voc:C1:der/die Gelehrte": {
+    "ex": [
+      {
+        "de": "Die Gelehrten des Mittelalters schrieben auf Latein.",
+        "en": "The scholars of the Middle Ages wrote in Latin.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein Gelehrter widmet sein Leben der Wissenschaft.",
+        "en": "A scholar devotes his life to learning.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der/die Gleichgesinnte": {
     "ex": [
       {
@@ -13075,6 +13425,20 @@
       }
     ]
   },
+  "voc:C1:der/die Lernende": {
+    "ex": [
+      {
+        "de": "Die App richtet sich an Lernende aller Niveaus.",
+        "en": "The app is aimed at learners of all levels.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bleib ein Lernender, auch wenn du schon viel weißt.",
+        "en": "Stay a learner, even when you already know a lot.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der/die Personalverantwortliche": {
     "ex": [
       {
@@ -13085,6 +13449,20 @@
       {
         "de": "Viele Personalverantwortliche lesen Lebensläufe nur kurz.",
         "en": "Many hiring managers only skim CVs.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der/die Tatverdächtige": {
+    "ex": [
+      {
+        "de": "Die Polizei hat einen Tatverdächtigen festgenommen.",
+        "en": "The police have arrested a suspect.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Tatverdächtige schweigt bisher zu den Vorwürfen.",
+        "en": "The suspect has so far remained silent about the allegations.",
         "lvl": "C1"
       }
     ]
@@ -13883,6 +14261,20 @@
       }
     ]
   },
+  "voc:C1:die Anwerbung": {
+    "ex": [
+      {
+        "de": "Die Anwerbung von Gastarbeitern begann in den Fünfzigerjahren.",
+        "en": "The recruitment of guest workers began in the fifties.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma setzt auf die gezielte Anwerbung von Fachkräften.",
+        "en": "The company relies on the targeted recruitment of skilled workers.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Applikation": {
     "ex": [
       {
@@ -14632,6 +15024,20 @@
       {
         "de": "Dazu haben Sie keine Befugnis.",
         "en": "You have no authority to do that.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Begierde": {
+    "ex": [
+      {
+        "de": "In der Philosophie wird die Vernunft oft der Begierde gegenübergestellt.",
+        "en": "In philosophy, reason is often contrasted with desire.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er konnte seine Begierde nach Anerkennung kaum verbergen.",
+        "en": "He could hardly hide his craving for recognition.",
         "lvl": "C1"
       }
     ]
@@ -15693,6 +16099,20 @@
       {
         "de": "Beide Delegationen sprachen von Fortschritten.",
         "en": "Both delegations spoke of progress.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Demut": {
+    "ex": [
+      {
+        "de": "Er nahm den Preis mit großer Demut entgegen.",
+        "en": "He accepted the prize with great humility.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Demut und Neugier helfen beim Lernen einer Sprache.",
+        "en": "Humility and curiosity help when learning a language.",
         "lvl": "C1"
       }
     ]
@@ -17812,6 +18232,20 @@
       }
     ]
   },
+  "voc:C1:die Gewalttat": {
+    "ex": [
+      {
+        "de": "Die Polizei ermittelt nach einer Gewalttat in der Innenstadt.",
+        "en": "The police are investigating after an act of violence in the city centre.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Nichts rechtfertigt eine Gewalttat.",
+        "en": "Nothing justifies an act of violence.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Gewalttätigkeit": {
     "ex": [
       {
@@ -18198,6 +18632,20 @@
       {
         "de": "Die wirtschaftliche Hegemonie verschiebt sich nach Asien.",
         "en": "Economic hegemony is shifting to Asia.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Hemmung": {
+    "ex": [
+      {
+        "de": "Beim Sprechen habe ich manchmal noch Hemmungen.",
+        "en": "I still sometimes feel inhibited when speaking.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hatte keine Hemmungen, die Wahrheit zu sagen.",
+        "en": "He had no qualms about telling the truth.",
         "lvl": "C1"
       }
     ]
@@ -18753,6 +19201,20 @@
       {
         "de": "Welche Kernkompetenzen bringen Sie mit?",
         "en": "Which core skills do you bring?",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Kirche im Dorf lassen": {
+    "ex": [
+      {
+        "de": "Wir sollten die Kirche im Dorf lassen: Es ist nur ein Übungstest.",
+        "en": "Let's keep things in proportion: it's only a practice test.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Man muss auch mal die Kirche im Dorf lassen.",
+        "en": "Sometimes you have to keep a sense of proportion.",
         "lvl": "C1"
       }
     ]
@@ -21159,6 +21621,20 @@
       {
         "de": "Die Firma investiert viel in die Rekrutierung.",
         "en": "The company invests a lot in recruitment.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Religionsausübung": {
+    "ex": [
+      {
+        "de": "Das Grundgesetz garantiert die ungestörte Religionsausübung.",
+        "en": "The Basic Law guarantees the undisturbed practice of religion.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Flüchtlinge hofften auf freie Religionsausübung.",
+        "en": "The refugees hoped to practise their religion freely.",
         "lvl": "C1"
       }
     ]
@@ -23842,6 +24318,20 @@
       }
     ]
   },
+  "voc:C1:die Verrohung": {
+    "ex": [
+      {
+        "de": "Viele beklagen eine Verrohung der Sprache im Internet.",
+        "en": "Many people lament a coarsening of language online.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Verrohung der Debatte macht mir Sorgen.",
+        "en": "The brutalisation of the debate worries me.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Verschiebung": {
     "def": "A move to a later time, or a shift in position.",
     "ex": [
@@ -25084,6 +25574,20 @@
       {
         "de": "Die Überlastung des Netzes führte zum Stromausfall.",
         "en": "Overloading the grid led to the power cut.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Überlegenheit": {
+    "ex": [
+      {
+        "de": "Die Mannschaft zeigte ihre Überlegenheit schon in der ersten Halbzeit.",
+        "en": "The team showed its superiority in the first half.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er spricht mit einem Gefühl moralischer Überlegenheit.",
+        "en": "He speaks with a sense of moral superiority.",
         "lvl": "C1"
       }
     ]
@@ -26933,6 +27437,20 @@
       }
     ]
   },
+  "voc:C1:erwürgen": {
+    "ex": [
+      {
+        "de": "Laut Anklage soll der Mann das Opfer erwürgt haben.",
+        "en": "According to the indictment, the man is alleged to have strangled the victim.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Im Krimi erwürgt der Täter sein Opfer im Keller.",
+        "en": "In the crime novel the murderer strangles his victim in the cellar.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:essenziell": {
     "ex": [
       {
@@ -28110,6 +28628,20 @@
       }
     ]
   },
+  "voc:C1:geradlinig": {
+    "ex": [
+      {
+        "de": "Er ist ein geradliniger Mensch, der sagt, was er denkt.",
+        "en": "He's a straightforward person who says what he thinks.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ihr Lebenslauf verlief nicht ganz geradlinig.",
+        "en": "Her career path wasn't entirely straight.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:gerichtlich": {
     "ex": [
       {
@@ -28176,6 +28708,20 @@
       {
         "de": "Es gibt geschmackliche Unterschiede.",
         "en": "There are differences in taste.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:geschult": {
+    "ex": [
+      {
+        "de": "Unsere Mitarbeiter sind gut geschult.",
+        "en": "Our staff are well trained.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein geschultes Auge erkennt den Unterschied sofort.",
+        "en": "A trained eye spots the difference at once.",
         "lvl": "C1"
       }
     ]
@@ -28773,6 +29319,20 @@
       }
     ]
   },
+  "voc:C1:hemmungslos": {
+    "ex": [
+      {
+        "de": "Sie fing hemmungslos an zu weinen.",
+        "en": "She began to cry uncontrollably.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er gibt sein Geld hemmungslos aus.",
+        "en": "He spends his money without restraint.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:herankommen": {
     "ex": [
       {
@@ -29258,6 +29818,20 @@
       }
     ]
   },
+  "voc:C1:im Zweifel": {
+    "ex": [
+      {
+        "de": "Ich frage im Zweifel lieber noch einmal nach.",
+        "en": "When in doubt, I'd rather ask again.",
+        "lvl": "C1"
+      },
+      {
+        "de": "In der Prüfung solltest du im Zweifel die einfachere Struktur wählen.",
+        "en": "In the exam, if in doubt, you should choose the simpler structure.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:implizit": {
     "def": "Suggested or understood without being directly stated.",
     "ex": [
@@ -29269,6 +29843,20 @@
       {
         "de": "Im Vertrag ist diese Pflicht nur implizit enthalten.",
         "en": "In the contract this obligation is only implicitly contained.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:imponieren": {
+    "ex": [
+      {
+        "de": "Ihre Ruhe hat mir sehr imponiert.",
+        "en": "Her calm really impressed me.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit teuren Autos kann er niemandem imponieren.",
+        "en": "He can't impress anyone with expensive cars.",
         "lvl": "C1"
       }
     ]
@@ -29299,6 +29887,20 @@
       {
         "de": "Für diese Aussicht nehmen wir den Umweg gern in Kauf.",
         "en": "For this view we happily accept the detour.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:in vielerlei Hinsicht": {
+    "ex": [
+      {
+        "de": "Die Zuwanderung hat das Land in vielerlei Hinsicht bereichert.",
+        "en": "Immigration has enriched the country in many respects.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Der Umzug war in vielerlei Hinsicht ein Gewinn.",
+        "en": "The move was a gain in many respects.",
         "lvl": "C1"
       }
     ]
@@ -30290,6 +30892,20 @@
       }
     ]
   },
+  "voc:C1:krachend scheitern": {
+    "ex": [
+      {
+        "de": "Ohne Plan könnte das Projekt krachend scheitern.",
+        "en": "Without a plan the project could fail spectacularly.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Niemand will vor Publikum krachend scheitern.",
+        "en": "Nobody wants to fail spectacularly in front of an audience.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:kreieren": {
     "ex": [
       {
@@ -30483,6 +31099,20 @@
       {
         "de": "Die Region ist landschaftlich vielfältig.",
         "en": "The region has a varied landscape.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:langatmig": {
+    "ex": [
+      {
+        "de": "Der Film war mir zu langatmig.",
+        "en": "The film was too long-winded for me.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er hielt eine langatmige Rede.",
+        "en": "He gave a long-winded speech.",
         "lvl": "C1"
       }
     ]
@@ -31676,6 +32306,20 @@
       }
     ]
   },
+  "voc:C1:nachwachsend": {
+    "ex": [
+      {
+        "de": "Holz ist ein nachwachsender Rohstoff.",
+        "en": "Wood is a renewable raw material.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Firma setzt auf nachwachsende Rohstoffe.",
+        "en": "The company relies on renewable raw materials.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:nachweisbar": {
     "ex": [
       {
@@ -31785,6 +32429,20 @@
       {
         "de": "Kritiker nennen das Programm neoliberal.",
         "en": "Critics call the programme neoliberal.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:nervenstark": {
+    "ex": [
+      {
+        "de": "In der Prüfung blieb sie nervenstark.",
+        "en": "She kept her nerve in the exam.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für diesen Beruf muss man nervenstark sein.",
+        "en": "You need strong nerves for this job.",
         "lvl": "C1"
       }
     ]
@@ -32836,6 +33494,20 @@
       }
     ]
   },
+  "voc:C1:raufen": {
+    "ex": [
+      {
+        "de": "Die Kinder raufen auf dem Schulhof.",
+        "en": "The children are scuffling in the playground.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Bei dieser Bürokratie könnte ich mir die Haare raufen.",
+        "en": "This bureaucracy makes me want to tear my hair out.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:rauschen": {
     "ex": [
       {
@@ -33519,6 +34191,20 @@
       }
     ]
   },
+  "voc:C1:schlüssig darlegen": {
+    "ex": [
+      {
+        "de": "Im Aufsatz musst du deine Position schlüssig darlegen.",
+        "en": "In the essay you have to set out your position coherently.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er konnte seine Gründe nicht schlüssig darlegen.",
+        "en": "He couldn't present his reasons convincingly.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:schmerzlich": {
     "ex": [
       {
@@ -33844,6 +34530,20 @@
       }
     ]
   },
+  "voc:C1:sich begnügen": {
+    "ex": [
+      {
+        "de": "Ich begnüge mich heute mit einem Kaffee.",
+        "en": "I'll make do with a coffee today.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sie wollte sich nicht mit dem zweiten Platz begnügen.",
+        "en": "She didn't want to settle for second place.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:sich belaufen": {
     "ex": [
       {
@@ -33973,6 +34673,20 @@
       }
     ]
   },
+  "voc:C1:sich gezwungen sehen": {
+    "ex": [
+      {
+        "de": "Die Firma könnte sich gezwungen sehen, Stellen abzubauen.",
+        "en": "The company could find itself forced to cut jobs.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Viele Mieter werden sich gezwungen sehen, aus der Stadt wegzuziehen.",
+        "en": "Many tenants will feel compelled to move out of the city.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:sich hineinversetzen": {
     "def": "To imagine oneself in another person's situation.",
     "ex": [
@@ -34085,6 +34799,20 @@
       {
         "de": "Der Ton in der Debatte hat sich merklich verschärft.",
         "en": "The tone of the debate has noticeably sharpened.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:sich verzetteln": {
+    "ex": [
+      {
+        "de": "Er verzettelt sich oft in Details.",
+        "en": "He often gets bogged down in details.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Wer sich verzettelt, wird nie fertig.",
+        "en": "If you spread yourself too thin, you never finish.",
         "lvl": "C1"
       }
     ]
@@ -34497,6 +35225,20 @@
       {
         "de": "Die Zahlen stagnieren seit Jahren.",
         "en": "The figures have been stagnating for years.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:standhaft": {
+    "ex": [
+      {
+        "de": "Trotz des Drucks blieb sie standhaft.",
+        "en": "Despite the pressure she stood firm.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er weigerte sich standhaft, den Vertrag zu unterschreiben.",
+        "en": "He steadfastly refused to sign the contract.",
         "lvl": "C1"
       }
     ]
@@ -35855,6 +36597,20 @@
       }
     ]
   },
+  "voc:C1:unerschöpflich": {
+    "ex": [
+      {
+        "de": "Ihre Geduld scheint unerschöpflich zu sein.",
+        "en": "Her patience seems to be inexhaustible.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Sonne ist eine fast unerschöpfliche Energiequelle.",
+        "en": "The sun is an almost inexhaustible source of energy.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:unersetzlich": {
     "ex": [
       {
@@ -37121,6 +37877,20 @@
       }
     ]
   },
+  "voc:C1:unüberschaubar": {
+    "ex": [
+      {
+        "de": "Das Angebot an Apps ist inzwischen unüberschaubar.",
+        "en": "The range of apps is now impossible to keep track of.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Die Folgen der Entscheidung sind noch unüberschaubar.",
+        "en": "The consequences of the decision can't yet be assessed.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:unübersehbar": {
     "ex": [
       {
@@ -37361,6 +38131,20 @@
       {
         "de": "Mit freundlichen Grüßen verbleibe ich Ihr Team.",
         "en": "With kind regards, I remain your team.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:verblüffen": {
+    "ex": [
+      {
+        "de": "Das Ergebnis verblüffte sogar die Forscher.",
+        "en": "The result astonished even the researchers.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Seine Antwort hat mich völlig verblüfft.",
+        "en": "His answer completely amazed me.",
         "lvl": "C1"
       }
     ]
@@ -38187,6 +38971,20 @@
       }
     ]
   },
+  "voc:C1:verwunderlich": {
+    "ex": [
+      {
+        "de": "Es ist nicht verwunderlich, dass die Preise gestiegen sind.",
+        "en": "It's not surprising that prices have risen.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Sein Schweigen fand ich ziemlich verwunderlich.",
+        "en": "I found his silence rather odd.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:verwunschen": {
     "ex": [
       {
@@ -38212,6 +39010,20 @@
       {
         "de": "Der Brauch ist tief in der Region verwurzelt.",
         "en": "The custom is deeply rooted in the region.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:verwüsten": {
+    "ex": [
+      {
+        "de": "Der Krieg verwüstete weite Teile des Landes.",
+        "en": "The war devastated large parts of the country.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ein Sturm hat den Park verwüstet.",
+        "en": "A storm has wrecked the park.",
         "lvl": "C1"
       }
     ]
@@ -38483,6 +39295,20 @@
       {
         "de": "Ganz vorurteilsfrei urteilt niemand.",
         "en": "Nobody judges entirely without prejudice.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:vorwegnehmen": {
+    "ex": [
+      {
+        "de": "Ich will das Ende des Films nicht vorwegnehmen.",
+        "en": "I don't want to give away the end of the film.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Er wollte die Kritik vorwegnehmen und nannte die Schwächen selbst.",
+        "en": "He wanted to anticipate the criticism and named the weaknesses himself.",
         "lvl": "C1"
       }
     ]
@@ -39580,6 +40406,20 @@
       }
     ]
   },
+  "voc:C1:zwei Fliegen mit einer Klappe schlagen": {
+    "ex": [
+      {
+        "de": "Wenn ich mit dem Rad zur Arbeit fahre, kann ich zwei Fliegen mit einer Klappe schlagen.",
+        "en": "If I cycle to work, I can kill two birds with one stone.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Mit diesem Termin wollen wir zwei Fliegen mit einer Klappe schlagen.",
+        "en": "With this meeting we want to kill two birds with one stone.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:zweideutig": {
     "ex": [
       {
@@ -39619,6 +40459,20 @@
       {
         "de": "Amerika ist das einzige Land, das von der Barbarei zur Dekadenz übergegangen ist, ohne zwischendurch zivilisiert gewesen zu sein.",
         "en": "America is the only country that went from barbarism to decadence without civilization in between.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:zwischenmenschlich": {
+    "ex": [
+      {
+        "de": "Im Job sind zwischenmenschliche Fähigkeiten oft wichtiger als Fachwissen.",
+        "en": "At work, interpersonal skills often matter more than expertise.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Es gab einige zwischenmenschliche Spannungen im Team.",
+        "en": "There were some interpersonal tensions in the team.",
         "lvl": "C1"
       }
     ]
@@ -39817,6 +40671,20 @@
       {
         "de": "Er wollte mich nicht überrennen.",
         "en": "He didn't mean to run me over.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:überrumpeln": {
+    "ex": [
+      {
+        "de": "Die Frage hat mich völlig überrumpelt.",
+        "en": "The question caught me completely off guard.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Lass dich vom Verkäufer nicht überrumpeln.",
+        "en": "Don't let the salesperson rush you.",
         "lvl": "C1"
       }
     ]

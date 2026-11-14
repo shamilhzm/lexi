@@ -383,6 +383,18 @@ export const FORM_RULINGS: FormRuling[] = [
       + 'Schuld/Schulden, and the four-level gap is the evidence.',
   },
   {
+    rule: 'keep', form: 'voc:B1:der Zeuge', lemma: 'voc:B1:das Zeug',
+    why: 'der Zeuge is a witness (weak masculine: den Zeugen); das Zeug is stuff, and its '
+      + 'dictionary plural die Zeuge happens to spell the other word. Unrelated, and both '
+      + 'on the Goethe B1 list.',
+  },
+  {
+    rule: 'keep', form: 'voc:B2:der Band', lemma: 'voc:A2:die Band',
+    why: 'der Band (die Bände) is a volume of a book series; die Band (die Bands, /bɛnt/) '
+      + 'is a group of musicians, borrowed from English. Two words, two genders, two '
+      + 'plurals and two pronunciations that share six letters.',
+  },
+  {
     rule: 'keep', form: 'voc:A2:die Alpen', lemma: 'voc:B1:die Alp',
     why: 'die Alpen is a proper name. die Alp is an alpine pasture (and, separately, a '
       + 'nightmare); the mountain range is not its plural in any useful sense.',

@@ -31065,6 +31065,20 @@
       }
     ]
   },
+  "voc:A2:wie zum Beispiel": {
+    "ex": [
+      {
+        "de": "Man kann Extras bekommen, wie zum Beispiel ein kostenloses Upgrade.",
+        "en": "You can get extras, such as a free upgrade.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich mag Sportarten wie zum Beispiel Laufen und Radfahren.",
+        "en": "I like sports such as running and cycling.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:wiederkommen": {
     "ex": [
       {

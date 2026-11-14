@@ -219,3 +219,96 @@ describe('addresses', () => {
     expect(c.tokens.filter((t) => t.counted).map((t) => t.text)).toContain('schläft');
   });
 });
+
+// ── Words typed without their umlauts ────────────────────────────────────────
+//
+// The class word lists that were pasted into a chat instead of into Lexi were
+// typed on a US keyboard: *verfugung*, *einschatzung*, *uberrumpelt*. A third of
+// them came back "not in the corpus" when they were in it (2026-11-14).
+import { respellings, nearHeadword } from './coverage.ts';
+
+describe('respellings — what an English keyboard does to a German word', () => {
+  it('puts one or two umlauts back, and an ß', () => {
+    expect(respellings('verfugung')).toContain('verfügung');
+    expect(respellings('Uberraschung')).toContain('Überraschung');
+    expect(respellings('gross')).toContain('groß');
+    expect(respellings('fuer')).toContain('für');
+    expect(respellings('Vorschlage')).toContain('Vorschläge');
+    expect(respellings('zuruckfuhren')).toContain('zurückführen');
+  });
+
+  it('offers nothing for a word with no vowel to change', () => {
+    expect(respellings('wird')).toEqual([]);
+    expect(respellings('Tisch')).toEqual([]);
+  });
+});
+
+describe('coverage — a mistyped word is read, and says so', () => {
+  const EXTRA: Word[] = [
+    w({ id: 'v:verfuegung', term: 'die Verfügung', gender: 'die', plural: 'die Verfügungen' }),
+    w({ id: 'v:schon', term: 'schon', pos: 'adverb' }),
+    w({ id: 'v:schoen', term: 'schön', pos: 'adjective' }),
+    w({ id: 'v:drucken', term: 'drucken', pos: 'verb' }),
+    w({ id: 'v:druecken', term: 'drücken', pos: 'verb' }),
+    w({ id: 'v:mutter', term: 'die Mutter', gender: 'die', plural: 'die Mütter' }),
+  ];
+  const fresh = (): WordState => 'new';
+  const tok = (text: string, t: string) => {
+    registerWords(EXTRA); resetCoverageIndex();
+    return coverageOf(text, { stateOf: fresh }).tokens.find((x) => x.text === t)!;
+  };
+
+  it('reads verfugung as die Verfügung and records the spelling it assumed', () => {
+    const t = tok('Die verfugung gilt ab morgen.', 'verfugung');
+    expect(t.word?.term).toBe('die Verfügung');
+    expect(t.respelled).toBe('verfügung');
+    expect(t.state).toBe('new');
+  });
+
+  it('reads gross as groß, and a plural typed without its umlaut', () => {
+    expect(tok('Der Hund ist gross.', 'gross').word?.term).toBe('groß');
+    expect(tok('Zwei Vorschlage liegen vor.', 'Vorschlage').word?.term).toBe('der Vorschlag');
+  });
+
+  it('never respells a spelling that is already a word', () => {
+    // *schon* is not a typo for *schön*, and *drucken* is not *drücken*.
+    const schon = tok('Das ist schon fertig.', 'schon');
+    expect(schon.word?.term).toBe('schon');
+    expect(schon.respelled).toBeUndefined();
+    expect(tok('Wir drucken das Dokument.', 'drucken').word?.term).toBe('drucken');
+    expect(tok('Die Mutter schläft.', 'Mutter').respelled).toBeUndefined();
+  });
+
+  it('leaves a word it cannot place as absent rather than guessing', () => {
+    const t = tok('Das Quorxum ist neu.', 'Quorxum');
+    expect(t.word).toBeNull();
+    expect(t.state).toBe('absent');
+  });
+});
+
+describe('nearHeadword — one slip from a card, offered and never assumed', () => {
+  const POOL: Word[] = [
+    w({ id: 'n:erfordern', term: 'erfordern', pos: 'verb' }),
+    w({ id: 'n:betreuung', term: 'die Betreuung', gender: 'die' }),
+    w({ id: 'n:bemuehen', term: 'sich bemühen', pos: 'verb' }),
+    w({ id: 'n:zweck', term: 'der Zweck', gender: 'der' }),
+    w({ id: 'n:reise', term: 'die Reise', gender: 'die' }),
+    w({ id: 'n:reihe', term: 'die Reihe', gender: 'die' }),
+    w({ id: 'n:phrase', term: 'zum Beispiel', pos: 'phrase' }),
+  ];
+
+  it('finds a dropped letter, an extra one, a wrong one and a swap', () => {
+    expect(nearHeadword('erforden', POOL)?.term).toBe('erfordern');
+    expect(nearHeadword('betreung', POOL)?.term).toBe('die Betreuung');
+    expect(nearHeadword('Betreuungg', POOL)?.term).toBe('die Betreuung');
+    expect(nearHeadword('bemühne', POOL)?.term).toBe('sich bemühen');
+    expect(nearHeadword('erfardern', POOL)?.term).toBe('erfordern');
+  });
+
+  it('says nothing when two cards are as near, when the token is short, or when it is exact', () => {
+    expect(nearHeadword('Reife', POOL)).toBeNull();        // Reise and Reihe are both one away
+    expect(nearHeadword('zeck', POOL)).toBeNull();         // four letters
+    expect(nearHeadword('erfordern', POOL)).toBeNull();    // not a typo at all
+    expect(nearHeadword('Quorxum', POOL)).toBeNull();
+  });
+});

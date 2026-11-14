@@ -1969,3 +1969,38 @@ pane cannot see it either. It was found by trying to reach a word on the simulat
 **Rule:** when a shared container changes where it mounts, list every component
 that renders it and ask what is on top of each one. And "is in the document" is not
 "is on screen" — a test for an overlay has to ask what covers it.
+
+## A `src` line is a claim that the source was read *(added 2026-11-14)*
+
+**Believed:** *der Totschlag* has the plural *die Totschläge*, rare but real, so the
+guarded fix for a new card's empty plural could say so and cite the dictionary page.
+
+**True:** the page was not read before the row was written. de.wiktionary gives
+`Nominativ Plural=—` and `{{kPl.}}` — no plural — which is why the gate had left the
+field empty in the first place. The row was applied with a `src` naming a page that
+says the opposite, and was caught only because the other three rows in the batch
+prompted a look. The gate refuses a fact it cannot verify; `fix-authored.ts` trusts
+whoever writes the batch, so the rule "facts are looked up, never written" has
+exactly one enforcement point there, and it is the author.
+
+**Rule:** fetch the page before writing a `src` for it, and paste the line that
+decides it into the `src`. An empty field the gate left empty is a finding about the
+dictionary, not a blank to fill from memory.
+
+## The comment said "a lemma always wins"; the loop said "whoever came first" *(added 2026-11-14)*
+
+**Believed:** `buildMatcher` indexes base forms before inflections — its own comment
+says *"Base forms first, so a lemma always wins over another word's inflection"* —
+so *Der Zeuge* resolving to *das Zeug* (plural *die Zeuge*) had to be the plural's
+fault. On 2026-11-10 the plural was "fixed" to `nur Singular`, against a dictionary
+page that says *Zeuge* and marks no sense singular-only.
+
+**True:** the loop added each card's headword **and its plurals in the same pass**.
+A card earlier in corpus order claimed its plural before a later card's headword
+was ever offered, and `add` is first-wins. The comment described the design; the
+code implemented it only within one card. The corpus was edited to work around a
+matcher bug, and the edit overrode the dictionary to do it.
+
+**Rule:** when a card "needs" a fact changed so that the matcher behaves, the
+matcher is the suspect. And a comment that states an invariant is a claim to test,
+not a description to trust: write the two-card case it implies.

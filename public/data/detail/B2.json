@@ -71,6 +71,20 @@
   "gram:B2:Zustandspassiv: „ist geschlossen“": {
     "def": "German separates the action from the state it leaves behind. werden + Partizip II reports something happening; sein + Partizip II reports the result that now holds."
   },
+  "voc:B2:Verantwortung übernehmen": {
+    "ex": [
+      {
+        "de": "Wer Fehler macht, sollte auch Verantwortung übernehmen.",
+        "en": "Anyone who makes mistakes should also take responsibility.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im neuen Job möchte ich mehr Verantwortung übernehmen.",
+        "en": "In my new job I'd like to take on more responsibility.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:abdecken": {
     "ex": [
       {
@@ -139,6 +153,20 @@
       {
         "de": "Kannst du mich die Vokabeln abfragen?",
         "en": "Can you test me on the vocabulary?",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:abgesehen von": {
+    "ex": [
+      {
+        "de": "Der Urlaub war schön, abgesehen von dem Regen am letzten Tag.",
+        "en": "The holiday was lovely, apart from the rain on the last day.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe abgesehen von einer Frage alles verstanden.",
+        "en": "Apart from one question, I understood everything.",
         "lvl": "B2"
       }
     ]
@@ -324,6 +352,20 @@
       {
         "de": "Das lässt sich nicht abstreiten.",
         "en": "That cannot be denied.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:abstürzen": {
+    "ex": [
+      {
+        "de": "Mein Computer ist schon wieder abgestürzt.",
+        "en": "My computer has crashed again.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Flugzeug stürzte kurz nach dem Start ab.",
+        "en": "The plane crashed shortly after take-off.",
         "lvl": "B2"
       }
     ]
@@ -4432,6 +4474,20 @@
       }
     ]
   },
+  "voc:B2:das Ruhrgebiet": {
+    "ex": [
+      {
+        "de": "Viele Menschen zogen zur Arbeit ins Ruhrgebiet.",
+        "en": "Many people moved to the Ruhr for work.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das Ruhrgebiet war lange vom Bergbau geprägt.",
+        "en": "The Ruhr was shaped by mining for a long time.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Röntgen": {
     "ex": [
       {
@@ -5531,6 +5587,20 @@
       }
     ]
   },
+  "voc:B2:der Asylantrag": {
+    "ex": [
+      {
+        "de": "Er hat in Deutschland einen Asylantrag gestellt.",
+        "en": "He has applied for asylum in Germany.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Zahl der Asylanträge ist gestiegen.",
+        "en": "The number of asylum applications has risen.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Asylbewerber": {
     "ex": [
       {
@@ -5877,6 +5947,20 @@
       }
     ]
   },
+  "voc:B2:der Band": {
+    "ex": [
+      {
+        "de": "Das Lexikon erscheint in zwanzig Bänden.",
+        "en": "The encyclopedia is published in twenty volumes.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Reihe umfasst inzwischen zwölf Bände.",
+        "en": "The series now runs to twelve volumes.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Bass": {
     "ex": [
       {
@@ -5915,6 +5999,20 @@
       {
         "de": "Der Behälter ist leer.",
         "en": "The container is empty.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Behördengang": {
+    "ex": [
+      {
+        "de": "Nach dem Umzug standen viele Behördengänge an.",
+        "en": "After the move there were lots of trips to government offices to make.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Für den Behördengang am Montag habe ich einen Termin.",
+        "en": "I have an appointment for my visit to the authorities on Monday.",
         "lvl": "B2"
       }
     ]
@@ -10846,6 +10944,20 @@
       }
     ]
   },
+  "voc:B2:der/die Einheimische": {
+    "ex": [
+      {
+        "de": "Die Einheimischen kennen die besten Restaurants.",
+        "en": "The locals know the best restaurants.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ein Einheimischer hat uns den Weg gezeigt.",
+        "en": "A local showed us the way.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der/die Fremde": {
     "ex": [
       {
@@ -12967,6 +13079,20 @@
       }
     ]
   },
+  "voc:B2:die Einsicht": {
+    "ex": [
+      {
+        "de": "Er kam zu der Einsicht, dass er sich geirrt hatte.",
+        "en": "He came to realise that he had been wrong.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Studie bietet neue Einsichten in das Lernverhalten.",
+        "en": "The study offers new insights into learning behaviour.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Einstellung": {
     "def": "attitude, mindset, disposition",
     "ex": [
@@ -13797,6 +13923,20 @@
       }
     ]
   },
+  "voc:B2:die Gelegenheit nutzen": {
+    "ex": [
+      {
+        "de": "Ich möchte die Gelegenheit nutzen, mich bei allen zu bedanken.",
+        "en": "I'd like to take the opportunity to thank everyone.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wir sollten die Gelegenheit nutzen, solange sie da ist.",
+        "en": "We should take the opportunity while it's there.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Gemütlichkeit": {
     "ex": [
       {
@@ -14122,6 +14262,20 @@
       {
         "de": "Das Spiel braucht starke Hardware.",
         "en": "The game needs powerful hardware.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Hauptfigur": {
+    "ex": [
+      {
+        "de": "Die Hauptfigur des Romans ist eine junge Ärztin.",
+        "en": "The main character of the novel is a young doctor.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mit der Hauptfigur konnte ich mich gut identifizieren.",
+        "en": "I could identify well with the main character.",
         "lvl": "B2"
       }
     ]
@@ -15616,6 +15770,20 @@
         "de": "Wer von der Norm abweicht, muss mit Nachfragen rechnen.",
         "en": "Anyone who deviates from the norm has to expect questions.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B2:die Notlage": {
+    "ex": [
+      {
+        "de": "Viele Familien geraten durch die hohen Mieten in eine finanzielle Notlage.",
+        "en": "Many families end up in financial difficulty because of high rents.",
+        "lvl": "B2"
+      },
+      {
+        "de": "In einer Notlage sollte man nicht zögern, um Hilfe zu bitten.",
+        "en": "In an emergency you shouldn't hesitate to ask for help.",
+        "lvl": "B2"
       }
     ]
   },
@@ -17413,6 +17581,20 @@
       }
     ]
   },
+  "voc:B2:die Verbraucherzentrale": {
+    "ex": [
+      {
+        "de": "Die Verbraucherzentrale berät bei Problemen mit Verträgen.",
+        "en": "The consumer advice centre gives advice on problems with contracts.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich habe mich bei der Verbraucherzentrale über meine Rechte informiert.",
+        "en": "I asked the consumer advice centre about my rights.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Verbreitung": {
     "def": "The spreading of something over a wide area.",
     "ex": [
@@ -18990,6 +19172,20 @@
       {
         "de": "Sie hat eindrucksvoll gezeigt, was sie kann.",
         "en": "She showed impressively what she can do.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:eine Frage des Alters": {
+    "ex": [
+      {
+        "de": "Für ihn ist Erfolg vor allem eine Frage des Alters und der Erfahrung.",
+        "en": "For him, success is above all a question of age and experience.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ob man Sprachen leicht lernt, ist nicht nur eine Frage des Alters.",
+        "en": "Whether you learn languages easily isn't only a question of age.",
         "lvl": "B2"
       }
     ]
@@ -24362,6 +24558,20 @@
       }
     ]
   },
+  "voc:B2:quälen": {
+    "ex": [
+      {
+        "de": "Die Hitze quält die Menschen in der Stadt.",
+        "en": "The heat is tormenting people in the city.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Er hat sich durch die Prüfung gequält.",
+        "en": "He struggled his way through the exam.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:randvoll": {
     "ex": [
       {
@@ -24705,6 +24915,20 @@
       }
     ]
   },
+  "voc:B2:rosten": {
+    "ex": [
+      {
+        "de": "Das Fahrrad rostet, wenn es im Regen steht.",
+        "en": "The bike rusts if it is left out in the rain.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wer rastet, der rostet.",
+        "en": "If you rest, you rust.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:rostig": {
     "ex": [
       {
@@ -24772,6 +24996,20 @@
       {
         "de": "Die römische Kultur hat Europa geprägt.",
         "en": "Roman culture shaped Europe.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:rösten": {
+    "ex": [
+      {
+        "de": "Die Bohnen werden in einer kleinen Rösterei geröstet.",
+        "en": "The beans are roasted in a small roastery.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich röste das Brot kurz in der Pfanne.",
+        "en": "I toast the bread briefly in the pan.",
         "lvl": "B2"
       }
     ]
@@ -25342,6 +25580,20 @@
       {
         "de": "Die Regierung will sich nicht einmischen.",
         "en": "The government doesn't want to interfere.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:sich einwählen": {
+    "ex": [
+      {
+        "de": "Ich wähle mich um neun Uhr in die Videokonferenz ein.",
+        "en": "I'll dial into the video conference at nine.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Wer sich ins WLAN einwählen will, braucht das Passwort.",
+        "en": "Anyone who wants to connect to the Wi-Fi needs the password.",
         "lvl": "B2"
       }
     ]
@@ -29182,6 +29434,20 @@
       }
     ]
   },
+  "voc:B2:weit verbreitet": {
+    "ex": [
+      {
+        "de": "Diese Meinung ist weit verbreitet.",
+        "en": "This opinion is widespread.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Englisch ist in der Arbeitswelt weit verbreitet.",
+        "en": "English is widespread in the working world.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:weiterhin": {
     "def": "As before; also in addition.",
     "ex": [
@@ -29468,6 +29734,20 @@
       {
         "de": "Sie verstanden sich wortlos.",
         "en": "They understood each other without words.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:wortwörtlich": {
+    "ex": [
+      {
+        "de": "Er hat den Text wortwörtlich übersetzt.",
+        "en": "He translated the text word for word.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Das darfst du nicht wortwörtlich nehmen.",
+        "en": "You mustn't take that literally.",
         "lvl": "B2"
       }
     ]

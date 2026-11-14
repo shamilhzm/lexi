@@ -1,0 +1,329 @@
+[
+ {
+  "term": "die Verbraucherzentrale",
+  "en": "consumer advice centre",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Advertising & Consumption",
+  "ex": [
+   {
+    "de": "Die Verbraucherzentrale berät bei Problemen mit Verträgen.",
+    "en": "The consumer advice centre gives advice on problems with contracts."
+   },
+   {
+    "de": "Ich habe mich bei der Verbraucherzentrale über meine Rechte informiert.",
+    "en": "I asked the consumer advice centre about my rights."
+   }
+  ]
+ },
+ {
+  "term": "enttäuschend",
+  "en": "disappointing",
+  "pos": "adjective",
+  "level": "B1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Das Ergebnis war enttäuschend.",
+    "en": "The result was disappointing."
+   },
+   {
+    "de": "Nach dem enttäuschenden Spiel gingen die Fans früh nach Hause.",
+    "en": "After the disappointing match the fans went home early."
+   }
+  ]
+ },
+ {
+  "term": "zuschicken",
+  "en": "to send (to someone)",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Post & Communication",
+  "ex": [
+   {
+    "de": "Können Sie mir die Unterlagen zuschicken?",
+    "en": "Can you send me the documents?"
+   },
+   {
+    "de": "Die Rechnung wird Ihnen per Post zugeschickt.",
+    "en": "The invoice will be sent to you by post."
+   }
+  ]
+ },
+ {
+  "term": "die Hauptfigur",
+  "en": "main character, protagonist",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Literature",
+  "ex": [
+   {
+    "de": "Die Hauptfigur des Romans ist eine junge Ärztin.",
+    "en": "The main character of the novel is a young doctor."
+   },
+   {
+    "de": "Mit der Hauptfigur konnte ich mich gut identifizieren.",
+    "en": "I could identify well with the main character."
+   }
+  ]
+ },
+ {
+  "term": "langatmig",
+  "en": "long-winded",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Taste & Judgement",
+  "ex": [
+   {
+    "de": "Der Film war mir zu langatmig.",
+    "en": "The film was too long-winded for me."
+   },
+   {
+    "de": "Er hielt eine langatmige Rede.",
+    "en": "He gave a long-winded speech."
+   }
+  ]
+ },
+ {
+  "term": "der/die Einheimische",
+  "en": "local (person), native",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Travel",
+  "ex": [
+   {
+    "de": "Die Einheimischen kennen die besten Restaurants.",
+    "en": "The locals know the best restaurants."
+   },
+   {
+    "de": "Ein Einheimischer hat uns den Weg gezeigt.",
+    "en": "A local showed us the way."
+   }
+  ],
+  "plural": "die Einheimischen"
+ },
+ {
+  "term": "abstürzen",
+  "en": "to crash; to fall (from a height)",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Technology",
+  "ex": [
+   {
+    "de": "Mein Computer ist schon wieder abgestürzt.",
+    "en": "My computer has crashed again."
+   },
+   {
+    "de": "Das Flugzeug stürzte kurz nach dem Start ab.",
+    "en": "The plane crashed shortly after take-off."
+   }
+  ]
+ },
+ {
+  "term": "nachwachsend",
+  "en": "renewable, regrowing",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Energy & Resources",
+  "ex": [
+   {
+    "de": "Holz ist ein nachwachsender Rohstoff.",
+    "en": "Wood is a renewable raw material."
+   },
+   {
+    "de": "Die Firma setzt auf nachwachsende Rohstoffe.",
+    "en": "The company relies on renewable raw materials."
+   }
+  ]
+ },
+ {
+  "term": "begünstigen",
+  "en": "to favour, to promote",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Abstract",
+  "ex": [
+   {
+    "de": "Das warme Wetter begünstigt das Wachstum der Pflanzen.",
+    "en": "The warm weather favours the growth of the plants."
+   },
+   {
+    "de": "Niedrige Zinsen haben den Immobilienboom begünstigt.",
+    "en": "Low interest rates fuelled the property boom."
+   }
+  ]
+ },
+ {
+  "term": "hemmungslos",
+  "en": "unrestrained, uninhibited",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Sie fing hemmungslos an zu weinen.",
+    "en": "She began to cry uncontrollably."
+   },
+   {
+    "de": "Er gibt sein Geld hemmungslos aus.",
+    "en": "He spends his money without restraint."
+   }
+  ]
+ },
+ {
+  "term": "rosten",
+  "en": "to rust",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Objects & Materials",
+  "ex": [
+   {
+    "de": "Das Fahrrad rostet, wenn es im Regen steht.",
+    "en": "The bike rusts if it is left out in the rain."
+   },
+   {
+    "de": "Wer rastet, der rostet.",
+    "en": "If you rest, you rust."
+   }
+  ]
+ },
+ {
+  "term": "sich verzetteln",
+  "en": "to get bogged down, to spread oneself too thin",
+  "pos": "verb",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Er verzettelt sich oft in Details.",
+    "en": "He often gets bogged down in details."
+   },
+   {
+    "de": "Wer sich verzettelt, wird nie fertig.",
+    "en": "If you spread yourself too thin, you never finish."
+   }
+  ]
+ },
+ {
+  "term": "quälen",
+  "en": "to torment, to torture",
+  "pos": "verb",
+  "level": "B2",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "Die Hitze quält die Menschen in der Stadt.",
+    "en": "The heat is tormenting people in the city."
+   },
+   {
+    "de": "Er hat sich durch die Prüfung gequält.",
+    "en": "He struggled his way through the exam."
+   }
+  ]
+ },
+ {
+  "term": "aufgebläht",
+  "en": "bloated, inflated",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Economy & Markets",
+  "ex": [
+   {
+    "de": "Die Verwaltung ist völlig aufgebläht.",
+    "en": "The administration is completely bloated."
+   },
+   {
+    "de": "Nach dem Essen fühlte er sich aufgebläht.",
+    "en": "After the meal he felt bloated."
+   }
+  ]
+ },
+ {
+  "term": "der/die Gelehrte",
+  "en": "scholar",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Die Gelehrten des Mittelalters schrieben auf Latein.",
+    "en": "The scholars of the Middle Ages wrote in Latin."
+   },
+   {
+    "de": "Ein Gelehrter widmet sein Leben der Wissenschaft.",
+    "en": "A scholar devotes his life to learning."
+   }
+  ],
+  "plural": "die Gelehrten"
+ },
+ {
+  "term": "der Freidenker",
+  "en": "freethinker",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Knowledge & Truth",
+  "ex": [
+   {
+    "de": "Er galt schon in der Schule als Freidenker.",
+    "en": "Even at school he was regarded as a freethinker."
+   },
+   {
+    "de": "Freidenker stellen Traditionen infrage.",
+    "en": "Freethinkers question traditions."
+   }
+  ]
+ },
+ {
+  "term": "der Band",
+  "en": "volume (of a book series)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Literature",
+  "ex": [
+   {
+    "de": "Das Lexikon erscheint in zwanzig Bänden.",
+    "en": "The encyclopedia is published in twenty volumes."
+   },
+   {
+    "de": "Die Reihe umfasst inzwischen zwölf Bände.",
+    "en": "The series now runs to twelve volumes."
+   }
+  ],
+  "gender": "der",
+  "plural": "die Bände"
+ },
+ {
+  "term": "geschult",
+  "en": "trained",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Work",
+  "ex": [
+   {
+    "de": "Unsere Mitarbeiter sind gut geschult.",
+    "en": "Our staff are well trained."
+   },
+   {
+    "de": "Ein geschultes Auge erkennt den Unterschied sofort.",
+    "en": "A trained eye spots the difference at once."
+   }
+  ]
+ },
+ {
+  "term": "nervenstark",
+  "en": "having strong nerves, unflappable",
+  "pos": "adjective",
+  "level": "C1",
+  "field": "Emotions",
+  "ex": [
+   {
+    "de": "In der Prüfung blieb sie nervenstark.",
+    "en": "She kept her nerve in the exam."
+   },
+   {
+    "de": "Für diesen Beruf muss man nervenstark sein.",
+    "en": "You need strong nerves for this job."
+   }
+  ]
+ }
+]

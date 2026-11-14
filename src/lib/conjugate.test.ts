@@ -567,3 +567,11 @@ describe('strong roots that had no row', () => {
     expect(conjugate('abbiegen').praeteritum[2]).toBe('bog ab');
   });
 });
+
+describe('vorweg- is one prefix', () => {
+  it('vorwegnehmen separates as a whole', () => {
+    const c = conjugate('vorwegnehmen');
+    expect(c.praesens[2]).toBe('nimmt vorweg');
+    expect(c.partizip).toBe('vorweggenommen');
+  });
+});

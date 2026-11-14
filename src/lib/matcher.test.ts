@@ -453,3 +453,41 @@ describe('a sentence-opening imperative is the verb, not the noun spelled like i
     expect(mm.annotate('Der Zug fährt ohne Halt.').find((x) => x.text === 'Halt')?.word?.term).toBe('der Halt');
   });
 });
+
+// ── A headword outranks another card's plural, whatever the corpus order ─────
+//
+// The index said so in a comment and did it only within one card (2026-11-14).
+describe("a headword wins over another card's plural, in either corpus order", () => {
+  const zeug = w({ id: 'n:zeug', term: 'das Zeug', pos: 'noun', gender: 'das', plural: 'die Zeuge' });
+  const zeuge = w({ id: 'n:zeuge', term: 'der Zeuge', pos: 'noun', gender: 'der', plural: 'die Zeugen' });
+  const mitte = w({ id: 'n:mitte', term: 'die Mitte', pos: 'noun', gender: 'die', plural: 'die Mitten' });
+  const mitten = w({ id: 'a:mitten', term: 'mitten', pos: 'adverb' });
+  const owner = (cards: Word[], s: string, tok: string) =>
+    buildMatcher(cards).annotate(s).find((x) => x.text === tok)?.word?.term ?? null;
+
+  it('gives the token to the card whose headword it is', () => {
+    for (const cards of [[zeug, zeuge], [zeuge, zeug]]) {
+      expect(owner(cards, 'Der Zeuge war nie am Tatort.', 'Zeuge')).toBe('der Zeuge');
+      expect(owner(cards, 'Räum bitte dein Zeug weg!', 'Zeug')).toBe('das Zeug');
+      expect(owner(cards, 'Die Polizei sucht Zeugen.', 'Zeugen')).toBe('der Zeuge');
+    }
+    for (const cards of [[mitte, mitten], [mitten, mitte]]) {
+      expect(owner(cards, 'Die Kirche steht mitten im Dorf.', 'mitten')).toBe('mitten');
+      expect(owner(cards, 'In der Mitte steht ein Tisch.', 'Mitte')).toBe('die Mitte');
+    }
+  });
+
+  it("leaves a verb and a noun's plural to the rules written for that pair", () => {
+    // *Fragen* / *fragen*, and the plural *Reisen* beside the nominalised *das Reisen*.
+    const cards = [
+      w({ id: 'n:frage', term: 'die Frage', pos: 'noun', gender: 'die', plural: 'die Fragen' }),
+      w({ id: 'v:fragen', term: 'fragen', pos: 'verb' }),
+      w({ id: 'n:reise', term: 'die Reise', pos: 'noun', gender: 'die', plural: 'die Reisen' }),
+      w({ id: 'n:reisen', term: 'das Reisen', pos: 'noun', gender: 'das', plural: 'nur Singular' }),
+      w({ id: 'v:reisen', term: 'reisen', pos: 'verb' }),
+    ];
+    expect(owner(cards, 'Die Zuhörer stellten dem Redner Fragen.', 'Fragen')).toBe('die Frage');
+    expect(owner(cards, 'Sie erzählt von ihren Reisen.', 'Reisen')).toBe('die Reise');
+    expect(owner(cards, 'Wir fragen den Lehrer.', 'fragen')).toBe('fragen');
+  });
+});

@@ -11,6 +11,50 @@ it is already built.
 
 ---
 
+### 2026-11-14 — the owner's own word lists; the scanner takes a list; a lemma really does win
+
+*Driven on the iPhone 17e simulator: a class list typed into the scanner, saved,
+slips accepted, the rest noted. Not deployed at the time of writing.*
+
+**Where it came from.** The owner exported their Claude chats. Across four of them
+they had listed **224 German words** they did not know — after a telc B2 paper, and
+from a C1 class — and asked for them to become Lexi cards. **157 already were** (70%).
+They had been pasted into a chat rather than into Lexi because Lexi's scanner called
+a third of them *not in the corpus*: they were typed on a US keyboard.
+
+- **85 new cards**, 11,220 in all. 66 from the batch a cloud session wrote on
+  2026-11-02 and never applied (`2026-11-02-class-list.json`), 19 authored here
+  (`2026-11-14-owner-lists.json`). Idioms among them: *aus einer Mücke einen Elefanten
+  machen*, *die Kirche im Dorf lassen*. **Refused by the gate and not written:**
+  *minderbemittelt, phrasenhaft, der Volkswirt, das Nebenfach, herauskitzeln, die
+  Nervenstärke, das Verlegenheitsargument, das Anwerbeabkommen, der Anwerbestopp, die
+  Preisminderung, der Leitpunkt* (no de.wiktionary page) and *der/die Vermisste* (only
+  one gender attested).
+- **The scanner takes a word list** (`views/TextGaps.tsx`). *Save all N new words*
+  bookmarks every card in the text for Üben; *Note the N Lexi doesn't teach* files the
+  rest; and the field no longer lets iOS autocorrect rewrite German as it is typed
+  (*betrachte* had become «Berra the»).
+- **Words typed without umlauts are read** (`respell` in `lib/coverage.ts`):
+  *verfugung* → *die Verfügung*, *uberrumpelt* → *überrumpeln*, *gross* → *groß*. Only
+  for a token nothing could read as written, only when one card fits, and the screen
+  says what it assumed. On the owner's two class lists: **228 of 290** tokens read, 14
+  of them only this way.
+- **One-slip typos are offered, not assumed** (`nearHeadword`): *betreung → die
+  Betreuung* as a chip to tap. 18 offered across the two lists; one of them wrong
+  (*festellen → bestellen*), which is why it is a suggestion.
+- **A headword now outranks another card's plural in either corpus order.** The
+  matcher's comment said so; the loop did it only within one card, so *Der Zeuge*
+  resolved to *das Zeug*. 34 tokens changed owner across every example sentence, all
+  read: 33 right, one wrong before and after. Verb headwords and nominalised
+  infinitives are left to the rules that already existed for them — the wider change
+  sent *Fragen*, *Steuern* and five compounds the wrong way, and *Reisen* is the plural
+  of *die Reise* more often than it is *das Reisen*.
+- **Two corrections to 2026-11-10, both mine.** *das Zeug* was set to `nur Singular`
+  to work around that matcher bug, against a dictionary page that says *Zeuge*; it is
+  restored. And *der Totschlag* was given a plural from memory with a `src` naming a
+  page that says `kPl.`; corrected. LESSONS has both.
+- `vorweg-` is one separable prefix (*nimmt vorweg*, *vorweggenommen*).
+
 ### Shipped 2026-11-13 — the preposition a word takes; search opens what it finds
 
 *Driven on the iPhone 17e simulator (Safari, seeded B1): search → entry → practise →

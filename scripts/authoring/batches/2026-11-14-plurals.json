@@ -1,0 +1,50 @@
+[
+  {
+    "id": "voc:C1:der Totschlag",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Totschläge",
+    "src": "WRONG — written from memory without reading the page. Corrected by the last row of this file; see LESSONS 2026-11-14."
+  },
+  {
+    "id": "voc:C1:das Höhlengleichnis",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Höhlengleichnis — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-14)"
+  },
+  {
+    "id": "voc:C1:die Religionsausübung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Religionsausübung — «|Nominativ Plural=–», «{{kPl.}}» (read 2026-11-14)"
+  },
+  {
+    "id": "voc:C1:das Streben",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Streben — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-14)"
+  },
+  {
+    "id": "voc:C1:der Totschlag",
+    "expect": {
+      "plural": "die Totschläge"
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Totschlag — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-14)"
+  },
+  {
+    "id": "voc:B1:das Zeug",
+    "expect": {
+      "plural": "nur Singular"
+    },
+    "plural": "die Zeuge",
+    "src": "de.wiktionary.org/wiki/Zeug — «|Nominativ Plural=Zeuge», and no sense is marked singular-only (read 2026-11-14). Reverts 2026-11-10-sense-plurals.json, which set «nur Singular» to work around a matcher bug; the bug is fixed in buildMatcher instead. LESSONS 2026-11-14."
+  }
+]

@@ -418,11 +418,38 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
   const ALL_REFL = new Set(REFL_PRONOUN.flat());
 
   // Base forms first, so a lemma always wins over another word's inflection.
+  //
+  // **Across cards, not only within one** *(2026-11-14)*. This loop adds a card's
+  // headword and its plurals together, so the sentence above held only inside one
+  // card: *das Zeug* (plural *die Zeuge*) sits before *der Zeuge* in corpus order
+  // and took the token *Zeuge* — a headword losing to an inflection. A plural now
+  // stands aside for any spelling that is another card's headword.
+  //
+  // Verb headwords are left out on purpose. *die Frage* → *Fragen* against
+  // *fragen*, *die Regel* → *Regeln* against *regeln*: that pair has rules of its
+  // own below (4, 4b, 4c), written against the order this loop always had, and
+  // measured over every example the wider change sent *Fragen*, *Steuern* and
+  // five compounds (*Sicherheitsregeln*) to the verb or to nothing.
+  //
+  // Nor a nominalised infinitive beside its verb. *das Reisen* is a headword and
+  // *Reisen* is also the plural of *die Reise* — and in running text the plural
+  // is at least as common (*von ihren Reisen*, *auf langen Reisen*). Handing all
+  // of them to *das Reisen* fixed four sentences and broke six.
+  const verbHeads = new Set(corpus.filter((w) => w.pos === 'verb').map((w) => w.term.toLowerCase()));
+  const headwordOf = new Map<string, Word>();
+  for (const w of corpus) {
+    if (w.pos === 'verb') continue;
+    const k = stripArticle(w.term).toLowerCase();
+    if (w.gender === 'das' && verbHeads.has(k)) continue;
+    if (!headwordOf.has(k)) headwordOf.set(k, w);
+  }
   for (const w of corpus) {
     add(w.term.toLowerCase(), w);
     add(stripArticle(w.term).toLowerCase(), w);
     for (const pl of pluralForms(w.term, w.plural)) {
       const k = pl.toLowerCase();
+      const theirs = headwordOf.get(k);
+      if (theirs && theirs !== w) { addNoun(k, w); continue; }
       if (!index.has(k)) pluralOnly.add(k);
       add(k, w);
       addNoun(k, w);
