@@ -11,6 +11,78 @@ it is already built.
 
 ---
 
+### 2026-11-15 — the design pass, everywhere the last one did not reach
+
+*Driven on the iPhone 17e simulator, light and dark: the feed, a word's entry and its
+practice sheet, a whole Üben session to its recap, the empty state, Fortschritt top to
+bottom, Themen to a deck and its word map, search, the news slot and placement. Not
+deployed at the time of writing.*
+
+**A headword shrinks before it breaks.** `break-words` kept a long word inside its card
+by cutting it at whichever letter ran out of room — *der Bundespräsiden / t* on the
+session card. Measured on a 390pt phone at the iOS default text size
+(`scripts/probe/headword-fit.js`, Fraunces at the sizes the app sets it): **758**
+headwords broke mid-word in the feed, **410** on the session card, **138** in the entry,
+**30** as a drill prompt. `.hw-fit` (index.css) now sets each one smaller until its
+widest unbreakable run fits, down to 72% of its size, and past that hyphenates at a
+syllable (*Geschwindigkeitsbe-/schränkung*). CSS cannot measure a word, so
+`lib/fit.ts` carries the face's advance widths and hands it one number. The first
+version of that table was measured at 100px and was 16–17% too narrow: the face has an
+optical-size axis (LESSONS, *a ruler held at the wrong size*). Used by the feed, the
+entry, the session card, the drill prompts and placement.
+
+**Fixes found by driving it**
+
+- **Every page opened where the last one had been scrolled to.** `<main>` is the
+  scroller and nothing remounted it; a comment in `App.tsx` said a route change did.
+  Fortschritt at 1500px → *Themen* opened at its own bottom. Offsets are now kept per
+  place: a tab press opens at the top, *back* returns where you were.
+- **The practice sheet printed the answer above the question** — the headword over
+  *Find it*, *In a sentence* and *Recall*, whose answer is the headword. Fixed twice
+  before by removing one field (the article, the preposition); `headerTerm` now asks
+  the step, and a test holds it.
+- **The cloze kept its gap after it was answered.** It now fills with the word, right
+  or wrong — the one moment the sentence can be read whole.
+- **A double tap zoomed the session to 1.6×.** *Show answer* and *Knew it* share a
+  place; `touch-action: manipulation` was on buttons only, and a tap landing on a key
+  that had just gone inert hit the page. Now on the root.
+- **The "why this card" line stacked its icon above its text** on every viewport under
+  700pt tall: `line-clamp` was on the flex row and replaced its `display`.
+- **A drag across *Dein Deutsch* selected a star** (`pointerdown`) and opened its panel
+  mid-scroll. Selection is on `click`; the panel's close is a 44pt control.
+- **The word map's labels ran across their circles** and the box left 100pt empty above
+  the map. Nodes are sized to their words, rings packed by the room each node takes,
+  the viewBox cut to the drawing.
+- **Sector counts were the file's, not the corpus's.** 215 of 274 in `sectors.json` were
+  stale (the picker offered *Communication (156)* for 228 words, and deck levels left
+  out the newer C1 cards). Derived at load now; a deck's levels are those of the cards
+  it counts.
+- **Search returned nothing for *Geschwindigkeitsbeschraenkung*.** It folded *ä* to *a*
+  but had no answer for *ae*, which is how an English keyboard writes it. Each word
+  now carries both keys, built once instead of per keystroke; the dictionary retries
+  once with umlauts restored.
+- **Gender ink on the article, everywhere.** Search, saved words and the reader's word
+  sheet coloured the whole noun; every other surface inks only *der/die/das*.
+- **Smaller:** the recap's numbers align under a wrapping label and its dividers no
+  longer hang below the box mid-spring; "1 of those were drills" is singular; the
+  empty state no longer says *streak safe* (the loss framing the recap dropped in
+  September); decks lost their box-in-a-box on a phone and name the theme only when
+  the list spans several; Fortschritt's chart captions are sentences, not four lines
+  of tracked caps, and paired charts share a baseline; an unmeasured blind spot's bar
+  is visible on its track; example speakers wrap with their last word; placement
+  sets the tested word in the headword face; **eleven labels** still set in tracked
+  mono caps are sans, as DESIGN §4 has said since 2026-10-11.
+
+**Kept by tests.** `lib/design-rules.test.ts` refuses a label in mono caps and a
+`line-clamp` on a flex or grid element, and proves it can see both. `fit.test.ts` holds
+the width table to the browser's measurements and to every character in the corpus;
+`search.test.ts` fails if the digraph key is removed (checked by removing it).
+2,165 tests pass; build 284 kB gzipped.
+
+**Not done:** eleven cards whose English gloss is a grammar note (*der Bäcker* =
+"agent noun of backen") — corpus work, filed in BACKLOG. The news reader was opened
+only as far as the topic slot; a story depends on a live fetch.
+
 ### 2026-11-14 — the owner's own word lists; the scanner takes a list; a lemma really does win
 
 *Driven on the iPhone 17e simulator: a class list typed into the scanner, saved,

@@ -33,7 +33,7 @@
 // The session used to be a separate full-bleed room with no navigation ("the
 // desk"). That argument was right about *density* and wrong about *navigation*:
 // a room you can be dropped into cannot be a room you have to know how to leave.
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 // No `motion` import here: the route entrance is a CSS keyframe without a
 // fill-mode, so a stalled animation cannot hide a room.
 import TopBar from './components/TopBar.tsx';
@@ -180,9 +180,29 @@ export default function App() {
     apply(0);
     return () => window.removeEventListener('scroll', onScroll, { capture: true });
   }, []);
-  // A route change puts a fresh scroller at the top; without this the bars stay
-  // materialised from wherever the last one was left.
-  useEffect(() => { document.documentElement.dataset.scrolled = 'false'; }, [view, navTick]);
+  // ---- where a page opens ---------------------------------------------------
+  // **`<main>` is the scroller, and nothing remounts it.** The keyed container
+  // inside it does remount, and a comment here used to conclude from that that "a
+  // route change puts a fresh scroller at the top". Measured on 2026-11-14:
+  // Fortschritt at 1500px, tap *Themen* → Themen opens at its own maximum, the
+  // bottom; and a theme opened from there showed its sixth deck first.
+  //
+  // So the offset is kept per place. A tab press bumps `navTick`, which makes a
+  // new place and opens it at the top; going *deeper* inside Themen is a new place
+  // too; coming *back* to the index finds the offset it was left at, because a
+  // list you return to should still be where you were reading it.
+  const mainRef = useRef<HTMLElement>(null);
+  const place = `${view}:${navTick}:${drill ?? ''}:${words.level}:${words.group ?? ''}:${words.sector ?? ''}`;
+  const livePlace = useRef(place);
+  const offsets = useRef(new Map<string, number>());
+  useLayoutEffect(() => {
+    livePlace.current = place;
+    if (mainRef.current) mainRef.current.scrollTop = offsets.current.get(place) ?? 0;
+  }, [place]);
+  // The bars materialise over scrolled content, so they follow the same reading.
+  useEffect(() => {
+    document.documentElement.dataset.scrolled = (mainRef.current?.scrollTop ?? 0) > 8 ? 'true' : 'false';
+  }, [place]);
 
   // ---- how big is the type, really -------------------------------------------
   // `index.css` sets `html { font: -apple-system-body }`, so on Apple platforms the
@@ -410,7 +430,8 @@ export default function App() {
           // grows by its height (components/ListenBar.tsx).
           ['--bar-b' as string]: listening ? `calc(${BAR_B} + ${LISTEN_BAR_SPACE})` : BAR_B,
         }}>
-        <main id="main" tabIndex={-1}
+        <main id="main" tabIndex={-1} ref={mainRef}
+          onScroll={(e) => { offsets.current.set(livePlace.current, e.currentTarget.scrollTop); }}
           className={`flex-1 bg-bg min-h-0 ${bare ? 'overflow-hidden' : 'overflow-y-auto'}`}
           style={bare ? undefined : {
             paddingTop: 'var(--bar-t)',

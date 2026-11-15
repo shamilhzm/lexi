@@ -91,7 +91,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
             <>
               <span className="h-4 flex items-center">
                 {status !== 'new' && (
-                  <span className={`text-2xs font-mono uppercase tracking-widest ${status === 'known' ? 'text-green' : 'text-accent'}`}>
+                  <span className={`text-2xs font-semibold uppercase tracking-widest ${status === 'known' ? 'text-green' : 'text-accent'}`}>
                     {status === 'known' ? 'known' : 'learning'}
                   </span>
                 )}
@@ -106,15 +106,16 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
             <p className="flex items-center gap-2 text-sm text-dim h-10"><Loader2 size={14} className="animate-spin" /> Looking up <span lang="de" className="font-semibold text-txt">{surface}</span>…</p>
           ) : entries.length ? (
             <>
-              <p className="font-mono text-2xs uppercase tracking-widest text-dim">
+              <p className="font-semibold text-2xs uppercase tracking-widest text-dim">
                 {lex.via ? <>from the dictionary · {lex.via} is a form of</> : 'from the dictionary'}
               </p>
               <ul className="mt-1 flex flex-col gap-2">
                 {entries.slice(0, 2).map((e, k) => (
                   <li key={`${e.w}-${e.p}-${k}`}>
                     <p className="flex items-baseline gap-1.5 flex-wrap">
-                      <span lang="de" className="headword text-xl font-bold" style={{ color: genderColor(e.x) }}>
-                        {e.x ? `${e.x} ${e.w}` : e.w}
+                      <span lang="de" className="headword text-xl font-bold">
+                        {e.x && <span style={{ color: genderColor(e.x) }}>{e.x} </span>}
+                        {e.w}
                       </span>
                       <span className="text-2xs text-dim">{e.p}</span>
                       {e.i && <span aria-hidden className="ipa text-2xs text-dim">{e.i}</span>}

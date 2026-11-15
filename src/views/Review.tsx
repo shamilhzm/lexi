@@ -13,7 +13,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { Volume2, VolumeX, ArrowLeft, Check, X, Undo2, SkipForward, Flag, Share2, ClipboardList, Mic } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing} from '../store.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, studiedToday } from '../store.ts';
 import { haptic, tick, fmt} from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession, withRetry, SESSION_CEILING, type SessionItem } from '../session.ts';
 import { loadDetailFor, detailLoadedFor } from '../data/detail.ts';
@@ -703,16 +703,22 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     `shrink-0` because `truncate` is `overflow: hidden`, and in a flex
                     column that overflows, a hidden-overflow item may shrink to zero —
                     the label vanished entirely on the first try. */}
-                <span className="text-2xs text-dim font-mono uppercase tracking-widest max-w-full truncate shrink-0">
+                {/* `Kicker`, as on the back *(2026-11-14)*. This line was still mono
+                    from before the kicker left it (DESIGN §4: a label is not a
+                    measurement), so the same three words changed typeface when the
+                    card was turned — and mono at this tracking is wide enough that
+                    *Core Vocabulary* was cut to "CORE VOC…" on a first-sight card. */}
+                <Kicker className="max-w-full truncate shrink-0">
                   {isNew && <span className="text-accent">New · </span>}
                   {card.pos || 'word'} · {card.level}{card.field ? ` · ${card.field}` : ''}
-                </span>
+                </Kicker>
                 <Illustration word={card} size={68} className="text-accent select-none" />
                 {/* lang="de" on every German string: without it a screen reader
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
                 <GenderTerm term={card.term} gender={card.gender} id={`card-hw-${item.srsId}`}
-                  className="headword hw-front font-bold leading-tight break-words max-w-full px-2" />
+                  fit boxClassName="px-2 shrink-0"
+                  className="headword hw-front font-bold leading-tight" />
                 {/* `.ipa`, not `font-mono`: IPA is not data, and Plex Mono's
                     unicode-range stops short of the IPA block, so every ə ʁ ː fell
                     back glyph by glyph to a different monospace. `aria-hidden`
@@ -1273,7 +1279,7 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
             they are the half of a session a learner has to be talked into. */}
         {drills > 0 && (
           <p className="text-sm mb-5">
-            {drills} of those were <span className="font-semibold">drills</span>, not flips —
+            {drills} of those {drills === 1 ? 'was a' : 'were'} <span className="font-semibold">{drills === 1 ? 'drill' : 'drills'}</span>, not {drills === 1 ? 'a flip' : 'flips'} —
             you got <span className={`font-mono font-bold ${drillsOk === drills ? 'text-green' : 'text-accent'}`}>{drillsOk}/{drills}</span>{' '}
             right. That is the half that makes you produce the German rather than recognise it.
           </p>
@@ -1367,9 +1373,14 @@ function EmptyState({ target, scoped, onPick, onGame }: {
             ? 'Every card in this deck is either scheduled ahead or outside the levels you’re studying.'
             : 'Every review served, the new-card budget spent. The system holds until tomorrow.'}
         </p>
-        <Kicker className="block mb-6">
-          {t.known > 0 ? `${t.known} words recognised · streak safe` : 'streak safe'}
-        </Kicker>
+        {/* A fact, as on the recap: "streak safe" was the loss framing the recap
+            dropped on 2026-09-25 (a streak is only "safe" if it was in danger), and
+            it said so whether or not anything had been studied today. */}
+        {(t.known > 0 || studiedToday()) && (
+          <Kicker className="block mb-6 text-balance">
+            {[t.known > 0 && `${fmt(t.known)} words recognised`, studiedToday() && 'studied today'].filter(Boolean).join(' · ')}
+          </Kicker>
+        )}
         <div className="flex flex-wrap gap-2 justify-center">
           <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
           {/* The game is offered here and only here for now. This is the one state

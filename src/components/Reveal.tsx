@@ -13,8 +13,9 @@
 // time it resolves, so there is nothing behind it to turn over, and a flip
 // affordance would invite flipping *before* answering, which destroys the
 // retrieval attempt the drill exists to create.
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { Info, TriangleAlert, Volume2, VolumeX } from 'lucide-react';
+import { widestRun } from '../lib/fit.ts';
 import { speak, useGermanVoice } from '../lib/tts.ts';
 import { genderColor } from '../lib/ui.ts';
 import { shownTerm } from '../lib/focus.ts';
@@ -113,8 +114,16 @@ export function SpeakButton({ text, label }: {
  *
  *  Never the only signal: the article is always spelled out beside its colour, so
  *  the information survives for anyone who can't distinguish them. */
-export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id }: {
+export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id, fit = false, boxClassName = '' }: {
   term: string; gender?: string | null; className?: string;
+  /** A display headword: set smaller until its longest word fits the measure, and
+   *  hyphenated past that, instead of broken at whichever letter ran out of room
+   *  (`.hw-fit`, lib/fit.ts). Renders a full-width block around the word — the
+   *  measure — so it is for the one word a surface is about, not for a term in a
+   *  line of text. Needs one of the `hw-*` size classes in `className`. */
+  fit?: boolean;
+  /** Classes for that block (its padding is taken out of the measure). */
+  boxClassName?: string;
   /** The element to render as. A headword is a `span` on a study card, where it
    *  is the subject of a question — and an `h2` on the feed, where it is the
    *  title of the thing you are looking at and the only way a rotor can move by
@@ -125,12 +134,32 @@ export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id 
   id?: string;
 }) {
   const bare = shownTerm(term.replace(/^(der|die|das)\s+/i, ''));
-  return (
-    <Tag lang="de" id={id} className={className}>
+  const word = (
+    <Tag lang="de" id={id} className={fit ? `hw-fit ${className}` : className} style={fit ? fitStyle(bare) : undefined}>
       {gender && <span style={{ color: genderColor(gender) }}>{gender} </span>}
       {bare}
     </Tag>
   );
+  return fit ? <div className={`hw-box ${boxClassName}`}>{word}</div> : word;
+}
+
+/** A term with its article in gender ink and the rest in the text colour. A
+ *  plural-only noun carries *die* with no gender, and is left uninked rather than
+ *  dressed as feminine. */
+export function InkedArticle({ term, gender }: { term: string; gender?: string | null }) {
+  const art = /^(der|die|das)\s+/i.exec(term)?.[1];
+  if (!art) return <>{shownTerm(term)}</>;
+  return (
+    <>
+      <span style={gender ? { color: genderColor(gender) } : undefined}>{art} </span>
+      {shownTerm(term.slice(art.length + 1))}
+    </>
+  );
+}
+
+/** The one number `.hw-fit` needs: the widest run a line cannot break inside. */
+export function fitStyle(text: string): CSSProperties {
+  return { '--hw-em': widestRun(text) } as CSSProperties;
 }
 
 /** A labelled block, separated by a hairline rather than by whitespace alone.
@@ -158,13 +187,24 @@ export function ExampleList({ items, max = 2 }: { items: Example[]; max?: number
   if (!items.length) return null;
   return (
     <ul className="space-y-2">
-      {items.slice(0, max).map((e, k) => (
-        <li key={k} className="text-sm leading-relaxed">
-          <span lang="de" className="text-txt">{e.de}</span>{' '}
-          <SpeakButton text={e.de} label="Hear the example:" />
-          {e.en && <span className="block text-dim italic pl-3.5 mt-0.5">{e.en}</span>}
-        </li>
-      ))}
+      {items.slice(0, max).map((e, k) => {
+        // **The speaker travels with the last word.** As a sibling after the
+        // sentence it was free to wrap alone, and a sentence that exactly filled
+        // the line left a speaker icon on a line of its own under it — one in
+        // three entries on a 390pt phone. Held to the final word, the pair wraps
+        // together or not at all.
+        const cut = e.de.lastIndexOf(' ');
+        return (
+          <li key={k} className="text-sm leading-relaxed">
+            {cut > 0 && <span lang="de" className="text-txt">{e.de.slice(0, cut + 1)}</span>}
+            <span className="whitespace-nowrap">
+              <span lang="de" className="text-txt">{e.de.slice(cut + 1)}</span>{' '}
+              <SpeakButton text={e.de} label="Hear the example:" />
+            </span>
+            {e.en && <span className="block text-dim italic pl-3.5 mt-0.5">{e.en}</span>}
+          </li>
+        );
+      })}
     </ul>
   );
 }

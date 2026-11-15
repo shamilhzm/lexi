@@ -261,7 +261,11 @@ describe('der · die · das at large text sizes', () => {
   });
 
   it('caps the study word in px so it stays on the card', () => {
-    expect(css).toMatch(/\.hw-front\s*\{ font-size: min\(var\(--text-4xl\), 46px\); \}/);
+    // The cap is the size the fit starts from (`--hw-size`); `.hw-fit` may only
+    // go smaller than it, never larger.
+    expect(css).toMatch(/\.hw-front\s*\{ --hw-size: min\(var\(--text-4xl\), 46px\); \}/);
+    expect(css).toMatch(/\.hw-front, \.hw-answer, \.hw-feed, \.hw-entry \{ font-size: var\(--hw-size\); \}/);
+    expect(css).toMatch(/clamp\(calc\(var\(--hw-size\) \* 0\.72\), calc\(100cqi \/ var\(--hw-em, 1\)\), var\(--hw-size\)\)/);
     expect(src).toMatch(/headword hw-front/);
   });
 });

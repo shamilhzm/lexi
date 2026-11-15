@@ -20,12 +20,13 @@
 // Bookmarking is *building a reading list you can then sit down with*, and it is
 // worth keeping precisely because the drill next to it is not a substitute: the
 // cap is "teach me this now", which is the wrong answer on a bus.
+import { InkedArticle } from './Reveal.tsx';
 import { useMemo } from 'react';
 import { X, Play, Bookmark, Headphones } from 'lucide-react';
 import { savedWords, toggleSaved, statusOf, DAILY_SAVE_GOAL, savedToday } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { BY_ID } from '../data/index.ts';
-import { genderColor, fmt } from '../lib/ui.ts';
+import { fmt } from '../lib/ui.ts';
 import Layer from './Layer.tsx';
 import Button from './ui/Button.tsx';
 import Chip from './ui/Chip.tsx';
@@ -78,8 +79,9 @@ export default function SavedWords({ onClose, onStudy, onListen }: {
               {words.map((w) => (
                 <li key={w.id} className="flex items-center gap-3 px-5 py-3">
                   <span className="flex-1 min-w-0">
-                    <span lang="de" className="headword text-base font-semibold break-words"
-                      style={{ color: genderColor(w.gender) }}>{w.term}</span>
+                    <span lang="de" className="headword text-base font-semibold break-words">
+                      <InkedArticle term={w.term} gender={w.gender} />
+                    </span>
                     <span className="block text-xs text-dim truncate">{w.en}</span>
                   </span>
                   {statusOf(w.id) !== 'new' && (

@@ -73,7 +73,7 @@ export function StorySlot({ story, onOpen }: { story: FeedArticle; onOpen: (a: F
         <button onClick={() => onOpen(story)}
           className="story-card glass rounded-xl w-full max-w-[560px] text-left px-5 py-5 active:scale-[.99] transition">
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-2xs text-dim">
-            <span className="font-mono uppercase tracking-widest text-accent">{SOURCE_LABEL[story.source]}</span>
+            <span className="font-semibold uppercase tracking-widest text-accent">{SOURCE_LABEL[story.source]}</span>
             {topic && <span>{topic.label}</span>}
             {story.published > 0 && <span>{ago(story.published)}</span>}
             {story.audio && <span className="inline-flex items-center gap-0.5"><Headphones size={11} /> read slowly</span>}
@@ -122,7 +122,7 @@ export function TopicSlot({ onChosen }: { onChosen: () => void }) {
     <section aria-labelledby="topics-slot" className={`${slotClass} flex flex-col items-center justify-safe-center px-5
       pt-[var(--bar-t)] pb-[var(--bar-b)]`}>
       <div className="w-full max-w-[520px]">
-        <p className="font-mono text-2xs uppercase tracking-widest text-accent text-center">Also in the feed</p>
+        <p className="font-semibold text-2xs uppercase tracking-widest text-accent text-center">Also in the feed</p>
         <h2 id="topics-slot" className="text-2xl font-bold text-center mt-1">Today’s news, in German</h2>
         <p className="text-sm text-dim text-center mt-1 mb-5 max-w-[40ch] mx-auto">
           Pick what you’d read anyway, and a story joins the feed every few words — tap any word in it to look it up or save it.

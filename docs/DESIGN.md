@@ -342,7 +342,34 @@ got to yet, which is a naming question, not a type one.
 the same reason it does on the headword: at 26–34px Fraunces draws with higher
 contrast and tighter joins than the same face scaled up from caption size.
 
-**Mono means data.** If it isn't a measurement, it isn't mono.
+**Mono means data.** If it isn't a measurement, it isn't mono. Eleven tracked-caps
+labels were still mono on 2026-11-15, the session card's front among them — the same
+three words changed face when the card was turned. `lib/design-rules.test.ts` now
+refuses `font-mono` beside `uppercase` in any class string.
+
+### A headword shrinks before it breaks *(2026-11-15)*
+
+German compounds are long and a phone is narrow. At the ramp's display sizes on a
+390pt phone, 758 feed headwords, 410 session-card headwords and 138 entry headwords
+were wider than their measure, and `break-words` cut each one at whichever letter ran
+out of room — *der Bundespräsiden / t*.
+
+> **A word is one object.** Set it smaller until it fits; past a floor, break it where
+> German does — at a syllable, with a hyphen. Never at an arbitrary letter.
+
+`.hw-fit` does the first with `clamp(72% of size, 100cqi / widest-run-in-em, size)`
+inside a `.hw-box` container, and `hyphens: auto` with `lang="de"` does the second.
+`lib/fit.ts` supplies the widest run, from the display face's advance widths
+**measured at 40px** — Fraunces's optical-size axis makes it 16–17% wider per em at
+display sizes than at 100px. `GenderTerm fit` and the drill `Prompt`'s `fit` use it;
+anything else that sets a single German word large should too.
+
+### Gender ink goes on the article
+
+The colour is for *der/die/das*, so it marks the article and nothing else — on the
+card, the entry, the drills, search, saved words and the reader alike (`GenderTerm`,
+`InkedArticle`). A row that coloured the whole noun said less, not more: the article,
+the one mark the colour exists for, was no more marked than the word.
 
 The ramp in `@theme` (`--text-2xs` … `--text-6xl`) is the **only** set of sizes.
 No arbitrary `text-[…]`.
@@ -1001,3 +1028,18 @@ The floor is 260 and not 300 because **the pane reported zero overflow on a layo
 that clipped the grade buttons on a real iPhone**: it has no status bar (~59pt) and no
 Safari toolbar (~50pt). Grade buttons off screen are not survivable — they are the
 primary action of the primary loop.
+
+### 12·5 Every place opens at its own scroll offset *(2026-11-15)*
+
+`<main>` is the one scroller, and it outlives every route — the keyed container
+inside it remounts, `<main>` does not. So a tab opened wherever the previous page had
+been left: Fortschritt scrolled to 1500px made *Themen* open at its bottom. The shell
+keeps an offset per place (view, tab press, Themen depth): a tab press is a new place
+and opens at the top; going back finds the list where you were reading it.
+
+### 12·6 Clamp the text, not the row
+
+`line-clamp` is a `display` (`-webkit-box`, vertical). On a flex row it replaces
+`flex`, and the icon that led the line stacks above it — which is what the *why this
+card* line did on every viewport under 700pt. `design-rules.test.ts` refuses the
+combination.

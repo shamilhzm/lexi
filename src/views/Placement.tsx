@@ -13,6 +13,8 @@ import {
   correctedRate, trustsSelfReport, selfReportNote,
 } from '../lib/placement.ts';
 import Card from '../components/ui/Card.tsx';
+import { fitStyle } from '../components/Reveal.tsx';
+import { shownTerm } from '../lib/focus.ts';
 import Button from '../components/ui/Button.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import { ALL_LEVELS, type CEFR, type Word } from '../types.ts';
@@ -202,7 +204,13 @@ export default function Placement({ onDone }: { onDone: () => void }) {
         initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
         role="status" aria-live="polite"
         className="px-6 py-12 text-center mb-4">
-        <div lang="de" className="font-bold text-4xl sm:text-5xl leading-tight">{stripArticle(probe.term)}</div>
+        {/* The German in the headword face, as everywhere a word is put to the
+            learner — it was the one tested word in the app still set in sans — and
+            fitted, so a long compound shrinks before it breaks. */}
+        <div className="hw-box">
+          <div lang="de" className="headword hw-entry hw-fit font-bold leading-tight"
+            style={fitStyle(shownTerm(stripArticle(probe.term)))}>{shownTerm(stripArticle(probe.term))}</div>
+        </div>
         {probe.gender && <div lang="de" className="text-dim text-base mt-1.5">{probe.gender}</div>}
       </Card>
 

@@ -43,6 +43,24 @@
 >
 > ---
 >
+> ## Found in the 2026-11-15 design pass — filed, not fixed
+>
+> - **Eleven cards whose English gloss is a grammar note**, and so is what the card
+>   teaches as the meaning: *der Bäcker* = "agent noun of backen", *der Vertreter*,
+>   *der Zuschauer*, *der Anhänger*, *der Sender*, *der Betrüger*, *der Radfahrer*,
+>   *der Verbraucher* (partly), *das Schätzchen* = "diminutive of Schatz", *dran*,
+>   *drauf* = "alternative form of …". They also turn up as distractors in the meaning
+>   drill. Fix with written glosses through `scripts/authoring/fix-authored.ts`. Found
+>   with: `/\b(agent noun of|diminutive of|alternative form of|…)\b/` over `cards.json`
+>   (12 hits; *die Anrede* = "form of address" is the false positive).
+> - **`sectors.json` counts and levels are stale** — 215 of 274 on 2026-11-14, because
+>   `authoring:new` and `fix-authored` add cards without rebuilding it. The app now
+>   derives both at load (`data/index.ts`), so nothing on screen depends on the file;
+>   the scripts that read it (`budget.ts`, `audit.ts`) still do. Rebuild it from the
+>   authoring gate, or drop the two fields.
+>
+> ---
+>
 > ## What the first learner's chats asked for — read 2026-11-14
 >
 > *The owner exported their Claude conversations; 27 of 204 were about German. This is

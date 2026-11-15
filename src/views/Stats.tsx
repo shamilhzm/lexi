@@ -15,7 +15,6 @@ import { fmt } from '../lib/ui.ts';
 import { loadLedger } from '../lib/ledger.ts';
 import { calibration, MIN_N, type Calibration } from '../lib/calibration.ts';
 import Card from '../components/ui/Card.tsx';
-import Kicker from '../components/ui/Kicker.tsx';
 
 const DAY = 86_400_000;
 const dayKey = (offset: number) => new Date(Date.now() - offset * DAY).toISOString().slice(0, 10);
@@ -74,14 +73,14 @@ export default function Stats() {
             : <Empty text="Starts counting from today — study a session and come back." />}
         </Panel>
 
-        <Panel title="Recall" sub="% graded correct, last 14 days">
+        <Panel title="Recall" sub="% correct, last 14 days">
           {recall.some((r) => r !== null)
             ? <Bars values={recall.map((r) => r ?? 0)} muted={recall.map((r) => r === null)}
                 labels={days.map(dayLabel)} color="var(--color-green)" max={100} suffix="%" />
             : <Empty text="Appears with your first graded reviews." />}
         </Panel>
 
-        <Panel title="Due forecast" sub="scheduled reviews, next 7 days">
+        <Panel title="Due forecast" sub="reviews due, next 7 days">
           <Bars values={forecast}
             labels={forecast.map((_, i) => i === 0 ? 'today' : dayLabel(dayKey(-i)))}
             color="var(--color-accent)" />
@@ -96,7 +95,7 @@ export default function Stats() {
             Every learner's first study day looked like that.
             Two points is the floor for a *growth* chart: one point is a value,
             and growth is a difference. */}
-        <Panel title="Known growth" sub={`daily totals · ${history.length < 3 ? 'accrues one point per study day' : `${history.length} days`}`}>
+        <Panel title="Known growth" sub={history.length < 3 ? 'one point per study day' : `daily totals, ${history.length} days`}>
           {history.length >= 2
             ? <Bars values={history.slice(-14).map((h) => h.known)}
                 labels={history.slice(-14).map((h) => dayLabel(h.date))}
@@ -216,10 +215,15 @@ function verdict(cal: Calibration): string {
 
 function Panel({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
   return (
-    <Card pad="none" className="p-4">
-      <h3 className="text-base font-semibold">{title}</h3>
-      <Kicker className="block mb-3">{sub}</Kicker>
-      {children}
+    // A column with the chart pinned to its foot. The sub-line was a `Kicker` —
+    // tracked caps — and in a 175pt panel "DAILY TOTALS · ACCRUES ONE POINT PER
+    // STUDY DAY" ran to four lines, which pushed that panel's chart 70pt below its
+    // neighbour's. A kicker is a label, and this is a sentence: it is set as one,
+    // and whatever height it takes, the two charts in a row share a baseline.
+    <Card pad="none" className="p-4 flex flex-col h-full">
+      <h3 className="text-base font-semibold leading-tight">{title}</h3>
+      <p className="text-2xs text-dim mt-1 mb-3">{sub}</p>
+      <div className="mt-auto">{children}</div>
     </Card>
   );
 }

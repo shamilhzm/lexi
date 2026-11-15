@@ -80,7 +80,10 @@ export default function BlindSpotList({ onDrill, days = 30 }:
                 are red and sized by rate; unmeasured rows are neutral and sized by
                 count, which says "this is a different number" without a legend. */}
             <div className="h-2 rounded-full bg-panel2 overflow-hidden">
-              <div className={`h-full ${s.rate !== null ? 'bg-red' : 'bg-line'}`}
+              {/* `bg-dim/40`, not `bg-line`: the track is `panel2`, and `line` on
+                  `panel2` is 1.1:1 — an unmeasured row at full width looked like an
+                  empty track, i.e. like no misses at all. */}
+              <div className={`h-full rounded-full ${s.rate !== null ? 'bg-red' : 'bg-dim/40'}`}
                 style={{ width: `${Math.max(8, (s.rate !== null ? s.rate / worstRate : s.count / max) * 100)}%` }} />
             </div>
             {/* "Noun plurals 15×" is true and unactionable. The words it

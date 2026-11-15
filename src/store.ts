@@ -1551,7 +1551,10 @@ export function sectorStats(group?: string): SectorStat[] {
     .map((s) => {
       const words = (WORDS_BY_SECTOR.get(s.name) ?? []).filter(inLevels);
       const c = countsFor(words);
-      return { name: s.name, group: s.group, levels: s.levels, ...c,
+      // The levels of the cards counted, not of the whole sector: "171 cards ·
+      // A1–C1" under an A1–B1 filter read as 171 cards running up to C1.
+      const levels = s.levels.filter((l) => words.some((w) => w.level === l));
+      return { name: s.name, group: s.group, levels, ...c,
         coverage: c.count ? c.learned / c.count : 0 };
     })
     .filter((s) => s.count > 0)

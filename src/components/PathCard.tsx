@@ -88,7 +88,7 @@ export default function PathCard({ onStudy, onDrill }: {
 
       {next.length > 0 && (
         <>
-          <Kicker className="block px-1 mt-1 mb-1.5">Next up</Kicker>
+          <Kicker className="block mt-1 mb-1.5">Next up</Kicker>
           <div className="space-y-1.5">
             {next.map((n) => (
               <button key={n.label} onClick={n.onGo}

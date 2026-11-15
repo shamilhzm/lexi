@@ -61,8 +61,8 @@ export default function WordDetail({ word, onClose, onPractise }: {
             rather than as a different page about it. */}
         <div className="text-center">
           <Picto id={word.id} size={120} className="mb-2" caption="AI-drawn" />
-          <GenderTerm term={word.term} gender={word.gender}
-            className="headword font-bold leading-tight break-words text-4xl sm:text-5xl" />
+          <GenderTerm term={word.term} gender={word.gender} fit
+            className="headword hw-entry font-bold leading-tight" />
           <div className="mt-3 flex items-center justify-center">
             {word.ipa && (
               <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1.5">

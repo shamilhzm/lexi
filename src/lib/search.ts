@@ -29,6 +29,17 @@ export function fold(s: string): string {
     .normalize('NFD').replace(/\p{Diacritic}/gu, '');
 }
 
+/** The same word as an English keyboard spells it under the German convention:
+ *  *ä* as *ae*, *ö* as *oe*, *ü* as *ue*. `fold` answers a learner who drops the
+ *  umlaut (*Ubung*); this answers one who writes it out (*Uebung*), which is
+ *  what the owner's own class lists do and what a search that folded only one
+ *  way returned nothing for *Geschwindigkeitsbeschraenkung* (2026-11-14). */
+export function foldDigraph(s: string): string {
+  return s.toLowerCase()
+    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .normalize('NFD').replace(/\p{Diacritic}/gu, '');
+}
+
 /** `term` carries the article for nouns ("das Haus"), which is right on a card
  *  and wrong for matching: without stripping it, *nothing a learner types for a
  *  noun is ever an exact or a prefix hit*. Measured — searching "haus" put
@@ -51,21 +62,35 @@ export function search(q: string): Word[] {
   const f = fold(q.trim());
   if (f.length < MIN_QUERY) return [];
   const out: { w: Word; score: number }[] = [];
-  for (const w of WORDS) {
-    const full = fold(w.term);
-    const bare = fold(w.term.replace(ARTICLE, ''));
-    const en = senses(w.en ?? '');
+  for (const k of keys()) {
+    // Each German key twice: umlaut dropped, and umlaut written out.
+    const is = (test: (s: string) => boolean) => test(k.full) || test(k.bare) || test(k.fullD) || test(k.bareD);
     let score = -1;
-    if (full === f || bare === f) score = 0;
-    else if (bare.startsWith(f) || full.startsWith(f)) score = 1;
-    else if (en.some((e) => e === f)) score = 2;
-    else if (en.some((e) => e.startsWith(f))) score = 3;
-    else if (bare.includes(f)) score = 4;
-    else if (en.some((e) => e.includes(f))) score = 5;
-    if (score >= 0) out.push({ w, score });
+    if (is((s) => s === f)) score = 0;
+    else if (is((s) => s.startsWith(f))) score = 1;
+    else if (k.en.some((e) => e === f)) score = 2;
+    else if (k.en.some((e) => e.startsWith(f))) score = 3;
+    else if (k.bare.includes(f) || k.bareD.includes(f)) score = 4;
+    else if (k.en.some((e) => e.includes(f))) score = 5;
+    if (score >= 0) out.push({ w: k.w, score });
   }
   out.sort((a, b) => a.score - b.score
     || a.w.term.length - b.w.term.length
     || a.w.term.localeCompare(b.w.term, 'de'));
   return out.slice(0, MAX_HITS).map((h) => h.w);
+}
+
+/** The folded keys, built once per lexicon rather than once per keystroke — it was
+ *  folding all 11,000 terms on every letter typed. Rebuilt when words are added
+ *  (the learner's own words join `WORDS` in place, so length is the signal). */
+type Keys = { w: Word; full: string; bare: string; fullD: string; bareD: string; en: string[] };
+let built: { src: Word[]; n: number; keys: Keys[] } | null = null;
+function keys(): Keys[] {
+  if (built && built.src === WORDS && built.n === WORDS.length) return built.keys;
+  const keys = WORDS.map((w) => {
+    const bareTerm = w.term.replace(ARTICLE, '');
+    return { w, full: fold(w.term), bare: fold(bareTerm), fullD: foldDigraph(w.term), bareD: foldDigraph(bareTerm), en: senses(w.en ?? '') };
+  });
+  built = { src: WORDS, n: WORDS.length, keys };
+  return keys;
 }

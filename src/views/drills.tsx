@@ -48,7 +48,7 @@ import { isDue, Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
 import { lookupSurface } from '../lib/surface.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
-import { GenderTerm } from '../components/Reveal.tsx';
+import { GenderTerm, fitStyle } from '../components/Reveal.tsx';
 import SessionRecap from '../components/SessionRecap.tsx';
 import Surface from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
@@ -528,7 +528,7 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   };
   return (
     <Card>
-      <Prompt small="Which article goes with it?" gloss={word.en}>{shownTerm(stripArticle(word.term))}</Prompt>
+      <Prompt small="Which article goes with it?" gloss={word.en} fit={shownTerm(stripArticle(word.term))}>{shownTerm(stripArticle(word.term))}</Prompt>
       {/* **Three across, or one column — never two-and-one** *(2026-10-16)*. A fixed
           third of a 375pt card was 67px at an accessibility size, for a 41px "der", and
           the word broke inside its own key. `.gender-keys` stacks them from the app's
@@ -590,8 +590,17 @@ function pluralVariants(singular: string): string[] {
   return [endsE ? singular + 'n' : singular + 'e', stem + 'en', stem + 'er', stem + 's', us + 'e', us + 'er', umlaut(singular), singular];
 }
 
-function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de', big = false, onGrade }: {
-  prompt: React.ReactNode; sub?: string; hint?: string; options: string[]; correct: number;
+function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de', promptLang = 'de', fit, big = false, onGrade }: {
+  /** A function when the prompt changes once answered — the cloze fills its gap. */
+  prompt: React.ReactNode | ((answered: boolean) => React.ReactNode);
+  sub?: string; hint?: string; options: string[]; correct: number;
+  /** What language the *prompt* is in. German almost always; English when the
+   *  drill runs the other way (`reverse`), where `lang="de"` had a German voice
+   *  reading "without". */
+  promptLang?: 'de' | 'en';
+  /** The headword, when the prompt *is* one: it is then set to fit the card
+   *  rather than broken mid-word (`.hw-fit`). */
+  fit?: string;
   /** Display size for the prompt. Small by default: a plural or a gender item
    *  prints the word *and* four German forms, and two display sizes in one card
    *  is a card with two subjects. The meaning item has only the word. */
@@ -615,7 +624,9 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de
   });
   return (
     <Card>
-      <Prompt small={sub} gloss={hint} big={big}>{prompt}</Prompt>
+      <Prompt small={sub} gloss={hint} big={big} lang={promptLang} fit={fit}>
+        {typeof prompt === 'function' ? prompt(picked !== null) : prompt}
+      </Prompt>
       <div className="grid gap-2.5 short:gap-2">
         {options.map((o, i) => {
           const state = picked === null ? 'idle' : i === correct ? 'right' : i === picked ? 'wrong' : 'idle';
@@ -699,7 +710,8 @@ export function MeaningItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   // first and the gender item second, so a prompt reading a pink *die* Hose
   // prints the answer to the next question above the current one. `GenderItem`
   // strips for exactly the same reason; this matches it.
-  return <MCItem prompt={shownTerm(stripArticle(word.term))} big
+  const shown = shownTerm(stripArticle(word.term));
+  return <MCItem prompt={shown} big fit={shown}
     sub="What does it mean?" options={mc.options} correct={mc.correct} optLang="en" onGrade={onGrade} />;
 }
 
@@ -850,7 +862,7 @@ export function ReverseItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     return buildMC(mine, pickN(pool, 3, new Set([norm(mine)])));
   }, [word.id]);
   if (mc.options.length < 2) return null;
-  return <MCItem prompt={word.en} big sub="Which word is it?"
+  return <MCItem prompt={word.en} promptLang="en" big sub="Which word is it?"
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
 
@@ -914,7 +926,19 @@ export function ClozeItem({ word, forms, onGrade }: { word: Word; forms: string[
   if (!parts || !mc || mc.options.length < 2) return null;
   return (
     <MCItem
-      prompt={<span lang="de">{parts.before}<span className="text-accent">·····</span>{parts.after}</span>}
+      // **The gap closes when it is answered** *(2026-11-14)*. It stayed as five
+      // dots under a green option, so the one moment the sentence could be read
+      // whole — right after choosing, which is when it teaches — showed a hole.
+      // Right or wrong, it fills with the word that belongs there.
+      prompt={(answered) => (
+        <>
+          {parts.before}
+          {answered
+            ? <span className="text-accent underline decoration-2 underline-offset-4">{parts.blank}</span>
+            : <span className="text-accent">·····</span>}
+          {parts.after}
+        </>
+      )}
       sub="Which word fills the gap?" hint={word.ex[0]?.en}
       options={mc.options} correct={mc.correct} onGrade={onGrade} />
   );
@@ -948,7 +972,8 @@ export function UsageItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     return buildMC(mine, distract);
   }, [word.id]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{shownTerm(stripArticle(word.term))}</span>} big
+  const shown = shownTerm(stripArticle(word.term));
+  return <MCItem prompt={shown} big fit={shown}
     sub="Which sentence uses it?" hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
@@ -1011,7 +1036,7 @@ export function SynonymItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
     return buildMC(target, distract);
   }, [word.id]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{shownTerm(stripArticle(word.term))}</span>} big
+  return <MCItem prompt={shownTerm(stripArticle(word.term))} big fit={shownTerm(stripArticle(word.term))}
     sub="Which word means the same?" hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
@@ -1277,8 +1302,11 @@ function Card({ children }: { children: React.ReactNode }) {
   return <div className="bg-card border border-line rounded-lg p-6 sm:p-8">{children}</div>;
 }
 
-function Prompt({ children, small, gloss, big = true }: {
+function Prompt({ children, small, gloss, big = true, lang = 'de', fit }: {
   children: React.ReactNode; small?: string; gloss?: string; big?: boolean;
+  lang?: 'de' | 'en';
+  /** The headword this prompt is, if it is one — see `MCItem`. */
+  fit?: string;
 }) {
   return (
     <div className="text-center mb-5 short:mb-3">
@@ -1289,7 +1317,12 @@ function Prompt({ children, small, gloss, big = true }: {
       {small && <p className="text-xs text-dim mb-2">{small}</p>}
       {/* The German being *tested* is a headword too, so an exercise prompt reads
           as the subject of the app rather than as data inside it. */}
-      <div lang="de" className={`headword font-bold leading-snug ${big ? 'hw-answer' : 'text-xl sm:text-2xl'}`}>{children}</div>
+      {fit
+        ? <div className="hw-box"><div lang={lang} className="headword hw-answer hw-fit font-bold leading-snug" style={fitStyle(fit)}>{children}</div></div>
+        // `text-balance`: a two-line sentence breaks into two even lines rather
+        // than a full one and a word; `hyphens-auto`: a noun too long for the
+        // line breaks at a syllable, not off the edge of the card.
+        : <div lang={lang} className={`headword font-bold leading-snug text-balance hyphens-auto break-words ${big ? 'hw-answer' : 'text-xl sm:text-2xl'}`}>{children}</div>}
       {gloss && <p className="text-dim text-xs mt-2">{gloss}</p>}
     </div>
   );

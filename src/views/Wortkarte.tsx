@@ -7,8 +7,9 @@
 //     the rest of the app went light. It is now token-driven like everything else.
 //  2. The viewBox was a fixed 900×560 landscape. On a phone that scaled to
 //     ~0.39, which both wasted half the box and rendered the labels at roughly
-//     four physical pixels. The layout is now portrait and thinner on narrow
-//     screens, and the type scales with it.
+//     four physical pixels. It was then a fixed portrait box, which fitted the
+//     phone and not the drawing; since 2026-11-14 it is cut to the drawing (see
+//     `WIDE` below).
 import { useMemo, useState } from 'react';
 import { Volume2 } from 'lucide-react';
 import { WORDS_BY_SECTOR, SECTORS } from '../data/index.ts';
@@ -18,7 +19,8 @@ import { speak } from '../lib/tts.ts';
 import { conceptForSector, conceptPaths, SHOW_ILLUSTRATIONS } from '../lib/illustration.tsx';
 import Card from '../components/ui/Card.tsx';
 import { useIsNarrow } from '../lib/useMedia.ts';
-import type { Target } from '../types.ts';
+import { shownTerm } from '../lib/focus.ts';
+import type { Target, Word } from '../types.ts';
 
 const STATUS_COLOR: Record<string, string> = {
   new: 'var(--color-dim)',
@@ -28,15 +30,54 @@ const STATUS_COLOR: Record<string, string> = {
 const STATUS_LABEL: Record<string, string> = { new: 'new', learning: 'learning', known: 'known' };
 const POS_RING = ['noun', 'verb', 'adjective', 'adverb'];
 
-/** Layout constants per breakpoint. Narrow screens get a portrait box, fewer
- *  nodes and larger type, so the labels stay readable instead of scaling to
- *  illegibility inside a landscape viewBox. */
-const WIDE = { w: 900, h: 560, max: 30, hub: 44, node: 22, ring0: 95, ringStep: 78, term: 9.5, gloss: 8, hubTerm: 12, hubSub: 10 };
-const NARROW = { w: 560, h: 720, max: 16, hub: 56, node: 30, ring0: 120, ringStep: 104, term: 15, gloss: 12, hubTerm: 18, hubSub: 14 };
+/** Type and spacing, in viewBox units.
+ *
+ *  **The box is cut to the drawing** *(2026-11-14)*, so these set proportions,
+ *  not screen sizes. The old layout fixed the box (560×720 on a phone) and the
+ *  node (r = 30), and then neither fitted the other: a word map of sixteen nodes
+ *  sat in the middle of a box with 100pt of nothing above it, its terms ran across
+ *  their own circles ("Nachricht", "Communication" in the hub), and the glosses
+ *  came out at 7px. Now each node is as large as its word, the rings are packed by
+ *  the room each node actually takes, and the viewBox is whatever that drew — so
+ *  the type lands as large as the phone allows.
+ *
+ *  A phone gets no gloss inside the node: at the scale sixteen words allow it
+ *  could not be read, and tapping a node puts the gloss in the line under the map. */
+const WIDE = { max: 30, term: 11, gloss: 9, gap: 7, pad: 4, minR: 22, hubR: 40, hubTerm: 14, hubSub: 10 };
+const NARROW = { max: 16, term: 15, gloss: 0, gap: 6, pad: 5, minR: 24, hubR: 44, hubTerm: 18, hubSub: 12 };
+
+/** Width of a label in viewBox units, read off the face the map is drawn in — the
+ *  system sans, which is installed rather than downloaded, so the reading is
+ *  never taken before the font arrives. A plain estimate where there is no canvas
+ *  (the tests). One context for the module: it is a ruler, not state. */
+let ruler: CanvasRenderingContext2D | null | undefined;
+function measure(text: string, size: number, weight = 400): number {
+  if (ruler === undefined) ruler = typeof document === 'undefined' ? null : document.createElement('canvas').getContext('2d');
+  if (!ruler) return text.length * size * 0.58;
+  ruler.font = `${weight} ${size}px ${getComputedStyle(document.body).fontFamily}`;
+  return ruler.measureText(text).width;
+}
+
+/** A node's word: no article (the colour is the status, not the gender), no case
+ *  notation, and only a very long compound shortened — `slice(0, 12)` used to cut
+ *  *Kommunikation* to "Kommunikatio". */
+const termOf = (w: Word) => {
+  const t = shownTerm(w.term.replace(/^(der|die|das)\s+/i, ''));
+  return t.length > 18 ? `${t.slice(0, 16)}…` : t;
+};
+/** The first sense of the gloss, cut at a word rather than inside one. */
+const glossOf = (w: Word) => {
+  const g = w.en.split(/[,;(]/)[0].trim();
+  if (g.length <= 16) return g;
+  const cut = g.slice(0, 16).lastIndexOf(' ');
+  return `${g.slice(0, cut > 6 ? cut : 15)}…`;
+};
+
+type Placed = { w: Word; term: string; gloss: string; r: number; x: number; y: number };
 
 export default function Wortkarte({ initialSector, onStudy }: { initialSector: string | null; onStudy: (t: Target) => void }) {
   const v = useStore();
-  const sorted = useMemo(() => [...SECTORS].sort((a, b) => b.count - a.count), []);
+  const sorted = useMemo(() => SECTORS.filter((s) => s.count > 0).sort((a, b) => b.count - a.count), []);
   const [sel, setSel] = useState<string>(initialSector ?? sorted[0].name);
   const [active, setActive] = useState<string | null>(null);
 
@@ -44,55 +85,74 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
   const narrow = useIsNarrow();
   const L = narrow ? NARROW : WIDE;
 
-  const { nodes, links, hub } = useMemo(() => {
-    const cx = L.w / 2, cy = L.h / 2;
-    const words = (WORDS_BY_SECTOR.get(sel) ?? []).slice(0, L.max);
-    const groups = new Map<string, typeof words>();
+  const { nodes, links, hub, box, total } = useMemo(() => {
+    const all = WORDS_BY_SECTOR.get(sel) ?? [];
+    const words = all.slice(0, L.max);
+    const groups = new Map<string, Word[]>();
     for (const w of words) {
       const ring = POS_RING.includes(w.pos) ? w.pos : 'other';
       if (!groups.has(ring)) groups.set(ring, []);
       groups.get(ring)!.push(w);
     }
-    const ringOrder = [...POS_RING, 'other'].filter((r) => groups.has(r));
+    // Word classes stay contiguous, so a ring reads as nouns, then verbs…
+    const ordered = [...POS_RING, 'other'].flatMap((r) => groups.get(r) ?? []);
 
-    // A ring only holds as many nodes as its circumference allows. Sectors
-    // dominated by one part of speech (Adjectives, Core verbs) put every word in
-    // a single group, and the old layout dropped all of them onto one radius —
-    // thirty 22px nodes fighting over a 95px circle, drawn as an illegible
-    // wreath. Pack into as many rings as the words need...
-    const capacity = (radius: number) =>
-      Math.max(3, Math.floor((2 * Math.PI * radius) / (L.node * 2 + 8)));
+    // Every node as large as its own word — and no larger than the floor needs.
+    const textH = L.gloss ? L.term + L.gloss + 2 : L.term;
+    const sized = ordered.map((w) => {
+      const term = termOf(w);
+      const gloss = L.gloss ? glossOf(w) : '';
+      const wide = Math.max(measure(term, L.term, 600), gloss ? measure(gloss, L.gloss) : 0);
+      return { w, term, gloss, r: Math.max(L.minR, Math.hypot(wide / 2, textH / 2) + L.pad) };
+    });
+    const label = sel.split(/[ &,]/)[0];
+    const hubR = Math.max(L.hubR, Math.hypot(measure(label, L.hubTerm, 700) / 2, (L.hubTerm + L.hubSub) / 2) + L.pad);
 
-    const buckets: typeof words[] = [];
-    for (const ring of ringOrder) {
-      let queue = groups.get(ring)!;
-      while (queue.length) {
-        const nominal = L.ring0 + buckets.length * L.ringStep;
-        const take = Math.min(queue.length, capacity(nominal));
-        buckets.push(queue.slice(0, take));
-        queue = queue.slice(take);
+    // Rings, packed by the angle each node actually needs at that radius. A ring
+    // takes nodes until they would overlap, and its radius grows with the largest
+    // node in it, which is what keeps a long word from landing on its neighbour.
+    const span = (r: number, R: number) => 2 * Math.asin(Math.min(1, (r + L.gap / 2) / R));
+    const placed: Placed[] = [];
+    let inner = hubR, k = 0, ring = 0;
+    while (k < sized.length) {
+      const members: typeof sized = [];
+      let R = 0;
+      while (k < sized.length) {
+        const next = [...members, sized[k]];
+        const radius = inner + L.gap + Math.max(...next.map((n) => n.r));
+        if (members.length && next.reduce((s, n) => s + span(n.r, radius), 0) > 2 * Math.PI) break;
+        members.push(sized[k++]);
+        R = radius;
       }
+      // What is left of the circle is shared out evenly between the nodes, and
+      // each ring starts a little further round so nodes don't line up as spokes.
+      const spans = members.map((n) => span(n.r, R));
+      const slack = (2 * Math.PI - spans.reduce((a, b) => a + b, 0)) / members.length;
+      let a = -Math.PI / 2 + ring * 0.6;
+      members.forEach((n, j) => {
+        const mid = a + spans[j] / 2;
+        placed.push({ ...n, x: Math.cos(mid) * R, y: Math.sin(mid) * R });
+        a += spans[j] + slack;
+      });
+      inner = R + Math.max(...members.map((n) => n.r));
+      ring++;
     }
 
-    // ...then fit those rings inside the box, so a word-rich sector can’t push
-    // its outermost ring off the canvas.
-    const maxR = Math.min(cx, cy) - L.node - 10;
-    const step = buckets.length > 1
-      ? Math.min(L.ringStep, (maxR - L.ring0) / (buckets.length - 1))
-      : 0;
+    const at = new Map(placed.map((n) => [n.w.term, n]));
+    const links: { a: Placed; b: Placed }[] = [];
+    for (const n of placed) for (const s of n.w.syn) { const t = at.get(s); if (t) links.push({ a: n, b: t }); }
 
-    const nodes = buckets.flatMap((slice, ri) => {
-      const radius = L.ring0 + ri * step;
-      return slice.map((w, k) => {
-        // Offset each ring so nodes don’t line up into visual spokes.
-        const ang = (k / slice.length) * Math.PI * 2 + ri * 0.6;
-        return { w, x: cx + Math.cos(ang) * radius, y: cy + Math.sin(ang) * radius, r: L.node };
-      });
-    });
-    const pos = new Map(nodes.map((n) => [n.w.term, n]));
-    const links: { a: typeof nodes[number]; b: typeof nodes[number] }[] = [];
-    for (const n of nodes) for (const s of n.w.syn) { const tn = pos.get(s); if (tn) links.push({ a: n, b: tn }); }
-    return { nodes, links, hub: { x: cx, y: cy } };
+    // The box is the drawing, plus room for a stroke.
+    const m = 6;
+    const minX = Math.min(-hubR, ...placed.map((n) => n.x - n.r)) - m;
+    const maxX = Math.max(hubR, ...placed.map((n) => n.x + n.r)) + m;
+    const minY = Math.min(-hubR, ...placed.map((n) => n.y - n.r)) - m;
+    const maxY = Math.max(hubR, ...placed.map((n) => n.y + n.r)) + m;
+    return {
+      nodes: placed, links, total: all.length,
+      hub: { r: hubR, label },
+      box: { x: minX, y: minY, w: maxX - minX, h: maxY - minY },
+    };
   }, [sel, v, L]);
 
   return (
@@ -101,7 +161,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
         <h2 className="text-base font-semibold">Word Map</h2>
         <label className="sr-only" htmlFor="wortkarte-sector">Sector</label>
         <select id="wortkarte-sector" value={sel} onChange={(e) => { setSel(e.target.value); setActive(null); }}
-          className="bg-panel2 border border-line rounded-md text-xs px-2 py-1.5 text-txt outline-none focus:border-accent max-w-[200px] sm:max-w-[260px]">
+          className="flex-1 min-w-0 sm:flex-none bg-panel2 border border-line rounded-md text-xs px-2 py-1.5 text-txt outline-none focus:border-accent sm:max-w-[260px]">
           {sorted.map((s) => <option key={s.name} value={s.name}>{s.name} ({s.count})</option>)}
         </select>
         <span className="ml-auto text-2xs text-dim flex items-center gap-2 sm:gap-3 flex-wrap">
@@ -118,17 +178,19 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
         </span>
       </div>
 
-      <svg viewBox={`0 0 ${L.w} ${L.h}`} className="w-full block"
-        style={{ height: narrow ? 'min(70vh, 620px)' : 'min(60vh, 560px)' }}
-        role="img" aria-label={`Word map of ${sel}: ${nodes.length} words on rings by word class`}>
+      <svg viewBox={`${box.x} ${box.y} ${box.w} ${box.h}`} className="w-full block mx-auto my-3"
+        style={{ aspectRatio: `${box.w} / ${box.h}`, maxHeight: narrow ? 'min(62vh, 560px)' : 'min(60vh, 560px)' }}
+        role="img" aria-label={`Word map of ${sel}: ${nodes.length} of ${total} words, on rings by word class`}>
         {links.map((l, i) => <line key={i} x1={l.a.x} y1={l.a.y} x2={l.b.x} y2={l.b.y} stroke="var(--color-line)" strokeWidth={1.5} />)}
-        {nodes.map((n) => <line key={'h' + n.w.id} x1={hub.x} y1={hub.y} x2={n.x} y2={n.y} stroke="var(--color-line)" strokeWidth={1} opacity={0.5} />)}
+        {nodes.map((n) => <line key={'h' + n.w.id} x1={0} y1={0} x2={n.x} y2={n.y} stroke="var(--color-line)" strokeWidth={1} opacity={0.5} />)}
 
         <g>
-          <circle cx={hub.x} cy={hub.y} r={L.hub} fill="var(--color-panel2)" stroke="var(--color-accent)" strokeWidth={1.5} />
-          {SHOW_ILLUSTRATIONS && <g transform={`translate(${hub.x - 11} ${hub.y - 30}) scale(0.92)`} fill="none" stroke="var(--color-accent)" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: conceptPaths(conceptForSector(sel)) }} />}
-          <text x={hub.x} y={hub.y + 6} textAnchor="middle" fill="var(--color-accent)" fontSize={L.hubTerm} fontWeight={700}>{sel.split(/[ &,]/)[0]}</text>
-          <text x={hub.x} y={hub.y + 6 + L.hubSub + 2} textAnchor="middle" fill="var(--color-dim)" fontSize={L.hubSub} fontFamily="var(--font-mono)">{nodes.length} words</text>
+          <circle cx={0} cy={0} r={hub.r} fill="var(--color-panel2)" stroke="var(--color-accent)" strokeWidth={1.5} />
+          {SHOW_ILLUSTRATIONS && <g transform="translate(-11 -30) scale(0.92)" fill="none" stroke="var(--color-accent)" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: conceptPaths(conceptForSector(sel)) }} />}
+          <text x={0} y={-1} textAnchor="middle" fill="var(--color-accent)" fontSize={L.hubTerm} fontWeight={700}>{hub.label}</text>
+          <text x={0} y={L.hubSub + 4} textAnchor="middle" fill="var(--color-dim)" fontSize={L.hubSub} fontFamily="var(--font-mono)">
+            {nodes.length < total ? `${nodes.length} of ${total}` : `${total} words`}
+          </text>
         </g>
 
         {nodes.map((n) => {
@@ -145,8 +207,9 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
               onClick={() => { setActive(n.w.id); speak(n.w.term); }}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(n.w.id); speak(n.w.term); } }}>
               <circle cx={n.x} cy={n.y} r={n.r} fill="var(--color-panel)" stroke={STATUS_COLOR[st]} strokeWidth={on ? 2.5 : 1.4} />
-              <text lang="de" x={n.x} y={n.y - 1} textAnchor="middle" fill="var(--color-txt)" fontSize={L.term}>{short(n.w.term)}</text>
-              <text x={n.x} y={n.y + L.gloss + 2} textAnchor="middle" fill="var(--color-dim)" fontSize={L.gloss}>{n.w.en.split(/[,;]/)[0].slice(0, 12)}</text>
+              <text lang="de" x={n.x} y={n.gloss ? n.y - 1 : n.y + L.term * 0.35} textAnchor="middle"
+                fill="var(--color-txt)" fontSize={L.term} fontWeight={600}>{n.term}</text>
+              {n.gloss && <text x={n.x} y={n.y + L.gloss + 2} textAnchor="middle" fill="var(--color-dim)" fontSize={L.gloss}>{n.gloss}</text>}
             </g>
           );
         })}
@@ -166,4 +229,3 @@ function ActiveInfo({ id }: { id: string }) {
   return <span className="text-txt"><b lang="de" className="text-accent">{w.term}</b> — {w.en}{w.ipa ? ` · /${w.ipa}/` : ''}{w.ex[0] ? <> · <span lang="de">„{w.ex[0].de}“</span></> : ''}</span>;
 }
 const Dot = ({ c }: { c: string }) => <span className="inline-block w-2 h-2 rounded-full align-middle" style={{ background: c }} />;
-const short = (t: string) => t.replace(/^(der|die|das)\s+/i, '').slice(0, 12);

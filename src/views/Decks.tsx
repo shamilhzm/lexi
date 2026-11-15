@@ -43,7 +43,13 @@ export default function Decks({ initialGroup, onStudy, onMap }:
   }, [group, sort, v]);
 
   return (
-    <Card pad="none">
+    // **A frame only where there is room for one** *(2026-11-14)*. On a phone this
+    // was a bordered panel holding a column of bordered panels — a box in a box
+    // (DESIGN §12·3) that cost each deck 40pt of width, which is what wrapped
+    // "171 cards · A1/A2/B1/B2 · Education & Language" onto a second line. Below
+    // `sm` the decks sit on the page; from `sm` up, where they are a grid, the
+    // panel still groups them.
+    <div className="sm:bg-panel sm:border sm:border-line sm:rounded-lg">
       {/* Three rows of controls used to sit above the content they filter, and the
           44px touch targets made it worse: measured on a 375×812 phone, the first
           deck began 408px down — **half the viewport spent before a single deck**.
@@ -53,14 +59,19 @@ export default function Decks({ initialGroup, onStudy, onMap }:
           is removed: a desktop keeps every filter visible as before, and a phone
           gets them one tap away with the count of what is active on the button, so
           a narrowed view can never look like an empty one. */}
-      <div className="flex items-center gap-2.5 px-3 sm:px-4 py-3 border-b border-line flex-wrap">
+      <div className="flex items-center gap-2.5 px-0 sm:px-4 pb-3 sm:py-3 border-b border-line flex-wrap">
         {/* h1, not h2: this is the whole content of the #/progress/decks route,
             and it was the only route in the app rendering no top-level heading.
-            Sized to match its neighbours rather than to announce itself. */}
-        <h1 className="text-base font-semibold">Vocabulary Decks</h1>
-        <Chip>{decks.length} sectors</Chip>
+            Sized to match its neighbours rather than to announce itself.
+            "Decks", with the count beside it: the breadcrumb above already says
+            which theme, and the chip used to say "sectors" under a title that
+            said "decks". Short enough that the filter shares its row on a phone
+            instead of taking a row of its own, right-aligned under the button. */}
+        <h1 className="text-base font-semibold">Decks</h1>
+        <Chip>{decks.length}</Chip>
         {group && (
-          <Button size="sm" onClick={() => onStudy({ kind: 'group', name: group })}>
+          <Button size="sm" className="order-last w-full sm:order-none sm:w-auto"
+            onClick={() => onStudy({ kind: 'group', name: group })}>
             <Play size={13} /> Study {group}
           </Button>
         )}
@@ -84,7 +95,7 @@ export default function Decks({ initialGroup, onStudy, onMap }:
       </div>
 
       {/* The level + sort controls on a phone, and the group row everywhere. */}
-      <div className={`${filtersOpen ? 'flex' : 'hidden'} sm:hidden flex-col gap-2.5 px-3 py-2.5 border-b border-line`}>
+      <div className={`${filtersOpen ? 'flex' : 'hidden'} sm:hidden flex-col gap-2.5 px-0 py-2.5 border-b border-line`}>
         <LevelFilter />
         <div className="flex gap-1 text-xs">
           {(['attention', 'size', 'coverage'] as Sort[]).map((s) => (
@@ -95,14 +106,14 @@ export default function Decks({ initialGroup, onStudy, onMap }:
           ))}
         </div>
       </div>
-      <div className={`${filtersOpen ? 'flex' : 'hidden'} sm:flex gap-1.5 px-4 py-2.5 border-b border-line overflow-x-auto`}>
+      <div className={`${filtersOpen ? 'flex' : 'hidden'} sm:flex gap-1.5 px-0 sm:px-4 py-2.5 border-b border-line overflow-x-auto`}>
         <FilterChip on={group === null} onClick={() => setGroup(null)}>All groups</FilterChip>
         {GROUPS.map((g) => <FilterChip key={g} on={group === g} onClick={() => setGroup(g)}>{g}</FilterChip>)}
       </div>
 
       {/* The 640–1024px band (every tablet) used to sit at two columns with a
           lot of dead width. md fills it, xl uses a genuinely wide desktop. */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 pt-3 sm:p-4">
         {decks.map((d) => (
           <Card key={d.name} tone="sunken" nested pad="none"
             className={`group p-3.5 transition-colors ${done.has(d.name) ? 'border-green/40 hover:border-green' : 'hover:border-accent'}`}>
@@ -134,7 +145,12 @@ export default function Decks({ initialGroup, onStudy, onMap }:
                   className="hover:text-green"><Play size={15} /></IconButton>
               </div>
             </div>
-            <div className="font-mono text-2xs text-dim mt-0.5">{fmt(d.count)} cards · {d.levels.join('/')} · {d.group}</div>
+            {/* The theme is named only when the list spans several: inside one
+                theme it was the breadcrumb repeated on every deck. Levels as a
+                range — `A1–B2`, not `A1/A2/B1/B2`. */}
+            <div className="font-mono text-2xs text-dim mt-0.5">
+              {fmt(d.count)} cards · {levelSpan(d.levels)}{group ? '' : ` · ${d.group}`}
+            </div>
             {/* Known (heat) is the headline; coverage sits behind it as a faint "seen" underlay.
                 The track is bg-bg, not bg-panel2: the card itself is panel2, so a panel2 track
                 was invisible — a deck at 0% known showed no bar at all. */}
@@ -152,8 +168,16 @@ export default function Decks({ initialGroup, onStudy, onMap }:
           </Card>
         ))}
       </div>
-    </Card>
+    </div>
   );
+}
+
+/** `A1–B2` for a contiguous run of levels, `A1/B2` for a broken one. */
+export function levelSpan(have: readonly string[]): string {
+  const at = have.map((l) => ALL_LEVELS.indexOf(l as typeof ALL_LEVELS[number])).filter((i) => i >= 0).sort((a, b) => a - b);
+  if (at.length < 2) return have.join('/');
+  const contiguous = at.every((i, k) => k === 0 || i === at[k - 1] + 1);
+  return contiguous ? `${ALL_LEVELS[at[0]]}–${ALL_LEVELS[at[at.length - 1]]}` : at.map((i) => ALL_LEVELS[i]).join('/');
 }
 
 /** The group filter pill — interactive, unlike the read-only <Chip> badge. */

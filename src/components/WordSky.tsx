@@ -34,9 +34,9 @@
 // rest of the app uses — lit means FSRS has seen it, known means it reached Review.
 // The painter is `skyPaint.ts`; the finished sky is cached, so the breathing and
 // the glints cost a blit and a few hundred arcs a frame, not the whole sky.
-import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as RPointerEvent } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent as RMouseEvent, type PointerEvent as RPointerEvent } from 'react';
 import { AnimatePresence, useReducedMotion } from 'motion/react';
-import { Play, Bookmark, BookmarkCheck, Info, Share2 } from 'lucide-react';
+import { Play, Bookmark, BookmarkCheck, Info, Share2, X } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
 import { cardOf, statusOf, retention, isSaved, toggleSaved } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -51,6 +51,7 @@ import { shareProgress } from '../lib/sharecard.ts';
 import { GenderTerm } from './Reveal.tsx';
 import WordDetail from './WordDetail.tsx';
 import CountUp from './CountUp.tsx';
+import IconButton from './ui/IconButton.tsx';
 import type { Card } from '../srs.ts';
 import type { Target, Word } from '../types.ts';
 
@@ -346,13 +347,18 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
   }, [canReplay, visible]);
 
   // ---- pointing at a star --------------------------------------------------------
-  const at = (e: RPointerEvent<HTMLCanvasElement>) => {
+  const at = (e: { clientX: number; clientY: number; currentTarget: HTMLCanvasElement }) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const R = size / 2 - 10;
     const ux = (e.clientX - rect.left - size / 2) / R, uy = (e.clientY - rect.top - size / 2) / R;
     return nearest(grid, stars, ux, uy, Math.max(0.02, 2.2 / Math.sqrt(n)));
   };
-  const pick = (e: RPointerEvent<HTMLCanvasElement>) => {
+  // **On `click`, not `pointerdown`.** On a phone the sky is most of the screen, so
+  // the drag that scrolls past it starts on it — and a press and a scroll begin the
+  // same way. Selecting on the way down picked a random word, fired a haptic and
+  // opened its panel under the thumb mid-scroll. A click is what is left when the
+  // finger lifts without having gone anywhere.
+  const pick = (e: RMouseEvent<HTMLCanvasElement>) => {
     if (replay) { setReplay(null); setClock(null); return; }   // a tap skips to now
     const i = at(e);
     if (i !== null) { setSelected(i); haptic('grade'); }
@@ -388,7 +394,7 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
       </div>
 
       <div ref={wrap} className="relative w-full max-w-[560px] mx-auto">
-        <canvas ref={canvas} onPointerDown={pick} onPointerMove={point} onPointerLeave={() => setHover(null)}
+        <canvas ref={canvas} onClick={pick} onPointerMove={point} onPointerLeave={() => setHover(null)}
           role="img"
           aria-label={`${fmt(counts.lit)} of ${fmt(n)} words lit, ${fmt(counts.fading)} fading.`}
           style={{ width: size, height: size }}
@@ -528,7 +534,9 @@ function StarDetail({ word, rank, events, onEntry, onClose }: {
             {rank ? `#${fmt(rank)} most common` : 'beyond the frequency list'} · {word.level}
           </p>
         </div>
-        <button onClick={onClose} aria-label="Close" className="text-dim hover:text-txt text-2xs underline decoration-dotted">close</button>
+        {/* A 44pt target. It was the word "close" in 11px underlined type — the
+            smallest control on the page, beside the largest touch surface on it. */}
+        <IconButton label="Close" pull onClick={onClose}><X size={16} /></IconButton>
       </div>
 
       {status === 'new' ? (

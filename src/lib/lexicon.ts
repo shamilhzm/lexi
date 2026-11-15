@@ -160,5 +160,21 @@ export async function lookupLex(term: string): Promise<{ entries: LexEntry[]; vi
   const arrowKey = Object.keys(shard.f).find((k) => fold(k) === fk);
   if (arrowKey) { const r = await hop(shard.f[arrowKey]); if (r) return r; }
 
+  // 4. The other way an English keyboard spells an umlaut: *ae*, *oe*, *ue*, as
+  //    the German convention writes them where there are none. Tried once, with
+  //    every digraph restored, and only after everything else has missed — a real
+  //    *ue* (*Feuer*, *neue*) has already been found above under its own spelling.
+  const respelled = undigraph(term);
+  if (respelled !== term) {
+    const r = await lookupLex(respelled);
+    if (r.entries.length) return { entries: r.entries, via: r.via ?? (r.entries[0]?.w !== respelled ? respelled : undefined) };
+  }
+
   return { entries: [] };
+}
+
+/** *ae* → *ä*, *oe* → *ö*, *ue* → *ü*, keeping the case of the first letter. */
+export function undigraph(s: string): string {
+  return s.replace(/([AaOoUu])e/g, (_, v: string) =>
+    ({ A: 'Ä', a: 'ä', O: 'Ö', o: 'ö', U: 'Ü', u: 'ü' } as Record<string, string>)[v]);
 }

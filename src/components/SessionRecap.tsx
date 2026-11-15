@@ -49,7 +49,7 @@ export default function SessionRecap({ data, title = 'Session complete', childre
   const cols = Math.min(tiles.length, 4) || 1;
 
   return (
-    <Card pad="none" className="text-center px-8 sm:px-10 py-12 max-w-md w-full">
+    <Card pad="none" className="text-center px-5 sm:px-10 py-12 max-w-md w-full">
       <motion.div initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 420, damping: 18 }}
         className="grid place-items-center w-[56px] h-[56px] rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></motion.div>
@@ -78,14 +78,21 @@ export default function SessionRecap({ data, title = 'Session complete', childre
       {tiles.length > 0 && (
         <div className="grid divide-x divide-[var(--color-line)] border border-line rounded-md mb-6"
           style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+          {/* The tile holds still and its contents rise: when the tile itself
+              moved, its divider — the tile's own left border — hung 8pt below the
+              box for the length of the spring. And the number sits at the foot of a
+              full-height tile, so a label that wraps ("New learned" in a third of a
+              phone) no longer drops its number below its neighbours'. */}
           {tiles.map((s, k) => (
-            <motion.div key={s.label} className="px-2 py-3"
-              initial={{ y: 8 }} animate={{ y: 0 }}
-              transition={{ type: 'spring', stiffness: 480, damping: 30, delay: 0.1 + k * 0.06 }}>
-              <Kicker className="block">{s.label}</Kicker>
-              {/* Count-up: feedback density, honors reduced motion via CountUp. */}
-              <div className={`font-mono font-bold text-xl mt-0.5 tabular-nums ${s.tone}`}><CountUp value={s.num} from={0} suffix={s.suffix ?? ''} /></div>
-            </motion.div>
+            <div key={s.label} className="px-2 py-3 flex flex-col">
+              <motion.div className="flex flex-col flex-1"
+                initial={{ y: 8 }} animate={{ y: 0 }}
+                transition={{ type: 'spring', stiffness: 480, damping: 30, delay: 0.1 + k * 0.06 }}>
+                <Kicker className="block text-balance">{s.label}</Kicker>
+                {/* Count-up: feedback density, honors reduced motion via CountUp. */}
+                <div className={`mt-auto pt-0.5 font-mono font-bold text-xl tabular-nums ${s.tone}`}><CountUp value={s.num} from={0} suffix={s.suffix ?? ''} /></div>
+              </motion.div>
+            </div>
           ))}
         </div>
       )}
@@ -112,7 +119,7 @@ function Composition({ c }: { c?: RecapData['composition'] }) {
   if (parts.length === 0) return null;
 
   return (
-    <p className="text-xs text-dim mb-5 leading-relaxed">
+    <p className="text-xs text-dim mb-5 leading-relaxed text-balance">
       <span className="text-txt font-semibold">What Lexi picked for you:</span>{' '}
       {parts.join(' · ')}.
     </p>

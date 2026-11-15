@@ -103,6 +103,28 @@ export function stepsFor(word: Word, attested: string[] = []): Step[] {
   return [...first, ...middle.slice(0, room), ...last];
 }
 
+/** Steps whose answer **is** the headword. */
+const ASKS_FOR_THE_WORD: ReadonlySet<Step> = new Set<Step>(['reverse', 'cloze', 'recall']);
+
+/** What the header may print above the question in front of the learner — or
+ *  `null` when anything it could print would be the answer.
+ *
+ *  The header is the one element on screen for the whole run, so whatever it
+ *  shows sits above every question. That has now been wrong three times, each
+ *  fixed by removing one field: the article (the run asks for it), the
+ *  preposition (the run asks for it), and — unfixed until 2026-11-14 — the word
+ *  itself, through the three steps that ask *which word*: "Which word is it? —
+ *  without", under a header reading *ohne*. So it is derived from the step now
+ *  rather than remembered case by case. */
+export function headerTerm(word: Word, steps: readonly Step[], step: Step | undefined): string | null {
+  if (step && ASKS_FOR_THE_WORD.has(step)) return null;
+  // No article ever: the gender step asks for it, and `die Hose` up here is the
+  // answer whether or not the *die* is pink.
+  const bare = shownTerm(stripArticle(word.term));
+  // …and no preposition in a run that asks which one the word takes.
+  return steps.includes('prep') ? prepOf(word)?.head ?? bare : bare;
+}
+
 export default function WordDrill({ word, onClose, backLabel = 'Back to the feed' }: {
   word: Word; onClose: () => void;
   /** Where closing lands — the sheet is opened from the feed and from search. */
@@ -135,6 +157,7 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
   }, [i, steps, word]);
 
   const step = steps[i];
+  const shown = headerTerm(word, steps, step);
 
   // **Practice sits to the *right* of the word on the strip.** You reach it by
   // dragging left and you leave it by dragging right — the mirror of the entry,
@@ -147,15 +170,10 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
             className="sr-only">Close</button>
           <div className="min-w-0 flex-1">
             <Kicker className="block">Üben</Kicker>
-            {/* **No article, and no gender ink.** The header is the one element
-                on screen for the whole run, and the run asks for the article in
-                step two — so `die Hose` up here is the answer printed above the
-                question, whether or not the *die* is pink. Caught by walking a
-                noun through the sheet, not by reading this file. */}
-            {/* …and no preposition, for the same reason: a governed word's run
-                asks which one it takes, and *warten auf* up here answered it. */}
-            <span lang="de" className="block text-base font-semibold truncate">
-              {steps.includes('prep') ? prepOf(word)?.head ?? shownTerm(stripArticle(word.term)) : shownTerm(stripArticle(word.term))}
+            {/* See `headerTerm`. The line keeps its height when it has nothing it
+                may say, so the card below does not move between steps. */}
+            <span lang="de" aria-hidden={shown === null} className={`block text-base font-semibold truncate ${shown === null ? 'invisible' : ''}`}>
+              {shown ?? '–'}
             </span>
           </div>
           {/* Where you are, as objects rather than "2 / 4" — with four steps at
@@ -205,7 +223,7 @@ function Done({ word, right, of, onClose, backLabel }: { word: Word; right: numb
       <p className="text-xl font-bold mb-1">
         {right} of {of} right
       </p>
-      <p className="text-dim text-sm max-w-[34ch] mx-auto leading-relaxed mb-7">
+      <p className="text-dim text-sm max-w-[34ch] mx-auto leading-relaxed mb-7 text-balance">
         <span lang="de" className="text-txt">{shownTerm(word.term)}</span>{' '}
         {perfect
           ? 'is in your schedule now — Üben will bring it back just before you’d have forgotten it.'

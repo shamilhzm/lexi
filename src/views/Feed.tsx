@@ -557,7 +557,7 @@ function ReadySlot({ ready, onStart, onListen }: { ready: Ready; onStart: () => 
       className="feed-slot snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-safe-center px-6
       pt-[var(--bar-t)] pb-[var(--bar-b)]">
       <div className="w-full max-w-[460px] text-center">
-        <p className="font-mono text-2xs uppercase tracking-widest text-accent">Waiting in <span lang="de">Üben</span></p>
+        <p className="font-semibold text-2xs uppercase tracking-widest text-accent">Waiting in <span lang="de">Üben</span></p>
         {n > 0 ? (
           <>
             <h2 id="feed-ready" className="text-2xl font-bold mt-1">
@@ -711,7 +711,7 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             they have already got without a badge on every single card. */}
         <span className="h-5 mb-2 flex items-center">
           {status !== 'new' && (
-            <span className={`text-2xs font-mono uppercase tracking-widest ${
+            <span className={`text-2xs font-semibold uppercase tracking-widest ${
               status === 'known' ? 'text-green' : 'text-accent'}`}>
               {status === 'known' ? 'known' : 'learning'}
             </span>
@@ -726,7 +726,8 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             most useful mark on a German card, and the reason this is not just a
             big word in a serif. */}
         <GenderTerm as="h2" id={`hw-${word.id}`} term={word.term} gender={word.gender}
-          className="headword font-bold leading-[1.05] break-words text-[2.75rem] sm:text-6xl" />
+          fit boxClassName="text-center flex-shrink-0"
+          className="headword hw-feed font-bold leading-[1.05]" />
 
         {/* Pronunciation, as a pill you can press. The whole pill is the target,
             not a 24px speaker beside it. */}

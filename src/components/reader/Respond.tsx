@@ -99,7 +99,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
 
   return (
     <section aria-labelledby="respond-h" className="mt-10 border-t border-line pt-6">
-      <p className="font-mono text-2xs uppercase tracking-widest text-accent">Your turn</p>
+      <p className="font-semibold text-2xs uppercase tracking-widest text-accent">Your turn</p>
       <h2 id="respond-h" lang="de" className="headword text-2xl font-bold mt-1">Was denkst du?</h2>
       <p className="text-sm text-dim mt-1">
         Two to four sentences, in German, about what you just read — your opinion, a question, what it means for you.
@@ -179,7 +179,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
                   <li key={i} className="rounded-lg bg-panel2 px-3 py-2 text-sm">
                     <span lang="de" className="line-through text-dim">{x.original}</span>{' → '}
                     <span lang="de" className="font-semibold">{x.fix}</span>
-                    <span className="ml-2 font-mono text-2xs uppercase tracking-wider text-dim">{KIND_LABEL[x.kind] ?? x.kind}</span>
+                    <span className="ml-2 font-semibold text-2xs uppercase tracking-wider text-dim">{KIND_LABEL[x.kind] ?? x.kind}</span>
                     <p className="text-xs text-dim mt-0.5">{x.why}</p>
                   </li>
                 ))}
@@ -190,7 +190,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
           )}
           {result.natural && result.natural.trim() !== result.corrected.trim() && (
             <div>
-              <p className="font-mono text-2xs uppercase tracking-widest text-dim">How a native speaker might put it</p>
+              <p className="font-semibold text-2xs uppercase tracking-widest text-dim">How a native speaker might put it</p>
               <p lang="de" className="text-base mt-1 leading-relaxed">{result.natural}</p>
             </div>
           )}

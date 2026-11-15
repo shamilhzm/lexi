@@ -125,9 +125,13 @@ export default function WhyThisCard({ reason }: { reason?: SessionReason }) {
 
   return (
     <div className="w-full max-w-[580px] mb-2.5 flex flex-col items-center gap-1">
-      <p className="flex items-start gap-1.5 text-2xs text-dim text-center leading-relaxed short:line-clamp-1">
+      {/* The clamp is on the sentence, not on this row. `line-clamp` is itself a
+          `display` (`-webkit-box`, vertical), so on the row it replaced `flex` and
+          stacked the icon on a line of its own above the text — on every viewport
+          under 700pt tall, which is every iPhone in Safari and no desktop pane. */}
+      <p className="flex items-start justify-center gap-1.5 max-w-full text-2xs text-dim leading-relaxed">
         <Icon size={12} className="text-accent flex-shrink-0 mt-[0.15rem]" aria-hidden />
-        <span>
+        <span className="min-w-0 short:line-clamp-1">
           {line.lead}
           {line.em && <b lang={line.emLang} className="text-txt font-semibold">{line.em}</b>}
           {line.tail}

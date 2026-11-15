@@ -142,7 +142,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
       <Layer side="right" label={article.title} back="Wörter" onClose={onClose}>
         <article className="pb-6">
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-2xs text-dim">
-            <span className="font-mono uppercase tracking-widest text-accent">{SOURCE_LABEL[article.source]}</span>
+            <span className="font-semibold uppercase tracking-widest text-accent">{SOURCE_LABEL[article.source]}</span>
             {article.published > 0 && <span>{ago(article.published)}</span>}
             <a href={article.url} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-0.5 underline decoration-dotted hover:text-accent">

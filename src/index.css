@@ -262,11 +262,36 @@ html[data-type='ax'] .gender-keys { grid-template-columns: minmax(0, 1fr); }
    its article — the card showed "die" and the noun sat below the fold. Body text
    keeps scaling with the learner's setting; one display word at 46px is already
    larger than anything else on the screen. */
-.hw-front  { font-size: min(var(--text-4xl), 46px); }
-.hw-answer { font-size: min(var(--text-3xl), 40px); }
+.hw-front  { --hw-size: min(var(--text-4xl), 46px); }
+.hw-answer { --hw-size: min(var(--text-3xl), 40px); }
+/* The feed's word and the entry's are the ramp's own steps, uncapped as they
+   were: the feed has its own accessibility layout (`data-type='ax'` below). */
+.hw-feed   { --hw-size: var(--text-5xl); }
+.hw-entry  { --hw-size: var(--text-4xl); }
 @media (min-width: 640px) {
-  .hw-front  { font-size: min(var(--text-5xl), 60px); }
-  .hw-answer { font-size: min(var(--text-4xl), 46px); }
+  .hw-front  { --hw-size: min(var(--text-5xl), 60px); }
+  .hw-answer { --hw-size: min(var(--text-4xl), 46px); }
+  .hw-feed   { --hw-size: var(--text-6xl); }
+  .hw-entry  { --hw-size: var(--text-5xl); }
+}
+.hw-front, .hw-answer, .hw-feed, .hw-entry { font-size: var(--hw-size); }
+
+/* **A headword shrinks to fit before it breaks** *(2026-11-14)*. `break-words`
+   kept a long word inside its card by cutting it at whichever letter ran out of
+   room — *der Bundespräsiden / t* — and on a 390pt phone at the default text size
+   that was 758 words in the feed and 410 on the session card (lib/fit.ts has the
+   measurement). A word is one object: it is set smaller until its widest
+   unbreakable run fits the measure, down to 72% of its size, and past that it
+   breaks where German does — at a syllable, with a hyphen — which `lang="de"`
+   on the element is what makes possible.
+
+   `.hw-box` is the measure: a full-width box whose inline size `100cqi` reads.
+   `--hw-em` is that widest run in em, set inline from `widestRun()`. Without
+   container units the word keeps its size and only the hyphenation applies. */
+.hw-box { display: block; inline-size: 100%; min-inline-size: 0; container-type: inline-size; }
+.hw-fit { -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; text-wrap: balance; }
+@supports (width: 1cqi) {
+  .hw-fit { font-size: clamp(calc(var(--hw-size) * 0.72), calc(100cqi / var(--hw-em, 1)), var(--hw-size)); }
 }
 
 /* The page title — Fraunces at display size, one per surface.
@@ -630,6 +655,12 @@ html.dark { color-scheme: dark; }
 /* Controls are controls, not text: no selection ghosting on fast taps, and
    touch-action removes the double-tap-zoom delay on touch devices. */
 button, [role="button"] { -webkit-user-select: none; user-select: none; touch-action: manipulation; }
+/* …and on the root, because the rule above only covers a control that is still
+   there when the second tap lands *(2026-11-14)*. *Show answer* and *Knew it* share
+   a position, a graded key goes `inert` for a frame, and a tap that arrives then has
+   the page as its target — fourteen quick taps on *skip* zoomed the session to 1.6×.
+   `manipulation` keeps panning and pinch-zoom; only the double-tap goes. */
+html { touch-action: manipulation; }
 
 /* The terminal cursor — the brand mark as a living element. Appended after
    moment-of-arrival headings (boot, recap). Steps, not fades: real cursors

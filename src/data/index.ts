@@ -74,6 +74,17 @@ function reindex(): void {
     a.push(w);
     WORDS_BY_SECTOR.set(w.field, a);
   }
+  // **Counts and levels are the corpus's, not the file's** *(2026-11-14)*. They are
+  // stored in sectors.json, and nothing that adds cards one batch at a time —
+  // `authoring:new`, `fix-authored` — rebuilds it: 215 of 274 counts were stale,
+  // so the word map offered "Communication (156)" for a sector of 228 words, and a
+  // deck's level range left out the C1 cards added since. Derived here, where the
+  // words are, they cannot drift.
+  for (const s of SECTORS) {
+    const ws = WORDS_BY_SECTOR.get(s.name) ?? [];
+    s.count = ws.length;
+    s.levels = LEVELS.filter((l) => ws.some((w) => w.level === l));
+  }
   SECTOR_GROUP = new Map(SECTORS.map((s) => [s.name, s.group]));
   GROUP_SECTORS = new Map();
   for (const s of SECTORS) {

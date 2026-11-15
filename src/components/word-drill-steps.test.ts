@@ -115,3 +115,39 @@ describe('stepsFor', () => {
     expect(opened).not.toContain('recall');             // the snapshot is not
   });
 });
+
+describe('headerTerm — the header never prints the answer', () => {
+  // The header sits above every question in the run. Three separate defects were
+  // each "the answer, printed above the question": the article, the preposition,
+  // and the word itself. One function decides now, and this is what it promises.
+  const WARTEN = word('warten', 'warten auf + A', { en: 'to wait for', pos: 'verb' });
+
+  it('says nothing through the steps that ask which word it is', async () => {
+    const { drill } = await fresh();
+    const steps = ['meaning', 'reverse', 'cloze', 'recall'] as const;
+    for (const step of ['reverse', 'cloze', 'recall'] as const) {
+      expect(drill.headerTerm(HUND, steps, step), step).toBeNull();
+    }
+    expect(drill.headerTerm(HUND, steps, 'meaning')).toBe('Hund');
+  });
+
+  it('never carries the article, which the gender step asks for', async () => {
+    const { drill } = await fresh();
+    for (const step of ['meaning', 'gender', 'plural', 'usage'] as const) {
+      expect(drill.headerTerm(HUND, ['meaning', 'gender', 'plural', 'usage'], step)).toBe('Hund');
+    }
+  });
+
+  it('drops the preposition from a run that asks for it', async () => {
+    const { drill } = await fresh();
+    expect(drill.headerTerm(WARTEN, ['meaning', 'prep'], 'meaning')).toBe('warten');
+    expect(drill.headerTerm(WARTEN, ['meaning', 'prep'], 'prep')).toBe('warten');
+    // …and keeps it where nothing asks: it is part of how the word is used.
+    expect(drill.headerTerm(WARTEN, ['meaning', 'conjugate'], 'meaning')).toBe('warten auf');
+  });
+
+  it('names the word again on the finished screen', async () => {
+    const { drill } = await fresh();
+    expect(drill.headerTerm(HUND, ['meaning', 'reverse'], undefined)).toBe('Hund');
+  });
+});

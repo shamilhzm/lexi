@@ -35,6 +35,7 @@
 // A dictionary entry gets the same button, and that is the point of building the
 // layer this way round: looking a word up is now how it becomes a candidate
 // card, and the learner doing the looking is the one who found it.
+import { InkedArticle } from './Reveal.tsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, X, Volume2, Check, Plus } from 'lucide-react';
@@ -180,8 +181,13 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
                     className="w-full flex items-center gap-3 px-3.5 py-3 text-left hover:bg-panel2 transition-colors">
                     <span className="flex-1 min-w-0">
                       <span className="flex items-baseline gap-1.5 flex-wrap">
-                        <span lang="de" className="headword text-base font-semibold break-words"
-                          style={{ color: genderColor(w.gender) }}>{shownTerm(w.term)}</span>
+                        {/* Gender ink on the article, as on every other surface. The
+                            whole row used to take it, so in a list of nouns the word
+                            itself was pink or blue — and the article, the one mark the
+                            colour is for, was no more marked than the noun. */}
+                        <span lang="de" className="headword text-base font-semibold break-words">
+                          <InkedArticle term={w.term} gender={w.gender} />
+                        </span>
                         <span className="font-mono text-2xs text-dim">{w.level}</span>
                       </span>
                       <span className="block text-xs text-dim truncate">{w.en}</span>
@@ -211,9 +217,9 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
               {lexShown.map((e, k) => (
                 <li key={`${e.w}-${e.p}-${k}`} className="px-3.5 py-3">
                   <div className="flex items-baseline gap-1.5 flex-wrap">
-                    <span lang="de" className="headword text-base font-semibold break-words"
-                      style={{ color: genderColor(e.x) }}>
-                      {e.x ? `${e.x} ${e.w}` : e.w}
+                    <span lang="de" className="headword text-base font-semibold break-words">
+                      {e.x && <span style={{ color: genderColor(e.x) }}>{e.x} </span>}
+                      {e.w}
                     </span>
                     <span className="text-2xs text-dim">{e.p}</span>
                     {e.i && <span aria-hidden className="ipa text-2xs text-dim">{e.i}</span>}

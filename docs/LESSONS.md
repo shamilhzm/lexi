@@ -21,6 +21,10 @@ class, not by date, because you scan this before working, not after.
 browser pane: the pane runs hidden (no IntersectionObserver, no rAF) and has neither a
 status bar nor a browser toolbar. Four false findings in one session came from this.
 
+**…judge a stateful flow on the dev server.** Don't edit source while it is open: a hot
+reload remounts it, and a session's counters restart from zero mid-run (see *A hot
+reload is a remount*).
+
 **…deploy to production.** Read what is live first (`vercel inspect <prod-url> --logs`
 or `curl <site>/version.json`) and confirm your tree contains it. On 2026-09-24 a stale
 `main` was deployed over two weeks of newer work (see *The tree you were handed*).
@@ -2024,3 +2028,113 @@ chat instead.
 **Rule:** when two of the app's own rules meet, the one the learner stated wins over
 the one the app inferred — and the place to check is every `filter(inLevels)` on a
 path that begins with a deliberate press.
+
+## The scroller outlived the route *(added 2026-11-14)*
+
+**Believed:** `App.tsx` said so in a comment — "a route change puts a fresh scroller at
+the top". The route container is keyed, so it remounts on every navigation.
+
+**True:** the container remounts; the element that *scrolls* is `<main>`, and nothing
+ever remounts that. Measured: Fortschritt scrolled to 1500, tap *Themen* → Themen opens
+at 596, its own maximum, i.e. at the bottom. Themen's index → a group kept the same
+offset, so a group opened on its sixth deck. Every tab and every drill-in landed
+wherever the last page had been left. Found by driving the app; the comment had been
+true once, when the keyed element was the scroller.
+
+**Rule:** a comment about what the browser will do is a claim. Read `scrollTop` after
+the navigation — and when a container is keyed "so it resets", check that it is the
+container holding the state.
+
+## `line-clamp` is a `display`, and it replaced the one that was there *(added 2026-11-14)*
+
+**Believed:** `short:line-clamp-1` on the "why this card" line trims it to one line
+on a short phone.
+
+**True:** `line-clamp` sets `display: -webkit-box` with a vertical orient, and that
+line was `display: flex` — icon, then sentence. Under 700pt of viewport height (every
+iPhone in Safari, no desktop pane) the row became a column and the clock sat on a line
+of its own above its sentence, off-centre. Shipped 2026-10-14 with the `short:` variant.
+
+**Rule:** clamp the text, never the row that holds it. `dynamic-type.test.ts` now
+refuses a `flex`/`grid` element that also carries `line-clamp`.
+
+## `touch-action` on the button does not cover the tap after it *(added 2026-11-14)*
+
+**Believed:** `button { touch-action: manipulation }` removes double-tap zoom from
+the app.
+
+**True:** it removes it from *a button that is there when the second tap lands*.
+Fourteen quick taps on *skip* zoomed the session to 1.6×: every other tap arrived while
+the control was inert or being replaced, so its target was the page, and the page had
+no rule. The primary loop is two keys in the same place — *Show answer*, then *Knew
+it* — which is a double-tap by construction.
+
+**Rule:** a gesture you want gone from the app is switched off at the root, not on
+each control. `manipulation` still allows pinch-zoom, which is the one that matters
+for accessibility.
+
+## A press and a scroll start the same way *(added 2026-11-14)*
+
+**Believed:** tapping a star in *Dein Deutsch* selects it.
+
+**True:** the canvas selected on `pointerdown`. On a phone the sky is most of the
+screen, so the drag that scrolls past it began on it: a random word was selected, a
+haptic fired and a panel opened under the thumb mid-scroll.
+
+**Rule:** select on `click`. `pointerdown` is for things that must answer before the
+finger lifts, and choosing is not one of them.
+
+## The answer above the question, a third time *(added 2026-11-14)*
+
+**Believed:** the practice sheet's header was safe — the article was taken out of it
+in September and the preposition on 2026-11-13, each with a comment saying why.
+
+**True:** both fixes removed one *field*. The header still printed the headword through
+*Find it*, *In a sentence* and *Recall*, whose answer **is** the headword: "Which word
+is it? — without", under a header reading *ohne*.
+
+**Rule:** when the same defect is fixed twice by naming a case, the third fix is to
+derive it. The header now asks the step what it is asking for.
+
+## A word wider than its card, and a ruler held at the wrong size *(added 2026-11-14)*
+
+**Believed:** `break-words` keeps a long headword inside its card.
+
+**True:** it does, by breaking it at any letter: *der Bundespräsiden / t*. And the
+first count of how many cards that touched was wrong by 2.8×, because the probe
+measured Fraunces at 100px. The face has an optical-size axis and is **16–17% wider
+per em at 34–46px** than at 100px. Measured at the sizes the app draws, on a 390pt
+phone at the iOS default text size: 758 headwords broke mid-word in the feed, 410 on
+the session card, 138 in the entry, 30 as a drill prompt.
+
+**Rule:** measure type at the size it is set. `scripts/probe/headword-fit.js` is the
+instrument, and `lib/fit.ts` carries its table.
+
+## A hot reload is a remount *(added 2026-11-15)*
+
+**Believed:** the recap undercounted a session — 3 new words learned reported as
+*New learned 0*, two drills as one — so the counters were resetting mid-session.
+
+**True:** I had edited `drills.tsx` while that session was open on the dev server.
+Fast Refresh cannot keep state for a module that exports non-components, so it
+re-executed the importers and remounted `Review`, which restored the queue position
+from storage and started its counters from zero. Driven again with no edit in between,
+the recap was right. A temporary log and a second run in the pane separated the two
+before anything was "fixed".
+
+**Rule:** don't edit source while a stateful flow is open on the dev server you are
+judging it on — or start the flow again after the edit before believing its numbers.
+
+## A stored count is a cache of the corpus, and nothing invalidated it *(added 2026-11-15)*
+
+**Believed:** `sectors.json` holds each sector's card count and levels.
+
+**True:** it held them as of the last script that rebuilt it. `authoring:new` and
+`fix-authored` add cards and never do, so 215 of 274 counts had drifted — the word map
+offered *Communication (156)* for a sector of 228 words, and deck level ranges left out
+every C1 card added since. Nothing failed: the numbers were plausible.
+
+**Rule:** a number derivable from the corpus is derived where the corpus is loaded,
+not stored beside it. Where it must be stored, the tool that changes the corpus
+rebuilds it, and `corpus:validate` checks it.
+
