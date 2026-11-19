@@ -42,9 +42,11 @@
 >   Vermieterin* is glossed "company that rents something"; *verbleiben*'s "verbleibe ich
 >   Ihr Team" mixes persons; *scheinbar* keeps the synonym *angeblich*, which fits neither
 >   of its senses. Each wants a guarded `authoring:fix` row (a synonym row needs `src`).
-> - **The boot-set budget is red** — 849.2 KB against 820 (`node scripts/budget.ts`),
->   and was already red at a360957 (848.2 KB). Cut the boot set or raise the ceiling in
->   its own commit, with the reason, as the script asks.
+> - **Cut the boot set.** Its ceiling was raised 820 → 860 KB on 2026-11-19, in its own
+>   commit with the reason in `scripts/budget.ts`, because `main` had failed CI on it
+>   since at least 2026-11-14; the set itself, 849.2 KB, was not cut. `freq.json`
+>   (88.9 KB) is the largest piece that might load after first paint; the entry chunk,
+>   at 277.6 of 280 KB, is the ceiling that trips next.
 > - **A trap beat could ask first** ("*bekommen* means …?") like the gender beat does.
 > - **Film sentences use device speech.** The `say` and `choice` lines would read better
 >   in the Piper voice the corpus audio uses.

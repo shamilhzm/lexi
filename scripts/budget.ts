@@ -15,6 +15,14 @@
 // The limits leave room for the panel branches that were in flight. Raising one is
 // allowed — in its own commit, with the reason, so the number moves on purpose.
 //
+// **Raised 2026-11-19: boot 820 → 860 KB.** Measured that day: entry 277.6, CSS
+// 14.1, `cards.json` 464.8, `sectors.json` 3.8, `freq.json` 88.9 — 849.2 KB, and
+// `main` had failed CI on this line since at least 2026-11-14 (a360957, the build
+// production runs, measures 848.2). Since 2026-09-26 the set grew by `cards.json`
+// +44.5 (the corpus), the entry +32.6 and `freq`/`sectors` +30.4. The raise unblocks
+// CI; it cuts nothing. `freq.json` is the largest piece that could load after first
+// paint (BACKLOG), and the entry, at 277.6 of 280, is the ceiling that trips next.
+//
 // Also fails if the persona seeder reached the bundle: `lib/devseed.ts` is gated
 // on `import.meta.env.DEV` and CLAUDE.md asks for this grep by hand.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
@@ -28,7 +36,7 @@ const BUDGET = {
   css: 16 * KB,
   lazyChunk: 64 * KB,     // any other script (the Anthropic SDK chunk is ~50)
   cards: 480 * KB,        // data/cards.json — grows with the corpus
-  boot: 820 * KB,         // entry + css + cards + sectors + freq: everything before first paint
+  boot: 860 * KB,         // entry + css + cards + sectors + freq: everything before first paint (820 until 2026-11-19)
 };
 
 const gz = (file: string) => gzipSync(readFileSync(file), { level: 9 }).length;
