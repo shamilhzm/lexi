@@ -1,0 +1,78 @@
+[
+  {
+    "id": "voc:A1:das Menü",
+    "at": 0,
+    "siblings": 2,
+    "expect": {
+      "de": "Bitte zeigen Sie mir das Menü.",
+      "en": "Please show me the menu."
+    },
+    "de": "Das Menü hat drei Gänge und kostet 18 Euro.",
+    "en": "The set meal has three courses and costs 18 euros."
+  },
+  {
+    "id": "voc:A1:das Menü",
+    "at": 1,
+    "siblings": 2,
+    "expect": {
+      "de": "Kellner, geben Sie uns bitte das Menü!",
+      "en": "Waiter, please give us the menu."
+    },
+    "de": "Mittags gibt es ein günstiges Menü mit Suppe und Hauptgericht.",
+    "en": "At lunchtime there is a cheap set meal with soup and a main course."
+  },
+  {
+    "id": "voc:A2:die Klausur",
+    "expect": {
+      "en": "a state of enclosure, especially that of monks, nuns"
+    },
+    "en": "written exam (at university)"
+  },
+  {
+    "id": "voc:A2:die Klausur",
+    "at": 1,
+    "siblings": 2,
+    "expect": {
+      "de": "Er hat die Klausur verpaßt.",
+      "en": "He failed to take the exam."
+    },
+    "de": "Er hat die Klausur verpasst.",
+    "en": "He missed the exam."
+  },
+  {
+    "id": "voc:B1:scheinbar",
+    "expect": {
+      "en": "apparently"
+    },
+    "en": "seemingly (but not in fact)"
+  },
+  {
+    "id": "voc:B1:scheinbar",
+    "expect": {
+      "def": "apparently (seemingly)"
+    },
+    "def": "Only in appearance: seeming to be so without being so."
+  },
+  {
+    "id": "voc:B1:scheinbar",
+    "at": 0,
+    "siblings": 2,
+    "expect": {
+      "de": "Scheinbar weiß er alles.",
+      "en": "It seems that he knows everything."
+    },
+    "de": "Die Aufgabe war nur scheinbar einfach.",
+    "en": "The task was only seemingly easy."
+  },
+  {
+    "id": "voc:B1:scheinbar",
+    "at": 1,
+    "siblings": 2,
+    "expect": {
+      "de": "Das ergibt scheinbar keinen Sinn.",
+      "en": "This doesn't seem to make sense."
+    },
+    "de": "Der Widerspruch ist nur scheinbar.",
+    "en": "The contradiction is only apparent."
+  }
+]

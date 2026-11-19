@@ -42158,16 +42158,16 @@
     ]
   },
   "voc:B1:scheinbar": {
-    "def": "apparently (seemingly)",
+    "def": "Only in appearance: seeming to be so without being so.",
     "ex": [
       {
-        "de": "Scheinbar weiß er alles.",
-        "en": "It seems that he knows everything.",
+        "de": "Die Aufgabe war nur scheinbar einfach.",
+        "en": "The task was only seemingly easy.",
         "lvl": "B1"
       },
       {
-        "de": "Das ergibt scheinbar keinen Sinn.",
-        "en": "This doesn't seem to make sense.",
+        "de": "Der Widerspruch ist nur scheinbar.",
+        "en": "The contradiction is only apparent.",
         "lvl": "B1"
       }
     ]

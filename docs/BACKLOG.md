@@ -28,20 +28,20 @@
 > See [COURSE.md](COURSE.md). Play every new film on the iPhone simulator before calling
 > it done — the first films' three layout defects were found there.
 >
-> - **Films for the 23 units without one.** A1: Essen und Trinken (compounds) · Meine
->   Wohnung (*ein, eine*) · Freizeit (*gern*, *können*). A2: Wohnungssuche · Feste und
->   Feiern (verbs with their preposition — the `prep` drill's material) · Bank und Post
->   (*be-, ver-, er-*). B1: Bewerbung · Bildung (word families — `lib/family.ts`) ·
->   Konsum. B2: Wirtschaft · Meinung · Energie und Klima · Gesundheitssystem. C1:
->   Studium · Geschäftskorrespondenz · Karriere und Verhandlung · Referat und Diskussion ·
->   Wirtschaft und Verantwortung · Forschung und Ethik. C2: Recht · Finanzwelt ·
->   Wissenschaftssprache · Stil und Ausdruck. Each needs cards whose examples show the
->   point — check the *sense* of every example a film quotes (LESSONS, *A film quotes
->   the example, so the example's sense is now a claim*).
+> - **Play the 17 newest films on the simulator.** Every unit has a film since the second
+>   pass (CHANGELOG); six of its 23 were played end to end or to their longest beat
+>   (*Essen und Trinken*, *Meinung*, *Gesundheitssystem*, *Geschäftskorrespondenz*,
+>   *Referat und Diskussion*, *Bewerbung*). The rest share those beat components but have
+>   not been looked at on a phone.
 > - **Corpus senses the films exposed and did not fix:** *mal* is glossed "times" over
 >   particle examples ("Guck mal."); *darum* is glossed "around it" though most learners
->   meet the connector; *deswegen*'s examples are Tatoeba fragments. Each wants a guarded
->   `authoring:fix` row.
+>   meet the connector; *deswegen*'s examples are Tatoeba fragments; *darauf* is glossed
+>   "after" though both its examples mean "on it" ("Darauf zähle ich", "Er bestand
+>   darauf"); *die Strafe*'s second example ("Strafe die Kinder nicht!") is the verb
+>   *strafen*; *die Ausgabe*'s second is an *edition* on a card glossed "expense"; *die
+>   Vermieterin* is glossed "company that rents something"; *verbleiben*'s "verbleibe ich
+>   Ihr Team" mixes persons; *scheinbar* keeps the synonym *angeblich*, which fits neither
+>   of its senses. Each wants a guarded `authoring:fix` row (a synonym row needs `src`).
 > - **The boot-set budget is red** — 849.2 KB against 820 (`node scripts/budget.ts`),
 >   and was already red at a360957 (848.2 KB). Cut the boot set or raise the ceiling in
 >   its own commit, with the reason, as the script asks.

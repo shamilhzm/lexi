@@ -74138,7 +74138,7 @@
   {
     "id": "voc:B1:scheinbar",
     "term": "scheinbar",
-    "en": "apparently",
+    "en": "seemingly (but not in fact)",
     "pos": "adverb",
     "level": "B1",
     "gender": null,
@@ -91320,7 +91320,7 @@
   {
     "id": "voc:A2:die Klausur",
     "term": "die Klausur",
-    "en": "a state of enclosure, especially that of monks, nuns",
+    "en": "written exam (at university)",
     "pos": "noun",
     "level": "A2",
     "gender": "die",

@@ -154262,13 +154262,13 @@
   {
     "id": "voc:B1:scheinbar",
     "term": "scheinbar",
-    "en": "apparently",
+    "en": "seemingly (but not in fact)",
     "pos": "adverb",
     "level": "B1",
     "gender": null,
     "plural": null,
     "ipa": "ˈʃaɪ̯nbaːɐ̯",
-    "def": "apparently (seemingly)",
+    "def": "Only in appearance: seeming to be so without being so.",
     "syn": [
       "vermeintlich",
       "angeblich"
@@ -154276,13 +154276,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Scheinbar weiß er alles.",
-        "en": "It seems that he knows everything.",
+        "de": "Die Aufgabe war nur scheinbar einfach.",
+        "en": "The task was only seemingly easy.",
         "lvl": "B1"
       },
       {
-        "de": "Das ergibt scheinbar keinen Sinn.",
-        "en": "This doesn't seem to make sense.",
+        "de": "Der Widerspruch ist nur scheinbar.",
+        "en": "The contradiction is only apparent.",
         "lvl": "B1"
       }
     ],
@@ -185420,13 +185420,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Bitte zeigen Sie mir das Menü.",
-        "en": "Please show me the menu.",
+        "de": "Das Menü hat drei Gänge und kostet 18 Euro.",
+        "en": "The set meal has three courses and costs 18 euros.",
         "lvl": "A1"
       },
       {
-        "de": "Kellner, geben Sie uns bitte das Menü!",
-        "en": "Waiter, please give us the menu.",
+        "de": "Mittags gibt es ein günstiges Menü mit Suppe und Hauptgericht.",
+        "en": "At lunchtime there is a cheap set meal with soup and a main course.",
         "lvl": "A1"
       }
     ],
@@ -186037,7 +186037,7 @@
   {
     "id": "voc:A2:die Klausur",
     "term": "die Klausur",
-    "en": "a state of enclosure, especially that of monks, nuns",
+    "en": "written exam (at university)",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -186053,8 +186053,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Er hat die Klausur verpaßt.",
-        "en": "He failed to take the exam.",
+        "de": "Er hat die Klausur verpasst.",
+        "en": "He missed the exam.",
         "lvl": "A2"
       }
     ],

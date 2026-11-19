@@ -2194,3 +2194,26 @@ the identifiers (`courseLean`, `LeanPicker`), never a substring of English.
 **True:** a build of a360957, made this session, measures 848.2 KB against an 820 KB
 ceiling — it shipped failing. **Rule:** `node scripts/budget.ts` is part of the deploy
 checklist, and a red budget is fixed or raised in its own commit before the next deploy.
+
+## Trailing whitespace inside an inline-block collapses *(added 2026-11-19)*
+
+**Believed:** `<span style="display:inline-block">{gender} </span>{word}` sets a space
+between the article and the word. **True:** the space is the last thing on the
+inline-block's own line, so it collapses — every film's gender reveal read
+"dasAbendessen". **Rule:** a space between inline-block pieces goes outside them.
+
+## A button shrink-wraps a size container to zero *(added 2026-11-19)*
+
+**Believed:** a fitted headword (`GenderTerm fit`) inside a `block` button takes the
+button's width. **True:** `.hw-box` is `container-type: inline-size`, which gives it no
+intrinsic width, and a button sizes to its content even as a block — the measure was 0
+and every trap beat printed "das Menü" one letter per line. **Rule:** every ancestor
+between a fitted headword and a sized box gets an explicit width (`w-full`).
+
+## A pair item that is a card's term becomes a taught card *(added 2026-11-19)*
+
+**Believed:** a `pair` beat's columns are written German. **True:** `filmTerms` drafts
+any item that is exactly a card's term into the unit's session, so a column of *darauf,
+daran, darum* would have taught *darauf* with its wrong gloss "after". **Rule:** before a
+film ships, print what it resolves to (`scripts/probe/course-survey.ts` lists the unit's
+cards) and read every gloss a learner will be drilled on.

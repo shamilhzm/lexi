@@ -2,7 +2,7 @@
 
 Lexi's course is a path of **units** through each level: eight a level, twelve at C1. A
 unit is a **situation** and **its words** — *Beim Arzt* and the 24 cards a doctor's
-waiting room needs — and most units have a **film**: a two-minute, learner-paced,
+waiting room needs — and every unit has a **film**: a two-minute, learner-paced,
 animated explanation of one idea about German that the situation needs. You watch the
 film, then *Learn the words*, which opens an ordinary Üben session over the unit's
 cards.
@@ -113,8 +113,7 @@ slide-in) were found that way.
 
 ## The plan
 
-Generated from `data/course.ts` on 2026-11-19. Units without a film are listed in
-[BACKLOG.md](BACKLOG.md).
+Generated from `data/course.ts` by `node scripts/course-plan.ts --write` on 2026-11-19. Every unit has a film.
 
 ### A1
 
@@ -122,11 +121,11 @@ Generated from `data/course.ts` on 2026-11-19. Units without a film are listed i
 |---|---|---|---|---|
 | 1 | **Hallo!** | Greetings and first words | der, die, das | *Der, die, das* |
 | 2 | **Familie** | Family and friends | One noun, two forms: the plural | *Einer, viele* |
-| 3 | **Essen und Trinken** | Food and drink | Compound nouns | — |
-| 4 | **Meine Wohnung** | Home and furniture | ein, eine: the article family | — |
+| 3 | **Essen und Trinken** | Food and drink | Compound nouns | *Mittag + Essen* |
+| 4 | **Meine Wohnung** | Home and furniture | ein, eine: the article family | *ein, eine, mein, kein* |
 | 5 | **Mein Tag** | Daily routine and time | The verb in position 2 | *Das Verb an Position 2* |
 | 6 | **Einkaufen** | Shopping and prices | einen: the accusative | *einen, eine, ein* |
-| 7 | **Freizeit** | Free time | gern and können | — |
+| 7 | **Freizeit** | Free time | gern and können | *gern und können* |
 | 8 | **In der Stadt** | Around town | Questions: W-word, then verb | *Fragen stellen* |
 
 ### A2
@@ -135,22 +134,22 @@ Generated from `data/course.ts` on 2026-11-19. Units without a film are listed i
 |---|---|---|---|---|
 | 1 | **Beim Arzt** | At the doctor’s | müssen, sollen, dürfen | *müssen, sollen, dürfen* |
 | 2 | **Arbeit und Beruf** | Jobs and workplaces | -in: der Lehrer, die Lehrerin | *Der Lehrer, die Lehrerin* |
-| 3 | **Wohnungssuche** | Finding a flat | Compounds that name things | — |
+| 3 | **Wohnungssuche** | Finding a flat | Compounds that name things | *Kaltmiete, Nebenkosten* |
 | 4 | **Was hast du gemacht?** | Talking about the past | Perfekt: haben or sein | *Das Perfekt* |
-| 5 | **Feste und Feiern** | Celebrations | Verbs with their preposition | — |
+| 5 | **Feste und Feiern** | Celebrations | Verbs with their preposition | *Verben mit Präposition* |
 | 6 | **Handy und Internet** | Phones and the internet | Loanwords and false friends | *Falsche Freunde* |
 | 7 | **Reisen** | Travel | weil, dass: the verb goes last | *weil und dass* |
-| 8 | **Bank und Post** | Banks, post and offices | be-, ver-, er-: prefixes that stay | — |
+| 8 | **Bank und Post** | Banks, post and offices | be-, ver-, er-: prefixes that stay | *be-, ver-, er-* |
 
 ### B1
 
 | # | Unit | The situation | The idea | Film |
 |---|---|---|---|---|
-| 1 | **Bewerbung** | Applying for work | Nouns and their verbs | — |
+| 1 | **Bewerbung** | Applying for work | Nouns and their verbs | *Nomen und ihre Verben* |
 | 2 | **Umwelt** | The environment | -ung, -heit, -keit: always die | *-ung, -heit, -keit* |
-| 3 | **Bildung** | School, training, university | Word families | — |
+| 3 | **Bildung** | School, training, university | Word families | *Wortfamilien* |
 | 4 | **Gesund leben** | Healthy living | sich: reflexive verbs | *sich* |
-| 5 | **Konsum** | Shopping and advertising | One verb, many prefixes | — |
+| 5 | **Konsum** | Shopping and advertising | One verb, many prefixes | *Ein Verb, viele Präfixe* |
 | 6 | **Nachrichten** | Following the news | deshalb, trotzdem: connectors | *deshalb, trotzdem* |
 | 7 | **Zusammenleben** | Neighbours and society | Relative clauses: der, die, das again | *Relativsätze* |
 | 8 | **Ämter und Formulare** | Offices and forms | Long words, short parts | *Lange Wörter* |
@@ -161,11 +160,11 @@ Generated from `data/course.ts` on 2026-11-19. Units without a film are listed i
 |---|---|---|---|---|
 | 1 | **Arbeitswelt** | The changing workplace | From verb to noun | *Vom Verb zum Nomen* |
 | 2 | **Wissenschaft und Technik** | Science and technology | International endings | *Internationale Endungen* |
-| 3 | **Wirtschaft** | Economy and finance | Describing change | — |
+| 3 | **Wirtschaft** | Economy and finance | Describing change | *Um oder auf?* |
 | 4 | **Politik** | Politics and elections | The passive: what happens | *Das Passiv* |
-| 5 | **Meinung** | Opinions and debate | Phrases for an opinion | — |
-| 6 | **Energie und Klima** | Energy and climate | Compounds for ideas | — |
-| 7 | **Gesundheitssystem** | The health system | Prepositions that belong to verbs | — |
+| 5 | **Meinung** | Opinions and debate | Phrases for an opinion | *Meiner Meinung nach* |
+| 6 | **Energie und Klima** | Energy and climate | Compounds for ideas | *Wörter für Ideen* |
+| 7 | **Gesundheitssystem** | The health system | Prepositions that belong to verbs | *Worauf? Darauf.* |
 | 8 | **Kunst und Kultur** | Art and culture | Konjunktiv II: würde, hätte, könnte | *Konjunktiv II* |
 
 ### C1
@@ -174,16 +173,16 @@ Generated from `data/course.ts` on 2026-11-19. Units without a film are listed i
 |---|---|---|---|---|
 | 1 | **Nominalstil** · *Kern* | How reports and papers sound | weil … → wegen … | *Nominalstil* |
 | 2 | **Besprechung und Protokoll** · *Beruf* | Meetings and minutes | The words that run a meeting | *In der Besprechung* |
-| 3 | **Studium** · *Hochschule* | Lectures, seminars, office hours | The words of a university | — |
+| 3 | **Studium** · *Hochschule* | Lectures, seminars, office hours | The words of a university | *An der Uni* |
 | 4 | **Funktionsverbgefüge** · *Kern* | Noun-verb expressions | eine Entscheidung treffen | *Funktionsverbgefüge* |
-| 5 | **Geschäftskorrespondenz** · *Beruf* | Business letters and complaints | The formal register | — |
+| 5 | **Geschäftskorrespondenz** · *Beruf* | Business letters and complaints | The formal register | *Das formelle Register* |
 | 6 | **Wissenschaftlich schreiben** · *Hochschule* | Writing a paper | Konjunktiv I for other people’s claims | *Wissenschaftlich schreiben* |
 | 7 | **Argumentieren** · *Brücke* | Arguing in a meeting and in a seminar | zwar … aber: conceding and countering | *Zwar … aber* |
-| 8 | **Karriere und Verhandlung** · *Beruf* | Career and negotiation | Negotiating politely | — |
-| 9 | **Referat und Diskussion** · *Hochschule* | Presenting and discussing | Phrases that structure a talk | — |
+| 8 | **Karriere und Verhandlung** · *Beruf* | Career and negotiation | Negotiating politely | *Höflich verhandeln* |
+| 9 | **Referat und Diskussion** · *Hochschule* | Presenting and discussing | Phrases that structure a talk | *Ein Referat gliedern* |
 | 10 | **Grafiken beschreiben** · *Brücke* | A chart at work and at university | steigen, sinken, stagnieren | *Eine Grafik, zwei Welten* |
-| 11 | **Wirtschaft und Verantwortung** · *Beruf* | Business, ethics and digital work | Abstract nouns of responsibility | — |
-| 12 | **Forschung und Ethik** · *Hochschule* | Research and its ethics | Hedging a claim | — |
+| 11 | **Wirtschaft und Verantwortung** · *Beruf* | Business, ethics and digital work | Abstract nouns of responsibility | *Abstrakte Nomen* |
+| 12 | **Forschung und Ethik** · *Hochschule* | Research and its ethics | Hedging a claim | *Vorsichtig formulieren* |
 
 ### C2
 
@@ -192,10 +191,10 @@ Generated from `data/course.ts` on 2026-11-19. Units without a film are listed i
 | 1 | **Redewendungen** | Idioms | Pictures that mean something else | *Redewendungen* |
 | 2 | **Register** | Casual, neutral, formal | kriegen, bekommen, erhalten | *kriegen, bekommen, erhalten* |
 | 3 | **Wortbildung** | Prefixes and suffixes that carry meaning | -bar and -los | *-bar und -los* |
-| 4 | **Recht** | The language of law | Legal compounds | — |
-| 5 | **Finanzwelt** | Markets and the global economy | The register of finance | — |
-| 6 | **Wissenschaftssprache** | Scientific German | Precision words | — |
+| 4 | **Recht** | The language of law | Legal compounds | *Recht und Gesetz* |
+| 5 | **Finanzwelt** | Markets and the global economy | The register of finance | *Die Sprache der Börse* |
+| 6 | **Wissenschaftssprache** | Scientific German | Precision words | *Präzise Wörter* |
 | 7 | **Modalpartikeln** | Small words that set the tone | doch, ja, mal, halt | *Modalpartikeln* |
-| 8 | **Stil und Ausdruck** | Style and expression | Words for nuance | — |
+| 8 | **Stil und Ausdruck** | Style and expression | Words for nuance | *Verben des Sagens* |
 
-*52 units, 29 films, as of this page.*
+*52 units, 52 films, as of this page.*

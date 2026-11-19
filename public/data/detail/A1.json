@@ -4859,13 +4859,13 @@
     "def": "A fixed-price meal of several set courses at a restaurant.",
     "ex": [
       {
-        "de": "Bitte zeigen Sie mir das Menü.",
-        "en": "Please show me the menu.",
+        "de": "Das Menü hat drei Gänge und kostet 18 Euro.",
+        "en": "The set meal has three courses and costs 18 euros.",
         "lvl": "A1"
       },
       {
-        "de": "Kellner, geben Sie uns bitte das Menü!",
-        "en": "Waiter, please give us the menu.",
+        "de": "Mittags gibt es ein günstiges Menü mit Suppe und Hauptgericht.",
+        "en": "At lunchtime there is a cheap set meal with soup and a main course.",
         "lvl": "A1"
       }
     ]

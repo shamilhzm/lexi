@@ -5,7 +5,7 @@ You're an incredible engineer with a background in languages, pedagogy, computer
 **A German vocabulary trainer for English speakers — with a course that explains.** Not
 a grammar drill and not exam prep: those were removed on 2026-09-05 and stay removed.
 `docs/VISION.md` carries the ruling that did it and is the anchor for everything else.
-**The course came back on 2026-11-19** as 52 units A1 → C2 with 29 films — learner-paced
+**The course came back on 2026-11-19** as 52 units A1 → C2, each with a film — learner-paced
 animated explainers that never grade, whose every fact is a card or a corpus count
 (`docs/COURSE.md`, VISION *The course returns, as films*). **C1 is one line through Beruf
 and Hochschule** — the owner ruled out a track switch; do not add one.

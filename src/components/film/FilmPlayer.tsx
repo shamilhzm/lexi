@@ -204,10 +204,12 @@ function GenderBeat({ term, line, picked, onPick }: { term: string; line: string
       <Line>{line}</Line>
       <div className="hw-box text-center my-6">
         <div lang="de" className="headword hw-answer hw-fit font-bold" style={fitStyle(`${w.gender} ${word}`)}>
+          {/* The space stays outside the inline-block: trailing whitespace inside
+              one collapses, and the reveal read "dasAbendessen" (simulator, 2026-11-19). */}
           {picked === undefined
-            ? <span className="text-dim">___ </span>
-            : <motion.span initial={reduce ? undefined : { x: -14 }} animate={{ x: 0 }} style={{ color: genderColor(w.gender), display: 'inline-block' }}>{w.gender} </motion.span>}
-          {word}
+            ? <span className="text-dim">___</span>
+            : <motion.span initial={reduce ? undefined : { x: -14 }} animate={{ x: 0 }} style={{ color: genderColor(w.gender), display: 'inline-block' }}>{w.gender}</motion.span>}
+          {' '}{word}
         </div>
         {picked !== undefined && <p className="text-dim text-sm mt-2">{w.en}</p>}
       </div>
@@ -536,7 +538,10 @@ function TrapBeat({ term }: { term: string }) {
   if (!w || !f) return null;
   return (
     <div className="space-y-3">
-      <motion.button {...a} onClick={() => speak(w.term)} className="block text-left">
+      {/* w-full: a button shrink-wraps even as a block, and the fitted headword
+          is a size container with no intrinsic width — without it the measure was
+          0 and "das Menü" printed one letter per line (simulator, 2026-11-19). */}
+      <motion.button {...a} onClick={() => speak(w.term)} className="block w-full text-left">
         <GenderTerm term={w.term} gender={w.gender} fit className="headword hw-answer font-bold" />
       </motion.button>
       <motion.p {...b} className="text-base">

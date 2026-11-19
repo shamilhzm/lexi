@@ -11,6 +11,55 @@ it is already built.
 
 ---
 
+### 2026-11-19 — a film for every unit
+
+**What shipped.** The 23 course units that had no film now have one: **52 units, 52
+films**, every one held to the contract in `films.test.ts` (73 tests, up from 50 — one
+`it.each` case per film). Each film is one idea the unit's situation needs, in eight or
+nine beats: A1 compounds (*Mittag + Essen*), *ein, eine, mein, kein*, *gern* and
+*können*; A2 flat-ad compounds (*Kaltmiete, Nebenkosten*), verbs with their preposition
+(*sich freuen auf* / *über*), *be-, ver-, er-* against splitting prefixes; B1 noun–verb
+collocations (*Erfahrungen sammeln*), word families, one verb with many prefixes (with
+the *spenden* trap); B2 *um* and *auf* for change, three openings for an opinion and what
+each does to word order, compounds for ideas (*Klimaschutz* against *Lärmschutz*),
+*darauf* / *worauf*; C1 the university's words, the formal letter, negotiating in the
+Konjunktiv, structuring a talk, abstract nouns (*-keit*, *-enz*, *-ik*, counted), hedging;
+C2 *Recht* and *Gesetz*, the register of finance, precision words (*scheinbar* /
+*anscheinend*, *nachweisen* / *beweisen*), verbs of saying. C1 stays one line: no film
+mentions a track to choose.
+
+**Found by the films, fixed in the corpus** (guarded batch `film-senses-02.json`,
+`corpus:validate --strict` PASS, three cards touched): *das Menü*'s examples used it as
+the menu card — the very false friend the A1 film warns against — and now show set
+meals; *die Klausur* was glossed "a state of enclosure, especially that of monks, nuns"
+over two exam examples, and is now "written exam (at university)" (its "verpaßt" is now
+"verpasst"); *scheinbar* was glossed and exemplified in the colloquial sense of
+*anscheinend*, which the C2 film sets against it, and now teaches "seemingly (but not in
+fact)" with examples in that sense.
+
+**Found by playing the films on the iPhone simulator, fixed** (in every film, not only
+the new ones): a gender reveal read "dasAbendessen" — the space after the article sat
+inside an inline-block and collapsed; a trap beat set "das Menü" one letter per line —
+its button shrink-wrapped the fitted headword's size container to zero; and an order
+beat's sentences wrapped to three lines a row, now shortened.
+
+**Found by reading what each film resolves to:** a `pair` item that is exactly a card's
+term is drafted into the unit's session. The B2 film's column of *da-* words would have
+taught *darauf* with the gloss "after"; the column is now phrases (*darauf warten*).
+
+**Instruments:** `scripts/probe/course-survey.ts` prints a unit's assigned cards with
+every example, so a film's examples are chosen by sense; `scripts/course-plan.ts --write`
+regenerates the COURSE.md plan table from `course.ts`, which until now was copied by hand.
+
+**Measured:** the Kurs chunk is 32.5 KB of its 64 KB (gzip -9, `node scripts/budget.ts`);
+the boot set is unchanged at 849.2 KB and still red (BACKLOG).
+
+**Not done.** Six of the 23 new films were played on the simulator, to the end or to
+their longest beat; the other 17 are in BACKLOG, with the corpus senses this pass found
+and left.
+
+---
+
 ### 2026-11-19 — the course, and films that explain
 
 **What shipped.** A course of **52 units**, A1 → C2 (eight a level, twelve at C1), under
