@@ -17,7 +17,7 @@ import { levels, weakestSectors, missStats } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import LevelProgress from './LevelProgress.tsx';
 import Kicker from './ui/Kicker.tsx';
-import { ALL_LEVELS, type Target } from '../types.ts';
+import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
 import { MODE_TAG, type Mode } from '../views/drills.tsx';
 
 interface NextItem {
@@ -35,8 +35,9 @@ export function modeForTag(tag: string): Mode | null {
   return hit ? hit[0] : null;
 }
 
-export default function PathCard({ onStudy, onDrill }: {
+export default function PathCard({ onStudy, onDrill, onCourse }: {
   onStudy: (t: Target) => void;
+  onCourse?: (l: CEFR) => void;
   onDrill: (m: Mode) => void;
 }) {
   useStore();
@@ -84,7 +85,7 @@ export default function PathCard({ onStudy, onDrill }: {
         <span lang="de" className="text-2xs text-dim font-mono tabular-nums">Studying {span}</span>
       </div>
 
-      <LevelProgress onStudy={onStudy} />
+      <LevelProgress onStudy={onStudy} onCourse={onCourse} />
 
       {next.length > 0 && (
         <>

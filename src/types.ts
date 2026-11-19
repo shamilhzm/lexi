@@ -64,4 +64,8 @@ export type Target =
   // `unlockText` is set only by the comprehension meter: it is the learner's own
   // text, carried through so the scheduler can say *why* these words are here
   // ("because you want to read …") instead of calling them plain new cards.
-  | { kind: 'custom'; name: string; ids: string[]; cap?: number; unlockText?: string };
+  | { kind: 'custom'; name: string; ids: string[]; cap?: number; unlockText?: string;
+      /** The course unit this list is, when the learner started it from the course.
+       *  Like `unlockText`, it marks the list as chosen, so the level filter does
+       *  not quietly drop its words. */
+      course?: string };

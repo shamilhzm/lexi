@@ -58,11 +58,13 @@ const PROGRESS_TOUR: TourStep[] = [
     target: '[data-tour="path"]',
   },
 ];
-import type { Target } from '../types.ts';
+import type { CEFR, Target } from '../types.ts';
 import type { Mode } from './drills.tsx';
 
-export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }: {
+export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement, onCourse }: {
   onStudy: (t: Target) => void;
+  /** The course at a level, which lives under Themen. */
+  onCourse?: (l: CEFR) => void;
   /** Straight into a run of the drill the learner keeps missing. */
   onDrill: (m: Mode) => void;
   /** Into the lexicon, which lives on Words. The heatmap is a *map of* the
@@ -114,7 +116,7 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement }:
       {/* Which levels you are studying, and how far through each. This is the
           control that decides what the session serves you, so it is on the page
           that explains the session's results rather than buried in settings. */}
-      <div data-tour="path"><PathCard onStudy={onStudy} onDrill={onDrill} /></div>
+      <div data-tour="path"><PathCard onStudy={onStudy} onDrill={onDrill} onCourse={onCourse} /></div>
 
       {/* Where you are thin, spatially. Karte supplies its own heading. */}
       <section aria-label="Knowledge heatmap" className="mb-6">

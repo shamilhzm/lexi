@@ -2,9 +2,13 @@ You're an incredible engineer with a background in languages, pedagogy, computer
 
 ## What Lexi is
 
-**A German vocabulary trainer for English speakers.** Not a course, not a grammar
-tutor, not an exam prep app — all three existed here and were removed on 2026-09-05.
+**A German vocabulary trainer for English speakers — with a course that explains.** Not
+a grammar drill and not exam prep: those were removed on 2026-09-05 and stay removed.
 `docs/VISION.md` carries the ruling that did it and is the anchor for everything else.
+**The course came back on 2026-11-19** as 52 units A1 → C2 with 29 films — learner-paced
+animated explainers that never grade, whose every fact is a card or a corpus count
+(`docs/COURSE.md`, VISION *The course returns, as films*). **C1 is one line through Beruf
+and Hochschule** — the owner ruled out a track switch; do not add one.
 
 **Two layers, one search box** *(2026-09-05)*. Lexi **teaches** 11,220 cards *(2026-11-14)* and
 **answers** 93,046 dictionary headwords. They are different things and must never
@@ -14,7 +18,8 @@ unverified Wiktionary gloss with one action — *note this word*. See
 
 **The ruling, because it decides most arguments:** *a drill earns its place if it tests a
 property of the word; it goes if it tests a rule of the language.* Gender, plural and
-production stay. Kasus, word order, tenses, dictation and the authored syllabus went.
+production stay. Kasus, word order, tenses and dictation went as drills. A film may
+*explain* a rule (`src/films/`); no drill tests one, and no film grades.
 
 **There is no home screen. The front door is a feed.** `views/Feed.tsx` — one German
 word per screen, scrolled, meaning present rather than hidden. It **does not grade**:
@@ -52,7 +57,7 @@ four surfaces look like four apps.
 
 - **Stack**: Vite 6 · React 19 · TypeScript · Tailwind 4 · motion · lucide-react · ts-fsrs. Local-first, no backend — this is the *shipping* behaviour and the ruling in `docs/VISION.md`. (`docs/BACKEND.md` designs an account/sync future and says the opposite; it is marked proposal, not policy, and the decision is open.)
 - **Commands**: `npm run dev`, `npm run build`, `npm run typecheck`, `npm test` (Vitest over the pure logic: conjugate, treemap, corpus matcher, the drills). Corpus pipeline: `npm run corpus:*` — build-time only, on a maintainer's machine.
-- **Entry points**: `src/main.tsx` (boot: loads lexicon + hydrates progress before first paint; kicks off `lib/inflections` *after* first paint), `src/App.tsx` (nav/IA — four doors, feed first, `#layer-root`), `src/store.ts` (state, FSRS stats, saved words, exposures, IndexedDB persistence), `src/session.ts` (the queue builder + `SESSION_CEILING`), `src/views/drills.tsx` (**ten** exercise types and the typed-answer grading), `src/components/Layer.tsx` (the sliding panel every sheet uses), `src/views/` (surfaces), `public/data/*.json` (the lexicon, fetched at runtime).
+- **Entry points**: `src/main.tsx` (boot: loads lexicon + hydrates progress before first paint; kicks off `lib/inflections` *after* first paint), `src/App.tsx` (nav/IA — four doors, feed first, `#layer-root`), `src/store.ts` (state, FSRS stats, saved words, exposures, IndexedDB persistence), `src/session.ts` (the queue builder + `SESSION_CEILING`), `src/views/drills.tsx` (**ten** exercise types and the typed-answer grading), `src/data/course.ts` (the 52 units and how each gets its words), `src/films/` (the films as data, and `films.test.ts`, which holds every film to the corpus), `src/components/film/FilmPlayer.tsx` + `src/views/Kurs.tsx` (the player and the course page, a lazy chunk), `src/components/Layer.tsx` (the sliding panel every sheet uses), `src/views/` (surfaces), `public/data/*.json` (the lexicon, fetched at runtime).
 - **Two drill banks, deliberately.** `eligibleModes` is what the *scheduler* weaves
   into a session — still only gender · plural · recall, because `reverse` and `cloze`
   apply to every card and merging them grew a drill onto every flip. `practiceModes`
@@ -69,7 +74,7 @@ four surfaces look like four apps.
   Themen. A miss offers "note this word" → `store.noteWanted` → listed in Profile
   (`WantedWords.tsx`) and exportable for `authoring:new`. **Never promise a noted
   word will be added** — the authoring gate decides, not the note.
-- **The four surfaces**: `Feed.tsx` (the word feed — also the welcome slot), `Words.tsx` (Themen: search, decks, word map, text scanner), `Review.tsx` (Üben: the session, the empty state, the recap), `Progress.tsx` (the number, the level path, the heatmap, blind spots). `WordDetail.tsx` is the sheet the feed's ⓘ opens — the old flip-card back face, now reachable from any word without being tested on it.
+- **The four surfaces**: `Feed.tsx` (the word feed — also the welcome slot), `Words.tsx` (Themen: the course band and `#/words/kurs/<level>`, decks, word map, text scanner), `Review.tsx` (Üben: the session, the empty state, the recap), `Progress.tsx` (the number, the level path, the heatmap, blind spots). `WordDetail.tsx` is the sheet the feed's ⓘ opens — the old flip-card back face, now reachable from any word without being tested on it.
 - **The goal**: a **beautiful, bulletproof, effective, open-source, pedagogically sound**
   English→German app, built so a second language pair is an implementation and not a
   rewrite. `docs/VISION.md` is the anchor — it holds the six commitments, what each one

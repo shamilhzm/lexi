@@ -25,12 +25,12 @@
 // 2026-09-05 refocus removed. The rooms that are gone alias to the nearest room
 // that still exists rather than dumping the learner on Today with no
 // explanation of where their link went.
-import type { Target } from './types.ts';
+import { ALL_LEVELS, type CEFR, type Target } from './types.ts';
 import type { View } from './App.tsx';
 
 /** Where you are inside Words. The index is the deck list; `group` filters it;
- *  `map` is the sector's word map, one level deeper. */
-export type WordsLevel = 'index' | 'group' | 'map';
+ *  `map` is the sector's word map, one level deeper; `kurs` is the course. */
+export type WordsLevel = 'index' | 'group' | 'map' | 'kurs';
 
 export interface WordsRoute {
   level: WordsLevel;
@@ -38,6 +38,8 @@ export interface WordsRoute {
   group?: string;
   /** Sector the word map is showing. */
   sector?: string;
+  /** Level the course is showing; absent means the learner's study level. */
+  course?: CEFR;
 }
 
 export interface Route {
@@ -85,6 +87,10 @@ export function parseHash(hash = location.hash): Route {
     const rest = parts.slice(2).join('/');
     if (parts[1] === 'map' && rest) return { view, words: { level: 'map', sector: rest } };
     if (parts[1] === 'g' && rest) return { view, words: { level: 'group', group: rest } };
+    if (parts[1] === 'kurs') {
+      const l = parts[2]?.toUpperCase() as CEFR | undefined;
+      return { view, words: { level: 'kurs', course: l && ALL_LEVELS.includes(l) ? l : undefined } };
+    }
     return { view, words: INDEX };
   }
 
@@ -117,6 +123,7 @@ export function toHash(view: View, target: Target | undefined, words: WordsRoute
   if (view === 'words') {
     if (words.level === 'map' && words.sector) return `#/words/map/${encodeURIComponent(words.sector)}`;
     if (words.level === 'group' && words.group) return `#/words/g/${encodeURIComponent(words.group)}`;
+    if (words.level === 'kurs') return words.course ? `#/words/kurs/${words.course}` : '#/words/kurs';
     return '#/words';
   }
   if (view === 'session') {

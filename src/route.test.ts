@@ -134,6 +134,19 @@ describe('retired hashes still land', () => {
   });
 });
 
+describe('the course', () => {
+  it('round-trips a level, and reads a bare course as the learner’s own level', () => {
+    for (const h of ['#/words/kurs/A1', '#/words/kurs/C1', '#/words/kurs']) {
+      const r = parseHash(h);
+      expect(r.words.level).toBe('kurs');
+      expect(toHash(r.view, r.target, r.words)).toBe(h);
+    }
+    expect(parseHash('#/words/kurs/b2').words.course).toBe('B2');
+    // An unknown level is the learner's own, not a 404.
+    expect(parseHash('#/words/kurs/D7').words).toEqual({ level: 'kurs', course: undefined });
+  });
+});
+
 describe('sessions', () => {
   it('encodes scoped targets and re-derives the daily one', () => {
     expect(parseHash('#/session').target).toBeUndefined();

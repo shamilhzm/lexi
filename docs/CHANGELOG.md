@@ -11,6 +11,62 @@ it is already built.
 
 ---
 
+### 2026-11-19 — the course, and films that explain
+
+**What shipped.** A course of **52 units**, A1 → C2 (eight a level, twelve at C1), under
+Themen at `#/words/kurs/<level>` — [COURSE.md](COURSE.md) has the plan and the
+principles. **29 units have a film**: a learner-paced, animated explainer of one idea
+(the article, the plural, the accusative, questions, the Perfekt, modal verbs, false
+friends, connectors, *sich*, relative clauses, endings that decide gender, compounds,
+nominalisation, the passive, Konjunktiv II, Funktionsverbgefüge, *zwar … aber*,
+describing a chart, academic hedging, idioms, register, *-bar*/*-los*, modal particles).
+Themen opens with a band pointing at the next unit; Fortschritt's level card links to
+the level's course.
+
+**Why.** It reverses the 2026-09-05 refusal to teach grammar, narrowed rather than
+dropped: rules may be **explained** in films; no drill tests one. The argument is in
+VISION, Settled decisions, *The course returns, as films*.
+
+**How it stays honest.** Films are data (`src/films/films.ts`), not video: 17 beat
+kinds rendered by `components/film/FilmPlayer.tsx`, a few KB each, themeable, offline,
+readable by a screen reader, and interactive — gender and choice beats hold the film
+until the learner guesses. A film never grades (the player imports nothing from the
+store but `markFilmSeen`). Every word it shows is a card; every pattern it claims is
+counted over the corpus as it plays; `films.test.ts` (50 tests) fails the suite if a
+card, an example, a plural or a pattern stops agreeing.
+
+**C1 integrates Beruf and Hochschule** in one line: Kern units, then the two settings
+in turn, with bridge units teaching one skill in both. A track switch was built and
+removed the same day at the owner's direction (VISION records why).
+
+**Unit words are assigned, not listed** (`unitCards`): named cards first, then the
+unit's sectors at its levels, commonest first; no card is taught by two units unless
+one names it; a film's scaffolding (*Haus* in *Haustür*) is shown but not taught.
+
+**Found by the films, fixed in the corpus** (guarded `authoring:fix` batches
+`verfuegung-fix.json` and `film-senses-01.json`, `corpus:validate --strict` PASS):
+*die Verfügung* taught "Sie stehen noch **zu** Verfügung"; *steigen*'s examples were
+*aussteigen* ("Ich steige aus" — glossed "I fold"); *halt* had "Halt!" (stop) for the
+particle; *wohl* had "Lebe wohl" for *probably*; *sinken* gained a sentence in the sense
+charts use.
+
+**Found by playing the films on the iPhone simulator, fixed:** a pair of clauses
+printed over each other (one baseline-aligned grid did not grow its rows on WebKit —
+rows are now their own top-aligned grids, phrases set in the text face); *Weiter* fell
+under the tab bar on a long beat, then floated 80pt above it once made sticky (iOS
+Safari measured the offset inside the scroller's padding, doubling the clearance — a
+`footer` slot on `Layer` now positions controls against the layer box); and a tap during
+any layer's slide-in froze it a third of the way across (drag stopped the entrance;
+layers are now draggable only once arrived). The layer's screen-reader hint said "back to
+the word" over every layer; it now names where back goes.
+
+**Not done.** 23 units have no film yet (BACKLOG). The boot-set budget fails — 849.2 KB
+against 820 — and was already failing at a360957 (848.2 KB, measured this session from a
+build of that commit); this change adds 1.0 KB. The course itself is a 22.9 KB lazy
+chunk.
+
+---
+
 ### 2026-11-15 — the design pass, everywhere the last one did not reach
 
 *Driven on the iPhone 17e simulator, light and dark: the feed, a word's entry and its

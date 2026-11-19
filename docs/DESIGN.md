@@ -549,6 +549,28 @@ remaining half of this rule.
 - Motion should explain, not decorate. The graded card leaves in the direction it
   was judged; that is the standard to match.
 
+### Films *(2026-11-19)*
+
+The course's films (`components/film/FilmPlayer.tsx`) are the most animated surface in
+the app, and they keep §7's safety rule literally:
+
+- **Beats translate in** (`x: 18 → 0`, a spring) and never fade or scale from zero; a
+  stalled animation leaves every word visible and every key full-size. Rows stagger by
+  0.08–0.15 s. Bars (pattern counts, charts) grow from `scaleX/scaleY 0.08`, the one
+  non-zero start the rule allows.
+- **The controls never scroll away.** *Weiter* lives in `Layer`'s `footer`, positioned
+  against the layer box — not `sticky` inside the padded scroller, which on iOS Safari
+  cleared the bar twice (LESSONS).
+- **A layer is draggable only once it has arrived** — a tap during the slide-in used to
+  freeze it.
+- **Plural *die* is set in plain ink.** The plural article is not the feminine one, and
+  pink would teach that it is.
+- **Phrases are not headwords.** A pair item that is a card is set in the display face in
+  its gender ink; a clause is set in the text face, because Fraunces at headword size
+  turns a clause into a tower.
+- **A guess holds the film.** Gender and choice beats disable *Weiter* ("Guess first")
+  until answered; nothing is graded.
+
 ## 8. Two moods, one room
 
 > **Rewritten 2026-09-05.** This section was called *Two rooms* and its rule was that

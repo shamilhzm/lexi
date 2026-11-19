@@ -1,0 +1,10 @@
+[
+  {
+    "id": "voc:B2:die Verfügung",
+    "at": 0,
+    "siblings": 2,
+    "expect": { "de": "Sie stehen noch zu Verfügung.", "en": "They're still available." },
+    "de": "Sie stehen noch zur Verfügung.",
+    "en": "They're still available."
+  }
+]

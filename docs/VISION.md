@@ -250,7 +250,7 @@ changed.
 
 | Refusal | Why |
 |---|---|
-| **Teaching grammar** | *New, 2026-09-05.* See the ruling above. Word facts stay; language rules go. This is the refusal that most needs re-arguing before it is reversed, because the code for it was good. |
+| **Drilling grammar** | *Narrowed 2026-11-19 — it was "Teaching grammar".* The drills still test properties of words and nothing else; the vocabulary ruling above governs every exercise and the scheduler. What changed is that grammar may now be **explained** — in the course's films, which never grade. See Settled decisions, *The course returns, as films*. A rule drill (Kasus, word order, tense transforms) is still refused, for the reason the ruling gives. |
 | **AI conversation tutor** | Commoditizing category, needs a backend and keys, breaks the privacy-by-architecture story, six better-funded competitors already there. **Reopened 2026-09-09 against the GPT-6 Astra release and unchanged** — frontier inference got 2.5× *more* expensive, so the wrapper tutors move further from the frontier, not closer. Corrected while checking: this row said `lib/ai.ts` survives for build-time enrichment. **It does not exist. Lexi ships no LLM code**; the generator is a Claude session and the repo commits only the prompt, the batch and `verify.ts`. See BACKLOG's parked entry. **Narrowed 2026-09-24, at the owner's direction:** a *chatbot* is still refused; an optional, bring-your-own-key tutor that explains a sentence the learner is reading and corrects what they wrote back is built — see Settled decisions for what changed. |
 | **Competing on content volume** | Duolingo shipped 20,500 units in a quarter. You lose. Do not enter. |
 | **Leagues, streak-shaming, social pressure** | Four of six teachers and three of six learners in [PEDAGOGY.md](PEDAGOGY.md) named the absence as the reason they would recommend it. |
@@ -379,6 +379,51 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   survives inside it as *Practise aloud*, unchanged: it asks, and a press grades. The
   audio is still rendered on the phone; clips are kept on the device so each day's
   wait shrinks. Hosting pre-rendered clips is the next step (BACKLOG).
+- **The course returns, as films** *(2026-11-19, at the owner's direction: "you are free
+  to override VISION … while remaining true to pedagogic first principles")*. A course of
+  **52 units**, A1 → C2 — eight a level, twelve at C1 — under Themen
+  (`#/words/kurs/<level>`, `data/course.ts`, [COURSE.md](COURSE.md)). Each unit is a
+  situation (*Beim Arzt*, *Besprechung und Protokoll*) and its words; **29** of them have
+  a **film**: a learner-paced, animated explainer of one idea about German — the article,
+  the plural, the verb in position 2, *weil* sending the verb to the end, *-ung* being
+  *die*, the passive, *Funktionsverbgefüge*, modal particles.
+
+  *Why reverse a refusal that was argued.* The 2026-09-05 ruling was right about
+  **drills**: a drill that tests a rule tests the same thing on every card, and it
+  crowded the words out. It was wrong to treat that as a reason never to **explain**.
+  Lexi taught 11,220 cards and never once said why *die Verantwortung* is *die*, why the
+  verb fled to the end after *weil*, or that *müssen nicht* is not "must not" — it left
+  every learner to induce the patterns from thousands of flips, which is the slowest
+  route there is. Explicit instruction of a high-yield pattern, followed by spaced
+  practice of the items, beats either alone; noticing is the precondition of acquiring
+  (Schmidt); a short, segmented, learner-paced explanation beats a continuous one
+  (Mayer's segmenting principle); and asking for a guess before the answer turns
+  watching into thinking. The films are that explanation, sized so they cannot crowd
+  out the words: about two minutes, then *Learn the words*.
+
+  *What it keeps, and the tests that hold it.* **A film never grades** — a guess is a
+  prediction, and `films.test.ts` asserts the player imports nothing from the store but
+  the seen-mark. **Every fact comes from the corpus**: a film names cards and the player
+  looks up their article, plural, examples and gloss; an ending's gender is *counted*
+  over the corpus as the beat plays, exceptions listed (*-ung*: 841 of 847 *die*); a
+  pattern the corpus stops keeping fails the suite. Only the explanation and a few
+  short grammar sentences are written by hand. **Nothing is locked**; the marked unit is
+  a suggestion. **A unit's session is an ordinary Üben session** over cards the learner
+  chose by pressing *Learn the words*.
+
+  *What it narrows.* Track E #5 ("nothing picks a card") — the course picks a unit's
+  cards, by sector and frequency, never twice across units; the **day's queue** still
+  picks none, and the first session is unchanged. Trails (open decision 3c) is the
+  other half of this and stays unbuilt: no stamps, ranks or mascot.
+
+  *C1 is one line, not a choice* (the owner's ruling, same day). Language schools split
+  C1 into *Beruf* and *Hochschule*; Lexi does not make the learner pick. The shared core
+  comes first, then the meeting room and the seminar in turn, and **bridge units** teach
+  one skill in both settings (arguing, describing a chart). A first version had a
+  Beides/Beruf/Hochschule switch; it was removed before it shipped — a C1 exam and a C1
+  life both mix the registers, and a switch invited learners to skip half of the
+  German they will meet. The test holds the balance (four units each) and the
+  alternation.
 
 ---
 
@@ -406,7 +451,9 @@ two of the scheduler's three drills dead on the day the app most needs to show w
 is. Frequency rank and drillability are different properties.
 
 A hand-picked first ten would bring back the syllabus deleted on 2026-09-05, so nothing
-picks a card. `firstRunIds` states a property the *session* must have — **it must be able
+picks a card. *(Narrowed 2026-11-19: the course's units pick their cards — see Settled
+decisions — but only for a session the learner opens from a unit. The day's queue and
+this first session still pick none.)* `firstRunIds` states a property the *session* must have — **it must be able
 to ask every question this app asks** — and fills it from the same frequency list:
 `das Ende` (25), `die Arbeit` (69), `der Tag` (98) are chosen because they are 25th, 69th
 and 98th. A third of the opening, and only the opening: from session two the
@@ -623,7 +670,11 @@ sees no learner data, but it is a server, and "no backend" has so far meant *non
 Motorsport and games are exactly the owner's interests and are thin without it (SRF's
 motorsport news; games only by keyword). **Undecided.**
 
-### 3c. Trails — Trailhead's shape for vocabulary *(proposal, 2026-10-02)*
+### 3c. Trails — Trailhead's shape for vocabulary *(proposal, 2026-10-02; partly superseded 2026-11-19)*
+
+*The units-of-scenes half now exists as the course (Settled decisions, "The course
+returns, as films"). Stamps, ranks and the mascot remain undecided and unbuilt.*
+
 
 The owner named Salesforce Trailhead as the benchmark for a tangible outcome: units
 with objectives and times, quizzes and hands-on checks, badges, ranks, a mascot, and

@@ -88,6 +88,14 @@ describe('restoring a backup restores the scope, not just the cards', () => {
     expect(json).toBeTruthy();
   });
 
+  it('backs up the films watched', async () => {
+    const { store } = await fresh();
+    store.markFilmSeen('a1-artikel');
+    const json = JSON.parse(store.exportData());
+    expect(Object.keys(json.settings)).toEqual(expect.arrayContaining(['lexi.films.v1']));
+    expect(store.filmsSeen().has('a1-artikel')).toBe(true);
+  });
+
   it('adopts the restored drill mutes without a reload', async () => {
     const { store } = await fresh();
     expect(store.modeEnabled('gender')).toBe(true);

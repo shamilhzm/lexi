@@ -50,6 +50,24 @@ export function setPace(p: Pace) {
   emit();
 }
 
+// ---- the course ------------------------------------------------------------
+// The one thing the course remembers: which films a learner has watched. It is
+// their own history, so it is in the backup (SETTING_KEYS). There is no C1 track
+// setting — the course integrates Beruf and Hochschule into one line by design
+// (docs/COURSE.md), so there is nothing to choose and nothing to store.
+const FILMS_KEY = 'lexi.films.v1';
+
+export function filmsSeen(): Set<string> {
+  try { return new Set(JSON.parse(localStorage.getItem(FILMS_KEY) || '[]') as string[]); } catch { return new Set(); }
+}
+export function markFilmSeen(id: string): void {
+  const seen = filmsSeen();
+  if (seen.has(id)) return;
+  seen.add(id);
+  try { localStorage.setItem(FILMS_KEY, JSON.stringify([...seen])); } catch { /* */ }
+  emit();
+}
+
 // ---- persistence ---------------------------------------------------------
 // Progress state — FSRS cards, blind-spot misses, and visit days — lives in
 // IndexedDB (src/lib/idb.ts), held in memory here as the synchronous source of
@@ -437,7 +455,8 @@ function poolFor(target: Target): Word[] {
     // instruction, and it used to be dropped here without a word (LESSONS,
     // 2026-11-14). A list nobody chose is still filtered.
     pool = target.ids.map((id) => BY_ID.get(id)).filter((w): w is Word => !!w);
-    const own = target.unlockText !== undefined;
+    // A course unit is chosen too: the learner pressed *Learn the words* on it.
+    const own = target.unlockText !== undefined || target.course !== undefined;
     const saved = new Set(savedWords());
     return pool.filter((w) => inLevels(w) || own || saved.has(w.id));
   }
@@ -2086,6 +2105,8 @@ const SETTING_KEYS = [
   'lexi.onboarded.v1', 'lexi.retention.v1', 'lexi.hdvoice.v1', 'lexi.theme.v1',
   'lexi.profile.name.v1', 'lexi.interests.v1', 'lexi.flags.v1', 'lexi.goal.v1',
   'lexi.focus.v1', 'lexi.pace.v1',
+  // The course: films watched (2026-11-19).
+  'lexi.films.v1',
   // Four keys that were never in the backup, all found on 2026-09-05 by auditing
   // this array against the key declarations above it rather than by anything
   // failing. Commitment 2 is the rule: **the backup is the only copy, so anything

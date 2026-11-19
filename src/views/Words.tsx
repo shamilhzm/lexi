@@ -23,10 +23,10 @@
 // thing — the same rule Progress won when it absorbed Explore's hand-rolled
 // back-stack. Decks and Wortkarte are unchanged; they moved house, they were not
 // rewritten.
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { ArrowLeft, ChevronRight, FileText, Mic } from 'lucide-react';
 import { WORDS, GROUPS, GROUP_SECTORS, WORDS_BY_SECTOR } from '../data/index.ts';
-import { groupStats, levels } from '../store.ts';
+import { groupStats, levels, studyLevel } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt, heatText } from '../lib/ui.ts';
 import { conceptForSector, conceptPaths } from '../lib/illustration.tsx';
@@ -36,7 +36,12 @@ import Kicker from '../components/ui/Kicker.tsx';
 import Tour, { type TourStep } from '../components/Tour.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { WordsRoute } from '../route.ts';
-import type { Target } from '../types.ts';
+import type { CEFR, Target } from '../types.ts';
+
+// The course and its films are a chunk of their own: nothing on the boot path
+// needs them, and the band below fetches it when Themen opens.
+const Kurs = lazy(() => import('./Kurs.tsx'));
+const KursBand = lazy(() => import('./Kurs.tsx').then((m) => ({ default: m.KursBand })));
 
 export default function Words({ route, onNavigate, onStudy, onText, onGame }: {
   route: WordsRoute;
@@ -49,6 +54,17 @@ export default function Words({ route, onNavigate, onStudy, onText, onGame }: {
   onGame?: () => void;
 }) {
   useStore();
+
+  // ---- depth: the course ------------------------------------------------------
+  if (route.level === 'kurs') {
+    return (
+      <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
+        <Kurs level={route.course ?? studyLevel()} onStudy={onStudy}
+          onLevel={(l) => onNavigate({ level: 'kurs', course: l })}
+          onBack={() => onNavigate({ level: 'index' })} />
+      </Suspense>
+    );
+  }
 
   // ---- depth: a group's decks, or one sector's word map ---------------------
   if (route.level === 'group' || route.level === 'map') {
@@ -79,13 +95,14 @@ export default function Words({ route, onNavigate, onStudy, onText, onGame }: {
     );
   }
 
-  return <Index onOpenGroup={(g) => onNavigate({ level: 'group', group: g })} onText={onText} onGame={onGame} />;
+  return <Index onOpenGroup={(g) => onNavigate({ level: 'group', group: g })} onText={onText} onGame={onGame}
+    onKurs={(l) => onNavigate({ level: 'kurs', course: l })} />;
 }
 
 /** The index. Search first, because that is what the surface is for; the
  *  taxonomy underneath is for the learner who does not yet have a word in mind. */
-function Index({ onOpenGroup, onText, onGame }: {
-  onOpenGroup: (g: string) => void; onText: () => void; onGame?: () => void;
+function Index({ onOpenGroup, onText, onGame, onKurs }: {
+  onOpenGroup: (g: string) => void; onText: () => void; onGame?: () => void; onKurs: (l: CEFR) => void;
 }) {
   // `useStore()` at the top of `Words` re-renders this on a filter change, and
   // the filter is a Set the store mutates by replacement — so key the memo on a
@@ -117,6 +134,12 @@ function Index({ onOpenGroup, onText, onGame }: {
           surface (components/SearchSheet), and two entry points to one search on
           one screen is the definition of the clutter this pass exists to remove.
           This page is what its tab says it is: themes. */}
+      {/* The course first: a theme with a direction, and the answer to "where do
+          I start" for a learner who has not yet got a word in mind. The
+          fallback holds the band's height so the keys below do not jump. */}
+      <Suspense fallback={<div className="min-h-[106px] mb-5" />}>
+        <KursBand onOpen={onKurs} />
+      </Suspense>
       <Tour id="themen" steps={THEMEN_TOUR} />
       <Taxonomy onOpenGroup={onOpenGroup} />
       {/* The second way to choose words, and the one nobody would guess is here.

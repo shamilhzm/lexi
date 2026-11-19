@@ -2138,3 +2138,59 @@ every C1 card added since. Nothing failed: the numbers were plausible.
 not stored beside it. Where it must be stored, the tool that changes the corpus
 rebuilds it, and `corpus:validate` checks it.
 
+## A sticky offset inside a padded scroller cleared the bar twice *(added 2026-11-19)*
+
+**Believed:** `sticky bottom-[var(--bar-b)]` inside the layer's scroller would hold the
+film's *Weiter* just above the tab bar. **True:** on iOS Safari it floated about 80pt
+above it: the offset was measured inside the scroller's `padding-bottom`, which is
+already `--bar-b`, so the clearance applied twice. (Engines have disagreed on this;
+the pane was not checked, which is the point — do not depend on it.)
+**Rule:** a control that must clear the bars is positioned against the box the bars
+sit in (`Layer`'s `footer`), never made sticky inside a padded scroller.
+
+## A tap during a draggable's entrance froze it *(added 2026-11-19)*
+
+**Believed:** a layer that slides in and is draggable to dismiss always arrives.
+**True:** motion's drag stops the running animation on pointer-down, and a tap never
+becomes a drag, so nothing restarted it: pressing *Weiter* as a film opened left the
+panel a third of the way across the screen. Every layer had it; the film made it
+likely. **Rule:** a drag that can interrupt an entrance is enabled only once the
+entrance completes (`onAnimationComplete`).
+
+## One baseline-aligned grid did not grow its rows on WebKit *(added 2026-11-19)*
+
+**Believed:** a `grid-cols-[1fr_auto_1fr] items-baseline` grid of buttons would lay
+out three wrapped clauses per side. **True:** on iOS Safari the rows kept single-line
+height and the clauses printed over each other.
+**Rule:** rows whose items can wrap are their own top-aligned grids — and long content
+is played on the simulator, not inferred from the pane.
+
+## Reserving every film card for its unit stole the A1 words *(added 2026-11-19)*
+
+**Believed:** reserving each film's cards for its unit first would stop two units
+teaching one word. **True:** it handed *fragen* and *helfen* — set beside *eine Frage
+stellen* in the C1 FVG film — to a C1 session and took them from the A1 units.
+**Rule:** a claim across units needs a direction (course order) and a floor (a card two
+levels below the unit is scaffolding, shown and not taught).
+
+## A film quotes the example, so the example's sense is now a claim *(added 2026-11-19)*
+
+**Believed:** a card's examples were checked by the gate. **True:** the gate proves an
+example contains an inflection of the headword — *steigen*'s "Ich steige aus" passes
+(it is *aussteigen*, glossed "I fold"), as do *halt*'s "Halt!" and *wohl*'s "Lebe wohl".
+Nobody looked while the examples sat behind a card's back face; a film that quotes one
+asserts it. **Rule:** a surface that puts examples in front of learners checks the sense
+of each one it uses, and fixes the misfits through `authoring:fix`.
+
+## A negative check matched "boolean" *(added 2026-11-19)*
+
+**Believed:** `expect(src).not.toMatch(/lean/i)` proved the C1 switch was gone from
+`Kurs.tsx`. **True:** it fired on `boolean`. **Rule:** a "must not mention" check names
+the identifiers (`courseLean`, `LeanPicker`), never a substring of English.
+
+## The budget was red on `main`, and `main` was deployed *(added 2026-11-19)*
+
+**Believed:** the boot-set budget passed at a360957, the commit production runs.
+**True:** a build of a360957, made this session, measures 848.2 KB against an 820 KB
+ceiling — it shipped failing. **Rule:** `node scripts/budget.ts` is part of the deploy
+checklist, and a red budget is fixed or raised in its own commit before the next deploy.

@@ -298,7 +298,9 @@ export default function App() {
     selfWrote.current = true;
     // The session is the root, so it replaces rather than pushes: Back from the
     // card leaves the app once instead of walking a trail of identical entries.
-    if (view === 'session') location.replace(next);
+    // So does a level chip inside the course: switching A2 → B1 is a tab, not a
+    // step, and system Back should leave the course rather than replay the chips.
+    if (view === 'session' || (next.startsWith('#/words/kurs') && location.hash.startsWith('#/words/kurs'))) location.replace(next);
     else location.hash = next;
   }, [view, target, words]);
 
@@ -493,7 +495,8 @@ export default function App() {
                         at the foot of Progress. */}
                     {view === 'progress' && (
                       <Progress onStudy={study} onDrill={setDrill} onPlacement={() => go('placement')}
-                        onOpenGroup={(g) => { setWords(g ? { level: 'group', group: g } : { level: 'index' }); setView('words'); }} />
+                        onOpenGroup={(g) => { setWords(g ? { level: 'group', group: g } : { level: 'index' }); setView('words'); }}
+                        onCourse={(l) => { setWords({ level: 'kurs', course: l }); setView('words'); }} />
                     )}
                     {view === 'text' && (
                       <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>

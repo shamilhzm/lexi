@@ -23,6 +23,36 @@
 >
 > ---
 >
+> ## The course — open work *(2026-11-19)*
+>
+> See [COURSE.md](COURSE.md). Play every new film on the iPhone simulator before calling
+> it done — the first films' three layout defects were found there.
+>
+> - **Films for the 23 units without one.** A1: Essen und Trinken (compounds) · Meine
+>   Wohnung (*ein, eine*) · Freizeit (*gern*, *können*). A2: Wohnungssuche · Feste und
+>   Feiern (verbs with their preposition — the `prep` drill's material) · Bank und Post
+>   (*be-, ver-, er-*). B1: Bewerbung · Bildung (word families — `lib/family.ts`) ·
+>   Konsum. B2: Wirtschaft · Meinung · Energie und Klima · Gesundheitssystem. C1:
+>   Studium · Geschäftskorrespondenz · Karriere und Verhandlung · Referat und Diskussion ·
+>   Wirtschaft und Verantwortung · Forschung und Ethik. C2: Recht · Finanzwelt ·
+>   Wissenschaftssprache · Stil und Ausdruck. Each needs cards whose examples show the
+>   point — check the *sense* of every example a film quotes (LESSONS, *A film quotes
+>   the example, so the example's sense is now a claim*).
+> - **Corpus senses the films exposed and did not fix:** *mal* is glossed "times" over
+>   particle examples ("Guck mal."); *darum* is glossed "around it" though most learners
+>   meet the connector; *deswegen*'s examples are Tatoeba fragments. Each wants a guarded
+>   `authoring:fix` row.
+> - **The boot-set budget is red** — 849.2 KB against 820 (`node scripts/budget.ts`),
+>   and was already red at a360957 (848.2 KB). Cut the boot set or raise the ceiling in
+>   its own commit, with the reason, as the script asks.
+> - **A trap beat could ask first** ("*bekommen* means …?") like the gender beat does.
+> - **Film sentences use device speech.** The `say` and `choice` lines would read better
+>   in the Piper voice the corpus audio uses.
+> - *Proposal, not decided:* the feed could offer the next unit's film in a story slot.
+>   It must not grade or mark anything seen; check against VISION's feed rulings first.
+>
+> ---
+>
 > ## The tutor's owner setup — after 2026-10-04
 >
 > The tutor now runs through `api/tutor.ts`. Until these are done it answers "not set

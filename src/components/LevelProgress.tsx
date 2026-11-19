@@ -41,7 +41,12 @@ export function workingEdge(
   return lowest;
 }
 
-export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => void } = {}) {
+export default function LevelProgress({ onStudy, onCourse }: {
+  onStudy?: (t: Target) => void;
+  /** Open the course at a level — the page that measures you pointing at the
+   *  one that teaches you, rather than doubling as it. */
+  onCourse?: (l: CEFR) => void;
+} = {}) {
   useStore();
   const stats = levelStats();
   const focus = levels();
@@ -112,12 +117,20 @@ export default function LevelProgress({ onStudy }: { onStudy?: (t: Target) => vo
             {coverageNote(Math.round(edgeKr * 100))}. Lexi measures words met — the rest is practice.
           </p>
           {/* A level as somewhere you can finish, not just a filter setting. */}
-          {onStudy && edgeStat.count > edgeStat.known && (
-            <button onClick={() => { focusUpTo(edgeIdx); onStudy({ kind: 'all', name: `All ${edge}` }); }}
-              className="mt-2 inline-flex items-center gap-1 text-2xs text-accent hover:underline">
-              Work through {edge} <ChevronRight size={12} />
-            </button>
-          )}
+          <div className="flex gap-4 flex-wrap">
+            {onCourse && (
+              <button onClick={() => onCourse(edge)}
+                className="mt-2 inline-flex items-center gap-1 text-2xs text-accent hover:underline">
+                The {edge} course <ChevronRight size={12} />
+              </button>
+            )}
+            {onStudy && edgeStat.count > edgeStat.known && (
+              <button onClick={() => { focusUpTo(edgeIdx); onStudy({ kind: 'all', name: `All ${edge}` }); }}
+                className="mt-2 inline-flex items-center gap-1 text-2xs text-accent hover:underline">
+                Work through {edge} <ChevronRight size={12} />
+              </button>
+            )}
+          </div>
         </div>
       )}
     </div>

@@ -30,7 +30,7 @@
 //
 // Not `aria-modal`: the navigation behind is still live and still usable, and
 // claiming otherwise would tell a screen reader the opposite of what is true.
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -48,8 +48,14 @@ const SWIPE_PX = 90;
  *  somewhere. That is the difference between a slide and a jump. */
 const SPRING = { type: 'spring' as const, stiffness: 260, damping: 30, mass: 0.85 };
 
-export default function Layer({ children, side, label, back = 'Wort', onClose }: {
+export default function Layer({ children, side, label, back = 'Wort', onClose, footer }: {
   children: React.ReactNode;
+  /** Controls that stay put while the content scrolls — the film's *Weiter*.
+   *  Positioned against the layer itself, which is the box the tab bar sits in,
+   *  rather than made `sticky` inside the scroller: on iOS Safari a sticky offset
+   *  is measured inside the scroller's padding, which already clears the bar, so
+   *  `bottom: var(--bar-b)` floated 80pt above it (2026-11-19). */
+  footer?: React.ReactNode;
   /** What the back button says it returns to. Defaults to the word, because most
    *  layers *are* a step off a word — but a global list is not, and telling
    *  somebody they are going back to a word they were never on is worse than an
@@ -65,6 +71,13 @@ export default function Layer({ children, side, label, back = 'Wort', onClose }:
   const root = typeof document === 'undefined' ? null : document.getElementById('layer-root');
   const reduce = useReducedMotion();
   const away = side === 'left' ? '-100%' : '100%';
+  // **Draggable once it has arrived** *(2026-11-19, on the simulator).* A drag
+  // gesture stops the running animation on pointer-down, and a tap never becomes
+  // a drag — so a tap during the slide-in (a learner pressing *Weiter* the moment
+  // a film opened) froze the panel a third of the way across the screen, with
+  // nothing left to finish the move. Until the entrance completes there is
+  // nothing to drag anyway.
+  const [arrived, setArrived] = useState(!!reduce);
 
   // **Where focus goes back to, and what is behind** *(2026-09-25 panel).*
   //
@@ -140,7 +153,8 @@ export default function Layer({ children, side, label, back = 'Wort', onClose }:
       animate={{ x: 0 }}
       exit={reduce ? { x: away, transition: { duration: 0 } } : { x: away }}
       transition={SPRING}
-      drag="x"
+      drag={arrived ? 'x' : false}
+      onAnimationComplete={() => setArrived(true)}
       dragDirectionLock
       dragElastic={0.12}
       dragConstraints={{ left: 0, right: 0 }}
@@ -163,10 +177,19 @@ export default function Layer({ children, side, label, back = 'Wort', onClose }:
             <span lang={back === 'Wort' ? 'de' : undefined}>{back}</span>
           </button>
           {children}
+          {footer && <div aria-hidden className="h-24" />}
         </div>
       </div>
+      {footer && (
+        <div className="absolute inset-x-0 bottom-[var(--bar-b)] z-10
+          bg-[linear-gradient(to_bottom,transparent,var(--color-bg)_35%)]">
+          <div className="mx-auto w-full max-w-[620px] px-5 pt-4 pb-2">{footer}</div>
+        </div>
+      )}
       <span className="sr-only">
-        Swipe {side === 'left' ? 'left' : 'right'} to go back to the word.
+        {/* Says where back goes, as the button does: "the word" was read out
+            over the saved list, the settings and the films alike. */}
+        Swipe {side === 'left' ? 'left' : 'right'} to go back to {back === 'Wort' ? 'the word' : back}.
       </span>
     </motion.div>,
     root,
