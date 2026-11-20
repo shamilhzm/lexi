@@ -3,7 +3,7 @@
 // restore. Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, CalendarClock, List, Layers, RefreshCw, Info, History, ArrowLeft } from 'lucide-react';
+import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, DoorOpen, CalendarClock, List, Layers, RefreshCw, Info, History, ArrowLeft } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { hdVoice, setHdVoice, retention, setRetentionTarget, importData, textScale, setTextScale, sound, setSound, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
 import { downloadBackup } from '../lib/backup.ts';
@@ -162,6 +162,13 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         <Button variant="secondary" size="sm" onClick={() => { resetTours(); setToursReset(true); }} disabled={toursReset}>
           {toursReset ? 'Tips will show on each screen' : 'Show the tips again'}
         </Button>
+      </Card>
+
+      {/* Der Türsteher, phase 0 (lib/tuer.ts): the guide to the Shortcuts door. */}
+      <Card as="section" className="mb-4">
+        <div className="flex items-center gap-2 mb-1"><DoorOpen size={16} className="text-accent" /><h2 className="text-base font-semibold"><span lang="de">Türsteher</span> (prototype)</h2></div>
+        <p className="text-dim text-xs mb-3">Three words before Reddit, Instagram or YouTube opens. Set up once with two shortcuts on your iPhone.</p>
+        <Button variant="secondary" size="sm" onClick={() => { location.hash = '#/tuer'; }}>Set up the door</Button>
       </Card>
 
       {/* Review intensity (FSRS desired retention). Hidden while Lexi does one

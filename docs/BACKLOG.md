@@ -2780,7 +2780,7 @@ user; none of it is built.*
 - **Web Push for installed PWAs · M** (#34). The deliberate day-2 return mechanism,
   still undecided. A local notification from the existing reminder watch is the
   serverless version.
-- **Der Türsteher, Moment mal and the widgets · L · 📱** *(planned 2026-11-19, not built)*. An
+- **Der Türsteher, Moment mal and the widgets · L · 📱** *(planned 2026-11-19; phase 0, the Shortcuts door, built 2026-11-20)*. An
   app gate (three words before Reddit, Instagram or YouTube opens), an interrupt after N
   minutes of scrolling, and lock/home/StandBy widgets including a *der/die/das* widget that
   grades. All of it needs a native iOS shell (Capacitor, per STORES.md): iOS has no

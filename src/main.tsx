@@ -8,6 +8,7 @@ import { applyTheme, watchSystemTheme } from './theme.ts';
 import { shouldReloadForChunk } from './lib/chunkReload.ts';
 import { audioBusy } from './lib/player.ts';
 import { dropRefParam } from './lib/ref.ts';
+import { parseGateHash } from './lib/tuer.ts';
 
 // The splash watchdog in `index.html` stands down the moment this module runs.
 // From here on the boot has its own budgets (below) and its own error screen; the
@@ -89,6 +90,13 @@ async function boot() {
     hydrate(),
     new Promise((r) => setTimeout(r, HYDRATE_BUDGET_MS)),
   ]);
+  // Der Türsteher (lib/tuer.ts): a door opened by a Shortcuts automation renders
+  // instead of the app, from its own chunk, so the boot set does not grow.
+  if (parseGateHash(location.hash)) {
+    const { default: Tuer } = await import('./views/Tuer.tsx');
+    root.render(<StrictMode><Tuer /></StrictMode>);
+    return;
+  }
   root.render(<StrictMode><App /></StrictMode>);
 }
 

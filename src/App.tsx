@@ -62,6 +62,7 @@ import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
+import { parseGateHash } from './lib/tuer.ts';
 import { parseHash, toHash, knownRoute, type Route, type WordsRoute } from './route.ts';
 import { GROUPS, SECTORS } from './data/index.ts';
 import SagEs from './components/SagEs.tsx';
@@ -291,6 +292,9 @@ export default function App() {
       // An in-page fragment (`#main`, or one a pasted link carries) is not a
       // route. Only `#/…` and an empty hash are.
       if (location.hash.length > 1 && !location.hash.startsWith('#/')) return;
+      // The Türsteher renders instead of the app (main.tsx), so reaching it from
+      // inside means booting again.
+      if (parseGateHash(location.hash)) { location.reload(); return; }
       fromHash.current = true;
       const r = routeFromHash();
       setView(r.view);

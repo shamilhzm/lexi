@@ -80,6 +80,34 @@ a regression test, and each data-loss test was shown to fail against the old cod
 **Why.** The suite was green and none of these were in it. See LESSONS, *Six personas
 found fifty bugs a green suite could not*.
 
+### 2026-11-20 · der Türsteher, phase 0
+
+**What shipped.** A door in front of a distracting app, with no native code.
+`#/tuer/<app>` shows the next three cards of today’s Üben (reviews first, then the
+queue’s own order; never a drill whose flip it did not show), grades them through the
+same `review()` as Üben, and then runs the *Lexi Pass* shortcut, which saves a
+15-minute pass and reopens the app. `#/tuer` is the setup guide for the two shortcuts
+and the per-app automations, linked from Settings. It renders instead of the app, from
+its own chunk (`main.tsx`), so the boot set does not grow. Skip and *Close Reddit* are
+always on screen, and the door opens on trying, never on being right.
+
+**Why this way.** iOS has no “another app opened” event (Apple DTS, July 2026), so a
+Shortcuts automation is the only door that needs no App Store build. Phase 0 tests the
+habit before the platform: after two weeks, did the owner study on more days? The
+review log and study days already answer that; `lexi.tuer.v1` counts doors, skips and
+closes beside them, outside the backup because it describes a prototype.
+
+**Ruling it leans on.** Answers at the door write to FSRS: each is a deliberate press on
+a property of the word, which the vocabulary ruling allows. The plan lists this as a
+decision for Phase 1; it is revisited then with two weeks of data.
+
+**Known limits.** The door opens Lexi in Safari, whose storage is separate from the Home
+Screen app, so progress moves over by backup. Checked in the browser pane (three cards,
+the end screen, the close screen and the tally; the review log shows three reviews). The
+shortcuts themselves have not been run on a phone.
+
+---
+
 ### 2026-11-20 · the copy pass
 
 **What shipped.** Every sentence in the app that leaned on an em-dash aside was
