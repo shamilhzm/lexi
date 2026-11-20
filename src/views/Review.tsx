@@ -78,7 +78,7 @@ const SCALE: { rating: Grade; label: string; firstSight: string }[] = [
  *  block, which spent the card's height to say the same things in one line. */
 const SESSION_TOUR: TourStep[] = [
   {
-    title: 'This is Üben — where words stick',
+    title: 'This is Üben, where words stick',
     body: <>Each card is a word you saved, one due back, or a new one. <b className="text-txt">Tap the card</b> to turn it and see the answer.</>,
     target: '[data-tour="session-card"]',
   },
@@ -520,7 +520,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
         <div role="status"
           className="pb-3 mb-3 border-b border-line flex items-center gap-3 flex-wrap">
           <p className="text-xs flex-1 min-w-[200px]">
-            Rough patch — that’s the system finding your edge. These come back easier tomorrow.
+            A rough patch. Lexi found the edge of what you know. These come back easier tomorrow.
           </p>
           <div className="flex gap-2">
             <Button variant="quiet" size="sm"
@@ -579,7 +579,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
             {/* It restores the FSRS state of the last grade (or steps back over a
                 skip), so it is named for what it does: "Previous card" described
                 the movement and hid the consequence. */}
-            <IconButton label="Undo — back to the last card" onClick={prev} disabled={i === 0}><Undo2 size={16} /></IconButton>
+            <IconButton label="Undo, back to the last card" onClick={prev} disabled={i === 0}><Undo2 size={16} /></IconButton>
             <IconButton label="Skip this card" onClick={skip}><SkipForward size={16} /></IconButton>
           </div>
         </div>
@@ -761,7 +761,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                 {card.ex[0] && (
                   <button
                     onClick={(e) => { e.stopPropagation(); sayExample(card.id, card.ex[0].de); }}
-                    title={hasHumanAudio(card.id) ? 'Play — read by a Tatoeba contributor' : 'Play this sentence'}
+                    title={hasHumanAudio(card.id) ? 'Play, read by a Tatoeba contributor' : 'Play this sentence'}
                     className="text-dim italic text-base leading-relaxed max-w-[90%] hover:text-txt transition-colors cursor-pointer">
                     <span className="sr-only">Hear the example: </span>
                     <span lang="de">{card.ex[0].de}</span>
@@ -827,7 +827,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                         deduped, exports with the backup. */}
                     <IconButton pull
                       onClick={(e) => { e.stopPropagation(); flagCard(item.word.id, item.word.term); }}
-                      label={isFlagged(item.word.id) ? 'Card flagged — it exports with your backup' : 'Flag a problem with this card'}
+                      label={isFlagged(item.word.id) ? 'Card flagged. It goes out with your backup' : 'Flag a problem with this card'}
                       aria-pressed={isFlagged(item.word.id)}
                       active={isFlagged(item.word.id)}>
                       <Flag size={15} fill={isFlagged(item.word.id) ? 'currentColor' : 'none'} />
@@ -912,7 +912,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     // Explicit label: without it the accessible name runs the
                     // interval preview straight onto the verdict ("Knew it 2 mo").
                     <button key={s.rating} onClick={() => grade(s.rating)}
-                      aria-label={`${label}${when ? ` — back in ${when}` : ''}`}
+                      aria-label={`${label}${when ? `, back in ${when}` : ''}`}
                       // Keys in the wash's own two colours, so the button and the
                       // swipe are visibly the same verdict *(2026-10-11)*.
                       className={`key flex flex-col items-center rounded-key px-3 py-2 text-txt
@@ -945,7 +945,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
             <span aria-hidden className="text-dim text-xs h-4 leading-4 text-center max-w-full truncate">
               {ack ? <Acknowledgement ack={ack} />
                 : isNew
-                  ? 'First time seeing this — take it in, then say how it landed'
+                  ? 'First time seeing this. Take it in, then say how it landed'
                   : keyboard
                     ? (flipped ? '← didn’t know · → knew it · Space turns it back' : 'Space shows the answer · ← / → grades')
                     : (flipped ? 'Swipe right if you knew it, left if not' : 'Tap to turn · swipe right knew it, left didn’t')}
@@ -1153,7 +1153,7 @@ function ReturnNotice({ firstRun }: { firstRun: boolean }) {
           notice were what pushed the grade keys under the tab bar. */}
       {away ? (
         <p className="text-xs text-dim leading-snug">
-          <span className="font-semibold text-txt">Welcome back — it’s been {gap} days.</span>{' '}
+          <span className="font-semibold text-txt">Welcome back. It’s been {gap} days.</span>{' '}
           {b.dueTotal > SESSION_CEILING
             ? <>{fmt(b.dueTotal)} waiting · today serves {SESSION_CEILING}, the rest keep.</>
             : <>Everything waiting fits in one session.</>}
@@ -1161,8 +1161,8 @@ function ReturnNotice({ firstRun }: { firstRun: boolean }) {
         </p>
       ) : (
         <p className="text-xs text-dim leading-snug">
-          <span className="font-semibold text-txt">You’re caught up — nothing is due.</span>{' '}
-          {b.fresh} new {b.fresh === 1 ? 'word' : 'words'} below, offered rather than owed.
+          <span className="font-semibold text-txt">You’re caught up. Nothing is due.</span>{' '}
+          {b.fresh} new {b.fresh === 1 ? 'word' : 'words'} below, if you want them.
         </p>
       )}
     </div>
@@ -1207,7 +1207,7 @@ function PocketList({ words }: { words: Word[] }) {
               </li>
             ))}
           </ul>
-          <p className="text-2xs text-dim mt-3">Screenshot this — it’s just a list, nothing to finish.</p>
+          <p className="text-2xs text-dim mt-3">Screenshot this. It’s just a list, nothing to finish.</p>
         </Card>
       )}
     </div>
@@ -1272,27 +1272,26 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
       <SessionRecap data={{ reviewed: retrieved || undefined, recall, newLearned, minedCount, milestone, weakest, composition, streak: streak() }}>
         {finished.length > 0 && (
           <p className="text-sm mb-5">
-            You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span> — every card in it is yours.
+            You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span>. Every card in it is yours.
           </p>
         )}
         {/* Drills, said separately. Folded into `done` they were invisible, and
             they are the half of a session a learner has to be talked into. */}
         {drills > 0 && (
           <p className="text-sm mb-5">
-            {drills} of those {drills === 1 ? 'was a' : 'were'} <span className="font-semibold">{drills === 1 ? 'drill' : 'drills'}</span>, not {drills === 1 ? 'a flip' : 'flips'} —
-            you got <span className={`font-mono font-bold ${drillsOk === drills ? 'text-green' : 'text-accent'}`}>{drillsOk}/{drills}</span>{' '}
-            right. That is the half that makes you produce the German rather than recognise it.
+            {drills} of those {drills === 1 ? 'was a' : 'were'} <span className="font-semibold">{drills === 1 ? 'drill' : 'drills'}</span>, not {drills === 1 ? 'a flip' : 'flips'}, and you got <span className={`font-mono font-bold ${drillsOk === drills ? 'text-green' : 'text-accent'}`}>{drillsOk}/{drills}</span>{' '}
+            right. Drills make you produce the German, not just recognise it.
           </p>
         )}
         {comeback && (
           <p className="text-xs text-dim mb-5">
-            Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span> — missed {comeback.lapses} times before, yours today.
+            Comeback of the day: <span className="text-green font-semibold">{comeback.term}</span>, missed {comeback.lapses} times before and yours today.
           </p>
         )}
         <MiniSky ids={met.map((w) => w.id)} />
         <PocketList words={met} />
         {firstRun && newLearned > 0 && (
-          <p className="text-base mb-5">These {newLearned} words come back on their own — sooner if they slipped, further apart each time they hold. That’s the whole system.</p>
+          <p className="text-base mb-5">These {newLearned} words come back on their own: sooner if they slipped, further apart each time they hold.</p>
         )}
         {/* Placement, offered here rather than before the session. It used to be
             the first thing a cold learner met — two minutes of being tested by an

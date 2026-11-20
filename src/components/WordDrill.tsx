@@ -226,7 +226,7 @@ function Done({ word, right, of, onClose, backLabel }: { word: Word; right: numb
       <p className="text-dim text-sm max-w-[34ch] mx-auto leading-relaxed mb-7 text-balance">
         <span lang="de" className="text-txt">{shownTerm(word.term)}</span>{' '}
         {perfect
-          ? 'is in your schedule now — Üben will bring it back just before you’d have forgotten it.'
+          ? 'is in your schedule now. Üben brings it back just before you’d forget it.'
           : 'is in your schedule now, and the parts you missed will come back soonest.'}
       </p>
       <Button onClick={onClose}>{backLabel}</Button>

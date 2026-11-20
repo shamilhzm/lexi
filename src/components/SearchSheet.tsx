@@ -145,7 +145,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
             ref={input} id="global-search" type="search" value={q} onChange={(e) => setQ(e.target.value)}
             autoCapitalize="none" autoCorrect="off" spellCheck={false} enterKeyHint="search"
             aria-label="Look up a German or English word"
-            placeholder="German or English — umlauts optional"
+            placeholder="German or English, umlauts optional"
             className="w-full tap-44 rounded-full bg-panel2 border border-line pl-9 pr-9 py-2.5 text-base
                        outline-none focus:border-accent" />
           {q && (
@@ -246,13 +246,13 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
                   or through the lemma this section just resolved. */}
               {lexEntries.every((e) => taught.has(e.w.toLowerCase()))
                 ? <>Wiktionary’s fuller entry for a word Lexi already teaches.</>
-                : <>Wiktionary, not a Lexi card — no level, no example, and nothing to study.</>}
+                : <>Wiktionary, not a Lexi card. No level, no example, nothing to study.</>}
               {!already && !lexEntries.every((e) => taught.has(e.w.toLowerCase()))
                 && <> If you want it taught, note it.</>}
             </p>
             {lexEntries.every((e) => taught.has(e.w.toLowerCase())) ? null : already ? (
               <p className="mt-2 inline-flex items-center gap-2 text-green text-sm font-semibold">
-                <Check size={16} /> Noted — it’s on your list
+                <Check size={16} /> Noted. It’s on your list
               </p>
             ) : (
               <button
@@ -282,7 +282,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
 
             {already ? (
               <p className="inline-flex items-center gap-2 text-green text-sm font-semibold">
-                <Check size={16} /> Noted — it’s on your list
+                <Check size={16} /> Noted. It’s on your list
               </p>
             ) : (
               <button

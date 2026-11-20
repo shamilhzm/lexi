@@ -155,7 +155,7 @@ export default function Karte({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             </>
           ) : (
             <>
-              <span className="live-dot" title="Live — reflects your FSRS progress" />
+              <span className="live-dot" title="Live from your FSRS progress" />
               <h2 className="text-xs sm:text-base font-semibold">Knowledge Heatmap</h2>
             </>
           )}
@@ -188,7 +188,7 @@ export default function Karte({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
             <div className="pointer-events-none absolute inset-0"
               style={{ background: 'radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--color-accent) 6%, transparent), transparent 70%)' }} />
             {tiles.length === 0 && (
-              <div className="absolute inset-0 grid place-items-center text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>
+              <div className="absolute inset-0 grid place-items-center text-dim text-xs px-6 text-center">No sectors at these CEFR levels. Widen the filter.</div>
             )}
 
             {/* Shared-element continuity, tile → sector (DESIGN.md §7).
@@ -341,7 +341,7 @@ function Toggle({ list, onChange }: { list: boolean; onChange: (v: boolean) => v
 
 function ListView({ cells, zoom, onTap, onStudy }: { cells: Cell[]; zoom: boolean; onTap: (c: Cell) => void; onStudy: (c: Cell) => void }) {
   if (cells.length === 0) {
-    return <div className="grid place-items-center py-16 text-dim text-xs px-6 text-center">No sectors at the selected CEFR levels — widen the filter.</div>;
+    return <div className="grid place-items-center py-16 text-dim text-xs px-6 text-center">No sectors at these CEFR levels. Widen the filter.</div>;
   }
   return (
     <div className="divide-y divide-[var(--color-line)] max-h-[min(60vh,580px)] overflow-y-auto">

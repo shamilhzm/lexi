@@ -69,7 +69,7 @@ export default function LevelProgress({ onStudy, onCourse }: {
         <div className="flex justify-end mb-2.5">
           <button onClick={() => focusUpTo(edgeIdx + 1)}
             className="flex items-center gap-1 text-2xs text-accent hover:underline">
-            {edge} is {Math.round(edgeKr * 100)}% recognised — add {ALL_LEVELS[edgeIdx + 1]} <ChevronRight size={12} />
+            {edge} is {Math.round(edgeKr * 100)}% recognised. Add {ALL_LEVELS[edgeIdx + 1]} <ChevronRight size={12} />
           </button>
         </div>
       )}
@@ -114,7 +114,7 @@ export default function LevelProgress({ onStudy, onCourse }: {
             ))}
           </ul>
           <p className="text-2xs text-dim">
-            {coverageNote(Math.round(edgeKr * 100))}. Lexi measures words met — the rest is practice.
+            {coverageNote(Math.round(edgeKr * 100))}. Lexi counts the words you’ve met. The rest is practice.
           </p>
           {/* A level as somewhere you can finish, not just a filter setting. */}
           <div className="flex gap-4 flex-wrap">

@@ -143,7 +143,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
 
       <Card tone="panel" pad="md">
         <label htmlFor="read-input" className="block text-sm text-dim mb-2">
-          An article, an email, a page of a book — or the list of words from today’s class.
+          An article, an email, a page of a book, or the words from today’s class.
         </label>
         <textarea
           id="read-input"
@@ -181,7 +181,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
 
       {cov && cov.counted === 0 && (
         <Card tone="panel" pad="md">
-          <p className="text-sm text-dim">No German content words found — check the text and try again.</p>
+          <p className="text-sm text-dim">No German content words found. Check the text and try again.</p>
         </Card>
       )}
 
@@ -200,7 +200,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
             </p>
             <p className="mt-1 text-sm text-dim">
               {cov.ratio >= INDEPENDENT
-                ? 'Past 98% — this reads without help.'
+                ? 'Past 98%. This reads without help.'
                 : cov.ratio >= ASSISTED
                   ? <>{cov.toIndependent} more {cov.toIndependent === 1 ? 'word' : 'words'} to read it without help.</>
                   : <>{cov.toAssisted} more {cov.toAssisted === 1 ? 'word' : 'words'} to reach the 95% mark.</>}
@@ -216,8 +216,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
             {cov.ceiling < ASSISTED && (
               <p className="mt-2 text-xs text-dim border-t border-line pt-2">
                 Even knowing every word Lexi teaches, this text tops out at{' '}
-                <b className="text-txt">{Math.round(cov.ceiling * 100)}%</b> — the rest are words
-                the corpus doesn’t carry.
+                <b className="text-txt">{Math.round(cov.ceiling * 100)}%</b>. The rest are words Lexi doesn’t have.
               </p>
             )}
           </Card>
@@ -243,7 +242,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                 {slips.length > 0 && (
                   <div>
                     <p className="text-xs text-dim mb-1.5">
-                      Probably a slip of the keyboard — tap the ones you meant, and they are saved too.
+                      Probably typos. Tap the ones you meant, and they’re saved too.
                     </p>
                     <ul className="flex flex-wrap gap-2">
                       {slips.map(({ typed, word }) => {
@@ -273,8 +272,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                         : <><Check size={14} /> {missing.length} noted</>}
                     </Button>
                     <p className="mt-1.5 text-xs text-dim max-w-[52ch]">
-                      <span lang="de" className="text-txt">{missing.slice(0, 6).join(', ')}</span>{missing.length > 6 && ' …'} —
-                      kept in your profile. A dictionary check decides which become cards, not the note.
+                      <span lang="de" className="text-txt">{missing.slice(0, 6).join(', ')}</span>{missing.length > 6 && ' …'}: kept in your profile. A dictionary check decides which become cards.
                     </p>
                   </div>
                 )}
@@ -288,7 +286,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
               <p className="mt-1 text-sm text-dim">
                 {plan.reaches
                   ? <>Learn these {plan.picks.length} and this text crosses 95%.</>
-                  : <>These {plan.picks.length} help most — but this text can’t reach 95% on the corpus as it stands.</>}
+                  : <>These {plan.picks.length} help most, but this text can’t reach 95% with the words Lexi has today.</>}
               </p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {plan.picks.map((u) => (
@@ -339,10 +337,10 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
             <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-2xs text-dim border-t border-line pt-2">
               <span className={TINT.known}>known</span>
               <span className={TINT.learning}>learning</span>
-              <span className={TINT.new}>new — Lexi teaches it</span>
+              <span className={TINT.new}>new, Lexi teaches it</span>
               <span className={TINT.compound}>a compound of words it knows</span>
               <span className={TINT.absent}>not in the corpus</span>
-              <span>grammar words and names — not counted</span>
+              <span>grammar words and names, not counted</span>
             </p>
           </Card>
 
@@ -358,8 +356,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                     <>
                       <p lang="de" className="font-serif text-xl font-bold">{partOf}</p>
                       <p className="text-sm text-dim">
-                        Not a card in Lexi. It ends in a word that is —
-                        and a compound usually, <em>but not always</em>, means a kind of its last part.
+                        Not a card in Lexi, but it ends in one. A compound usually, <em>but not always</em>, means a kind of its last part.
                       </p>
                       <p className="mt-2 text-2xs text-dim">the part Lexi teaches</p>
                     </>
@@ -379,7 +376,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
       {shelf.length > 0 && (
         <Card tone="panel" pad="md">
           <Kicker><Bookmark size={12} /> Your texts</Kicker>
-          <p className="mt-1 text-xs text-dim">These move on their own as you study — nothing to re-paste.</p>
+          <p className="mt-1 text-xs text-dim">These update as you study. No need to paste again.</p>
           <ul className="mt-3 flex flex-col gap-2">
             {shelf.map(({ text: t, cov: c }) => (
               <li key={t.id} className="flex items-center gap-3">

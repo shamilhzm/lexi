@@ -52,7 +52,7 @@ export default function ListenBar({ onOpen }: { onOpen: () => void }) {
             <>
               <span lang="de" className="block font-semibold leading-tight">Hören</span>
               <span className="block text-2xs text-dim truncate">
-                {h.phase === 'ready' ? `Ready · ${h.words} words — press play` : `${h.words} words · ${h.minutes} min`}
+                {h.phase === 'ready' ? `Ready · ${h.words} words. Press play` : `${h.words} words · ${h.minutes} min`}
               </span>
             </>
           )}

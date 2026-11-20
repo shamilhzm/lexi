@@ -38,9 +38,7 @@ export default function FlaggedCards() {
       </div>
       <p className="text-dim text-xs mb-3 max-w-[52ch]">
         {list.length === 1 ? 'One card' : `${list.length} cards`} you marked as looking
-        wrong. Report them on GitHub — the issue opens filled in, and you see it before
-        anything is posted — or save them as a small file that carries the reports and
-        nothing else: no progress, no streak, no history.
+        wrong. Report them on GitHub (the issue opens filled in, and you see it before anything is posted), or save them as a small file that holds only the reports, without your progress, streak or history.
       </p>
       <div className="flex flex-wrap gap-2 mb-3">
         <a href={flagsIssueUrl(list)} target="_blank" rel="noopener noreferrer"

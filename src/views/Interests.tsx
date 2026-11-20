@@ -21,7 +21,7 @@ export default function Interests({ onDone }: { onDone: () => void }) {
         <h1 className="display text-3xl sm:text-4xl mb-1.5 mt-2">What do you want to talk about?</h1>
         <p className="text-dim text-base mb-5 max-w-[48ch]">
           Pick a few topics you care about and Lexi will pull your new words from them first.
-          Optional — you can change these anytime in your profile.
+          Optional. You can change these anytime in your profile.
         </p>
         <TopicPicker />
         <Button size="lg" className="mt-7" onClick={onDone}>

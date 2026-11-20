@@ -65,8 +65,8 @@ export function shareUrl(origin = PUBLIC_ORIGIN): string {
 export function shareText(f: CardFacts): string {
   const { number } = cardLines(f);
   return f.known > 0
-    ? `${number} German words I know, as a sky. Learning with Lexi — free, no account:`
-    : `My German, as a sky. Learning with Lexi — free, no account:`;
+    ? `${number} German words I know, as a sky. Learning with Lexi, free and without an account:`
+    : `My German, as a sky. Learning with Lexi, free and without an account:`;
 }
 
 // ---- the night palette, read from the stylesheet --------------------------------------

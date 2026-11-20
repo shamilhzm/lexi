@@ -20,8 +20,7 @@ export default function NewsTopicsSettings() {
     <Card as="section" className="mb-4">
       <div className="flex items-center gap-2 mb-1"><Newspaper size={16} className="text-accent" /><h2 className="text-base font-semibold">Stories in the feed</h2></div>
       <p className="text-dim text-xs mb-3">
-        A German news story joins the word feed every few words, on the topics you pick — from tagesschau, SRF, DW and heise,
-        fetched by your browser from each publisher. Pick none to switch stories off.
+        Every few words, the feed shows a German news story on a topic you pick. Stories come from tagesschau, SRF, DW and heise, fetched by your browser straight from each publisher. Pick none to switch stories off.
         {week.articles > 0 && <> This week: {week.articles} read, {fmt(week.words)} words.</>}
       </p>
       <div className="flex flex-wrap gap-2">

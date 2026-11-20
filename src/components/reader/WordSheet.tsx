@@ -126,7 +126,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
               </ul>
               {compound && word && (
                 <p className="text-2xs text-dim mt-1.5">
-                  A compound built on <span lang="de" className="text-txt">{word.term}</span> — its meaning is its own.
+                  A compound built on <span lang="de" className="text-txt">{word.term}</span>, with a meaning of its own.
                 </p>
               )}
             </>
@@ -136,7 +136,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
               <p className="text-sm text-dim mt-0.5">
                 {compound && word
                   ? <>A compound built on <span lang="de" className="text-txt">{word.term}</span>, not in the dictionary.</>
-                  : /^\p{Lu}/u.test(surface) ? 'Not in the dictionary — most likely a name.' : 'Not in the dictionary.'}
+                  : /^\p{Lu}/u.test(surface) ? 'Not in the dictionary. Most likely a name.' : 'Not in the dictionary.'}
               </p>
             </>
           )}
@@ -168,7 +168,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
           </>
         ) : lex !== 'loading' && (
           noted
-            ? <span className="inline-flex items-center gap-1.5 text-sm text-green font-semibold h-10"><Check size={15} /> Noted — it’s on your list</span>
+            ? <span className="inline-flex items-center gap-1.5 text-sm text-green font-semibold h-10"><Check size={15} /> Noted. It’s on your list</span>
             : (
               <button onClick={() => { noteWanted(lemma, { ex: sentence, src: article.title }); haptic('grade'); bump((n) => n + 1); }}
                 className={`${pill} border border-accent text-accent`}>
@@ -179,7 +179,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
       </div>
       {!card && lex !== 'loading' && (
         <p className="text-2xs text-dim mt-2 leading-relaxed">
-          {entries.length ? 'Wiktionary, not a Lexi card — nothing to study yet. ' : ''}
+          {entries.length ? 'Wiktionary, not a Lexi card. Nothing to study yet. ' : ''}
           A noted word keeps the sentence you met it in; whether it becomes a card is decided by a dictionary check, not by the note.
         </p>
       )}
@@ -216,12 +216,12 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
                   <ul className="mt-2 flex flex-col gap-1.5">
                     {explain.points.map((p, i) => (
                       <li key={i} className="text-xs leading-relaxed">
-                        <span lang="de" className="font-semibold">{p.de}</span> — <span className="text-dim">{p.note}</span>
+                        <span lang="de" className="font-semibold">{p.de}</span>: <span className="text-dim">{p.note}</span>
                       </li>
                     ))}
                   </ul>
                 )}
-                <p className="mt-2 text-2xs text-dim">AI explanation — usually right, not always. Nothing here changes your cards.</p>
+                <p className="mt-2 text-2xs text-dim">Explained by AI. Usually right, not always, and nothing here changes your cards.</p>
               </div>
             )
           ) : (

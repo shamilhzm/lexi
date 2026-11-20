@@ -48,7 +48,7 @@ describe('the way back', () => {
 
   it('the text that travels with the image says what it is and that it is free', () => {
     expect(shareText(f())).toMatch(/^1,234 German words I know/);
-    expect(shareText(f())).toMatch(/free, no account/);
+    expect(shareText(f())).toMatch(/free and without an account/);
   });
 });
 

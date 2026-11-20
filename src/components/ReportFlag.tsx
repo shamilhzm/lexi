@@ -40,14 +40,13 @@ export default function ReportFlag({ word, className = '' }: { word: Pick<Word, 
         className={`tap-hit inline-flex items-center gap-1.5 text-2xs transition-colors ${
           flagged ? 'text-accent' : 'text-dim hover:text-accent'}`}>
         <Flag size={12} fill={flagged ? 'currentColor' : 'none'} aria-hidden />
-        {flagged ? 'Flagged — report it?' : 'Something wrong with this card?'}
+        {flagged ? 'Flagged. Report it?' : 'Something wrong with this card?'}
       </button>
 
       {open && (
         <div id={panel} className="mt-2.5">
           <p className="text-xs text-dim mb-2.5 max-w-[52ch] leading-relaxed">
-            Flagged on this device. To tell the maintainer, pick what looks wrong — it opens a
-            public GitHub issue with this card filled in, and you see it before anything is posted.
+            Flagged on this device. To tell the maintainer, pick what looks wrong. That opens a public GitHub issue with this card filled in, and you see it before anything is posted.
           </p>
           <ul className="flex flex-wrap gap-2" aria-label={`Report a problem with ${word.term}`}>
             {REPORT_FIELDS.map((f) => (
@@ -57,7 +56,7 @@ export default function ReportFlag({ word, className = '' }: { word: Pick<Word, 
                     text-xs text-txt hover:border-accent hover:text-accent transition-colors">
                   {f.label}
                   <ExternalLink size={11} aria-hidden className="text-dim" />
-                  <span className="sr-only"> — opens GitHub in a new tab</span>
+                  <span className="sr-only"> (opens GitHub in a new tab)</span>
                 </a>
               </li>
             ))}

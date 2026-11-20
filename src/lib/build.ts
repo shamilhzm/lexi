@@ -38,7 +38,7 @@
 export const PREVIOUS_BUILD = {
   url: 'https://lexi-classic.vercel.app',
   /** What that build was, in one line, so the link is not a mystery door. */
-  label: 'before the 2026-09-05 redesign — flip-card home, five tabs, grammar drills',
+  label: 'before the 2026-09-05 redesign, with the flip-card home, five tabs and grammar drills',
 };
 
 /** The build this code was compiled into. */
@@ -69,7 +69,7 @@ export type UpdateState =
 export async function checkForUpdate(): Promise<UpdateState> {
   if (typeof fetch === 'undefined') return { kind: 'unknown', why: 'not supported here' };
   if (typeof navigator !== 'undefined' && navigator.onLine === false) {
-    return { kind: 'unknown', why: 'You’re offline — reconnect to check.' };
+    return { kind: 'unknown', why: 'You’re offline. Reconnect to check.' };
   }
   try {
     // `no-store` twice over: the header for the HTTP cache, and a cache-busting

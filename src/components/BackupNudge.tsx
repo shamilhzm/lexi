@@ -50,9 +50,7 @@ export default function BackupNudge(_props: { onBackup?: () => void }) {
       <div className="flex-1 min-w-0">
         <p className="text-sm font-semibold leading-snug">You know {known} words. Keep a copy.</p>
         <p className="text-dim text-xs mt-1 leading-relaxed max-w-[52ch]">
-          Everything you’ve learned lives on this device and nowhere else — which is
-          how Lexi stays account-free, and also means clearing your browser data
-          would take it with it. A backup is one file.
+          Everything you’ve learned lives on this device and nowhere else. That’s how Lexi works without an account, and it means clearing your browser data would erase it. A backup is one file.
         </p>
         <div className="mt-2.5 flex gap-2 flex-wrap">
           <Button onClick={() => { void downloadBackup(); dismiss(); }}>Save a backup</Button>

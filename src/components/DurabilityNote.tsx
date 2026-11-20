@@ -32,7 +32,7 @@ export interface DurabilityState {
 export function durabilityCopy(s: DurabilityState): { safe: boolean; head: string; body: string } {
   const backup = s.lastBackup
     ? `Last backup: ${s.lastBackup}.`
-    : 'No backup yet — a backup is the one copy that survives anything.';
+    : 'No backup yet. A backup is the one copy that survives anything.';
   if (s.persisted === true) {
     return {
       safe: true,
@@ -46,7 +46,7 @@ export function durabilityCopy(s: DurabilityState): { safe: boolean; head: strin
       head: 'Not protected on this device',
       body: (s.installed
         ? 'The browser may still clear Lexi’s storage if the phone runs short of space. '
-        : 'The browser may clear Lexi’s storage — Safari does after seven days without a visit. Adding Lexi to your Home Screen avoids that. ')
+        : 'Your browser may clear Lexi’s storage. Safari does after seven days without a visit. Adding Lexi to your Home Screen avoids that. ')
         + backup,
     };
   }

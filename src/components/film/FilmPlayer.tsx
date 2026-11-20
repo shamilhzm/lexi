@@ -547,7 +547,7 @@ function TrapBeat({ term }: { term: string }) {
       <motion.p {...b} className="text-base">
         <span className="text-dim">Looks like </span>
         <span className="line-through decoration-2 decoration-[var(--color-red)]">{f.looksLike}</span>
-        <span className="text-dim"> — means </span><span className="font-semibold">{f.actually}</span>
+        <span className="text-dim">, but means </span><span className="font-semibold">{f.actually}</span>
       </motion.p>
       <motion.p {...c} className="text-sm">
         <span className="text-dim">For “{f.looksLike}”, say </span>

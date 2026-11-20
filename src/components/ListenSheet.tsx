@@ -24,8 +24,7 @@ export default function ListenSheet({ onClose, onPractise }: { onClose: () => vo
         <Kicker className="block mb-0.5">Hören</Kicker>
         <h1 className="display text-3xl mb-2">German in the background</h1>
         <p className="text-dim text-sm leading-relaxed max-w-[42ch] mb-5">
-          Press play and carry on with your day. Lexi says each word in German, in English, then
-          in a sentence — and brings it back a few minutes later, in German only. No headphones
+          Press play and carry on with your day. Lexi says each word in German, in English, then in a sentence, and brings it back a few minutes later in German only. No headphones
           needed, nothing to tap, nothing graded.
         </p>
 
@@ -49,9 +48,7 @@ export default function ListenSheet({ onClose, onPractise }: { onClose: () => vo
         {h.phase === 'consent' ? (
           <div className="mb-6">
             <p className="text-sm leading-relaxed max-w-[42ch] mb-3">
-              Hören makes its audio on this phone, so Lexi hosts none. The first time, it downloads a
-              German and an English voice — <strong className="tabular-nums">{h.needMb} MB</strong>, once —
-              and after that it works offline. Wi-Fi recommended.
+              Hören makes its audio on this phone, so Lexi hosts none. The first time, it downloads a German and an English voice (<strong className="tabular-nums">{h.needMb} MB</strong>). After that it works offline. Wi-Fi recommended.
             </p>
             <Button onClick={() => start({ minutes, loop: h.loop, consented: true })}>
               <Play size={14} /> Download the voices and play
@@ -65,8 +62,7 @@ export default function ListenSheet({ onClose, onPractise }: { onClose: () => vo
               <div className="h-full bg-accent transition-[width]" style={{ width: `${h.progress * 100}%` }} />
             </div>
             <p className="text-dim text-xs mt-2 max-w-[42ch]">
-              Keep Lexi open until it starts — about a minute the first time, quicker each day after,
-              because every word it has said once is kept on this phone.
+              Keep Lexi open until it starts. That takes about a minute the first time and less each day after, because every word it has said is kept on this phone.
             </p>
           </div>
         ) : live ? (
@@ -100,8 +96,7 @@ export default function ListenSheet({ onClose, onPractise }: { onClose: () => vo
         </div>
 
         <p className="text-dim text-2xs mt-6 max-w-[42ch]">
-          Hören plays your saved words first, then the day’s words, then the feed’s. It never grades
-          and records nothing — the bookmark on the player saves a word, and Üben teaches it next.
+          Hören plays your saved words first, then the day’s words, then the feed’s. It never grades and records nothing. The bookmark on the player saves a word, and Üben teaches it next.
         </p>
       </div>
     </Layer>

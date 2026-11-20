@@ -122,7 +122,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       {/* Appearance */}
       <Card as="section" className="mb-4">
         <div className="flex items-center gap-2 mb-1"><Palette size={16} className="text-accent" /><h2 className="text-base font-semibold">Appearance</h2></div>
-        <p className="text-dim text-xs mb-3">Lexi runs light by default — it’s a thing you read. Pick a fixed theme or follow your system.</p>
+        <p className="text-dim text-xs mb-3">Lexi is light by default, because it’s made for reading. Pick a fixed theme or follow your system.</p>
         <div className="flex flex-wrap gap-2">
           {THEMES.map(({ id, label, icon: Icon }) => (
             <button key={id} onClick={() => pickTheme(id)} aria-pressed={theme === id} className={toggle(theme === id)}>
@@ -149,7 +149,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       {/* Sound — feedback cues, on by default; also mutable from the session header. */}
       <Card as="section" className="mb-4">
         <div className="flex items-center gap-2 mb-1"><Music size={16} className="text-accent" /><h2 className="text-base font-semibold">Sound</h2></div>
-        <p className="text-dim text-xs mb-3">Soft cues as you answer — a tick when you’re right, a quieter falling note when you’re not, and a chime at the end of a session. You can also mute mid-session from the header.</p>
+        <p className="text-dim text-xs mb-3">Soft cues as you answer: a tick when you’re right, a quieter falling note when you’re not, and a chime at the end of a session. You can also mute from the header during a session.</p>
         <button onClick={() => setSound(!sound())} aria-pressed={sound()} className={toggle(sound())}>
           {sound() ? 'Sound on' : 'Sound off'}
         </button>
@@ -188,13 +188,13 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-accent" /><h2 className="text-base font-semibold">German voice</h2></div>
         <p className="text-dim text-xs mb-3">
           The HD voice is a native-German neural voice (Piper “Thorsten”) that runs on your device.
-          It downloads once (~75 MB), then works offline — far better than the built-in browser voice.
+          It downloads once (about 75 MB), then works offline, and sounds far better than the browser’s built-in voice.
           {/* Lexi says it works offline, and that is true of everything except this
               one step: enabling the voice fetches both a library and the voice
               itself over the network. Saying so here is cheaper than a learner
               discovering it on a train. */}
           <span className="block mt-1">
-            Setting it up needs a connection and a few minutes — do it on wi-fi, not on the way to class.
+            Setting it up needs a connection and a few minutes, so do it on Wi-Fi, not on the way to class.
             Until then Lexi uses your device’s built-in German voice, which works offline straight away.
           </span>
         </p>
@@ -226,8 +226,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       <Card as="section" className="mt-4">
         <div className="flex items-center gap-2 mb-1"><Archive size={16} className="text-accent" /><h2 className="text-base font-semibold">Your data</h2></div>
         <p className="text-dim text-xs mb-3">
-          Everything lives on this device. Export a backup to keep your cards, streak,
-          and progress safe — or to move to another device. Importing replaces what’s
+          Everything lives on this device. Export a backup to keep your cards, streak and progress safe, or to move to another device. Importing replaces what’s
           on this device, so export first if unsure.
         </p>
         {/* The one page that lists every exception to "lives on this device" —
@@ -283,8 +282,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         <div className="border-t border-line pt-3 mt-1">
           <p className="text-xs font-semibold mb-1">Compare with the previous version</p>
           <p className="text-dim text-2xs mb-2.5 max-w-[56ch] leading-relaxed">
-            The build from {PREVIOUS_BUILD.label}. It opens in a new tab and — because browser
-            storage belongs to one address — it starts empty: your progress stays here. To compare
+            The build from {PREVIOUS_BUILD.label}. It opens in a new tab and starts empty, because browser storage belongs to one address. Your progress stays here. To compare
             like for like, back up above and restore into it.
           </p>
           <a href={PREVIOUS_BUILD.url} target="_blank" rel="noopener noreferrer"
@@ -307,7 +305,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
             {update.kind === 'stale' && (
               <>A newer version is available ({update.sha}
               {update.builtAt ? `, built ${buildLabel(update.builtAt)}` : ''}). Updating clears the
-              cached app — your progress is stored separately and is not affected.</>
+              cached app. Your progress is stored separately and isn’t affected.</>
             )}
             {update.kind === 'unknown' && update.why}
           </p>
@@ -326,8 +324,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       {FOCUS.grammar && <Card pad="none" className="p-4">
         <h2 className="text-base font-semibold flex items-center gap-2 mb-1"><Layers size={16} className="text-accent" /> What’s in a session</h2>
         <p className="text-dim text-xs mb-3 max-w-[60ch]">
-          Flip cards are always there. These are the drills woven between them — the same word
-          asked the other way round. Switch any off and it stops appearing in sessions; turn them
+          Flip cards are always there. These are the drills woven between them, asking the same word another way. Switch any off and it stops appearing in sessions; turn them
           all off to just flick through words. Blind spots on Fortschritt still runs any of them
           on request.
         </p>

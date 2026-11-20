@@ -467,7 +467,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
           with **no `h1` at all** for a returning learner, so a screen reader
           opening Lexi was told nothing about where it had arrived. Every word
           below is an `h2` under this. */}
-      <h1 className="sr-only">Wörter — the German word feed</h1>
+      <h1 className="sr-only">Wörter, the German word feed</h1>
       {/* The one live region. `sr-only`, because the visible confirmation lives
           under the word's own actions where the eye is already looking.
           The region itself is mounted from first render and never replaced — an
@@ -504,8 +504,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
           <div>
             <h2 id="feed-end" className="text-lg font-semibold mb-1">That’s every word at these levels.</h2>
             <p className="text-dim text-sm max-w-[36ch] mx-auto">
-              {order.length.toLocaleString()} of them. Widen the level filter on Fortschritt for
-              more — or go and study the ones you saved.
+              {order.length.toLocaleString()} of them. Widen the level filter on Fortschritt for more, or go and study the ones you saved.
             </p>
           </div>
         </section>
@@ -579,7 +578,7 @@ function ReadySlot({ ready, onStart, onListen }: { ready: Ready; onStart: () => 
           <>
             <h2 id="feed-ready" className="text-2xl font-bold mt-1">Nothing waiting</h2>
             <p className="text-sm text-dim mt-1 max-w-[36ch] mx-auto">
-              Save a word with the bookmark and it lands here — Üben teaches it next.
+              Save a word with the bookmark and it lands here. Üben teaches it next.
             </p>
           </>
         )}
@@ -602,15 +601,15 @@ function Welcome({ onStart }: { onStart: () => void }) {
             is a sibling — this one, each word, and the end of the list. Two `h1`s
             on one document is two answers to "where am I". */}
         <h2 id="feed-welcome" lang="de" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h2>
-        <p className="text-dim text-sm mb-6">German vocabulary, A1 to C2 — for English speakers.</p>
+        <p className="text-dim text-sm mb-6">German vocabulary for English speakers, A1 to C2.</p>
 
         <p className="text-base leading-relaxed mb-1">
           {fmt(WORDS.length)} German words, one per screen, with the sound, the meaning and an example.
-          Scroll through them — nothing tests you until you ask.
+          Scroll through them. Nothing tests you until you ask.
         </p>
         <p className="text-dim text-sm leading-relaxed mb-7 max-w-[38ch] mx-auto">
           Save the ones you want, and <span lang="de">Üben</span> (practice) brings each one back just
-          before you’d forget it — that’s the whole system.
+          before you’d forget it.
         </p>
 
         <Button onClick={onStart}><Play size={14} /> Learn ten words now</Button>
@@ -618,7 +617,7 @@ function Welcome({ onStart }: { onStart: () => void }) {
           <ChevronDown size={13} aria-hidden /> or just scroll
         </p>
         <p className="text-dim text-2xs mt-6 leading-relaxed max-w-[40ch] mx-auto">
-          Free and open source. No account — your progress stays on this device.
+          Free and open source. No account. Your progress stays on this device.
           Every gloss and example is in English.
         </p>
       </div>
@@ -655,7 +654,7 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
     // Reported upward rather than announced here — the feed owns the one live
     // region. See the `aria-hidden` note below the actions.
     onAnnounce(now
-      ? `${word.term} saved — ${cardOf(word.id) ? 'already in your sessions' : 'your next session will teach it'}`
+      ? `${word.term} saved, ${cardOf(word.id) ? 'already in your sessions' : 'your next session will teach it'}`
       : `${word.term} removed from your saved words`);
     onSaved();
   }, [word.id, word.term, onAnnounce, onSaved]);
@@ -759,7 +758,8 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             card kept behind a tap; on a feed there is nothing to test, so there
             is nothing to hide. */}
         <p className="mt-5 text-lg sm:text-xl leading-snug max-w-[30ch]">
-          <span className="text-dim">({word.pos})</span> {word.en}
+          {/* A noun already says so with its article, in gender ink. */}
+          {!(word.pos === "noun" && word.gender) && <span className="text-dim">({word.pos}) </span>}{word.en}
         </p>
 
         {/* One example, the way a dictionary sets it. The feed earns its scroll
@@ -795,11 +795,11 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             <Info size={24} strokeWidth={1.6} />
           </Action>
           <Action label={saved ? <>Stop learning <span lang="de">{word.term}</span></>
-            : <>Learn <span lang="de">{word.term}</span> — put it in my next session</>}
+            : <>Learn <span lang="de">{word.term}</span> in my next session</>}
             pressed={saved} onClick={onSave}>
             <Bookmark size={24} strokeWidth={1.6} className={saved ? 'fill-current' : ''} />
           </Action>
-          <Action label={<>Practise <span lang="de">{word.term}</span> now — every drill for this word</>} onClick={onDrill}>
+          <Action label={<>Practise <span lang="de">{word.term}</span> now, with every drill</>} onClick={onDrill}>
             <GraduationCap size={24} strokeWidth={1.6} />
           </Action>
         </div>

@@ -70,7 +70,7 @@ export default function Stats() {
         <Panel title="Reviews per day" sub="last 14 days">
           {anyReviews
             ? <Bars values={perDay} labels={days.map(dayLabel)} color="var(--color-accent)" />
-            : <Empty text="Starts counting from today — study a session and come back." />}
+            : <Empty text="Starts counting today. Study a session and come back." />}
         </Panel>
 
         <Panel title="Recall" sub="% correct, last 14 days">
@@ -209,8 +209,8 @@ function verdict(cal: Calibration): string {
   const gap = Math.round((worst.actual! - worst.predicted!) * 100);
   if (Math.abs(gap) <= 3) return 'The scheduler is calling it about right, in every band.';
   return gap > 0
-    ? `Where it expected ${worst.label}, you recalled ${gap} points more — it is being cautious with you there.`
-    : `Where it expected ${worst.label}, you recalled ${Math.abs(gap)} points fewer — it is more confident than your results in that band.`;
+    ? `Where it expected ${worst.label}, you recalled ${gap} points more, so it’s being cautious with you there.`
+    : `Where it expected ${worst.label}, you recalled ${Math.abs(gap)} points fewer, so it’s more confident than your results in that band.`;
 }
 
 function Panel({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {

@@ -104,7 +104,7 @@ function GoalPill({ onOpen }: { onOpen: () => void }) {
   const saved = savedToday();
   const met = saved >= DAILY_SAVE_GOAL;
   const label = met
-    ? `Daily goal met — ${saved} ${saved === 1 ? 'word' : 'words'} saved today. Open your saved words`
+    ? `Daily goal met, ${saved} ${saved === 1 ? 'word' : 'words'} saved today. Open your saved words`
     : `${saved} of ${DAILY_SAVE_GOAL} words saved today. Open your saved words`;
   // **A counter that advertises a list has to open it.** This was a `<div role
   //="status">`: it told you a number was going up and gave you nowhere to go,
@@ -170,7 +170,7 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
       {/* **The mark goes to the feed.** It went to Üben — a leftover from when the
           session was the app's root — so the one control labelled *home* led away
           from the front door VISION names. On the feed it goes to the top. */}
-      <button onClick={() => onGo('feed')} aria-label="Lexi — home"
+      <button onClick={() => onGo('feed')} aria-label="Lexi home"
         className="home-btn flex items-center gap-2.5 pr-2 sm:pr-4 tap-44 rounded-full hover:opacity-80 transition-opacity">
         <LexiMark size={26} />
         <span className="wordmark font-bold text-lg tracking-wide leading-none">Lexi</span>
@@ -203,7 +203,7 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
       {view === 'feed' && <GoalPill onOpen={onSaved} />}
 
       {onListen && (
-        <button onClick={onListen} aria-label={listening ? 'Hören — playing. Open the player' : 'Hören — play German in the background'}
+        <button onClick={onListen} aria-label={listening ? 'Hören is playing. Open the player' : 'Hören: play German in the background'}
           aria-pressed={listening}
           className={`tap-44 grid place-items-center w-[40px] h-[40px] rounded-full
             hover:bg-panel2/70 active:scale-95 transition flex-shrink-0 ${listening ? 'text-accent' : 'text-txt'}`}>
@@ -224,7 +224,7 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
           **Absent at zero** (2026-09-25): it counts days with a grade or a save,
           so a stranger's first screen carries no flame they did nothing for. */}
       <button onClick={onProfile} title="Profile"
-        aria-label={`Profile — ${name || 'you'}${level ? `, ${level}` : ''}${streak > 0 ? `, ${streak}-day streak` : ''}`}
+        aria-label={`Profile, ${name || 'you'}${level ? `, ${level}` : ''}${streak > 0 ? `, ${streak}-day streak` : ''}`}
         aria-current={view === 'profile' ? 'page' : undefined}
         className={`profile-btn tap-44 flex items-center gap-2 ml-1 sm:ml-2 px-1.5 sm:px-2 py-[6px] rounded-full
           hover:bg-panel2/70 transition-colors ${view === 'profile' ? 'bg-panel2/80' : ''}`}>

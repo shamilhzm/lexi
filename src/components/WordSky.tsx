@@ -379,7 +379,7 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
         <div>
           <h2 id="sky-h" lang="de" className="headword text-2xl font-bold leading-tight">Dein Deutsch</h2>
           <p className="text-xs text-dim mt-0.5 max-w-[52ch]">
-            Every word Lexi teaches — the commonest at the centre. The ones you’ve studied are lit, as brightly as you’d remember them today.
+            Every word Lexi teaches, with the commonest at the centre. The ones you’ve studied are lit, as brightly as you’d remember them today.
           </p>
         </div>
         <div className="flex items-center gap-1.5 flex-wrap" role="group" aria-label="Colour the sky by">
@@ -425,9 +425,9 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
         <StarDetail key={word.id} word={word} rank={freqRankOf(word.id)} events={events ?? []}
           onEntry={() => setEntry(word)} onClose={() => setSelected(null)} />
       ) : counts.lit === 0 ? (
-        <p className="mt-2 text-center text-sm text-dim">Nothing lit yet. Your first session lights the centre — the words in every German sentence.</p>
+        <p className="mt-2 text-center text-sm text-dim">Nothing lit yet. Your first session lights the centre, where the words of every German sentence sit.</p>
       ) : (
-        <p className="mt-2 text-center text-2xs text-dim">Tap a star to see that word’s memory — how it fades, and how each review makes it fade more slowly.</p>
+        <p className="mt-2 text-center text-2xs text-dim">Tap a star to see how that word fades from memory, and how each review slows the fade.</p>
       )}
 
       {/* The numbers the picture is made of, said in words. */}
@@ -496,13 +496,13 @@ function Legend({ lens, glints, fading }: { lens: Lens; glints: boolean; fading:
   return (
     <p className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 text-2xs text-dim">
       {lens === 'memory' && <>
-        {dot('--color-green', 'known — brighter recalls better, bigger lasts longer')}{dot('--color-accent', 'learning')}{dot('--color-line', 'not met yet')}
-        {fading && <span className="inline-flex items-center gap-1.5"><span className="inline-block w-[9px] h-[9px] rounded-full border border-accent" />fading — due again</span>}
+        {dot('--color-green', 'known: brighter recalls better, bigger lasts longer')}{dot('--color-accent', 'learning')}{dot('--color-line', 'not met yet')}
+        {fading && <span className="inline-flex items-center gap-1.5"><span className="inline-block w-[9px] h-[9px] rounded-full border border-accent" />fading, due again</span>}
         {glints && <span className="inline-flex items-center gap-1.5"><span className="text-accent">✦</span>reviewed today</span>}
       </>}
       {lens === 'level' && <>{(['a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as const).map((l) => <span key={l}>{dot(`--color-${l}`, l.toUpperCase())}</span>)}</>}
       {lens === 'gender' && <>{dot('--color-der', 'der')}{dot('--color-die', 'die')}{dot('--color-das', 'das')}{dot('--color-dim', 'not a noun', 0.5)}</>}
-      <span>rings: the 100 · 500 · 1k · 3k commonest words — the arc is how many you’ve lit</span>
+      <span>rings: the 100 · 500 · 1k · 3k commonest words. The arc shows how many you’ve lit</span>
     </p>
   );
 }
@@ -551,7 +551,7 @@ function StarDetail({ word, rank, events, onEntry, onClose }: {
           </p>
           {curve.points.length > 1 && <Curve curve={curve} />}
           <p className="mt-1 text-2xs text-dim leading-relaxed">
-            Each review sends it back to 100%, and it falls more slowly after every one — that’s why the gaps between reviews keep growing.
+            Each review sends it back to 100%, and it falls more slowly after every one. That’s why the gaps between reviews keep growing.
             {stability ? <> It now stays above 90% for about <b className="text-txt">{stability < 1 ? 'a day' : `${Math.round(stability)} days`}</b>.</> : null}
             {' '}Reconstructed from your reviews with today’s scheduler settings.
           </p>

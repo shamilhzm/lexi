@@ -58,8 +58,7 @@ export default function ReminderCard() {
         <h2 className="text-base font-semibold">Study time</h2>
       </div>
       <p className="text-xs text-dim mb-3">
-        Pick when you want to study. If the day is slipping, Lexi will say so — by
-        whichever of the two below you turn on.
+        Pick when you want to study. If the day is slipping, Lexi tells you, by whichever of the two below you turn on.
       </p>
 
       <div className="flex items-center gap-2.5 flex-wrap mb-3">

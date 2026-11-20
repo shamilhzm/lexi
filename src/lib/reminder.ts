@@ -15,7 +15,7 @@
 // here — see the backlog. It would be the third leg, not a replacement.
 import { reminderTime, reviewedToday } from '../store.ts';
 
-const TITLE = 'Deutsch lernen — Lexi';
+const TITLE = 'Deutsch lernen mit Lexi';
 
 // ---- calendar ------------------------------------------------------------
 

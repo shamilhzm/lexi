@@ -30,14 +30,12 @@ export default function VoiceOffer({ onClose }: { onClose: () => void }) {
         <Volume2 size={16} className="text-accent mt-0.5 shrink-0" aria-hidden />
         <div className="min-w-0 flex-1">
           {done && !error ? (
-            <p className="text-xs text-green">That’s the HD voice — every word from here on uses it.</p>
+            <p className="text-xs text-green">That’s the HD voice. Every word from here on uses it.</p>
           ) : (
             <>
               <p className="text-sm font-semibold leading-snug">That was your device’s built-in voice.</p>
               <p className="text-dim text-xs mt-1 leading-relaxed">
-                Lexi can use a native-German neural voice instead — it downloads once
-                (~75 MB, so use wi-fi) and then works offline. Much closer to how the
-                word actually sounds.
+                Lexi can use a neural voice trained on a native German speaker instead. It downloads once (about 75 MB, so use Wi-Fi), then works offline, and sounds much closer to the real thing.
               </p>
             </>
           )}

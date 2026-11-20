@@ -102,7 +102,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
       <p className="font-semibold text-2xs uppercase tracking-widest text-accent">Your turn</p>
       <h2 id="respond-h" lang="de" className="headword text-2xl font-bold mt-1">Was denkst du?</h2>
       <p className="text-sm text-dim mt-1">
-        Two to four sentences, in German, about what you just read — your opinion, a question, what it means for you.
+        Two to four sentences in German about what you just read: your opinion, a question, what it means for you.
       </p>
       {words.length > 0 && (
         <p className="mt-3 flex flex-wrap items-center gap-1.5 text-xs text-dim">
@@ -131,7 +131,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
 
       {asked && !listening && mic.available && (
         <p className="mt-2 text-xs text-dim">
-          Your browser recognises speech in its maker’s cloud, so the recording goes there — never to Lexi. Tap
+          Your browser recognises speech in its maker’s cloud, so the recording goes there and never to Lexi. Tap
           {' '}<b className="text-txt">Say it</b> again to record.
         </p>
       )}

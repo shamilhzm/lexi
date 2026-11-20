@@ -124,7 +124,7 @@ export function selfReportNote(falseAlarms: number, foilsSeen: number): string |
   if (foilsSeen === 0 || falseAlarms === 0) return null;
   const rate = falseAlarms / foilsSeen;
   if (rate <= TRUST_CEILING) {
-    return `You marked ${falseAlarms} invented word${falseAlarms === 1 ? '' : 's'} as known — that is normal, and your level is adjusted for it.`;
+    return `You marked ${falseAlarms} invented word${falseAlarms === 1 ? '' : 's'} as known. That’s normal, and your level is adjusted for it.`;
   }
   return `You marked ${falseAlarms} of ${foilsSeen} invented words as known, so we have not pre-filled anything. Your level is an estimate; the app will learn the rest from how you answer.`;
 }

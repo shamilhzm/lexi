@@ -179,7 +179,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
           {paras.length > 0 && (
             article.audio ? (
               <div className="mt-4">
-                <p className="text-xs text-dim flex items-center gap-1.5 mb-1.5"><Headphones size={13} /> Read slowly by DW — listen while you read</p>
+                <p className="text-xs text-dim flex items-center gap-1.5 mb-1.5"><Headphones size={13} /> Read slowly by DW. Listen while you read</p>
                 {/* eslint-disable-next-line jsx-a11y/media-has-caption -- the captions are the page: DW's audio is a reading of exactly the text below. */}
                 <audio controls preload="none" src={article.audio} className="w-full" />
               </div>
@@ -194,7 +194,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
           {body === 'loading' && <p className="mt-6 flex items-center gap-2 text-sm text-dim"><Loader2 size={14} className="animate-spin" /> Fetching the article…</p>}
           {body === 'failed' && (
             <p className="mt-6 text-sm text-dim">
-              Couldn’t load the text — you may be offline, or this hour’s allowance of Tagesschau requests is spent.{' '}
+              Couldn’t load the text. You may be offline, or this hour’s Tagesschau requests are used up.{' '}
               <a href={article.url} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted hover:text-accent">Read it on the publisher’s site</a>.
             </p>
           )}

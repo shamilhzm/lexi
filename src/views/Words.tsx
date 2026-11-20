@@ -127,7 +127,7 @@ function Index({ onOpenGroup, onText, onGame, onKurs }: {
         {inScope < WORDS.length
           ? <>{fmt(inScope)} of Lexi’s {fmt(WORDS.length)} cards are in the levels you’re studying.</>
           : <>Every one of the {fmt(WORDS.length)} cards Lexi teaches.</>}
-        {' '}Browse by theme — or tap the magnifier above to look one up.
+        {' '}Browse by theme, or tap the magnifier above to look a word up.
       </p>
 
       {/* No search field here any more. There is a magnifier in the bar on every
@@ -157,7 +157,7 @@ function Index({ onOpenGroup, onText, onGame, onKurs }: {
         <span className="flex-1 min-w-0">
           <span lang="de" className="block text-lg font-semibold leading-tight">Wörter aus einem Text</span>
           <span className="block text-xs text-dim mt-1">
-            Paste an article, or the words from today’s class — Lexi marks what you know and saves the rest for Üben.
+            Paste an article, or the words from today’s class. Lexi marks what you know and saves the rest for Üben.
           </span>
         </span>
         <ChevronRight size={18} className="text-dim flex-shrink-0" />
@@ -179,7 +179,7 @@ function Index({ onOpenGroup, onText, onGame, onKurs }: {
         <span className="flex-1 min-w-0">
           <span lang="de" className="block text-lg font-semibold leading-tight">Sag es</span>
           <span className="block text-xs text-dim mt-1">
-            One minute, out loud. Say each word until the recogniser catches it — needs a microphone.
+            One minute, out loud. Say each word until the recogniser catches it. Needs a microphone.
           </span>
         </span>
         <ChevronRight size={18} className="text-dim flex-shrink-0" />

@@ -38,10 +38,7 @@ export default function OfflinePack() {
         <h2 className="text-base font-semibold">Use Lexi offline</h2>
       </div>
       <p className="text-dim text-xs mb-3 max-w-[60ch]">
-        Lexi keeps what you have opened. This puts the rest on this device too — every
-        word’s examples at every level, and the screens you have not visited yet — so
-        nothing is missing without a connection. The dictionary is separate: a larger
-        download, and about 20 MB on the device once unpacked.
+        Lexi keeps what you have opened. This downloads the rest too: every word’s examples at every level, and the screens you haven’t visited yet, so nothing is missing offline. The dictionary is a separate, larger download, about 20 MB once unpacked.
       </p>
 
       {progress ? (
@@ -69,17 +66,16 @@ export default function OfflinePack() {
         </div>
       )}
 
-      {!online && !progress && <p className="text-dim text-xs mt-2">You’re offline — connect to download.</p>}
+      {!online && !progress && <p className="text-dim text-xs mt-2">You’re offline. Connect to download.</p>}
 
       {result && result.failed > 0 && (
         <p className="text-red-txt text-xs mt-2 flex items-center gap-1.5">
-          <X size={14} /> {result.failed} of {result.fetched + result.failed} files did not arrive. What did is kept — try again on a better connection.
+          <X size={14} /> {result.failed} of {result.fetched + result.failed} files didn’t arrive. The rest are kept, so try again on a better connection.
         </p>
       )}
       {result && result.failed === 0 && result.kept !== result.wanted && (
         <p className="text-dim text-xs mt-2 max-w-[60ch]">
-          Downloaded, but this browser did not keep the files — it has no offline storage for
-          Lexi here (a private window does this). Open Lexi from your Home Screen and try again.
+          Downloaded, but this browser didn’t keep the files. It has no offline storage for Lexi here, which happens in a private window. Open Lexi from your Home Screen and try again.
         </p>
       )}
       {record && !progress && (
@@ -87,7 +83,7 @@ export default function OfflinePack() {
           <Check size={14} />
           <span>
             {record.dictionary ? 'Words and dictionary' : 'Words'} on this device since {buildLabel(record.at)}
-            {stale && <span className="text-dim"> — from an earlier version; refresh to match this one</span>}
+            {stale && <span className="text-dim">. From an earlier version, so refresh to update it.</span>}
           </span>
         </p>
       )}

@@ -148,7 +148,7 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement, o
         <span className="grid place-items-center w-[40px] h-[40px] rounded-md bg-panel2 text-accent flex-shrink-0"><LayoutGrid size={19} /></span>
         <span className="flex-1 min-w-0">
           <span className="block text-base font-semibold">Browse the lexicon</span>
-          <span className="block text-2xs text-dim mt-0.5">Every deck and every word, with a search box — on Themen.</span>
+          <span className="block text-2xs text-dim mt-0.5">Every deck and every word, searchable, on Themen.</span>
         </span>
         <ChevronRight size={18} className="text-dim flex-shrink-0" />
       </BandRow>
@@ -246,7 +246,7 @@ function OutOfScope() {
   if (n === 0) return null;
   return (
     <p className="text-dim text-xs mt-1">
-      {fmt(n)} more outside the levels you’re studying — still yours, still scheduled.
+      {fmt(n)} more outside the levels you’re studying, still yours and still scheduled.
     </p>
   );
 }
@@ -272,8 +272,8 @@ function Met() {
       {/* "1 met in the feed · 1 today" says the same number twice. Today's count
           is only news when it is a *part* of the total. */}
       {fmt(met)} met in the feed{metToday() > 0 && metToday() < met && <> · {fmt(metToday())} today</>}
-      {' — '}
-      <span className="text-dim">browsing, not tested. The ones you keep stopping on get taught first.</span>
+      {'. '}
+      <span className="text-dim">Browsing, not tested. The ones you keep stopping on get taught first.</span>
     </p>
   );
 }
@@ -306,7 +306,7 @@ function Headline() {
           <CountUp value={t.known} from={seen?.known} />
         </span>
         <span className="text-dim text-base mb-1.5">
-          of {fmt(t.count)} in scope
+          of {fmt(t.count)} at your levels
           <span className="ml-1.5 font-semibold" style={{ color: heatText(t.coverage) }}>· {pct}%</span>
         </span>
       </div>

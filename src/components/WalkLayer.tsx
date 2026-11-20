@@ -173,8 +173,7 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
         {phase === 'choose' && (
           <>
             <p className="text-dim text-sm leading-relaxed max-w-[40ch] mb-4">
-              For a walk with headphones in. You hear the English and a soft tone — say the German out
-              loud, then Lexi says it. Knew it? Double-press your headphones. Didn’t? Triple-press.
+              For a walk with headphones in. You hear the English and a soft tone. Say the German out loud, then Lexi says it. Knew it? Double-press your headphones. Didn’t? Triple-press.
               Only the words you press for count toward your progress.
             </p>
             <div role="radiogroup" aria-label="Length" className="flex flex-wrap gap-2 mb-4">
@@ -188,15 +187,13 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
             </div>
             <p className="text-dim text-xs mb-4">
               {counts.due} to review · {counts.fresh} new{counts.fresh ? ' (taught, then tested twice more on the way)' : ''}
-              {' '}· then listening, which never grades — a double-press saves the word.
+              {' '}· then listening, which never grades. A double-press saves the word.
             </p>
             {canRenderWalk()
               ? <Button onClick={prepare}><Headphones size={14} /> Prepare the walk</Button>
               : <p className="text-sm">This browser can’t make offline audio, so walk mode isn’t available here.</p>}
             <p className="text-dim text-2xs mt-3 max-w-[40ch]">
-              The audio is made on this phone, so Lexi hosts none. The first walk downloads a German
-              and an English voice once — about 138 MB, less if you already use the HD voice — and
-              after that it works offline. Wi-Fi recommended.
+              The audio is made on this phone, so Lexi hosts none. The first walk downloads a German and an English voice, about 138 MB (less if you already use the HD voice). After that it works offline. Wi-Fi recommended.
             </p>
           </>
         )}
@@ -256,7 +253,7 @@ export default function WalkLayer({ onClose }: { onClose: () => void }) {
 
         {phase === 'done' && (
           <>
-            <p className="text-sm mb-1">{tally.knew + tally.missed} answers you vouched for — {tally.knew} knew, {tally.missed} didn’t.</p>
+            <p className="text-sm mb-1">{tally.knew + tally.missed} answers you vouched for: {tally.knew} knew, {tally.missed} didn’t.</p>
             <p className="text-dim text-sm mb-4">{tally.saved ? `${tally.saved} word${tally.saved === 1 ? '' : 's'} saved for Üben.` : 'Nothing saved from the listening lane.'}</p>
             <Button onClick={onClose}>Done</Button>
           </>

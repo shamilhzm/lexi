@@ -75,7 +75,7 @@ export function setAiConsent() {
 export function aiDisclosure(): string {
   return `When you ask for an explanation, Lexi sends the sentence, its paragraph and the article’s title; `
     + `when you ask for a correction, it sends what you wrote, the article’s title and the words you were trying to use. `
-    + `Your level goes with both. It goes to Lexi’s own server, which passes it to Anthropic (Claude) and keeps none of it — `
+    + `Your level goes with both. It goes to Lexi’s own server, which passes it to Anthropic (Claude) and keeps none of it. `
     + `Anthropic’s terms and privacy policy apply, including any minimum age. `
     + `Leave out personal details you wouldn’t put in an email.`;
 }

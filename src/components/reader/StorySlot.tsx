@@ -125,7 +125,7 @@ export function TopicSlot({ onChosen }: { onChosen: () => void }) {
         <p className="font-semibold text-2xs uppercase tracking-widest text-accent text-center">Also in the feed</p>
         <h2 id="topics-slot" className="text-2xl font-bold text-center mt-1">Today’s news, in German</h2>
         <p className="text-sm text-dim text-center mt-1 mb-5 max-w-[40ch] mx-auto">
-          Pick what you’d read anyway, and a story joins the feed every few words — tap any word in it to look it up or save it.
+          Pick what you’d read anyway, and a story joins the feed every few words. Tap any word in it to look it up or save it.
         </p>
         <ul className="flex flex-wrap justify-center gap-2">
           {TOPICS.map((t) => {

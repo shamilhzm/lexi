@@ -42,8 +42,7 @@ export default function WantedWords() {
       <p className="text-dim text-xs mb-3 max-w-[52ch]">
         {list.length === 1 ? 'One word' : `${list.length} words`} you looked up and the corpus
         doesn’t carry. Suggest them on GitHub (the issue opens filled in, and you see it before
-        anything is posted) and each is checked against a dictionary — the ones that verify
-        become cards; the ones that don’t, don’t.
+        anything is posted) and each is checked against a dictionary. The ones that check out become cards.
       </p>
 
       <div className="flex flex-wrap gap-2 mb-3">

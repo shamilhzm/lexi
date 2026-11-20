@@ -604,7 +604,7 @@ describe('why-this-card copy', () => {
     const { why } = await freshWhy();
     const line = why.whyLine({ kind: 'drill', mode: 'recall', parent: w('Tisch') });
     expect(line?.em).toBe('Tisch');
-    expect(`${line?.lead}${line?.em}${line?.tail}`).toBe('You flipped Tisch a few cards ago — now produce it');
+    expect(`${line?.lead}${line?.em}${line?.tail}`).toBe('You flipped Tisch a few cards ago. Now produce it');
   });
 
   // The tail is per-mode. "Now produce it" was written for the recall drill and

@@ -285,7 +285,7 @@ export function articleMiss(typed: string, w: Word): string | null {
   if (!w.gender) return null;
   const bare = norm(stripArticle(w.term));
   const t = norm(typed);
-  if (t === bare) return `The word is right — German needs the article: ${w.term}.`;
+  if (t === bare) return `Right word, but German needs the article: ${w.term}.`;
   const m = /^(der|die|das)\s+(.*)$/.exec(t);
   if (m && m[2] === bare) return `Right word, wrong gender: it is ${w.term}, not „${typed.trim()}“.`;
   return null;
@@ -353,7 +353,7 @@ export function reflexiveMiss(typed: string, w: Word): string | null {
   const full = recallAnswers(w).at(-1) ?? w.term;
   if (!/^sich\s/.test(full)) return null;
   return answerKey(typed) === answerKey(full.replace(/^sich\s+/, ''))
-    ? `The verb is right — German needs the reflexive: ${full}.` : null;
+    ? `Right verb, but German needs the reflexive: ${full}.` : null;
 }
 
 // ---- pools (lazy, level-filtered at use) ----------------------------------
@@ -443,7 +443,7 @@ export const MODE_TAG: Record<Mode, string> = {
 export const MODES: { m: Mode; label: string; icon: LucideIcon; desc: string }[] = [
   { m: 'gender', label: 'der / die / das', icon: CircleDot, desc: 'Nail the gender of every noun.' },
   { m: 'plural', label: 'Plurals', icon: Layers3, desc: 'Pick the right plural.' },
-  { m: 'recall', label: 'Recall', icon: PenLine, desc: 'English in, German out — with the article. The half of knowing a word that recognition never proves.' },
+  { m: 'recall', label: 'Recall', icon: PenLine, desc: 'You see the English and type the German, with its article.' },
 ];
 
 /** Words for a mode, due-first then unseen, shuffled within each band. */
@@ -803,7 +803,7 @@ export function RecallItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
         // card the corpus says means the same. See `recallAnswers`.
         accept: [...recallAnswers(word), ...syns.flatMap(recallAnswers)],
         hints: recallHints(word),
-        explain: word.ex[0]?.de ? `${word.ex[0].de} — ${word.ex[0].en}` : undefined,
+        explain: word.ex[0]?.de ? `${word.ex[0].de} · ${word.ex[0].en}` : undefined,
       },
     };
   }, [word.id]);
@@ -811,7 +811,7 @@ export function RecallItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   return (
     <>
       <p className="text-2xs text-dim text-center mb-2">
-        {word.gender ? 'Type the German — with its article' : 'Type the German'}
+        {word.gender ? 'Type the German, with its article' : 'Type the German'}
       </p>
       <TypeItem ex={ex} onGrade={onGrade} promptLang="en"
         noteFor={(typed, ok) => ok
@@ -1204,11 +1204,11 @@ export function TypeItem({ ex, onGrade, promptLang = 'de', noteFor }: {
   };
   const nearNote = near
     ? spellingDiff(val, hit)
-      ? `Right — just the spelling: ${hit} (${spellingDiff(val, hit)})`
+      ? `Right, but check the spelling: ${hit} (${spellingDiff(val, hit)})`
       // A typo and an umlaut fold are both near misses and are not the same
       // lesson: one is a slipped finger, the other is a spelling the learner may
       // believe is correct. Naming which is the whole point.
-      : `Right — just a typo: ${hit}`
+      : `Right, just a typo: ${hit}`
     : undefined;
   // Both can be true at once — a synonym typed with "ae" is a spelling lesson
   // *and* a different word from the card's — so both are said.

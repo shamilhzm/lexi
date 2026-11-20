@@ -53,7 +53,7 @@ export default function WordDetail({ word, onClose, onPractise }: {
   // focus and the × all come from there too, so this file is now only the entry
   // itself, which is all it should ever have been.
   return (
-    <Layer side="left" label={`${word.term} — full entry`} onClose={onClose}>
+    <Layer side="left" label={`${word.term}, full entry`} onClose={onClose}>
       <div className="pb-16">
 
         {/* The headword at display size, exactly as the feed showed it — same
@@ -73,7 +73,7 @@ export default function WordDetail({ word, onClose, onPractise }: {
             {!word.ipa && <SpeakButton text={word.term} />}
           </div>
           <p className="mt-3.5 text-lg leading-snug">
-            <span className="text-dim">({word.pos})</span> {word.en}
+            {!(word.pos === "noun" && word.gender) && <span className="text-dim">({word.pos}) </span>}{word.en}
           </p>
           <Kicker className="block mt-2">{word.level} · {word.field}</Kicker>
 
@@ -87,18 +87,18 @@ export default function WordDetail({ word, onClose, onPractise }: {
                   className={`tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition active:scale-90 ${saved ? 'text-accent' : 'text-txt hover:text-accent'}`}>
                   <Bookmark size={24} strokeWidth={1.6} className={saved ? 'fill-current' : ''} />
                   <span className="sr-only">{saved ? <>Stop learning <span lang="de">{word.term}</span></>
-                    : <>Learn <span lang="de">{word.term}</span> — put it in my next session</>}</span>
+                    : <>Learn <span lang="de">{word.term}</span> in my next session</>}</span>
                 </button>
                 <button onClick={onPractise}
                   className="tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition active:scale-90 text-txt hover:text-accent">
                   <GraduationCap size={24} strokeWidth={1.6} />
-                  <span className="sr-only">Practise <span lang="de">{word.term}</span> now — every drill for this word</span>
+                  <span className="sr-only">Practise <span lang="de">{word.term}</span> now, with every drill</span>
                 </button>
               </div>
               {/* Its line is always there, so pressing the bookmark does not push
                   the entry down by one row of text. */}
               <p aria-hidden className={`h-4 text-xs leading-4 text-dim transition-opacity ${saved ? 'opacity-100' : 'opacity-0'}`}>
-                Saved — Üben teaches it next.
+                Saved. Üben teaches it next.
               </p>
             </>
           )}

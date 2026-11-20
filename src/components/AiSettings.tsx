@@ -28,9 +28,7 @@ export default function AiSettings() {
     <Card as="section" className="mb-4">
       <div className="flex items-center gap-2 mb-1"><Sparkles size={16} className="text-accent" /><h2 className="text-base font-semibold">Tutor (optional)</h2></div>
       <p className="text-dim text-xs mb-3">
-        Lexi can explain a sentence you’re reading, with Claude, through Lexi’s own server. No AI key is kept in this
-        browser — only an access code that works for Lexi’s tutor and nothing else, from whoever runs this Lexi.
-        Without it, none of your reading goes to an AI, and everything else works.
+        Lexi can explain a sentence you’re reading, using Claude through Lexi’s own server. This browser keeps no AI key, only an access code for Lexi’s tutor from whoever runs this Lexi. Without the code, none of your reading goes to an AI and everything else still works.
       </p>
       <p className="text-dim text-xs mb-3" id="ai-disclosure">
         {aiDisclosure()}{' '}
@@ -38,7 +36,7 @@ export default function AiSettings() {
       </p>
 
       <label className="block text-xs text-dim mb-1" htmlFor="ai-code">
-        Access code {has && <span>(saved — leave blank to keep it)</span>}
+        Access code {has && <span>(saved, leave blank to keep it)</span>}
       </label>
       <input id="ai-code" type="password" autoComplete="off" spellCheck={false} value={code} onChange={(e) => setCode(e.target.value)}
         placeholder={has ? '••••••••' : 'Paste the access code'}

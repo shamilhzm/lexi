@@ -85,7 +85,7 @@ export function useHdVoice(): HdVoiceSetup {
     // sends someone to look for a problem that isn't theirs.
     if (typeof navigator !== 'undefined' && navigator.onLine === false) {
       setPercent(null); setPhase(null);
-      setError('You’re offline — the HD voice has to download once before it can work without a connection.');
+      setError('You’re offline. The HD voice has to download once before it works without a connection.');
       return;
     }
     try {

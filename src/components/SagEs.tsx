@@ -269,8 +269,8 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           return;
         }
         if (e === 'audio-capture') {
-          setError('No audio is reaching the microphone. On a simulator that is normal — '
-            + 'on a phone, check that nothing else is using the mic.');
+          setError('No audio is reaching the microphone. On a simulator that is normal. '
+            + 'On a phone, check that nothing else is using the mic.');
           setPhase('blocked');
           return;
         }
@@ -283,7 +283,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
         // pretending to listen.
         failures.current += 1;
         if (failures.current >= 4) {
-          setError(`The recogniser keeps stopping (${e}). That is the browser, not you — try again, or use Chrome.`);
+          setError(`The recogniser keeps stopping (${e}). That’s the browser, not you. Try again, or use Chrome.`);
           setPhase('blocked');
         }
       },
@@ -380,16 +380,14 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
               The clock belongs to the run. */}
           <h2 className="text-2xl font-bold mb-2">Clear as many words as you can</h2>
           <p className="text-dim mb-4">
-            One minute. A word stays until the recogniser catches it, and the word
-            fills up as it gets closer — so you can see it closing in. Clear as many
+            One minute. A word stays until the recogniser catches it, and it fills up as you get closer. Clear as many
             as you can.
           </p>
           {/* The disclosure, before the microphone opens rather than after. Lexi keeps
               everything else on this device; this is the exception and it says so. */}
           <p className="text-xs text-dim mb-6 leading-[1.55] border-l-2 border-line pl-3">
             <b className="text-txt">Your voice leaves this device for this game.</b> Speech
-            recognition runs on Apple’s or Google’s servers depending on your browser —
-            Lexi has no say in it, and nothing else in the app works this way. Nothing is
+            recognition runs on Apple’s or Google’s servers, depending on your browser. Lexi has no say in that, and nothing else in the app works this way. Nothing is
             recorded here, and no result is saved to your progress.
           </p>
           <Button onClick={begin}><Mic size={16} /> Start</Button>
@@ -411,7 +409,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           </h2>
           <p className="text-dim mb-5">
             {t.skipped > 0
-              ? `${t.skipped} skipped — here is what the recogniser heard on those.`
+              ? `${t.skipped} skipped. Here’s what the recogniser heard on those.`
               : 'Everything you reached, it caught.'}
           </p>
           <ul className="mb-6 border-t border-line">
@@ -563,7 +561,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
           </Button>
           <span className={`text-xs ${quiet ? 'text-red' : 'text-dim'}`}>
             {!armed ? 'Waiting for the microphone…'
-              : quiet ? 'Not hearing anything — is the mic blocked?'
+              : quiet ? 'Not hearing anything. Is the mic blocked?'
               : live ? '' : 'Listening…'}
           </span>
         </div>

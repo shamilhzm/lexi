@@ -11,6 +11,28 @@ it is already built.
 
 ---
 
+### 2026-11-20 · the copy pass
+
+**What shipped.** Every sentence in the app that leaned on an em-dash aside was
+rewritten by hand: 167 in the surfaces, 171 in the film narration, plus the page
+title, link-preview text, install name and the README pitch. Closers that sounded
+generated went with them (*“that’s the whole system”*, *“showing up is the whole
+trick”*, *“Worth a look:”*, *“offered rather than owed”*). The feed and the full
+entry no longer print *(noun)* before a noun’s gloss; the article in gender ink
+already says it. Fortschritt says *at your levels* instead of *in scope*.
+
+**What stayed.** En dashes in ranges (*A1–C2*, *60–75%*), a lone dash for an empty
+value, the German *Gedankenstrich* inside two film prompts (correct German), the
+*AI-drawn* caption on pictograms (the legal review asked for it where they are met),
+and the Claude/Anthropic disclosure in the tutor’s consent text.
+
+**Why.** The owner read the app and saw a machine’s habits in it. The rewrite is two
+reviewable scripts, `scripts/copy/dashes-2026-11-19.mjs` and
+`scripts/copy/films-2026-11-19.mjs`, each refusing to write unless every target
+matches exactly once. Three tests pinned the old wording and were updated with it.
+
+---
+
 ### 2026-11-19 — a film for every unit
 
 **What shipped.** The 23 course units that had no film now have one: **52 units, 52

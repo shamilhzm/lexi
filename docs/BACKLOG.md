@@ -2764,6 +2764,15 @@ user; none of it is built.*
 - **Web Push for installed PWAs · M** (#34). The deliberate day-2 return mechanism,
   still undecided. A local notification from the existing reminder watch is the
   serverless version.
+- **Der Türsteher, Moment mal and the widgets · L · 📱** *(planned 2026-11-19, not built)*. An
+  app gate (three words before Reddit, Instagram or YouTube opens), an interrupt after N
+  minutes of scrolling, and lock/home/StandBy widgets including a *der/die/das* widget that
+  grades. All of it needs a native iOS shell (Capacitor, per STORES.md): iOS has no
+  “another app opened” event, so the gate runs through a user-made Shortcuts automation
+  and the interrupt through Screen Time shields. Phase 0 is a one-day Shortcuts prototype
+  for the owner, to test the habit before the platform. Five decisions are open (iOS
+  before Android, gate answers grade FSRS, notifications only from a shield, domain,
+  names). Plan and prototype: https://claude.ai/artifact/MAifr2p826UH5nb57X16dj
 - **Home-screen widget / Live Activity · M · 📱** (#35). "3 due" on the lock screen is
   the highest-leverage retention surface a local-first app can own without a backend.
 - **Share and arrival readiness · S each.** The OG image still points at

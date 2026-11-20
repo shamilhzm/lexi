@@ -42,7 +42,7 @@ export default function BlindSpotList({ onDrill, days = 30 }:
           <Target className="text-green" size={18} />
         </div>
         <h3 className="text-base font-bold mb-1">No blind spots yet</h3>
-        <p className="text-dim text-xs">Every miss in a session is tracked here — genders, plurals, spelling, the German you couldn’t produce — so you can go straight at the weak one.</p>
+        <p className="text-dim text-xs">Every miss in a session lands here: genders, plurals, spelling, and the German you couldn’t produce. Start with the weakest.</p>
       </div>
     );
   }

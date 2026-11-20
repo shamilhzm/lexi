@@ -158,7 +158,7 @@ export default function Placement({ onDone }: { onDone: () => void }) {
             className="text-dim text-base mb-6">
             {seeded > 0
               ? <>Seeded {seeded} word{seeded === 1 ? '' : 's'} you already know, and focused Lexi on {result === 'A1' ? 'A1' : <>A1–{result}</>}. You can change the level filter anytime.</>
-              : <>Starting fresh at {result} — the best place to start. Every word from here on counts.</>}
+              : <>Starting fresh at {result}, the best place to start. Every word from here on counts.</>}
           </motion.p>
           {/* Say what the invented words did. A learner who ticked some deserves
               to know it changed the result, and a learner who ticked enough that
@@ -230,7 +230,7 @@ export default function Placement({ onDone }: { onDone: () => void }) {
           what else was staged. Saying it up front costs nothing and makes the
           correction legible rather than a trick. */}
       <p className="text-center text-2xs text-dim mt-3 leading-relaxed max-w-[38ch] mx-auto">
-        Answer honestly — this just calibrates where you start.
+        Answer honestly. This only sets where you start.
         <br />
         <span className="text-txt">A few of these words are invented.</span> Nobody knows them, and
         that is how the test knows what your answers are worth.

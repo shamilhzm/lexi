@@ -55,15 +55,13 @@ export default function SavedWords({ onClose, onStudy, onListen }: {
 
         {words.length === 0 ? (
           <p className="text-dim text-sm leading-relaxed max-w-[38ch] mt-3">
-            The bookmark on a word in the feed puts it here. It is the thing to press when a word
-            catches you and you have not got time to practise it — Üben teaches saved words before
-            anything it would have chosen on its own.
+            The bookmark on a word in the feed puts it here. Press it when a word catches you and you don’t have time to practise. Üben teaches saved words before anything it would pick on its own.
           </p>
         ) : (
           <>
             <p className="text-dim text-xs mb-4">
               Üben serves these before the words it would have picked on its own.
-              {today > 0 && <> {today} of them saved today{today >= DAILY_SAVE_GOAL ? ' — past your goal.' : `, ${DAILY_SAVE_GOAL - today} to your goal.`}</>}
+              {today > 0 && <> {today} of them saved today{today >= DAILY_SAVE_GOAL ? '. Past your goal.' : `, ${DAILY_SAVE_GOAL - today} to your goal.`}</>}
             </p>
 
             <Button onClick={() => { onStudy({ kind: 'custom', name: 'Saved words', ids: words.map((w) => w.id) }); onClose(); }}>

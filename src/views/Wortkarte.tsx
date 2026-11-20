@@ -203,7 +203,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
             <g key={n.w.id} className="node-in"
               style={{ cursor: 'pointer' }}
               role="button" tabIndex={0}
-              aria-label={`${n.w.term} — ${n.w.en}. ${STATUS_LABEL[st]}. Activate to hear it.`}
+              aria-label={`${n.w.term}, ${n.w.en}. ${STATUS_LABEL[st]}. Activate to hear it.`}
               onClick={() => { setActive(n.w.id); speak(n.w.term); }}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(n.w.id); speak(n.w.term); } }}>
               <circle cx={n.x} cy={n.y} r={n.r} fill="var(--color-panel)" stroke={STATUS_COLOR[st]} strokeWidth={on ? 2.5 : 1.4} />
@@ -226,6 +226,6 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
 function ActiveInfo({ id }: { id: string }) {
   const w = useMemo(() => [...WORDS_BY_SECTOR.values()].flat().find((x) => x.id === id), [id]);
   if (!w) return null;
-  return <span className="text-txt"><b lang="de" className="text-accent">{w.term}</b> — {w.en}{w.ipa ? ` · /${w.ipa}/` : ''}{w.ex[0] ? <> · <span lang="de">„{w.ex[0].de}“</span></> : ''}</span>;
+  return <span className="text-txt"><b lang="de" className="text-accent">{w.term}</b> · {w.en}{w.ipa ? ` · /${w.ipa}/` : ''}{w.ex[0] ? <> · <span lang="de">„{w.ex[0].de}“</span></> : ''}</span>;
 }
 const Dot = ({ c }: { c: string }) => <span className="inline-block w-2 h-2 rounded-full align-middle" style={{ background: c }} />;

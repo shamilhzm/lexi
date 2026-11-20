@@ -146,7 +146,7 @@ function GoalCard() {
       {/* It said "Today shows" — the briefing that went on 2026-09-05. The sentence
           has lived on Fortschritt since; the card kept pointing at a screen that
           no longer exists (found on the simulator, 2026-11-14). */}
-      <p className="text-xs text-dim mb-3">A level and a date — Fortschritt shows whether your pace gets you there.</p>
+      <p className="text-xs text-dim mb-3">Set a level and a date, and Fortschritt shows whether your pace gets you there.</p>
       <div className="flex items-center gap-2.5 flex-wrap">
         <label className="sr-only" htmlFor="goal-level">Target level</label>
         <select id="goal-level" value={level} onChange={(e) => setLevel(e.target.value as CEFR)}

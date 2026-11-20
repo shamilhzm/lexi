@@ -160,9 +160,9 @@ function Tomorrow({ weakest }: { weakest?: string }) {
         <CalendarClock size={14} className="text-accent flex-shrink-0 mt-0.5" />
         <span>
           {back > SESSION_CEILING
-            ? <><span className="text-txt font-semibold">Tomorrow serves {SESSION_CEILING}.</span> {back} are waiting in all — the rest keep, and come in the days after.</>
+            ? <><span className="text-txt font-semibold">Tomorrow serves {SESSION_CEILING}.</span> {back} are waiting in all. The rest keep for the days after.</>
             : back > 0
-            ? <><span className="text-txt font-semibold">{back} card{back === 1 ? '' : 's'} waiting tomorrow.</span> That’s the system working — showing up is the whole trick.</>
+            ? <><span className="text-txt font-semibold">{back} card{back === 1 ? '' : 's'} waiting tomorrow.</span> Lexi brings each one back just before it slips.</>
             : <>Nothing is waiting tomorrow. Come back anyway and Lexi will start something new.</>}
         </span>
       </p>
@@ -170,7 +170,7 @@ function Tomorrow({ weakest }: { weakest?: string }) {
       {weakest && (
         <p className="text-xs text-dim flex items-start gap-2">
           <TrendingDown size={14} className="text-red flex-shrink-0 mt-0.5" />
-          <span>Worth a look: <span className="text-txt font-semibold">{weakest}</span> tripped you up most this session.</span>
+          <span><span className="text-txt font-semibold">{weakest}</span> tripped you up most this session.</span>
         </p>
       )}
 
@@ -183,7 +183,7 @@ function Tomorrow({ weakest }: { weakest?: string }) {
       )}
       {!time && asked && (
         <p className="text-xs text-green flex items-center gap-1.5">
-          <Check size={13} /> Set for {DEFAULT_TIME} — change it or add a calendar event in your profile.
+          <Check size={13} /> Set for {DEFAULT_TIME}. Change it or add a calendar event in your profile.
         </p>
       )}
     </div>

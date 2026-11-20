@@ -27,11 +27,11 @@ const LEVEL_NAME: Record<CEFR, string> = {
 };
 const LEVEL_LINE: Record<CEFR, string> = {
   A1: 'The words of everyday life, and the first ideas that hold German together: articles, plurals, the verb in second place.',
-  A2: 'Doctors, flats, jobs, travel — and the sentences that say why: weil, dass, the Perfekt.',
+  A2: 'Doctors, flats, jobs, travel, and the sentences that say why: weil, dass, the Perfekt.',
   B1: 'Work, the environment, the news, the offices. Word-building starts to pay: endings that tell you the article, long words made of short ones.',
-  B2: 'The language of the workplace, science, politics and opinion — nouns made from verbs, the passive, Konjunktiv II.',
-  C1: 'Language schools split C1 into Beruf and Hochschule. Lexi doesn’t make you choose: one line through both — a shared core, the meeting room and the seminar in turn, and bridge units that teach one skill in both settings.',
-  C2: 'Idioms, register, word-building and specialist language — the difference between correct and native.',
+  B2: 'The language of work, science, politics and opinion: nouns made from verbs, the passive, Konjunktiv II.',
+  C1: 'Language schools split C1 into Beruf and Hochschule. Lexi teaches both in one line: a shared core, the meeting room and the seminar in turn, and bridge units that practise one skill in both settings.',
+  C2: 'Idioms, register, word-building and specialist language.',
 };
 const STRAND_LABEL = { kern: 'Kern', beruf: 'Beruf', hochschule: 'Hochschule' } as const;
 
@@ -94,7 +94,7 @@ export default function Kurs({ level, onLevel, onBack, onStudy }: {
       </ol>
 
       <p className="text-2xs text-dim mt-5 max-w-[60ch]">
-        Every unit is open. Films explain; they never grade — only Üben does, on the words you choose to learn.
+        Every unit is open. Films explain and never grade. Only Üben grades, and only the words you choose to learn.
       </p>
 
       <AnimatePresence>

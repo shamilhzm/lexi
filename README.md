@@ -4,16 +4,16 @@
 
 A free, open-source German vocabulary app for English speakers: **11,000+ words** from
 A1 to C2 to learn, and a dictionary of **93,000+** headwords to look things up in. No account,
-no ads, nothing to cancel — and your progress stays on your device.
+no ads, nothing to cancel, and your progress stays on your device.
 
-**[Open Lexi →](https://lexi-eosin.vercel.app)** — it runs in the browser; add it to your
+**[Open Lexi →](https://lexi-eosin.vercel.app)** It runs in the browser. Add it to your
 home screen and it works offline.
 
 [![Every word Lexi teaches as a night sky, the commonest at the centre, beside the line: Scroll German. Save a word. Lexi makes it stick.](public/og.jpg)](https://lexi-eosin.vercel.app)
 
 ## Who it is for
 
-English speakers **living with German** — past the course, somewhere between A2 and B2,
+English speakers **living with German**: past the course, somewhere between A2 and B2,
 who want to read the news and the letter from the *Ausländerbehörde* without a
 dictionary open. It works from A1, but Lexi teaches **words, not grammar**: if you are
 starting from zero, use it beside a course, not instead of one.
@@ -23,9 +23,9 @@ starting from zero, use it beside a course, not instead of one.
 - **Nothing to pass.** Lexi opens on a German word, not a quiz: one word per screen,
   with its sound, its meaning and an example, and nothing is graded until you ask.
   Every few words there is a German news story on topics you choose (tagesschau, SRF,
-  DW, heise), fetched by your own browser — tap any word in it to save it.
+  DW, heise), fetched by your own browser. Tap any word in it to save it.
 - **You choose what you learn.** Save a word and **Üben** (practice) brings it back
-  just before you would forget it — FSRS spaced repetition. Cards say *why* they are in
+  just before you would forget it, using FSRS spaced repetition. Cards say *why* they are in
   front of you, and recognising a word and producing it (typed, article included) are
   scheduled separately, because recognising is only half of knowing.
 - **Checked, not generated.** Gender, plural, part of speech and pronunciation come
@@ -36,7 +36,7 @@ starting from zero, use it beside a course, not instead of one.
   headphone buttons; silence grades nothing, and your voice is never scored.
 - **Your German, as a sky.** Every word Lexi teaches is a star, the commonest at the
   centre, and the ones you know are lit as brightly as you would recall them today.
-  Share it — the picture carries the link.
+  Share it, and the picture carries the link.
 - **Yours.** No account, no tracking, no ads. Progress lives in your browser's storage
   (back it up from Settings). An optional tutor explains sentences on *your own* AI key,
   and is off until you add one. The code is MIT; the corpus is CC BY-SA, every source
@@ -48,11 +48,11 @@ Lexi is small on purpose. What the others do better is real, and worth saying:
 
 | If you use… | it is better at… | Lexi is different because… |
 |---|---|---|
-| **Duolingo** | a whole course — grammar, listening, speaking — as a daily game | it is only vocabulary, for adults, with no game to win or lose, and it goes deep at B1–C1 |
+| **Duolingo** | a whole course (grammar, listening, speaking) as a daily game | it is only vocabulary, for adults, with no game to win or lose, and it goes deep at B1–C1 |
 | **Anki** with a shared deck | anything, in any language, exactly your way | there is no deck to build or debug, and every gender and plural is checked |
-| **LingQ, Readlang** | reading any text you bring | a word counts as known when the scheduler's evidence says you would recall it, not when you mark it — and it is free |
+| **LingQ, Readlang** | reading any text you bring | a word counts as known when the scheduler's evidence says you would recall it, not when you mark it, and it is free |
 
-> **What Lexi deliberately does not do** — teach grammar, mark your speech, run leagues,
+> **What Lexi deliberately does not do:** drill grammar, mark your speech, run leagues,
 > or say "you can now…" from a word count. *Ruled 2026-09-05:* a drill earns its place
 > if it tests a property of the **word** (gender, plural, spelling, the German you have
 > to produce) and goes if it tests a **rule of the language**. Every gloss is in

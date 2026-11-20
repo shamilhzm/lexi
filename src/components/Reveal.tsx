@@ -76,7 +76,7 @@ export function SpeakButton({ text, label }: {
   if (!voice) {
     return (
       <span role="button" aria-disabled="true"
-        aria-label="No German voice is installed on this device — use the IPA above"
+        aria-label="No German voice is installed on this device. Use the IPA above."
         title="No German voice installed on this device"
         className="tap-hit inline-grid place-items-center w-[24px] h-[24px] rounded-sm text-dim/50
           flex-shrink-0 align-middle cursor-not-allowed">
@@ -226,7 +226,7 @@ export function FalseFriendNote({ term }: { term: string }) {
       <p className="text-sm leading-relaxed flex gap-2">
         <TriangleAlert size={14} className="text-accent flex-shrink-0 mt-0.5" aria-hidden />
         <span>
-          Looks like <span className="text-txt font-semibold">“{ff.looksLike}”</span> — it means{' '}
+          Looks like <span className="text-txt font-semibold">“{ff.looksLike}”</span>, but it means{' '}
           <span className="text-txt font-semibold">{ff.actually}</span>.
           <span className="block text-dim mt-0.5">
             For “{ff.looksLike}” say <span lang="de" className="text-txt">{ff.insteadSay}</span>.
@@ -302,7 +302,7 @@ export function CardSource({ id }: { id: string }) {
         {band && (
           <p>
             <span className="text-txt font-semibold">{band.label}</span>
-            <span className="text-dim"> — {band.note}.</span>
+            <span className="text-dim"> · {band.note}.</span>
           </p>
         )}
         <p className="text-dim">{prov.level} · {levelBasis(prov.levelSource)}.</p>

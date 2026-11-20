@@ -46,8 +46,7 @@ export default function StrandedFavourites() {
         <h2 className="text-base font-semibold">Words you hearted</h2>
       </div>
       <p className="text-dim text-xs mb-3 max-w-[52ch]">
-        The heart is gone from the feed — it marked words without changing anything, which
-        the bookmark already does better. {words.length === 1 ? 'One word is' : `${words.length} words are`}{' '}
+        The heart is gone from the feed. It marked words without doing anything with them, and the bookmark does that job better. {words.length === 1 ? 'One word is' : `${words.length} words are`}{' '}
         still here. Move {words.length === 1 ? 'it' : 'them'} to your saved words and Üben will
         teach {words.length === 1 ? 'it' : 'them'}.
       </p>

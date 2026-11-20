@@ -93,7 +93,7 @@ describe('articleMiss — naming a gender error instead of just saying no', () =
   const sprache = () => byTerm('die Sprache');
 
   it('names the bare noun as an article omission, not a vocabulary failure', () => {
-    expect(articleMiss('Sprache', sprache())).toContain('The word is right');
+    expect(articleMiss('Sprache', sprache())).toContain('Right word');
     expect(articleMiss('Sprache', sprache())).toContain('die Sprache');
   });
 

@@ -21,17 +21,16 @@ import type { Mode } from '../views/drills.tsx';
 export const STALE_DAYS = 7;
 
 /** What each drill actually asks of the learner, said in the caption above it. */
-const DRILL_TAIL: Record<Mode, string> = {
-  gender: 'now the article',
-  plural: 'now the plural',
-  recall: 'now produce it',
-  reverse: 'now find it from the English',
-  cloze: 'now in a sentence',
-  usage: 'now find its sentence',
-  conjugate: 'now its forms',
-  degree: 'now its comparative',
-  synonym: 'now what else says it',
-  prep: 'now its preposition',
+const DRILL_TAIL: Record<Mode, string> = {  gender: 'Now the article',
+  plural: 'Now the plural',
+  recall: 'Now produce it',
+  reverse: 'Now find it from the English',
+  cloze: 'Now in a sentence',
+  usage: 'Now find its sentence',
+  conjugate: 'Now its forms',
+  degree: 'Now its comparative',
+  synonym: 'Now what else says it',
+  prep: 'Now its preposition',
 };
 
 export interface WhyLine {
@@ -71,7 +70,7 @@ export function whyLine(reason: SessionReason): WhyLine | null {
 
     case 'due':
       return reason.overdueDays >= STALE_DAYS
-        ? { icon: Clock, lead: `Waiting ${reason.overdueDays} days — this one’s overdue` }
+        ? { icon: Clock, lead: `${reason.overdueDays} days overdue` }
         : null;
 
     case 'drill':
@@ -87,13 +86,13 @@ export function whyLine(reason: SessionReason): WhyLine | null {
       return {
         icon: Sparkle,
         lead: 'You flipped ', em: reason.parent.term, emLang: 'de',
-        tail: ` a few cards ago — ${DRILL_TAIL[reason.mode]}`,
+        tail: ` a few cards ago. ${DRILL_TAIL[reason.mode]}`,
       };
 
     case 'blindspot':
       return {
         icon: TrendingDown,
-        lead: 'A weak spot — ', em: reason.tag, tail: `, missed ${reason.misses}×`,
+        lead: 'Weak spot: ', em: reason.tag, tail: `, missed ${reason.misses}×`,
       };
 
     case 'orphan':
@@ -113,8 +112,8 @@ export function whyLine(reason: SessionReason): WhyLine | null {
       // Said, because a card you just graded coming straight back looks like a bug
       // unless something says it is the point.
       return reason.missed
-        ? { icon: Repeat, lead: 'Back again — you missed this a few cards ago' }
-        : { icon: Repeat, lead: 'Once more, from memory — you met this a few cards ago' };
+        ? { icon: Repeat, lead: 'Back again. You missed this a few cards ago' }
+        : { icon: Repeat, lead: 'Once more, from memory. You met this a few cards ago' };
   }
 }
 
