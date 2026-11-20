@@ -2264,3 +2264,14 @@ newline. **Rule:** use the simulator for layout and touch; put content into fiel
 through the DOM (`form_input` in the browser pane) and read the result there. And the
 dev server's base is `/lexi/`: open `http://127.0.0.1:<port>/lexi/`, or the page is blank.
 
+
+## A test that reads the wall clock passes until it is run at midnight *(added 2026-11-20)*
+
+**Believed:** the forecast test in `store-budget.test.ts` was deterministic, because it
+creates every card it reads. **True:** it graded cards at the real time and read the
+"today" column, and a Good grade's first step is minutes long, so at 23:51 every card
+fell due tomorrow and the column read 0. The pre-deploy run caught it; CI runs in UTC
+and would have hit it at 23:50 UTC. **Rule:** a test that reads a day bucket, a due
+date or `localDayKey()` pins the clock with `vi.setSystemTime` at noon UTC, which is a
+safe distance from midnight in every zone from UTC−11 to UTC+14. Rerun it with
+`TZ=Pacific/Kiritimati` and `TZ=Pacific/Pago_Pago` to prove it.

@@ -121,17 +121,25 @@ describe('the new-word budget is per day', () => {
 describe('the forecast counts only what a session can serve', () => {
   it('leaves out the retired syllabus and words outside the level filter', async () => {
     const { data, store, srs } = await fresh();
-    data.registerWords([word('a1'), word('b2', { level: 'B2' })]);
-    store.review('a1', srs.Rating.Good);
-    store.review('b2', srs.Rating.Good);
-    store.review('gex:perfekt-1', srs.Rating.Good);   // inert, kept, never served
-    store.review('gram:kasus', srs.Rating.Good);
-    store.review('gym:gender:a1', srs.Rating.Good);
+    // At noon: a Good grade's first step is minutes long, and run near midnight it
+    // lands tomorrow, so the "today" column read 0 (failed at 23:51 on 2026-11-20).
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-07-01T12:00:00Z'));
+      data.registerWords([word('a1'), word('b2', { level: 'B2' })]);
+      store.review('a1', srs.Rating.Good);
+      store.review('b2', srs.Rating.Good);
+      store.review('gex:perfekt-1', srs.Rating.Good);   // inert, kept, never served
+      store.review('gram:kasus', srs.Rating.Good);
+      store.review('gym:gender:a1', srs.Rating.Good);
 
-    expect(store.dueForecast(2)[0]).toBe(3);          // a1, b2 and the drill
-    store.setLevels(new Set(['A1']));
-    expect(store.dueForecast(2)[0]).toBe(2);          // a1 and its drill
-    store.toggleDrillMode('gender');                  // muted: not served either
-    expect(store.dueForecast(2)[0]).toBe(1);
+      expect(store.dueForecast(2)[0]).toBe(3);          // a1, b2 and the drill
+      store.setLevels(new Set(['A1']));
+      expect(store.dueForecast(2)[0]).toBe(2);          // a1 and its drill
+      store.toggleDrillMode('gender');                  // muted: not served either
+      expect(store.dueForecast(2)[0]).toBe(1);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
