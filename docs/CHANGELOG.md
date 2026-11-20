@@ -11,6 +11,31 @@ it is already built.
 
 ---
 
+### 2026-11-20 · the matcher is recorded, and four workflows are skills
+
+**What shipped.** `src/lib/golden/` holds what `buildMatcher` and `conjugate` do over
+the whole corpus: every token of 26,443 example sentences and 11,330 headwords, and the
+full conjugation of 2,036 verbs. `golden.test.ts` replays the recording and fails with
+the sentences whose tokens moved. `npm run golden:record` reports the diff, and
+`-- --write` accepts it. The inputs (`inputs.json.gz`, a corpus snapshot from
+`6afb9c9`) are frozen, so only a code change can move the outputs, and a corpus batch
+never does. The outputs are plain text, one line per input, so a re-record reviews as a
+git diff. Its first catch was real: the persona pass's governed-infinitive rule moved
+six lines (*nachdenken* now resolves to *nachdenken über + A*), and they were
+re-recorded with it.
+
+Also four project skills in `.claude/skills/`: corpus edit, deploy, persona drive and
+film authoring. Each loads only when its task comes up, so those procedures no longer
+have to sit in context on every turn. `.gitignore` now tracks `.claude/skills/` and
+still ignores the rest of `.claude/`.
+
+**Why.** The authoring gate, the reader, the scanner and coverage all stand on the
+matcher, and its unit tests pinned a few dozen hand-picked cases. A refactor could
+pass all of them and still move thousands of tokens. The idea is borrowed from
+rust-anything's record and replay. Its Rust half was declined: Lexi's limit is bytes on
+first load, not CPU, and a wasm module would spend the boot budget that is already
+nearly full.
+
 ### 2026-11-20 · a persona pass: fifty defects, each now a test
 
 **What shipped.** Six persona audits (restore, typing, hostile pastes, time zones, the

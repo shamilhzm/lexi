@@ -70,7 +70,8 @@
     "measure": "node scripts/serve-measured.ts",
     "icons": "node scripts/icons/build.ts",
     "corpus:homograph": "node scripts/corpus/homograph.ts",
-    "corpus:spelling": "node scripts/corpus/spelling.ts"
+    "corpus:spelling": "node scripts/corpus/spelling.ts",
+    "golden:record": "node scripts/golden/record.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

@@ -35,6 +35,8 @@ scripts/authoring/batches/inputs/
 # Transient storage write-probe.
 .writetest
 
-# Local editor/preview config (launch.json for the dev-server preview).
-.claude/
+# Local editor/preview config (launch.json for the dev-server preview, worktrees,
+# settings.local.json). The project skills are the exception: they are shared.
+.claude/*
+!.claude/skills/
 .env*
