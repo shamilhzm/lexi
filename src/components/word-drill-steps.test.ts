@@ -28,8 +28,12 @@ const word = (id: string, term: string, extra: Partial<Word> = {}): Word => ({
   ipa: null, def: null, syn: [], ant: [], ex: [], field: 'Test', kind: 'word', ...extra,
 });
 
-const HUND = word('hund', 'der Hund', { en: 'dog', gender: 'der', plural: 'die Hunde' });
-const LAUFEN = word('laufen', 'laufen', { en: 'to run', pos: 'verb' });
+// With an example each, as every card has once its level's examples are loaded:
+// `usage` needs a sentence, and without one it rendered an empty step.
+const HUND = word('hund', 'der Hund', { en: 'dog', gender: 'der', plural: 'die Hunde',
+  ex: [{ de: 'Der Hund schläft.', en: 'The dog is asleep.', lvl: 'A1' }] });
+const LAUFEN = word('laufen', 'laufen', { en: 'to run', pos: 'verb',
+  ex: [{ de: 'Ich laufe jeden Morgen.', en: 'I run every morning.', lvl: 'A1' }] });
 
 describe('stepsFor', () => {
   it('always opens with meaning, and never on its own', async () => {
@@ -46,6 +50,17 @@ describe('stepsFor', () => {
       expect(steps.length, `${w.term} gets a real run`).toBeGreaterThanOrEqual(3);
       expect(new Set(steps).size, `${w.term} repeats no step`).toBe(steps.length);
     }
+  });
+
+  // Persona pass, 2026-11-20: before a level's examples arrive (or offline, after
+  // that fetch failed) `usage` was still chosen, rendered nothing, and the run
+  // stopped on an empty step with no Next.
+  it('never plans a sentence step for a card with no sentence', async () => {
+    const { data, drill, surface } = await fresh();
+    const bare = word('bare', 'gehen', { en: 'to go', pos: 'verb' });
+    data.registerWords([bare]);
+    surface.resetSurfaceIndex();
+    for (let k = 0; k < 20; k++) expect(drill.stepsFor(bare)).not.toContain('usage');
   });
 
   it('caps the run, however much a word qualifies for', async () => {

@@ -4,10 +4,10 @@
 import { useState } from 'react';
 import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight, Scale } from 'lucide-react';
 import { FOCUS } from '../lib/focus.ts';
-import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal } from '../store.ts';
+import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal, localDayKey } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { supportLinkShown } from '../lib/platform.ts';
-import { fmt } from '../lib/ui.ts';
+import { fmt, initialOf } from '../lib/ui.ts';
 import { ALL_LEVELS, type CEFR } from '../types.ts';
 import TopicPicker from '../components/TopicPicker.tsx';
 import ReminderCard from '../components/ReminderCard.tsx';
@@ -28,7 +28,7 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(name);
   const save = () => { setProfileName(draft); setEditing(false); };
-  const initial = (name || 'L').trim().charAt(0).toUpperCase();
+  const initial = initialOf(name);
 
   return (
     <div className="w-full max-w-[640px] mx-auto">
@@ -134,7 +134,7 @@ function GoalCard() {
   const g = goal();
   const [level, setLevel] = useState<CEFR>(g?.level ?? 'B1');
   const [date, setDate] = useState(g?.date ?? '');
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localDayKey();   // a date input's value is a local date
   const valid = date > today;
   const dirty = !g || g.level !== level || g.date !== date;
   return (

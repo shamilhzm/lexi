@@ -8,7 +8,11 @@
 import { exportBackup } from '../store.ts';
 
 export async function downloadBackup(): Promise<void> {
-  const blob = new Blob([await exportBackup()], { type: 'application/json' });
+  let json: string;
+  // Refused when progress has not loaded (see `exportData`). Every caller fires
+  // this and forgets it, so the reason is said here rather than lost.
+  try { json = await exportBackup(); } catch (err) { alert((err as Error).message); return; }
+  const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = `lexi-backup-${new Date().toISOString().slice(0, 10)}.json`;

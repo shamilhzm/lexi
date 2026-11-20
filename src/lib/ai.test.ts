@@ -10,6 +10,8 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 vi.mock('./idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbUpdate: async () => undefined,
+  idbSetMany: async () => undefined,
   idbReady: async () => true,
 }));
 
@@ -103,6 +105,7 @@ describe('no AI key in this browser', () => {
     setTutorCode('code-123');
     setAiConsent();
     const store = await import('../store.ts');
+    await store.hydrate();
     const backup = store.exportData();
     expect(backup).not.toContain('code-123');
     expect(backup).not.toContain('lexi.tutor.code.v1');

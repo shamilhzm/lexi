@@ -179,7 +179,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
                   <li key={i} className="rounded-lg bg-panel2 px-3 py-2 text-sm">
                     <span lang="de" className="line-through text-dim">{x.original}</span>{' → '}
                     <span lang="de" className="font-semibold">{x.fix}</span>
-                    <span className="ml-2 font-semibold text-2xs uppercase tracking-wider text-dim">{KIND_LABEL[x.kind] ?? x.kind}</span>
+                    <span className="ml-2 font-semibold text-2xs uppercase tracking-wider text-dim">{Object.hasOwn(KIND_LABEL, x.kind) ? KIND_LABEL[x.kind] : x.kind}</span>
                     <p className="text-xs text-dim mt-0.5">{x.why}</p>
                   </li>
                 ))}

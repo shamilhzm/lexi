@@ -76,10 +76,17 @@ const SCALE: { rating: Grade; label: string; firstSight: string }[] = [
 
 /** The first-session tour (components/Tour.tsx). Replaces the inline coach
  *  block, which spent the card's height to say the same things in one line. */
+/** How long a card must have been on screen, or turned, before a grade counts:
+ *  shorter than any deliberate read, longer than a double tap. */
+const GRADE_SETTLE_MS = 280;
+
 const SESSION_TOUR: TourStep[] = [
   {
     title: 'This is Üben, where words stick',
-    body: <>Each card is a word you saved, one due back, or a new one. <b className="text-txt">Tap the card</b> to turn it and see the answer.</>,
+    // The tour runs on the first session, whose cards are all new, and a new card
+    // arrives already turned. "Tap the card to see the answer" sat over a card
+    // with its answer showing and nothing to tap for.
+    body: <>Each card is a word you saved, one due back, or a new one. A new word arrives with its meaning showing; for the others, <b className="text-txt">tap the card</b> to see the answer.</>,
     target: '[data-tour="session-card"]',
   },
   {
@@ -305,7 +312,15 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   useEffect(() => { saveSession(target, queue, i); }, [target, queue, i]);
 
   const item = queue[i];
-  const flip = useCallback(() => { setFlipped((f) => !f); tick('flip'); }, []);
+  // **A grade needs the card to have been on screen** (2026-11-20). The grade keys
+  // and "Show answer" share one cell, and `touch-action: manipulation` lets a fast
+  // double tap fire twice: tap one flipped the card and tap two graded it before
+  // its back was read, or tap one graded and tap two graded the next card, a new
+  // word whose keys show at once, unseen. Each new card and each turn re-arms.
+  const shownAt = useRef(0);
+  useEffect(() => { shownAt.current = performance.now(); }, [item?.srsId, i]);
+  const settled = () => performance.now() - shownAt.current >= GRADE_SETTLE_MS;
+  const flip = useCallback(() => { shownAt.current = performance.now(); setFlipped((f) => !f); tick('flip'); }, []);
 
   // **The answers are never left behind the tab bar** *(2026-10-14)*. The stage
   // shrinks the card to fit, but a drill's four answer keys cannot shrink, and at a
@@ -356,6 +371,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   // below; this function stays unconditional so undo and tests can drive it.
   const grade = useCallback((g: Grade, via?: 'swipe') => {
     if (!item || item.type !== 'flip') return;
+    if (!settled()) return;
     const wasNew = statusOf(item.srsId) === 'new';
     const dAgain = g === Rating.Again ? 1 : 0;
     const dNew = g !== Rating.Again && wasNew ? 1 : 0;
@@ -454,6 +470,10 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      // A held key auto-repeats about thirty times a second, and every repeat of
+      // → or 2 graded the next card unseen. Cmd/Alt+← is the browser's Back, not
+      // a grade. Persona pass, 2026-11-20.
+      if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
       const t = e.target as HTMLElement | null;
       // Never hijack keys while the learner is typing an answer — Space must
       // insert a space in "habe gemacht", not flip the card.

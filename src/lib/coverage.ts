@@ -224,14 +224,49 @@ export function nearHeadword(tok: string, pool: readonly Word[]): Word | null {
   const t = tok.toLowerCase();
   if (t.length < 5) return null;
   let hit: Word | null = null;
+  // Only heads within one letter of the token's length can be one edit away.
+  // Bucketed once per pool (2026-11-20): the scan stripped and lower-cased all
+  // 11,220 terms for every missing token, a second for a long text.
+  const byLen = headsByLength(pool);
+  for (const len of [t.length - 1, t.length, t.length + 1]) {
+    for (const { head, w } of byLen.get(len) ?? []) {
+      if (!withinOne(t, head)) continue;
+      if (hit && hit.term !== w.term) return null;
+      hit ??= w;
+    }
+  }
+  return hit;
+}
+
+const headCache = new WeakMap<readonly Word[], { size: number; byLen: Map<number, { head: string; w: Word }[]> }>();
+function headsByLength(pool: readonly Word[]) {
+  const c = headCache.get(pool);
+  if (c && c.size === pool.length) return c.byLen;   // WORDS grows when a class pack lands
+  const byLen = new Map<number, { head: string; w: Word }[]>();
   for (const w of pool) {
     if (w.kind !== 'word') continue;
     const head = w.term.replace(/^(der\/die|der|die|das|sich)\s+/i, '').toLowerCase();
-    if (head.includes(' ') || !withinOne(t, head)) continue;
-    if (hit && hit.term !== w.term) return null;
-    hit ??= w;
+    if (head.includes(' ')) continue;
+    const list = byLen.get(head.length) ?? [];
+    list.push({ head, w });
+    byLen.set(head.length, list);
   }
-  return hit;
+  headCache.set(pool, { size: pool.length, byLen });
+  return byLen;
+}
+
+/** The sentence of `text` that `tok` occurs in, flattened and trimmed — what a
+ *  noted word carries as the place it was met. The scanner used to attach the
+ *  text's first eighty characters to every word, which rarely held the word. */
+export function sentenceAround(text: string, tok: string, max = 160): string {
+  const flat = text.replace(/\s+/g, ' ');
+  const m = new RegExp(`(?<!\\p{L})${tok.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')}(?!\\p{L})`, 'u').exec(flat);
+  if (!m) return flat.slice(0, max).trim();
+  const start = Math.max(0, ...['. ', '! ', '? ', '; '].map((p) => flat.lastIndexOf(p, m.index) + p.length).filter((i) => i > 0 && i <= m.index));
+  const ends = ['.', '!', '?', ';'].map((p) => flat.indexOf(p, m.index + tok.length)).filter((i) => i >= 0);
+  const end = ends.length ? Math.min(...ends) + 1 : flat.length;
+  const s = flat.slice(start, end).trim();
+  return s.length <= max ? s : s.slice(0, max - 1).trimEnd() + '…';
 }
 
 export interface CoverageOptions {
@@ -266,7 +301,9 @@ export function coverageOf(text: string, opts: CoverageOptions): Coverage {
     const skip = excludedReason(tok)
       ?? (!seg.word && names?.has(tok) ? 'entity' : null)
       ?? (inAddress(segs, i) ? 'entity' : null);
-    if (skip || /^\d/.test(tok) || tok.length < minLength) {
+    // `Vor-` in *Vor- und Nachteile* is half of a word the text spells out next
+    // to it (an Ergänzungsstrich), not a missing word to count or note.
+    if (skip || /^\d/.test(tok) || tok.length < minLength || tok.endsWith('-')) {
       if (skip) excluded[skip]++;
       tokens.push({ text: tok, isWord: true, word: null, counted: false, state: null });
       continue;

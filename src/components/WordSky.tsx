@@ -38,7 +38,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent as R
 import { AnimatePresence, useReducedMotion } from 'motion/react';
 import { Play, Bookmark, BookmarkCheck, Info, Share2, X } from 'lucide-react';
 import { WORDS } from '../data/index.ts';
-import { cardOf, statusOf, retention, isSaved, toggleSaved } from '../store.ts';
+import { cardOf, statusOf, retention, isSaved, toggleSaved, localDayKey } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { retrievability } from '../srs.ts';
 import { freqRankOf } from '../lib/freq.ts';
@@ -337,7 +337,7 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
   const canReplay = !!plan && plan.ats.length >= 12;
   useEffect(() => {
     if (!canReplay || reduce || !visible || document.hidden) return;
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDayKey();
     try {
       if (localStorage.getItem(REPLAYED_KEY) === today) return;
       localStorage.setItem(REPLAYED_KEY, today);

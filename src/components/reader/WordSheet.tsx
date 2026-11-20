@@ -36,6 +36,9 @@ export interface Picked {
   /** True when `word` is only the head of a compound the token decomposed into. */
   compound: boolean;
   sentence: string;
+  /** Where the tapped token starts in `sentence`. Without it the first match of
+   *  the spelling was marked: *Bank* inside *Bankenkrise*, or the first of two. */
+  at?: number;
   paragraph: string;
 }
 
@@ -80,7 +83,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
   const entries = lex === 'loading' ? [] : lex.entries;
   const lemma = entries[0]?.w ?? surface;
   const noted = isWanted(lemma);
-  const at = sentence.indexOf(surface);
+  const at = picked.at !== undefined && sentence.startsWith(surface, picked.at) ? picked.at : sentence.indexOf(surface);
 
   return (
     <div role="dialog" aria-label={`About ${surface}`}

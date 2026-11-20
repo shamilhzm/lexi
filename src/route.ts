@@ -74,9 +74,16 @@ export const DEFAULT_ROUTE: Route = { view: 'feed', words: { level: 'index' } };
 
 const INDEX: WordsRoute = { level: 'index' };
 
+/** `decodeURIComponent` throws on a stray `%` (`#/words/g/100%`), and this runs
+ *  in App's first render, so one malformed link was a blank screen. A segment
+ *  that will not decode is read as typed. */
+function decode(s: string): string {
+  try { return decodeURIComponent(s); } catch { return s; }
+}
+
 /** Read the current hash into a route. Unknown hashes fall back to the feed. */
 export function parseHash(hash = location.hash): Route {
-  const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+  const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decode);
   const head = parts[0];
   const view = (ALIAS[head] ?? head) as View;
   if (!VIEWS.includes(view)) return DEFAULT_ROUTE;
@@ -116,6 +123,33 @@ export function parseHash(hash = location.hash): Route {
   }
 
   return { view, words: INDEX };
+}
+
+/** The deck names the loaded corpus carries. */
+export interface KnownNames {
+  groups: ReadonlySet<string>;
+  sectors: ReadonlySet<string>;
+}
+
+/** Drop the parts of a route that name a deck the corpus does not have.
+ *
+ *  `parseHash` cannot know which names exist, and the views trusted it: a link to
+ *  a renamed group (or one typed by hand) drew an empty deck page with a
+ *  "Study <name>" button, and the session it started said "every card in this
+ *  deck is scheduled ahead", which is false: there is no deck. A name that is
+ *  gone lands on the nearest level that exists, the same rule as the aliases. */
+export function knownRoute(r: Route, k: KnownNames): Route {
+  const t = r.target;
+  if (t && ((t.kind === 'group' && !k.groups.has(t.name)) || (t.kind === 'sector' && !k.sectors.has(t.name)))) {
+    return { view: 'words', words: INDEX };
+  }
+  const w = r.words;
+  const groupOk = !!w.group && k.groups.has(w.group);
+  if (w.level === 'group' && !groupOk) return { ...r, words: INDEX };
+  if (w.level === 'map' && !(w.sector && k.sectors.has(w.sector))) {
+    return { ...r, words: groupOk ? { level: 'group', group: w.group } : INDEX };
+  }
+  return r;
 }
 
 /** Serialise a route to a hash. */

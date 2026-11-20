@@ -32,9 +32,10 @@
 // meaning right on a new word and its status can move to Learning mid-run; a
 // recomputed list would then grow a step underneath the learner, and a run that
 // gets longer the better you do is a punishment.
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Check } from 'lucide-react';
 import Layer from './Layer.tsx';
+import { loadDetailFor } from '../data/detail.ts';
 import { review, logAttempt, logMiss } from '../store.ts';
 import { Rating } from '../srs.ts';
 import { haptic, tick } from '../lib/ui.ts';
@@ -130,9 +131,19 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
   /** Where closing lands — the sheet is opened from the feed and from search. */
   backLabel?: string;
 }) {
+  // The word's examples live in its level's detail shard. Planned before they
+  // arrive, the run lost its sentence steps; so the plan waits for them, briefly
+  // (a shard that fails, offline, settles too, and the run goes on without).
+  const [ready, setReady] = useState(word.ex.length > 0);
+  useEffect(() => {
+    if (ready) return;
+    let live = true;
+    void loadDetailFor([word]).finally(() => { if (live) setReady(true); });
+    return () => { live = false; };
+  }, [word, ready]);
   // Read once, when the sheet opens — `stepsFor` shuffles, so recomputing would
   // reorder the run underneath the learner mid-answer.
-  const steps = useMemo(() => stepsFor(word, inflections()?.[word.id] ?? []), [word.id]);
+  const steps = useMemo(() => (ready ? stepsFor(word, inflections()?.[word.id] ?? []) : []), [word.id, ready]);
   const forms = useMemo(() => inflections()?.[word.id] ?? [], [word.id]);
   const [i, setI] = useState(0);
   const [right, setRight] = useState(0);
@@ -158,6 +169,14 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
 
   const step = steps[i];
   const shown = headerTerm(word, steps, step);
+
+  // A step whose item could not be built (too few distractors for a cloze or a
+  // sentence choice) renders nothing. It is passed over, ungraded, rather than
+  // leaving the run on an empty card with no Next (2026-11-20).
+  const box = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    if (step && step !== 'meaning' && box.current && box.current.childElementCount === 0) setI((n) => n + 1);
+  }, [step, i]);
 
   // **Practice sits to the *right* of the word on the strip.** You reach it by
   // dragging left and you leave it by dragging right — the mirror of the entry,
@@ -193,13 +212,15 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
             {/* Keyed on the step so each item mounts fresh — an MC item that
                 kept its `picked` state across a step change would render the
                 next question already answered. */}
-            {step === 'meaning'
-              ? <MeaningItem key="meaning" word={word} onGrade={grade} />
-              : <ModeItem key={step} mode={step} word={word} forms={forms} onGrade={grade} />}
+            <div ref={box}>
+              {step === 'meaning'
+                ? <MeaningItem key="meaning" word={word} onGrade={grade} />
+                : <ModeItem key={step} mode={step} word={word} forms={forms} onGrade={grade} />}
+            </div>
           </>
         )}
 
-        {!step && <Done word={word} right={right} of={steps.length} onClose={onClose} backLabel={backLabel} />}
+        {ready && !step && <Done word={word} right={right} of={steps.length} onClose={onClose} backLabel={backLabel} />}
       </div>
     </Layer>
   );

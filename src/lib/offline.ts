@@ -65,6 +65,9 @@ const lazyScreens = (): Promise<unknown>[] => [
   import('../views/TextGaps.tsx'),
   import('../components/reader/ArticleLayer.tsx'),
   import('./ai.ts'),
+  // The course: Themen draws its band from this chunk, and a phone that went
+  // offline after a deploy could not draw the tab at all (2026-11-20).
+  import('../views/Kurs.tsx'),
 ];
 
 export interface OfflineRecord { at: string; dictionary: boolean; sha: string }

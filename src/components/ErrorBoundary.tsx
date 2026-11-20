@@ -6,7 +6,18 @@ import { TriangleAlert } from 'lucide-react';
 import Card from './ui/Card.tsx';
 import Button from './ui/Button.tsx';
 
-interface Props { resetKey: string; children: ReactNode; }
+interface Props {
+  resetKey: string;
+  children: ReactNode;
+  /** Rendered instead of the error card. `null` lets an optional part of a page
+   *  (the course band on Themen) disappear rather than take the page with it. */
+  fallback?: ReactNode;
+}
+
+/** A lazy chunk that failed to arrive (offline after a deploy). React.lazy keeps
+ *  the rejection, so re-rendering can never succeed; only a reload fetches again. */
+const isChunkError = (e: Error) =>
+  /dynamically imported module|Importing a module script failed|error loading dynamically imported|ChunkLoadError|Loading chunk/i.test(e.message);
 interface State { error: Error | null }
 
 export default class ErrorBoundary extends Component<Props, State> {
@@ -16,6 +27,7 @@ export default class ErrorBoundary extends Component<Props, State> {
 
   render() {
     if (!this.state.error) return this.props.children;
+    if (this.props.fallback !== undefined) return this.props.fallback;
     return (
       <div className="grid place-items-center min-h-[440px]" role="alert">
         <Card pad="none" className="px-8 py-10 max-w-md text-center">
@@ -26,7 +38,7 @@ export default class ErrorBoundary extends Component<Props, State> {
           {/* The copy promised a way out; until now the only one was navigating
               away, which is not what "try again" means to anyone reading it. */}
           <Button variant="secondary" size="sm" className="mt-4"
-            onClick={() => this.setState({ error: null })}>Try again</Button>
+            onClick={() => { if (isChunkError(this.state.error!)) location.reload(); else this.setState({ error: null }); }}>Try again</Button>
         </Card>
       </div>
     );

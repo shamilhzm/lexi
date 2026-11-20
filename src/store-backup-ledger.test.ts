@@ -34,6 +34,7 @@ async function fresh() {
   vi.resetModules();
   const store = await import('./store.ts');
   const ledger = await import('./lib/ledger.ts');
+  await store.hydrate();
   return { store, ledger };
 }
 
@@ -68,13 +69,14 @@ describe('the backup file', () => {
   it('an older backup, with no ledger in it, leaves this device’s ledger alone', async () => {
     const { store, ledger } = await fresh();
     await ledger.logReview('voc:A1:das Haus', Rating.Good, 1000);
-    await store.importData(JSON.stringify({ cards: {}, misses: [], visits: [] }));
+    await store.importData(JSON.stringify({ app: 'lexi', cards: {}, misses: [], visits: [] }));
     expect(await ledger.loadLedger()).toHaveLength(1);
   });
 
   it('drops rows that are not review events rather than storing them', async () => {
     const { store, ledger } = await fresh();
     await store.importData(JSON.stringify({
+      app: 'lexi',
       cards: {}, ledger: [{ id: 'ok', g: 3, at: 1 }, { id: 5 }, null, 'x', { id: 'no-grade', at: 2 }],
     }));
     expect((await ledger.loadLedger()).map((e) => e.id)).toEqual(['ok']);

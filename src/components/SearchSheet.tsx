@@ -36,12 +36,13 @@
 // layer this way round: looking a word up is now how it becomes a candidate
 // card, and the learner doing the looking is the one who found it.
 import { InkedArticle } from './Reveal.tsx';
+import { useLayerStack } from './Layer.tsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, X, Volume2, Check, Plus } from 'lucide-react';
 import { search, MAX_HITS, MIN_QUERY } from '../lib/search.ts';
 import { lookupLex, lexiconSize, primeLexicon, type LexEntry } from '../lib/lexicon.ts';
-import { statusOf, isWanted, noteWanted } from '../store.ts';
+import { statusOf, isWanted, noteWanted, noteable } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { speak } from '../lib/tts.ts';
 import { genderColor, haptic, fmt } from '../lib/ui.ts';
@@ -73,7 +74,9 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
     if (!asking) { setLex({ q: '', entries: [] }); return; }
     const term = q.trim();
     const t = setTimeout(() => {
-      void lookupLex(term).then((r) => setLex({ q: term, ...r }));
+      // A failed dictionary shard is a dictionary that says nothing, not an
+      // unhandled rejection.
+      void lookupLex(term).then((r) => setLex({ q: term, ...r }), () => setLex({ q: term, entries: [] }));
     }, 180);
     return () => clearTimeout(t);
   }, [q, asking]);
@@ -105,21 +108,30 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
 
   const nothing = asking && cardHits.length === 0 && lexEntries.length === 0;
 
+  // In the layer stack, so Escape closes an entry opened from here and not the
+  // sheet as well, and a film behind the sheet stays open (see Layer.tsx).
+  const sheet = useRef<HTMLDivElement>(null);
+  const isTop = useLayerStack(() => sheet.current);
+  const close = useRef(onClose);
+  close.current = onClose;
   useEffect(() => {
     // One small request now so the first real lookup is a single round-trip
     // rather than two. The shards themselves stay untouched until asked for.
     primeLexicon();
-    // Focus without scrolling the page behind the portal.
+    // Focus without scrolling the page behind the portal. **Once**, on opening:
+    // this sat in an effect keyed on `onClose`, which App passes inline, so every
+    // store change (noting a word, say) pulled focus back to the input and, on
+    // iOS, the keyboard up with it (2026-11-20).
     input.current?.focus({ preventScroll: true });
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && !detail && !drill) onClose(); };
-    window.addEventListener('keydown', onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose, detail, drill]);
+    return () => { document.body.style.overflow = prev; };
+  }, []);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && isTop()) close.current(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isTop]);
 
   // A new query is a new question; the "noted" acknowledgement belongs to the
   // old one.
@@ -133,7 +145,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
     // visible, the sheet covered the very entry it had opened, and tapping a
     // result did nothing anyone could see (LESSONS, 2026-11-13). Hidden rather
     // than unmounted, so closing the entry lands back on the same results.
-    <div className={`fixed inset-0 z-[190] bg-bg flex flex-col sheet-in ${detail || drill ? 'invisible' : ''}`}
+    <div ref={sheet} className={`fixed inset-0 z-[190] bg-bg flex flex-col sheet-in ${detail || drill ? 'invisible' : ''}`}
       role="dialog" aria-modal="true" aria-label="Look up a German word">
 
       {/* The field is the header. Nothing above it, because the only reason this
@@ -250,7 +262,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
               {!already && !lexEntries.every((e) => taught.has(e.w.toLowerCase()))
                 && <> If you want it taught, note it.</>}
             </p>
-            {lexEntries.every((e) => taught.has(e.w.toLowerCase())) ? null : already ? (
+            {lexEntries.every((e) => taught.has(e.w.toLowerCase())) || !noteable(q) ? null : already ? (
               <p className="mt-2 inline-flex items-center gap-2 text-green text-sm font-semibold">
                 <Check size={16} /> Noted. It’s on your list
               </p>
@@ -280,7 +292,7 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
               Try the base form, or search the English.
             </p>
 
-            {already ? (
+            {!noteable(q) ? null : already ? (
               <p className="inline-flex items-center gap-2 text-green text-sm font-semibold">
                 <Check size={16} /> Noted. It’s on your list
               </p>
@@ -292,10 +304,12 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
                 <Plus size={15} /> Note this word
               </button>
             )}
-            <p className="text-dim text-2xs mt-4 max-w-[36ch] mx-auto leading-relaxed">
-              Noted words are kept on this device and listed in your profile. Whether one becomes a
-              card is decided by a dictionary check, not by the note.
-            </p>
+            {noteable(q) && (
+              <p className="text-dim text-2xs mt-4 max-w-[36ch] mx-auto leading-relaxed">
+                Noted words are kept on this device and listed in your profile. Whether one becomes a
+                card is decided by a dictionary check, not by the note.
+              </p>
+            )}
           </div>
         )}
       </div>

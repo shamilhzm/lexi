@@ -294,6 +294,18 @@ const EXTRA_CLOSED_FORMS: Record<string, string[]> = {
 // `\p{L}` is the actual rule: a letter is a letter.
 const WORD_RE = /\p{L}[\p{L}-]*/gu;
 
+/** What a paste carries that is not text (2026-11-20). A Mac or a PDF gives
+ *  decomposed umlauts (`a` + U+0308), which `\p{L}` splits into `Ma` + `dchen`;
+ *  typeset text carries soft hyphens and zero-width spaces inside words; a PDF
+ *  breaks a word across lines with a hyphen. Each left the scanner reporting
+ *  fragments as missing words and offering to note them. An Ergänzungsstrich
+ *  at a line end (`Vor-` / `und Nachteile`) is not a broken word and stays. */
+export function cleanPaste(text: string): string {
+  return text.normalize('NFC')
+    .replace(/[\u00AD\u200B\u200C\u2060\uFEFF]/g, '')
+    .replace(/(\p{L})-[ \t]*\r?\n[ \t]*(?!(?:und|oder|bis|sowie)(?!\p{L}))(\p{Ll})/gu, '$1$2');
+}
+
 /** A run of text: a word token (with its corpus match, if any) or a separator. */
 export interface Segment {
   text: string;
@@ -399,6 +411,10 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
   // erinnert*. So each indexed form remembers which persons it can be, and a
   // reflexive pattern requires the matching pronoun.
   const patIndex = new Map<string, { word: Word; prep: string; refl: boolean; persons: Set<number> | null; participle: boolean; particle?: string }[]>();
+  /** The bare infinitive of each governed verb. A word list writes `teilnehmen`
+   *  on a line of its own, and when the pattern card is the only card that verb
+   *  has, the learner is asking for it (see the end of `matchWord`). */
+  const patLemma = new Map<string, Word>();
   const addPat = (form: string, prep: string, w: Word, refl: boolean, persons: Set<number> | null, participle = false, particle?: string) => {
     if (!form || !prep) return;
     const list = patIndex.get(form) ?? [];
@@ -668,6 +684,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       } catch { /* fall back to the lemma alone */ }
     }
     const refl = /^sich\s/i.test(w.term);
+    if (!patLemma.has(g.lemma.toLowerCase())) patLemma.set(g.lemma.toLowerCase(), w);
     for (const f of forms) {
       const particle = unsplit.has(f) || f === g.lemma.toLowerCase() ? undefined : splitParticle.get(f);
       addPat(f, g.prep, w, refl, formPersons.get(f) ?? null, participles.has(f), particle);
@@ -1020,6 +1037,11 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     // *Reifen* and *zugrunde* into *zu* + *Runde*.
     const compound = capitalised ? splitCompound(lc, 0) : null;
     if (compound) { if (out) out.viaCompound = true; return compound; }
+    // The infinitive of a verb Lexi teaches only with its preposition — a word
+    // list's `teilnehmen`, a modal's *möchte teilnehmen*. Rule 1 wants the
+    // preposition, and with no plain card the token read as a missing word.
+    const governed = patLemma.get(lc);
+    if (governed) return governed;
     // Swiss orthography has no ß — *gross*, *Strasse*, *schliesslich* — and SRF,
     // one of the few broadcasters whose articles a browser may fetch directly,
     // writes it that way. Reached only after every ordinary route has missed, so it
@@ -1070,31 +1092,54 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
     return null;
   }
 
-  const annotate = (text: string): Segment[] => {
+  const annotate = (raw: string): Segment[] => {
+    const text = cleanPaste(raw);
     // Two passes, because a separable verb cannot be resolved from its own token:
     // "rufe" is only *anrufen* if an "an" follows it. Tokenise first, then match
     // each token knowing what comes after it in the same sentence.
     const toks: { text: string; start: number }[] = [];
     WORD_RE.lastIndex = 0;
     for (let m = WORD_RE.exec(text); m; m = WORD_RE.exec(text)) toks.push({ text: m[0], start: m.index });
+    const n = toks.length;
+    const gapBefore = (j: number) => text.slice(toks[j - 1].start + toks[j - 1].text.length, toks[j].start);
+    // Sentence and clause boundaries, worked out **once** (2026-11-20). They used
+    // to be found by walking from every token to the next `[.!?;]`, so a text
+    // without one (a word list, one lemma a line) was a single sentence that
+    // every token walked end to end: 3.3 s for 40 KB, and the shelf re-ran it on
+    // every tap. Worse, `denken / Katze / an` read as *denken an*.
+    //
+    // A line break ends a sentence when the line it ends is short (three words
+    // or fewer): that is a list row or a heading. A long line that wraps is
+    // prose, and *Ich rufe dich morgen / an.* must still find its particle.
+    const lineWords: number[] = new Array(n).fill(0); // words on the line token j sits on, so far
+    const sentB: boolean[] = new Array(n).fill(false);  // a sentence starts at token j
+    const clauseB: boolean[] = new Array(n).fill(false);
+    for (let j = 1; j < n; j++) {
+      const gap = gapBefore(j);
+      const newline = /\n/.test(gap);
+      const run = lineWords[j - 1] + 1;                 // words on the line that this gap ends
+      sentB[j] = /[.!?;]/.test(gap) || (newline && run <= 3);
+      clauseB[j] = sentB[j] || /[,.!?;:–—]/.test(gap);
+      lineWords[j] = newline ? 0 : run;
+    }
+    const sEnd: number[] = new Array(n).fill(n);
+    const cEnd: number[] = new Array(n).fill(n);
+    for (let i = n - 2; i >= 0; i--) {
+      sEnd[i] = sentB[i + 1] ? i + 1 : sEnd[i + 1];
+      cEnd[i] = clauseB[i + 1] ? i + 1 : cEnd[i + 1];
+    }
+    const sStart: number[] = new Array(n).fill(0);
+    for (let i = 1; i < n; i++) sStart[i] = sentB[i] ? i : sStart[i - 1];
+    // A run-on with no boundary at all (a pasted list with no line breaks)
+    // still must not cost the square of its length. No separable particle or
+    // governed preposition sits forty words from its verb.
+    const REACH = 40;
     // Sentence boundaries bound the particle search: a particle in the next
     // sentence has nothing to do with this verb.
-    const sentenceEnd = (i: number) => {
-      for (let j = i + 1; j < toks.length; j++) {
-        const between = text.slice(toks[j - 1].start + toks[j - 1].text.length, toks[j].start);
-        if (/[.!?;]/.test(between)) return j;
-      }
-      return toks.length;
-    };
+    const sentenceEnd = (i: number) => Math.min(sEnd[i], i + 1 + REACH);
     /** Mirror of `sentenceEnd`, walking back — bounds the governed-preposition
      *  search so a preposition in the previous sentence cannot be claimed. */
-    const sentenceStart = (i: number) => {
-      for (let j = i; j > 0; j--) {
-        const between = text.slice(toks[j - 1].start + toks[j - 1].text.length, toks[j].start);
-        if (/[.!?;]/.test(between)) return j;
-      }
-      return 0;
-    };
+    const sentenceStart = (i: number) => Math.max(sStart[i], i - REACH);
 
     const out: Segment[] = [];
     let last = 0;
@@ -1112,8 +1157,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       const before = toks.slice(sentenceStart(i), i).map((t) => t.text.toLowerCase());
       const prov = { viaCompound: false };
       const next = i + 1 < sentenceEnd(i) ? toks[i + 1].text : '';
-      let ce = i + 1;
-      while (ce < toks.length && !/[,.!?;:–—]/.test(text.slice(toks[ce - 1].start + toks[ce - 1].text.length, toks[ce].start))) ce++;
+      const ce = Math.min(cEnd[i], i + 1 + REACH);
       const slots = new Set<string>();
       for (let j = i + 1; j < ce; j++) {
         if (j === ce - 1 || CLAUSE_JOIN.has(toks[j + 1].text.toLowerCase())) slots.add(toks[j].text.toLowerCase());
@@ -1123,8 +1167,7 @@ export function buildMatcher(corpus: Word[], attested?: Record<string, string[]>
       last = start + tok.length;
       // Reset at a sentence boundary so "second position" means second in *this*
       // clause, not the paragraph.
-      const gap = i + 1 < toks.length ? text.slice(last, toks[i + 1].start) : '';
-      posInSentence = /[.!?;]/.test(gap) ? 0 : posInSentence + 1;
+      posInSentence = i + 1 < n && sentB[i + 1] ? 0 : posInSentence + 1;
     }
     if (last < text.length) out.push({ text: text.slice(last), word: null, isWord: false });
     return out;

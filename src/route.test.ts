@@ -14,7 +14,7 @@
 //
 // `parseHash` takes its hash as an argument precisely so this can run in Node.
 import { describe, it, expect } from 'vitest';
-import { parseHash, toHash, DEFAULT_ROUTE } from './route.ts';
+import { parseHash, toHash, knownRoute, DEFAULT_ROUTE } from './route.ts';
 
 /** Every destination that is a place you can *go*, plus the ones that are only
  *  opened from somewhere but must survive a reload. Enumerated from `VIEWS` in
@@ -160,5 +160,35 @@ describe('sessions', () => {
   it('never serialises a custom target', () => {
     expect(toHash('session', { kind: 'custom', name: 'Today’s session', ids: ['a', 'b'] }, { level: 'index' }))
       .toBe('#/session');
+  });
+});
+
+// Found by a persona pass (2026-11-20): a hand-typed or truncated link. Both of
+// these used to reach a learner's screen, one as a blank page.
+describe('hostile and stale links', () => {
+  it('reads a stray % as typed instead of throwing on first render', () => {
+    for (const h of ['#/words/g/100%', '#/words/map/%E0%A4', '#/session/group/%', '#/%']) {
+      expect(() => parseHash(h)).not.toThrow();
+    }
+    expect(parseHash('#/words/g/100%').words).toEqual({ level: 'group', group: '100%' });
+  });
+
+  const known = { groups: new Set(['Daily Life']), sectors: new Set(['Core verbs']) };
+
+  it('lands a deck name the corpus does not carry on the nearest level that exists', () => {
+    expect(knownRoute(parseHash('#/words/g/Gone'), known).words).toEqual({ level: 'index' });
+    expect(knownRoute(parseHash('#/words/map/Gone'), known).words).toEqual({ level: 'index' });
+    expect(knownRoute(parseHash('#/progress/decks/Gone'), known).words).toEqual({ level: 'index' });
+    // A session on a deck that is gone is not "nothing due": there is no deck.
+    expect(knownRoute(parseHash('#/session/group/Gone'), known)).toEqual({ view: 'words', words: { level: 'index' } });
+    expect(knownRoute(parseHash('#/session/sector/Gone'), known)).toEqual({ view: 'words', words: { level: 'index' } });
+  });
+
+  it('leaves every name the corpus does carry alone', () => {
+    for (const h of ['#/words/g/Daily%20Life', '#/words/map/Core%20verbs', '#/session/sector/Core%20verbs',
+      '#/session/group/Daily%20Life', '#/session/all', '#/session', '#/words/kurs/B1', '#/feed']) {
+      const r = parseHash(h);
+      expect(knownRoute(r, known)).toBe(r);
+    }
   });
 });

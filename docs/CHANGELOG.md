@@ -11,6 +11,50 @@ it is already built.
 
 ---
 
+### 2026-11-20 · a persona pass: fifty defects, each now a test
+
+**What shipped.** Six persona audits (restore, typing, hostile pastes, time zones, the
+news reader, keyboard and VoiceOver) and a pass on the iPhone simulator. Every fix has
+a regression test, and each data-loss test was shown to fail against the old code.
+
+- **Progress is no longer lost.** A tab writes only the cards it changed, merged into
+  what is stored inside one IndexedDB transaction, so a second tab cannot overwrite
+  the first, and an idle tab closing cannot undo a restore. A restore is all or
+  nothing: the settings go first and roll back on failure, the progress lands in one
+  transaction, and a failed restore leaves the tab saving. A file that is not a Lexi
+  backup (a photo, a Trello export, `{"cards":{}}`) is refused with a plain message,
+  and a backup cannot be taken before progress has loaded. IndexedDB writes now settle
+  on `abort`.
+- **No crash from the clock or a link.** A card graded while the device clock ran
+  ahead no longer throws in FSRS. A stray `%` in the URL no longer blanks the app, and a
+  link to a deck that no longer exists lands on Themen instead of an empty deck.
+- **Grading is right both ways.** «die Butter» is no longer forgiven as a typo for
+  «die Mutter» (the guard looked up the article). NFD umlauts, a curly apostrophe and
+  a missing comma are accepted. *kümmern (sich um)* accepts «sich kümmern um» and no
+  longer accepts bare «kümmern». Two-gender nouns are out of the gender drill, and the
+  eleven plurals spelled exactly as their headword are out of the plural drill. A held
+  key or a fast double tap can no longer grade a card unseen.
+- **The text scanner reads real pastes.** Word lists went quadratic (3.3 s at 40 KB,
+  now 7 ms) and handed bare verbs to pattern cards; Mac and PDF text is normalised, soft
+  hyphens and line-break hyphens are joined. "Note the N" never evicts earlier notes and
+  carries the sentence each word was met in. The dictionary answers NFD input and the
+  word *constructor*.
+- **Days are local days** in session resume, Stats, the reminder, the goal date and the
+  due forecast (which also buckets correctly across DST). The backlog burn-down bar,
+  orphaned since Today.tsx went, records its peak again. Blind-spot drills come after
+  their word and are no longer wasted on words the weave already drills.
+- **Keyboard and VoiceOver.** The skip link moves focus instead of routing to the feed.
+  Escape closes only the top layer, and layers beneath are inert. The film keeps focus
+  through a guess, announces each beat, keeps Back on its last beat, and ignores keys
+  meant for a sheet above it. A failed course chunk takes only the course band with it.
+- **The reader on a bad connection.** Fetches time out after 8 s and fall back to the
+  cache; an empty 200 keeps the last good list; one bad entity no longer drops a whole
+  feed; DW episodes are no longer merged; "Stop reading" stops a paragraph still being
+  synthesised.
+
+**Why.** The suite was green and none of these were in it. See LESSONS, *Six personas
+found fifty bugs a green suite could not*.
+
 ### 2026-11-20 · the copy pass
 
 **What shipped.** Every sentence in the app that leaned on an em-dash aside was

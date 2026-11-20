@@ -124,10 +124,51 @@ export async function idbSet(key: string, value: unknown): Promise<void> {
       tx.objectStore(STORE).put(value, key);
       tx.oncomplete = () => resolve();
       tx.onerror = () => reject(tx.error);
+      // A failure at commit (how Chromium reports a full disk) fires only
+      // `abort`; without this the promise never settled (2026-11-20).
+      tx.onabort = () => reject(tx.error ?? new Error('indexeddb-abort'));
     });
   } catch {
     try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* quota */ }
   }
+}
+
+/** Write several values in **one** transaction, all or nothing, and reject on any
+ *  failure instead of falling back. For a restore: a backup that half-lands (the
+ *  cards failed, the settings did not) is worse than one that is refused, and
+ *  `idbSet`'s quiet localStorage fallback left a dead copy of the cards there. */
+export async function idbSetMany(entries: [string, unknown][]): Promise<void> {
+  const db = await open();
+  await new Promise<void>((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    const os = tx.objectStore(STORE);
+    for (const [k, v] of entries) os.put(v, k);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error ?? new Error('indexeddb-error'));
+    tx.onabort = () => reject(tx.error ?? new Error('indexeddb-abort'));
+  });
+}
+
+/** Read, change and write one value inside a single readwrite transaction.
+ *
+ *  IndexedDB runs readwrite transactions on a store one at a time, across every
+ *  tab of the origin, so two tabs updating the same key cannot interleave. This
+ *  is what lets each tab write only what it changed on top of what another tab
+ *  stored, instead of its whole (possibly stale) copy (2026-11-20). Rejects on
+ *  failure; there is no fallback, so the caller can keep its change and retry. */
+export async function idbUpdate<T>(key: string, change: (current: T | undefined) => T): Promise<void> {
+  const db = await open();
+  await new Promise<void>((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    const os = tx.objectStore(STORE);
+    const req = os.get(key);
+    req.onsuccess = () => {
+      try { os.put(change(req.result as T | undefined), key); } catch (err) { tx.abort(); reject(err); }
+    };
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error ?? new Error('indexeddb-error'));
+    tx.onabort = () => reject(tx.error ?? new Error('indexeddb-abort'));
+  });
 }
 
 /** Delete a value (best-effort, both backends). */
@@ -139,6 +180,7 @@ export async function idbDel(key: string): Promise<void> {
       tx.objectStore(STORE).delete(key);
       tx.oncomplete = () => resolve();
       tx.onerror = () => resolve();
+      tx.onabort = () => resolve();
     });
   } catch { /* ignore */ }
 }

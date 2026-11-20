@@ -2217,3 +2217,50 @@ any item that is exactly a card's term into the unit's session, so a column of *
 daran, darum* would have taught *darauf* with its wrong gloss "after". **Rule:** before a
 film ships, print what it resolves to (`scripts/probe/course-survey.ts` lists the unit's
 cards) and read every gloss a learner will be drilled on.
+
+## Six personas found fifty bugs a green suite could not *(added 2026-11-20)*
+
+**Believed:** 2,261 passing tests, a clean typecheck and a PASS from `corpus:validate`
+meant the app was sound. **True:** six persona audits (a restorer, a fast typist, a
+hostile paster, a night-shift traveller, a reader on a train, a VoiceOver user) found
+about fifty real defects in an afternoon, three of them silent data loss (a stale
+second tab overwrote the other's grades and undid a restore; a restore over the quota
+half-applied and stopped all saving). The suite tests what somebody thought of; a
+persona tests what somebody *does*. **Rule:** before calling a surface robust, run it
+through a persona whose habits are not yours, and make each finding a test.
+
+## A test can assert the bug *(added 2026-11-20)*
+
+**Believed:** a fix that turns a test red has broken something. **True:** three tests
+here encoded the defect being fixed: "flushes the hydrated map on pagehide" was the
+idle tab overwriting newer data; "a run of at least three steps" counted a step that
+rendered nothing; the reader probes asserted the crash. **Rule:** when a fix turns a
+test red, restate what the test protects as *what it prevents* (the checklist's rule
+for citations) before you make it green; if what it protects is the defect, rewrite it
+to the new invariant and say so in the test.
+
+## A writer that saves its whole copy is a race with every other copy *(added 2026-11-20)*
+
+**Believed:** writing the whole in-memory card map on every grade and on `pagehide` was
+safe because nothing else writes it. **True:** a second tab is something else, and so
+is a restore made in another tab. **Rule:** a store a learner can open twice writes
+only what it changed, merged into what is stored inside one IndexedDB readwrite
+transaction (`idbUpdate`), which the browser serialises across tabs; and a tab that
+changed nothing writes nothing.
+
+## `toISOString().slice(0, 10)` is the UTC date *(added 2026-11-20)*
+
+**Believed:** fixed in the store on 2026-09-09. **True:** five other files built day
+keys the same way (session resume, Stats, the reminder, the goal date, the sky
+replay), so Singapore mornings and Toronto evenings were a day off. **Rule:** a day key
+comes from `localDayKey()`; grep for `toISOString().slice(0, 10)` and allow it only in
+a download's file name.
+
+## The simulator's text tool is not a keyboard *(added 2026-11-20)*
+
+**Believed:** `text` types what it is given. **True:** it pastes through the clipboard,
+mangles non-ASCII into Mac Roman (`ü` became `√º`) and drops everything after the first
+newline. **Rule:** use the simulator for layout and touch; put content into fields
+through the DOM (`form_input` in the browser pane) and read the result there. And the
+dev server's base is `/lexi/`: open `http://127.0.0.1:<port>/lexi/`, or the page is blank.
+

@@ -19,9 +19,10 @@ import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
-import { coverageOf, unlocksToReach, nearHeadword, ASSISTED, INDEPENDENT, type Coverage, type WordState } from '../lib/coverage.ts';
+import { coverageOf, unlocksToReach, nearHeadword, sentenceAround, ASSISTED, INDEPENDENT, type Coverage, type WordState } from '../lib/coverage.ts';
 import { WORDS } from '../data/index.ts';
-import { cardOf, savedTexts, saveText, removeText, isSaved, toggleSaved, noteWanted, isWanted } from '../store.ts';
+import { cleanPaste } from '../lib/matcher.ts';
+import { cardOf, savedTexts, saveText, removeText, isSaved, toggleSaved, noteWantedMany, wantedRoom, isWanted } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { State } from '../srs.ts';
 import type { Target, Word } from '../types.ts';
@@ -114,6 +115,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
   const slipped = new Set(slips.map((x) => x.typed));
   const missing = absent.filter((t) => !slipped.has(t));
   const unnoted = missing.filter((t) => !isWanted(t));
+  const room = wantedRoom();
   // What the meter assumed, said out loud: a token read only after its umlauts
   // were put back. One line per distinct spelling.
   const respelled = useMemo(() => {
@@ -265,11 +267,13 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                 )}
                 {missing.length > 0 && (
                   <div>
-                    <Button variant="secondary" disabled={unnoted.length === 0}
-                      onClick={() => { for (const t of unnoted) noteWanted(t, { ex: snippet(submitted, 80), src: 'a text you pasted' }); }}>
-                      {unnoted.length
-                        ? <><Plus size={14} className="text-accent" /> Note the {unnoted.length} Lexi doesn’t teach</>
-                        : <><Check size={14} /> {missing.length} noted</>}
+                    <Button variant="secondary" disabled={unnoted.length === 0 || room === 0}
+                      onClick={() => { noteWantedMany(unnoted.map((t) => ({ term: t, met: { ex: sentenceAround(cleanPaste(submitted), t), src: 'a text you pasted' } }))); }}>
+                      {unnoted.length === 0
+                        ? <><Check size={14} /> {missing.length} noted</>
+                        : room === 0
+                          ? <>Your noted list is full</>
+                          : <><Plus size={14} className="text-accent" /> Note {unnoted.length > room ? `${room} of the ${unnoted.length}` : `the ${unnoted.length}`} Lexi doesn’t teach</>}
                     </Button>
                     <p className="mt-1.5 text-xs text-dim max-w-[52ch]">
                       <span lang="de" className="text-txt">{missing.slice(0, 6).join(', ')}</span>{missing.length > 6 && ' …'}: kept in your profile. A dictionary check decides which become cards.

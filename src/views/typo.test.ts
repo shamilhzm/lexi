@@ -57,3 +57,17 @@ describe('isTypoFor', () => {
     expect(isTypoFor('waehlen', ['wählen'])).toBe(false); // zero edits after folding
   });
 });
+
+// Persona pass, 2026-11-20 ("Priya", fast on an iPhone). The guard was asked of the
+// whole typed string, so with an article in front («die Butter») it looked up
+// «die», found nothing, and forgave a different noun as a typo, for every noun.
+describe('isTypoFor with the article typed', () => {
+  it('refuses a different real noun after the article', () => {
+    expect(isTypoFor('die Butter', ['die Mutter'])).toBe(false);
+    expect(isTypoFor('das Boot', ['das Brot'])).toBe(false);
+    expect(isTypoFor('das Hals', ['das Haus'])).toBe(false);
+  });
+  it('still forgives a slip after the article', () => {
+    expect(isTypoFor('die Muter', ['die Mutter'])).toBe(true);
+  });
+});

@@ -18,6 +18,8 @@ vi.mock('./lib/focus.ts', async (importOriginal) => ({
 vi.mock('./lib/idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbUpdate: async () => undefined,
+  idbSetMany: async () => undefined,
   idbReady: async () => true,
 }));
 

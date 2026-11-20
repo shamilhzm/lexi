@@ -20,7 +20,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { LayoutGroup, motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, Check, ChevronLeft, GraduationCap, RotateCcw, Volume2, X } from 'lucide-react';
-import Layer from '../Layer.tsx';
+import Layer, { topLayer } from '../Layer.tsx';
 import Button from '../ui/Button.tsx';
 import Kicker from '../ui/Kicker.tsx';
 import { GenderTerm, InkedArticle, SpeakButton, fitStyle } from '../Reveal.tsx';
@@ -66,10 +66,17 @@ export default function FilmPlayer({ film, unitTitle, wordCount, onStudy, onClos
 
   const next = useCallback(() => { if (canNext && !last) setI((n) => n + 1); }, [canNext, last]);
   const prev = useCallback(() => setI((n) => Math.max(0, n - 1)), []);
+  const body = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement | null;
-      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+      // Not with a modifier (Alt/Cmd+← is the browser's Back), not in a field or
+      // on a link, and not when a sheet is open over the film: → in the search
+      // results advanced the film behind it (2026-11-20).
+      if (e.repeat || e.altKey || e.metaKey || e.ctrlKey || e.defaultPrevented) return;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable || t.closest('a'))) return;
+      const top = topLayer();
+      if (!top || !body.current || !top.contains(body.current)) return;
       if (e.key === 'ArrowRight' || (e.key === 'Enter' && !(t && t.closest('button')))) { e.preventDefault(); next(); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
     };
@@ -77,22 +84,42 @@ export default function FilmPlayer({ film, unitTitle, wordCount, onStudy, onClos
     return () => window.removeEventListener('keydown', onKey);
   }, [next, prev]);
 
-  const answer = (k: number) => { if (answered[i] === undefined) setAnswered((a) => ({ ...a, [i]: k })); };
+  // After a guess the picked option is disabled and would strand focus: hand it
+  // to Weiter, which is what comes next.
+  const foot = useRef<HTMLDivElement>(null);
+  const answer = (k: number) => {
+    if (answered[i] !== undefined) return;
+    setAnswered((a) => ({ ...a, [i]: k }));
+    requestAnimationFrame(() => foot.current?.querySelector<HTMLButtonElement>('button:last-child')?.focus({ preventScroll: true }));
+  };
+  // What the live region reads: the beat's own text, once it has rendered.
+  const [said, setSaid] = useState('');
+  useEffect(() => {
+    const t = setTimeout(() => setSaid(`Part ${i + 1} of ${film.beats.length}. ${body.current?.querySelector('section')?.textContent ?? ''}`), 60);
+    return () => clearTimeout(t);
+  }, [i, film.beats.length]);
 
   return (
     <Layer side="right" label={`Film: ${film.title}`} back="Kurs" onClose={onClose}
-      footer={last ? undefined : (
-        <div className="flex items-center gap-3 max-w-[560px] mx-auto">
+      footer={(
+        <div ref={foot} className="flex items-center gap-3 max-w-[560px] mx-auto">
+          {/* Kept on the last beat too: without it, only the ← key went back
+              from the outro, and touch and VoiceOver users could only leave. */}
           <button onClick={prev} disabled={i === 0} aria-label="Previous"
             className="tap-44 grid place-items-center w-[44px] h-[44px] rounded-full text-dim hover:text-txt disabled:opacity-30">
             <ChevronLeft size={20} />
           </button>
-          <Button block onClick={next} disabled={!canNext}>
-            {canNext ? <>Weiter <ArrowRight size={16} /></> : 'Guess first'}
-          </Button>
+          {/* `aria-disabled`, not `disabled`: disabling the focused Weiter on a
+              guess beat dropped keyboard and VoiceOver focus to the page body. */}
+          {!last && (
+            <Button block onClick={next} aria-disabled={!canNext || undefined}
+              className={canNext ? '' : 'opacity-40'}>
+              {canNext ? <>Weiter <ArrowRight size={16} /></> : 'Guess first'}
+            </Button>
+          )}
         </div>
       )}>
-      <div className="pb-4 max-w-[560px] mx-auto">
+      <div ref={body} className="pb-4 max-w-[560px] mx-auto">
         <div className="mb-4">
           <Kicker tone="accent" className="block">Film · {unitTitle}</Kicker>
           {/* Where you are, as segments: the film's length is visible before it is long. */}
@@ -106,6 +133,11 @@ export default function FilmPlayer({ film, unitTitle, wordCount, onStudy, onClos
         {/* Keyed on the beat, so each one mounts — and animates in — fresh. */}
         <BeatView key={i} beat={beat} picked={answered[i]} onPick={answer}
           wordCount={wordCount} onStudy={onStudy} onDone={onClose} />
+        {/* One live region that outlives the beats. The region used to be *on*
+            the keyed beat, so it mounted with its content, and a screen reader
+            does not announce a region that arrives already filled: Weiter said
+            nothing. */}
+        <p className="sr-only" aria-live="polite">{said}</p>
 
       </div>
     </Layer>
@@ -128,7 +160,7 @@ function BeatView({ beat, picked, onPick, wordCount, onStudy, onDone }: {
 }) {
   const enter = useIn();
   return (
-    <motion.section {...enter} aria-live="polite" className="bg-card border border-line rounded-lg p-5 sm:p-7 min-h-[320px]">
+    <motion.section {...enter} className="bg-card border border-line rounded-lg p-5 sm:p-7 min-h-[320px]">
       {render(beat, picked, onPick, wordCount, onStudy, onDone)}
     </motion.section>
   );

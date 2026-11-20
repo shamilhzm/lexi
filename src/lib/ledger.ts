@@ -113,6 +113,7 @@ export function logReview(id: string, g: Grade, at = Date.now(), meta?: ReviewMe
         tx.objectStore(LEDGER_STORE).add({ id, g, at, ...(meta ?? {}) } satisfies ReviewEvent);
         tx.oncomplete = () => resolve();
         tx.onerror = () => reject(tx.error);
+        tx.onabort = () => reject(tx.error ?? new Error('indexeddb-abort'));
       });
       available = true;
       if (++sinceCheck >= PRUNE_EVERY) { sinceCheck = 0; await prune(); }
@@ -141,6 +142,7 @@ export function dropLastReview(id: string): Promise<void> {
         };
         req.onerror = () => reject(req.error);
         tx.onerror = () => reject(tx.error);
+        tx.onabort = () => reject(tx.error ?? new Error('indexeddb-abort'));
       });
     } catch { /* a ledger that misses one deletion is still better than none */ }
   })();
@@ -183,6 +185,7 @@ export async function replaceLedger(rows: unknown[]): Promise<boolean> {
       for (const r of valid.slice(-MAX_EVENTS)) store.add(r);
       tx.oncomplete = () => resolve();
       tx.onerror = () => reject(tx.error);
+      tx.onabort = () => reject(tx.error ?? new Error('indexeddb-abort'));
     });
     available = true;
     return true;
@@ -212,6 +215,7 @@ async function prune(): Promise<void> {
       };
       req.onerror = () => reject(req.error);
       tx.onerror = () => reject(tx.error);
+      tx.onabort = () => reject(tx.error ?? new Error('indexeddb-abort'));
     });
   } catch { /* pruning is maintenance; failing it costs space, not correctness */ }
 }

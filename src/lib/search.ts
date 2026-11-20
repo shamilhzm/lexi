@@ -23,8 +23,13 @@ export const MIN_QUERY = 2;
  *  fails on *Übung*, *schön* and *heiß* — which is most of the words anyone looks
  *  up in a hurry. Same folding the matcher uses, kept local because this is a
  *  presentation concern and does not want a dependency on the study path. */
+const clean = (s: string) => s.normalize('NFC').replace(/\p{Cf}/gu, '');
+
 export function fold(s: string): string {
-  return s.toLowerCase()
+  // NFC and no format characters first: a soft hyphen or zero-width space in a
+  // pasted *Woh­nung* missed the card while the dictionary found it, and the
+  // sheet said "not a Lexi card" about an A1 word (2026-11-20).
+  return clean(s).toLowerCase()
     .replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss')
     .normalize('NFD').replace(/\p{Diacritic}/gu, '');
 }
@@ -35,7 +40,7 @@ export function fold(s: string): string {
  *  what the owner's own class lists do and what a search that folded only one
  *  way returned nothing for *Geschwindigkeitsbeschraenkung* (2026-11-14). */
 export function foldDigraph(s: string): string {
-  return s.toLowerCase()
+  return clean(s).toLowerCase()
     .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
     .normalize('NFD').replace(/\p{Diacritic}/gu, '');
 }

@@ -23,7 +23,9 @@ export function decodeEntities(s: string): string {
   return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e: string) => {
     if (e[0] === '#') {
       const code = e[1] === 'x' || e[1] === 'X' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
-      return Number.isFinite(code) ? String.fromCodePoint(code) : m;
+      // Out of Unicode's range, `fromCodePoint` throws, and one bad `&#99999999;`
+      // lost a whole source's list or article (2026-11-20). Dropped instead.
+      return Number.isFinite(code) && code >= 0 && code <= 0x10ffff ? String.fromCodePoint(code) : '';
     }
     return NAMED[e] ?? m;
   });
@@ -31,7 +33,12 @@ export function decodeEntities(s: string): string {
 
 /** Tags out, entities decoded, whitespace collapsed. */
 export function textOf(html: string): string {
-  return decodeEntities(html.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ''))
+  return decodeEntities(html
+    // A script's or a stylesheet's *contents* are not prose ("Hallo Welt.window.track(…)"),
+    // and a block boundary is a word boundary (`</p><p>` glued two words).
+    .replace(/<(script|style)\b[\s\S]*?<\/\1\s*>/gi, ' ')
+    .replace(/<\/?(?:p|div|li|ul|ol|h[1-6]|tr|td|th|blockquote|section|article|figure|figcaption)\b[^>]*>/gi, ' ')
+    .replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ''))
     .replace(/­/g, '')
     .replace(/\s+/g, ' ')
     .trim();
@@ -141,8 +148,13 @@ export function parseFeed(xml: string, source: SourceId): Article[] {
   const out: Article[] = [];
   const items = xml.match(/<item[\s>][\s\S]*?<\/item>/gi) ?? [];
   for (const it of items) {
-    const title = textOf(tag(it, 'title') ?? '');
-    const link = textOf(tag(it, 'link') ?? '') || attr(it, 'guid', 'isPermaLink') || '';
+    // Decoded twice, as the teaser is: feeds double-encode (`&amp;shy;`), and a
+    // title showed a literal "&shy;".
+    const title = textOf(decodeEntities(tag(it, 'title') ?? ''));
+    // The guid's *text* is the permalink. `attr` returned the attribute's value,
+    // so every such item was linked to "true" and merged into one (2026-11-20).
+    const guid = attr(it, 'guid', 'isPermaLink') !== 'false' ? textOf(tag(it, 'guid') ?? '') : '';
+    const link = textOf(tag(it, 'link') ?? '') || (/^https?:\/\//i.test(guid) ? guid : '');
     if (!title || !link) continue;
     const desc = tag(it, 'description') ?? '';
     out.push({

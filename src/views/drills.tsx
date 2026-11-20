@@ -32,6 +32,7 @@
 // recognising a word and producing it schedule apart. NOTE: the `gym:` prefix is
 // a storage namespace and is deliberately NOT renamed — existing schedules
 // depend on it.
+import { appMatcher } from '../lib/appMatcher.ts';
 import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, CircleDot, Layers3, PenLine, Venus, Mars, Check, X } from 'lucide-react';
@@ -71,9 +72,13 @@ export type Grade = (ok: boolean, detail?: MissDetail) => void;
  *  article is one of the things these drills ask for, so any surface that prints
  *  the word while a gender question is pending has to strip it or it is printing
  *  the answer. `WordDrill`'s header is the second caller. */
-export const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
+export const stripArticle = (t: string) => t.replace(/^(?:(?:der|die|das)\/(?:der|die|das)|der|die|das)\s+/i, '');
+// ↑ `der/die` too (2026-11-20): a two-gender noun's gender drill read
+// "der/die Verwandte", printing the answer, and its plural options all carried it.
 /** Case/whitespace-insensitive. */
-const canon = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+// NFC, and a curly apostrophe is a straight one: a Mac-pasted `ü` was a wrong
+// answer, and iOS types *Wie geht’s?* with ’ by default (2026-11-20).
+const canon = (s: string) => s.normalize('NFC').replace(/[’‘ʼ]/g, "'").trim().toLowerCase().replace(/\s+/g, ' ');
 /** Additionally folds umlauts and ß, so "schoen" matches "schön". A norm-only
  *  match is a *near miss* — right word, spelling drifted — surfaced
  *  supportively rather than graded wrong. */
@@ -82,7 +87,9 @@ const norm = (s: string) => canon(s)
 /** Sentence punctuation is not the German being tested. *Wie bitte?* typed as
  *  «wie bitte», *Es war einmal …* as «es war einmal», were both one or more edits
  *  away and graded as typos or misses. */
-const unpunct = (s: string) => s.replace(/(?:\.\.\.|[.!?…])+\s*$/u, '').replace(/\s*…\s*/gu, ' ');
+const unpunct = (s: string) => s.replace(/(?:\.\.\.|[.!?…])+\s*$/u, '').replace(/\s*…\s*/gu, ' ')
+  // …and nor is a comma: «Schön, Sie kennenzulernen» typed without it was wrong.
+  .replace(/\s*,\s*/g, ' ');
 /** What a typed answer is graded on: case-, spacing-, umlaut- and punctuation-blind. */
 const answerKey = (s: string) => norm(unpunct(s));
 
@@ -129,7 +136,14 @@ function editDistance1(a: string, b: string): boolean {
 export function isTypoFor(typed: string, accept: string[]): boolean {
   const t = answerKey(typed);
   if (t.length < 4) return false;                 // too short for one edit to be evidence
-  if (lookupSurface(typed.trim())) return false;  // a real word is a real answer
+  // A real word is a real answer. Asked of each word the learner typed that is not
+  // in the answer, never of the whole string: «die Butter» was looked up as
+  // «die», found nothing, and was forgiven as a typo for «die Mutter», for
+  // every noun in the corpus (persona pass, 2026-11-20).
+  const want = new Set(accept.flatMap((a) => answerKey(stripArticle(a)).split(' ')));
+  for (const tok of stripArticle(unpunct(typed.trim()).normalize('NFC')).split(/\s+/)) {
+    if (tok && !want.has(answerKey(tok)) && lookupSurface(tok)) return false;
+  }
   return accept.some((a) => editDistance1(t, answerKey(a)));
 }
 
@@ -186,7 +200,22 @@ export function pluralsOf(w: Word): string[] {
  *  others are never offered as distractors (`PluralItem`), so the learner who
  *  knows *Pizzen* is not marked wrong by an item whose answer is *Pizzas*. */
 export function askablePlural(w: Word): string | null {
-  return pluralsOf(w)[0] ?? null;
+  const p = pluralsOf(w)[0] ?? null;
+  // A plural spelled exactly as the headword, article and all (*die USA*, *die
+  // Schulden*, *die Paprika*) is a prompt that prints its own answer. Eleven
+  // cards; *das Zimmer → die Zimmer* differs in its article and stays.
+  if (p && canon(p) === canon(w.term)) return null;
+  return p;
+}
+
+/** Whether a card can be asked for its article. Not a two-gender noun, whose
+ *  answer is "either, by who is meant" and was graded on `der` alone; and only
+ *  where a noun follows the article: *Das ist schade.* asked for the article of
+ *  "ist schade." (2026-11-20). */
+export function askableGender(w: Word): boolean {
+  if (w.kind !== 'word' || !w.gender) return false;
+  if (/^(?:der|die|das)\/(?:der|die|das)\s/i.test(w.term)) return false;
+  return w.pos !== 'phrase' || /^\p{Lu}/u.test(stripArticle(w.term));
 }
 
 function escapeReg(s: string) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -324,14 +353,29 @@ export function recallHints(w: Word): string[] {
  *  the miss screen shows, notation and all, because `+ A` is worth seeing. */
 export function recallAnswers(w: Word): string[] {
   const out = [w.term];
+  const add = (f: string) => { const t = f.replace(/\s+/g, ' ').trim(); if (t && !out.includes(t)) out.push(t); };
+  // A bracket is usually a sense label (*ansprechen (Person)*) and goes. But
+  // *kümmern (sich um)*, *versöhnen (sich)*, *leiden (unter)* name the grammar the
+  // verb takes: stripped, «kümmern» (another verb) was accepted and «sich kümmern
+  // um» was marked wrong (2026-11-20). Those are expanded instead.
+  const gram = /^(.+?)\s*\((sich(?:\s+\p{L}+)?|(?:an|auf|aus|bei|durch|für|gegen|in|mit|nach|über|um|unter|von|vor|zu|zwischen)(?:\s*\/\s*\p{L}+)?)\)\s*$/u.exec(w.term);
+  if (gram) {
+    const [, verb, extra] = gram;
+    const refl = /^sich\b/u.test(extra);
+    const prep = extra.replace(/^sich\s*/u, '').split(/\s*\/\s*/)[0];
+    if (refl) { add(`sich ${verb}${prep ? ` ${prep}` : ''}`); if (prep) add(`sich ${verb}`); }
+    else { add(`${verb} ${prep}`); add(verb); }
+    return out;
+  }
   const plain = w.term
     .replace(/\s*\([^)]*\)/gu, '')                 // ansprechen (Person)
     .replace(/\s*\+\s*[ADG](?![\p{L}])/gu, '')     // verzichten auf + A, dank + G
     .replace(/\s+/g, ' ').trim();
   const two = /^(der|die|das)\/(der|die|das)\s+(.+)$/.exec(plain);  // der/die Bekannte
-  for (const f of two ? [`${two[1]} ${two[3]}`, `${two[2]} ${two[3]}`] : [plain]) {
-    if (f && !out.includes(f)) out.push(f);
-  }
+  for (const f of two ? [`${two[1]} ${two[3]}`, `${two[2]} ${two[3]}`] : [plain]) add(f);
+  // *gern — lieber*: the headword is the first form.
+  const dash = /^(.+?)\s+[—–]\s+/.exec(plain);
+  if (dash) add(dash[1]);
   return out;
 }
 
@@ -358,7 +402,7 @@ export function reflexiveMiss(typed: string, w: Word): string | null {
 
 // ---- pools (lazy, level-filtered at use) ----------------------------------
 function inLevels(w: Word) { return levels().has(w.level); }
-const genderPool = () => WORDS.filter((w) => w.kind === 'word' && w.gender && inLevels(w));
+const genderPool = () => WORDS.filter((w) => askableGender(w) && inLevels(w));
 const pluralPool = () => WORDS.filter((w) => w.kind === 'word' && askablePlural(w) && inLevels(w));
 const recallPool = () => WORDS.filter((w) => inLevels(w) && recallSafe(w));
 const prepPool = () => WORDS.filter((w) => w.kind === 'word' && inLevels(w) && prepOf(w));
@@ -377,7 +421,7 @@ export const gymId = (m: Mode, w: Word) => `gym:${m}:${w.id}`;
  *  See `practiceModes` for the other half of the split. */
 export function eligibleModes(w: Word): Mode[] {
   const out: Mode[] = [];
-  if (w.kind === 'word' && w.gender) out.push('gender');
+  if (askableGender(w)) out.push('gender');
   if (w.kind === 'word' && askablePlural(w)) out.push('plural');
   // Recall is the one mode gated on the learner rather than on the card.
   //
@@ -408,8 +452,11 @@ export function practiceModes(w: Word, attested: string[] = []): Mode[] {
   const out: Mode[] = ['reverse'];
   // The gap when it can be found, and recognising the sentence when it cannot —
   // between them every card has a third exercise.
-  if (clozeParts(w, attested)) out.push('cloze'); else out.push('usage');
-  if (w.kind === 'word' && w.gender) out.push('gender');
+  // `usage` only with an example to show: before a level's examples arrive (or
+  // offline, after that fetch failed) it rendered nothing and the run sat on an
+  // empty step with no way on (2026-11-20).
+  if (clozeParts(w, attested)) out.push('cloze'); else if (w.ex[0]?.de) out.push('usage');
+  if (askableGender(w)) out.push('gender');
   if (w.kind === 'word' && askablePlural(w)) out.push('plural');
   if (w.pos === 'verb' && canConjugate(stripArticle(w.term))) out.push('conjugate');
   if (w.pos === 'adjective' && attested.length > 0) out.push('degree');
@@ -961,13 +1008,24 @@ export function UsageItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const mc = useMemo(() => {
     const mine = word.ex[0]?.de;
     if (!mine) return null;
-    const pool = WORDS
-      .filter((w) => w.id !== word.id && w.level === word.level && w.ex[0]?.de
-        // A distractor sentence must not itself contain the word, or there are
-        // two right answers and the learner is marked wrong for finding one.
-        && !new RegExp(`\\b${stripArticle(word.term).slice(0, 6)}`, 'i').test(w.ex[0].de))
-      .map((w) => w.ex[0].de);
-    const distract = pickN(pool, 3, new Set([norm(mine)]));
+    // A distractor sentence must not itself contain the word, or there are two
+    // right answers and the learner is marked wrong for finding one. Checked with
+    // the app's own matcher, which knows *Ruf mich an* is *anrufen*; the `\b`
+    // prefix test it replaces never fired for *Übung* and missed every split verb
+    // (49 cards, 2026-11-20). Only the candidates actually drawn are matched.
+    const prefix = new RegExp(`(?<!\\p{L})${escapeReg(stripArticle(word.term).slice(0, 6))}`, 'iu');
+    const uses = (de: string) => prefix.test(de) || appMatcher().annotate(de).some((s) => s.word?.id === word.id);
+    const pool = shuffle(WORDS
+      .filter((w) => w.id !== word.id && w.level === word.level && w.ex[0]?.de)
+      .map((w) => w.ex[0].de));
+    const distract: string[] = [];
+    const seen = new Set([norm(mine)]);
+    for (const de of pool) {
+      if (distract.length >= 3) break;
+      if (seen.has(norm(de)) || uses(de)) continue;
+      seen.add(norm(de));
+      distract.push(de);
+    }
     if (distract.length < 2) return null;
     return buildMC(mine, distract);
   }, [word.id]);
@@ -1123,7 +1181,7 @@ export function PrepItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
  *  today is still due tomorrow. */
 export function canAsk(mode: Mode, w: Word, forms: string[] = []): boolean {
   switch (mode) {
-    case 'gender': return w.kind === 'word' && !!w.gender;
+    case 'gender': return askableGender(w);
     case 'plural': return w.kind === 'word' && !!askablePlural(w);
     case 'recall': return recallSafe(w);
     case 'reverse': return w.kind === 'word';

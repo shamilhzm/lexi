@@ -31,7 +31,8 @@ import { loadBody, bodyText } from '../../lib/news/feed.ts';
 import { SOURCE_LABEL } from '../../lib/news/sources.ts';
 import { markRead, isRead, saveFromArticle } from '../../lib/news/library.ts';
 import { namesIn } from '../../lib/news/names.ts';
-import { sentenceAt, wordCount, ago } from '../../lib/news/text.ts';
+import { sentenceSpanAt, wordCount, ago } from '../../lib/news/text.ts';
+import { cleanPaste } from '../../lib/matcher.ts';
 import { readAloud } from '../../lib/news/voice.ts';
 import { isSaved } from '../../store.ts';
 import { useStore } from '../../useStore.ts';
@@ -105,13 +106,19 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
     const pi = Number(el.dataset.p), ti = Number(el.dataset.t);
     const tok = paraCovs[pi]?.tokens[ti];
     if (!tok) return;
+    // The tokens' offsets are into the text as the matcher cleaned it
+    // (`cleanPaste`), so the sentence is cut from the same string.
+    const text = cleanPaste(paras[pi].text);
+    const o = Number(el.dataset.o);
+    const span = sentenceSpanAt(text, o);
     setPicked({
       key: `${pi}:${ti}`,
       surface: tok.text,
       word: tok.word,
       compound: tok.state === 'compound',
-      sentence: sentenceAt(paras[pi].text, Number(el.dataset.o)),
-      paragraph: paras[pi].text,
+      sentence: span.text,
+      at: o - span.start,
+      paragraph: text,
     });
   };
   const onWord = (e: MouseEvent<HTMLElement>) => {

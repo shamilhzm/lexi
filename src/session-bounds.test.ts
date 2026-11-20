@@ -14,7 +14,7 @@ vi.mock('./lib/focus.ts', async (importOriginal) => ({
   FOCUS: { grammar: true, speaking: true, writing: true, tuning: true },
   visibleMode: () => true,
 }));
-vi.mock('./lib/idb.ts', () => ({ idbGet: async () => undefined, idbSet: async () => undefined, idbReady: async () => true }));
+vi.mock('./lib/idb.ts', () => ({ idbGet: async () => undefined, idbSet: async () => undefined, idbUpdate: async () => undefined, idbSetMany: async () => undefined, idbReady: async () => true }));
 
 async function fresh() {
   vi.resetModules();

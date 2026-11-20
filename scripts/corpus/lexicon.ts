@@ -122,7 +122,9 @@ let formRows = 0;
 /** Exact key: lowercase, punctuation out, **umlauts kept**. This is what an
  *  answer is matched on. */
 export function exact(word: string): string {
-  return word.toLowerCase().replace(/[^a-z0-9äöüß]/g, '');
+  // NFC first: a Mac pastes `ü` as `u` + U+0308, and stripping the mark alone
+  // looked up *Häuser* as *Hauser* and *schön* as *schon* (2026-11-20).
+  return word.normalize('NFC').toLowerCase().replace(/[^a-z0-9äöüß]/g, '');
 }
 
 /** Folded key: `exact`, plus umlauts down and ß → ss.

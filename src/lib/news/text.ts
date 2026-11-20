@@ -9,7 +9,9 @@ const ABBREV = /(?<!\p{L})(z|B|d|h|u|a|o|v|bzw|ca|Dr|Nr|St|Mio|Mrd|vgl|evtl|inkl
 
 export function sentences(p: string): { text: string; start: number; end: number }[] {
   const out: { text: string; start: number; end: number }[] = [];
-  const re = /[.!?…]["“”»«'’)]*\s+(?=["„“»«'‘(]?[A-ZÄÖÜ0-9])/g;
+  // ‘ closes a German single quote (‚Nein.‘): without it a paragraph of quoted
+  // sentences read as one 748-character sentence, which the tutor refused (2026-11-20).
+  const re = /[.!?…]["“”»«'’‘)]*\s+(?=["„“»«'‘‚(]?[A-ZÄÖÜ0-9])/g;
   let start = 0;
   for (let m = re.exec(p); m; m = re.exec(p)) {
     const end = m.index + m[0].trimEnd().length;
@@ -28,7 +30,14 @@ export function sentences(p: string): { text: string; start: number; end: number
 
 /** The sentence containing character `offset`. */
 export function sentenceAt(p: string, offset: number): string {
-  return sentences(p).find((s) => offset >= s.start && offset <= s.end)?.text ?? p;
+  return sentenceSpanAt(p, offset).text;
+}
+
+/** …and where it starts in `p`, so a tapped word can be marked at its own place
+ *  in the sentence rather than at the first match of its spelling. */
+export function sentenceSpanAt(p: string, offset: number): { text: string; start: number } {
+  const s = sentences(p).find((x) => offset >= x.start && offset <= x.end);
+  return s ? { text: s.text, start: s.start } : { text: p, start: 0 };
 }
 
 /** Content-ish words, for the "words read" count. */

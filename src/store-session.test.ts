@@ -16,6 +16,8 @@ vi.mock('./lib/focus.ts', async (importOriginal) => ({
 vi.mock('./lib/idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbUpdate: async () => undefined,
+  idbSetMany: async () => undefined,
   idbReady: async () => true,
 }));
 
@@ -25,6 +27,9 @@ async function fresh() {
   vi.resetModules();
   const data = await import('./data/index.ts');
   const store = await import('./store.ts');
+  // The app never reaches a screen before hydrate (main.tsx), and the store now
+  // defers boot-time writes until it has read (2026-11-20).
+  await store.hydrate();
   const session = await import('./session.ts');
   const srs = await import('./srs.ts');
   const drillsMod = await import('./views/drills.tsx');
@@ -1384,6 +1389,36 @@ describe('words the corpus did not have', () => {
     store.noteWanted('   ');
     store.noteWanted('');
     expect(store.wantedWords()).toEqual([]);
+  });
+
+  // Persona pass, 2026-11-20: the search box offered "Note this word" for
+  // `(*[\ %`, and a macOS paste (NFD) noted `ü` as a second word beside a typed one.
+  it('notes words and short phrases, never punctuation, numbers or paragraphs', async () => {
+    const { store } = await fresh();
+    for (const ok of ['Fußball-WM', 'geht’s', 'z. B.', 'Bescheid wissen', 'Øresund']) {
+      expect(store.noteable(ok), ok).not.toBeNull();
+    }
+    for (const junk of ['(*[\\ %', '100%', '2024', '😀', '-ung', 'Vor-', 'a', 'x'.repeat(61), 'eins zwei drei vier fünf sechs']) {
+      expect(store.noteable(junk), junk).toBeNull();
+      store.noteWanted(junk);
+    }
+    expect(store.wantedWords()).toEqual([]);
+  });
+
+  it('is one note whether the umlaut was typed or pasted from a Mac', async () => {
+    const { store } = await fresh();
+    store.noteWanted('Bürgschaft');
+    store.noteWanted('Bürgschaft');
+    expect(store.wantedWords()).toHaveLength(1);
+    expect(store.wantedWords()[0].n).toBe(2);
+    expect(store.isWanted('Bürgschaft')).toBe(true);
+  });
+
+  it('repairs a row with no count instead of turning the next repeat into NaN', async () => {
+    const { store } = await fresh();
+    localStorage.setItem('lexi.wanted.v1', JSON.stringify([{ term: 'Fernweh' }]));
+    store.noteWanted('Fernweh');
+    expect(store.wantedWords()[0].n).toBe(2);
   });
 
   it('can be withdrawn — a list things only accumulate in is a list nobody opens', async () => {

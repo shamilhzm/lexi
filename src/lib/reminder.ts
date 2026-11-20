@@ -13,7 +13,7 @@
 //
 // Real Web Push (VAPID + a serverless endpoint) is deliberately out of scope
 // here — see the backlog. It would be the third leg, not a replacement.
-import { reminderTime, reviewedToday } from '../store.ts';
+import { reminderTime, reviewedToday, localDayKey } from '../store.ts';
 
 const TITLE = 'Deutsch lernen mit Lexi';
 
@@ -98,7 +98,9 @@ export async function requestNotify(): Promise<NotifyState> {
 
 /** Don't nag twice in a day, across reloads. */
 const FIRED_KEY = 'lexi.reminder.fired.v1';
-const today = () => new Date().toISOString().slice(0, 10);
+// Local, like `reviewedToday()` beside it; the UTC date made it fire twice on
+// an evening west of Greenwich and an hour late every day after (2026-11-20).
+const today = () => localDayKey();
 
 async function show() {
   const body = 'Ten minutes of German. Your reviews are waiting.';

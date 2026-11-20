@@ -35,6 +35,7 @@
 import { Layers, TrendingUp, LayoutGrid, GraduationCap, Flame, Bookmark, Check, Search, Headphones, AudioLines } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { savedToday, DAILY_SAVE_GOAL } from '../store.ts';
+import { initialOf } from '../lib/ui.ts';
 import type { View } from '../App.tsx';
 
 export function LexiMark({ size = 28, className = '' }: { size?: number; className?: string }) {
@@ -146,7 +147,7 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
   onSearch: () => void;
   onProfile: () => void; name: string; level: string | null; streak: number;
 }) {
-  const initial = (name || 'L').trim().charAt(0).toUpperCase();
+  const initial = initialOf(name);
 
   return (
     // **Glass, and floating.** *2026-09-05.* It was an opaque `bg-panel` bar with

@@ -24,8 +24,19 @@ export function reviveCard(c: any): Card {
   return c as Card;
 }
 
+/** A card whose last review is later than `now` — graded while the device clock
+ *  was set ahead, then the clock was corrected — makes ts-fsrs throw
+ *  ("Invalid delta_t") once the gap passes a day. The interval preview runs in
+ *  render, so one such card took the whole session down, and the grade button
+ *  could never advance it. Reading it as reviewed *now* is the honest repair: the
+ *  review happened, only its timestamp is wrong (2026-11-20). */
+function sane(card: Card, now: Date): Card {
+  const last = card.last_review ? new Date(card.last_review).getTime() : NaN;
+  return Number.isFinite(last) && last > now.getTime() ? { ...card, last_review: new Date(now) } : card;
+}
+
 export function schedule(card: Card, rating: Grade, now: Date = new Date()): Card {
-  return engine.next(card, now, rating).card;
+  return engine.next(sane(card, now), now, rating).card;
 }
 
 export function isDue(card: Card, now: number = Date.now()): boolean {
@@ -43,7 +54,7 @@ export function isDue(card: Card, now: number = Date.now()): boolean {
  *  `undefined` for a card FSRS has never seen — there is no prediction to make. */
 export function retrievability(card: Card, now: Date = new Date()): number | undefined {
   if (card.state === State.New) return undefined;
-  const r = engine.get_retrievability(card, now, false);
+  const r = engine.get_retrievability(sane(card, now), now, false);
   return Number.isFinite(r) ? r : undefined;
 }
 
@@ -64,7 +75,8 @@ const CONFIDENT_REPS = 2;
  *  age: "10 min" is a real claim about the next few minutes, and it is also the
  *  one a learner most needs to trust. */
 export function previewInterval(card: Card, rating: Grade): string {
-  const next = engine.next(card, new Date(), rating).card;
+  const now = new Date();
+  const next = engine.next(sane(card, now), now, rating).card;
   const days = (new Date(next.due).getTime() - Date.now()) / 86_400_000;
   if (days < 1 / 24) return `${Math.max(1, Math.round(days * 1440))} min`;
   if (days < 1) return `${Math.round(days * 24)} hr`;

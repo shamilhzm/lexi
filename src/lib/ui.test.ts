@@ -93,3 +93,16 @@ describe('fmt', () => {
     expect(fmt(999)).toBe('999');
   });
 });
+
+// Persona pass, 2026-11-20: the avatar letter for names that are not ASCII.
+import { initialOf } from './ui.ts';
+describe('initialOf', () => {
+  it('takes the first whole character, composed and upper-cased', () => {
+    expect(initialOf('sam')).toBe('S');
+    expect(initialOf('Özlem')).toBe('Ö');   // NFD from a Mac paste
+    expect(initialOf('😀 Sam')).toBe('😀');       // was a lone surrogate: �
+    expect(initialOf('👩‍🎓 Ada')).toBe('👩‍🎓');   // ZWJ sequence stays whole
+    expect(initialOf('  ')).toBe('L');
+    expect(initialOf('')).toBe('L');
+  });
+});

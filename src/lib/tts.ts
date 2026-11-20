@@ -222,9 +222,15 @@ export function primeAudio(): void {
 }
 
 let current: HTMLAudioElement | null = null;
+/** Bumped by `stopHd`. Synthesis takes seconds, and "Stop reading" (or closing
+ *  the article) during it only paused the clip that was playing: the next one
+ *  finished synthesising and played anyway, with no control left (2026-11-20). */
+let stops = 0;
 /** Synthesize and play with Piper. Throws (with a useful message) on failure. */
 export async function speakHd(text: string): Promise<void> {
+  const asked = stops;
   const clip = await synthesize(text, HD_VOICE_ID);
+  if (asked !== stops) return;                    // stopped while synthesising
   if (!(clip instanceof Blob) || clip.size === 0) throw new Error('Voice engine returned no audio.');
   const url = URL.createObjectURL(clip);
   current?.pause();
@@ -241,9 +247,10 @@ export async function speakHd(text: string): Promise<void> {
  *  resolves when playback starts, which is right for a word and wrong for reading
  *  an article aloud paragraph by paragraph. */
 export async function speakHdToEnd(text: string): Promise<void> {
+  const asked = stops;
   await speakHd(text);
   const a = current;
-  if (!a || a.ended) return;
+  if (asked !== stops || !a || a.ended) return;
   await new Promise<void>((resolve) => {
     a.addEventListener('ended', () => resolve(), { once: true });
     a.addEventListener('pause', () => resolve(), { once: true });
@@ -251,7 +258,7 @@ export async function speakHdToEnd(text: string): Promise<void> {
 }
 
 /** Stop whatever the HD voice is saying. */
-export function stopHd(): void { current?.pause(); }
+export function stopHd(): void { stops++; current?.pause(); }
 
 // The HD voice used to be discoverable only by opening Settings, so the learners
 // most in need of it — the ones straining to hear a robotic vowel — were exactly

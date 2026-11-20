@@ -5,7 +5,7 @@ import { WORDS, WORDS_BY_SECTOR, SECTORS, SECTOR_GROUP, SECTOR_FINEGROUP, GROUP_
 import { byFrequency } from './lib/freq.ts';
 import { ID_MAP } from './data/idmap.ts';
 import { emptyCard, schedule, reviveCard, isDue, setRetention, retrievability, State, Rating, type Card, type Grade } from './srs.ts';
-import { idbGet, idbSet, idbReady } from './lib/idb.ts';
+import { idbGet, idbSet, idbReady, idbUpdate, idbSetMany } from './lib/idb.ts';
 import { logReview, dropLastReview, loadLedger, replaceLedger, type ReviewEvent } from './lib/ledger.ts';
 import type { Word, GroupStat, SectorStat, Target, CEFR } from './types.ts';
 import { ALL_LEVELS } from './types.ts';
@@ -142,13 +142,53 @@ function writeKV(key: string, value: unknown) {
   idbSet(key, value);
 }
 
+// ---- two tabs ---------------------------------------------------------------
+// Every tab used to write its **whole** in-memory map, on every grade and every
+// time it was hidden or closed. Two tabs open, and closing the idle one put back
+// the map it loaded at boot: the other tab's grades were gone, and so was a
+// restore made in the other tab (persona pass, 2026-11-20). Nothing coordinated
+// tabs, and the floor guard could not see it: both maps were the same size.
+//
+// Now a tab writes only the cards **it** changed, merged into what is stored
+// inside one IndexedDB transaction (`idbUpdate`), which the browser runs one at a
+// time across tabs. A tab that changed nothing writes nothing, and cards another
+// tab stored are read back into this one as it writes.
+/** Cards this tab changed and has not yet written; `null` is an undo to New. */
+const changed = new Map<string, Card | null>();
+const touched = (id: string) => changed.set(id, live.get(id) ?? null);
+
 function writeCards() {
-  if (!writable) return;
+  if (!writable || changed.size === 0) return;
   if (live.size < floor) {
     console.warn(`[lexi] refused to write ${live.size} cards over the ${floor} loaded at boot`);
     return;
   }
-  writeKV(CARDS_KEY, cardsObject());
+  if (localOnly) {
+    // The degraded boot has no transaction to merge in; it keeps the old rule.
+    changed.clear();
+    try { localStorage.setItem(CARDS_KEY, JSON.stringify(cardsObject())); } catch { /* quota */ }
+    return;
+  }
+  const delta = new Map(changed);
+  changed.clear();
+  let absorbed = 0;
+  idbUpdate<Record<string, Card>>(CARDS_KEY, (stored) => {
+    const out: Record<string, Card> = stored && typeof stored === 'object' && !Array.isArray(stored) ? stored : {};
+    for (const [id, c] of delta) { if (c) out[id] = c; else delete out[id]; }
+    // What another tab stored since this one loaded. Compared on `reps` and
+    // `due`, which every grade moves, so an unchanged card costs two reads.
+    for (const id of Object.keys(out)) {
+      if (delta.has(id) || changed.has(id)) continue;
+      const theirs = out[id];
+      const mine = live.get(id);
+      if (mine && mine.reps === theirs?.reps && new Date(mine.due).getTime() === new Date(theirs.due).getTime()) continue;
+      try { live.set(id, reviveCard({ ...theirs })); absorbed++; } catch { /* corrupt row: leave it */ }
+    }
+    return out;
+  }).then(() => { if (absorbed) emit(); }, () => {
+    // Keep the change for the next write rather than dropping a grade.
+    for (const [id, c] of delta) if (!changed.has(id)) changed.set(id, c);
+  });
 }
 
 function flushCards() {
@@ -243,6 +283,7 @@ function migrateIds(): number {
     live.delete(from);
     const cur = live.get(to);
     if (!cur || old.reps > cur.reps) live.set(to, old);
+    touched(from); touched(to);
     moved++;
   }
   return moved;
@@ -284,7 +325,14 @@ export async function hydrate(): Promise<void> {
   visits = Array.isArray(vis) ? vis : [];
   migrateStudyDays();
   hydrated = true;
+  if (pendingBoot.visit) recordVisit();
+  if (pendingBoot.snapshot) recordSnapshot();
+  pendingBoot.visit = pendingBoot.snapshot = false;
+  // main.tsx paints without waiting past its budget, so the first screen may be
+  // drawn from an empty map; this is what tells it the history arrived.
+  emit();
 }
+const pendingBoot = { visit: false, snapshot: false };
 
 // ---- which drills a session may contain ----------------------------------
 // "Sometimes I just want to casually flick through new words." A mixed session
@@ -382,6 +430,7 @@ export function review(id: string, grade: Grade) {
   const cur = before ?? emptyCard();
   const after = schedule(cur, grade);
   live.set(id, after);
+  touched(id);
   emitCard({ id, grade, before, after, at: Date.now(), undo: false });
   recordVisit();
   noteStudyDay();
@@ -425,6 +474,7 @@ export function review(id: string, grade: Grade) {
 export function restoreCard(id: string, snap: Card | undefined, wasAgain = false) {
   const before = live.get(id);
   if (snap) live.set(id, snap); else live.delete(id);
+  touched(id);
   // A rewound review did not happen, so anything that lit up for it has to go
   // back out — the same reasoning `unbumpReviewLog` applies to the daily counts.
   emitCard({ id, grade: null, before, after: snap, at: Date.now(), undo: true });
@@ -663,6 +713,10 @@ export function buildBriefing(): Briefing {
       freshIds.push(w.id);
     }
   }
+  // The burn-down bar on Fortschritt reads the peak this ratchets. Its only
+  // caller went with Today.tsx, so the peak stayed 0 and the bar never drew
+  // (2026-11-20). Only once hydrated: an empty map would read as a cleared backlog.
+  if (hydrated) noteBacklog(dueReview.length);
   return {
     ids: [...savedIds, ...served.map((d) => d.id), ...freshIds],
     due: served.length,
@@ -786,6 +840,10 @@ function loadSnaps(): Snapshot[] {
 }
 /** Record today's learned count per theme group (unfiltered), once per day. */
 export function recordSnapshot() {
+  // Before hydrate the card map is empty, and the day's snapshot is taken once:
+  // a slow boot (main.tsx paints after 4 s without it) locked today at zero
+  // known words, which the goal's pace line then read (2026-11-20).
+  if (!hydrated) { pendingBoot.snapshot = true; return; }
   const snaps = loadSnaps();
   const t = todayKey();
   if (snaps.some((s) => s.date === t)) return;
@@ -927,11 +985,15 @@ export function dueForecast(days = 7): number[] {
   // Local midnight: this bucket boundary is compared against real `due`
   // timestamps, so it has to be the learner's midnight or every card lands in
   // the wrong column by up to a day.
-  const start = dayStart(todayKey());
+  // Each column's edge is a real local midnight, not "start + n × 24 h": across a
+  // DST change the day is 23 or 25 hours long, and a card due late on the long
+  // day was counted in the next one's column (2026-11-20).
+  const edges = Array.from({ length: days + 1 }, (_, i) => dayStart(localDayKey(-i)));
   live.forEach((c, id) => {
     if (c.state === State.New || !servable(id)) return;
-    const idx = Math.floor((new Date(c.due).getTime() - start) / 86_400_000);
-    if (idx < 0) out[0]++; else if (idx < days) out[idx]++;
+    const t = new Date(c.due).getTime();
+    if (t < edges[1]) { out[0]++; return; }
+    for (let k = 1; k < days; k++) if (t < edges[k + 1]) { out[k]++; return; }
   });
   return out;
 }
@@ -1389,11 +1451,30 @@ export interface WantedWord {
 export function wantedWords(): WantedWord[] {
   try {
     const a = JSON.parse(localStorage.getItem(WANTED_KEY) || '[]');
-    return Array.isArray(a) ? (a as WantedWord[]).filter((r) => r && typeof r.term === 'string') : [];
+    return Array.isArray(a)
+      ? (a as WantedWord[]).filter((r) => r && typeof r.term === 'string')
+        // A row from a hand-edited or older backup without a count would make
+        // the next repeat `undefined + 1`: NaN, which sorts nowhere and exports as null.
+        .map((r) => (Number.isFinite(r.n) && Number.isFinite(r.at) ? r : { ...r, n: Number.isFinite(r.n) ? r.n : 1, at: Number.isFinite(r.at) ? r.at : 0 }))
+      : [];
   } catch { return []; }
 }
 
-const sameWord = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
+/** What a note may hold: a word or a short phrase, in any letters, with the
+ *  hyphens, apostrophes and abbreviation dots German writes (`Fußball-WM`,
+ *  `geht’s`, `z. B.`). Returns the term as it should be stored (trimmed,
+ *  NFC, so a macOS-pasted `ü` and a typed one are one note), or null for what
+ *  a maintainer could never author: `(*[\`, `100%`, an emoji, a pasted paragraph.
+ *  The search box offered "Note this word" for all of those. */
+export function noteable(term: string): string | null {
+  const t = term.normalize('NFC').trim().replace(/\s+/g, ' ');
+  if (t.length < 2 || t.length > 60 || t.split(' ').length > 5) return null;
+  // Ends on a letter or an abbreviation's dot: `Vor-` (half of *Vor- und
+  // Nachteile*) is not a word to note.
+  return /^\p{L}(?:[\p{L}\p{M}'’.\- ]*[\p{L}\p{M}.])?$/u.test(t) ? t : null;
+}
+
+const sameWord = (a: string, b: string) => a.normalize('NFC').trim().toLowerCase() === b.normalize('NFC').trim().toLowerCase();
 
 export function isWanted(term: string): boolean {
   return wantedWords().some((w) => sameWord(w.term, term));
@@ -1403,14 +1484,44 @@ export function isWanted(term: string): boolean {
  *  repeats: asking twice is a stronger signal than asking once, and the count is
  *  the only ranking a maintainer needs. */
 export function noteWanted(term: string, met?: { ex: string; src: string }): void {
-  const t = term.trim();
+  const t = noteable(term);
   if (!t) return;
   const cur = wantedWords();
   const at = cur.findIndex((w) => sameWord(w.term, t));
-  if (at >= 0) cur[at] = { ...cur[at], n: cur[at].n + 1, at: Date.now(), ...(met ?? {}) };
+  // The first sentence a word was met in is kept: it is the evidence, and a
+  // repeat from a search (no sentence) or another text must not replace it.
+  if (at >= 0) cur[at] = { ...cur[at], n: cur[at].n + 1, at: Date.now(), ...(met && !cur[at].ex ? met : {}) };
   else cur.push({ term: t, at: Date.now(), n: 1, ...(met ?? {}) });
-  try { localStorage.setItem(WANTED_KEY, JSON.stringify(cur.slice(-500))); } catch { /* quota */ }
+  try { localStorage.setItem(WANTED_KEY, JSON.stringify(cur.slice(-WANTED_CAP))); } catch { /* quota */ }
   emit();
+}
+
+const WANTED_CAP = 500;
+/** How many more words the list can take. */
+export function wantedRoom(): number { return Math.max(0, WANTED_CAP - wantedWords().length); }
+
+/** Note every missing word of a text at once (the scanner's "Note the N").
+ *
+ *  **Never evicts** (2026-11-20). One 200 KB text has over a thousand missing
+ *  words, and noting them one by one through `noteWanted` pushed every earlier
+ *  note off the 500-row cap, then evicted its own batch on every further press,
+ *  with the button still offering more. A bulk note takes the room there is and
+ *  says how much it took. Returns the number of new words noted. */
+export function noteWantedMany(rows: { term: string; met?: { ex: string; src: string } }[]): number {
+  const cur = wantedWords();
+  let added = 0;
+  for (const r of rows) {
+    const t = noteable(r.term);
+    if (!t || cur.some((w) => sameWord(w.term, t))) continue;
+    if (cur.length >= WANTED_CAP) break;
+    cur.push({ term: t, at: Date.now(), n: 1, ...(r.met ?? {}) });
+    added++;
+  }
+  if (added) {
+    try { localStorage.setItem(WANTED_KEY, JSON.stringify(cur)); } catch { return 0; }
+    emit();
+  }
+  return added;
 }
 
 export function unwantWord(term: string): void {
@@ -1958,6 +2069,17 @@ function todayKey(d = new Date()) {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 }
 
+/** The learner's local day `daysAgo` days back (negative: ahead), as YYYY-MM-DD.
+ *  Exported because five places outside this file built day keys with
+ *  `toISOString()`, the UTC date: Singapore's mornings resumed nothing, Toronto's
+ *  evenings labelled tomorrow, and the reminder fired twice (2026-11-20). Steps
+ *  by calendar day, not by 24 h, so a DST change lands on the right day. */
+export function localDayKey(daysAgo = 0, from = new Date()): string {
+  const d = new Date(from);
+  d.setDate(d.getDate() - daysAgo);
+  return todayKey(d);
+}
+
 /** Local midnight of a YYYY-MM-DD key, as ms. Use this — not `Date.parse(key)`,
  *  which reads a bare date as UTC — whenever a day key is compared against a real
  *  timestamp (a card's `due`, `Date.now()`). Key-to-key *differences* elsewhere in
@@ -1969,6 +2091,9 @@ function dayStart(key: string) {
 }
 
 export function recordVisit() {
+  // Before hydrate, `visits` is about to be replaced by what is stored, and the
+  // write is refused anyway; remember the visit and record it after.
+  if (!hydrated) { pendingBoot.visit = true; return; }
   const t = todayKey();
   if (!visits.includes(t)) { visits.push(t); persistVisits(); }
 }
@@ -2166,6 +2291,13 @@ export function noteBackup() {
 // IndexedDB, so it rides `exportBackup`, the async door the UI uses; `exportData`
 // stays synchronous for the callers that only need the snapshot.
 export function exportData(extra: { ledger?: ReviewEvent[] } = {}): string {
+  // A backup taken before progress has loaded is an empty file that *looks*
+  // like a backup, and it was recorded as taken, so the nudge never asked again.
+  // Restored on a new phone, it erases everything (2026-11-20). An IndexedDB
+  // that timed out at boot reads as empty too.
+  if (!hydrated || (localOnly && live.size === 0)) {
+    throw new Error('Your progress hasn’t finished loading, so there’s nothing safe to save yet. Reload Lexi and try again.');
+  }
   const settings: Record<string, string> = {};
   for (const k of SETTING_KEYS) { const v = localStorage.getItem(k); if (v != null) settings[k] = v; }
   noteBackup();
@@ -2183,39 +2315,78 @@ export async function exportBackup(): Promise<string> {
 
 /** Restore a backup produced by exportData. Writes straight to storage; the
  *  caller should reload the app so it re-hydrates cleanly. Throws on a bad file. */
-export async function importData(json: string): Promise<void> {
-  const d = JSON.parse(json);
-  if (!d || typeof d !== 'object' || typeof d.cards !== 'object' || d.cards === null) {
-    throw new Error('That doesn’t look like a Lexi backup file.');
+const NOT_A_BACKUP = 'That doesn’t look like a Lexi backup file. Nothing was changed.';
+
+/** Parse and check a backup before anything is written. Every backup Lexi has
+ *  ever exported carries `app: 'lexi'` and `v: 1`; a Trello export, a photo or
+ *  an empty `{"cards":{}}` used to be accepted and wiped the learner's history,
+ *  and a broken file showed the parser's own message (2026-11-20). */
+function parseBackup(json: string): any {
+  let d: any;
+  try { d = JSON.parse(json); } catch { throw new Error(NOT_A_BACKUP); }
+  const plain = (x: unknown) => !!x && typeof x === 'object' && !Array.isArray(x);
+  if (!plain(d) || d.app !== 'lexi' || !plain(d.cards)) throw new Error(NOT_A_BACKUP);
+  if (typeof d.v === 'number' && d.v > 1) {
+    throw new Error('This backup was made by a newer version of Lexi. Reload Lexi to update it, then restore again. Nothing was changed.');
   }
+  return d;
+}
+
+export async function importData(json: string): Promise<void> {
+  const d = parseBackup(json);
   // Drop any debounced write still in flight. It would fire after these writes
   // land and overwrite the restored cards with the in-memory ones we are
   // replacing — the caller reloads the app, so `live` is about to be discarded.
   if (persistTimer !== null) { clearTimeout(persistTimer); persistTimer = null; }
+  changed.clear();
   // …and stop every later write too: the reload's own `pagehide` would otherwise
   // flush the map being replaced straight over the restore.
+  const wasWritable = writable;
   writable = false;
-  await Promise.all([
-    idbSet(CARDS_KEY, d.cards),
-    idbSet(MISS_KEY, Array.isArray(d.misses) ? d.misses : []),
-    idbSet(VISITS_KEY, Array.isArray(d.visits) ? d.visits : []),
+
+  // **All or nothing** (2026-11-20). The settings went last with no guard, so a
+  // backup over the storage quota threw after the cards were already replaced,
+  // and this tab, no longer writable, silently dropped every grade after that.
+  // Now the settings go first (they are the part that can hit the quota) and are
+  // rolled back if anything fails; the progress lands in one transaction that
+  // either commits whole or not at all.
+  const extraKeys = ['lexi.studydays.v1'];
+  const before = new Map<string, string | null>();
+  for (const k of [...SETTING_KEYS, ...extraKeys]) before.set(k, localStorage.getItem(k));
+  const kv: [string, unknown][] = [
+    [CARDS_KEY, d.cards],
+    [MISS_KEY, Array.isArray(d.misses) ? d.misses : []],
+    [VISITS_KEY, Array.isArray(d.visits) ? d.visits : []],
     // Only when the file carries them: a backup from before 2026-09-25 has neither,
     // and restoring it must not erase what this device has in their place.
-    ...(Array.isArray(d.attempts) ? [idbSet(ATTEMPT_KEY, d.attempts)] : []),
-    ...(Array.isArray(d.ledger) ? [replaceLedger(d.ledger)] : []),
-  ]);
-  if (d.settings && typeof d.settings === 'object') {
-    for (const k of SETTING_KEYS) {
-      const val = d.settings[k];
-      if (typeof val === 'string') localStorage.setItem(k, val);
+    ...(Array.isArray(d.attempts) ? [[ATTEMPT_KEY, d.attempts] as [string, unknown]] : []),
+  ];
+  try {
+    if (d.settings && typeof d.settings === 'object') {
+      for (const k of SETTING_KEYS) {
+        const val = d.settings[k];
+        if (typeof val === 'string') localStorage.setItem(k, val);
+      }
     }
+    // A backup from before study days existed carries only visits. Clearing the key
+    // lets the next boot seed it from *those* visits (`migrateStudyDays`) instead of
+    // keeping this device's streak beside somebody else's history.
+    if (typeof d.settings?.['lexi.studydays.v1'] !== 'string') localStorage.removeItem('lexi.studydays.v1');
+    if (localOnly) for (const [k, v] of kv) localStorage.setItem(k, JSON.stringify(v));
+    else await idbSetMany(kv);
+  } catch (err) {
+    for (const [k, v] of before) {
+      try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch { /* best effort */ }
+    }
+    writable = wasWritable;
+    const full = err instanceof DOMException && /quota/i.test(err.name + err.message);
+    throw new Error(full
+      ? 'This device is out of storage space for that backup. Nothing was changed.'
+      : 'The backup couldn’t be written on this device. Nothing was changed.');
   }
-  // A backup from before study days existed carries only visits. Clearing the key
-  // lets the next boot seed it from *those* visits (`migrateStudyDays`) instead of
-  // keeping this device's streak beside somebody else's history.
-  if (typeof d.settings?.['lexi.studydays.v1'] !== 'string') {
-    try { localStorage.removeItem('lexi.studydays.v1'); } catch { /* */ }
-  }
+  // The ledger is its own store, so it is not in that transaction. Its failure
+  // leaves the restored schedule intact, which is what a learner needs first.
+  if (Array.isArray(d.ledger)) { try { await replaceLedger(d.ledger); } catch { /* the schedule landed */ } }
   // Two settings are cached in module-level variables that were initialised the
   // moment this file was first imported — long before a restore writes over the
   // keys they came from. Without this the restored **CEFR filter** and **muted

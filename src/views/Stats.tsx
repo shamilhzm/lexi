@@ -9,15 +9,16 @@
 // match what actually happened — and cannot be moved by studying more.
 import { useEffect, useMemo, useState } from 'react';
 import { BarChart3 } from 'lucide-react';
-import { reviewLog, dueForecast, knownHistory, totals } from '../store.ts';
+import { reviewLog, dueForecast, knownHistory, totals, localDayKey } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { fmt } from '../lib/ui.ts';
 import { loadLedger } from '../lib/ledger.ts';
 import { calibration, MIN_N, type Calibration } from '../lib/calibration.ts';
 import Card from '../components/ui/Card.tsx';
 
-const DAY = 86_400_000;
-const dayKey = (offset: number) => new Date(Date.now() - offset * DAY).toISOString().slice(0, 10);
+// Local days, matching the review log's keys (it was the UTC date: Toronto's
+// evening bar was labelled tomorrow and read zero).
+const dayKey = (offset: number) => localDayKey(offset);
 const dayLabel = (key: string) => new Date(key + 'T00:00:00').toLocaleDateString('de-DE', { weekday: 'short' });
 
 export default function Stats() {

@@ -53,6 +53,8 @@ describe('card id migration map', () => {
     vi.doMock('./lib/idb.ts', () => ({
       idbGet: async (key: string) => stored[key],
       idbSet: async (key: string, value: unknown) => { stored[key] = value; },
+      idbUpdate: async (key: string, fn: (v: unknown) => unknown) => { stored[key] = fn(structuredClone(stored[key])); },
+      idbSetMany: async (kv: [string, unknown][]) => { for (const [k, v] of kv) stored[k] = v; },
       idbReady: async () => true,
     }));
     vi.useFakeTimers();

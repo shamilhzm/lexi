@@ -59,7 +59,9 @@ interface Manifest { n: number; forms: number; bounds: string[] }
  *  shard boundaries were computed with them, and a divergence does not throw, it
  *  silently looks in the wrong file. */
 export function exact(word: string): string {
-  return word.toLowerCase().replace(/[^a-z0-9äöüß]/g, '');
+  // NFC first: a Mac pastes `ü` as `u` + U+0308, and stripping the mark alone
+  // looked up *Häuser* as *Hauser* and *schön* as *schon* (2026-11-20).
+  return word.normalize('NFC').toLowerCase().replace(/[^a-z0-9äöüß]/g, '');
 }
 export function fold(word: string): string {
   return exact(word)
@@ -150,7 +152,11 @@ export async function lookupLex(term: string): Promise<{ entries: LexEntry[]; vi
     const found = target?.e.filter((e) => exact(e.w) === lk) ?? [];
     return found.length ? { entries: found, via: term } : null;
   };
-  if (shard.f[ek]) { const r = await hop(shard.f[ek]); if (r) return r; }
+  // Own keys only: `f` is parsed JSON, so `f.constructor` is `Object` and
+  // looking up the word *constructor* threw inside `exact` (2026-11-20).
+  const arrow = (k: string) => (Object.hasOwn(shard.f, k) && typeof shard.f[k] === 'string' ? shard.f[k] : null);
+  const direct = arrow(ek);
+  if (direct) { const r = await hop(direct); if (r) return r; }
 
   // 3. Only now, the folded fallback — someone typing `Hauser` for `Häuser` on a
   //    keyboard without umlauts. Last because it is the step that can answer a
@@ -158,7 +164,8 @@ export async function lookupLex(term: string): Promise<{ entries: LexEntry[]; vi
   const near = shard.e.filter((e) => fold(e.w) === fk);
   if (near.length) return { entries: near };
   const arrowKey = Object.keys(shard.f).find((k) => fold(k) === fk);
-  if (arrowKey) { const r = await hop(shard.f[arrowKey]); if (r) return r; }
+  const viaFold = arrowKey ? arrow(arrowKey) : null;
+  if (viaFold) { const r = await hop(viaFold); if (r) return r; }
 
   // 4. The other way an English keyboard spells an umlaut: *ae*, *oe*, *ue*, as
   //    the German convention writes them where there are none. Tried once, with

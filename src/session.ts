@@ -14,7 +14,7 @@
 // it. Three decisions remain, all of them about words: what is due, what is
 // fresh, and which word-fact you keep getting wrong.
 import type { Word, Target } from './types.ts';
-import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled, isSaved, dweltRepeatedly } from './store.ts';
+import { buildSession, cardOf, wordsFor, dueGymIds, missStats, practisedModes, modeEnabled, isSaved, dweltRepeatedly, localDayKey } from './store.ts';
 import { BY_ID } from './data/index.ts';
 import { savedFrom } from './lib/news/library.ts';
 import { isDue, State, Rating, type Grade } from './srs.ts';
@@ -154,7 +154,9 @@ interface StoredSession { target: string; at: number; i: number; items: PackedIt
 
 /** What counts as "the same session" to come back to. */
 const targetKey = (t: Target) => `${t.kind}:${t.name}`;
-const dayKey = (ms: number) => new Date(ms).toISOString().slice(0, 10);
+// The learner's local day, not the UTC date (2026-11-20): a Singapore morning
+// refused the session left an hour ago, and Berlin after midnight resumed yesterday's.
+const dayKey = (ms: number) => localDayKey(0, new Date(ms));
 
 function packReason(r: SessionReason): PackedReason {
   switch (r.kind) {
@@ -297,7 +299,7 @@ function weakModes(): { mode: Mode; tag: string; misses: number }[] {
  *  words (from this session's queue) whose drill card is due or not yet seen.
  *  Capped, so the session actively rehearses your weak structures without
  *  ballooning. Exported so Today can preview the count. */
-export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionItem[] {
+export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS, queued: ReadonlySet<string> = new Set()): SessionItem[] {
   const modes = weakModes();
   if (modes.length === 0) return [];
   const now = Date.now();
@@ -310,7 +312,10 @@ export function blindSpotDrills(words: Word[], cap = MAX_BLIND_SPOTS): SessionIt
       const srsId = gymId(mode, w);
       const c = cardOf(srsId);
       if (c && !isDue(c, now)) continue;          // already comfortably scheduled
-      if (out.some((it) => it.srsId === srsId)) continue;
+      // Skipped *before* it counts: the weave usually drills the first few words
+      // already, and spending the cap on those left a gender-only noun deck with no
+      // blind-spot drill at all, session after session (2026-11-20).
+      if (queued.has(srsId) || out.some((it) => it.srsId === srsId)) continue;
       out.push({ type: mode, word: w, srsId, reason: { kind: 'blindspot', mode, tag, misses } });
     }
   }
@@ -425,9 +430,14 @@ export function buildMixedSession(target: Target, teachOnly = false): SessionIte
   // store.buildBriefing) picks which fresh *vocabulary* enters the day, while
   // blind spots decide which *drills* ride along — so you rehearse weak
   // structures right where you already are.
-  for (const d of blindSpotDrills(words)) {
+  for (const d of blindSpotDrills(words, MAX_BLIND_SPOTS, new Set(out.map((it) => it.srsId)))) {
     if (out.some((it) => it.srsId === d.srsId)) continue;
-    out.splice(Math.floor(Math.random() * (out.length + 1)), 0, d);
+    // After the word's own card, never before it: a drill on a word the session
+    // has not shown yet tests before it teaches, which the weave exists to
+    // prevent (44% of these did, measured 2026-11-20).
+    const shown = out.findIndex((it) => it.word.id === d.word.id);
+    const from = shown + 1;
+    out.splice(from + Math.floor(Math.random() * (out.length - from + 1)), 0, d);
   }
 
   // A capped target keeps its promise. Applied here, after every splice, because

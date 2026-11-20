@@ -145,6 +145,18 @@ export function speakDe(text: string): SpeakResult {
  *  the docs and the UI can't disagree on a German phone. */
 export const fmt = (n: number) => n.toLocaleString('en-US');
 
+/** The avatar's letter. `charAt(0)` split an emoji's surrogate pair into `�` and
+ *  took the bare `O` off a Mac-pasted (NFD) `Ö`, so it reads the first grapheme
+ *  of the NFC string instead. */
+export function initialOf(name: string, fallback = 'L'): string {
+  const t = name.normalize('NFC').trim();
+  if (!t) return fallback;
+  const first = typeof Intl !== 'undefined' && 'Segmenter' in Intl
+    ? new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(t)[Symbol.iterator]().next().value?.segment
+    : Array.from(t)[0];
+  return (first ?? fallback).toLocaleUpperCase();
+}
+
 /** Grammatical gender as ink.
  *
  *  Colour-coding der/die/das is the single most useful thing on a German card —

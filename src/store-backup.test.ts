@@ -5,6 +5,8 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 vi.mock('./lib/idb.ts', () => ({
   idbGet: async () => undefined,
   idbSet: async () => undefined,
+  idbUpdate: async () => undefined,
+  idbSetMany: async () => undefined,
   idbReady: async () => true,
 }));
 
@@ -17,6 +19,7 @@ describe('exportData', () => {
     localStorage.setItem('lexi.userwords.v1', JSON.stringify([{ id: 'usr:read:Zugang', term: 'der Zugang' }]));
     localStorage.setItem('lexi.texts.v1', JSON.stringify([{ id: 't1', title: 'x', body: 'y', at: 1 }]));
     const store = await import('./store.ts');
+    await store.hydrate();
     const b = JSON.parse(store.exportData());
     expect(JSON.parse(b.settings['lexi.userwords.v1'])[0].id).toBe('usr:read:Zugang');
     expect(b.settings['lexi.texts.v1']).toBeDefined();
@@ -28,6 +31,7 @@ describe('exportData', () => {
       localStorage.setItem(k, '[]');
     }
     const store = await import('./store.ts');
+    await store.hydrate();
     const b = JSON.parse(store.exportData());
     for (const k of ['lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1']) {
       expect(b.settings[k]).toBe('[]');
@@ -38,6 +42,7 @@ describe('exportData', () => {
     localStorage.setItem('lexi.ai.key.v1', 'sk-secret-do-not-export');
     localStorage.setItem('lexi.tutor.code.v1', 'access-code-do-not-export');
     const store = await import('./store.ts');
+    await store.hydrate();
     expect(store.exportData()).not.toContain('sk-secret-do-not-export');
     expect(store.exportData()).not.toContain('access-code-do-not-export');
   });

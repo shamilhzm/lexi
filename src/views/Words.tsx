@@ -36,6 +36,7 @@ import Kicker from '../components/ui/Kicker.tsx';
 import Tour, { type TourStep } from '../components/Tour.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import type { WordsRoute } from '../route.ts';
+import ErrorBoundary from '../components/ErrorBoundary.tsx';
 import type { CEFR, Target } from '../types.ts';
 
 // The course and its films are a chunk of their own: nothing on the boot path
@@ -137,9 +138,13 @@ function Index({ onOpenGroup, onText, onGame, onKurs }: {
       {/* The course first: a theme with a direction, and the answer to "where do
           I start" for a learner who has not yet got a word in mind. The
           fallback holds the band's height so the keys below do not jump. */}
-      <Suspense fallback={<div className="min-h-[106px] mb-5" />}>
-        <KursBand onOpen={onKurs} />
-      </Suspense>
+      {/* Its own boundary: if the course chunk cannot load (offline after a
+          deploy), the band goes and the decks, map and scanner stay. */}
+      <ErrorBoundary resetKey="kurs-band" fallback={null}>
+        <Suspense fallback={<div className="min-h-[106px] mb-5" />}>
+          <KursBand onOpen={onKurs} />
+        </Suspense>
+      </ErrorBoundary>
       <Tour id="themen" steps={THEMEN_TOUR} />
       <Taxonomy onOpenGroup={onOpenGroup} />
       {/* The second way to choose words, and the one nobody would guess is here.

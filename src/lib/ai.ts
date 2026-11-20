@@ -47,7 +47,10 @@ export function tutorCode(): string | null {
 }
 export function setTutorCode(code: string | null) {
   try {
-    if (code && code.trim()) localStorage.setItem(CODE_KEY, code.trim());
+    // Printable ASCII only: a code pasted with a zero-width space could not be put
+    // in a header, and the throw was reported as "could not reach the tutor".
+    const clean = code ? code.replace(/[^\x21-\x7E]/g, '') : '';
+    if (clean) localStorage.setItem(CODE_KEY, clean);
     else { localStorage.removeItem(CODE_KEY); localStorage.removeItem(AI_CONSENT_KEY); }
   } catch { /* quota */ }
 }
@@ -107,7 +110,10 @@ export interface CorrectionResult {
 }
 
 export async function explainSentence(args: { sentence: string; paragraph: string; title: string; level: string }): Promise<Explanation> {
-  const r = await complete<Partial<Explanation>>({ task: 'explain', ...args });
+  // Clipped to the server's limits (api/tutor.ts LIMITS) so an over-long
+  // "sentence" is explained in part rather than refused outright.
+  const r = await complete<Partial<Explanation>>({ task: 'explain', ...args,
+    sentence: args.sentence.slice(0, 600), paragraph: args.paragraph.slice(0, 3000), title: args.title.slice(0, 300) });
   // The server checked the shape; checking again costs nothing and means a
   // misbehaving server cannot put a non-string on screen.
   return {
@@ -124,8 +130,11 @@ export async function correctWriting(args: { text: string; title: string; level:
     natural: String(r.natural ?? ''),
     verdict: String(r.verdict ?? ''),
     tip: String(r.tip ?? ''),
+    // Every field a string, whatever the server says: `why: {…}` reached React as
+    // an object child and took the reader down (2026-11-20).
     issues: (Array.isArray(r.issues) ? r.issues : [])
-      .filter((i) => i && typeof i.original === 'string' && typeof i.fix === 'string'),
+      .filter((i) => i && typeof i.original === 'string' && typeof i.fix === 'string')
+      .map((i) => ({ ...i, why: String(i.why ?? ''), kind: String(i.kind ?? '') })),
   };
 }
 

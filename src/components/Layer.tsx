@@ -48,6 +48,35 @@ const SWIPE_PX = 90;
  *  somewhere. That is the difference between a slide and a jump. */
 const SPRING = { type: 'spring' as const, stiffness: 260, damping: 30, mass: 0.85 };
 
+// ---- the stack ---------------------------------------------------------------
+// Every layer and sheet listened for Escape on `window`, so one press closed an
+// entry *and* the story under it, or the search *and* the film behind it (losing
+// the film's place). And only `#main` went inert, so VoiceOver swiped from an
+// entry into the story beneath (persona pass, 2026-11-20). Now the open layers
+// form a stack: only the top one answers Escape, and the ones under it are inert.
+type Entry = { el: () => HTMLElement | null };
+const open: Entry[] = [];
+function restack() {
+  open.forEach((e, i) => { const el = e.el(); if (el) el.inert = i < open.length - 1; });
+}
+/** The topmost open layer's element, or null. For a component inside a layer
+ *  that listens on `window` (the film's arrow keys) to know whether it is the
+ *  one being looked at. */
+export function topLayer(): HTMLElement | null {
+  return open.length ? open[open.length - 1].el() : null;
+}
+/** Join the stack for as long as this component is mounted. Returns "am I on top?". */
+export function useLayerStack(el: () => HTMLElement | null): () => boolean {
+  const me = useRef<Entry>({ el }).current;
+  me.el = el;
+  useEffect(() => {
+    open.push(me);
+    restack();
+    return () => { const i = open.indexOf(me); if (i >= 0) open.splice(i, 1); restack(); };
+  }, [me]);
+  return useCallback(() => open[open.length - 1] === me, [me]);
+}
+
 export default function Layer({ children, side, label, back = 'Wort', onClose, footer }: {
   children: React.ReactNode;
   /** Controls that stay put while the content scrolls — the film's *Weiter*.
@@ -113,12 +142,17 @@ export default function Layer({ children, side, label, back = 'Wort', onClose, f
     };
   }, []);
 
+  const isTop = useLayerStack(() => panel.current);
+  // Read through a ref: an inline `onClose` is a new function on every parent
+  // render, and this effect used to re-run, and re-focus the panel, each time.
+  const close = useRef(onClose);
+  close.current = onClose;
+  useEffect(() => { panel.current?.focus({ preventScroll: true }); }, []);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && isTop()) close.current(); };
     window.addEventListener('keydown', onKey);
-    panel.current?.focus({ preventScroll: true });
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  }, [isTop]);
 
   // Dismissal is the *reverse* of the entry direction, so the strip metaphor
   // holds: the word is still on the side it came from. Closing hands off to the

@@ -23,6 +23,22 @@
 >
 > ---
 >
+> ## Left open by the 2026-11-20 persona pass
+>
+> - `misses`, `attempts` and `visits` are still written whole, so two tabs can still
+>   overwrite each other's blind-spot log (cards are fixed; these are lower stakes).
+> - The conjugator gives wrong forms for 23 verbs flagged reliable (*lügen → lügte*,
+>   *wehtun → wehtute*). Dormant in drills while `FOCUS.grammar` is false, but the forms
+>   reach the surface index.
+> - Corpus: *die Gerade* has the plural *die Gerade*; it is *die Geraden*. Through
+>   `authoring:fix`.
+> - A due `cloze` drill for *jedermann, jawohl, irgendein, derjenige* renders nothing in
+>   Üben (WordDrill now skips such a step; Review does not).
+> - `parseGateHash` (lib/tuer.ts) calls `decodeURIComponent` unguarded, so
+>   `#/tuer/100%` throws at boot, the same bug `parseHash` had.
+>
+> ---
+>
 > ## The course — open work *(2026-11-19)*
 >
 > See [COURSE.md](COURSE.md). Play every new film on the iPhone simulator before calling

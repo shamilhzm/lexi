@@ -18,6 +18,8 @@ async function boot(idbOk = true) {
   vi.doMock('./lib/idb.ts', () => ({
     idbGet: async (key: string) => (idbOk ? stored[key] : undefined),
     idbSet: async (key: string, value: unknown) => { writes.push(key); stored[key] = value; },
+    idbUpdate: async (key: string, fn: (v: unknown) => unknown) => { writes.push(key); stored[key] = fn(structuredClone(stored[key])); },
+    idbSetMany: async (kv: [string, unknown][]) => { for (const [k, v] of kv) { writes.push(k); stored[k] = v; } },
     idbReady: async () => idbOk,
   }));
   return import('./store.ts');
@@ -44,13 +46,20 @@ describe('the card-map write guard', () => {
     expect(Object.keys(stored[CARDS] as object)).toHaveLength(3);
   });
 
-  it('flushes the hydrated map on pagehide', async () => {
+  // Was "flushes the hydrated map on pagehide". Flushing a map nobody changed is
+  // how an idle second tab put its boot-time copy over the other tab's grades
+  // (persona pass, 2026-11-20). A tab writes what it changed, and only that.
+  it('flushes what this tab changed on pagehide, and nothing when it changed nothing', async () => {
     const store = await boot();
     await store.hydrate();
     hide();
     await Promise.resolve();
+    expect(writes).not.toContain(CARDS);
+    store.review('voc:A1:der Stuhl', 3);
+    hide();
+    await Promise.resolve();
     expect(writes).toContain(CARDS);
-    expect(Object.keys(stored[CARDS] as object)).toHaveLength(3);
+    expect(Object.keys(stored[CARDS] as object)).toHaveLength(4);
   });
 
   it('never writes a map smaller than the one it loaded', async () => {
@@ -77,11 +86,72 @@ describe('the card-map write guard', () => {
   it('does not flush the old map over a restore', async () => {
     const store = await boot();
     await store.hydrate();
-    await store.importData(JSON.stringify({ cards: { 'voc:A1:der Hund': card(2) } }));
+    await store.importData(JSON.stringify({ app: 'lexi', cards: { 'voc:A1:der Hund': card(2) } }));
     const after = writes.length;
     hide();
     await Promise.resolve();
     expect(writes.length).toBe(after);
     expect(Object.keys(stored[CARDS] as object)).toEqual(['voc:A1:der Hund']);
+  });
+
+  it('two tabs keep each other’s grades', async () => {
+    const a = await boot();
+    await a.hydrate();
+    const b = await boot();
+    await b.hydrate();
+    a.review('voc:A1:der Stuhl', 3);
+    b.review('voc:A1:die Lampe', 3);
+    hide();                                  // both tabs flush
+    await Promise.resolve();
+    expect(Object.keys(stored[CARDS] as object).sort()).toEqual(
+      ['voc:A1:das Haus', 'voc:A1:der Stuhl', 'voc:A1:der Tisch', 'voc:A1:die Lampe', 'voc:A1:die Tür']);
+    // …and a tab reads back what the other one stored as it writes.
+    a.review('voc:A1:der Tisch', 3);
+    hide();
+    await Promise.resolve();
+    expect(a.cardOf('voc:A1:die Lampe')).toBeDefined();
+  });
+
+  it('an idle tab closing does not undo a restore made in another tab', async () => {
+    const a = await boot();
+    await a.hydrate();
+    const b = await boot();
+    await b.hydrate();
+    await a.importData(JSON.stringify({ app: 'lexi', v: 1, cards: { 'voc:A1:der Hund': card(2) } }));
+    hide();
+    await Promise.resolve();
+    expect(Object.keys(stored[CARDS] as object)).toEqual(['voc:A1:der Hund']);
+  });
+
+  it('refuses a file that is not a Lexi backup, and changes nothing', async () => {
+    const store = await boot();
+    await store.hydrate();
+    for (const junk of ['', '\u0089PNG', '{"name":"Umzug","cards":[{"id":1}],"lists":[]}', '{"cards":{}}', '[]']) {
+      await expect(store.importData(junk)).rejects.toThrow(/doesn’t look like a Lexi backup/);
+    }
+    await expect(store.importData(JSON.stringify({ app: 'lexi', v: 99, cards: {} }))).rejects.toThrow(/newer version/);
+    expect(writes).toEqual([]);
+    expect(Object.keys(stored[CARDS] as object)).toHaveLength(3);
+  });
+
+  it('a restore that cannot be written changes nothing and keeps the tab saving', async () => {
+    const store = await boot();
+    await store.hydrate();
+    localStorage.setItem('lexi.profile.name.v1', 'Margit');
+    const setItem = localStorage.setItem.bind(localStorage);
+    localStorage.setItem = (k: string, v: string) => {
+      if (k === 'lexi.texts.v1') throw new DOMException('full', 'QuotaExceededError');
+      setItem(k, v);
+    };
+    try {
+      await expect(store.importData(JSON.stringify({ app: 'lexi', v: 1, cards: {},
+        settings: { 'lexi.profile.name.v1': 'Someone else', 'lexi.texts.v1': '[]' } }))).rejects.toThrow(/out of storage/);
+    } finally { localStorage.setItem = setItem; }
+    expect(localStorage.getItem('lexi.profile.name.v1')).toBe('Margit');
+    expect(Object.keys(stored[CARDS] as object)).toHaveLength(3);
+    store.review('voc:A1:der Stuhl', 3);
+    hide();
+    await Promise.resolve();
+    expect(Object.keys(stored[CARDS] as object)).toHaveLength(4);
   });
 });

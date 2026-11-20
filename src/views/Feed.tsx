@@ -601,7 +601,7 @@ function Welcome({ onStart }: { onStart: () => void }) {
             is a sibling — this one, each word, and the end of the list. Two `h1`s
             on one document is two answers to "where am I". */}
         <h2 id="feed-welcome" lang="de" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h2>
-        <p className="text-dim text-sm mb-6">German vocabulary for English speakers, A1 to C2.</p>
+        <p className="text-dim text-sm mb-6 text-balance">German vocabulary for English speakers, A1&nbsp;to&nbsp;C2.</p>
 
         <p className="text-base leading-relaxed mb-1">
           {fmt(WORDS.length)} German words, one per screen, with the sound, the meaning and an example.

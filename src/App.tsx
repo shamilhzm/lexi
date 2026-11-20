@@ -62,7 +62,8 @@ import { useStore } from './useStore.ts';
 import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
-import { parseHash, toHash, type WordsRoute } from './route.ts';
+import { parseHash, toHash, knownRoute, type Route, type WordsRoute } from './route.ts';
+import { GROUPS, SECTORS } from './data/index.ts';
 import SagEs from './components/SagEs.tsx';
 import { FOCUS } from './lib/focus.ts';
 import ListenBar, { LISTEN_BAR_SPACE } from './components/ListenBar.tsx';
@@ -83,9 +84,15 @@ const TODAY = (): Target => ({ kind: 'custom', name: 'Today’s session', ids: b
  *  seats its capsule with; `dynamic-type.test.ts` holds the two together. */
 const BAR_B = 'calc(58px + max(8px, env(safe-area-inset-bottom) - 14px) + 8px)';
 
+/** The hash, minus any deck name the corpus does not carry (see `knownRoute`).
+ *  The corpus is loaded before first paint (`main.tsx`), so the names are real. */
+function routeFromHash(): Route {
+  return knownRoute(parseHash(), { groups: new Set(GROUPS), sectors: new Set(SECTORS.map((s) => s.name)) });
+}
+
 export default function App() {
   useStore(); // keep the top bar's profile (name / level / streak) live
-  const boot = parseHash();
+  const boot = routeFromHash();
   const [view, setView] = useState<View>(boot.view);
   const [target, setTarget] = useState<Target>(() => boot.target ?? TODAY());
   const [words, setWords] = useState<WordsRoute>(boot.words);
@@ -281,8 +288,11 @@ export default function App() {
       // Our own write, echoing back. The state is already correct — re-deriving
       // it from a hash that cannot carry an id list is how the list got lost.
       if (selfWrote.current) { selfWrote.current = false; return; }
+      // An in-page fragment (`#main`, or one a pasted link carries) is not a
+      // route. Only `#/…` and an empty hash are.
+      if (location.hash.length > 1 && !location.hash.startsWith('#/')) return;
       fromHash.current = true;
-      const r = parseHash();
+      const r = routeFromHash();
       setView(r.view);
       setWords(r.words);
       setTarget(r.target ?? (r.view === 'session' ? TODAY() : ALL));
@@ -389,7 +399,12 @@ export default function App() {
     <div className="relative flex flex-col h-[100dvh] w-full overflow-hidden">
       {/* Without this a keyboard user re-tabs the navigation's controls on every
           single view change before reaching any content. */}
+      {/* Focus moves by hand. Following `#main` changed the hash, which this app
+          routes on: `#main` parsed as the feed, so the one link that exists for
+          keyboard and VoiceOver users threw them out of a course or a session
+          (persona pass, 2026-11-20). */}
       <a href="#main"
+        onClick={(e) => { e.preventDefault(); mainRef.current?.focus(); }}
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100]
           focus:bg-accent focus:text-bg focus:font-bold focus:rounded-md focus:px-4 focus:py-2.5">
         Skip to content
@@ -463,7 +478,9 @@ export default function App() {
               // which is the right order to give up in.
               : `route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] ${listening ? 'md:pb-24' : 'md:pb-6'}${
                   view === 'session' ? ' min-h-full' : ''}`}>
-              <ErrorBoundary resetKey={`${view}:${drill ?? ''}:${game ? 'game' : ''}`}>
+              {/* Keyed on where you are inside Themen too: Back from a broken course page
+                  to the deck list kept showing the error (2026-11-20). */}
+              <ErrorBoundary resetKey={`${view}:${words.level}:${words.group ?? ''}:${words.sector ?? ''}:${words.course ?? ''}:${drill ?? ''}:${game ? 'game' : ''}`}>
                 {game
                   ? <SagEs onExit={() => setGame(false)} />
                   : drill

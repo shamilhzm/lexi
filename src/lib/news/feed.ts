@@ -42,10 +42,15 @@ function spend(url: string): boolean {
 }
 
 class BudgetSpent extends Error {}
+const FETCH_TIMEOUT_MS = 8000;
 
 async function get(url: string, as: 'json' | 'text'): Promise<unknown> {
   if (!spend(url)) throw new BudgetSpent('tagesschau hourly budget spent');
-  const res = await fetch(url);
+  // A host that stalls (a train between masts) used to hold every story slot,
+  // and an article with a cached body, until the browser gave up on the socket.
+  // After this long the cache is the better answer (2026-11-20).
+  const signal = typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal ? AbortSignal.timeout(FETCH_TIMEOUT_MS) : undefined;
+  const res = await fetch(url, signal ? { signal } : undefined);
   if (!res.ok) throw new Error(`${res.status} ${url}`);
   return as === 'json' ? res.json() : res.text();
 }
@@ -65,6 +70,9 @@ async function loadFeed(key: FeedKey, force = false): Promise<{ articles: Articl
   try {
     const raw = await get(def.url, def.format === 'ts-json' ? 'json' : 'text');
     const articles = def.format === 'ts-json' ? parseTagesschauList(raw) : parseFeed(raw as string, def.source);
+    // A 200 that is not a feed (a maintenance page) parses to nothing; it must
+    // not replace the last good list for the next twenty minutes.
+    if (articles.length === 0) throw new Error(`empty ${key}`);
     const fresh = { at: Date.now(), articles };
     try { await idbSet(cacheKey, fresh); } catch { /* quota */ }
     return { ...fresh, stale: false };
@@ -98,8 +106,13 @@ export async function loadTopics(ids: TopicId[], force = false): Promise<Feed> {
       const hay = [a.title, a.topline ?? '', a.teaser, ...a.tags].join(' ');
       const tIds = topicsFor(key, hay).filter((t) => ids.includes(t));
       if (!tIds.length) continue;
-      const titleKey = a.title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-      const existingId = byId.has(a.id) ? a.id : byTitle.get(titleKey);
+      // Keyed per source as well: DW titles every slow-news episode the same, and
+      // three episodes collapsed into one (2026-11-20). The collapse is for the
+      // same agency story arriving from two publishers.
+      const titleKey = `${a.source}|${a.title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()}`;
+      const crossKey = a.title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+      const sameStory = [...byTitle.entries()].find(([k]) => k.endsWith(`|${crossKey}`) && !k.startsWith(`${a.source}|`))?.[1];
+      const existingId = byId.has(a.id) ? a.id : sameStory;
       const existing = existingId ? byId.get(existingId) : undefined;
       if (existing) {
         existing.feeds = [...new Set([...existing.feeds, key])];
