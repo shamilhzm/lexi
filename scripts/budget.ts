@@ -23,6 +23,13 @@
 // CI; it cuts nothing. `freq.json` is the largest piece that could load after first
 // paint (BACKLOG), and the entry, at 277.6 of 280, is the ceiling that trips next.
 //
+// **Raised 2026-11-20: entry 280 → 285 KB.** It tripped as predicted. 3976dbb, the
+// persona pass, measures entry 281.0 and boot set 852.6 (from 277.4 / 849.0 at
+// 6afb9c9): about fifty defect fixes, three of them silent data loss, most of them
+// on the boot path (the store, the matcher, the drills). The raise is the owner's
+// call; it cuts nothing, and the boot set is still under its own line. Moving the
+// restore and bulk-note code into the lazy chunks that use them is the way back.
+//
 // Also fails if the persona seeder reached the bundle: `lib/devseed.ts` is gated
 // on `import.meta.env.DEV` and CLAUDE.md asks for this grep by hand.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
@@ -32,7 +39,7 @@ import { gzipSync } from 'node:zlib';
 const DIST = 'dist';
 const KB = 1024;
 const BUDGET = {
-  entryJs: 280 * KB,      // the script index.html names
+  entryJs: 285 * KB,      // the script index.html names (280 until 2026-11-20)
   css: 16 * KB,
   lazyChunk: 64 * KB,     // any other script (the Anthropic SDK chunk is ~50)
   cards: 480 * KB,        // data/cards.json — grows with the corpus
