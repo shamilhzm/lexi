@@ -72390,7 +72390,7 @@
     "level": "B1",
     "gender": null,
     "plural": null,
-    "ipa": "ˈteːmənɡəˌbiːt",
+    "ipa": "pʁofiˈtiːʁən",
     "def": "To gain a clear advantage from something.",
     "syn": [
       "Arbeitsgebiet",
@@ -72433,7 +72433,7 @@
     "level": "B1",
     "gender": null,
     "plural": null,
-    "ipa": "ˈzuːdl̩n",
+    "ipa": "ˈʊmɡeːən",
     "def": "To handle a person or a situation in a particular way.",
     "syn": [],
     "ant": [],
@@ -72579,7 +72579,7 @@
     "level": "B1",
     "gender": null,
     "plural": null,
-    "ipa": "lɛŋst",
+    "ipa": "zaɪ̯t ˈlaŋəm",
     "def": "schon lange, seit langem, seit langer/längerer Zeit",
     "syn": [
       "lange",
@@ -74807,7 +74807,7 @@
     "level": "A2",
     "gender": "die",
     "plural": null,
-    "ipa": "ˈaɪ̯nˌɡaːbə",
+    "ipa": "diː pɪn ˈaɪ̯nˌɡeːbn̩",
     "def": "To type your secret number into a machine to authorise a payment or a withdrawal.",
     "syn": [
       "Input",
@@ -79179,7 +79179,7 @@
     "level": "A1",
     "gender": "die",
     "plural": "die Nachrichten",
-    "ipa": "ɛsʔɛmˈʔɛs",
+    "ipa": "ˈnaːxˌʁɪçt",
     "def": "A short written message sent to someone's phone.",
     "syn": [
       "Kurzmitteilung",
@@ -87822,8 +87822,8 @@
     "pos": "noun",
     "level": "C1",
     "gender": "der",
-    "plural": "-",
-    "ipa": "ˈsteːkhoʊ̯ldɐ",
+    "plural": "die Stakeholder",
+    "ipa": "ˈstɛɪ̯kˌhɔʊ̯ldɐ",
     "def": "A person or group with an interest in an organisation's affairs.",
     "syn": [
       "Anspruchsgruppe"
@@ -94986,19 +94986,19 @@
     "level": "C1",
     "gender": "die",
     "plural": "nur Singular",
-    "ipa": "ˌt͡suˈɡuːtə",
+    "ipa": "ˈkliːmaɡəˌʁɛçtɪçkaɪ̯t",
     "def": "nur in Verbindungen mit Verben: (schweizerisch, süddeutsch) zu jemandes Vorteil, zu jemandes Gunsten",
     "syn": [],
     "ant": [],
     "ex": [
       {
-        "de": "Auf seine Doktorarbeit tat er sich einiges zugute.",
-        "en": "He was rather proud of his doctoral thesis.",
+        "de": "Klimagerechtigkeit bedeutet, dass die Länder mit den höchsten Emissionen die größte Verantwortung tragen.",
+        "en": "Climate justice means that the countries with the highest emissions bear the greatest responsibility.",
         "lvl": "C1"
       },
       {
-        "de": "„Alle Einnahmen kommen behinderten Kindern und Behinderteneinrichtungen in Wilhelmsburg zugute.“",
-        "en": "„All proceeds benefit disabled children and disability facilities in Wilhelmsburg.“",
+        "de": "Die Demonstrierenden forderten mehr Klimagerechtigkeit für den globalen Süden.",
+        "en": "The demonstrators called for more climate justice for the Global South.",
         "lvl": "C1"
       }
     ],
@@ -102759,7 +102759,7 @@
     "level": "A2",
     "gender": null,
     "plural": null,
-    "ipa": "ˈvɪkl̩ˌklaɪ̯t",
+    "ipa": "ˈmɪntˌɡʁyːn",
     "def": "Of a pale blue-green colour, like mint leaves.",
     "syn": [],
     "ant": [],
@@ -114834,8 +114834,8 @@
     "pos": "noun",
     "level": "B2",
     "gender": "die",
-    "plural": "die Selbstfürsorgen",
-    "ipa": "ˈp͡fleːɡəˌʔaphɛŋɪçkaɪ̯t",
+    "plural": "nur Singular",
+    "ipa": "ˈzɛlpstˌfyːɐ̯zɔʁɡə",
     "def": "Deliberately looking after your own health and wellbeing.",
     "syn": [
       "Selbstfürsorgedefizit",
@@ -114844,8 +114844,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Ein Beispiel für Pflegeabhängigkeit ist, wenn jemand (teilweise) nicht in der Lage ist, sich zu waschen, weil er einen gebrochenen Arm hat.",
-        "en": "An example of care dependency is when someone is (partly) unable to wash themselves because they have a broken arm.",
+        "de": "Zur Selbstfürsorge gehört auch, rechtzeitig Nein zu sagen.",
+        "en": "Self-care also means saying no in good time.",
         "lvl": "B2"
       },
       {
@@ -122564,7 +122564,7 @@
     "level": "B1",
     "gender": "das",
     "plural": "nur Singular",
-    "ipa": "ˈɲɪkɔɦɔ",
+    "ipa": "kʊlˈtuːɐ̯ˌʔɛʁbə",
     "def": "The traditions and works passed down from past generations.",
     "syn": [],
     "ant": [],
@@ -305613,7 +305613,7 @@
     "level": "B2",
     "gender": "der",
     "plural": "die Wiedereinstiege",
-    "ipa": "ˈviːdɐˌaɪ̯nʃtiːk",
+    "ipa": "ˈviːdɐˌʔaɪ̯nʃtiːk",
     "def": null,
     "syn": [],
     "ant": [],
@@ -306045,7 +306045,7 @@
     "level": "C1",
     "gender": "der",
     "plural": "die Wiedereinsteiger",
-    "ipa": "ˈviːdɐˌaɪ̯nʃtaɪ̯ɡɐ",
+    "ipa": "ˈviːdɐˌʔaɪ̯nʃtaɪ̯ɡɐ",
     "def": null,
     "syn": [],
     "ant": [],

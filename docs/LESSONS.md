@@ -2217,3 +2217,13 @@ any item that is exactly a card's term into the unit's session, so a column of *
 daran, darum* would have taught *darauf* with its wrong gloss "after". **Rule:** before a
 film ships, print what it resolves to (`scripts/probe/course-survey.ts` lists the unit's
 cards) and read every gloss a learner will be drilled on.
+
+## A well-formed fact about the wrong word *(added 2026-11-20)*
+
+**Believed:** the IPA checks covered transcriptions. **True:** they asked whether a value
+*is* a transcription, never whether it transcribes *this* word. Nine cards shipped from the
+first commit with another word's IPA, found by eye. **Rule:** a fact field needs an
+identity check as well as a format check (`ipa-mismatch.ts`). Also: `corpus:freq` run in a
+worktree silently wrote 2,625 fewer ranks, because `data/raw/leipzig-words.txt` is
+gitignored and lives only in the main checkout. Copy the inputs in first, and diff
+`freq.json` before you trust it.

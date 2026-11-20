@@ -1,0 +1,102 @@
+[
+  {
+    "id": "voc:B1:umgehen mit + D",
+    "expect": {
+      "ipa": "ˈzuːdl̩n"
+    },
+    "ipa": "ˈʊmɡeːən",
+    "src": "de.wiktionary.org/wiki/umgehen (the trennbar section: «mit etwas umgehen»); old value /ˈzuːdl̩n/ was another word"
+  },
+  {
+    "id": "voc:B1:profitieren von + D",
+    "expect": {
+      "ipa": "ˈteːmənɡəˌbiːt"
+    },
+    "ipa": "pʁofiˈtiːʁən",
+    "src": "de.wiktionary.org/wiki/profitieren; old value was the IPA of Themengebiet"
+  },
+  {
+    "id": "voc:A1:die Nachricht (SMS)",
+    "expect": {
+      "ipa": "ɛsʔɛmˈʔɛs"
+    },
+    "ipa": "ˈnaːxˌʁɪçt",
+    "src": "de.wiktionary.org/wiki/Nachricht; old value transcribed the disambiguator \"SMS\""
+  },
+  {
+    "id": "voc:B1:das Kulturerbe",
+    "expect": {
+      "ipa": "ˈɲɪkɔɦɔ"
+    },
+    "ipa": "kʊlˈtuːɐ̯ˌʔɛʁbə",
+    "src": "no de.wiktionary page; composed (compose-ipa.ts rule) from Kultur /kʊlˈtuːɐ̯/ + Erbe /ˈɛʁbə/; old value /ˈɲɪkɔɦɔ/ was not German"
+  },
+  {
+    "id": "voc:A2:mintgrün",
+    "expect": {
+      "ipa": "ˈvɪkl̩ˌklaɪ̯t"
+    },
+    "ipa": "ˈmɪntˌɡʁyːn",
+    "src": "no de.wiktionary page; composed (compose-ipa.ts rule) from mint /mɪnt/ + grün /ɡʁyːn/; old value was the IPA of Wickelkleid"
+  },
+  {
+    "id": "voc:C1:die Klimagerechtigkeit",
+    "expect": {
+      "ipa": "ˌt͡suˈɡuːtə"
+    },
+    "ipa": "ˈkliːmaɡəˌʁɛçtɪçkaɪ̯t",
+    "src": "no de.wiktionary page; composed (compose-ipa.ts rule) from Klima /ˈkliːma/ + Gerechtigkeit /ɡəˈʁɛçtɪçkaɪ̯t/; old value was the IPA of zugute"
+  },
+  {
+    "id": "voc:B1:seit Langem",
+    "expect": {
+      "ipa": "lɛŋst"
+    },
+    "ipa": "zaɪ̯t ˈlaŋəm",
+    "src": "phrase, each word as de.wiktionary transcribes it: seit /zaɪ̯t/ + langem /ˈlaŋəm/; old value was the IPA of längst"
+  },
+  {
+    "id": "voc:A2:die PIN eingeben",
+    "expect": {
+      "ipa": "ˈaɪ̯nˌɡaːbə"
+    },
+    "ipa": "diː pɪn ˈaɪ̯nˌɡeːbn̩",
+    "src": "phrase, each word as de.wiktionary transcribes it: die /diː/ + PIN /pɪn/ + eingeben /ˈaɪ̯nˌɡeːbn̩/; old value was the IPA of Eingabe"
+  },
+  {
+    "id": "voc:B2:der Wiedereinstieg",
+    "expect": {
+      "ipa": "ˈviːdɐˌaɪ̯nʃtiːk"
+    },
+    "ipa": "ˈviːdɐˌʔaɪ̯nʃtiːk",
+    "src": "no de.wiktionary page; composed (compose-ipa.ts rule) from wieder /ˈviːdɐ/ + Einstieg /ˈaɪ̯nʃtiːk/; recomposed 2026-11-20 with the glottal stop at the seam"
+  },
+  {
+    "id": "voc:C1:der Wiedereinsteiger",
+    "expect": {
+      "ipa": "ˈviːdɐˌaɪ̯nʃtaɪ̯ɡɐ"
+    },
+    "ipa": "ˈviːdɐˌʔaɪ̯nʃtaɪ̯ɡɐ",
+    "src": "no de.wiktionary page; composed (compose-ipa.ts rule) from wieder /ˈviːdɐ/ + Einsteiger /ˈaɪ̯nˌʃtaɪ̯ɡɐ/; recomposed 2026-11-20 with the glottal stop at the seam"
+  },
+  {
+    "id": "voc:C1:die Klimagerechtigkeit",
+    "at": 0,
+    "expect": {
+      "de": "Auf seine Doktorarbeit tat er sich einiges zugute.",
+      "en": "He was rather proud of his doctoral thesis."
+    },
+    "de": "Klimagerechtigkeit bedeutet, dass die Länder mit den höchsten Emissionen die größte Verantwortung tragen.",
+    "en": "Climate justice means that the countries with the highest emissions bear the greatest responsibility."
+  },
+  {
+    "id": "voc:C1:die Klimagerechtigkeit",
+    "at": 1,
+    "expect": {
+      "de": "„Alle Einnahmen kommen behinderten Kindern und Behinderteneinrichtungen in Wilhelmsburg zugute.“",
+      "en": "„All proceeds benefit disabled children and disability facilities in Wilhelmsburg.“"
+    },
+    "de": "Die Demonstrierenden forderten mehr Klimagerechtigkeit für den globalen Süden.",
+    "en": "The demonstrators called for more climate justice for the Global South."
+  }
+]

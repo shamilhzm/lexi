@@ -11,6 +11,23 @@ it is already built.
 
 ---
 
+### 2026-11-20 · transcriptions of the wrong word
+
+**What shipped.** `der Stakeholder` now has the plural *die Stakeholder* (it was `-`) and
+de.wiktionary's IPA. `die Selbstfürsorge` had *Pflegeabhängigkeit*'s IPA and one of that
+word's example sentences. It now has a composed IPA, *nur Singular*, and a new example.
+A new instrument, `scripts/corpus/ipa-mismatch.ts`, compares each IPA's consonant skeleton
+with its own spelling. It flagged 21 cards, and 8 more of them were transcriptions of
+another word: *umgehen mit* (now the separable verb's IPA), *profitieren von*,
+*Nachricht (SMS)*, *Kulturerbe*, *mintgrün*, *Klimagerechtigkeit* (whose two examples
+were also about *zugute*), *seit Langem* and *die PIN eingeben*. The other 13 are correct
+loans and abbreviations. `compose()` now writes the glottal stop at a vowel-initial seam,
+as de.wiktionary does, and both *Wiedereinstieg* cards were recomposed with it. Batches:
+`2026-11-20-wrong-page-fields.json`, `2026-11-20-wrong-page-ipa.json`. All of these
+defects date from the first corpus commit.
+
+---
+
 ### 2026-11-20 · the copy pass
 
 **What shipped.** Every sentence in the app that leaned on an em-dash aside was

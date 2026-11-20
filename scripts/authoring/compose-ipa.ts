@@ -75,13 +75,18 @@ const arg = (n: string): string | undefined => {
 };
 const OUT = arg('--out') ?? 'scripts/authoring/batches/ipa-composed-01.json';
 
-/** One primary stress, on the first constituent; secondary on the rest. */
+/** One primary stress, on the first constituent; secondary on the rest; and a
+ *  glottal stop where a later constituent opens on a vowel. The corpus's own
+ *  de.wiktionary transcriptions write that seam (ˈnoːtʔaʊ̯sˌɡaŋ, ˈviːdɐʔaʊ̯fˌbaʊ̯,
+ *  ˈp͡fleːɡəˌʔaphɛŋɪçkaɪ̯t); until 2026-11-20 this rule did not, and *Wiedereinstieg*
+ *  shipped as ˈviːdɐˌaɪ̯nʃtiːk. */
 export function compose(parts: string[]): string {
   return parts.map((raw, i) => {
     const s = raw.replace(/ˌ/g, '');
     if (i === 0) return /ˈ/.test(s) ? s : `ˈ${s}`;
     const demoted = s.replace(/ˈ/g, 'ˌ');
-    return /ˌ/.test(demoted) ? demoted : `ˌ${demoted}`;
+    const marked = /ˌ/.test(demoted) ? demoted : `ˌ${demoted}`;
+    return marked.replace(/^ˌ(?=[aeiouyɛɪɔʊʏœøəɐɑæ])/u, 'ˌʔ');
   }).join('');
 }
 

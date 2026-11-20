@@ -2915,3 +2915,17 @@ case the six merged ones were, which is why they are a decision and not a script
   second is the principle that idioms are non-compositional and frozen. The principle
   reads like the introduction the list should have. **Do:** likely merge, with the
   principle becoming the keeper's first section.
+
+## Examples from the wrong page (found 2026-11-20)
+
+The IPA half is closed (CHANGELOG 2026-11-20). The example half is open. `die Selbstfürsorge`
+carried a *Pflegeabhängigkeit* sentence, and `die Klimagerechtigkeit` carried two *zugute*
+sentences. `corpus:validate` raises an error only on `miscased` headword evidence, never
+on `absent`. Measured 2026-11-20 with `headwordEvidence`: **862 examples on 509 cards are
+`absent`**. The hits I read were mostly matcher gaps (phrases, reflexives, *Danke* on
+*danken*), so this count is a bug in the check, not 862 defects. Narrowed to single-word
+nouns, it is **149 examples on 118 cards**, and that band holds real defects: *die Messe*
+«Uhren messen Zeit», *die Klinge* «Sie klingen sehr müde», bare compounds as examples
+(«Marktplatz», «Schamhaar»). It also holds noise: sense-parenthetical cards such as
+*die Prüfung (Uni)* seem not to match their own headword. Fix the matcher gap first, then
+read the remaining band and replace the bad examples through `fix-authored.ts`.

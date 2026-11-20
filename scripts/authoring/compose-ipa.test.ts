@@ -32,6 +32,14 @@ describe('compose', () => {
     }
   });
 
+  it('writes the glottal stop at a vowel-initial seam', () => {
+    // de.wiktionary's own shape, as shipped: ˈnoːtʔaʊ̯sˌɡaŋ, ˈp͡fleːɡəˌʔaphɛŋɪçkaɪ̯t.
+    expect(compose(['kʊlˈtuːɐ̯', 'ˈɛʁbə'])).toBe('kʊlˈtuːɐ̯ˌʔɛʁbə');
+    expect(compose(['ˈviːdɐ', 'ˈaɪ̯nˌʃtiːk'])).toBe('ˈviːdɐˌʔaɪ̯nʃtiːk');
+    // …and only there: a consonant-initial constituent is untouched.
+    expect(compose(['ʃiː', 'ˈjakə'])).toBe('ˈʃiːˌjakə');
+  });
+
   it('matches the pattern the corpus already ships for separable verbs', () => {
     // `rauskommen` is ˈʁaʊ̯sˌkɔmən in vocab.json; `reinkommen` must come out the
     // same shape or the six new cards will read as foreign next to the other 1,100.

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "voc:C1:der Stakeholder",
+    "expect": {
+      "plural": "-"
+    },
+    "plural": "die Stakeholder",
+    "src": "de.wiktionary.org/wiki/Stakeholder"
+  },
+  {
+    "id": "voc:C1:der Stakeholder",
+    "expect": {
+      "ipa": "ˈsteːkhoʊ̯ldɐ"
+    },
+    "ipa": "ˈstɛɪ̯kˌhɔʊ̯ldɐ",
+    "src": "de.wiktionary.org/wiki/Stakeholder"
+  },
+  {
+    "id": "voc:B2:die Selbstfürsorge",
+    "expect": {
+      "ipa": "ˈp͡fleːɡəˌʔaphɛŋɪçkaɪ̯t"
+    },
+    "ipa": "ˈzɛlpstˌfyːɐ̯zɔʁɡə",
+    "src": "no de.wiktionary page; composed by compose-ipa.ts rule from Selbst /zɛlpst/ + Fürsorge /ˈfyːɐ̯ˌzɔʁɡə/ (old value was the IPA of Pflegeabhängigkeit)"
+  },
+  {
+    "id": "voc:B2:die Selbstfürsorge",
+    "expect": {
+      "plural": "die Selbstfürsorgen"
+    },
+    "plural": "nur Singular",
+    "src": "no de.wiktionary page; head Fürsorge has a plural only in senses [2]/[3] (institution, welfare payment), not the self-care sense; corpus convention for abstract nouns"
+  },
+  {
+    "id": "voc:B2:die Selbstfürsorge",
+    "at": 0,
+    "expect": {
+      "de": "Ein Beispiel für Pflegeabhängigkeit ist, wenn jemand (teilweise) nicht in der Lage ist, sich zu waschen, weil er einen gebrochenen Arm hat.",
+      "en": "An example of care dependency is when someone is (partly) unable to wash themselves because they have a broken arm."
+    },
+    "de": "Zur Selbstfürsorge gehört auch, rechtzeitig Nein zu sagen.",
+    "en": "Self-care also means saying no in good time."
+  }
+]
