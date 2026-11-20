@@ -259,7 +259,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
                           ${on ? 'bg-key text-key-ink font-semibold' : 'glass'}`}>
                         {on ? <Check size={13} /> : <Bookmark size={13} className="text-accent" />}
                         <span lang="de">{u.word.term}</span>
-                        {u.occurrences > 1 && <span className="text-2xs opacity-70">×{u.occurrences}</span>}
+                        {u.occurrences > 1 && <span className="text-2xs">×{u.occurrences}</span>}
                       </button>
                     </li>
                   );

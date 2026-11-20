@@ -371,7 +371,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
               {/* "Up to", because it is a ceiling for the day and not a quota — the
                   label used to promise 24 or 50 while the briefing could never serve
                   more than 20, and none at all past twenty due. */}
-              <span className="font-mono text-2xs opacity-70">up to {PACE[p].fresh} new a day · {PACE[p].due} due</span>
+              <span className="font-mono text-2xs">up to {PACE[p].fresh} new a day · {PACE[p].due} due</span>
             </button>
           ))}
         </div>

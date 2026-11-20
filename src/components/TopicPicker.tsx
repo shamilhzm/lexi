@@ -18,7 +18,7 @@ export default function TopicPicker() {
               on ? 'bg-key text-key-ink border-lip font-semibold' : 'bg-panel2 border-line hover:border-accent'}`}>
             {on && <Check size={13} />}
             {name}
-            <span className={`font-mono text-2xs ${on ? 'opacity-80' : 'text-dim'}`}>{cards}</span>
+            <span className={`font-mono text-2xs ${on ? '' : 'text-dim'}`}>{cards}</span>
           </button>
         );
       })}

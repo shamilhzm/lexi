@@ -11,6 +11,30 @@ it is already built.
 
 ---
 
+### 2026-11-21 · no faded ink
+
+**What shipped.** Ten fades on text were dropped. Seven sites fell below DESIGN §2's 4.5:1:
+- the offline pack's "· about 1.5 MB" on the primary key, 3.76 in both themes;
+- a saved story chip's "×N", 3.76;
+- the word map's counts on four of ten fills, 3.59–4.28;
+- the speaking drill's heard-text in light, 3.94, behind Focus;
+- a story's photo credit in light, about 4.15;
+- the pace sublabel, 2.90–4.29, behind Focus.
+
+The other three passed narrowly or were not text: the topic chip's count (4.70),
+the secondary key's "· about 4.5 MB" (5.36) and the feed's "no voice" icon. Each
+line keeps its quieter cue in size, weight or face. `design-rules.test.ts` refuses a
+fade on ink, allows three with a reason each, and was shown failing on the eight
+files before the fix. After the change the map's counts measured 5.01–8.52 in the
+browser (dark theme); the lowest light fill computes at 4.61.
+
+**Why.** The idea came from impeccable's `low-contrast` rule, from reading its rule
+catalogue rather than running its CLI. `palette.test.ts` holds every token pair, and a
+fade is a pair it never sees: the ink is the token, so the token passed. Its other
+source-checkable rules found nothing to change. The answer face's green edge rule
+(§ the flip), the flip's overshoot and the recap's and placement's springs are
+recorded choices, not defects.
+
 ### 2026-11-20 · the matcher is recorded, and four workflows are skills
 
 **What shipped.** `src/lib/golden/` holds what `buildMatcher` and `conjugate` do over

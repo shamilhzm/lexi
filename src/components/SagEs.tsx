@@ -510,7 +510,7 @@ export default function SagEs({ onExit }: { onExit: () => void }) {
               The joke needs the text to be readable, which is the one thing the
               overlay was not. */}
           {live && !current?.caught && (
-            <p aria-hidden className="mt-2.5 text-sm font-mono text-red/80 break-words line-clamp-2">
+            <p aria-hidden className="mt-2.5 text-sm font-mono text-red break-words line-clamp-2">
               {live}
             </p>
           )}

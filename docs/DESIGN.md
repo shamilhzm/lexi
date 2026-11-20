@@ -257,6 +257,13 @@ against `bg` / `panel` / `panel2` / `card` in **both** themes, and separately pi
 the elevation ramp as monotonic so a card can never again sit at 1.00 against the
 panel it is on. Both halves are mutation-checked.
 
+**A fade is a new pair.** `text-dim/80` or `opacity-70` on ink renders below the
+token pair the test passed, and no token test can see it. On 2026-11-20 seven such
+sites read 2.90–4.15:1. Make a quieter line with size, weight or face (`text-2xs`,
+`font-normal`, mono), never with alpha. `src/lib/design-rules.test.ts` refuses a fade
+on ink, and lists the three it allows (a disabled control, the voiceless speaker,
+the speaking drill's look-ahead) with the reason for each.
+
 ## 3. The card is a material, not a colour
 
 The study surface sits only ~1.05–1.07 luminance steps above its panel. Luminance

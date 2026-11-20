@@ -57,11 +57,11 @@ export default function OfflinePack() {
         <div className="flex flex-wrap gap-2 items-center">
           <Button variant={hasWords && !stale ? 'secondary' : 'primary'} onClick={() => { void run(false); }} disabled={!online}>
             <Download size={15} /> {hasWords ? 'Refresh the words' : 'Download the words'}
-            <span className="font-normal opacity-70">· about 1.5 MB</span>
+            <span className="font-normal">· about 1.5 MB</span>
           </Button>
           <Button variant="secondary" onClick={() => { void run(true); }} disabled={!online}>
             <Download size={14} className="text-accent" /> {hasDictionary ? 'Refresh the dictionary too' : 'Add the dictionary'}
-            <span className="font-normal opacity-70">· about 4.5 MB</span>
+            <span className="font-normal">· about 4.5 MB</span>
           </Button>
         </div>
       )}

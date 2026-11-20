@@ -102,7 +102,7 @@ export function StorySlot({ story, onOpen }: { story: FeedArticle; onOpen: (a: F
             )}
             {!story.fullText && <span className="text-2xs text-dim">summary only</span>}
           </div>
-          {story.image?.credit && <p className="mt-3 text-2xs text-dim/80 truncate">Photo: {story.image.credit}</p>}
+          {story.image?.credit && <p className="mt-3 text-2xs text-dim truncate">Photo: {story.image.credit}</p>}
         </button>
       </div>
     </section>

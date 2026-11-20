@@ -51,3 +51,44 @@ describe('a clamp goes on the text, not on the row', () => {
     for (const line of code(file)) expect(line).not.toMatch(CLAMPED_ROW);
   });
 });
+
+/** Ink faded with an alpha modifier (`text-dim/80`) or an opacity utility
+ *  (`opacity-70`). `palette.test.ts` holds every token pair to 4.5:1 (DESIGN §2),
+ *  and a fade renders below the pair it was tested as, where no token test can
+ *  see it. On 2026-11-20 seven sites read 2.90–4.15:1 (the pace sublabel, the
+ *  offline pack's size, a story's photo credit, the word map's counts). A variant
+ *  prefix (`disabled:`, `hover:`) is a state, not a resting ink, and is not
+ *  matched; neither are `opacity-0` and `opacity-100`, which hide and show. */
+const FADED_INK = /(?<![\w:-])(?:text-[a-z0-9-]+\/\d{1,2}(?!\d)|opacity-[1-9]\d?(?!\d))/;
+
+/** Fades a learner is not asked to read. Each must still match a line, so the list
+ *  cannot outlive the code it excuses. */
+const FADE_ALLOWED: [file: string, fragment: string, why: string][] = [
+  ['src/components/film/FilmPlayer.tsx', "canNext ? '' : 'opacity-40'", 'a disabled control; WCAG exempts inactive components'],
+  ['src/components/Reveal.tsx', 'text-dim/50', 'the aria-disabled speaker shown when no German voice is installed'],
+  ['src/components/SagEs.tsx', 'gap-4 opacity-45" aria-hidden', 'the words still to come, shown in full when they arrive (speaking is off under Focus)'],
+];
+
+describe('ink is never faded below the pair it was tested as (DESIGN §2)', () => {
+  it('the check can see the defect it is looking for', () => {
+    // The pace sublabel and the map tile's count, as they shipped until 2026-11-20.
+    expect('font-mono text-2xs opacity-70').toMatch(FADED_INK);
+    expect('mt-3 text-2xs text-dim/80 truncate').toMatch(FADED_INK);
+    expect('disabled:opacity-40 hover:opacity-90').not.toMatch(FADED_INK);
+    expect('transition-opacity opacity-0 sm:opacity-100').not.toMatch(FADED_INK);
+    expect('bg-accent/10 border-line').not.toMatch(FADED_INK);
+  });
+
+  it.each(tsx)('%s fades no ink', (file) => {
+    const allowed = FADE_ALLOWED.filter(([f]) => f === file).map(([, frag]) => frag);
+    for (const line of code(file)) {
+      if (allowed.some((frag) => line.includes(frag))) continue;
+      expect(line).not.toMatch(FADED_INK);
+    }
+  });
+
+  it('every allowed fade still exists', () => {
+    const stale = FADE_ALLOWED.filter(([f, frag]) => !readFileSync(f, 'utf8').includes(frag));
+    expect(stale).toEqual([]);
+  });
+});

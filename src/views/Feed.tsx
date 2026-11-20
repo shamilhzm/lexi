@@ -750,7 +750,7 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             className="mt-4 inline-flex items-center gap-2 rounded-full glass px-4 py-2">
             {word.ipa && <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>}
             <VolumeX size={16} aria-label="No German voice is installed on this device"
-              className="text-dim/60 flex-shrink-0" />
+              className="text-dim flex-shrink-0" />
           </span>
         )}
 

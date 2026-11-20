@@ -275,9 +275,9 @@ export default function Karte({ onStudy, onStudyGroup, onStudyAll, onOpenGroup }
                     <span className="flex items-end justify-between gap-1">
                       <span className="min-w-0">
                         <span className="font-mono font-bold block leading-none" style={{ fontSize: big ? 26 : mid ? 18 : 13 }}>{Math.round(p * 100)}%</span>
-                        {big && <span className="block font-mono opacity-80 mt-1 truncate" style={{ fontSize: 11 }}>{fmt(c.known)}/{fmt(c.count)}{wide ? ` · ${c.sub}` : ''}</span>}
+                        {big && <span className="block font-mono mt-1 truncate" style={{ fontSize: 11 }}>{fmt(c.known)}/{fmt(c.count)}{wide ? ` · ${c.sub}` : ''}</span>}
                       </span>
-                      {mid && d > 0 && <span className="font-mono font-semibold flex-shrink-0 opacity-80" style={{ fontSize: 11 }}>▲{d}</span>}
+                      {mid && d > 0 && <span className="font-mono font-semibold flex-shrink-0" style={{ fontSize: 11 }}>▲{d}</span>}
                     </span>
                   </span>
                 </button>
