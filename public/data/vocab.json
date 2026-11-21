@@ -11368,8 +11368,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Ich glaube, es wird morgen regnen.",
-        "en": "I think it'll rain tomorrow.",
+        "de": "Ich glaube an dich.",
+        "en": "I believe in you.",
         "lvl": "A2"
       },
       {
@@ -11738,8 +11738,8 @@
         "lvl": "A1"
       },
       {
-        "de": "Die Schule beginnt nach den Ferien.",
-        "en": "School begins after the holidays.",
+        "de": "Wir beginnen mit einer kurzen Wiederholung.",
+        "en": "We'll start with a short review.",
         "lvl": "A2"
       },
       {
@@ -36364,8 +36364,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Nach der Krankheit muss sie sich gut erholen.",
-        "en": "After the illness she has to recover well.",
+        "de": "Er hat sich gut von der Grippe erholt.",
+        "en": "He has recovered well from the flu.",
         "lvl": "B1"
       },
       {
@@ -61095,8 +61095,8 @@
         "lvl": "B2"
       },
       {
-        "de": "Worin sich die beiden Ansätze grundlegend unterscheiden, bleibt offen.",
-        "en": "How the two approaches fundamentally differ remains open.",
+        "de": "Das Original unterscheidet sich kaum von der Kopie.",
+        "en": "The original hardly differs from the copy.",
         "lvl": "C1"
       }
     ],
@@ -103631,8 +103631,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Ich glaube, du irrst dich.",
-        "en": "I think you're mistaken.",
+        "de": "Ich glaube, du irrst dich in ihm.",
+        "en": "I think you're wrong about him.",
         "lvl": "B1"
       },
       {
@@ -103950,8 +103950,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Wir haben uns für Samstag verabredet.",
-        "en": "We arranged to meet on Saturday.",
+        "de": "Ich habe mich mit Anna für Samstag verabredet.",
+        "en": "I've arranged to meet Anna on Saturday.",
         "lvl": "B1"
       }
     ],
@@ -127935,8 +127935,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Die Kunst des Lebens",
-        "en": "The art of living.",
+        "de": "Er lebt von seiner Rente.",
+        "en": "He lives on his pension.",
         "lvl": "A2"
       }
     ],
@@ -137850,7 +137850,7 @@
   {
     "id": "voc:A1:halten",
     "term": "halten",
-    "en": "to hold",
+    "en": "to hold; to stop; (halten von) to think of",
     "pos": "verb",
     "level": "A1",
     "gender": null,
@@ -137861,8 +137861,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Haltet das!",
-        "en": "Hold this.",
+        "de": "Was hältst du von dem Vorschlag?",
+        "en": "What do you think of the suggestion?",
         "lvl": "A2"
       },
       {
@@ -139550,13 +139550,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Führt ihn ab!",
-        "en": "Take him away.",
+        "de": "Das führt zu nichts.",
+        "en": "That leads nowhere.",
         "lvl": "B1"
       },
       {
-        "de": "Führe uns herum!",
-        "en": "Show us around.",
+        "de": "Sie führt ein kleines Hotel an der Küste.",
+        "en": "She runs a small hotel on the coast.",
         "lvl": "B1"
       }
     ],
@@ -142160,8 +142160,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Zählt das?",
-        "en": "Does that count?",
+        "de": "München zählt zu den teuersten Städten Deutschlands.",
+        "en": "Munich is one of the most expensive cities in Germany.",
         "lvl": "A2"
       },
       {
@@ -147186,8 +147186,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Wieviel hast du schon investiert?",
-        "en": "How much have you invested so far?",
+        "de": "Die Firma investiert viel Geld in neue Technik.",
+        "en": "The company is investing a lot of money in new technology.",
         "lvl": "B1"
       }
     ],
@@ -151063,8 +151063,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Sie sterben.",
-        "en": "They're dying.",
+        "de": "Sie ist an Krebs gestorben.",
+        "en": "She died of cancer.",
         "lvl": "A2"
       }
     ],
@@ -152977,8 +152977,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Ich fürchte nein.",
-        "en": "I'm afraid not.",
+        "de": "Viele Kinder fürchten sich vor der Dunkelheit.",
+        "en": "Many children are afraid of the dark.",
         "lvl": "B1"
       }
     ],
@@ -154244,13 +154244,13 @@
     "ant": [],
     "ex": [
       {
-        "de": "Richte ihn hin!",
-        "en": "Execute him.",
+        "de": "Wir richten uns nach dem Fahrplan.",
+        "en": "We go by the timetable.",
         "lvl": "B1"
       },
       {
-        "de": "Richte dich auf.",
-        "en": "Straighten up.",
+        "de": "Die Frage richtet sich an alle Teilnehmer.",
+        "en": "The question is addressed to all participants.",
         "lvl": "B1"
       }
     ],
@@ -155227,8 +155227,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Warne Tom.",
-        "en": "Warn Tom.",
+        "de": "Die Polizei warnt vor Glatteis.",
+        "en": "The police are warning of black ice.",
         "lvl": "B1"
       },
       {
@@ -164517,8 +164517,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Ja. Danke!",
-        "en": "Yes. Thanks.",
+        "de": "Ich danke dir für deine Hilfe.",
+        "en": "Thank you for your help.",
         "lvl": "A2"
       },
       {
@@ -167383,8 +167383,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Sie riechen übel.",
-        "en": "They smell bad.",
+        "de": "Hier riecht es nach frischem Brot.",
+        "en": "It smells of fresh bread here.",
         "lvl": "A2"
       }
     ],
@@ -172087,8 +172087,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Ich bedankte mich.",
-        "en": "I said thanks.",
+        "de": "Ich bedanke mich bei dir für das schöne Geschenk.",
+        "en": "Thank you for the lovely present.",
         "lvl": "A2"
       }
     ],
@@ -181260,7 +181260,7 @@
   {
     "id": "voc:B2:beklagen",
     "term": "beklagen",
-    "en": "to pity, to lament",
+    "en": "to lament; (sich beklagen) to complain",
     "pos": "verb",
     "level": "B2",
     "gender": null,
@@ -181276,8 +181276,8 @@
         "lvl": "B2"
       },
       {
-        "de": "Er hat sich beklagt.",
-        "en": "He complained.",
+        "de": "Die Mieter beklagen sich über den Lärm.",
+        "en": "The tenants are complaining about the noise.",
         "lvl": "B2"
       }
     ],
@@ -181719,8 +181719,8 @@
         "lvl": "B2"
       },
       {
-        "de": "Tom ernährt sich veganisch.",
-        "en": "Tom follows a vegan diet.",
+        "de": "Koalas ernähren sich fast nur von Eukalyptus.",
+        "en": "Koalas live almost entirely on eucalyptus.",
         "lvl": "B2"
       }
     ],
@@ -329267,8 +329267,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Er kann sich nicht entschließen.",
-        "en": "He can't make up his mind.",
+        "de": "Er kann sich zu nichts entschließen.",
+        "en": "He can't make up his mind about anything.",
         "lvl": "B1"
       },
       {

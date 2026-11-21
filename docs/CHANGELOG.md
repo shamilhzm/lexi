@@ -11,6 +11,34 @@ it is already built.
 
 ---
 
+### 2026-11-21 · 21 more verbs show, and are asked, the preposition they take
+
+**What shipped.** Each of these cards had no example using its verb with its
+preposition, so the drill could not ask it: *beginnen mit, danken für, glauben an,
+halten von, leben von, riechen nach, sich bedanken für/bei, sich erholen von, sterben
+an, zählen zu, sich ernähren von, führen zu, sich fürchten vor, investieren in, sich
+richten nach/an, sich entschließen zu, sich irren in, sich unterscheiden von, sich
+verabreden mit, warnen vor, sich beklagen über*. One example on each was replaced
+(`batches/government-examples-2026-11-21.json`, 25 rows), always the weakest one:
+
+- duplicates: *Wie viel / Wieviel hast du investiert?*, *Ich bedanke mich / bedankte
+  mich*;
+- a fragment: «Die Kunst des Lebens» on *leben*;
+- sentences that are not the verb at all: *richten*'s «Richte ihn hin!» and «Richte
+  dich auf.» are *hinrichten* and *aufrichten*;
+- one that is not German: «Tom ernährt sich veganisch».
+
+Every new example passed the headword gate. `GOVERNMENT` grows from 61 rows to 82, and
+`ALSO_TAKES` from 37 lemmas to 48 (*leben in/mit/für/bei/auf*, *halten an/für/zu*,
+*führen nach/in* …). *halten* and *beklagen* also got glosses that cover the senses
+their examples show; *beklagen* was "to pity, to lament" on two examples of
+*complain*.
+
+Four candidates were left out because the preposition belongs to a sense the card
+does not teach: *fehlen an*, *ausgehen von*, *handeln von*, *sich verlassen auf*.
+
+2,418 tests pass; `validate --strict` PASS; `ownership` 0 moved; budget PASS.
+
 ### 2026-11-21 · Hören: one loudness, and the voices' tap protects the progress
 
 **What shipped.** PANEL-2026-10-04 items 3 and 6.
@@ -33,6 +61,8 @@ it is already built.
 Four tests on the loudness maths; 2,417 tests pass; budget PASS. The consent step was
 read in the browser pane (DOM text, `?seed=b1`), not seen on the phone, and the
 loudness has not been heard on a device.
+
+**Deployed** 2026-11-21 by `git push` as 8f4880b over 9745ccb (`version.json` builtAt 2026-11-21T12:04:36Z).
 
 ### 2026-11-21 · Hören no longer plays the answer before Üben asks
 

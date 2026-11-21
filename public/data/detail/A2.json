@@ -1539,8 +1539,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Ich bedankte mich.",
-        "en": "I said thanks.",
+        "de": "Ich bedanke mich bei dir für das schöne Geschenk.",
+        "en": "Thank you for the lovely present.",
         "lvl": "A2"
       }
     ]
@@ -28029,8 +28029,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Nach der Krankheit muss sie sich gut erholen.",
-        "en": "After the illness she has to recover well.",
+        "de": "Er hat sich gut von der Grippe erholt.",
+        "en": "He has recovered well from the flu.",
         "lvl": "B1"
       },
       {
@@ -28911,8 +28911,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Sie sterben.",
-        "en": "They're dying.",
+        "de": "Sie ist an Krebs gestorben.",
+        "en": "She died of cancer.",
         "lvl": "A2"
       }
     ]
@@ -31696,8 +31696,8 @@
     "def": "to count (to determine the number of objects in a group); to reckon, to consider, to deem (later used in the active voice with a passive meaning)",
     "ex": [
       {
-        "de": "Zählt das?",
-        "en": "Does that count?",
+        "de": "München zählt zu den teuersten Städten Deutschlands.",
+        "en": "Munich is one of the most expensive cities in Germany.",
         "lvl": "A2"
       },
       {

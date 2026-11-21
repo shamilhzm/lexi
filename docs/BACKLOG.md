@@ -153,13 +153,12 @@
 > 3. **B2–C2 have no list.** `corpus:kernwortschatz` is the proxy: 459 content words
 >    owed in the top 5,000, 2,507 in the top 10,000. *(2026-11-14: 456 and 2,489 after the
 >    class-list batch, which is now applied.)*
-> 4. **More verbs for `data/government.ts`.** 61 rows since 2026-11-21. A row needs an
->    example on the card that shows the pattern first. 25 verbs from the standard
->    *Verben mit Präpositionen* list have none yet: *danken für*, *glauben an*, *riechen
->    nach*, *warnen vor*, *sterben an*, *sich bedanken bei/für*, *sich erholen von*,
->    *sich fürchten vor*, *investieren in*, *sich irren in*, *handeln von*. Author the
->    examples through `fix-authored`, then add the rows. A verb that also takes a second
->    preposition gets an `ALSO_TAKES` entry in the same change.
+> 4. **More verbs for `data/government.ts`.** 82 rows since 2026-11-21. Left out on
+>    purpose, because the preposition belongs to a sense the card does not teach:
+>    *fehlen an*, *ausgehen von*, *handeln von*, *sich verlassen auf*. Each would want
+>    its own card for that sense first. *abraten von*, *einverstanden mit* and *zielen
+>    auf* have no card. A verb that also takes a second preposition gets an
+>    `ALSO_TAKES` entry in the same change.
 > 5. ✅ ~~**Seven `def` fields are grammar notes**~~ — six were found (*helfen, antworten,
 >    gehören, gefallen, gratulieren, gelingen*) and rewritten 2026-11-21 as a definition
 >    that keeps the dative fact in its second clause. *gern*'s "used with a verb to say
