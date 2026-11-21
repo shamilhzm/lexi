@@ -28,8 +28,10 @@ import Kicker from './ui/Kicker.tsx';
 import ReportFlag from './ReportFlag.tsx';
 import type { Word } from '../types.ts';
 
-export default function WordDetail({ word, onClose, onPractise }: {
+export default function WordDetail({ word, onClose, onPractise, beside }: {
   word: Word; onClose: () => void;
+  /** The word is still on screen behind it (the feed): see `Layer`'s `beside`. */
+  beside?: boolean;
   /** Set where the entry was reached without passing the word's own actions —
    *  search. The feed opens this sheet from a slot that already carries *save*
    *  and *practise*, so there it stays what it was: the entry and nothing else.
@@ -53,7 +55,7 @@ export default function WordDetail({ word, onClose, onPractise }: {
   // focus and the × all come from there too, so this file is now only the entry
   // itself, which is all it should ever have been.
   return (
-    <Layer side="left" label={`${word.term}, full entry`} onClose={onClose} arrowBack>
+    <Layer side="left" label={`${word.term}, full entry`} onClose={onClose} arrowBack beside={beside}>
       <div className="pb-16">
 
         {/* The headword at display size, exactly as the feed showed it — same

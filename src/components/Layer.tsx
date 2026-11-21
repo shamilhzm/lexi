@@ -96,8 +96,29 @@ export function useLayerStack(el: () => HTMLElement | null): { isTop: () => bool
   return { isTop, entry: me };
 }
 
-export default function Layer({ children, side, label, back = 'Wort', onClose, footer, arrowBack = false }: {
+/** **The strip laid flat** *(2026-11-21, LEARNING-WEB §3).* At 1280px and wider
+ *  the feed's word sits in a 560px column with a third of the screen empty on
+ *  either side, so a `beside` layer takes its side of the strip instead of the
+ *  whole frame: `[ entry ] [ THE WORD ]` both on screen, the phone's one axis drawn
+ *  at full size rather than a second layout. Its width is what the word's column
+ *  leaves (`100vw − 600px`, halved), between 340 and 480px, so it never reaches the
+ *  word. Below 1280px nothing changes.
+ *
+ *  **Never for a layer that grades.** Practice was laid flat too, on the right, and
+ *  the meaning drill could be answered by reading the gloss beside it; the reverse
+ *  and recall drills ask for the headword the feed shows in the middle. A test
+ *  beside its own answer is not a test, so practice still covers the word. */
+const BESIDE = {
+  left: 'min-[1280px]:right-auto min-[1280px]:border-r',
+  right: 'min-[1280px]:left-auto min-[1280px]:border-l',
+} as const;
+const BESIDE_W = 'min-[1280px]:w-[clamp(340px,calc((100vw-600px)/2),480px)] min-[1280px]:border-line';
+
+export default function Layer({ children, side, label, back = 'Wort', onClose, footer, arrowBack = false, beside = false }: {
   children: React.ReactNode;
+  /** Opened from a word that stays on screen (the feed's): at a wide viewport the
+   *  panel sits beside that word rather than over it. See `BESIDE`. */
+  beside?: boolean;
   /** The arrow key pointing back at the word closes the panel (→ for a panel on
    *  the left), the keyboard's version of the opposite drag. Opt-in, because a
    *  film uses both arrows to move between its beats. */
@@ -207,7 +228,8 @@ export default function Layer({ children, side, label, back = 'Wort', onClose, f
       aria-label={label}
       // `pointer-events-auto` because the root that holds it is inert, so the
       // bars above stay clickable through the gaps.
-      className="absolute inset-0 pointer-events-auto bg-bg outline-none flex flex-col touch-pan-y"
+      className={`absolute inset-0 pointer-events-auto bg-bg outline-none flex flex-col touch-pan-y${
+        beside ? ` ${BESIDE[side]} ${BESIDE_W}` : ''}`}
       // **A full slide, in and out.** The first version entered from 40px away
       // and left by simply unmounting, which is why it read as twitchy rather
       // than as part of one canvas: the panel appeared to blink into place and

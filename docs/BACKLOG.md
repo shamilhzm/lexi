@@ -54,8 +54,12 @@
 >      from a clean tree; the version says `.dirty` otherwise.
 >    - ✅ **The desktop layout, first slice**: the feed's keyboard grammar (↑↓ words,
 >      ← entry, → practise, B save, ↵ hear; the opposite arrow closes a layer).
->      Open: **the grammar laid flat at wide viewports** (entry and practice beside
->      the word, not over it). Needs a DESIGN pass; it must stay one axis.
+>      ✅ **The entry laid flat** (2026-11-21): at 1280px and wider the feed's entry
+>      opens in the empty column left of the word instead of over it. **Practice
+>      stays over the word, by ruling:** beside it, the meaning drill could be read
+>      off the gloss and the reverse and recall drills off the headword (`Layer.tsx`,
+>      `BESIDE`). Open: a reading text with its glossary beside it, and the word map
+>      with the word open (LEARNING-WEB §3).
 >    - ✅ **False friends, first pass** (2026-11-21). All 171 candidates from
 >      `npm run corpus:transfer -- --false-friends` read by hand; the 17 textbook traps
 >      are in `lib/falseFriends.ts` (*wollen · will*, *Brief · brief*, *Rezept ·

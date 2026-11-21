@@ -581,7 +581,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
           clears and there is nothing left for the exit spring to animate — which
           is exactly why the panels used to vanish rather than slide away. */}
       <AnimatePresence>
-        {detail && <WordDetail key="detail" word={detail} onClose={() => setDetail(null)} />}
+        {detail && <WordDetail key="detail" word={detail} onClose={() => setDetail(null)} beside />}
       </AnimatePresence>
       <AnimatePresence>
         {drill && <WordDrill key="drill" word={drill} onClose={() => setDrill(null)} />}

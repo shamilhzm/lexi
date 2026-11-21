@@ -11,6 +11,26 @@ it is already built.
 
 ---
 
+### 2026-11-21 · the entry laid flat on a wide screen
+
+**What shipped.** At 1280px and wider, the entry the feed opens (ⓘ, ←, or a drag)
+takes the empty column to the left of the word instead of covering the whole frame,
+so the word and its entry are on screen together. It is the phone's strip,
+`[ entry ] [ THE WORD ]`, drawn at full size: the same panel, the same slide from the
+same side, and → or *Wort* still closes it. Its width is what the 560px word column
+leaves, between 340 and 480px (420 at 1440). Below 1280px nothing changed.
+
+**What did not.** Practice was laid flat on the right as well, and was taken back
+before commit: beside the word, the meaning drill could be answered from the gloss,
+and the reverse and recall drills ask for the headword the feed shows in the middle.
+A drill beside its own answer is not a test, so practice still covers the word. The
+rule is written on `Layer`'s `beside`.
+
+**Checks.** Typecheck, 2,479 tests, build, `budget.ts` (entry 283.4 of 285 KB, boot
+set 792.9 of 860 KB) pass. Measured in the browser pane at 1440 and 1280 (panel
+0–420 and 0–340, word column from 360) and at 1279 (full cover); on the iPhone 17
+Pro simulator the entry still covers the word. Not deployed.
+
 ### 2026-11-21 · word links open a live entry; seventeen false friends
 
 **A word link opened a frozen entry.** In production 83adc29, every `#/w/<id>` link
