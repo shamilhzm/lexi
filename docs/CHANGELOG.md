@@ -11,6 +11,23 @@ it is already built.
 
 ---
 
+### 2026-11-21 · the web is the product: a ruling, and a plan for a page per headword
+
+**What shipped.** No app change. VISION's settled decisions now rule that a native
+shell only wraps the web build and never forks it. `docs/PAGES.md` plans a static,
+crawlable page per headword, and `npm run pages:measure` (`scripts/pages/measure.ts`)
+is the instrument behind its numbers.
+
+**Why.** Every route is a `#/…` fragment, so a search engine can find none of the
+cards, and the backlog was drifting toward surfaces only a shell can have. The ruling
+records what the web costs today (Hören when the phone locks, reminders, Safari's
+eviction) and what it owes, in order: the domain, storage proven on a real iPhone, then
+the pages.
+
+**Deployed** 2026-11-21 by `git push` as 119c5a6 over 482f2d5 (`version.json` builtAt
+2026-11-21T15:59:32Z). Typecheck, 2,424 tests, build, `budget.ts` and
+`corpus:validate --strict` all passed before the push.
+
 ### 2026-11-21 · the boot set loses 62 KB: frequency ranks by position
 
 **What shipped.** `freq.json` was an id → rank map, 89.0 KB gzipped and fetched
