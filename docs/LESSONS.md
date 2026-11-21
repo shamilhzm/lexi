@@ -2372,3 +2372,34 @@ also ignored `scripts/release/`, so the release script and its tests were missin
 `git status` and would have been left out of the commit. **Rule:** an ignore line for a
 root folder starts with `/`, and `git check-ignore -v` is run on a source path beside
 it before the line is committed.
+
+## A true etymology can point at the wrong meaning *(added 2026-11-21)*
+
+**Believed:** a transfer line is safe once Wiktionary's etymology proves the relation
+(*Brief* and *brief* both come from Latin *brevis*). **True:** eight shipped lines named
+the very English word a learner mistakes the card for: *Brief · brief*, *wollen · will*,
+*Rezept · receipt*, *Flur · floor*, *Gang · gang*, *Angel · angle*, *Brand · brand*,
+*überall · overall*. "Related to English *brief*" under *letter* teaches the trap. The
+same script printed all eight as false-friend candidates in the same run, and nothing
+compared the two lists. A second slip in the same pass: BACKLOG said "170 of the 897
+rows are compounds", joining two numbers from one report that count different things
+(170 is compound nouns with both parts visible, out of 1,429). **Rule:** before
+shipping a transfer line, read the false-friend candidates it overlaps (65 of the 171 still ship one
+after this pass); a curated entry in `falseFriends.ts` removes the line on the next
+`--write`. And a doc sentence that relates two numbers quotes the line that relates
+them.
+
+## A child's effects run before its parent's, so a stack built in effects is upside down *(added 2026-11-21)*
+
+**Believed:** the layer stack (`Layer.tsx`) was ordered by when each layer opened,
+which is the order the learner sees. **True:** a word link (`#/w/<id>`) renders the
+search sheet *and* the entry inside it in one commit. React runs the entry's effect
+first, so the entry joined the stack first and the sheet, invisible behind it, landed
+on top; `restack` then made the only visible thing on screen `inert`. On the phone the
+entry neither scrolled nor took a tap, and only a reload got out. Every word link in
+production 83adc29 does this. The phone pass that shipped word links looked at the
+entry and pressed browser Back, and never touched the entry itself. **Rule:** an order
+taken from effects is child-first within a commit; a stack of nested things must place
+a layer above the one that contains it, not above whatever registered before it. And a
+new way into a surface is verified by using the surface it opens: scroll it and press
+its own back button.

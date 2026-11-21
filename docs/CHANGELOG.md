@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### 2026-11-21 · word links open a live entry; seventeen false friends
+
+**A word link opened a frozen entry.** In production 83adc29, every `#/w/<id>` link
+opened an entry that would not scroll and whose back button did nothing; only a reload
+got out. The link renders the search sheet and the entry inside it in one commit, and
+React runs the entry's effects first, so the entry joined the layer stack first and the
+invisible sheet landed on top of it, which made the entry `inert`. The stack now places
+a layer above the one that holds it (`stackIndex` in `Layer.tsx`, with
+`layer-stack.test.ts`); a layer opened later still goes on top. On the iPhone 17 Pro
+simulator a word link's entry now scrolls and closes, and search → entry → back still
+lands on the results. LESSONS has the entry.
+
+**Seventeen false friends.** The 171 candidates from
+`npm run corpus:transfer -- --false-friends` were read by hand, and the 17 textbook
+traps went into `lib/falseFriends.ts` (53 entries now): *wollen · will*, *wer · where*,
+*hell*, *Brief*, *deutsch · Dutch*, *Taste*, *Rezept · receipt*, *Labor · labour*,
+*überall · overall*, *Flur · floor*, *Gang*, *Angel*, *Branche*, *Engagement*,
+*Brand*, *Direktion*, *Konfession*. Eight of them had shipped as a transfer line
+("related to English *brief*" under *letter*); the curated note replaces the line, and
+`transfer.json` has 889 rows now. Nineteen plausible ones are listed in BACKLOG for the
+owner; none of those was added.
+
+**Checks.** Typecheck, 2,479 tests in 117 files, build, `budget.ts` (entry 283.3 of
+285 KB, up 0.6 with the 17 entries and the stack's context; boot set 792.7 of 860 KB),
+`corpus:validate --strict` and the devseed grep all pass. Not deployed.
+
 ### 2026-11-21 · the C1 prelude: the Latin you already read
 
 **What shipped.** A second prelude film, *Das Latein, das du liest*, before C1's first

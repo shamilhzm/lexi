@@ -36,7 +36,7 @@
 // layer this way round: looking a word up is now how it becomes a candidate
 // card, and the learner doing the looking is the one who found it.
 import { InkedArticle } from './Reveal.tsx';
-import { useLayerStack } from './Layer.tsx';
+import { LayerOwner, useLayerStack } from './Layer.tsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, X, Volume2, Check, Plus } from 'lucide-react';
@@ -121,7 +121,7 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
   // In the layer stack, so Escape closes an entry opened from here and not the
   // sheet as well, and a film behind the sheet stays open (see Layer.tsx).
   const sheet = useRef<HTMLDivElement>(null);
-  const isTop = useLayerStack(() => sheet.current);
+  const { isTop, entry } = useLayerStack(() => sheet.current);
   const close = useRef(onClose);
   close.current = onClose;
   useEffect(() => {
@@ -326,10 +326,14 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
         )}
       </div>
 
-      {detail && <WordDetail word={detail} onClose={() => { setDetail(null); if (linked) onClose(); }}
-        onPractise={() => { setDrill(detail); setDetail(null); }} />}
-      {drill && <WordDrill word={drill} onClose={() => { setDrill(null); if (linked) onClose(); }}
-        backLabel={linked ? 'Back to Wörter' : 'Back to search'} />}
+      {/* Owned by the sheet, so a word link's entry, which opens in the same
+          commit as the sheet, still sits above it in the layer stack. */}
+      <LayerOwner value={entry}>
+        {detail && <WordDetail word={detail} onClose={() => { setDetail(null); if (linked) onClose(); }}
+          onPractise={() => { setDrill(detail); setDetail(null); }} />}
+        {drill && <WordDrill word={drill} onClose={() => { setDrill(null); if (linked) onClose(); }}
+          backLabel={linked ? 'Back to Wörter' : 'Back to search'} />}
+      </LayerOwner>
     </div>,
     document.body,
   );

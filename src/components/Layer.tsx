@@ -30,7 +30,7 @@
 //
 // Not `aria-modal`: the navigation behind is still live and still usable, and
 // claiming otherwise would tell a screen reader the opposite of what is true.
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -54,10 +54,25 @@ const SPRING = { type: 'spring' as const, stiffness: 260, damping: 30, mass: 0.8
 // the film's place). And only `#main` went inert, so VoiceOver swiped from an
 // entry into the story beneath (persona pass, 2026-11-20). Now the open layers
 // form a stack: only the top one answers Escape, and the ones under it are inert.
-type Entry = { el: () => HTMLElement | null };
+type Entry = { el: () => HTMLElement | null; parent: Entry | null };
 const open: Entry[] = [];
 function restack() {
   open.forEach((e, i) => { const el = e.el(); if (el) el.inert = i < open.length - 1; });
+}
+
+/** The layer a component is rendered inside, so a layer opened within it (the
+ *  search sheet's entry) knows what it sits on. Context flows through portals. */
+const Owner = createContext<Entry | null>(null);
+export const LayerOwner = Owner.Provider;
+
+/** Where a newly opened layer joins the stack: on top, unless it contains a layer
+ *  that is already there. React runs a child's effects before its parent's, so
+ *  when a sheet and the entry inside it open in one commit (a word link), the
+ *  entry registers first; pushing the sheet after it put an invisible sheet on top
+ *  and made the entry `inert`, frozen to taps and scrolling (LESSONS, 2026-11-21). */
+export function stackIndex<E extends { parent: E | null }>(stack: readonly E[], me: E): number {
+  const i = stack.findIndex((e) => { for (let p = e.parent; p; p = p.parent) if (p === me) return true; return false; });
+  return i < 0 ? stack.length : i;
 }
 /** The topmost open layer's element, or null. For a component inside a layer
  *  that listens on `window` (the film's arrow keys) to know whether it is the
@@ -65,16 +80,20 @@ function restack() {
 export function topLayer(): HTMLElement | null {
   return open.length ? open[open.length - 1].el() : null;
 }
-/** Join the stack for as long as this component is mounted. Returns "am I on top?". */
-export function useLayerStack(el: () => HTMLElement | null): () => boolean {
-  const me = useRef<Entry>({ el }).current;
+/** Join the stack for as long as this component is mounted. `isTop` answers "am I
+ *  on top?"; render what the layer holds inside `<LayerOwner value={entry}>`. */
+export function useLayerStack(el: () => HTMLElement | null): { isTop: () => boolean; entry: Entry } {
+  const parent = useContext(Owner);
+  const me = useRef<Entry>({ el, parent }).current;
   me.el = el;
+  me.parent = parent;
   useEffect(() => {
-    open.push(me);
+    open.splice(stackIndex(open, me), 0, me);
     restack();
     return () => { const i = open.indexOf(me); if (i >= 0) open.splice(i, 1); restack(); };
   }, [me]);
-  return useCallback(() => open[open.length - 1] === me, [me]);
+  const isTop = useCallback(() => open[open.length - 1] === me, [me]);
+  return { isTop, entry: me };
 }
 
 export default function Layer({ children, side, label, back = 'Wort', onClose, footer, arrowBack = false }: {
@@ -146,7 +165,7 @@ export default function Layer({ children, side, label, back = 'Wort', onClose, f
     };
   }, []);
 
-  const isTop = useLayerStack(() => panel.current);
+  const { isTop, entry } = useLayerStack(() => panel.current);
   // Read through a ref: an inline `onClose` is a new function on every parent
   // render, and this effect used to re-run, and re-focus the panel, each time.
   const close = useRef(onClose);
@@ -223,14 +242,14 @@ export default function Layer({ children, side, label, back = 'Wort', onClose, f
             <BackArrow size={18} />
             <span lang={back === 'Wort' ? 'de' : undefined}>{back}</span>
           </button>
-          {children}
+          <LayerOwner value={entry}>{children}</LayerOwner>
           {footer && <div aria-hidden className="h-24" />}
         </div>
       </div>
       {footer && (
         <div className="absolute inset-x-0 bottom-[var(--bar-b)] z-10
           bg-[linear-gradient(to_bottom,transparent,var(--color-bg)_35%)]">
-          <div className="mx-auto w-full max-w-[620px] px-5 pt-4 pb-2">{footer}</div>
+          <div className="mx-auto w-full max-w-[620px] px-5 pt-4 pb-2"><LayerOwner value={entry}>{footer}</LayerOwner></div>
         </div>
       )}
       <span className="sr-only">

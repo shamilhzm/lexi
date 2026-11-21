@@ -43,8 +43,9 @@
 >      (`LEXI_PUBLIC_ORIGIN` at build time switches all three on; nothing else changes)
 > 4. **What the web makes possible** ([LEARNING-WEB.md](LEARNING-WEB.md), research). Its
 >    proposals, as they stand after 2026-11-21:
->    - ✅ **The transfer line** (VISION, *The transfer line*): 897 cards, 10 named sound
->      patterns, on the reveal, the entry and the word pages.
+>    - ✅ **The transfer line** (VISION, *The transfer line*): 889 cards since the
+>      false-friend pass (897 at the first write), 10 named sound patterns, on the
+>      reveal, the entry and the word pages.
 >    - ✅ **The A1 film *Was du schon kannst*** as the course's first prelude, and ✅
 >      **its Latinate companion at C1**, *Das Latein, das du liest* (a `suffix` beat:
 >      -tion, -ität, -ie, -ell, -ieren, measured from each card's gloss).
@@ -55,11 +56,21 @@
 >      ← entry, → practise, B save, ↵ hear; the opposite arrow closes a layer).
 >      Open: **the grammar laid flat at wide viewports** (entry and practice beside
 >      the word, not over it). Needs a DESIGN pass; it must stay one axis.
->    - **False-friend candidates for the owner**: 172 of them (83 cognates that
->      drifted, 89 lookalikes), from `npm run corpus:transfer -- --false-friends`.
->      Read them and add the real ones to `lib/falseFriends.ts`; none is automatic.
->    - **Compounds**: 170 of the 897 rows are compounds. Whether a compound should
->      say what its parts share with English is undecided.
+>    - ✅ **False friends, first pass** (2026-11-21). All 171 candidates from
+>      `npm run corpus:transfer -- --false-friends` read by hand; the 17 textbook traps
+>      are in `lib/falseFriends.ts` (*wollen · will*, *Brief · brief*, *Rezept ·
+>      receipt*, *Branche · branch*…). Eight of them had shipped as a transfer line.
+>      **Open for the owner**, plausible but not textbook, none added: *der Herd*
+>      (herd), *arm* (arm), *link* (link), *das Mehl* (meal), *wandern* (wander),
+>      *der Körper* (corpse), *die Spende* (spend: *spenden* is already listed),
+>      *die Akte* (act), *handeln* (handle), *die Bande* (band), *locken* (lock),
+>      *locker* (locker), *sich engagieren* (engage), *der Bürger* (burger), *der Band*
+>      (band), *der Söldner* (soldier), *bewahren* (beware), *man* (man), *turnen*
+>      (turn). The rest are sound-alikes nobody misreads (*Käse · case*) or mean
+>      the same (*Kindergarten*).
+>    - **Compounds**: 1,429 nouns are compounds of two cards, and in 170 of them
+>      both parts are visible to an English reader (*Hausnummer*). Whether a compound
+>      should say what its parts share with English is undecided.
 >    - Blocked: Common Voice audio (the ASR gate, COSTS), implicit credit (a VISION
 >      #9 amendment after shadow data), E2EE sync (VISION open decision 1), the
 >      efficacy note (needs learners).

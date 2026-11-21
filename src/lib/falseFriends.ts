@@ -61,6 +61,27 @@ export const FALSE_FRIENDS: Record<string, FalseFriend> = {
   kaution:     { looksLike: 'caution',    actually: 'a deposit',          insteadSay: 'die Vorsicht' },
   direktor:    { looksLike: 'director',   actually: 'principal, headteacher', insteadSay: 'der Regisseur' },
   lektüre:     { looksLike: 'lecture',    actually: 'reading, reading matter', insteadSay: 'die Vorlesung' },
+  // From the 171 candidates of `npm run corpus:transfer -- --false-friends`, read by
+  // hand on 2026-11-21: the textbook traps only. Eight of them had shipped as a
+  // transfer line ("related to English brief"), which pointed the learner straight
+  // at the wrong meaning; an entry here takes the word out of transfer.json.
+  wollen:      { looksLike: 'will',       actually: 'to want (ich will: I want)', insteadSay: 'werden' },
+  wer:         { looksLike: 'where',      actually: 'who',                insteadSay: 'wo' },
+  hell:        { looksLike: 'hell',       actually: 'bright, light',      insteadSay: 'die Hölle' },
+  brief:       { looksLike: 'brief',      actually: 'letter',             insteadSay: 'kurz' },
+  deutsch:     { looksLike: 'Dutch',      actually: 'German',             insteadSay: 'niederländisch' },
+  taste:       { looksLike: 'taste',      actually: 'key, button',        insteadSay: 'der Geschmack, schmecken' },
+  rezept:      { looksLike: 'receipt',    actually: 'recipe; prescription', insteadSay: 'die Quittung' },
+  labor:       { looksLike: 'labour',     actually: 'laboratory',         insteadSay: 'die Arbeit' },
+  überall:     { looksLike: 'overall',    actually: 'everywhere',         insteadSay: 'insgesamt' },
+  flur:        { looksLike: 'floor',      actually: 'hallway, corridor',  insteadSay: 'der Boden, das Stockwerk' },
+  gang:        { looksLike: 'gang',       actually: 'aisle, corridor',    insteadSay: 'die Bande' },
+  angel:       { looksLike: 'angel',      actually: 'fishing rod',        insteadSay: 'der Engel' },
+  branche:     { looksLike: 'branch',     actually: 'industry, sector',   insteadSay: 'die Filiale, der Zweig' },
+  engagement:  { looksLike: 'engagement', actually: 'commitment, involvement', insteadSay: 'die Verlobung' },
+  brand:       { looksLike: 'brand',      actually: 'fire, blaze',        insteadSay: 'die Marke' },
+  direktion:   { looksLike: 'direction',  actually: 'management; head office', insteadSay: 'die Richtung' },
+  konfession:  { looksLike: 'confession', actually: 'religious denomination', insteadSay: 'das Geständnis, die Beichte' },
 };
 
 const stripArticle = (t: string) => t.replace(/^(der|die|das)\s+/i, '').trim();
