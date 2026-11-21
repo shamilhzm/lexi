@@ -2275,3 +2275,22 @@ and would have hit it at 23:50 UTC. **Rule:** a test that reads a day bucket, a 
 date or `localDayKey()` pins the clock with `vi.setSystemTime` at noon UTC, which is a
 safe distance from midnight in every zone from UTC−11 to UTC+14. Rerun it with
 `TZ=Pacific/Kiritimati` and `TZ=Pacific/Pago_Pago` to prove it.
+
+## A mock that hands out the stored object makes two tabs one tab *(added 2026-11-21)*
+
+**Believed:** the two-tab test for the blind-spot log proved the merge. **True:** it
+passed with the whole-log write put back, because the mock's `idbGet` returned
+`stored[key]` itself, so both "tabs" pushed into one array and every overwrite looked
+like a merge. The card tests never saw it: cards are revived into new objects at boot.
+**Rule:** a storage mock returns `structuredClone` of what it holds, as a real read
+does, and a test of a concurrency fix is shown failing on the unfixed code before it
+is believed.
+
+## A conjugator check that read the wrong field *(added 2026-11-21)*
+
+**Believed:** 137 reliable verbs disagreed with their attested tables. **True:** 104
+were the check's: it joined a separable verb's *rief an* only when `separable` was set,
+and that field is null for every verb built from the irregular table; and it missed a
+participle spelled like the infinitive (*übertragen*), which the tables leave out.
+Fixed, the count was 33, and all 33 were real. **Rule:** the class-2 rule held again.
+Read three hits before the count; here the first three were all *sah durch*-shaped.

@@ -40,6 +40,7 @@
     "corpus:cardfix": "node scripts/corpus/cardfix.ts",
     "corpus:crosscheck": "node scripts/corpus/crosscheck.ts",
     "corpus:validate": "node scripts/corpus/validate.ts",
+    "corpus:conjugate-check": "node scripts/corpus/conjugate-check.ts",
     "corpus:flags": "node scripts/corpus/flags.ts",
     "corpus:relevel": "node scripts/corpus/relevel.ts",
     "corpus:posfix": "node scripts/corpus/posfix.ts",

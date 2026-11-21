@@ -16,7 +16,9 @@ let writes: string[];
 async function boot(idbOk = true) {
   vi.resetModules();
   vi.doMock('./lib/idb.ts', () => ({
-    idbGet: async (key: string) => (idbOk ? stored[key] : undefined),
+    // Cloned, as a real read is: handing two tabs the same array made every
+    // whole-log write look like a merge, and the log test passed on the bug.
+    idbGet: async (key: string) => (idbOk ? structuredClone(stored[key]) : undefined),
     idbSet: async (key: string, value: unknown) => { writes.push(key); stored[key] = value; },
     idbUpdate: async (key: string, fn: (v: unknown) => unknown) => { writes.push(key); stored[key] = fn(structuredClone(stored[key])); },
     idbSetMany: async (kv: [string, unknown][]) => { for (const [k, v] of kv) { writes.push(k); stored[k] = v; } },
@@ -121,6 +123,34 @@ describe('the card-map write guard', () => {
     hide();
     await Promise.resolve();
     expect(Object.keys(stored[CARDS] as object)).toEqual(['voc:A1:der Hund']);
+  });
+
+  // Left open by the same pass: the blind-spot log, the attempt log and the visit
+  // days were still written whole, so each tab's write dropped the other's.
+  it('two tabs keep each other’s misses, attempts and visits', async () => {
+    const MISSES = 'lexi.miss.v1', ATTEMPTS = 'lexi.attempts.v1', VISITS = 'lexi.visits.v1';
+    stored[MISSES] = [{ tag: 'gender', at: Date.now() - 60_000, term: 'Tisch' }];
+    stored[ATTEMPTS] = [{ tag: 'gender', at: Date.now() - 60_000 }];
+    stored[VISITS] = ['2026-11-01'];
+    const a = await boot();
+    await a.hydrate();
+    const b = await boot();
+    await b.hydrate();
+    a.logMiss('plural', 'Stuhl');
+    a.logAttempt('plural');
+    b.logMiss('gender', 'Lampe');
+    b.logAttempt('gender');
+    await Promise.resolve(); await Promise.resolve();
+    const terms = (stored[MISSES] as { term?: string }[]).map((e) => e.term).sort();
+    expect(terms).toEqual(['Lampe', 'Stuhl', 'Tisch']);
+    expect(stored[ATTEMPTS] as unknown[]).toHaveLength(3);
+    // Both tabs recorded today; the day is stored once and the old day survives.
+    expect((stored[VISITS] as string[])[0]).toBe('2026-11-01');
+    expect(new Set(stored[VISITS] as string[]).size).toBe((stored[VISITS] as string[]).length);
+    // …and a tab reads the other's entries back as it writes.
+    a.logMiss('plural', 'Bett');
+    await Promise.resolve(); await Promise.resolve();
+    expect(a.missStats().some((r) => r.tag === 'gender')).toBe(true);
   });
 
   it('refuses a file that is not a Lexi backup, and changes nothing', async () => {

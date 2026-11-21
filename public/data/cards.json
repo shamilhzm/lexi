@@ -53964,7 +53964,7 @@
   {
     "id": "voc:B1:die Ausgabe",
     "term": "die Ausgabe",
-    "en": "expense, expenditure",
+    "en": "expense; edition, issue",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
@@ -64848,7 +64848,7 @@
   {
     "id": "voc:A1:mal",
     "term": "mal",
-    "en": "times",
+    "en": "just (softens a request or command); times, multiplied by",
     "pos": "adverb",
     "level": "A1",
     "gender": null,
@@ -66066,7 +66066,7 @@
   {
     "id": "voc:B1:darauf",
     "term": "darauf",
-    "en": "after",
+    "en": "on it, on that; after that",
     "pos": "adverb",
     "level": "B1",
     "gender": null,
@@ -66080,7 +66080,7 @@
   {
     "id": "voc:B1:darum",
     "term": "darum",
-    "en": "around it, around that",
+    "en": "that's why, therefore; for it, about it",
     "pos": "adverb",
     "level": "B1",
     "gender": null,
@@ -66894,7 +66894,7 @@
     "pos": "noun",
     "level": "B2",
     "gender": "die",
-    "plural": "die Gerade",
+    "plural": "die Geraden",
     "ipa": "ɡəˈʁaːdə",
     "syn": [],
     "ant": [],
@@ -68678,7 +68678,7 @@
   {
     "id": "voc:B1:der Vertreter",
     "term": "der Vertreter",
-    "en": "agent noun of vertreten",
+    "en": "representative; sales representative",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -68781,7 +68781,7 @@
   {
     "id": "voc:B1:der Zuschauer",
     "term": "der Zuschauer",
-    "en": "agent noun of zuschauen",
+    "en": "spectator, viewer; (plural) audience",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -69515,15 +69515,14 @@
   {
     "id": "voc:A2:dran",
     "term": "dran",
-    "en": "alternative form of daran",
+    "en": "on it, at it; (be) next, someone's turn",
     "pos": "adverb",
     "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "dʁan",
     "syn": [
-      "am Zug",
-      "also just sein"
+      "am Zug"
     ],
     "ant": [],
     "field": "Adverbs",
@@ -69686,7 +69685,7 @@
   {
     "id": "voc:A2:der Radfahrer",
     "term": "der Radfahrer",
-    "en": "agent noun of Rad fahren: cyclist",
+    "en": "cyclist",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
@@ -69764,7 +69763,7 @@
   {
     "id": "voc:A2:die Strafe",
     "term": "die Strafe",
-    "en": "punishment",
+    "en": "punishment; fine, penalty",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -69924,7 +69923,7 @@
   {
     "id": "voc:B1:der Anhänger",
     "term": "der Anhänger",
-    "en": "agent noun of anhängen",
+    "en": "trailer; follower, supporter",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -70636,7 +70635,7 @@
   {
     "id": "voc:B1:der Sender",
     "term": "der Sender",
-    "en": "agent noun of senden",
+    "en": "station, channel; transmitter",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -71846,7 +71845,7 @@
   {
     "id": "voc:A2:drauf",
     "term": "drauf",
-    "en": "alternative form of darauf",
+    "en": "on it, on top",
     "pos": "adverb",
     "level": "A2",
     "gender": null,
@@ -74145,8 +74144,7 @@
     "plural": null,
     "ipa": "ˈʃaɪ̯nbaːɐ̯",
     "syn": [
-      "vermeintlich",
-      "angeblich"
+      "vermeintlich"
     ],
     "ant": [],
     "field": "Adverbs",
@@ -75063,7 +75061,7 @@
   {
     "id": "voc:B2:der Betrüger",
     "term": "der Betrüger",
-    "en": "agent noun of betrügen",
+    "en": "fraudster, con man, cheat",
     "pos": "noun",
     "level": "B2",
     "gender": "der",
@@ -80396,7 +80394,7 @@
   {
     "id": "voc:B1:das Schätzchen",
     "term": "das Schätzchen",
-    "en": "diminutive of Schatz",
+    "en": "darling, sweetheart",
     "pos": "noun",
     "level": "B1",
     "gender": "das",
@@ -92285,7 +92283,7 @@
   {
     "id": "voc:A1:der Bäcker",
     "term": "der Bäcker",
-    "en": "agent noun of backen",
+    "en": "baker",
     "pos": "noun",
     "level": "A1",
     "gender": "der",
@@ -93765,7 +93763,7 @@
   {
     "id": "voc:A2:die Vermieterin",
     "term": "die Vermieterin",
-    "en": "company that rents something",
+    "en": "landlady, (female) landlord",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -95768,7 +95766,7 @@
   {
     "id": "voc:B1:der Verbraucher",
     "term": "der Verbraucher",
-    "en": "consumer; agent noun of verbrauchen",
+    "en": "consumer",
     "pos": "noun",
     "level": "B1",
     "gender": "der",

@@ -1493,7 +1493,7 @@
     ]
   },
   "voc:A1:antworten": {
-    "def": "takes the dative for the person: jemandem antworten",
+    "def": "to say or write something back to someone who asked; the person is in the dative (jemandem antworten)",
     "ex": [
       {
         "de": "Bitte antworte mir.",
@@ -7428,7 +7428,7 @@
     ]
   },
   "voc:A1:der Bäcker": {
-    "def": "agent noun of backen (“one who bakes”)",
+    "def": "someone who bakes bread and cakes, usually for a living",
     "ex": [
       {
         "de": "Er ist Bäcker.",
@@ -20393,7 +20393,7 @@
     ]
   },
   "voc:A1:gefallen": {
-    "def": "takes the dative: es gefällt mir",
+    "def": "to be liked by someone; the person who likes it is in the dative (es gefällt mir)",
     "ex": [
       {
         "de": "Das Bild gefällt mir.",
@@ -20448,7 +20448,7 @@
     ]
   },
   "voc:A1:gehören": {
-    "def": "takes the dative: das gehört mir",
+    "def": "to be someone's property, or to be part of something; the owner is in the dative (es gehört mir)",
     "ex": [
       {
         "de": "Das Buch gehört mir.",
@@ -20853,7 +20853,7 @@
     ]
   },
   "voc:A1:gratulieren": {
-    "def": "takes the dative: ich gratuliere dir",
+    "def": "to tell someone you are glad about their good news or their birthday; the person is in the dative (ich gratuliere dir)",
     "ex": [
       {
         "de": "Ich gratuliere dir zum Geburtstag.",
@@ -21143,7 +21143,7 @@
     ]
   },
   "voc:A1:helfen": {
-    "def": "takes the dative case: jemandem helfen",
+    "def": "to make something easier for someone, or do part of it for them; the person helped is in the dative (jemandem helfen)",
     "ex": [
       {
         "de": "Kannst du mir helfen?",

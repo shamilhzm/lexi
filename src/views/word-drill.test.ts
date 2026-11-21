@@ -129,3 +129,30 @@ describe('glossOverlap', () => {
     expect(glossOverlap('to start', 'to begin')).toBe(false);
   });
 });
+
+// Persona pass, 2026-11-20: a due `cloze` for a card alone in its part of speech
+// at its level rendered nothing in Üben. `canAsk` said yes; the item, drawing
+// distractors from the level only, had none. Swept over every card, so the next
+// lone particle cannot repeat it.
+describe('a gap the session may ask is a gap the item can draw', () => {
+  it('names the four cards that stranded Üben, and asks each', async () => {
+    const { canAsk, clozeParts, clozeOptions } = await import('./drills.tsx');
+    for (const term of ['jedermann', 'jawohl', 'irgendein', 'derjenige']) {
+      const w = words.find((x) => x.term === term)!;
+      const p = clozeParts(w, []);
+      expect(p, `${term} has a gap`).not.toBeNull();
+      expect(canAsk('cloze', w), term).toBe(true);
+      expect(clozeOptions(w, p!.blank)!.options.length, term).toBeGreaterThanOrEqual(2);
+    }
+  });
+  // The item needs one distractor of the same part of speech at any level, so
+  // the condition is a property of the corpus, not of each card: no part of
+  // speech may have a single member. (Calling the item for all 11k cards took
+  // a minute; this is the same claim in a millisecond.)
+  it('has no part of speech with a single card', () => {
+    const byPos = new Map<string, string[]>();
+    for (const w of words) byPos.set(w.pos, [...(byPos.get(w.pos) ?? []), w.term]);
+    const alone = [...byPos].filter(([, ts]) => ts.length < 2).map(([pos, ts]) => `${pos}: ${ts[0]}`);
+    expect(alone).toEqual([]);
+  });
+});

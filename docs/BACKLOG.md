@@ -23,19 +23,14 @@
 >
 > ---
 >
-> ## Left open by the 2026-11-20 persona pass
+> ## Left open by the 2026-11-20 persona pass — ✅ all five closed 2026-11-21
 >
-> - `misses`, `attempts` and `visits` are still written whole, so two tabs can still
->   overwrite each other's blind-spot log (cards are fixed; these are lower stakes).
-> - The conjugator gives wrong forms for 23 verbs flagged reliable (*lügen → lügte*,
->   *wehtun → wehtute*). Dormant in drills while `FOCUS.grammar` is false, but the forms
->   reach the surface index.
-> - Corpus: *die Gerade* has the plural *die Gerade*; it is *die Geraden*. Through
->   `authoring:fix`.
-> - A due `cloze` drill for *jedermann, jawohl, irgendein, derjenige* renders nothing in
->   Üben (WordDrill now skips such a step; Review does not).
-> - `parseGateHash` (lib/tuer.ts) calls `decodeURIComponent` unguarded, so
->   `#/tuer/100%` throws at boot, the same bug `parseHash` had.
+> The blind-spot logs, the conjugator (33 verbs, not 23), *die Geraden*, the blank cloze
+> and the gate hash. See CHANGELOG 2026-11-21 *the persona pass's leftovers*.
+> - *Still open from it:* `corpus:conjugate-check` compares only the Präteritum and
+>   the Partizip II; a wrong present (*du lädst*) would pass it. *schaffen* drills
+>   *schuf* on a card glossed "to manage" first; the senses want either two cards or a
+>   gate.
 >
 > ---
 >
@@ -49,15 +44,9 @@
 >   (*Essen und Trinken*, *Meinung*, *Gesundheitssystem*, *Geschäftskorrespondenz*,
 >   *Referat und Diskussion*, *Bewerbung*). The rest share those beat components but have
 >   not been looked at on a phone.
-> - **Corpus senses the films exposed and did not fix:** *mal* is glossed "times" over
->   particle examples ("Guck mal."); *darum* is glossed "around it" though most learners
->   meet the connector; *deswegen*'s examples are Tatoeba fragments; *darauf* is glossed
->   "after" though both its examples mean "on it" ("Darauf zähle ich", "Er bestand
->   darauf"); *die Strafe*'s second example ("Strafe die Kinder nicht!") is the verb
->   *strafen*; *die Ausgabe*'s second is an *edition* on a card glossed "expense"; *die
->   Vermieterin* is glossed "company that rents something"; *verbleiben*'s "verbleibe ich
->   Ihr Team" mixes persons; *scheinbar* keeps the synonym *angeblich*, which fits neither
->   of its senses. Each wants a guarded `authoring:fix` row (a synonym row needs `src`).
+> - ~~**Corpus senses the films exposed.**~~ ✅ all nine fixed 2026-11-21 through
+>   `batches/backlog-fix-2026-11-21.json` (*mal, darum, deswegen, darauf, die Strafe,
+>   die Ausgabe, die Vermieterin, verbleiben, scheinbar*).
 > - **Cut the boot set.** Its ceiling was raised 820 → 860 KB on 2026-11-19, in its own
 >   commit with the reason in `scripts/budget.ts`, because `main` had failed CI on it
 >   since at least 2026-11-14; the set itself, 849.2 KB, was not cut. `freq.json`
@@ -93,7 +82,7 @@
 >
 > ## Found in the 2026-11-15 design pass — filed, not fixed
 >
-> - **Eleven cards whose English gloss is a grammar note**, and so is what the card
+> - ✅ *Fixed 2026-11-21, same batch.* **Eleven cards whose English gloss is a grammar note**, and so is what the card
 >   teaches as the meaning: *der Bäcker* = "agent noun of backen", *der Vertreter*,
 >   *der Zuschauer*, *der Anhänger*, *der Sender*, *der Betrüger*, *der Radfahrer*,
 >   *der Verbraucher* (partly), *das Schätzchen* = "diminutive of Schatz", *dran*,
@@ -165,8 +154,10 @@
 > 4. **More verbs for `data/government.ts`.** 40 rows today. A row needs an example on
 >    the card that shows the pattern first — *danken für*, *glauben an*, *riechen nach*,
 >    *warnen vor*, *sterben an* have none yet.
-> 5. **Seven `def` fields are grammar notes** («takes the dative: jemandem helfen») —
->    a word fact filed where a definition goes.
+> 5. ✅ ~~**Seven `def` fields are grammar notes**~~ — six were found (*helfen, antworten,
+>    gehören, gefallen, gratulieren, gelingen*) and rewritten 2026-11-21 as a definition
+>    that keeps the dative fact in its second clause. *gern*'s "used with a verb to say
+>    you like doing something" is a usage definition and was left.
 >
 > **App:**
 > 6. **The preposition drill in the scheduler.** It is asked for, never woven. Whether

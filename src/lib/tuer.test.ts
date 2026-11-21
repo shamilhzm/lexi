@@ -19,6 +19,10 @@ describe('parseGateHash', () => {
   it('gives an unknown app a door with a readable name and no way back in', () => {
     expect(parseGateHash('#/tuer/hacker-news')?.app).toEqual({ slug: 'hacker-news', name: 'Hacker News' });
   });
+  it('reads a slug that will not decode as typed instead of throwing at boot', () => {
+    expect(() => parseGateHash('#/tuer/100%')).not.toThrow();
+    expect(parseGateHash('#/tuer/100%')?.app?.slug).toBe('100%');
+  });
   it('leaves every other hash alone', () => {
     for (const h of ['', '#/feed', '#/tuerx', '#/session', '#/tuer/a/b']) expect(parseGateHash(h)).toBeNull();
   });

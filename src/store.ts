@@ -210,9 +210,47 @@ if (typeof document !== 'undefined') {
 if (typeof window !== 'undefined') {
   window.addEventListener('pagehide', flushCards);
 }
-function persistMisses() { writeKV(MISS_KEY, misses); }
-function persistAttempts() { writeKV(ATTEMPT_KEY, attempts); }
-function persistVisits() { writeKV(VISITS_KEY, visits); }
+// ---- the three logs, two tabs ------------------------------------------------
+// The blind-spot log, the attempt log and the visit days were still written
+// **whole** after the card map stopped being (persona pass, 2026-11-20): two tabs
+// open, and each write put back that tab's copy, dropping every miss and every
+// visit the other had logged since it loaded. Lower stakes than a grade, the same
+// shape of loss. Each log now appends what this tab added to what is stored, in
+// one transaction, and reads the merged log back. A degraded boot keeps the old
+// rule, as the card map does.
+const MISS_CAP = 800;
+const ATTEMPT_CAP = 4000;
+const unwritten: Record<string, unknown[]> = { [MISS_KEY]: [], [ATTEMPT_KEY]: [], [VISITS_KEY]: [] };
+
+/** Append this tab's new entries to the stored log, keep the newest `cap`, and
+ *  hand the merged log back with anything logged while the write was in flight. */
+function appendLog<T>(key: string, whole: T[], cap: number, id: (e: T) => string,
+  order: (a: T, b: T) => number, adopt: (all: T[]) => void) {
+  const queue = unwritten[key] as T[];
+  if (!writable || queue.length === 0) return;
+  if (localOnly) { queue.length = 0; writeKV(key, whole); return; }
+  const batch = queue.splice(0);
+  let merged: T[] | null = null;
+  idbUpdate<T[]>(key, (stored) => {
+    const base = Array.isArray(stored) ? stored : [];
+    const have = new Set(base.map(id));
+    const out = base.concat(batch.filter((e) => !have.has(id(e)))).sort(order);
+    merged = out.length > cap ? out.slice(-cap) : out;
+    return merged;
+  }).then(() => {
+    if (!merged) return;
+    const later = queue.slice();
+    adopt(later.length ? merged.concat(later) : merged);
+  }, () => { queue.unshift(...batch); });
+}
+
+const byAt = (a: { at: number }, b: { at: number }) => a.at - b.at;
+const missId = (e: MissEvent) => `${e.at}|${e.tag}|${e.term ?? ''}|${e.chose ?? ''}`;
+function persistMisses() { appendLog(MISS_KEY, misses, MISS_CAP, missId, byAt, (all) => { misses = all; }); }
+function persistAttempts() { appendLog(ATTEMPT_KEY, attempts, ATTEMPT_CAP, (e: AttemptEvent) => `${e.at}|${e.tag}`, byAt, (all) => { attempts = all; }); }
+function persistVisits() {
+  appendLog(VISITS_KEY, visits, Infinity, (d: string) => d, (a, b) => (a < b ? -1 : a > b ? 1 : 0), (all) => { visits = all; });
+}
 
 export function subscribe(fn: () => void) { listeners.add(fn); return () => listeners.delete(fn); }
 export function getVersion() { return version; }
@@ -1122,7 +1160,8 @@ export function logMiss(tag: string, term?: string, detail?: MissDetail) {
     // a row, and `missStats` would have to invent the other half to display it.
     ...(detail && detail.asked && detail.chose ? { asked: detail.asked, chose: detail.chose } : {}),
   });
-  if (misses.length > 800) misses = misses.slice(-800);
+  if (misses.length > MISS_CAP) misses = misses.slice(-MISS_CAP);
+  unwritten[MISS_KEY].push(misses[misses.length - 1]);
   persistMisses();
   emit();
 }
@@ -1140,7 +1179,8 @@ export function logMiss(tag: string, term?: string, detail?: MissDetail) {
  *  would double every subscriber's work through a session for no new information. */
 export function logAttempt(tag: string) {
   attempts.push({ tag, at: Date.now() });
-  if (attempts.length > 4000) attempts = attempts.slice(-4000);
+  if (attempts.length > ATTEMPT_CAP) attempts = attempts.slice(-ATTEMPT_CAP);
+  unwritten[ATTEMPT_KEY].push(attempts[attempts.length - 1]);
   persistAttempts();
 }
 
@@ -2095,7 +2135,7 @@ export function recordVisit() {
   // write is refused anyway; remember the visit and record it after.
   if (!hydrated) { pendingBoot.visit = true; return; }
   const t = todayKey();
-  if (!visits.includes(t)) { visits.push(t); persistVisits(); }
+  if (!visits.includes(t)) { visits.push(t); unwritten[VISITS_KEY].push(t); persistVisits(); }
 }
 
 /** Whether any card was actually graded today. Distinct from a visit: opening

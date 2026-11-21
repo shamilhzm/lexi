@@ -11,6 +11,60 @@ it is already built.
 
 ---
 
+### 2026-11-21 · the persona pass's leftovers, and the corpus senses the films exposed
+
+**What shipped.** The five items the 2026-11-20 persona pass left open, and three
+corpus lists from the backlog.
+
+- **The conjugator: 33 verbs it called reliable were wrong, now 0.**
+  `npm run corpus:conjugate-check` compares each reliable verb's 3rd-person Präteritum
+  and Partizip II with the card's attested table (1,828 verbs checked). The 33 had
+  four causes:
+  - strong roots missing from the gate: *lügen, bergen, blasen, melken, schwingen,
+    schlingen, schmeißen, zeihen, spalten, flechten*;
+  - separable first elements missing from the prefix list: *weh, hoch, sicher, fertig,
+    nahe, da, dazu, zuvor, schief*, so *wehtun* came out «wehtute»;
+  - prefixes scanned in list order, not longest first, so *voraussetzen* came out
+    «vorgeaussetzt»;
+  - a separable prefix on an inseparable verb went unseen, so *mitbekommen* came out
+    «bekommte mit» and *beibehalten* «behaltete bei».
+
+  *beschaffen* and *abschaffen* were built on the strong *schaffen*, giving «beschuf»;
+  *recyceln* took a ge-. All 36 verbs whose recorded output moved were read in the
+  golden diff. 18 went from wrong to right and 15 from wrong to gated. *zubereiten*
+  went from gated to right. *anschaffen* and *verschaffen* keep the same forms, now
+  built by the weak generator. None went from right to wrong. The matcher now reads *tut …
+  weh* as *wehtun* and *setzt … voraus* as *voraussetzen*, in 62 recorded sentences.
+  `conjugate-check.test.ts` keeps the count at zero. It has one ruling: *überkochen*'s
+  table is the inseparable homograph's. The test was shown failing with *lügen* taken
+  back out of the gate.
+- **The blind-spot log, the attempt log and the visit days merge across tabs.** They
+  were written whole, so each tab's write dropped the other's entries. They now append
+  inside one `idbUpdate`, as the card map does since 2026-11-20. The new test passed on
+  the old code at first, because the storage mock handed both tabs the same array
+  (LESSONS). With the mock fixed, it fails on the old code and passes on the new.
+- **A due gap drill no longer renders a blank Üben.** For a card alone in its part of
+  speech at its level (*jedermann, jawohl, irgendein, derjenige*), the distractors came
+  from that level only, so there were none. They now fall back to any level, as
+  `ReverseItem`'s do. `canAsk` asks the same `clozeOptions`, so the two cannot disagree.
+- **`#/tuer/100%` no longer blanks the app at boot.** `parseGateHash` decoded the slug
+  unguarded, the same bug `parseHash` had. Checked in the browser: the door opens for
+  "100%".
+- **Corpus, 34 rows through `fix-authored`** (`batches/backlog-fix-2026-11-21.json`):
+  - *die Gerade* → plural *die Geraden* (de.wiktionary, read through the gate's fetcher);
+  - the nine senses the films exposed: *mal, darum, deswegen, darauf, die Strafe, die
+    Ausgabe, die Vermieterin, verbleiben, scheinbar*;
+  - the eleven glosses that were grammar notes ("agent noun of backen" is now
+    *baker*);
+  - six `def`s that were only «takes the dative», now a definition with the case
+    kept in the second clause.
+
+  `corpus:validate --strict` PASS; `corpus:ownership` 0 moved.
+
+**Why.** The conjugator's `reliable` flag is its own opinion of itself. The only outside
+check of that opinion was the golden test, which records what the conjugator does, not
+whether it is right. The attested tables were already in the repo, unread for this.
+
 ### 2026-11-21 · no faded ink
 
 **What shipped.** Ten fades on text were dropped. Seven sites fell below DESIGN §2's 4.5:1:

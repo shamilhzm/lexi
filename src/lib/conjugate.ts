@@ -296,6 +296,10 @@ const TABLE: Record<string, Entry> = {
   // gefroren*). Inheriting the root's auxiliary would have got this one wrong —
   // the risk the note above names, caught by reading the 42 forms the roots
   // unlocked rather than by trusting the note.
+  // Weak, and stressed on its second syllable, so the participle takes no ge-:
+  // *recycelt*, as *studiert* does. The generator gave «gerecycelt». Forms read
+  // off the card's attested table (2026-11-21).
+  recyceln: { praesens: six('recycle','recycelst','recycelt','recyceln','recycelt','recyceln'), praeteritum: six('recycelte','recyceltest','recycelte','recycelten','recyceltet','recycelten'), partizip: 'recycelt', aux: 'haben' },
   gefrieren: { praesens: six('gefriere','gefrierst','gefriert','gefrieren','gefriert','gefrieren'), praeteritum: six('gefror','gefrorst','gefror','gefroren','gefrort','gefroren'), partizip: 'gefroren', aux: 'sein' },
 
   // ---- verbs behind an ambiguous prefix -------------------------------------
@@ -402,7 +406,22 @@ const STRONG_GATE = new Set<string>([
   'bleiben','leihen','meiden','preisen','reiben','scheiden','scheinen','schreiben','schreien','schweigen','steigen','treiben','weisen','beißen','greifen','leiden','pfeifen','reißen','reiten','scheinen','schleichen','schneiden','schreiten','streichen','streiten','gleiten','gleichen',
   'bitten','liegen','sitzen','denken','bringen','kennen','nennen','brennen','rennen','senden','wenden','tun','gehen','stehen','kommen','sein','haben','werden','wissen','heißen','rufen','schaffen','heben',
   'befehlen','gebären','genesen','geschehen','messen','fressen','quellen','schmelzen','schwellen','verderben','werben','winken',
+  // Added 2026-11-21 from `corpus:conjugate-check`, which compares every reliable
+  // verb with its attested table: each root here came out weak and reliable
+  // (*lügte, gelügt*; *verbergte*; *blaste*; *verzeihte*; *verschlingte*). `zeihen`
+  // is the root of *verzeihen*, `spalten` is weak in the past and strong in the
+  // participle (*spaltete, gespalten*), and `melken` is the reverse in most
+  // speakers' mouths — both are gated rather than guessed.
+  'lügen','bergen','blasen','melken','schwingen','schlingen','schmeißen','zeihen','spalten','flechten',
 ]);
+
+// Weak verbs whose root is a strong verb in TABLE. *schaffen* is strong when it
+// means *create* (schuf, geschaffen) and weak in every other sense, and these
+// four take the weak one: *beschaffte*, *schaffte ab*. Through the prefix split
+// they came out **beschuf** and **abgeschaffen** (2026-11-21). *bereiten* is not
+// *be* + *reiten* at all, and read that way came out «beritt», with *sein*. They
+// skip the table and the strong gate and are generated as the weak verbs they are.
+const WEAK_DESPITE_ROOT = new Set(['beschaffen', 'abschaffen', 'anschaffen', 'verschaffen', 'bereiten']);
 
 // Known simple verbs, used to avoid false prefix splits: "antworten" must not be
 // read as "an" + "tworten".
@@ -445,6 +464,11 @@ const SEED_ROOTS = [
   // and without it both came out as **geaushändigt**. Listing it can only confirm a
   // split the prefix already licensed, per the note above; it cannot invent one.
   'händigen',
+  // `bereiten` was kept out because it once built «gevorbereitet»; the rule for a
+  // separable prefix on an inseparable root (see `regularPartizip`) has handled
+  // that since 2026-08-25, and *vorbereiten* is tabled anyway. With it, the card
+  // *zubereiten* conjugates: bereitet zu, bereitete zu, zubereitet (2026-11-21).
+  'bereiten',
   // very common bases that anchor many prefixed forms
   'machen', 'kaufen', 'hören', 'sagen', 'führen', 'setzen', 'stellen', 'legen',
   'schalten', 'holen', 'zeigen', 'danken', 'wohnen', 'lernen', 'leben', 'spielen',
@@ -466,12 +490,18 @@ export function setKnownVerbs(infinitives: Iterable<string>) {
 const isKnownRoot = (root: string) => KNOWN.has(root) || !!TABLE[root];
 
 /** A strong/irregular verb (possibly behind any prefix) we can't generate. */
-function isStrong(inf: string): boolean {
+function isStrong(inf: string, depth = 0): boolean {
+  if (WEAK_DESPITE_ROOT.has(inf)) return false;
   if (STRONG_GATE.has(inf)) return true;
-  for (const p of GATE_PREFIXES) {
+  for (const p of STRONG_SCAN) {
     if (inf.length > p.length + 2 && inf.startsWith(p)) {
       const core = inf.slice(p.length);
       if (STRONG_GATE.has(core) || TABLE[core]) return true;
+      // A separable prefix on an inseparably prefixed strong verb: *bei* +
+      // *be* + *halten*, *ein* + *be* + *ziehen*, *vor* + *ent* + *halten*. One
+      // level was checked, so all three came out weak (2026-11-21). That order
+      // only: *be* + *an* + *tragen* is *beantragen*, weak, made from *Antrag*.
+      if (depth === 0 && !INSEPARABLE.includes(p) && INSEPARABLE.some((q) => core.startsWith(q)) && isStrong(core, 1)) return true;
     }
   }
   return false;
@@ -548,7 +578,26 @@ const SEPARABLE = [
   // gated out. `gegenüberstellen` came out **gegenüberstellt** (C1, and offered by
   // the conjugation drill today); `wohlfühlen` came out **gewohlfühlt**.
   'gegenüber', 'wohl',
+  // Added 2026-11-21, found by `corpus:conjugate-check`. Each is the first element
+  // of a corpus verb that came out as a simplex and reliable: **wehtute**,
+  // **hochladete**, **gesicherstellt**, **gefertigstellt**, **genahelegt**,
+  // **gedazugehört**, **vorkommte zu**, **dastehte**, **schiefgehte**. A split
+  // still needs a known root after the prefix, so `da` does not touch *danken*
+  // or *dauern*, and `weh` does not touch *wehren*.
+  'weh', 'hoch', 'sicher', 'fertig', 'nahe', 'da', 'dazu', 'zuvor', 'schief',
 ];
+
+// **Longest first**, or a short prefix shadows a long one. *voraussetzen* was
+// read as *vor* + *aussetzen*, because *aussetzen* is a card, and came back
+// «vorgeaussetzt» (2026-11-21). Every scan below reads these, never the lists.
+const SEP_SCAN = [...SEPARABLE].sort((a, b) => b.length - a.length);
+// The 2026-11-21 prefixes split on a known root and are otherwise ignored. The
+// older ones also mark a verb that *looks* split but has no root as unreliable
+// (*aufräumen* before *räumen* was seeded); for these that test fires on
+// *dauern*, *danken* and *sich wehren*, which are not prefixed at all.
+const SPLIT_ONLY = new Set(['weh', 'hoch', 'sicher', 'fertig', 'nahe', 'da', 'dazu', 'zuvor', 'schief']);
+const INSEP_SCAN = [...INSEPARABLE].sort((a, b) => b.length - a.length);
+const STRONG_SCAN = [...new Set([...GATE_PREFIXES, ...SEPARABLE, ...AMBIGUOUS_PREFIXES])].sort((a, b) => b.length - a.length);
 
 // Auxiliary for prefixed verbs whose Perfekt aux differs from their base verb.
 // (e.g. stehen→haben but aufstehen→sein; kommen→sein but bekommen→haben.)
@@ -663,19 +712,41 @@ function regularPartizip(inf: string, sep: string | null, inseparable: boolean):
 
 // ---- strong-form prefix split --------------------------------------------
 function splitPrefix(inf: string): { prefix: string; rest: string; sep: boolean } | null {
-  for (const p of SEPARABLE) {
+  for (const p of SEP_SCAN) {
     if (inf.startsWith(p) && TABLE[inf.slice(p.length)]) return { prefix: p, rest: inf.slice(p.length), sep: true };
   }
-  for (const p of INSEPARABLE) {
+  for (const p of INSEP_SCAN) {
     if (inf.startsWith(p) && TABLE[inf.slice(p.length)]) return { prefix: p, rest: inf.slice(p.length), sep: false };
   }
   return null;
 }
 
 function lookup(inf: string): { entry: Entry; prefix: string; sep: boolean } | null {
+  if (WEAK_DESPITE_ROOT.has(inf)) return null;
   if (TABLE[inf]) return { entry: TABLE[inf], prefix: '', sep: false };
   const sp = splitPrefix(inf);
   if (sp) return { entry: TABLE[sp.rest], prefix: sp.prefix, sep: sp.sep };
+  // A separable prefix on an inseparably prefixed tabled verb: *mit* + *bekommen*,
+  // *ein* + *gestehen*. The inner verb is built first (bekam, bekommen), then the
+  // separable prefix moves to the end and fronts the participle, which has no
+  // ge- to give: **bekam mit, mitbekommen**. Only that order — a separable
+  // prefix inside another (*dahin* + *gehen*) is not split this way.
+  for (const p of SEP_SCAN) {
+    const rest = inf.slice(p.length);
+    if (!inf.startsWith(p) || rest.length < 5) continue;
+    if (WEAK_DESPITE_ROOT.has(rest)) continue;
+    const inner = splitPrefix(rest);
+    if (!inner || inner.sep) continue;
+    const e = TABLE[inner.rest];
+    const fronted = (f: Six) => frontAttach(f, inner.prefix);
+    return {
+      // The inner verb's auxiliary, not its root's: *mitbekommen* takes *haben*
+      // as *bekommen* does, though *kommen* takes *sein*.
+      entry: { praesens: fronted(e.praesens), praeteritum: fronted(e.praeteritum),
+        partizip: reattachPartizip(e.partizip, inner.prefix, false), aux: AUX_OVERRIDE[rest] ?? e.aux },
+      prefix: p, sep: true,
+    };
+  }
   return null;
 }
 
@@ -753,8 +824,8 @@ export function conjugate(rawVerb: string): Conjugation {
   // needed (erzählen→erzählt, beobachten→beobachtet).
   let sep: string | null = null;
   let inseparable = false;
-  for (const p of SEPARABLE) { if (inf.startsWith(p) && isKnownRoot(inf.slice(p.length))) { sep = p; break; } }
-  if (!sep) for (const p of INSEPARABLE) { if (inf.startsWith(p) && inf.length > p.length + 2) { inseparable = true; break; } }
+  for (const p of SEP_SCAN) { if (inf.startsWith(p) && isKnownRoot(inf.slice(p.length))) { sep = p; break; } }
+  if (!sep) for (const p of INSEP_SCAN) { if (inf.startsWith(p) && inf.length > p.length + 2) { inseparable = true; break; } }
   // An ambiguous prefix whose remainder is **not** a verb in its own right —
   // *überraschen*, *unterstützen*, *übernachten*, *umarmen*. There is no separable
   // reading available for those (there is no verb *raschen* to strip off), so the
@@ -786,7 +857,8 @@ export function conjugate(rawVerb: string): Conjugation {
   // in the lexicon) — would generate a wrong participle/finite form. Flag those.
   let unstrippedSeparable = false;
   if (!sep) {
-    for (const p of SEPARABLE) {
+    for (const p of SEP_SCAN) {
+      if (SPLIT_ONLY.has(p)) continue;
       if (inf.startsWith(p) && inf.length > p.length + 2 && /(en|n)$/.test(inf.slice(p.length))) { unstrippedSeparable = true; break; }
     }
   }
@@ -859,7 +931,7 @@ export function recognitionPraesens(rawVerb: string): string[] {
   if (!/(en|eln|ern|n)$/.test(inf)) return [];
   if (lookup(inf)) return [];                       // already generated correctly
   let sep: string | null = null;
-  for (const p of SEPARABLE) { if (inf.startsWith(p) && isKnownRoot(inf.slice(p.length))) { sep = p; break; } }
+  for (const p of SEP_SCAN) { if (inf.startsWith(p) && isKnownRoot(inf.slice(p.length))) { sep = p; break; } }
   const forms = regularPraesens(inf);
   return [...new Set(sep ? appendSep(stripPrefixForms(forms, sep), sep) : forms)];
 }

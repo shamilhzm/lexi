@@ -437,12 +437,12 @@ Die	Nacht=die Nacht	war=sein	lang=lang	und=und	frostig=frostig
 Gestern=gestern	war=sein	Sonntag=der Sonntag
 Gestern=gestern	habe=haben	ich=ich	meine=meinen	Freunde=der Freund	getroffen=treffen
 Gestern=gestern	Abend=der Abend	bin=sein	ich=ich	erst=erst	spät=spät	nach=nach	Hause=das Haus	gekommen=kommen
-Mein=mein	Kopf=der Kopf	tut=tun	weh=weh
+Mein=mein	Kopf=der Kopf	tut=wehtun	weh=weh
 Ich=ich	habe=haben	seit=seit	heute=heute	Morgen=der Morgen	Kopfschmerzen=der Kopfschmerz
 Mir=mir	geht=gehen	diese=dieser	Melodie=die Melodie	nicht=nicht	mehr=mehr	aus=aus	dem	Kopf=der Kopf
-Mir=mir	tut=tun	der	Kopf=der Kopf	weh=weh
+Mir=mir	tut=wehtun	der	Kopf=der Kopf	weh=weh
 Er=er	fiel=durchfallen	die	Treppe=die Treppe	hinunter=hinunter	als=als	sie=sie	ihm=ihm	ein	Buch=das Buch	an=an	den	Kopf=der Kopf	warf=werfen
-Nach=nach	dem	langen=lang	Tag=der Tag	tut=tun	mir=mir	der	Kopf=der Kopf	weh=weh
+Nach=nach	dem	langen=lang	Tag=der Tag	tut=wehtun	mir=mir	der	Kopf=der Kopf	weh=weh
 Gib=geben	mir=mir	deine	Hand=die Hand
 Wasch=waschen	dir=dir	bitte=bitte	die	Hände=die Hand
 Zur	Begrüßung=die Begrüßung	gibt=geben	man=man	sich=sich	in=in	Deutschland=Deutschland	oft=oft	die	Hand=die Hand
@@ -450,16 +450,16 @@ Zur	Begrüßung=die Begrüßung	geben=geben	wir=wir	uns=uns	die	Hand=die Hand
 Rette=retten	mich=mich	murmelte	er=er	vor=vor	sich=sich	hin=hin	unwillkürlich=unwillkürlich	mit=mit	gefalteten=falten	Händen=die Hand	als=als	wäre=sein	es=es	ein	Gebet=geben	an=an	sie=sie
 Sie=sie	hat=haben	blaue=blau	Augen=das Auge
 Mach=zumachen	bitte=bitte	die	Augen=das Auge	zu=zu
-Nach=nach	dem	langen=lang	Tag=der Tag	am	Computer=der Computer	tun=tun	mir=mir	die	Augen=das Auge	weh=weh
+Nach=nach	dem	langen=lang	Tag=der Tag	am	Computer=der Computer	tun=wehtun	mir=mir	die	Augen=das Auge	weh=weh
 Schließ=schließen	die	Augen=das Auge	und=und	entspann=entspannen	dich=dich
 Er=er	hat=haben	mir=mir	tief=tief	in=in	die	Augen=das Auge	geschaut=schauen
 Ein	Sandkorn	ist=sein	mir=mir	ins	Auge=das Auge	geraten=geraten
-Mein=mein	Fuß=der Fuß	tut=tun	weh=weh
+Mein=mein	Fuß=der Fuß	tut=wehtun	weh=weh
 Ich=ich	gehe=gehen	zu=zu	Fuß=der Fuß	zur	Arbeit=die Arbeit
-Vom	vielen=viel	Stehen=stehen	tun=tun	mir=mir	abends=abends	die	Füße=der Fuß	weh=weh
+Vom	vielen=viel	Stehen=stehen	tun=wehtun	mir=mir	abends=abends	die	Füße=der Fuß	weh=weh
 Mir=mir	ist=sein	der	Fuß=der Fuß	eingeschlafen=einschlafen
 Fuß=der Fuß	hoch=hoch
-In=in	den	neuen=neu	Schuhen=der Schuh	tut=tun	mir=mir	der	Fuß=der Fuß	weh=weh
+In=in	den	neuen=neu	Schuhen=der Schuh	tut=wehtun	mir=mir	der	Fuß=der Fuß	weh=weh
 Mach=aufmachen	den	Mund=der Mund	auf=auf
 Beim	Essen=das Essen	soll=sollen	man=man	den	Mund=der Mund	nicht=nicht	zu=zu	voll=voll	nehmen=nehmen
 Sie=sie	sah=ansehen	mich=mich	an=an	ohne=ohne	den	Mund=der Mund	aufzumachen=aufmachen
@@ -921,29 +921,29 @@ Ich=ich	muss=müssen	meinen=meinen	Chef=der Chef	etwas=etwas	fragen=fragen
 Mein=mein	Chef=der Chef	hat=haben	mir=mir	endlich=endlich	freigegeben=freigeben
 Mein=mein	Chef=der Chef	ist=sein	heute=heute	nicht=nicht	im	Büro=das Büro
 Der	Chef=der Chef	lobt=loben	die	gute=gut	Arbeit=die Arbeit
-Mein=mein	Arm=der Arm	tut=tun	weh=weh
+Mein=mein	Arm=der Arm	tut=wehtun	weh=weh
 Sie=sie	nahm=nehmen	das	Kind=das Kind	auf=auf	den	Arm=der Arm
 Beim	Sport=der Sport	habe=haben	ich=ich	mir=mir	den	Arm=der Arm	verletzt=verletzt
 mit=mit	langem=lang	Arm=der Arm
 Sie=sie	nahm=nehmen	das	Baby=das Baby	auf=auf	den	Arm=der Arm
 Das	Bein=das Bein	ist=sein	lang=lang
-Mir=mir	tun=tun	nach=nach	dem	Wandern=wandern	die	Beine=das Bein	weh=weh
+Mir=mir	tun=wehtun	nach=nach	dem	Wandern=wandern	die	Beine=das Bein	weh=weh
 Nach=nach	dem	Unfall=der Unfall	musste=müssen	er=er	ein	Bein=das Bein	operieren=operieren	lassen=lassen
 Beim	Fußball=der Fußball	hat=haben	er=er	sich=sich	das	Bein=das Bein	gebrochen=brechen
-Nach=nach	dem	langen=lang	Weg=der Weg	tun=tun	mir=mir	die	Beine=das Bein	weh=weh
+Nach=nach	dem	langen=lang	Weg=der Weg	tun=wehtun	mir=mir	die	Beine=das Bein	weh=weh
 Er=er	hat=haben	sich=sich	beim	Skifahren	das	Bein=das Bein	gebrochen=brechen
-Mein=mein	Ohr=das Ohr	tut=tun	weh=weh
+Mein=mein	Ohr=das Ohr	tut=wehtun	weh=weh
 Bei=bei	dem	lauten=laut	Konzert=das Konzert	habe=haben	ich=ich	mir=mir	die	Ohren=das Ohr	zugehalten
 Sie=sie	hat=haben	ein	gutes=gut	Ohr=das Ohr	für=für	fremde=fremd	Sprachen=die Sprache
 Die	Musik=die Musik	ist=sein	zu=zu	laut=laut	für=für	meine=meinen	Ohren=das Ohr
 Du=du	musst=müssen	lauter=laut	Sprechen=sprechen	meine=meinen	Ohren=das Ohr	sind=sein	nicht=nicht	mehr=mehr	so=so	gut=gut
-Die	laute=laut	Musik=die Musik	tut=tun	in=in	den	Ohren=das Ohr	weh=weh
+Die	laute=laut	Musik=die Musik	tut=wehtun	in=in	den	Ohren=das Ohr	weh=weh
 Die	Nase=die Nase	ist=sein	klein=klein
 Bei=bei	einer	Erkältung=die Erkältung	läuft=laufen	mir=mir	die	Nase=die Nase
 Der	frische=frisch	Kaffee=der Kaffee	duftete	uns=uns	direkt=direkt	in=in	die	Nase=die Nase
 Bei=bei	der	Erkältung=die Erkältung	läuft=laufen	mir=mir	die	Nase=die Nase
 Baschir	trägt=tragen	einen	dichten=dicht	Bart=der Bart	der	einzig=einzig	die	Partie=die Partie	zwischen=zwischen	der	Oberlippe~die Lippe	und=und	seiner	großen=groß	Nase=die Nase	ausspart
-Mein=mein	Zahn=der Zahn	tut=tun	weh=weh
+Mein=mein	Zahn=der Zahn	tut=wehtun	weh=weh
 Du=du	musst=müssen	dir=dir	zweimal=zweimal	am	Tag=der Tag	die	Zähne=der Zahn	putzen=putzen
 Wegen=der Weg	der	Schmerzen=der Schmerz	musste=müssen	ich=ich	sofort=sofort	zum	Zahnarzt=der Zahnarzt
 Ich=ich	muss=müssen	zum	Zahnarzt=der Zahnarzt	weil=weil	mein=mein	Zahn=der Zahn	wehtut=wehtun
@@ -961,24 +961,24 @@ Sie=sie	hat=haben	ein	freundliches=freundlich	Gesicht=das Gesicht
 Wasch=waschen	dir=dir	bitte=bitte	das	Gesicht=das Gesicht
 An=an	seinem	Gesicht=das Gesicht	konnte=können	ich=ich	sehen=sehen	dass=dass	etwas=etwas	nicht=nicht	stimmte=stimmen
 mit=mit	einem	Lächeln=lächeln	im	Gesicht=das Gesicht
-Mein=mein	Bauch=der Bauch	tut=tun	weh=weh
+Mein=mein	Bauch=der Bauch	tut=wehtun	weh=weh
 Nach=nach	dem	Essen=das Essen	hatte=haben	ich=ich	Bauchschmerzen~der Schmerz
 Bei=bei	wichtigen=wichtig	Entscheidungen=die Entscheidung	höre=hören	ich=ich	oft=oft	auf=auf	meinen=meinen	Bauch=der Bauch
-Mir=mir	tut=tun	der	Bauch=der Bauch	weh=weh
-Mein=mein	Bauch=der Bauch	tut=tun	mir=mir	so=so	weh=weh
-Nach=nach	dem	Essen=das Essen	tut=tun	mir=mir	der	Bauch=der Bauch	weh=weh
-Mein=mein	Rücken=der Rücken	tut=tun	weh=weh
+Mir=mir	tut=wehtun	der	Bauch=der Bauch	weh=weh
+Mein=mein	Bauch=der Bauch	tut=wehtun	mir=mir	so=so	weh=weh
+Nach=nach	dem	Essen=das Essen	tut=wehtun	mir=mir	der	Bauch=der Bauch	weh=weh
+Mein=mein	Rücken=der Rücken	tut=wehtun	weh=weh
 Vom	langen=lang	Sitzen=sitzen	bekomme=bekommen	ich=ich	Rückenschmerzen~der Schmerz
 Mit=mit	der	Zeit=die Zeit	gewöhnt=sich gewöhnen	sich=sich	der	Rücken=der Rücken	an=an	die	neue=neu	Matratze=die Matratze
-Nach=nach	der	Gartenarbeit=die Gartenarbeit	tut=tun	mir=mir	der	Rücken=der Rücken	weh=weh
-Mir=mir	tut=tun	der	Rücken=der Rücken	weh=weh
-Vom	vielen=viel	Sitzen=sitzen	tut=tun	mir=mir	der	Rücken=der Rücken	weh=weh
-Mein=mein	Hals=der Hals	tut=tun	weh=weh
+Nach=nach	der	Gartenarbeit=die Gartenarbeit	tut=wehtun	mir=mir	der	Rücken=der Rücken	weh=weh
+Mir=mir	tut=wehtun	der	Rücken=der Rücken	weh=weh
+Vom	vielen=viel	Sitzen=sitzen	tut=wehtun	mir=mir	der	Rücken=der Rücken	weh=weh
+Mein=mein	Hals=der Hals	tut=wehtun	weh=weh
 Ich=ich	habe=haben	Halsschmerzen~der Schmerz	und=und	kann=können	kaum=kaum	sprechen=sprechen
 Bei=bei	kaltem=kalt	Wind=der Wind	sollte=sollen	man=man	den	Hals=der Hals	warm=warm	halten=halten
-Ich=ich	bin=sein	erkältet=erkältet	und=und	mein=mein	Hals=der Hals	tut=tun	weh=weh
+Ich=ich	bin=sein	erkältet=erkältet	und=und	mein=mein	Hals=der Hals	tut=wehtun	weh=weh
 Sie=sie	trägt=tragen	eine	Kette=die Kette	um=um	den	Hals=der Hals
-Vom	vielen=viel	Reden=die Rede	tut=tun	mir=mir	der	Hals=der Hals	weh=weh
+Vom	vielen=viel	Reden=die Rede	tut=wehtun	mir=mir	der	Hals=der Hals	weh=weh
 Das	Herz=das Herz	schlägt=schlagen	schnell=schnell
 Sport=der Sport	ist=sein	gut=gut	für=für	das	Herz=das Herz
 Sie=sie	hat=haben	ein	gutes=gut	Herz=das Herz	und=und	hilft=helfen	jedem	gern=gern
@@ -2382,7 +2382,7 @@ Dein=dein	Name=der Name	steht=stehen	auf=auf	der	Liste=die Liste
 Die	Liste=die Liste	der	offenen=offen	Aufgaben=die Aufgabe	wird=werden	immer=immer	länger=lang
 Hast=haben	du=du	einen	Wunsch=der Wunsch
 Dein=dein	Wunsch=der Wunsch	geht=gehen	in=in	Erfüllung=die Erfüllung
-Auf=auf	besonderen=besondere	Wunsch=der Wunsch	bereiten=bereit	wir=wir	das	Gericht=das Gericht	auch=auch	vegetarisch=vegetarisch	zu=zu
+Auf=auf	besonderen=besondere	Wunsch=der Wunsch	bereiten=zubereiten	wir=wir	das	Gericht=das Gericht	auch=auch	vegetarisch=vegetarisch	zu=zu
 Ich=ich	habe=haben	einen	Wunsch=der Wunsch
 Über=über	Wünsche=der Wunsch	und=und	Pläne=der Plan	sprechen=sprechen	wir=wir
 Mein=mein	größter=groß	Wunsch=der Wunsch	ist=sein	eine	Reise=die Reise
@@ -2640,8 +2640,8 @@ Da=da	sich=sich	die	Termine=der Termin	überschnitten	musste=müssen	ich=ich	ein
 Ich=ich	fühle=sich fühlen	mich=mich	gut=gut
 Seit=seit	der	Erkältung=die Erkältung	fühle=sich fühlen	ich=ich	mich=mich	sehr=sehr	müde=müde
 In=in	der	neuen=neu	Stadt=die Stadt	fühlte=sich fühlen	er=er	sich=sich	zunächst=zunächst	fremd=fremd	und=und	etwas=etwas	einsam=einsam
-Mein=mein	Kopf=der Kopf	tut=tun	weh=weh
-Nach=nach	dem	Sport=der Sport	tun=tun	mir=mir	die	Beine=das Bein	weh=weh
+Mein=mein	Kopf=der Kopf	tut=wehtun	weh=weh
+Nach=nach	dem	Sport=der Sport	tun=wehtun	mir=mir	die	Beine=das Bein	weh=weh
 Seine	unüberlegten	Worte=das Wort	haben=haben	ihr=ihr	mehr=mehr	wehgetan=wehtun	als=als	er=er	ahnte=ahnen
 Als=als	Hauptgericht=das Hauptgericht	nehme=nehmen	ich=ich	Fisch=der Fisch
 Das	Hauptgericht=das Hauptgericht	war=sein	lecker=lecker	aber=aber	die	Portion=die Portion	war=sein	ziemlich=ziemlich	klein=klein
@@ -2803,7 +2803,7 @@ Ein	sicheres=sicher	Passwort=das Passwort	sollte=sollen	aus=aus	Buchstaben=der B
 Der	Bildschirm=der Bildschirm	ist=sein	schwarz=schwarz
 Schau=schauen	bitte=bitte	auf=auf	den	Bildschirm=der Bildschirm
 Zu=zu	viel=viel	Zeit=die Zeit	vor=vor	dem	Bildschirm=der Bildschirm	kann=können	auf=auf	Dauer=die Dauer	die	Augen=das Auge	belasten=belasten
-Nach=nach	Stunden=die Stunde	am	Bildschirm=der Bildschirm	tun=tun	mir=mir	die	Augen=das Auge	weh=weh
+Nach=nach	Stunden=die Stunde	am	Bildschirm=der Bildschirm	tun=wehtun	mir=mir	die	Augen=das Auge	weh=weh
 Der	Bildschirm=der Bildschirm	ist=sein	zu=zu	hell=hell	eingestellt=einstellen
 Ich=ich	lade=herunterladen	die	App=die App	herunter=herunter
 Du=du	kannst=können	das	Formular=das Formular	von=von	der	Webseite=die Webseite	herunterladen=herunterladen
@@ -4142,7 +4142,7 @@ Durch=durch	die	Adern=die Ader	fließt=fließen	das	Blut=das Blut	zum	Herzen=das
 Bei=bei	ihm=ihm	tritt=treten	vor=vor	Anstrengung=die Anstrengung	eine	Ader=die Ader	an=an	der	Stirn=die Stirn	hervor=hervor
 Man=man	kann=können	die	Adern=die Ader	an=an	seinem	Arm=der Arm	sehen=sehen
 Der	Arzt=der Arzt	suchte=suchen	lange=lange	nach=nach	einer	geeigneten=geeignet	Ader=die Ader
-Mir=mir	tut=tun	die	Brust=die Brust	weh=weh
+Mir=mir	tut=wehtun	die	Brust=die Brust	weh=weh
 Er=er	atmete=atmen	tief=tief	in=in	die	Brust=die Brust	ein
 Ein	Druck=der Druck	auf=auf	der	Brust=die Brust	kann=können	ein	Warnzeichen~das Zeichen	sein=sein
 Beim	Atmen=atmen	spürt=spüren	er=er	einen	Schmerz=der Schmerz	in=in	der	Brust=die Brust
@@ -4164,12 +4164,12 @@ Rauchen=rauchen	schadet=schaden	der	Lunge=die Lunge
 Beim	Joggen=joggen	merkt=merken	man=man	wie=wie	stark=stark	die	Lunge=die Lunge	arbeitet=arbeiten
 Frische=frisch	Bergluft~die Luft	tut=tun	der	Lunge=die Lunge	gut=gut
 Beim	Tauchen=tauchen	füllt=füllen	man=man	die	Lunge=die Lunge	mit=mit	Luft=die Luft
-Mein=mein	Magen=der Magen	tut=tun	weh=weh
+Mein=mein	Magen=der Magen	tut=wehtun	weh=weh
 Auf=auf	nüchternen=nüchtern	Magen=der Magen	sollte=sollen	man=man	keine	Tabletten=die Tablette	nehmen=nehmen
 Fettiges=fettig	Essen=das Essen	liegt=liegen	mir=mir	schwer=schwer	im	Magen=der Magen
-Bei=bei	Aufregung=die Aufregung	tut=tun	mir=mir	der	Magen=der Magen	weh=weh
+Bei=bei	Aufregung=die Aufregung	tut=wehtun	mir=mir	der	Magen=der Magen	weh=weh
 Vor=vor	der	Prüfung=die Prüfung	liegt=liegen	mir=mir	etwas=etwas	im	Magen=der Magen
-Nach=nach	dem	Sport=der Sport	tun=tun	die	Muskeln=der Muskel	weh=weh
+Nach=nach	dem	Sport=der Sport	tun=wehtun	die	Muskeln=der Muskel	weh=weh
 Regelmäßiges=regelmäßig	Training=das Training	baut=aufbauen	Muskeln=der Muskel	auf=auf
 Ohne=ohne	Bewegung=die Bewegung	bilden=bilden	sich=sich	die	Muskeln=der Muskel	langsam=langsam	zurück=zurück
 Regelmäßiger=regelmäßig	Sport=der Sport	stärkt=stärken	die	Muskeln=der Muskel
@@ -4178,7 +4178,7 @@ Nach=nach	dem	Training=das Training	sind=sein	meine=meinen	Muskeln=der Muskel	m�
 Der	Zahnarzt=der Zahnarzt	betäubt	den	Nerv=der Nerv
 Du=du	gehst=gehen	mir=mir	langsam=langsam	auf=auf	die	Nerven=der Nerv
 In=in	der	Prüfung=die Prüfung	behielt=behalten	sie=sie	die	Nerven=der Nerv
-Meine=meinen	Schulter=die Schulter	tut=tun	weh=weh
+Meine=meinen	Schulter=die Schulter	tut=wehtun	weh=weh
 Er=er	zuckte=zucken	nur=nur	mit=mit	den	Schultern=die Schulter
 Sie=sie	trägt=tragen	die	Verantwortung=die Verantwortung	für=für	das	ganze=ganz	Team=das Team	auf=auf	ihren	Schultern=die Schulter
 Er=er	trug=tragen	die	Tasche=die Tasche	über=über	der	Schulter=die Schulter
@@ -4211,11 +4211,11 @@ Eine	strenge=streng	Diät=die Diät	hält=halten	man=man	selten=selten	lange=lan
 Statt=statt	einer	Diät=die Diät	hilft=helfen	langfristig=langfristig	eine	gesunde=gesund	Ernährung=die Ernährung
 Sie=sie	macht=machen	eine	Diät=die Diät	um=um	abzunehmen=abnehmen
 Während=während	der	Diät=die Diät	verzichtet=verzichten auf + A	sie=sie	auf=auf	Zucker=der Zucker
-Die	Impfung=die Impfung	tut=tun	kaum=kaum	weh=weh
+Die	Impfung=die Impfung	tut=wehtun	kaum=kaum	weh=weh
 Vor=vor	der	Reise=die Reise	braucht=brauchen	man=man	bestimmte=bestimmen	Impfungen=die Impfung
 Eine	Impfung=die Impfung	schützt=schützen	nicht=nicht	nur=nur	einen	selbst=selbst	sondern=sondern	auch=auch	andere=andere
 Vor=vor	der	Reise=die Reise	braucht=brauchen	man=man	mehrere=mehrere	Impfungen=die Impfung
-Nach=nach	der	Impfung=die Impfung	tat=tun	der	Arm=der Arm	etwas=etwas	weh=weh
+Nach=nach	der	Impfung=die Impfung	tat=wehtun	der	Arm=der Arm	etwas=etwas	weh=weh
 Nehmen=nehmen	Sie=sie	zehn=zehn	Tropfen=der Tropfen	am	Tag=der Tag
 Die	Tropfen=der Tropfen	gegen=gegen	Husten=der Husten	schmecken=schmecken	bitter=bitter
 Das	war=sein	nur=nur	ein	Tropfen=der Tropfen	auf=auf	den	heißen=heißen	Stein=der Stein
@@ -5166,8 +5166,8 @@ Die	App=die App	fragt=fragen	die	Nutzer=der Nutzer	regelmäßig=regelmäßig	um=
 Diese=dieser	Anwendung=die Anwendung	ist=sein	sehr=sehr	praktisch=praktisch
 Die	Anwendung=die Anwendung	der	neuen=neu	Regel=die Regel	ist=sein	nicht=nicht	ganz=ganz	einfach=einfach
 Die	praktische=praktisch	Anwendung=die Anwendung	der	Theorie=die Theorie	erwies=sich erweisen	sich=sich	als=als	schwieriger=schwierig	als=als	gedacht=denken
-Ich=ich	lade	die	Fotos=das Foto	hoch=hoch
-Bitte=bitte	lade	das	Dokument=das Dokument	auf=auf	die	Webseite=die Webseite	hoch=hoch
+Ich=ich	lade=hochladen	die	Fotos=das Foto	hoch=hoch
+Bitte=bitte	lade=hochladen	das	Dokument=das Dokument	auf=auf	die	Webseite=die Webseite	hoch=hoch
 Bevor=bevor	man=man	Inhalte=der Inhalt	hochlädt=hochladen	sollte=sollen	man=man	an=an	den	Datenschutz=der Datenschutz	denken=denken an + A
 Diese=dieser	Sendung=die Sendung	sehe=sehen	ich=ich	jede	Woche=die Woche
 Die	Sendung=die Sendung	wurde=werden	wegen=der Weg	einer	Nachrichtenmeldung~die Meldung	unterbrochen=unterbrechen
@@ -5405,7 +5405,7 @@ Der	Staat=der Staat	sollte=sollen	mehr=mehr	Geld=das Geld	in=in	Bildung=die Bild
 Bildung=die Bildung	umfasst=umfassen	weit=weit	mehr=mehr	als=als	das	Ansammeln	von=von	Faktenwissen
 Die	Wirtschaft=die Wirtschaft	des	Landes=das Land	wächst=wachsen	langsam=langsam
 Die	Krise=die Krise	hat=haben	die	gesamte=gesamt	Wirtschaft=die Wirtschaft	getroffen=treffen
-Eine	stabile=stabil	Wirtschaft=die Wirtschaft	setzt=setzen	verlässliche=verlässlich	politische=politisch	Rahmenbedingungen=die Rahmenbedingung	voraus=voraus
+Eine	stabile=stabil	Wirtschaft=die Wirtschaft	setzt=voraussetzen	verlässliche=verlässlich	politische=politisch	Rahmenbedingungen=die Rahmenbedingung	voraus=voraus
 Die	Regierung=die Regierung	plant=planen	neue=neu	Gesetze=das Gesetz
 Die	Regierung=die Regierung	steht=stehen	wegen=der Weg	der	Steuerpläne~der Plan	in=in	der	Kritik=die Kritik
 Die	Regierung=die Regierung	sah=sehen	sich=sich	gezwungen=zwingen	ihre	Entscheidung=die Entscheidung	öffentlich=öffentlich	zu=zu	rechtfertigen=rechtfertigen
@@ -5545,7 +5545,7 @@ Ehrenamtliches=ehrenamtlich	Engagement=das Engagement	wird=werden	leider=leider	
 Ohne=ohne	die	ehrenamtlich=ehrenamtlich	Tätigen=tätig	würden=werden	viele=viel	Vereine=der Verein	zusammenbrechen=zusammenbrechen
 Wir=wir	haben=haben	eine	Fahrgemeinschaft=die Fahrgemeinschaft	zur	Arbeit=die Arbeit	gebildet=bilden
 Eine	Fahrgemeinschaft=die Fahrgemeinschaft	spart=sparen	Geld=das Geld	und=und	schont	die	Umwelt=die Umwelt
-Fahrgemeinschaften=die Fahrgemeinschaft	setzen=setzen	ein	Mindestmaß=das Mindestmaß	an=an	Verlässlichkeit=die Verlässlichkeit	voraus=voraus
+Fahrgemeinschaften=die Fahrgemeinschaft	setzen=voraussetzen	ein	Mindestmaß=das Mindestmaß	an=an	Verlässlichkeit=die Verlässlichkeit	voraus=voraus
 Als=als	Pendler=der Pendler	fahre=fahren	ich=ich	jeden	Tag=der Tag	eine	Stunde=die Stunde	zur	Arbeit=die Arbeit
 Morgens=morgens	sind=sein	die	Züge=der Zug	voller=voll	müder=müde	Pendler=der Pendler
 Für=für	viele=viel	Pendler=der Pendler	ist=sein	die	tägliche=täglich	Fahrt=die Fahrt	verlorene=verlieren	Lebenszeit~die Zeit
@@ -5703,7 +5703,7 @@ Bei=bei	hoher=hoch	Geschwindigkeit=die Geschwindigkeit	steigt=steigen	das	Unfall
 Die	Geschwindigkeit=die Geschwindigkeit	mit=mit	der	sich=sich	die	Technik=die Technik	entwickelt=entwickeln	ist=sein	atemberaubend
 Ich=ich	suche=suchen	eine	Mitfahrgelegenheit=die Mitfahrgelegenheit	nach=nach	Berlin
 Über=über	das	Internet=das Internet	findet=finden	man=man	leicht=leicht	eine	Mitfahrgelegenheit=die Mitfahrgelegenheit
-Mitfahrgelegenheiten=die Mitfahrgelegenheit	sind=sein	günstig=günstig	setzen=setzen	aber=aber	Vertrauen=das Vertrauen	voraus=voraus
+Mitfahrgelegenheiten=die Mitfahrgelegenheit	sind=sein	günstig=günstig	setzen=voraussetzen	aber=aber	Vertrauen=das Vertrauen	voraus=voraus
 Fahr=fahren	bitte=bitte	auf=auf	dem	Radweg=der Radweg
 Die	Stadt=die Stadt	baut=bauen	immer=immer	mehr=mehr	Radwege=der Radweg
 Gut=gut	ausgebaute=ausbauen	Radwege=der Radweg	machen=machen	das	Fahrrad=das Fahrrad	zur	echten=echt	Alternative=die Alternative
@@ -5822,7 +5822,7 @@ Im	Ausland=das Ausland	erhoffte=sich erhoffen	er=er	sich=sich	bessere=gut	Karrie
 Karrierechancen=die Karrierechance	hängen=abhängen von + D	längst=längst	nicht=nicht	nur=nur	von=von	Noten=die Note	ab=ab
 Die	Kooperation=die Kooperation	der	beiden	Firmen=die Firma	war=sein	erfolgreich=erfolgreich
 In=in	Kooperation=die Kooperation	mit=mit	der	Universität=die Universität	entstand=entstehen	das	Projekt=das Projekt
-Echte=echt	Kooperation=die Kooperation	setzt=setzen	voraus=voraus	dass=dass	beide=beide	Seiten=die Seite	nachgeben=nachgeben
+Echte=echt	Kooperation=die Kooperation	setzt=voraussetzen	voraus=voraus	dass=dass	beide=beide	Seiten=die Seite	nachgeben=nachgeben
 Sie=sie	arbeitet=arbeiten	im	öffentlichen=öffentlich	Sektor=der Sektor
 Der	Dienstleistungssektor~der Sektor	wächst=wachsen	seit=seit	Jahren=das Jahr
 Der	gesamte=gesamt	Sektor=der Sektor	steht=stehen	vor=vor	einem	tiefgreifenden=tiefgreifend	Wandel=der Wandel
@@ -6028,7 +6028,7 @@ Ohne=ohne	Einschränkung=die Einschränkung	kann=können	ich=ich	das	nicht=nicht
 Jede	Einschränkung=die Einschränkung	der	Freiheit=die Freiheit	muss=müssen	gut=gut	begründet=begründen	sein=sein
 Jeder=jeder	hat=haben	das	Recht=das Recht	auf=auf	Selbstbestimmung=die Selbstbestimmung
 Im	Alter=das Alter	ist=sein	Selbstbestimmung=die Selbstbestimmung	besonders=besonders	wichtig=wichtig
-Selbstbestimmung=die Selbstbestimmung	setzt=setzen	voraus=voraus	dass=dass	man=man	ausreichend=ausreichend	informiert=informieren	ist=sein
+Selbstbestimmung=die Selbstbestimmung	setzt=voraussetzen	voraus=voraus	dass=dass	man=man	ausreichend=ausreichend	informiert=informieren	ist=sein
 Zwischen=zwischen	uns=uns	liegen=liegen	mehrere=mehrere	Zeitzonen=die Zeitzone
 Wegen=der Weg	der	Zeitzone=die Zeitzone	telefonieren=telefonieren	wir=wir	spätabends
 Wer=wer	über=über	Zeitzonen=die Zeitzone	hinweg=hinweg	arbeitet=arbeiten	muss=müssen	gut=gut	planen=planen
@@ -7326,11 +7326,11 @@ Plötzlich=plötzlich	fing=fangen	es=es	an=an	zu=zu	regnen=regnen
 Während=während	der	Fahrt=die Fahrt	ist=sein	der	Motor=der Motor	plötzlich=plötzlich	ausgegangen=ausgehen
 Rund=rund	um=um	den	See=der See	gibt=geben	es=es gibt + A	einen	Wanderweg=der Wanderweg
 Rund=rund	um=um	das	Thema=das Thema	Gesundheit=die Gesundheit	gibt=geben	es=es gibt + A	viele=viel	Fragen=die Frage
-Mein=mein	Rücken=der Rücken	tut=tun	weh=weh
-Meine=meinen	Füße=der Fuß	tun=tun	nach=nach	dem	Wandern=wandern	weh=weh
+Mein=mein	Rücken=der Rücken	tut=wehtun	weh=weh
+Meine=meinen	Füße=der Fuß	tun=wehtun	nach=nach	dem	Wandern=wandern	weh=weh
 Zum	Glück=das Glück	war=sein	das	Auto=das Auto	gut=gut	versichert=versichert
 Sind=sein	Sie=sie	gegen=gegen	Unfälle=der Unfall	versichert=versichert
-Die	Behandlung=die Behandlung	beim	Zahnarzt=der Zahnarzt	tat=tun	nicht=nicht	weh=weh
+Die	Behandlung=die Behandlung	beim	Zahnarzt=der Zahnarzt	tat=wehtun	nicht=nicht	weh=weh
 Der	Patient=der Patient	sprach=ansprechen	auf=auf	die	Behandlung=die Behandlung	an=an
 Die	Behandlung=die Behandlung	dauert=dauern	eine	Woche=die Woche
 Die	Behandlung=die Behandlung	war=sein	erfolgreich=erfolgreich
@@ -8720,7 +8720,7 @@ Alte=alt	Handys=das Handy	sollte=sollen	man=man	fachgerecht	recyceln=recyceln
 Gute=gut	Englischkenntnisse~die Kenntnis	sind=sein	in=in	dieser=dieser	Branche=die Branche	unerlässlich=unerlässlich
 Für=für	den	Job=der Job	sind=sein	gute=gut	Nerven=der Nerv	unerlässlich=unerlässlich
 Nicht=nicht	jeder=jeder	Beruf=der Beruf	erfordert=erfordern	eine	akademische=akademisch	Ausbildung=die Ausbildung
-Der	Beruf=der Beruf	setzt=setzen	keine	akademische=akademisch	Ausbildung=die Ausbildung	voraus=voraus
+Der	Beruf=der Beruf	setzt=voraussetzen	keine	akademische=akademisch	Ausbildung=die Ausbildung	voraus=voraus
 In=in	Deutschland=Deutschland	ist=sein	die	Krankenversicherung=die Krankenversicherung	Pflicht=die Pflicht
 Ohne=ohne	Krankenversicherung=die Krankenversicherung	wird=werden	jede	Behandlung=die Behandlung	teuer=teuer
 Nach=nach	dem	Burnout=der Burnout	reduzierte=reduzieren	er=er	seine	Stunden=die Stunde
@@ -8784,7 +8784,7 @@ Die	Verspätung=die Verspätung	ist=sein	auf=auf	technische=technisch	Probleme=d
 Das	Ministerium=das Ministerium	ist=sein	für=für	wirtschaftliche=wirtschaftlich	Fragen=die Frage	zuständig=zuständig
 Das	Land=das Land	steckt=stecken	in=in	einer	schweren=schwer	wirtschaftlichen=wirtschaftlich	Krise=die Krise
 Die	Familie=die Familie	geriet=geraten	nach=nach	der	Kündigung=die Kündigung	in=in	finanzielle=finanziell	Not=die Not
-Nach=nach	der	Trennung=die Trennung	stand=stehen	sie=sie	finanziell=finanziell	allein=allein	da=da
+Nach=nach	der	Trennung=die Trennung	stand=dastehen	sie=sie	finanziell=finanziell	allein=allein	da=da
 In=in	die	marode	Infrastruktur=die Infrastruktur	muss=müssen	dringend=dringend	investiert=investieren	werden=werden
 Ohne=ohne	moderne=modern	Infrastruktur=die Infrastruktur	bleibt=bleiben	eine	Region=die Region	abgehängt=abhängen
 Moderne=modern	Stadtplanung=die Stadtplanung	setzt=setzen	auf=auf	kurze=kurz	Wege=der Weg
@@ -10195,16 +10195,16 @@ Vor=vor	Wut=die Wut	ballte	er=er	die	Hand=die Hand	zur	Faust=die Faust
 auf=auf	eigene=eigen	Faust=die Faust
 Beim	Sport=der Sport	hat=haben	er=er	sich=sich	den	Oberschenkel=der Oberschenkel	verletzt=verletzt
 Die	großen=groß	Muskeln=der Muskel	sitzen=sitzen	im	Oberschenkel=der Oberschenkel
-Nach=nach	dem	Lauf=laufen	tut=tun	mir=mir	die	Wade=die Wade	weh=weh
+Nach=nach	dem	Lauf=laufen	tut=wehtun	mir=mir	die	Wade=die Wade	weh=weh
 Nach=nach	dem	Laufen=laufen	massiert	er=er	seine	Waden=die Wade
 Beim	Sport=der Sport	hat=haben	sie=sie	sich=sich	den	Knöchel=der Knöchel	verstaucht
 Der	Knöchel=der Knöchel	ist=sein	geschwollen
 Er=er	stieß=stoßen	sich=sich	die	Zehe=die Zehe	an=an	der	Tür=die Tür
-Der	große=groß	Zeh=der Zeh	tut=tun	mir=mir	weh=weh
+Der	große=groß	Zeh=der Zeh	tut=wehtun	mir=mir	weh=weh
 Beim	Tanzen=tanzen	bewegt=bewegen	sie=sie	die	Hüfte=die Hüfte	im	Takt=der Takt
 Sie=sie	stemmte=stemmen	die	Hände=die Hand	in=in	die	Hüften=die Hüfte
 Beim	Sturz=der Sturz	hat=haben	er=er	sich=sich	eine	Rippe=die Rippe	gebrochen=brechen
-Beim	Lachen=lachen	tun=tun	mir=mir	die	Rippen=die Rippe	weh=weh
+Beim	Lachen=lachen	tun=wehtun	mir=mir	die	Rippen=die Rippe	weh=weh
 Langes=lang	Sitzen=sitzen	belastet=belasten	die	Wirbelsäule=die Wirbelsäule
 Eine	gesunde=gesund	Wirbelsäule=die Wirbelsäule	trägt=tragen	den	ganzen=ganz	Körper=der Körper
 Zu=zu	viel=viel	Alkohol=der Alkohol	schadet=schaden	der	Leber=die Leber
@@ -10795,7 +10795,7 @@ Das	Zeichnen=das Zeichnen	fällt=fällen	ihr=ihr	leicht=leicht
 Beim	Malen=malen	vergesse=vergessen	ich=ich	die	Zeit=die Zeit
 Das	Malen=malen	beruhigt=beruhigen	die	Kinder=das Kind
 Die	Gartenarbeit=die Gartenarbeit	hält=halten	meinen=meinen	Großvater=der Großvater	fit=fit
-Nach=nach	der	Gartenarbeit=die Gartenarbeit	tut=tun	mir=mir	der	Rücken=der Rücken	weh=weh
+Nach=nach	der	Gartenarbeit=die Gartenarbeit	tut=wehtun	mir=mir	der	Rücken=der Rücken	weh=weh
 Das	Wandern=wandern	in=in	den	Alpen=die Alpen	ist=sein	anstrengend=anstrengend	aber=aber	schön=schön
 Ich=ich	war=sein	im	Wald=der Wald	wandern=wandern	als=als	ich=ich	das	Reh=das Reh	sah=sehen
 Das	Schwimmen=schwimmen	trainiert=trainieren	den	ganzen=ganz	Körper=der Körper
@@ -11053,7 +11053,7 @@ im	Krieg=der Krieg
 Nach=nach	Jahren=das Jahr	des	Krieges=der Krieg	kehrte=kehren	endlich=endlich	Frieden=der Frieden	ein
 Beide=beide	Länder=das Land	unterzeichneten=unterzeichnen	einen	Friedensvertrag~der Vertrag
 Das	Tragen=tragen	von=von	Waffen=die Waffe	ist=sein	hier=hier	verboten=verboten
-Die	Polizei=die Polizei	stellte=stellen	die	Waffe=die Waffe	sicher=sicher
+Die	Polizei=die Polizei	stellte=sicherstellen	die	Waffe=die Waffe	sicher=sicher
 Das	Land=das Land	verlor=verlieren	nach=nach	dem	Krieg=der Krieg	viel=viel	Territorium=das Territorium
 Der	Fluss=der Fluss	bildet=bilden	die	Grenze=die Grenze	des	Territoriums=das Territorium
 Das	Land=das Land	gibt=ausgeben	viel=viel	Geld=das Geld	für=für	die	Verteidigung=die Verteidigung	aus=aus
@@ -11492,8 +11492,8 @@ Die	Reform=die Reform	wurde=werden	nur=nur	halbherzig	umgesetzt=umsetzen
 Wir=wir	setzen=umsetzen	die	Empfehlungen=die Empfehlung	Schritt=der Schritt	für=für	Schritt=der Schritt	um=um
 Was=was	hat=haben	dich=dich	zu=zu	diesem=dieser	Schritt=der Schritt	veranlasst=veranlassen
 Die	Proteste=der Protest	veranlassten=veranlassen	die	Regierung=die Regierung	ihre	Einschränkungen=die Einschränkung	der	Meinungsfreiheit=die Meinungsfreiheit	zu=zu	lockern=lockern
-Der	Kurs=der Kurs	setzt=setzen	Grundkenntnisse~die Kenntnis	voraus=voraus
-Der	Kurs=der Kurs	setzt=setzen	Grundkenntnisse~die Kenntnis	in=in	Mathematik=die Mathematik	voraus=voraus
+Der	Kurs=der Kurs	setzt=voraussetzen	Grundkenntnisse~die Kenntnis	voraus=voraus
+Der	Kurs=der Kurs	setzt=voraussetzen	Grundkenntnisse~die Kenntnis	in=in	Mathematik=die Mathematik	voraus=voraus
 Können=können	Sie=sie	das	in=in	einem	Satz=der Satz	zusammenfassen=zusammenfassen
 Können=können	Sie=sie	das	Wichtigste=wichtig	in=in	einem	Satz=der Satz	zusammenfassen=zusammenfassen
 Fassen=zusammenfassen	Sie=sie	die	Ergebnisse=das Ergebnis	bitte=bitte	kurz=kurz	zusammen=zusammen
@@ -12027,7 +12027,7 @@ Der	Titel=der Titel	ist=sein	irreführend=irreführend
 Ich=ich	bin=sein	der	Trainer=der Trainer
 Tom	ist=sein	ein	Trainer=der Trainer
 Tue=tun	es=es
-Tut=tun	s	weh=weh
+Tut=wehtun	s	weh=weh
 Der	Grund=der Grund	war=sein	unklar=unklar
 Toms	Absichten=die Absicht	waren=sein	unklar=unklar
 Wo=wo	wurde=werden	es=es	veröffentlicht=veröffentlicht
@@ -13232,7 +13232,7 @@ Auf=auf	dem	alten=alt	Fabrik-Areal	entstehen=entstehen	neue=neu	Wohnungen=die Wo
 Seiner	Meinung=die Meinung	nach=nach	ist=sein	die	Eurozone~die Zone	in=in	Auflösung=die Auflösung	begriffen=begreifen
 Das	ist=sein	eine	meiner=mein	Lieblingsbands~die Band	aber=aber	leider=leider	bin=sein	ich=ich	nicht=nicht	mehr=mehr	dazu=dazu	gekommen=kommen	diese=dieser	vor=vor	der	Auflösung=die Auflösung	noch=noch	live=live	zu=zu	sehen=sehen
 Hier=hier	ist=sein	alles=alle	verboten=verboten	was=was	nicht=nicht	ausdrücklich=ausdrücklich	erlaubt=erlaubt	ist=sein
-Wir=wir	legen=legen	es=es	den	Menschen=der Mensch	ausdrücklich=ausdrücklich	nahe=nah	heute=heute	im	Haus=das Haus	zu=zu	bleiben=bleiben
+Wir=wir	legen=nahelegen	es=es	den	Menschen=der Mensch	ausdrücklich=ausdrücklich	nahe=nah	heute=heute	im	Haus=das Haus	zu=zu	bleiben=bleiben
 Das	ist=sein	der	Auslöser=der Auslöser
 Was=was	war=sein	der	Auslöser=der Auslöser	des	Krieges=der Krieg
 Dieses=dieser	Krankenhaus=das Krankenhaus	verfügt=verfügen über + A	über=über	eine	Menge=die Menge	neuer=neu	Ausstattung=die Ausstattung
@@ -13913,7 +13913,7 @@ Verzeihung=Verzeihung	ist=sein	dieser=dieser	Platz=der Platz	noch=noch	frei=frei
 Bleib=bleiben	wach=wach
 Er=er	ist=sein	wach=wach
 O	weh=weh	mir=mir
-Tut=tun	s	weh=weh
+Tut=wehtun	s	weh=weh
 Wieso=wieso
 Wieso=wieso	fluchen=fluchen	Sie=sie
 Das	ist=sein	Toms	Akte=die Akte
@@ -15646,7 +15646,7 @@ Du=du	brauchst=brauchen	eine	Karte=die Karte	um=um	dich=dich	zu=zu	orientieren=o
 Sie=sie	brauchen=brauchen	eine	Karte=die Karte	um=um	sich=sich	zu=zu	orientieren=orientieren
 Dies	ist=sein	mein=mein	Personalausweis=der Personalausweis
 Er=er	verlangte=verlangen	ihren	Personalausweis=der Personalausweis
-Mein=mein	Po=der Po	tut=tun	weh=weh
+Mein=mein	Po=der Po	tut=wehtun	weh=weh
 Jeder=jeder	hat=haben	nen	Po=der Po
 Das	ist=sein	purer=pur	Unsinn=der Unsinn
 Er=er	trank=trinken	ein	Glas=das Glas	puren=pur	Whisky=der Whisky
@@ -20208,7 +20208,7 @@ wurden=werden	die	beiden	deutschen=deutsch	Staaten=der Staat	vereinigt=vereinigt
 Kinder=das Kind	brauchen=brauchen	viel=viel	Zuwendung=die Zuwendung
 Der	Verein=der Verein	bekommt=bekommen	eine	Zuwendung=die Zuwendung	von=von	der	Stadt=die Stadt
 Der	Arzt=der Arzt	gibt=geben	ihm=ihm	eine	Injektion=die Injektion
-Die	Injektion=die Injektion	tut=tun	kaum=kaum	weh=weh
+Die	Injektion=die Injektion	tut=wehtun	kaum=kaum	weh=weh
 Im	September=der September	gibt=geben	es=es gibt + A	Kuchen=der Kuchen	mit=mit	Pflaumen=die Pflaume
 Die	Pflaume=die Pflaume	ist=sein	noch=noch	nicht=nicht	reif=reif
 Die	Firma=die Firma	wurde=werden	für=für	ihre	Praktiken=die Praktik	kritisiert=kritisieren
@@ -22205,7 +22205,7 @@ Du=du	sollst=sollen	mich=mich	nicht=nicht	anlügen=anlügen
 Warum=warum	willst=wollen	du=du	mich=mich	anlügen=anlügen
 Der	Fischer=der Fischer	fährt=fahren	früh=früh	aufs	Meer=das Meer
 Die	Fischer=der Fischer	protestieren=protestieren	gegen=gegen	die	neuen=neu	Quoten=die Quote
-Nach=nach	der	Radtour=die Radtour	tut=tun	mir=mir	der	Hintern=der Hintern	weh=weh
+Nach=nach	der	Radtour=die Radtour	tut=wehtun	mir=mir	der	Hintern=der Hintern	weh=weh
 Setz=setzen	dich=dich	auf=auf	den	Hintern=der Hintern	und=und	lern=lernen
 Die	Firma=die Firma	will=wollen	mich=mich	nach=nach	Hamburg	versetzen=versetzen
 Sie=sie	hat=haben	mich=mich	gestern=gestern	versetzt=versetzen
@@ -24521,7 +24521,7 @@ Nach=nach	dem	Sport=der Sport	bin=sein	ich=ich	immer=immer	durstig=durstig
 Die	durstigen=durstig	Kinder=das Kind	tranken=trinken	das	ganze=ganz	Wasser=das Wasser
 Wien	war=sein	eine	kaiserliche=kaiserlich	Residenz=die Residenz
 Die	kaiserliche=kaiserlich	Familie=die Familie	floh=fliehen	ins	Ausland=das Ausland
-Die	Wunde=die Wunde	tut=tun	höllisch=höllisch	weh=weh
+Die	Wunde=die Wunde	tut=wehtun	höllisch=höllisch	weh=weh
 Es=es	war=sein	eine	höllische=höllisch	Hitze=die Hitze
 Er=er	war=sein	seiner	Frau=die Frau	untreu=untreu
 Sie=sie	hat=haben	ihren	untreuen=untreu	Freund=der Freund	verlassen=verlassen
@@ -25307,7 +25307,7 @@ Ihre	Erfahrung=die Erfahrung	ist=sein	von=von	unschätzbarem=unschätzbar	Wert=w
 Das	Gemälde=das Gemälde	ist=sein	unschätzbar=unschätzbar	wertvoll=wertvoll
 Die	Vorwürfe=der Vorwurf	sind=sein	unhaltbar=unhaltbar
 Die	Zustände=der Zustand	im	Heim=das Heim	sind=sein	unhaltbar=unhaltbar
-Er=er	stand=stehen	unbeweglich=unbeweglich	da=da
+Er=er	stand=dastehen	unbeweglich=unbeweglich	da=da
 Die	Verwaltung=die Verwaltung	ist=sein	zu=zu	unbeweglich=unbeweglich
 Die	Erschließung=die Erschließung	des	Baugebiets~das Gebiet	kostet=kosten	Millionen=die Million
 Die	Erschließung=die Erschließung	neuer=neu	Märkte=der Markt	ist=sein	das	Ziel=das Ziel

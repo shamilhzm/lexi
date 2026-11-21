@@ -961,16 +961,27 @@ export function clozeParts(word: Word, forms: string[]): { before: string; blank
   return null;
 }
 
+/** The gap's four options, or null when there are too few to ask.
+ *
+ *  Distractors share the part of speech, from the same level when it has three
+ *  and from any level when it does not, as `ReverseItem` draws them. The pool
+ *  was the level alone, and a level holding one particle or pronoun —
+ *  *jedermann*, *jawohl*, *irgendein*, *derjenige* — built a one-option item that
+ *  rendered nothing, after `canAsk` had said yes (2026-11-20). `canAsk` now asks
+ *  this, so the two cannot disagree. */
+export function clozeOptions(word: Word, blank: string, pool: Word[] = WORDS): { options: string[]; correct: number } | null {
+  const same = pool.filter((w) => w.kind === 'word' && w.id !== word.id && w.pos === word.pos
+    && norm(stripArticle(w.term)) !== norm(blank));
+  const near = same.filter((w) => w.level === word.level);
+  const terms = (near.length >= 3 ? near : same).map((w) => stripArticle(w.term));
+  const mc = buildMC(blank, pickN(terms, 3, new Set([norm(blank)])));
+  return mc.options.length < 2 ? null : mc;
+}
+
 export function ClozeItem({ word, forms, onGrade }: { word: Word; forms: string[]; onGrade: Grade }) {
   const parts = useMemo(() => clozeParts(word, forms), [word.id, forms]);
-  const mc = useMemo(() => {
-    if (!parts) return null;
-    const same = WORDS.filter((w) => w.kind === 'word' && w.id !== word.id && w.pos === word.pos
-      && w.level === word.level);
-    const pool = same.map((w) => stripArticle(w.term));
-    return buildMC(parts.blank, pickN(pool, 3, new Set([norm(parts.blank)])));
-  }, [word.id, parts]);
-  if (!parts || !mc || mc.options.length < 2) return null;
+  const mc = useMemo(() => (parts ? clozeOptions(word, parts.blank) : null), [word.id, parts]);
+  if (!parts || !mc) return null;
   return (
     <MCItem
       // **The gap closes when it is answered** *(2026-11-14)*. It stayed as five
@@ -1185,7 +1196,7 @@ export function canAsk(mode: Mode, w: Word, forms: string[] = []): boolean {
     case 'plural': return w.kind === 'word' && !!askablePlural(w);
     case 'recall': return recallSafe(w);
     case 'reverse': return w.kind === 'word';
-    case 'cloze': return !!clozeParts(w, forms);
+    case 'cloze': { const p = clozeParts(w, forms); return !!p && !!clozeOptions(w, p.blank); }
     case 'usage': return !!w.ex[0]?.de;
     case 'conjugate': return w.pos === 'verb' && canConjugate(stripArticle(w.term));
     case 'degree': return w.pos === 'adjective' && forms.length > 0;

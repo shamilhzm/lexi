@@ -5797,7 +5797,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈhɛlfn̩",
-    "def": "takes the dative case: jemandem helfen",
+    "def": "to make something easier for someone, or do part of it for them; the person helped is in the dative (jemandem helfen)",
     "syn": [
       "unterstützen"
     ],
@@ -11260,7 +11260,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈantvɔʁtn̩",
-    "def": "takes the dative for the person: jemandem antworten",
+    "def": "to say or write something back to someone who asked; the person is in the dative (jemandem antworten)",
     "syn": [],
     "ant": [
       "fragen"
@@ -32920,7 +32920,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈhøːʁən",
-    "def": "takes the dative: das gehört mir",
+    "def": "to be someone's property, or to be part of something; the owner is in the dative (es gehört mir)",
     "syn": [],
     "ant": [],
     "ex": [
@@ -32958,7 +32958,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈfalən",
-    "def": "takes the dative: es gefällt mir",
+    "def": "to be liked by someone; the person who likes it is in the dative (es gefällt mir)",
     "syn": [],
     "ant": [],
     "ex": [
@@ -33024,7 +33024,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡʁatuˈliːʁən",
-    "def": "takes the dative: ich gratuliere dir",
+    "def": "to tell someone you are glad about their good news or their birthday; the person is in the dative (ich gratuliere dir)",
     "syn": [
       "beglückwünschen"
     ],
@@ -53514,7 +53514,7 @@
     "gender": null,
     "plural": null,
     "ipa": "ɡəˈlɪŋən",
-    "def": "takes the dative: es gelingt mir",
+    "def": "to turn out as intended; the person who manages it is in the dative (es gelingt mir)",
     "syn": [
       "glücken"
     ],
@@ -117076,13 +117076,13 @@
   {
     "id": "voc:B1:die Ausgabe",
     "term": "die Ausgabe",
-    "en": "expense, expenditure",
+    "en": "expense; edition, issue",
     "pos": "noun",
     "level": "B1",
     "gender": "die",
     "plural": "die Ausgaben",
     "ipa": "ˈaʊ̯sɡaːbə",
-    "def": "edition, issue (literary work); issue, issuance (e.g., of paper money)",
+    "def": "money that is spent, usually in the plural; also one edition or issue of a book, newspaper or magazine",
     "syn": [],
     "ant": [],
     "ex": [
@@ -137032,7 +137032,7 @@
   {
     "id": "voc:A1:mal",
     "term": "mal",
-    "en": "times",
+    "en": "just (softens a request or command); times, multiplied by",
     "pos": "adverb",
     "level": "A1",
     "gender": null,
@@ -139277,13 +139277,13 @@
   {
     "id": "voc:B1:darauf",
     "term": "darauf",
-    "en": "after",
+    "en": "on it, on that; after that",
     "pos": "adverb",
     "level": "B1",
     "gender": null,
     "plural": null,
     "ipa": "daˈʁaʊ̯f",
-    "def": "after (behind; later in time; following)",
+    "def": "on or onto the thing just mentioned, as in counting on it or insisting on it; also, next in time",
     "syn": [],
     "ant": [],
     "ex": [
@@ -139304,7 +139304,7 @@
   {
     "id": "voc:B1:darum",
     "term": "darum",
-    "en": "around it, around that",
+    "en": "that's why, therefore; for it, about it",
     "pos": "adverb",
     "level": "B1",
     "gender": null,
@@ -140794,7 +140794,7 @@
     "pos": "noun",
     "level": "B2",
     "gender": "die",
-    "plural": "die Gerade",
+    "plural": "die Geraden",
     "ipa": "ɡəˈʁaːdə",
     "def": "line (infinite one-dimensional figure)",
     "syn": [],
@@ -142616,8 +142616,8 @@
     "ant": [],
     "ex": [
       {
-        "de": "Deswegen schrie Tom.",
-        "en": "That was why Tom screamed.",
+        "de": "Es hat stark geregnet, deswegen sind wir zu Hause geblieben.",
+        "en": "It rained heavily, so we stayed at home.",
         "lvl": "B1"
       },
       {
@@ -144074,7 +144074,7 @@
   {
     "id": "voc:B1:der Vertreter",
     "term": "der Vertreter",
-    "en": "agent noun of vertreten",
+    "en": "representative; sales representative",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -144268,7 +144268,7 @@
   {
     "id": "voc:B1:der Zuschauer",
     "term": "der Zuschauer",
-    "en": "agent noun of zuschauen",
+    "en": "spectator, viewer; (plural) audience",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -145654,16 +145654,15 @@
   {
     "id": "voc:A2:dran",
     "term": "dran",
-    "en": "alternative form of daran",
+    "en": "on it, at it; (be) next, someone's turn",
     "pos": "adverb",
     "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "dʁan",
-    "def": "to be in a particular situation; to be (possibly) true",
+    "def": "colloquial for daran: on it, at it; with sein, to be next or to have one's turn",
     "syn": [
-      "am Zug",
-      "also just sein"
+      "am Zug"
     ],
     "ant": [],
     "ex": [
@@ -145968,13 +145967,13 @@
   {
     "id": "voc:A2:der Radfahrer",
     "term": "der Radfahrer",
-    "en": "agent noun of Rad fahren: cyclist",
+    "en": "cyclist",
     "pos": "noun",
     "level": "A2",
     "gender": "der",
     "plural": "die Radfahrer",
     "ipa": "ˈʁa(ː)tˌfaːʁɐ",
-    "def": "someone who is meek towards their superiors and despotic towards their inferiors",
+    "def": "someone who rides a bicycle",
     "syn": [
       "Fahrradfahrer",
       "Radler"
@@ -146111,7 +146110,7 @@
   {
     "id": "voc:A2:die Strafe",
     "term": "die Strafe",
-    "en": "punishment",
+    "en": "punishment; fine, penalty",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -146131,8 +146130,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Strafe die Kinder nicht!",
-        "en": "Don't punish the children.",
+        "de": "Für zu schnelles Fahren gibt es eine hohe Strafe.",
+        "en": "There is a heavy penalty for speeding.",
         "lvl": "A2"
       }
     ],
@@ -146414,7 +146413,7 @@
   {
     "id": "voc:B1:der Anhänger",
     "term": "der Anhänger",
-    "en": "agent noun of anhängen",
+    "en": "trailer; follower, supporter",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -147737,7 +147736,7 @@
   {
     "id": "voc:B1:der Sender",
     "term": "der Sender",
-    "en": "agent noun of senden",
+    "en": "station, channel; transmitter",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -149987,13 +149986,13 @@
   {
     "id": "voc:A2:drauf",
     "term": "drauf",
-    "en": "alternative form of darauf",
+    "en": "on it, on top",
     "pos": "adverb",
     "level": "A2",
     "gender": null,
     "plural": null,
     "ipa": "dʁaʊ̯f",
-    "def": "high",
+    "def": "colloquial for darauf: on it, on top of it, as in Hand drauf (agreed, let's shake on it)",
     "syn": [
       "druff"
     ],
@@ -154270,8 +154269,7 @@
     "ipa": "ˈʃaɪ̯nbaːɐ̯",
     "def": "Only in appearance: seeming to be so without being so.",
     "syn": [
-      "vermeintlich",
-      "angeblich"
+      "vermeintlich"
     ],
     "ant": [],
     "ex": [
@@ -155980,7 +155978,7 @@
   {
     "id": "voc:B2:der Betrüger",
     "term": "der Betrüger",
-    "en": "agent noun of betrügen",
+    "en": "fraudster, con man, cheat",
     "pos": "noun",
     "level": "B2",
     "gender": "der",
@@ -165948,7 +165946,7 @@
   {
     "id": "voc:B1:das Schätzchen",
     "term": "das Schätzchen",
-    "en": "diminutive of Schatz",
+    "en": "darling, sweetheart",
     "pos": "noun",
     "level": "B1",
     "gender": "das",
@@ -187852,13 +187850,13 @@
   {
     "id": "voc:A1:der Bäcker",
     "term": "der Bäcker",
-    "en": "agent noun of backen",
+    "en": "baker",
     "pos": "noun",
     "level": "A1",
     "gender": "der",
     "plural": "die Bäcker",
     "ipa": "ˈbɛkɐ",
-    "def": "agent noun of backen (“one who bakes”)",
+    "def": "someone who bakes bread and cakes, usually for a living",
     "syn": [],
     "ant": [],
     "ex": [
@@ -190606,7 +190604,7 @@
   {
     "id": "voc:A2:die Vermieterin",
     "term": "die Vermieterin",
-    "en": "company that rents something",
+    "en": "landlady, (female) landlord",
     "pos": "noun",
     "level": "A2",
     "gender": "die",
@@ -194703,7 +194701,7 @@
   {
     "id": "voc:B1:der Verbraucher",
     "term": "der Verbraucher",
-    "en": "consumer; agent noun of verbrauchen",
+    "en": "consumer",
     "pos": "noun",
     "level": "B1",
     "gender": "der",
@@ -285482,8 +285480,8 @@
         "lvl": "C1"
       },
       {
-        "de": "Mit freundlichen Grüßen verbleibe ich Ihr Team.",
-        "en": "With kind regards, I remain your team.",
+        "de": "In Erwartung Ihrer Antwort verbleibe ich mit freundlichen Grüßen.",
+        "en": "Awaiting your reply, I remain, with kind regards.",
         "lvl": "C1"
       }
     ],

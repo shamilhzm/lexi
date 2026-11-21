@@ -10497,7 +10497,7 @@
     ]
   },
   "voc:A2:der Radfahrer": {
-    "def": "someone who is meek towards their superiors and despotic towards their inferiors",
+    "def": "someone who rides a bicycle",
     "ex": [
       {
         "de": "Tom ist Radfahrer.",
@@ -13141,8 +13141,8 @@
     "def": "For that reason.",
     "ex": [
       {
-        "de": "Deswegen schrie Tom.",
-        "en": "That was why Tom screamed.",
+        "de": "Es hat stark geregnet, deswegen sind wir zu Hause geblieben.",
+        "en": "It rained heavily, so we stayed at home.",
         "lvl": "B1"
       },
       {
@@ -19984,8 +19984,8 @@
         "lvl": "A2"
       },
       {
-        "de": "Strafe die Kinder nicht!",
-        "en": "Don't punish the children.",
+        "de": "Für zu schnelles Fahren gibt es eine hohe Strafe.",
+        "en": "There is a heavy penalty for speeding.",
         "lvl": "A2"
       }
     ]
@@ -21952,7 +21952,7 @@
     ]
   },
   "voc:A2:dran": {
-    "def": "to be in a particular situation; to be (possibly) true",
+    "def": "colloquial for daran: on it, at it; with sein, to be next or to have one's turn",
     "ex": [
       {
         "de": "Zieh dran.",
@@ -21967,7 +21967,7 @@
     ]
   },
   "voc:A2:drauf": {
-    "def": "high",
+    "def": "colloquial for darauf: on it, on top of it, as in Hand drauf (agreed, let's shake on it)",
     "ex": [
       {
         "de": "Hand drauf!",

@@ -39,7 +39,11 @@ export const GATE_SHORTCUT = 'Lexi Türsteher';
 export function parseGateHash(hash: string): { app: GateApp | null } | null {
   const m = /^#\/tuer(?:\/([^/?#]*))?\/?$/.exec(hash);
   if (!m) return null;
-  const slug = decodeURIComponent(m[1] ?? '').trim().toLowerCase();
+  // A stray `%` makes decodeURIComponent throw, and this runs at boot (main.tsx):
+  // one malformed link was a blank screen. Read such a slug as typed.
+  let raw = m[1] ?? '';
+  try { raw = decodeURIComponent(raw); } catch { /* keep it as typed */ }
+  const slug = raw.trim().toLowerCase();
   if (!slug) return { app: null };
   const known = GATE_APPS.find((a) => a.slug === slug);
   if (known) return { app: known };

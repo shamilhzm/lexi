@@ -1,0 +1,105 @@
+[
+  {
+    "id": "voc:B2:die Gerade",
+    "expect": { "plural": "die Gerade" },
+    "plural": "die Geraden",
+    "src": "de.wiktionary «Gerade» (Substantiv, f): Nominativ Plural Geraden, read 2026-11-21 through scripts/authoring/verify.ts (wikitext + parseFacts). Declined like an adjective: die Gerade, die Geraden."
+  },
+
+  {
+    "id": "voc:A1:mal",
+    "expect": { "en": "times" },
+    "en": "just (softens a request or command); times, multiplied by"
+  },
+  {
+    "id": "voc:B1:darum",
+    "expect": { "en": "around it, around that" },
+    "en": "that's why, therefore; for it, about it"
+  },
+  {
+    "id": "voc:A2:deswegen",
+    "at": 0,
+    "expect": { "de": "Deswegen schrie Tom.", "en": "That was why Tom screamed." },
+    "de": "Es hat stark geregnet, deswegen sind wir zu Hause geblieben.",
+    "en": "It rained heavily, so we stayed at home."
+  },
+  {
+    "id": "voc:B1:darauf",
+    "expect": { "en": "after" },
+    "en": "on it, on that; after that"
+  },
+  {
+    "id": "voc:B1:darauf",
+    "expect": { "def": "after (behind; later in time; following)" },
+    "def": "on or onto the thing just mentioned, as in counting on it or insisting on it; also, next in time"
+  },
+  {
+    "id": "voc:A2:die Strafe",
+    "expect": { "en": "punishment" },
+    "en": "punishment; fine, penalty"
+  },
+  {
+    "id": "voc:A2:die Strafe",
+    "at": 1,
+    "expect": { "de": "Strafe die Kinder nicht!", "en": "Don't punish the children." },
+    "de": "Für zu schnelles Fahren gibt es eine hohe Strafe.",
+    "en": "There is a heavy penalty for speeding."
+  },
+  {
+    "id": "voc:B1:die Ausgabe",
+    "expect": { "en": "expense, expenditure" },
+    "en": "expense; edition, issue"
+  },
+  {
+    "id": "voc:B1:die Ausgabe",
+    "expect": { "def": "edition, issue (literary work); issue, issuance (e.g., of paper money)" },
+    "def": "money that is spent, usually in the plural; also one edition or issue of a book, newspaper or magazine"
+  },
+  {
+    "id": "voc:A2:die Vermieterin",
+    "expect": { "en": "company that rents something" },
+    "en": "landlady, (female) landlord"
+  },
+  {
+    "id": "voc:C1:verbleiben",
+    "at": 1,
+    "expect": { "de": "Mit freundlichen Grüßen verbleibe ich Ihr Team.", "en": "With kind regards, I remain your team." },
+    "de": "In Erwartung Ihrer Antwort verbleibe ich mit freundlichen Grüßen.",
+    "en": "Awaiting your reply, I remain, with kind regards."
+  },
+  {
+    "id": "voc:B1:scheinbar",
+    "expect": { "en": "seemingly (but not in fact)", "syn": ["vermeintlich", "angeblich"] },
+    "syn": ["vermeintlich"],
+    "src": "angeblich is «allegedly» (someone claims it), which is neither sense of scheinbar: «only seemingly» (Duden's standard sense, and both examples) nor the colloquial «apparently». vermeintlich («supposed, wrongly believed») is the near-synonym of the standard sense and stays."
+  },
+
+  { "id": "voc:A1:der Bäcker", "expect": { "en": "agent noun of backen" }, "en": "baker" },
+  { "id": "voc:A1:der Bäcker", "expect": { "def": "agent noun of backen (“one who bakes”)" }, "def": "someone who bakes bread and cakes, usually for a living" },
+  { "id": "voc:B1:der Vertreter", "expect": { "en": "agent noun of vertreten" }, "en": "representative; sales representative" },
+  { "id": "voc:B1:der Zuschauer", "expect": { "en": "agent noun of zuschauen" }, "en": "spectator, viewer; (plural) audience" },
+  { "id": "voc:B1:der Anhänger", "expect": { "en": "agent noun of anhängen" }, "en": "trailer; follower, supporter" },
+  { "id": "voc:B1:der Sender", "expect": { "en": "agent noun of senden" }, "en": "station, channel; transmitter" },
+  { "id": "voc:B2:der Betrüger", "expect": { "en": "agent noun of betrügen" }, "en": "fraudster, con man, cheat" },
+  { "id": "voc:A2:der Radfahrer", "expect": { "en": "agent noun of Rad fahren: cyclist" }, "en": "cyclist" },
+  { "id": "voc:A2:der Radfahrer", "expect": { "def": "someone who is meek towards their superiors and despotic towards their inferiors" }, "def": "someone who rides a bicycle" },
+  { "id": "voc:B1:der Verbraucher", "expect": { "en": "consumer; agent noun of verbrauchen" }, "en": "consumer" },
+  { "id": "voc:B1:das Schätzchen", "expect": { "en": "diminutive of Schatz" }, "en": "darling, sweetheart" },
+  {
+    "id": "voc:A2:dran",
+    "expect": { "en": "alternative form of daran", "syn": ["am Zug", "also just sein"] },
+    "en": "on it, at it; (be) next, someone's turn",
+    "syn": ["am Zug"],
+    "src": "«also just sein» is a fragment of a Wiktionary usage note, not a word. «am Zug sein» is the synonym of «dran sein» (your turn), the sense of the card's second example."
+  },
+  { "id": "voc:A2:dran", "expect": { "def": "to be in a particular situation; to be (possibly) true" }, "def": "colloquial for daran: on it, at it; with sein, to be next or to have one's turn" },
+  { "id": "voc:A2:drauf", "expect": { "en": "alternative form of darauf" }, "en": "on it, on top" },
+  { "id": "voc:A2:drauf", "expect": { "def": "high" }, "def": "colloquial for darauf: on it, on top of it, as in Hand drauf (agreed, let's shake on it)" },
+
+  { "id": "voc:A1:helfen", "expect": { "def": "takes the dative case: jemandem helfen" }, "def": "to make something easier for someone, or do part of it for them; the person helped is in the dative (jemandem helfen)" },
+  { "id": "voc:A1:antworten", "expect": { "def": "takes the dative for the person: jemandem antworten" }, "def": "to say or write something back to someone who asked; the person is in the dative (jemandem antworten)" },
+  { "id": "voc:A1:gehören", "expect": { "def": "takes the dative: das gehört mir" }, "def": "to be someone's property, or to be part of something; the owner is in the dative (es gehört mir)" },
+  { "id": "voc:A1:gefallen", "expect": { "def": "takes the dative: es gefällt mir" }, "def": "to be liked by someone; the person who likes it is in the dative (es gefällt mir)" },
+  { "id": "voc:A1:gratulieren", "expect": { "def": "takes the dative: ich gratuliere dir" }, "def": "to tell someone you are glad about their good news or their birthday; the person is in the dative (ich gratuliere dir)" },
+  { "id": "voc:B1:gelingen", "expect": { "def": "takes the dative: es gelingt mir" }, "def": "to turn out as intended; the person who manages it is in the dative (es gelingt mir)" }
+]
