@@ -2,7 +2,8 @@
 // *absence*: 73% of cards have no rank, so the degradation path is the common path,
 // not the edge case.
 import { describe, it, expect, beforeEach } from 'vitest';
-import { primeFreq, freqRankOf, rankedCount, byFrequency } from './freq.ts';
+import { readFileSync } from 'node:fs';
+import { primeFreq, freqRankOf, rankedCount, byFrequency, encodeFreq, decodeFreq, ranksOrThrow } from './freq.ts';
 
 const id = (s: string) => ({ id: s });
 
@@ -60,5 +61,35 @@ describe('byFrequency', () => {
         expect(sgn(byFrequency(id(p), id(q)))).toBe(-sgn(byFrequency(id(q), id(p))) || 0);
       }
     }
+  });
+});
+
+describe('freq.json by position — the ranks without the ids', () => {
+  const ids = ['voc:A1:sein', 'voc:A1:grillen', 'voc:A1:Haus'];
+  const ranks = { 'voc:A1:sein': 4, 'voc:A1:grillen': 8451 };
+
+  it('round-trips, leaving an unranked card unranked', () => {
+    expect(decodeFreq(encodeFreq(ids, ranks), ids)).toEqual(ranks);
+  });
+
+  it('refuses a file written against another order or count', () => {
+    const f = encodeFreq(ids, ranks);
+    expect(decodeFreq(f, [ids[1], ids[0], ids[2]])).toBeNull();
+    expect(decodeFreq(f, [...ids, 'voc:A1:neu'])).toBeNull();
+    expect(() => ranksOrThrow(f, [{ id: ids[1] }, { id: ids[0] }, { id: ids[2] }])).toThrow(/corpus:freq/);
+  });
+
+  it('still reads the old id → rank map, so a deploy cannot break a boot', () => {
+    expect(decodeFreq(ranks, ids)).toEqual(ranks);
+    expect(decodeFreq(null, ids)).toBeNull();
+  });
+
+  it('the shipped freq.json matches the shipped cards.json', () => {
+    const cards: { id: string }[] = JSON.parse(readFileSync('public/data/cards.json', 'utf8'));
+    const raw = JSON.parse(readFileSync('public/data/freq.json', 'utf8'));
+    expect(raw.v).toBe(2);
+    const r = ranksOrThrow(raw, cards);
+    expect(Object.keys(r).length).toBeGreaterThan(10_000);
+    expect(r['voc:A1:sein']).toBeLessThan(r['voc:A1:grillen'] ?? Infinity);
   });
 });

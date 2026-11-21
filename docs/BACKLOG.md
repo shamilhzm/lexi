@@ -49,11 +49,10 @@
 > - ~~**Corpus senses the films exposed.**~~ ✅ all nine fixed 2026-11-21 through
 >   `batches/backlog-fix-2026-11-21.json` (*mal, darum, deswegen, darauf, die Strafe,
 >   die Ausgabe, die Vermieterin, verbleiben, scheinbar*).
-> - **Cut the boot set.** Its ceiling was raised 820 → 860 KB on 2026-11-19, in its own
->   commit with the reason in `scripts/budget.ts`, because `main` had failed CI on it
->   since at least 2026-11-14; the set itself, 849.2 KB, was not cut. `freq.json`
->   (88.9 KB) is the largest piece that might load after first paint; the entry chunk,
->   at 277.6 of 280 KB, is the ceiling that trips next.
+> - ~~**Cut the boot set.**~~ ✅ 2026-11-21: 855.5 → 793.4 KB, `freq.json` written by
+>   position (89.0 → 26.6 KB gz). It still loads before first paint because the feed's
+>   first screen is sorted by it. The entry chunk, at 284.1 of 285 KB, is the ceiling
+>   that trips next; lazy-loading Hören (panel item 5) is the way back.
 > - **A trap beat could ask first** ("*bekommen* means …?") like the gender beat does.
 > - **Film sentences use device speech.** The `say` and `choice` lines would read better
 >   in the Piper voice the corpus audio uses.

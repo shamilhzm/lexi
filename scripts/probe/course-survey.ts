@@ -9,13 +9,13 @@
 //   node scripts/probe/course-survey.ts --pool a1-essen    (the unit's whole sector pool)
 import { readFileSync } from 'node:fs';
 import { registerWords, WORDS_BY_SECTOR } from '../../src/data/index.ts';
-import { primeFreq, freqRankOf } from '../../src/lib/freq.ts';
+import { primeFreq, freqRankOf, ranksOrThrow } from '../../src/lib/freq.ts';
 import { COURSE, UNIT_BY_ID, unitCards } from '../../src/data/course.ts';
 import type { Word } from '../../src/types.ts';
 
 const corpus: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
 registerWords(corpus.filter((w) => w.kind !== 'grammar'));
-primeFreq(JSON.parse(readFileSync('public/data/freq.json', 'utf8')));
+primeFreq(ranksOrThrow(JSON.parse(readFileSync('public/data/freq.json', 'utf8')), corpus));
 
 const args = process.argv.slice(2);
 const pool = args.includes('--pool');

@@ -11,6 +11,30 @@ it is already built.
 
 ---
 
+### 2026-11-21 · the boot set loses 62 KB: frequency ranks by position
+
+**What shipped.** `freq.json` was an id → rank map, 89.0 KB gzipped and fetched
+before first paint. Nearly all of its bytes were the 10,880 card ids, which
+`cards.json` already carries in the same boot fetch. It is now the ranks alone, in
+`cards.json` order (0 for unranked), with the count and a hash of the id order they
+were written against: 26.6 KB gzipped. The boot set goes from 855.5 to 793.4 KB of
+its 860 KB ceiling, so the corpus has room to grow again.
+
+- **It could not simply load later.** The feed's first screen is sorted by it
+  (`Feed.tsx`), so deferring it would show the first words in corpus order and then
+  reshuffle them.
+- **A stale file is refused, not misread.** By position, a file written against
+  another card order would put every rank on the wrong card. `decodeFreq` checks the
+  count and the hash, and on a mismatch the app falls back to corpus order, as it
+  already did for a failed fetch. `corpus:validate --strict` and `freq.test.ts` fail
+  on the shipped pair before such a file can ship.
+- **The old map still decodes,** so a service-worker cache holding the old file
+  cannot break a boot of the new app during the deploy, or the reverse.
+
+Checked: all 11,330 positions carry the same rank as the old map. In the browser, the
+app primes 10,880 ranks (*sein* 4, *grillen* 8,451) with no warning. 2,422 tests pass;
+`validate --strict` PASS; budget PASS.
+
 ### 2026-11-21 · 21 more verbs show, and are asked, the preposition they take
 
 **What shipped.** Each of these cards had no example using its verb with its
@@ -38,6 +62,8 @@ Four candidates were left out because the preposition belongs to a sense the car
 does not teach: *fehlen an*, *ausgehen von*, *handeln von*, *sich verlassen auf*.
 
 2,418 tests pass; `validate --strict` PASS; `ownership` 0 moved; budget PASS.
+
+**Deployed** 2026-11-21 by `git push` as 469ef23 over 8f4880b (`version.json` builtAt 2026-11-21T12:07:45Z).
 
 ### 2026-11-21 · Hören: one loudness, and the voices' tap protects the progress
 

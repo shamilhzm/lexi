@@ -23,6 +23,7 @@ import { findFormCollisions, pairKey, FORM_RULINGS } from './form-rulings.ts';
 import { parseRulings } from '../authoring/verify.ts';
 import { pluralForm, type Matcher } from '../../src/lib/matcher.ts';
 import { conjugate, canConjugate } from '../../src/lib/conjugate.ts';
+import { decodeFreq } from '../../src/lib/freq.ts';
 
 const mulberry32 = (seed: number) => () => {
   seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
@@ -441,12 +442,18 @@ async function main() {
   // frequency-within-band ordering that BACKLOG Now #2 Phase 0 exists to provide.
   // It fails nothing and shows nothing, which is why it needed a check rather than
   // a note. Fix: `npm run corpus:freq`, which re-derives it from provenance.
+  // Since 2026-11-21 the file is positional (src/lib/freq.ts), so a stale one is
+  // not a few dead keys but every rank on the wrong card; `decodeFreq` refuses it.
   const freqPath = join(PATHS.repoRoot, 'public', 'data', 'freq.json');
   if (fileExists(freqPath)) {
+    const raw = readJSON<unknown>(freqPath);
+    const ranks = decodeFreq(raw, full.map((w) => w.id));
     const live = new Set(full.map((w) => w.id));
-    const dead = Object.keys(readJSON<Record<string, number>>(freqPath)).filter((id) => !live.has(id));
-    if (dead.length) {
-      allErrors.push({ id: 'freq.json', msg: `${dead.length} rank(s) on cards that no longer exist (${dead.slice(0, 3).join(', ')}…) — run corpus:freq` });
+    if (!ranks) {
+      allErrors.push({ id: 'freq.json', msg: 'written against another card order or count — run corpus:freq' });
+    } else {
+      const dead = Object.keys(ranks).filter((id) => !live.has(id));
+      if (dead.length) allErrors.push({ id: 'freq.json', msg: `${dead.length} rank(s) on cards that no longer exist (${dead.slice(0, 3).join(', ')}…) — run corpus:freq` });
     }
   }
 

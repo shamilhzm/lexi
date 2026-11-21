@@ -75,6 +75,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadFrequency } from './sources/frequency.ts';
+import { encodeFreq } from '../../src/lib/freq.ts';
 
 const ROOT = join(import.meta.dirname, '..', '..');
 const PROVENANCE = join(ROOT, 'public/data/provenance.json');
@@ -199,11 +200,12 @@ for (const w of vocab) {
   if (n != null) { out[w.id] = CORE_CEILING + n; fromNewswire++; }
 }
 
-// Sorted by id so the file is diff-stable: without this a reorder upstream would
-// rewrite every line and make a one-word change unreviewable.
-const sorted: Record<string, number> = {};
-for (const id of Object.keys(out).sort()) sorted[id] = out[id];
-writeFileSync(OUT, JSON.stringify(sorted) + '\n');
+// By position in `vocab.json`, which `cards.json` twins, with the count and a hash
+// of the id order (see `encodeFreq` in src/lib/freq.ts). It was an id → rank map
+// until 2026-11-21: 89 KB gzipped on the boot path, nearly all of it ids the boot
+// fetch of `cards.json` already carries.
+const sorted = out;
+writeFileSync(OUT, JSON.stringify(encodeFreq(vocab.map((w) => w.id), out)) + '\n');
 
 const covered = Object.keys(sorted).length;
 const words = vocab.filter((w) => w.kind !== 'grammar');

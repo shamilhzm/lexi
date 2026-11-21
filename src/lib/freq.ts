@@ -9,8 +9,9 @@
 //
 // `provenance.json` has carried these ranks all along but is 609 KB and lazily
 // fetched — right for a detail view, wrong for something consulted on every session
-// build. `public/data/freq.json` is the projection scheduling needs (49 KB), emitted
-// by `npm run corpus:freq`.
+// build. `public/data/freq.json` is the projection scheduling needs, emitted by
+// `npm run corpus:freq`, and since 2026-11-21 it is positional (see the end of
+// this file): 27 KB gzipped, where the id-keyed map was 89.
 //
 // ## The honest limit
 //
@@ -49,4 +50,54 @@ export function byFrequency(a: { id: string }, b: { id: string }): number {
   if (ra == null) return 1;
   if (rb == null) return -1;
   return ra - rb;
+}
+
+// ## The file, by position *(2026-11-21)*
+//
+// `freq.json` was an id → rank map, 89 KB gzipped and on the boot path, and its
+// bytes were nearly all the card ids, which `cards.json` already carries in the same
+// fetch. So it is now the ranks alone, by position in `cards.json` (0 = unranked),
+// with the count and a hash of the id order they were written against. `cards.json`
+// is a positional twin of `vocab.json` (`scripts/corpus/split.ts`), which is the
+// order `corpus:freq` writes in.
+//
+// A file written against another id order would put every rank on the wrong card,
+// so `decodeFreq` refuses it: the app falls back to corpus order, exactly as for a
+// failed fetch, and `freq.test.ts` fails CI on the shipped pair before that can
+// ship. The old map shape still decodes, so a cached old file and a new app, or the
+// reverse, cannot break a boot during a deploy.
+
+export interface FreqFile { v: 2; n: number; hash: string; ranks: number[] }
+
+/** FNV-1a over the ids in order, as 8 hex digits. */
+export function idsHash(ids: readonly string[]): string {
+  let h = 0x811c9dc5;
+  for (const id of ids) {
+    for (let i = 0; i < id.length; i++) { h ^= id.charCodeAt(i); h = Math.imul(h, 0x01000193); }
+    h ^= 10; h = Math.imul(h, 0x01000193);
+  }
+  return (h >>> 0).toString(16).padStart(8, '0');
+}
+
+/** The file `corpus:freq` writes: one rank per id, in `ids`' order. */
+export function encodeFreq(ids: readonly string[], rankOf: Readonly<Record<string, number>>): FreqFile {
+  return { v: 2, n: ids.length, hash: idsHash(ids), ranks: ids.map((id) => rankOf[id] ?? 0) };
+}
+
+/** The id → rank map, or `null` when the file was written against other ids. */
+export function decodeFreq(raw: unknown, ids: readonly string[]): Record<string, number> | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const f = raw as Partial<FreqFile>;
+  if (f.v !== 2) return raw as Record<string, number>;   // the pre-2026-11-21 map
+  if (!Array.isArray(f.ranks) || f.n !== ids.length || f.ranks.length !== ids.length || f.hash !== idsHash(ids)) return null;
+  const out: Record<string, number> = {};
+  for (let i = 0; i < ids.length; i++) if (f.ranks[i] > 0) out[ids[i]] = f.ranks[i];
+  return out;
+}
+
+/** For scripts and tests, which must fail loudly where the app falls back. */
+export function ranksOrThrow(raw: unknown, words: readonly { id: string }[]): Record<string, number> {
+  const r = decodeFreq(raw, words.map((w) => w.id));
+  if (!r) throw new Error('freq.json was written against another card order: run npm run corpus:freq');
+  return r;
 }

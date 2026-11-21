@@ -30,6 +30,11 @@
 // call; it cuts nothing, and the boot set is still under its own line. Moving the
 // restore and bulk-note code into the lazy chunks that use them is the way back.
 //
+// **Cut 2026-11-21: boot set 855.5 → 793.4 KB.** `freq.json` 89.0 → 26.6 KB by
+// writing the ranks by position in `cards.json` instead of keyed by id
+// (`src/lib/freq.ts`). It still loads before first paint, because the feed's first
+// screen is sorted by it. The ceiling stays at 860: the room is the corpus's.
+//
 // Also fails if the persona seeder reached the bundle: `lib/devseed.ts` is gated
 // on `import.meta.env.DEV` and CLAUDE.md asks for this grep by hand.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';

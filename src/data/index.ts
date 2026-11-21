@@ -10,7 +10,7 @@
 // projections of it. See scripts/corpus/split.ts.
 import type { Word, SectorMeta, CEFR } from '../types.ts';
 import { setKnownVerbs } from '../lib/conjugate.ts';
-import { primeFreq } from '../lib/freq.ts';
+import { primeFreq, decodeFreq } from '../lib/freq.ts';
 
 export let WORDS: Word[] = [];
 export let SECTORS: SectorMeta[] = [];
@@ -130,15 +130,18 @@ export async function initData(): Promise<void> {
   const [words, sectors, freq] = await Promise.all([
     fetch(base + 'data/cards.json').then((r) => r.json() as Promise<Word[]>),
     fetch(base + 'data/sectors.json').then((r) => r.json() as Promise<SectorMeta[]>),
-    // Frequency ranks for intra-band ordering (44 KB gz — see lib/freq.ts). Optional
-    // by construction: an older deploy without the file, or a failed fetch, leaves
-    // the index empty and the scheduler falls back to corpus order rather than
-    // failing to boot over a nice-to-have.
+    // Frequency ranks for intra-band ordering, by position in `cards.json` (see
+    // lib/freq.ts). Optional by construction: an older deploy without the file, a
+    // failed fetch, or a file written against another card order leaves the index
+    // empty, and the scheduler falls back to corpus order rather than failing to
+    // boot over a nice-to-have.
     fetch(base + 'data/freq.json')
-      .then((r) => (r.ok ? (r.json() as Promise<Record<string, number>>) : {}))
-      .catch(() => ({} as Record<string, number>)),
+      .then((r) => (r.ok ? (r.json() as Promise<unknown>) : null))
+      .catch(() => null),
   ]);
-  primeFreq(freq);
+  const ranks = freq == null ? {} : decodeFreq(freq, words.map((w) => w.id));
+  if (!ranks) console.warn('freq.json does not match cards.json; words keep corpus order within a level');
+  primeFreq(ranks ?? {});
 
   // `cards.json` omits ex/def/defDe (see scripts/corpus/split.ts), so materialise
   // the defaults here. Deliberately not emitted into the file — 6,622 × `"ex": [],`

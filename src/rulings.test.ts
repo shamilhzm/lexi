@@ -13,7 +13,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { registerWords } from './data/index.ts';
-import { primeFreq, freqRankOf } from './lib/freq.ts';
+import { primeFreq, freqRankOf, ranksOrThrow } from './lib/freq.ts';
 import { resetSurfaceIndex } from './lib/surface.ts';
 import { meaningOptions, askablePlural, eligibleModes } from './views/drills.tsx';
 import { whyLine } from './components/WhyThisCard.tsx';
@@ -23,7 +23,7 @@ import type { Word } from './types.ts';
 const corpus: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
 registerWords(corpus);
 resetSurfaceIndex();
-primeFreq(JSON.parse(readFileSync('public/data/freq.json', 'utf8')));
+primeFreq(ranksOrThrow(JSON.parse(readFileSync('public/data/freq.json', 'utf8')), corpus));
 
 const words = corpus.filter((w) => w.kind === 'word');
 const byId = new Map(corpus.map((w) => [w.id, w]));

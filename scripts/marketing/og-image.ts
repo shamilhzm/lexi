@@ -27,6 +27,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { sowingOrder, layout, ringAt } from '../../src/lib/sky.ts';
+import { ranksOrThrow } from '../../src/lib/freq.ts';
 import { PUBLIC_ORIGIN } from '../../src/lib/publicCopy.ts';
 import type { Word } from '../../src/types.ts';
 
@@ -47,9 +48,9 @@ const ink = {
 };
 
 // ---- the sky, from the shipped data ----------------------------------------------
-const cards = (JSON.parse(readFileSync(join(root, 'public', 'data', 'cards.json'), 'utf8')) as Word[])
-  .filter((w) => w.kind !== 'grammar');
-const freq = JSON.parse(readFileSync(join(root, 'public', 'data', 'freq.json'), 'utf8')) as Record<string, number>;
+const allCards = JSON.parse(readFileSync(join(root, 'public', 'data', 'cards.json'), 'utf8')) as Word[];
+const cards = allCards.filter((w) => w.kind !== 'grammar');
+const freq = ranksOrThrow(JSON.parse(readFileSync(join(root, 'public', 'data', 'freq.json'), 'utf8')), allCards);
 const order = sowingOrder(cards, (id) => freq[id] ?? null);
 const stars = layout(order);
 const n = stars.length;

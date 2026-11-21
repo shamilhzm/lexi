@@ -8,7 +8,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { registerWords } from '../data/index.ts';
-import { primeFreq } from '../lib/freq.ts';
+import { primeFreq, ranksOrThrow } from '../lib/freq.ts';
 import { COURSE, UNIT_SIZE, unitsFor, unitCards, cardByTerm, leadTerms } from '../data/course.ts';
 import { FILMS, FILM_BY_ID } from './films.ts';
 import { countEnding } from './measure.ts';
@@ -21,7 +21,7 @@ const sectors: { name: string }[] = JSON.parse(readFileSync('public/data/sectors
 beforeAll(() => {
   // As the app loads it: grammar cards never enter the lexicon (data/index.ts).
   registerWords(corpus.filter((w) => w.kind !== 'grammar'));
-  primeFreq(JSON.parse(readFileSync('public/data/freq.json', 'utf8')));
+  primeFreq(ranksOrThrow(JSON.parse(readFileSync('public/data/freq.json', 'utf8')), corpus));
 });
 
 const bare = (t: string) => t.replace(/^(der|die|das)\s+/i, '');
