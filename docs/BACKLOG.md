@@ -28,9 +28,11 @@
 > The blind-spot logs, the conjugator (33 verbs, not 23), *die Geraden*, the blank cloze
 > and the gate hash. See CHANGELOG 2026-11-21 *the persona pass's leftovers*.
 > - *Still open from it:* `corpus:conjugate-check` compares only the Präteritum and
->   the Partizip II; a wrong present (*du lädst*) would pass it. *schaffen* drills
->   *schuf* on a card glossed "to manage" first; the senses want either two cards or a
->   gate.
+>   the Partizip II; a wrong present (*du lädst*) would pass it. ~~*schaffen*~~ ✅
+>   2026-11-21: the conjugator gives the card's weak sense now, and the check rules every
+>   verb with two pasts (`TWO_PASTS`), which found *hauen*, *abhauen* and *mahlen*.
+>   It cannot see a strong participle with a vowel change from the weak side
+>   (*gewogen* beside *gewiegt*).
 >
 > ---
 >

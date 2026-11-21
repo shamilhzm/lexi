@@ -2294,3 +2294,16 @@ and that field is null for every verb built from the irregular table; and it mis
 participle spelled like the infinitive (*übertragen*), which the tables leave out.
 Fixed, the count was 33, and all 33 were real. **Rule:** the class-2 rule held again.
 Read three hits before the count; here the first three were all *sah durch*-shaped.
+
+## A table that lists both forms attests the wrong one *(added 2026-11-21)*
+
+**Believed:** `corpus:conjugate-check` at zero meant every reliable verb's Präteritum
+and participle were right. **True:** it asked whether the generated form *is in* the
+attested table, and Wiktionary lists the regional form beside the standard one
+(*gehaut, gehauen*) and two verbs' forms side by side (*schuf, schaffte*). «gehaut»,
+«gemahlt», «abgehaut» and *schuf* for *manage* all passed. The backlog line that sent
+me there was wrong too: it said *schaffen* "drills *schuf*", and no drill asks the
+Präteritum. **Rule:** a membership check against a list that can hold alternatives
+proves *a* form, not *the* form. Flag the rows with two answers and rule them. Before
+fixing a reported symptom, trace the path where it reaches the learner.
+

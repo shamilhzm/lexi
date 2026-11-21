@@ -11,6 +11,48 @@ it is already built.
 
 ---
 
+### 2026-11-21 · *schaffen* has two pasts, and the gate that found three more
+
+**What shipped.**
+
+- **`conjugate('schaffen')` is the card's verb now.** The A2 card means *manage*
+  (*schaffte, hat geschafft*). The irregular table gave *create* (*schuf, hat
+  geschaffen*). The strong forms moved to the matcher's `EXTRA_VERB_FORMS`, so
+  «Arbeitsplätze geschaffen» still resolves before the attested tables load.
+- **The card's other fields now match its sense.** Its `def` and all four synonyms
+  were *create*, so the synonym drill asked for *erschaffen*. Now *hinkriegen,
+  bewältigen, erschaffen*. The two examples were near-duplicates («Wir schaffen es.»,
+  «Wir schaffen das!»). They are now a minimal pair of the two pasts: «Ich habe die
+  Prüfung geschafft!» and «Die Firma hat hundert neue Arbeitsplätze geschaffen.»
+  (`batches/schaffen-senses-2026-11-21.json`).
+- **`corpus:conjugate-check` lists every verb whose table holds two pasts.** Each one
+  needs a ruling in `TWO_PASTS` on which form its card means. It found 12. Nine are
+  right for their card: *hängen, abhängen, wachsen, wiegen, weichen, schmelzen*
+  (strong), and *schaffen, schalten, falten* (weak). Three were wrong:
+  - *hauen* came out «gehaut» and *mahlen* «gemahlt». They are mixed verbs (*haute,
+    gehauen*; *mahlte, gemahlen*) and now have irregular-table rows.
+  - *abhauen* came out «hat abgehaut». It is now *ist abgehauen*.
+
+  As a side effect, «Frisch gemahlener Pfeffer» now resolves *gemahlener* to *mahlen*.
+- **Two more cards had the same sense split.** *hauen* was glossed with the weapon
+  sense, "to thrust, slash" (past *hieb*), but both examples are *haute* (hit, bang).
+  *abhauen*'s `def` led with "to cut off", and its synonyms included *abschlagen* and
+  *abpaschen*. Both are fixed in `batches/hauen-senses-2026-11-21.json`, and one
+  *abhauen* example now shows the *sein* Perfekt.
+
+`corpus:conjugate-check`: 1,828 checked, 1 disagreement (ruled), 9 with two pasts (all
+ruled). Golden: 4 verbs and 1 annotated line changed. 2,405 tests pass; `validate
+--strict` PASS; budget PASS.
+
+**Why.** The first check asked whether the generated form *is in* the table. A table
+that lists the regional form beside the standard one, or two verbs' forms side by
+side, attests both answers, so a wrong answer passes. The new gate makes a person
+decide which answer the card means.
+
+**Correction.** The backlog said *schaffen* "drills *schuf*". No drill asks the
+Präteritum: `ConjugateItem` asks only the present. The defect a learner met was the
+synonym drill and the definition.
+
 ### 2026-11-21 · the persona pass's leftovers, and the corpus senses the films exposed
 
 **What shipped.** The five items the 2026-11-20 persona pass left open, and three
@@ -60,6 +102,8 @@ corpus lists from the backlog.
     kept in the second clause.
 
   `corpus:validate --strict` PASS; `corpus:ownership` 0 moved.
+
+**Deployed** 2026-11-21 by `git push` as a790ff4 over df89ca0 (`version.json` builtAt 2026-11-21T10:00:53Z).
 
 **Why.** The conjugator's `reliable` flag is its own opinion of itself. The only outside
 check of that opinion was the golden test, which records what the conjugator does, not

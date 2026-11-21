@@ -246,7 +246,11 @@ function onePluralForm(term: string, plural: string): string | null {
 
 // High-frequency finite forms the conjugation generator doesn't produce (modal +
 // haben/werden Konjunktiv II, sein's Konjunktiv I/II), keyed by infinitive.
+// *schaffen* is the conjugator's weak *manage*; its strong *create* is here so
+// «hat Arbeitsplätze geschaffen» resolves before the attested tables load. Not
+// *schuft*, which is *der Schuft* far more often than *ihr schuft*.
 const EXTRA_VERB_FORMS: Record<string, string[]> = {
+  schaffen: ['schuf', 'schufst', 'schufen', 'geschaffen'],
   dürfen: ['dürfte', 'dürftest', 'dürften', 'dürftet'],
   können: ['könnte', 'könntest', 'könnten', 'könntet'],
   müssen: ['müsste', 'müsstest', 'müssten', 'müsstet'],

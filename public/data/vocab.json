@@ -140163,23 +140163,22 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈʃafən",
-    "def": "to create, to call into being; to create, make, form, shape",
+    "def": "to manage something, to get it done (weak: schaffte, hat geschafft); meaning to create, it is strong (schuf, hat geschaffen)",
     "syn": [
-      "erschaffen",
-      "gestalten",
-      "formen",
-      "hervorbringen"
+      "hinkriegen",
+      "bewältigen",
+      "erschaffen"
     ],
     "ant": [],
     "ex": [
       {
-        "de": "Wir schaffen es.",
-        "en": "We can do that.",
+        "de": "Ich habe die Prüfung geschafft!",
+        "en": "I passed the exam!",
         "lvl": "B1"
       },
       {
-        "de": "Wir schaffen das!",
-        "en": "We can do it.",
+        "de": "Die Firma hat hundert neue Arbeitsplätze geschaffen.",
+        "en": "The company has created a hundred new jobs.",
         "lvl": "B1"
       }
     ],
@@ -167683,12 +167682,11 @@
     "gender": null,
     "plural": null,
     "ipa": "ˈapˌhaʊ̯ən",
-    "def": "to cut off (with a cutting weapon); to leave abruptly, to do a runner",
+    "def": "colloquial: to leave quickly or secretly, to clear off (haute ab, ist abgehauen); also, with a blade, to cut off",
     "syn": [
-      "abschlagen",
-      "abpaschen",
+      "verschwinden",
       "davonlaufen",
-      "davonmachen"
+      "sich davonmachen"
     ],
     "ant": [],
     "ex": [
@@ -167698,8 +167696,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Ich werde abhauen.",
-        "en": "I'm going to take off.",
+        "de": "Der Dieb ist sofort abgehauen.",
+        "en": "The thief cleared off straight away.",
         "lvl": "B1"
       }
     ],
@@ -168176,13 +168174,13 @@
   {
     "id": "voc:B1:hauen",
     "term": "hauen",
-    "en": "to thrust, slash",
+    "en": "to hit, bang, knock",
     "pos": "verb",
     "level": "B1",
     "gender": null,
     "plural": null,
     "ipa": "ˈhaʊ̯ən",
-    "def": "to thrust, slash (with a weapon); to cut, hew",
+    "def": "to hit hard, with a fist, a hammer or a tool (haute, hat gehauen); striking with a weapon, the past is also hieb",
     "syn": [
       "schlagen",
       "prügeln"

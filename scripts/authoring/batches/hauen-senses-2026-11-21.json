@@ -1,0 +1,31 @@
+[
+  {
+    "id": "voc:B1:hauen",
+    "expect": { "en": "to thrust, slash" },
+    "en": "to hit, bang, knock"
+  },
+  {
+    "id": "voc:B1:hauen",
+    "expect": { "def": "to thrust, slash (with a weapon); to cut, hew" },
+    "def": "to hit hard, with a fist, a hammer or a tool (haute, hat gehauen); striking with a weapon, the past is also hieb"
+  },
+  {
+    "id": "voc:B1:abhauen",
+    "expect": { "en": "to clear off, take off (colloquial)", "syn": ["abschlagen", "abpaschen", "davonlaufen", "davonmachen"] },
+    "en": "to clear off, take off (colloquial)",
+    "syn": ["verschwinden", "davonlaufen", "sich davonmachen"],
+    "src": "abschlagen is the «cut off» sense, which neither the gloss nor either example means; abpaschen is a regional rarity no learner meets. verschwinden («Verschwinde!») and davonlaufen are the colloquial «clear off»; davonmachen is reflexive, sich davonmachen."
+  },
+  {
+    "id": "voc:B1:abhauen",
+    "expect": { "def": "to cut off (with a cutting weapon); to leave abruptly, to do a runner" },
+    "def": "colloquial: to leave quickly or secretly, to clear off (haute ab, ist abgehauen); also, with a blade, to cut off"
+  },
+  {
+    "id": "voc:B1:abhauen",
+    "at": 1,
+    "expect": { "de": "Ich werde abhauen.", "en": "I'm going to take off." },
+    "de": "Der Dieb ist sofort abgehauen.",
+    "en": "The thief cleared off straight away."
+  }
+]

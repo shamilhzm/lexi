@@ -898,7 +898,7 @@
     ]
   },
   "voc:B1:abhauen": {
-    "def": "to cut off (with a cutting weapon); to leave abruptly, to do a runner",
+    "def": "colloquial: to leave quickly or secretly, to clear off (haute ab, ist abgehauen); also, with a blade, to cut off",
     "ex": [
       {
         "de": "Ich muss abhauen.",
@@ -906,8 +906,8 @@
         "lvl": "B1"
       },
       {
-        "de": "Ich werde abhauen.",
-        "en": "I'm going to take off.",
+        "de": "Der Dieb ist sofort abgehauen.",
+        "en": "The thief cleared off straight away.",
         "lvl": "B1"
       }
     ]
@@ -37590,7 +37590,7 @@
     ]
   },
   "voc:B1:hauen": {
-    "def": "to thrust, slash (with a weapon); to cut, hew",
+    "def": "to hit hard, with a fist, a hammer or a tool (haute, hat gehauen); striking with a weapon, the past is also hieb",
     "ex": [
       {
         "de": "Er haute mit der Faust auf den Tisch.",

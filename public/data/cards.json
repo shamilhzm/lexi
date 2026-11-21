@@ -66550,10 +66550,9 @@
     "plural": null,
     "ipa": "ˈʃafən",
     "syn": [
-      "erschaffen",
-      "gestalten",
-      "formen",
-      "hervorbringen"
+      "hinkriegen",
+      "bewältigen",
+      "erschaffen"
     ],
     "ant": [],
     "field": "Core verbs",
@@ -81339,10 +81338,9 @@
     "plural": null,
     "ipa": "ˈapˌhaʊ̯ən",
     "syn": [
-      "abschlagen",
-      "abpaschen",
+      "verschwinden",
       "davonlaufen",
-      "davonmachen"
+      "sich davonmachen"
     ],
     "ant": [],
     "field": "Core verbs",
@@ -81610,7 +81608,7 @@
   {
     "id": "voc:B1:hauen",
     "term": "hauen",
-    "en": "to thrust, slash",
+    "en": "to hit, bang, knock",
     "pos": "verb",
     "level": "B1",
     "gender": null,

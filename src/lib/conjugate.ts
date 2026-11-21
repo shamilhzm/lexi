@@ -167,10 +167,22 @@ const TABLE: Record<string, Entry> = {
   // *hängen* (to hang something up — hängte/gehängt); this card is the
   // intransitive one.
   hängen: { praesens: six('hänge','hängst','hängt','hängen','hängt','hängen'), praeteritum: six('hing','hingst','hing','hingen','hingt','hingen'), partizip: 'gehangen', aux: 'haben' },
+  // Mixed: a weak past and a strong participle (*haute, gehauen*; *mahlte,
+  // gemahlen*). Generated as weak verbs they came out **gehaut** and **gemahlt**,
+  // regional at best, and `corpus:conjugate-check` passed them because the
+  // Wiktionary tables list the regional form beside the standard one. Found by its
+  // two-pasts gate (2026-11-21). *hieb* is *hauen* with a weapon, not the card's.
+  hauen: { praesens: six('haue','haust','haut','hauen','haut','hauen'), praeteritum: six('haute','hautest','haute','hauten','hautet','hauten'), partizip: 'gehauen', aux: 'haben' },
+  mahlen: { praesens: six('mahle','mahlst','mahlt','mahlen','mahlt','mahlen'), praeteritum: six('mahlte','mahltest','mahlte','mahlten','mahltet','mahlten'), partizip: 'gemahlen', aux: 'haben' },
   nachvollziehen: { praesens: six('vollziehe nach','vollziehst nach','vollzieht nach','vollziehen nach','vollzieht nach','vollziehen nach'), praeteritum: six('vollzog nach','vollzogst nach','vollzog nach','vollzogen nach','vollzogt nach','vollzogen nach'), partizip: 'nachvollzogen', aux: 'haben' },
   nachweisen: { praesens: six('weise nach','weist nach','weist nach','weisen nach','weist nach','weisen nach'), praeteritum: six('wies nach','wiesest nach','wies nach','wiesen nach','wiest nach','wiesen nach'), partizip: 'nachgewiesen', aux: 'haben' },
   reißen: { praesens: six('reiße','reißt','reißt','reißen','reißt','reißen'), praeteritum: six('riss','rissest','riss','rissen','risst','rissen'), partizip: 'gerissen', aux: 'haben' },
-  schaffen: { praesens: six('schaffe','schaffst','schafft','schaffen','schafft','schaffen'), praeteritum: six('schuf','schufst','schuf','schufen','schuft','schufen'), partizip: 'geschaffen', aux: 'haben' },
+  // Two verbs share the spelling: *manage* is weak (schaffte, geschafft) and
+  // *create* is strong (schuf, geschaffen). The card is A2 *manage* — «Ich habe es
+  // geschafft» — and this table answered with *create* until 2026-11-21. The
+  // strong forms are read through `EXTRA_VERB_FORMS` in `matcher.ts`, so a text
+  // that says *geschaffen* still resolves; *erschaffen* keeps its own strong row.
+  schaffen: { praesens: six('schaffe','schaffst','schafft','schaffen','schafft','schaffen'), praeteritum: six('schaffte','schafftest','schaffte','schafften','schafftet','schafften'), partizip: 'geschafft', aux: 'haben' },
   schieben: { praesens: six('schiebe','schiebst','schiebt','schieben','schiebt','schieben'), praeteritum: six('schob','schobst','schob','schoben','schobt','schoben'), partizip: 'geschoben', aux: 'haben' },
   schweigen: { praesens: six('schweige','schweigst','schweigt','schweigen','schweigt','schweigen'), praeteritum: six('schwieg','schwiegst','schwieg','schwiegen','schwiegt','schwiegen'), partizip: 'geschwiegen', aux: 'haben' },
   schwören: { praesens: six('schwöre','schwörst','schwört','schwören','schwört','schwören'), praeteritum: six('schwor','schworst','schwor','schworen','schwort','schworen'), partizip: 'geschworen', aux: 'haben' },
@@ -415,10 +427,11 @@ const STRONG_GATE = new Set<string>([
   'lügen','bergen','blasen','melken','schwingen','schlingen','schmeißen','zeihen','spalten','flechten',
 ]);
 
-// Weak verbs whose root is a strong verb in TABLE. *schaffen* is strong when it
+// Weak verbs whose root reads as a strong verb. *schaffen* is strong when it
 // means *create* (schuf, geschaffen) and weak in every other sense, and these
 // four take the weak one: *beschaffte*, *schaffte ab*. Through the prefix split
-// they came out **beschuf** and **abgeschaffen** (2026-11-21). *bereiten* is not
+// they came out **beschuf** and **abgeschaffen** (2026-11-21); TABLE's *schaffen*
+// is now the weak one too, and they stay here so a change to it cannot move them. *bereiten* is not
 // *be* + *reiten* at all, and read that way came out «beritt», with *sein*. They
 // skip the table and the strong gate and are generated as the weak verbs they are.
 const WEAK_DESPITE_ROOT = new Set(['beschaffen', 'abschaffen', 'anschaffen', 'verschaffen', 'bereiten']);
@@ -621,6 +634,7 @@ const AUX_OVERRIDE: Record<string, Aux> = {
   // haben in the table; stepping *in*, turning *off* and moving *in* are motion).
   eintreten: 'sein', beitreten: 'sein', austreten: 'sein', zurücktreten: 'sein',
   abbiegen: 'sein', einziehen: 'sein', ausziehen: 'sein', ertrinken: 'sein', aufbrechen: 'sein',
+  abhauen: 'sein',
 };
 
 function moveToEnd(form: string, prefix: string): string { return `${form} ${prefix}`; }

@@ -3263,7 +3263,7 @@ Für=für	den	Teig=der Teig	braucht=brauchen	man=man	Mehl=das Mehl	und=und	Eier=
 Sägemehl~das Mehl
 Salz=das Salz	und=und	Pfeffer=der Pfeffer	bitte=bitte
 Würze=würzen	die	Suppe=die Suppe	mit=mit	etwas=etwas	Pfeffer=der Pfeffer
-Frisch=frisch	gemahlener	Pfeffer=der Pfeffer	ist=sein	deutlich=deutlich	aromatischer	als=als	fertiger=fertig
+Frisch=frisch	gemahlener=mahlen	Pfeffer=der Pfeffer	ist=sein	deutlich=deutlich	aromatischer	als=als	fertiger=fertig
 Zu=zu	viel=viel	Pfeffer=der Pfeffer	macht=machen	das	Essen=das Essen	scharf=scharf
 Reich=reich	mir=mir	bitte=bitte	Salz=das Salz	und=und	Pfeffer=der Pfeffer
 Die	Soße=die Soße	schmeckt=schmecken	gut=gut

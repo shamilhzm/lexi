@@ -1,0 +1,28 @@
+[
+  {
+    "id": "voc:A2:schaffen",
+    "expect": { "en": "to manage, to get done; to create", "syn": ["erschaffen", "gestalten", "formen", "hervorbringen"] },
+    "en": "to manage, to get done; to create",
+    "syn": ["hinkriegen", "bewältigen", "erschaffen"],
+    "src": "The card leads with «manage» (A2, both examples), and all four synonyms were the «create» sense, so the synonym drill asked for erschaffen. hinkriegen («ich krieg das hin» = «ich schaffe das») and bewältigen are the «manage» sense; erschaffen stays for «create». gestalten, formen and hervorbringen are «shape, produce», looser than either."
+  },
+  {
+    "id": "voc:A2:schaffen",
+    "expect": { "def": "to create, to call into being; to create, make, form, shape" },
+    "def": "to manage something, to get it done (weak: schaffte, hat geschafft); meaning to create, it is strong (schuf, hat geschaffen)"
+  },
+  {
+    "id": "voc:A2:schaffen",
+    "at": 0,
+    "expect": { "de": "Wir schaffen es.", "en": "We can do that." },
+    "de": "Ich habe die Prüfung geschafft!",
+    "en": "I passed the exam!"
+  },
+  {
+    "id": "voc:A2:schaffen",
+    "at": 1,
+    "expect": { "de": "Wir schaffen das!", "en": "We can do it." },
+    "de": "Die Firma hat hundert neue Arbeitsplätze geschaffen.",
+    "en": "The company has created a hundred new jobs."
+  }
+]
