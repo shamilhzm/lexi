@@ -42,7 +42,7 @@ import { conjugate, canConjugate } from '../lib/conjugate.ts';
 import { visibleMode, shownTerm } from '../lib/focus.ts';
 import { pluralForms } from '../lib/matcher.ts';
 import { headPrep, DRILL_PREPS } from '../lib/valency.ts';
-import { governed } from '../data/government.ts';
+import { governed, ALSO_TAKES } from '../data/government.ts';
 import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
@@ -1159,6 +1159,7 @@ export function prepsFor(word: Word, pool: Word[] = WORDS): Set<string> {
     for (const g of governed(stripArticle(w.term))) out.add(g.prep);
   }
   for (const g of governed(stripArticle(word.term))) out.add(g.prep);
+  for (const p of ALSO_TAKES[mine.lemma] ?? []) out.add(p);
   return out;
 }
 

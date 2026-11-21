@@ -11,6 +11,43 @@ it is already built.
 
 ---
 
+### 2026-11-21 · the preposition drill stops marking German wrong, and 21 more verbs
+
+**What shipped.**
+
+- **A preposition the word also takes is never offered as the wrong answer.** The
+  drill draws three distractors from fifteen prepositions and skipped only those the
+  corpus attests for that word. So *kämpfen* (*für*) could be offered *gegen* as
+  wrong, *schützen* (*vor*) *gegen*, *sprechen* (*über*) *mit*, and *warten auf*
+  *mit*. All four are correct German. `ALSO_TAKES` in `data/government.ts` rules 57
+  second prepositions across 37 lemmas, and `prepsFor` excludes them.
+
+  This table is not held to the card's examples the way a `GOVERNMENT` row is,
+  because it is never asked. Leaving an option out can only make an item easier, so
+  it can never mark German wrong. The new test fails with the `prepsFor` line removed.
+- **`GOVERNMENT` grows from 40 rows to 61.** The 21 new verbs are *appellieren an,
+  arbeiten an, befassen mit, bekennen zu, beruhen auf, beziehen auf, einladen zu*
+  (and *auf*), *erkranken an, neigen zu, sich abfinden mit, sich anpassen an, sich
+  auseinandersetzen mit, sich engagieren für, sich schämen für, sich spezialisieren
+  auf, sich wehren gegen, staunen über, übereinstimmen mit, überreden zu, verhandeln
+  über, verstoßen gegen*. Each one's own examples already show it, and each example
+  was read by eye.
+
+  Five candidates passed the test's token check and were left out:
+  - *fragen*: the *nach* is *nachfragen*'s particle;
+  - *passen*: «zu klein» is an adverb;
+  - *schmecken*: the *nach* belongs to *fragen*;
+  - *sich verständigen*: «auf Englisch» is the language, not *sich auf etwas
+    verständigen*;
+  - *durchsetzen gegen*: a collocation, not government.
+
+  *sich beteiligen* already has its headword twin, *sich beteiligen an*.
+
+2,407 tests pass; budget PASS; `validate --strict` PASS.
+
+**Why.** A drill that marks correct German wrong teaches the learner to distrust the
+answer they were right about. That is worse than not asking.
+
 ### 2026-11-21 · *schaffen* has two pasts, and the gate that found three more
 
 **What shipped.**
@@ -43,6 +80,8 @@ it is already built.
 `corpus:conjugate-check`: 1,828 checked, 1 disagreement (ruled), 9 with two pasts (all
 ruled). Golden: 4 verbs and 1 annotated line changed. 2,405 tests pass; `validate
 --strict` PASS; budget PASS.
+
+**Deployed** 2026-11-21 by `git push` as 36b65d1 over a790ff4 (`version.json` builtAt 2026-11-21T11:43:50Z).
 
 **Why.** The first check asked whether the generated form *is in* the table. A table
 that lists the regional form beside the standard one, or two verbs' forms side by

@@ -10,6 +10,7 @@ import { registerWords } from '../data/index.ts';
 import { resetSurfaceIndex } from '../lib/surface.ts';
 import { government } from '../lib/matcher.ts';
 import { prepOf, prepOptions, prepsFor, practiceModes, eligibleModes, canAsk, GOVERNED_PREPS, MODE_TAG, type Mode } from './drills.tsx';
+import { ALSO_TAKES } from '../data/government.ts';
 import type { Word } from '../types.ts';
 
 const corpus: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
@@ -66,6 +67,26 @@ describe('prepOptions — four choices, and only one of them is German', () => {
         const mc = prepOptions(w, words)!;
         const wrong = mc.options.filter((_, i) => i !== mc.correct);
         for (const o of wrong) expect(valid.has(o), `${w.term} offered ${o}`).toBe(false);
+      }
+    }
+  });
+
+  // *kämpfen gegen* and *schützen gegen* are German, and the drill offered both as
+  // the wrong answer until ALSO_TAKES (2026-11-21).
+  it('never offers a second preposition the word also takes', () => {
+    expect(prepsFor(byTerm('kämpfen'), words).has('gegen')).toBe(true);
+    expect(prepsFor(byTerm('schützen'), words).has('gegen')).toBe(true);
+    expect(prepsFor(byTerm('warten auf + A'), words).has('mit')).toBe(true);
+    expect(prepsFor(byTerm('sprechen'), words).has('mit')).toBe(true);
+  });
+
+  it('ALSO_TAKES names only words the drill asks, never their own answer', () => {
+    const lemmas = new Map(governed.map((w) => [prepOf(w)!.lemma, prepOf(w)!.prep]));
+    for (const [lemma, preps] of Object.entries(ALSO_TAKES)) {
+      expect(lemmas.has(lemma), `${lemma} is not a word the drill asks`).toBe(true);
+      for (const p of preps) {
+        expect(GOVERNED_PREPS, `${lemma} ${p}`).toContain(p);
+        expect(p, `${lemma} lists its own answer`).not.toBe(lemmas.get(lemma));
       }
     }
   });

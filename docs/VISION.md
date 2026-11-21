@@ -355,6 +355,12 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   inventing one. **Unchanged:** no exam room, no papers, no *am I ready* (Track E #10).
   The lists are fetched, never shipped; whether a card may be *labelled* as on an exam
   list in the app is the same question as open decision 2b and is not decided.
+- **The exams guide the progression; nobody's exam is the goal** *(2026-11-21, the
+  owner)*. The CEFR levels and the certificate lists set what a level holds and the
+  order a learner meets it in. They do not decide what is built next. Lexi is for
+  anyone learning the language, whether or not they will ever sit a paper, and in
+  whichever language pair comes next. So work is ranked by what serves learners at a
+  level, never by one learner's exam date, the owner's included.
 - **A tenth drill — the preposition a word takes** *(2026-11-13)*. *warten auf*,
   *sich kümmern um*, *stolz auf*. It passes the vocabulary ruling the way conjugation
   does — nothing about *warten* predicts *auf* — and it is the word property the
