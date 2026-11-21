@@ -11,6 +11,27 @@ it is already built.
 
 ---
 
+### 2026-11-21 · Hören no longer plays the answer before Üben asks
+
+**What shipped.** Hören built its programme from the briefing as it stood: saved
+words, then the day's *due* reviews, then fresh words. A learner who listened over
+breakfast heard «der Tisch · the table» minutes before Üben asked for it, and FSRS
+credited the borrowed memory with a longer interval (PANEL-2026-10-04, item 2).
+
+`listenOrder` in `lib/listen.ts` is the order now: saved words, the day's fresh
+words, the words reviewed today, then the feed's order. A word is held while any of
+its cards is due, its own or a drill's. «der Tisch» answers the gender drill as surely
+as the meaning. It comes back the moment it is reviewed. When everything at the
+learner's level is held, the programme says *Today's words are waiting in Üben*
+instead of *No words at your level*.
+
+Four new tests cover `listenOrder`. 2,411 tests pass; budget PASS. The queue's wiring
+to the store (`dueGymIds`, `last_review`) is typed, not driven: Hören was not played
+on the simulator for this change.
+
+**Why.** Hören records nothing so that it cannot corrupt the schedule. Playing due
+words corrupted it anyway, from the other side.
+
 ### 2026-11-21 · the preposition drill stops marking German wrong, and 21 more verbs
 
 **What shipped.**
@@ -47,6 +68,8 @@ it is already built.
 
 **Why.** A drill that marks correct German wrong teaches the learner to distrust the
 answer they were right about. That is worse than not asking.
+
+**Deployed** 2026-11-21 by `git push` as af4fccc over 36b65d1 (`version.json` builtAt 2026-11-21T11:50:01Z).
 
 ### 2026-11-21 · *schaffen* has two pasts, and the gate that found three more
 

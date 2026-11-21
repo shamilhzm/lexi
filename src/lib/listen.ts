@@ -33,8 +33,38 @@ export const DEFAULT_MINUTES = 30;
  *  20 minutes — an expanding schedule inside one program. */
 export const RETURNS_AT = [60, 240, 600, 1200] as const;
 
-/** Order a program. `items` is the queue, best first (saved, due, the day's
- *  fresh words, then the feed's order); the program takes as many as fit.
+/** Which words Hören plays, best first: the saved words, the day's fresh words,
+ *  the words reviewed today, then the feed's order. **Never a word with a card
+ *  that is due**, its own or a drill's (`gym:gender:…`), until Üben has asked it.
+ *
+ *  It used to play the briefing as built, which is saved, then *due*, then fresh,
+ *  so a learner listening over breakfast heard the answer minutes before Üben
+ *  asked for it, and FSRS credited the borrowed memory with a longer interval
+ *  (PANEL-2026-10-04). New words have no schedule to corrupt, and hearing them
+ *  first is real learning, so they stay. A due word comes back the moment it is
+ *  reviewed: it is then a word reviewed today. `held` counts what waited, so an
+ *  empty programme can say why. */
+export function listenOrder(
+  briefing: readonly string[], feed: readonly string[],
+  o: { due: ReadonlySet<string>; saved: (id: string) => boolean; reviewedToday: readonly string[]; max: number },
+): { ids: string[]; held: number } {
+  const ids: string[] = [];
+  const seen = new Set<string>();
+  const held = new Set<string>();
+  const take = (id: string) => {
+    if (seen.has(id) || ids.length >= o.max) return;
+    if (o.due.has(id)) { held.add(id); return; }
+    seen.add(id); ids.push(id);
+  };
+  for (const id of briefing) if (o.saved(id)) take(id);
+  for (const id of briefing) take(id);
+  for (const id of o.reviewedToday) take(id);
+  for (const id of feed) { if (ids.length >= o.max) break; take(id); }
+  return { ids, held: held.size };
+}
+
+/** Order a program. `items` is the queue, best first (see `listenOrder`); the
+ *  program takes as many as fit.
  *
  *  Time is estimated from `EST_SECONDS`, so a return lands *about* when it is
  *  meant to — the real clock comes from `walk.layout` once the clips exist.

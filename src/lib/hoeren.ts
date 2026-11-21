@@ -8,13 +8,14 @@
 // tap may take a minute (voices, synthesis, the render); the element remembers it
 // was allowed.
 import { useSyncExternalStore } from 'react';
-import { buildBriefing, isSaved, toggleSaved } from '../store.ts';
+import { buildBriefing, isSaved, toggleSaved, cardOf, dueGymIds, localDayKey } from '../store.ts';
+import { isDue, State } from '../srs.ts';
 import { BY_ID } from '../data/index.ts';
 import { loadDetailFor } from '../data/detail.ts';
 import { feedOrder } from '../views/Feed.tsx';
 import { ensureVoice, voiceStored, HD_VOICE_ID, EN_VOICE_ID } from './tts.ts';
 import { layout, clipsFor, promptOf, answerOf, type Placed, type WalkItem } from './walk.ts';
-import { listenProgram, indexAt, skipTarget, replayTarget, wordsIn, DEFAULT_MINUTES } from './listen.ts';
+import { listenProgram, listenOrder, indexAt, skipTarget, replayTarget, wordsIn, DEFAULT_MINUTES } from './listen.ts';
 import { canRenderWalk, missingClips, renderClips, renderTimeline, voiceFor } from './walkAudio.ts';
 import { claimAudio, releaseAudio, setInterruptHook } from './player.ts';
 import type { Word } from '../types.ts';
@@ -122,15 +123,25 @@ function exampleOf(w: Word): string | undefined {
 /** Saved words first, then the day's due and fresh words — the briefing's own
  *  order — then the feed's. Hearing a due word is what the feed already does
  *  (meaning shown, nothing graded), so Hören follows its precedent. */
-async function queue(): Promise<WalkItem[]> {
-  const ids: string[] = [];
-  const seen = new Set<string>();
-  const take = (id: string) => { if (!seen.has(id) && ids.length < MAX_WORDS) { seen.add(id); ids.push(id); } };
-  for (const id of buildBriefing().ids) take(id);
-  for (const w of feedOrder()) { if (ids.length >= MAX_WORDS) break; take(w.id); }
+async function queue(): Promise<{ items: WalkItem[]; held: number }> {
+  const now = Date.now();
+  const today = localDayKey();
+  // A word is held while its own card or any of its drill cards is due: hearing
+  // «der Tisch · the table» answers the gender drill as surely as the meaning.
+  const due = new Set(dueGymIds().map((g) => g.split(':').slice(2).join(':')));
+  const reviewedToday: string[] = [];
+  for (const [id, w] of BY_ID) {
+    if (w.kind !== 'word') continue;
+    const c = cardOf(id);
+    if (!c || c.state === State.New) continue;
+    if (isDue(c, now)) due.add(id);
+    else if (c.last_review && localDayKey(0, new Date(c.last_review)) === today) reviewedToday.push(id);
+  }
+  const { ids, held } = listenOrder(buildBriefing().ids, feedOrder().map((w) => w.id),
+    { due, saved: isSaved, reviewedToday, max: MAX_WORDS });
   const words = ids.map((id) => BY_ID.get(id)).filter((w): w is Word => !!w && w.kind === 'word');
   await loadDetailFor(words);
-  return words.map((w) => ({ id: w.id, de: answerOf(w.term), en: promptOf(w.en), example: exampleOf(w), isNew: false }));
+  return { held, items: words.map((w) => ({ id: w.id, de: answerOf(w.term), en: promptOf(w.en), example: exampleOf(w), isNew: false })) };
 }
 
 // ---- controls ------------------------------------------------------------------
@@ -155,9 +166,13 @@ async function prepare(gen: number, minutes: number, loop: boolean, consented: b
   const live = () => gen === generation;
   try {
     if (!canRenderWalk()) throw new Error('This browser can’t make audio offline, so Hören isn’t available here.');
-    const items = await queue();
+    const { items, held } = await queue();
     const pres = listenProgram(items, minutes);
-    if (!pres.length) throw new Error('No words at your level to play yet.');
+    if (!pres.length) {
+      throw new Error(held
+        ? 'Today’s words are waiting in Üben. Hören plays them once you’ve reviewed them.'
+        : 'No words at your level to play yet.');
+    }
     const keys = clipsFor(pres, [], items);
     if (!live()) return;
 

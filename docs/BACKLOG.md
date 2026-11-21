@@ -185,9 +185,9 @@
 > 1. **Owner:** Hören on the real iPhone — Safari and home screen, 30 min locked, silent
 >    switch, lock-screen next/previous, a speaker tap mid-programme. The result decides
 >    how soon the native shell comes.
-> 2. **Hören's order leaks the test.** It plays the day's *due* words before Üben asks
->    for them (`lib/hoeren.ts` `queue()`, briefing order). Make it saved → new →
->    reviewed today → due only after today's reviews. · S
+> 2. ~~**Hören's order leaks the test.**~~ ✅ 2026-11-21: `listenOrder` plays saved →
+>    new → reviewed today → the feed, and holds any word with a due card (word or
+>    drill) until it is reviewed. Not yet played on the simulator.
 > 3. **`persist()` and the backup nudge in Hören's consent tap.** The voices and clip
 >    cache add ~200 MB to the origin that holds the learner's history. · XS
 > 4. **Mini-player and sheet.** Stop moves into the sheet; the sheet stays open through

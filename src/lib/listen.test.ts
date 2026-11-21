@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { listenProgram, indexAt, skipTarget, replayTarget, wordsIn, RETURNS_AT, LISTEN_DURATIONS } from './listen.ts';
+import { listenProgram, listenOrder, indexAt, skipTarget, replayTarget, wordsIn, RETURNS_AT, LISTEN_DURATIONS } from './listen.ts';
 import { layout, clipsFor, EST_SECONDS, deKey, enKey, type WalkItem, type Presentation } from './walk.ts';
 
 const item = (n: number, example = true): WalkItem =>
@@ -98,5 +98,36 @@ describe('Hören controls — skip and replay, read against the clock', () => {
     expect(replayTarget(placed, placed[1].start + 3)).toBe(placed[1].start);
     expect(replayTarget(placed, placed[1].start + 0.5)).toBe(placed[0].start);
     expect(replayTarget(placed, 0)).toBe(0);
+  });
+});
+
+// Hören played the briefing as built, saved then *due* then fresh, so a learner
+// heard the answer minutes before Üben asked for it (PANEL-2026-10-04).
+describe('listenOrder — never the answer to a test still to come', () => {
+  const base = { saved: (id: string) => id.startsWith('s'), reviewedToday: [] as string[], max: 130 };
+
+  it('holds every due word, from the briefing and the feed alike', () => {
+    const { ids, held } = listenOrder(['s1', 'd1', 'd2', 'n1'], ['d1', 'f1', 'd3'],
+      { ...base, due: new Set(['d1', 'd2', 'd3']) });
+    expect(ids).toEqual(['s1', 'n1', 'f1']);
+    expect(held).toBe(3);
+  });
+
+  it('plays saved, then fresh, then reviewed today, then the feed', () => {
+    const { ids } = listenOrder(['n1', 's1', 'n2'], ['f1', 'n1'],
+      { ...base, due: new Set(), reviewedToday: ['r1'] });
+    expect(ids).toEqual(['s1', 'n1', 'n2', 'r1', 'f1']);
+  });
+
+  it('a word reviewed today is no longer held', () => {
+    const before = listenOrder(['d1'], [], { ...base, due: new Set(['d1']) });
+    const after = listenOrder([], [], { ...base, due: new Set(), reviewedToday: ['d1'] });
+    expect(before.ids).toEqual([]);
+    expect(after.ids).toEqual(['d1']);
+  });
+
+  it('stops at max', () => {
+    const { ids } = listenOrder(['n1', 'n2', 'n3'], ['f1'], { ...base, due: new Set(), max: 2 });
+    expect(ids).toEqual(['n1', 'n2']);
   });
 });
