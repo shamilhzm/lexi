@@ -583,6 +583,19 @@ Merging 874 duplicate groups improved matcher accuracy **with `matcher.ts` untou
 verb 0.75 → 0.97, plural 0.84 → 0.995, adjective 0.84 → 0.935. The measurement bug and
 the product bug had the same root.
 
+### 2026-11-21 — *der Tag* was "borrowed from English"
+
+**Believed:** a Wiktionary entry keyed by word and part of speech is one word, so its
+etymology can be joined to a card on those two fields (`corpus:transfer`'s first run).
+**True:** *Tag* has two masculine noun entries: the inherited *der Tag, die Tage* and the
+loan *der Tag, die Tags* (a tag). The join merged them, and *Tag, Tee, Bus, Post* came
+out as English loans. The first six A1 examples showed it. Separately, one entry's
+`cog|en` template named a Dutch word (*woning*), so a template's language code is not
+proof of the language either.
+**Rule:** join a dictionary entry to a card on every field that tells homographs apart.
+For a noun that means the gender **and the plural**. Trust a cognate only when the
+entry's own prose names it as English.
+
 ---
 
 ## Class 4 — an id is a promise, and moving one breaks it silently

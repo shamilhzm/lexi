@@ -40,6 +40,11 @@
 >    - the `#/w/<id>` word route and `/wort/` as a document path in `public/sw.js` · S
 >    - `scripts/pages/build.ts`, `pages.css` and the tests, shipped with `noindex` · M
 >    - canonical URLs, the sitemap and Search Console, once the domain is settled · S
+> 4. **What the web makes possible** ([LEARNING-WEB.md](LEARNING-WEB.md), research). Its
+>    first proposal needs an owner ruling: **the transfer line** on cards. `npm run
+>    corpus:transfer` finds 31.1% of A1 cards recognisable to an English reader and
+>    14.1% more with an English cognate the gloss never shows. Lexi uses none of this
+>    except 36 hand-listed false friends.
 >
 > ---
 >
