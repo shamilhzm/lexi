@@ -29,6 +29,13 @@ scripts/*
 !scripts/marketing
 scripts/marketing/*
 !scripts/marketing/publicCopyPlugin.ts
+# The word pages run after `vite build` (`npm run build`), and read the published
+# slugs and redirects beside them so no published page 404s (2026-11-21).
+!scripts/pages
+scripts/pages/*
+!scripts/pages/build.ts
+!scripts/pages/published.txt
+!scripts/pages/redirects.json
 
 # Local-only material, gitignored too: DaF textbook scans and design screenshots
 # (~444 MB), the source for the A1/A2 corpus work.

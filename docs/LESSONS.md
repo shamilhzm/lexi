@@ -1760,6 +1760,13 @@ the panel merge failed with "Could not resolve" while CI passed.
 `scripts/vercelignore.test.ts` now checks every relative import in `vite.config.ts`.
 And a green CI is not a deploy: read the deploy's own build log before saying it shipped.
 
+**Again, 2026-11-21.** `npm run build` gained `node scripts/pages/build.ts`, and the
+deploy of 1934d5e failed with "Cannot find module" while CI, the local build and the
+pre-push checks all passed. The test guarded what `vite.config.ts` imports, not what
+the build script runs, so it was a one-instance rule. Production stayed on 119c5a6;
+nothing broke for learners. **Rule, widened:** the test now reads `package.json`'s
+`build` script and checks every file it runs, and the files those read beside them.
+
 ## A model of a matcher is a second matcher, and it drifts *(added 2026-10-02)*
 
 `node scripts/costs.ts` §5 reported the deploy upload as **1,767.2 MB of 100 MB, 4,790
