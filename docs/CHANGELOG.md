@@ -35,6 +35,8 @@ Checked: all 11,330 positions carry the same rank as the old map. In the browser
 app primes 10,880 ranks (*sein* 4, *grillen* 8,451) with no warning. 2,422 tests pass;
 `validate --strict` PASS; budget PASS.
 
+**Deployed** 2026-11-21 by `git push` as 482f2d5 over 469ef23 (`version.json` builtAt 2026-11-21T12:41:00Z). Production's `cards.json` hashes to the `freq.json` hash (`e086e59d`), and no mismatch warning is logged.
+
 ### 2026-11-21 · 21 more verbs show, and are asked, the preposition they take
 
 **What shipped.** Each of these cards had no example using its verb with its
