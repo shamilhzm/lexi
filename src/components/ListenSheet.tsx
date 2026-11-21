@@ -11,9 +11,18 @@ import { LISTEN_DURATIONS } from '../lib/listen.ts';
 import Layer from './Layer.tsx';
 import Button from './ui/Button.tsx';
 import Kicker from './ui/Kicker.tsx';
+import { lastBackup, localDayKey } from '../store.ts';
+import { useStore } from '../useStore.ts';
+import { downloadBackup } from '../lib/backup.ts';
+
+/** No backup in this many days, and the consent step offers one. */
+const BACKUP_STALE_DAYS = 14;
 
 export default function ListenSheet({ onClose, onPractise }: { onClose: () => void; onPractise: () => void }) {
   const h = useHoeren();
+  useStore(); // `lastBackup` changes when a backup is taken
+  const last = lastBackup();
+  const backupStale = !last || last < localDayKey(BACKUP_STALE_DAYS);
   const [minutes, setMinutes] = useState<number>(h.minutes);
   const busy = h.phase === 'preparing';
   const live = h.phase === 'playing' || h.phase === 'paused' || h.phase === 'ready';
@@ -50,7 +59,23 @@ export default function ListenSheet({ onClose, onPractise }: { onClose: () => vo
             <p className="text-sm leading-relaxed max-w-[42ch] mb-3">
               Hören makes its audio on this phone, so Lexi hosts none. The first time, it downloads a German and an English voice (<strong className="tabular-nums">{h.needMb} MB</strong>). After that it works offline. Wi-Fi recommended.
             </p>
-            <Button onClick={() => start({ minutes, loop: h.loop, consented: true })}>
+            {/* The voices land in the same origin as the learner's only copy of
+                their progress, and a browser short of space evicts an origin whole.
+                So the tap that adds 138 MB also asks for durable storage, and, if
+                there is no recent backup, offers one first (PANEL-2026-10-04 #3). */}
+            {backupStale && (
+              <p className="text-dim text-xs leading-relaxed max-w-[42ch] mb-3">
+                Your progress is kept on this phone too.{' '}
+                <button type="button" className="underline underline-offset-2 text-txt hover:text-accent" onClick={() => { void downloadBackup(); }}>
+                  Save a backup
+                </button>{' '}
+                before adding the voices.
+              </p>
+            )}
+            <Button onClick={() => {
+              start({ minutes, loop: h.loop, consented: true }); // unlocks audio: first, inside the tap
+              navigator.storage?.persist?.().catch(() => {});
+            }}>
               <Play size={14} /> Download the voices and play
             </Button>
           </div>
@@ -96,7 +121,7 @@ export default function ListenSheet({ onClose, onPractise }: { onClose: () => vo
         </div>
 
         <p className="text-dim text-2xs mt-6 max-w-[42ch]">
-          Hören plays your saved words first, then the day’s words, then the feed’s. It never grades and records nothing. The bookmark on the player saves a word, and Üben teaches it next.
+          Hören plays your saved words first, then the day’s new words and the ones you reviewed today, then the feed’s. A word due for review waits until Üben has asked it, so you never hear the answer first. It never grades and records nothing. The bookmark on the player saves a word, and Üben teaches it next.
         </p>
       </div>
     </Layer>

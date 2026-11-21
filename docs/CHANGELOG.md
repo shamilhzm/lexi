@@ -11,6 +11,29 @@ it is already built.
 
 ---
 
+### 2026-11-21 · Hören: one loudness, and the voices' tap protects the progress
+
+**What shipped.** PANEL-2026-10-04 items 3 and 6.
+
+- **Every clip is scaled to one speech level** (`lib/loudness.ts`, about -16 dBFS RMS
+  over the voiced 10 ms frames). Piper's German and English voices came out at
+  different levels, and one voice varied from word to word, so a listener rode the
+  volume, and on earbuds the quiet clips were lost. Silence at either end is not
+  counted, so a short word is not boosted more than a long sentence. The gain stops
+  at a 0.98 peak and at 8×, so a near-silent render fault is not raised into noise.
+  It is idempotent, so clips cached before today are normalised on every read and
+  new ones are cached normalised.
+- **The tap that downloads 138 MB of voices also asks for durable storage.** The
+  voices land in the same origin as the learner's only copy of their progress, and a
+  browser short of space evicts an origin whole. With no backup in 14 days, the
+  consent step offers *Save a backup* first.
+- **The sheet describes the order it now plays**, including that a word due for
+  review waits for Üben (the previous entry).
+
+Four tests on the loudness maths; 2,417 tests pass; budget PASS. The consent step was
+read in the browser pane (DOM text, `?seed=b1`), not seen on the phone, and the
+loudness has not been heard on a device.
+
 ### 2026-11-21 · Hören no longer plays the answer before Üben asks
 
 **What shipped.** Hören built its programme from the briefing as it stood: saved
@@ -31,6 +54,8 @@ on the simulator for this change.
 
 **Why.** Hören records nothing so that it cannot corrupt the schedule. Playing due
 words corrupted it anyway, from the other side.
+
+**Deployed** 2026-11-21 by `git push` as 9745ccb over af4fccc (`version.json` builtAt 2026-11-21T11:54:16Z).
 
 ### 2026-11-21 · the preposition drill stops marking German wrong, and 21 more verbs
 

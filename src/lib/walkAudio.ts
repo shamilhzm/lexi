@@ -21,6 +21,7 @@
 import { synthesize, HD_VOICE_ID, EN_VOICE_ID } from './tts.ts';
 import { TONE_SECONDS, type Segment } from './walk.ts';
 import { readClips, writeClip, pruneClips } from './clipCache.ts';
+import { normaliseLoudness } from './loudness.ts';
 
 const RATE = 16000;
 const CHUNK_SECONDS = 300;
@@ -59,10 +60,12 @@ export async function renderClips(keys: string[], onProgress?: (f: number) => vo
       const buf = decoder.createBuffer(1, Math.max(1, hit.length), RATE);
       const ch = buf.getChannelData(0);
       for (let i = 0; i < hit.length; i++) ch[i] = hit[i] / 0x8000;
+      normaliseLoudness(ch, RATE); // clips cached before 2026-11-21 are raw; a gain of 1 otherwise
       out.set(key, buf);
     } else {
       const wav = await synthesize(key.slice(3), voiceFor(key));
       const buf = await decoder.decodeAudioData(await wav.arrayBuffer());
+      normaliseLoudness(buf.getChannelData(0), buf.sampleRate);
       out.set(key, buf);
       void writeClip(cacheKey(key), toInt16(buf.getChannelData(0)));
     }

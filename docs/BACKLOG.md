@@ -188,12 +188,12 @@
 > 2. ~~**Hören's order leaks the test.**~~ ✅ 2026-11-21: `listenOrder` plays saved →
 >    new → reviewed today → the feed, and holds any word with a due card (word or
 >    drill) until it is reviewed. Not yet played on the simulator.
-> 3. **`persist()` and the backup nudge in Hören's consent tap.** The voices and clip
->    cache add ~200 MB to the origin that holds the learner's history. · XS
+> 3. ~~**`persist()` and the backup nudge in Hören's consent tap.**~~ ✅ 2026-11-21.
 > 4. **Mini-player and sheet.** Stop moves into the sheet; the sheet stays open through
 >    preparing; replace *where you were*; a one-time hint naming 🎧 *Hören*. · XS
 > 5. **Lazy-load Hören** (engine, sheet, Practise aloud): the entry is 263.9 of 280 KB. · S
-> 6. **Loudness-normalise clips** in `renderClips`. · XS
+> 6. ~~**Loudness-normalise clips** in `renderClips`.~~ ✅ 2026-11-21, `lib/loudness.ts`;
+>    not yet heard on a device.
 >
 > **Next:**
 > - **Hosted MP3 clip packs**, concatenated with no render step and an ASR-gated build.
