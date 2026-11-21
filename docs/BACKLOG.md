@@ -23,6 +23,26 @@
 >
 > ---
 >
+> ## Web first — open work *(2026-11-21)*
+>
+> *VISION ruled that the web is the product and a native shell only wraps it. The
+> ruling names three places where the web falls short of the promise; this is that
+> work, in order. The four-week freeze below still holds: nothing here starts before
+> it ends unless it is a fix.*
+>
+> 1. **Owner: name and domain.** This was already owner decision 1, and the ruling makes
+>    it block the pages' launch as well as the stores.
+> 2. **Storage durability on a real iPhone** (item #36 below). A Safari tab left for a
+>    week, then a home-screen install left for a week. Then decide where the install
+>    step is offered to protect progress. · S · 📱
+> 3. **A page per headword** ([PAGES.md](PAGES.md)). `npm run pages:measure` sized it:
+>    11,153 pages for 11,220 cards. In order:
+>    - the `#/w/<id>` word route and `/wort/` as a document path in `public/sw.js` · S
+>    - `scripts/pages/build.ts`, `pages.css` and the tests, shipped with `noindex` · M
+>    - canonical URLs, the sitemap and Search Console, once the domain is settled · S
+>
+> ---
+>
 > ## Left open by the 2026-11-20 persona pass — ✅ all five closed 2026-11-21
 >
 > The blind-spot logs, the conjugator (33 verbs, not 23), *die Geraden*, the blank cloze

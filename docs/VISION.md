@@ -430,6 +430,44 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   life both mix the registers, and a switch invited learners to skip half of the
   German they will meet. The test holds the balance (four units each) and the
   alternation.
+- **The web is the product, and a native shell only wraps it** *(2026-11-21; makes
+  STORES.md's "web first" a ruling)*. **What it settles.** Lexi is a website before it
+  is anything else: one origin, one build, one codebase, and a URL is how a learner
+  arrives, installs and comes back. A store copy (a Play TWA, an iOS Capacitor app,
+  STORES.md) is that same build in a wrapper, never a fork. A wrapper may add only what
+  the web cannot do for a local-first app: storage that Safari does not evict, a
+  notification that fires with no server, and the OS's own surfaces (lock-screen audio
+  for Hören, widgets, the Türsteher's gate). Each of those is a **door** into the same
+  app. Anything a door grades goes through the same drills and the same FSRS store as
+  the web, so a word answered on a widget is the word Üben schedules.
+
+  *Why.* The promise is more German words, and the platform is not what holds it back.
+  The next reframe waits on five learners who are not the owner, and a link is the
+  quickest way to reach them. Every surface that exists only in a shell splits the
+  testing (the simulator already cannot answer the locked-phone questions) and turns
+  STORES.md's order around. Commitment 4 points the same way: open source is most real
+  when anyone can open the thing with a link and read the corpus without installing
+  anything.
+
+  *What it costs, said plainly.* Until a shell exists, Hören may stop when the phone
+  locks, no reminder fires with the app closed, and a learner who never adds Lexi to the
+  home screen can lose their progress to Safari's storage eviction.
+
+  *What it obliges, in order.* These are the three places where the web falls short of
+  commitments 2 and 3: **(1) the name and domain**, because on the web the address is
+  the account; **(2) storage durability proven on a real iPhone**, with the install step
+  offered wherever it protects progress; **(3) a website that search can read.** Today
+  every route is a `#/…` fragment, which a crawler ignores, so none of the 11,220
+  verified cards can be found from a search box. A static page per headword fixes that
+  ([PAGES.md](PAGES.md)).
+
+  *Forbids:* logic that lives only in a shell. A store build whose data or drills differ
+  from the web's in anything except what STORES.md switches off and records. A
+  published URL that later 404s (the rule `route.ts` already keeps for retired hashes).
+
+  *Leaves open:* push notifications (commitment 3, still undecided), accounts (open
+  decision 1), and **when** a shell is built. STORES.md's conditions still decide that;
+  this ruling decides only that the shell wraps.
 
 ---
 

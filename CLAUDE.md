@@ -37,6 +37,11 @@ feed: tap any word → a **card** (save with provenance / practise / entry) or a
 corrects write-backs; it never scores and never writes a card field. See VISION,
 *Stories join the feed* and *An optional tutor*.
 
+**The web is the product** *(2026-11-21)*. A native shell (`docs/STORES.md`) only wraps
+the web build and never forks it: any door it adds (a widget, the gate, lock-screen
+audio) grades through the same drills and store. The web's open work is in VISION and
+`docs/PAGES.md`.
+
 **Before you deploy:** read what production is running (`vercel inspect <prod-url>
 --logs`) and confirm your tree contains it. A stale `main` was deployed over this line on
 2026-09-24 — see LESSONS, *The tree you were handed*.

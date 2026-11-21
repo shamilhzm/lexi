@@ -11,6 +11,7 @@
     "preview": "vite preview --host --port 4318",
     "typecheck": "tsc --noEmit",
     "og:image": "node scripts/marketing/og-image.ts",
+    "pages:measure": "node scripts/pages/measure.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "corpus:fetch": "node scripts/corpus/fetch.ts",
