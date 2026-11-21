@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### 2026-11-21 · the C1 prelude: the Latin you already read
+
+**What shipped.** A second prelude film, *Das Latein, das du liest*, before C1's first
+unit. It uses a new `suffix` beat: German cards beside the English word their own gloss
+holds, one shared Latinate ending marked in both (*Universität · university*), and the
+live count of such pairs among the cards. `suffixPairs` in `films/measure.ts` finds
+them; nothing in the film is typed but the explanation. Five endings (-tion, -ität,
+-ie, -ell, -ieren), a pattern beat for the article (-tion, -ität, -ie are *die*), a
+guess (*Kreativität* against *Kreatur* and *Kreation*) and *aktuell* as the trap.
+
+**Why.** The A1 prelude shows the Germanic words English shares. At C1 the shared
+words are the Latin and French ones, and their endings carry over almost unchanged.
+Naming that turns a wall of long abstract nouns into words the learner can already
+half read. It was the C1 companion proposed in LEARNING-WEB.
+
+**Caught on the way.** The first matcher paired *Appell* with *appeal* and *Chemie*
+with *chemistry*, and counted *das Musizieren* as an -ieren verb. It now needs a long
+shared stem, a near-equal length and, for -ieren, a verb. `films.test.ts` keeps those
+three wrong and asserts every term's stress falls on the ending, from its IPA. On the
+phone the first layout broke long words mid-word and pushed the count under *Weiter*;
+each pair is now one row that wraps whole.
+
+**Checks.** Typecheck, 2,474 tests in 116 files, build, `budget.ts` (entry 282.7 of
+285 KB, boot set 792.1 of 860 KB) and `corpus:validate --strict` pass. All ten beats
+played on the iPhone 17 Pro simulator with the `a1` seed. Not deployed.
+
 ### 2026-11-21 · what an English speaker already owns: the transfer line, a first film, word pages, a release, the keyboard
 
 **What shipped.** The first four proposals of `docs/LEARNING-WEB.md`, and the first
@@ -54,7 +80,13 @@ link's entry survived a tab switch because `go()` did not know about it (LESSONS
 **Checks.** Typecheck, 2,469 tests in 116 files, build, `budget.ts` (entry 282.7 of
 285 KB, boot set 792.1 of 860 KB) and `corpus:validate --strict` all pass. Driven
 on the iPhone 17 Pro simulator with the `a1` seed: the prelude film, the shift beats,
-the guess, two word links and the entry's English line. **Not deployed.**
+the guess, two word links and the entry's English line.
+
+**Deployed as 83adc29**, not 1934d5e. Vercel's build of 1934d5e failed: `npm run build`
+now runs `scripts/pages/build.ts`, and `.vercelignore` drops `scripts/`. Production
+stayed on 119c5a6 until 83adc29 re-included the page builder, with a test that reads
+the build command and fails on the old ignore file (LESSONS, *CI builds from git*).
+Production read 83adc29, built 2026-11-21T18:14:46Z.
 
 ### 2026-11-21 · the web is the product: a ruling, and a plan for a page per headword
 

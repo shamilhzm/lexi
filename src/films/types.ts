@@ -64,6 +64,11 @@ export type Beat =
    *  the count all come from `transfer.json`; `rule` names one of its rules, and a
    *  test fails if a card stops carrying it. */
   | { kind: 'shift'; line: string; rule: string; terms: string[] }
+  /** German cards beside the English word their gloss holds, one shared Latinate
+   *  ending marked in both (German -ität, English -ity). The English word and the
+   *  count are measured live by `suffixPairs` in `measure.ts`, never typed; `en` is
+   *  '' where English drops the ending (-ieren: *organisieren · organise*). */
+  | { kind: 'suffix'; line: string; de: string; en: string; terms: string[] }
   /** The hand-off to the unit's words. */
   | { kind: 'outro'; line: string };
 

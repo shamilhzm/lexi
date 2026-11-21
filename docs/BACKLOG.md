@@ -45,8 +45,9 @@
 >    proposals, as they stand after 2026-11-21:
 >    - ✅ **The transfer line** (VISION, *The transfer line*): 897 cards, 10 named sound
 >      patterns, on the reveal, the entry and the word pages.
->    - ✅ **The A1 film *Was du schon kannst*** as the course's first prelude.
->      Open: **a Latinate companion at C1** (*-tion*, *-ität*, *-ieren*), same beat.
+>    - ✅ **The A1 film *Was du schon kannst*** as the course's first prelude, and ✅
+>      **its Latinate companion at C1**, *Das Latein, das du liest* (a `suffix` beat:
+>      -tion, -ität, -ie, -ell, -ieren, measured from each card's gloss).
 >    - ✅ **The corpus release** (`npm run corpus:release`, CITATION.cff). Open for the
 >      **owner**: where it is hosted, and whether to mint a DOI (Zenodo). Publish only
 >      from a clean tree; the version says `.dirty` otherwise.

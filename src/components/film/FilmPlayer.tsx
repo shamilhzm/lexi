@@ -26,7 +26,7 @@ import Kicker from '../ui/Kicker.tsx';
 import { GenderTerm, InkedArticle, SpeakButton, fitStyle } from '../Reveal.tsx';
 import { cardByTerm, filmTerms } from '../../data/course.ts';
 import { loadDetailFor } from '../../data/detail.ts';
-import { countEnding } from '../../films/measure.ts';
+import { countEnding, suffixMatch, suffixPairs } from '../../films/measure.ts';
 import { speak } from '../../lib/tts.ts';
 import { genderColor, haptic } from '../../lib/ui.ts';
 import { shownTerm } from '../../lib/focus.ts';
@@ -187,6 +187,7 @@ function render(beat: Beat, picked: number | undefined, onPick: (k: number) => v
     case 'say': return <><Line>{beat.line}</Line><SayBeat de={beat.de} en={beat.en} /></>;
     case 'chart': return <><Line>{beat.line}</Line><ChartBeat bars={beat.bars} de={beat.de} en={beat.en} /></>;
     case 'shift': return <><Line>{beat.line}</Line><ShiftBeat rule={beat.rule} terms={beat.terms} /></>;
+    case 'suffix': return <><Line>{beat.line}</Line><SuffixBeat de={beat.de} en={beat.en} terms={beat.terms} /></>;
     case 'outro': return <OutroBeat line={beat.line} wordCount={wordCount} onStudy={onStudy} onDone={onDone} />;
   }
 }
@@ -678,6 +679,49 @@ function ShiftBeat({ rule, terms }: { rule: string; terms: string[] }) {
         </p>
       )}
     </div>
+  );
+}
+/** German beside English, one Latinate ending marked in both. The English word is
+ *  the card's own gloss word and the count is every such pair in the corpus, both
+ *  measured here (`films/measure.ts`), so nothing on the slide is typed by hand. */
+function SuffixBeat({ de, en, terms }: { de: string; en: string; terms: string[] }) {
+  const n = useMemo(() => suffixPairs(de, en).length, [de, en]);
+  return (
+    <div>
+      <ul>
+        {terms.map((t, k) => {
+          const w = cardByTerm(t);
+          const m = w ? suffixMatch(bare(w.term), w.en, de, en) : null;
+          return <SuffixRow key={t} term={t} en={m ?? undefined} mark={[`${de}$`, en ? `${en}$` : '']} delay={0.12 * k} />;
+        })}
+      </ul>
+      <p className="text-2xs text-dim mt-3">
+        German <b lang="de" className="text-txt">-{de}</b>, {en ? <>English <b className="text-txt">-{en}</b></> : 'an English verb'}:{' '}
+        {n} pairs among the words Lexi teaches.
+      </p>
+    </div>
+  );
+}
+/** A suffix pair on one line when it fits, the English moving whole to the next when
+ *  it does not. Latinate words are long, and on a phone the shift grid broke them
+ *  mid-word (*Kommunika·tion*) and parted the article from its noun (2026-11-21). */
+function SuffixRow({ term, en, mark, delay }: { term: string; en?: string; mark: [string, string]; delay: number }) {
+  const w = cardByTerm(term);
+  const a = useIn(delay); const b = useIn(delay + 0.2);
+  if (!w) return null;
+  const art = /^(der|die|das)\s+/i.exec(w.term)?.[1];
+  return (
+    <li className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 py-2 border-b border-line last:border-0">
+      <motion.button {...a} onClick={() => speak(w.term)} lang="de"
+        className="headword text-lg font-bold text-left whitespace-nowrap">
+        {art && <span style={w.gender ? { color: genderColor(w.gender) } : undefined}>{art} </span>}
+        <Marked text={bare(w.term)} source={mark[0]} flags="gi" />
+      </motion.button>
+      <motion.span {...b} className="headword text-lg font-bold whitespace-nowrap">
+        <span className="text-dim font-normal" aria-hidden>→ </span>
+        {en ? <Marked text={en} source={mark[1] || undefined} /> : <span className="text-dim" aria-hidden>…</span>}
+      </motion.span>
+    </li>
   );
 }
 function ShiftRow({ term, en, mark, delay }: { term: string; en?: string; mark?: [string, string]; delay: number }) {

@@ -11,7 +11,7 @@ import { registerWords } from '../data/index.ts';
 import { primeFreq, ranksOrThrow } from '../lib/freq.ts';
 import { COURSE, PRELUDES, UNIT_SIZE, unitsFor, unitCards, cardByTerm, leadTerms } from '../data/course.ts';
 import { FILMS, FILM_BY_ID } from './films.ts';
-import { countEnding } from './measure.ts';
+import { countEnding, suffixMatch, suffixPairs } from './measure.ts';
 import { splitMarks, pluralShape, markSpans } from '../components/film/FilmPlayer.tsx';
 import type { TransferData } from '../lib/transfer.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
@@ -141,7 +141,7 @@ describe('every film', () => {
       if (b.kind === 'plural') named.push(...b.terms);
       if (b.kind === 'compound') named.push(...b.parts, b.whole);
       if (b.kind === 'scale') for (const s of b.steps) if (s.term) named.push(s.term);
-      if (b.kind === 'shift') named.push(...b.terms);
+      if (b.kind === 'shift' || b.kind === 'suffix') named.push(...b.terms);
       for (const t of named) if (!cardByTerm(t)) missing.push(`${f.id}: ${t}`);
     }
     expect(missing).toEqual([]);
@@ -201,6 +201,40 @@ describe('every film', () => {
         expect(markSpans(en, r.mark[1]).some((p) => p.on), `${f.id}: nothing to mark in ${en}`).toBe(true);
       }
     }
+  });
+
+  it('shows a Latinate ending only on pairs the corpus measures, stressed where the line says', () => {
+    for (const f of FILMS) for (const b of f.beats) {
+      if (b.kind !== 'suffix') continue;
+      // Enough pairs that "German -x is English -y" is the honest summary.
+      expect(suffixPairs(b.de, b.en).length, `${f.id}: -${b.de}`).toBeGreaterThanOrEqual(12);
+      expect(b.terms.length, f.id).toBeGreaterThanOrEqual(3);
+      for (const t of b.terms) {
+        const w = card(t);
+        expect(suffixMatch(bare(w.term), w.en, b.de, b.en), `${f.id}: ${t} · ${w.en}`).not.toBeNull();
+        // The narration says German stresses these endings: the IPA's last primary
+        // stress falls inside the final syllables, never on a compound's first part.
+        const ipa = (w.ipa ?? '').replace(/ˌ/g, '');
+        expect(ipa.lastIndexOf('ˈ'), `${f.id}: ${t} has no stress mark`).toBeGreaterThan(0);
+        expect(ipa.length - ipa.lastIndexOf('ˈ'), `${f.id}: ${t} ${ipa} is not stressed on the ending`).toBeLessThanOrEqual(10);
+      }
+    }
+  });
+
+  it('measures the C1 prelude’s pairs as its guess names them', () => {
+    const k = card('die Kreativität');
+    expect(suffixMatch(bare(k.term), k.en, 'ität', 'ity')).toBe('creativity');
+    const c = card('die Kreatur');
+    expect(suffixMatch(bare(c.term), c.en, 'ur', 'ure')).toBe('creature');
+    expect(suffixPairs('ur', 'ure').length).toBeGreaterThanOrEqual(12);
+  });
+
+  it('keeps the measure honest on the pairs it once got wrong', () => {
+    // Hand-read 2026-11-21: accidents of a short stem, a different ending, a noun.
+    expect(suffixMatch('Appell', 'appeal', 'ell', 'al')).toBeNull();
+    expect(suffixMatch('Chemie', 'chemistry', 'ie', 'y')).toBeNull();
+    expect(suffixPairs('ieren', '').some((p) => /^das /.test(p.term))).toBe(false);
+    expect(suffixMatch('aktuell', card('aktuell').en, 'ell', 'al')).toBeNull();
   });
 
   it('says only what transfer.json holds in the prelude’s guess', () => {

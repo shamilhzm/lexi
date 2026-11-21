@@ -628,6 +628,36 @@ export const FILMS: Film[] = [
     ],
   },
 
+  // ---- C1: the prelude, before unit 1 ----------------------------------------
+  // Most new words at C1 came from Latin and French. Wiktionary does not call them
+  // English relatives, so the transfer line is silent on them; their endings are
+  // not. Every pair and count on these slides is measured (`suffixPairs`).
+  {
+    id: 'c1-latein', title: 'Das Latein, das du liest', minutes: 3,
+    beats: [
+      { kind: 'title', title: 'Das Latein, das du liest',
+        line: 'English and German both took thousands of words from Latin and French. You will meet many of them at C1, and their endings tell you the English.' },
+      { kind: 'suffix', de: 'tion', en: 'tion', terms: ['die Situation', 'die Tradition', 'die Information', 'die Kommunikation'],
+        line: 'Some endings did not change at all. German -tion is English -tion. Tap one: German stresses the ending.' },
+      { kind: 'suffix', de: 'ität', en: 'ity', terms: ['die Universität', 'die Qualität', 'die Realität', 'die Identität'],
+        line: 'Where English has -ity, German has -ität, stressed the same way.' },
+      { kind: 'suffix', de: 'ie', en: 'y', terms: ['die Theorie', 'die Industrie', 'die Energie', 'die Demokratie'],
+        line: 'English -y is often German -ie. In these words it is a long ee, and it takes the stress.' },
+      { kind: 'pattern', endings: ['tion', 'ität', 'ie'], claim: 'die',
+        line: 'These endings also give you the article. Lexi counted every noun it teaches with them: almost all are die.' },
+      { kind: 'suffix', de: 'ell', en: 'al', terms: ['offiziell', 'finanziell', 'kulturell', 'traditionell'],
+        line: 'Adjectives in -ell are often English words in -al.' },
+      { kind: 'suffix', de: 'ieren', en: '', terms: ['organisieren', 'analysieren', 'investieren', 'akzeptieren'],
+        line: 'A verb in -ieren is usually an English verb with a German ending.' },
+      { kind: 'choice', prompt: 'Welches Wort ist creativity?', options: ['Kreativität', 'Kreatur', 'Kreation'], answer: 0,
+        line: 'Guess first. Which of these is the English creativity?',
+        reveal: 'Kreativität. English -ity is German -ität. Kreatur is a creature: -ure is often -ur.' },
+      { kind: 'trap', term: 'aktuell',
+        line: 'A few look like an English word and mean something else. Lexi marks each one.' },
+      { kind: 'outro', line: 'When a word looks Latin, read the ending first, then check the meaning on the card.' },
+    ],
+  },
+
   // ---- C1: Kern --------------------------------------------------------------
   {
     id: 'c1-fvg', title: 'Funktionsverbgefüge', minutes: 3,

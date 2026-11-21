@@ -97,11 +97,12 @@ kinds (`src/films/types.ts`):
 | `say` | One written German line and its English | Written |
 | `chart` | A small bar chart and the sentence for it | Written |
 | `shift` | German beside English, one sound correspondence marked in both (z ↔ t) | `transfer.json`: the English word, the marks and the count |
+| `suffix` | German beside English, one Latinate ending marked in both (-ität ↔ -ity) | `suffixPairs` in `films/measure.ts`: the card's own gloss word, and the count of every such pair |
 | `outro` | The hand-off to the unit's words | — |
 
 **The contract** (`src/films/films.test.ts`, which fails the suite if any breaks): every
 named card exists; gender beats ask only nouns; plurals exist and begin with *die*;
-traps are in the false-friends list; every `shift` pair carries its rule in `transfer.json`, marked on both sides; every pattern's claimed article is the corpus's
+traps are in the false-friends list; every `shift` pair carries its rule in `transfer.json`, marked on both sides; every `suffix` ending holds over ≥ 12 measured pairs, and each shown word's gloss is one of them and its IPA stresses the ending; every pattern's claimed article is the corpus's
 majority at ≥ 85% over ≥ 15 nouns; compounds are what they say they are and take the
 last part's article; every example quotes a sentence the card really has, marks
 included; choices are answerable; a film opens with a title, closes with an outro and
@@ -110,7 +111,9 @@ has 5–10 beats; the player imports nothing from the store but `markFilmSeen`.
 **A prelude** is a film with no unit, shown before a level's unit 1 (`PRELUDES` in
 `data/course.ts`). A1 has one, *Was du schon kannst*: the German an English speaker
 already owns, which explains how to read every unit after it and so belongs to none.
-It has no words and no session, and the plan stays eight units a level.
+It has no words and no session, and the plan stays eight units a level. C1 has the
+second, *Das Latein, das du liest*: many of its new words are Latin and French, which
+Wiktionary does not call English relatives, so it reads them by their endings instead.
 
 **Before adding one:** link it from its unit (`film:` in `data/course.ts`), run
 `npm test`, then **play it on the iPhone simulator** — three layout defects in the first

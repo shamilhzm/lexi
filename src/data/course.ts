@@ -58,6 +58,9 @@ export interface Unit {
  *  the plan stays eight units a level. */
 export const PRELUDES: Partial<Record<CEFR, { film: string; title: string; en: string }>> = {
   A1: { film: 'a1-vorspann', title: 'Was du schon kannst', en: 'The German you already know' },
+  // C1's new words are mostly Latin and French, which Wiktionary does not call
+  // English relatives, so the transfer line reaches 2.5% of them. Their endings do.
+  C1: { film: 'c1-latein', title: 'Das Latein, das du liest', en: 'The Latin you already read' },
 };
 
 const u = (level: CEFR, id: string, title: string, en: string, focus: string, sectors: string[],
@@ -210,7 +213,7 @@ export function filmTerms(film: Film): string[] {
     if (b.kind === 'compound') out.push(...b.parts, b.whole);
     if (b.kind === 'pair') out.push(...b.left.items, ...b.right.items);
     if (b.kind === 'scale') for (const s of b.steps) if (s.term) out.push(s.term);
-    if (b.kind === 'shift') out.push(...b.terms);
+    if (b.kind === 'shift' || b.kind === 'suffix') out.push(...b.terms);
   }
   return out.filter((t) => !!cardByTerm(t));
 }
