@@ -9,15 +9,17 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { registerWords } from '../data/index.ts';
 import { primeFreq, ranksOrThrow } from '../lib/freq.ts';
-import { COURSE, UNIT_SIZE, unitsFor, unitCards, cardByTerm, leadTerms } from '../data/course.ts';
+import { COURSE, PRELUDES, UNIT_SIZE, unitsFor, unitCards, cardByTerm, leadTerms } from '../data/course.ts';
 import { FILMS, FILM_BY_ID } from './films.ts';
 import { countEnding } from './measure.ts';
-import { splitMarks, pluralShape } from '../components/film/FilmPlayer.tsx';
+import { splitMarks, pluralShape, markSpans } from '../components/film/FilmPlayer.tsx';
+import type { TransferData } from '../lib/transfer.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
 import { ALL_LEVELS, type Word } from '../types.ts';
 
 const corpus: Word[] = JSON.parse(readFileSync('public/data/vocab.json', 'utf8'));
 const sectors: { name: string }[] = JSON.parse(readFileSync('public/data/sectors.json', 'utf8'));
+const transfer: TransferData = JSON.parse(readFileSync('public/data/transfer.json', 'utf8'));
 beforeAll(() => {
   // As the app loads it: grammar cards never enter the lexicon (data/index.ts).
   registerWords(corpus.filter((w) => w.kind !== 'grammar'));
@@ -84,9 +86,11 @@ describe('the course plan', () => {
     expect(low).toEqual([]);
   });
 
-  it('points every film at one unit, and every unit’s film exists', () => {
+  it('points every film at one unit or one level’s prelude, and every film named exists', () => {
+    const preludes = Object.values(PRELUDES).map((p) => p!.film);
     for (const u of COURSE) if (u.film) expect(FILM_BY_ID.has(u.film), u.id).toBe(true);
-    for (const f of FILMS) expect(COURSE.filter((u) => u.film === f.id), f.id).toHaveLength(1);
+    for (const id of preludes) expect(FILM_BY_ID.has(id), id).toBe(true);
+    for (const f of FILMS) expect(COURSE.filter((u) => u.film === f.id).length + preludes.filter((p) => p === f.id).length, f.id).toBe(1);
     // Every level has films; no level is a list of words with nothing explained.
     for (const l of ALL_LEVELS) expect(COURSE.some((u) => u.level === l && u.film), l).toBe(true);
   });
@@ -137,6 +141,7 @@ describe('every film', () => {
       if (b.kind === 'plural') named.push(...b.terms);
       if (b.kind === 'compound') named.push(...b.parts, b.whole);
       if (b.kind === 'scale') for (const s of b.steps) if (s.term) named.push(s.term);
+      if (b.kind === 'shift') named.push(...b.terms);
       for (const t of named) if (!cardByTerm(t)) missing.push(`${f.id}: ${t}`);
     }
     expect(missing).toEqual([]);
@@ -180,6 +185,28 @@ describe('every film', () => {
       const last = card(b.parts[b.parts.length - 1]);
       if (last.gender) expect(card(b.whole).gender, `${f.id}: ${b.whole}`).toBe(last.gender);
     }
+  });
+
+  it('shows a sound shift only on pairs transfer.json ships for it, marked on both sides', () => {
+    for (const f of FILMS) for (const b of f.beats) {
+      if (b.kind !== 'shift') continue;
+      const r = transfer.rules[b.rule];
+      expect(r, `${f.id}: no rule ${b.rule} (run corpus:transfer -- --write)`).toBeDefined();
+      expect(b.terms.length, f.id).toBeGreaterThanOrEqual(3);
+      for (const t of b.terms) {
+        const row = transfer.words[t];
+        expect(row?.[2], `${f.id}: ${t} does not carry ${b.rule}`).toBe(b.rule);
+        const en = row![1] as string;
+        expect(markSpans(bare(t), r.mark[0], 'gi').some((p) => p.on), `${f.id}: nothing to mark in ${t}`).toBe(true);
+        expect(markSpans(en, r.mark[1]).some((p) => p.on), `${f.id}: nothing to mark in ${en}`).toBe(true);
+      }
+    }
+  });
+
+  it('says only what transfer.json holds in the prelude’s guess', () => {
+    // The reveal is written by hand; these are the pairs it names.
+    expect(transfer.words['machen']?.[2]).toBe('ch-k');
+    expect(transfer.words['das Buch']?.slice(1)).toEqual(['book', 'ch-k']);
   });
 
   it('quotes example sentences the cards really have', () => {

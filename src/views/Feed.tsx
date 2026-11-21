@@ -55,6 +55,7 @@ import { GenderTerm } from '../components/Reveal.tsx';
 import Picto from '../components/Picto.tsx';
 import Button from '../components/ui/Button.tsx';
 import WordDetail from '../components/WordDetail.tsx';
+import { topLayer } from '../components/Layer.tsx';
 import WordDrill from '../components/WordDrill.tsx';
 import { StorySlot, TopicSlot } from '../components/reader/StorySlot.tsx';
 import { loadTopics, type FeedArticle } from '../lib/news/feed.ts';
@@ -130,6 +131,9 @@ let kept: { lvKey: string; order: Word[]; anchor: string | null } | null = null;
 
 /** Tapping *Wörter* (or the logo) while already on the feed goes back to the top,
  *  as every tab bar does — the one way to ask for a fresh start mid-visit. */
+/** Set once a key has moved the feed: the key legend has done its job. */
+const KEYS_USED = 'lexi.feedKeys.v1';
+
 export function forgetFeedPosition(): void {
   if (kept) kept.anchor = null;
 }
@@ -450,6 +454,57 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
     setSaid((prev) => ({ n: prev.n + 1, text }));
   }, []);
 
+  // ---- keys: the gesture grammar, on a keyboard ----------------------------
+  //
+  // The first slice of the desktop layout (LEARNING-WEB §5, proposal 5). One axis,
+  // the word at its centre, so the keys are the drags: ← opens the entry, which
+  // sits to the word's left; → opens practice, to its right; the opposite key
+  // returns (Layer's `arrowBack`). ↑ ↓ (or k, j) move word to word, B saves,
+  // Enter says the word. A key acts on the slot on screen, never a remembered one,
+  // and only with no layer open and no field focused. A key press is as deliberate
+  // as a tap, so saving with B is the bookmark, and moving with ↓ grades nothing,
+  // exactly like a scroll.
+  const reduce = useReducedMotion();
+  const [keysUsed, setKeysUsed] = useState(() => { try { return localStorage.getItem(KEYS_USED) === '1'; } catch { return false; } });
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.altKey || e.metaKey || e.ctrlKey || e.defaultPrevented) return;
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+      const el = scroller.current;
+      if (!el || topLayer()) return;
+      const onScreen = () => {
+        const top = el.getBoundingClientRect().top;
+        let best: HTMLElement | null = null, gap = Infinity;
+        for (const s of el.querySelectorAll<HTMLElement>('section[data-word]')) {
+          const d = Math.abs(s.getBoundingClientRect().top - top);
+          if (d < gap) { gap = d; best = s; }
+        }
+        return gap < el.clientHeight / 2 ? best : null;
+      };
+      const move = (dir: 1 | -1) => el.scrollBy({ top: dir * el.clientHeight, behavior: reduce ? 'auto' : 'smooth' });
+      let used = true;
+      if (e.key === 'ArrowDown' || e.key === 'j') move(1);
+      else if (e.key === 'ArrowUp' || e.key === 'k') move(-1);
+      else if (!e.repeat && (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'b' || e.key === 'B' || e.key === 'Enter')) {
+        // Enter on a focused control is that control's.
+        const slot = e.key === 'Enter' && t?.closest('button, a') ? null : onScreen();
+        const w = slot?.dataset.word ? BY_ID.get(slot.dataset.word) : undefined;
+        if (!slot || !w) used = false;
+        else if (e.key === 'ArrowLeft') setDetail(w);
+        else if (e.key === 'ArrowRight') setDrill(w);
+        else if (e.key === 'Enter') speak(w.term);
+        // The bookmark is the slot's one pressed-state button: the same path as a tap.
+        else slot.querySelector<HTMLButtonElement>('button[aria-pressed]')?.click();
+      } else used = false;
+      if (!used) return;
+      e.preventDefault();
+      if (!keysUsed) { setKeysUsed(true); try { localStorage.setItem(KEYS_USED, '1'); } catch { /* private window */ } }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [keysUsed, reduce]);
+
   return (
     // Fills the shell rather than covering it. The feed paints no chrome of its
     // own: the app's one bar is above and its one nav is below, and a second row
@@ -477,6 +532,19 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
       <p role="status" aria-live="polite" className="sr-only">
         <span key={said.n}>{said.text}</span>
       </p>
+      {/* The keys, said once, to a pointer that can use them: hidden on touch, and
+          gone after the first key press. Decorative to a screen reader, which has
+          its own way through (every word is a headed region). */}
+      {!keysUsed && (
+        <p aria-hidden className="hidden [@media(pointer:fine)]:flex fixed z-30 left-1/2 -translate-x-1/2 bottom-[calc(var(--bar-b)+12px)]
+          glass rounded-full px-4 py-1.5 gap-4 text-2xs text-dim pointer-events-none whitespace-nowrap">
+          <span><Kbd>↑</Kbd><Kbd>↓</Kbd> words</span>
+          <span><Kbd>←</Kbd> entry</span>
+          <span><Kbd>→</Kbd> practise</span>
+          <span><Kbd>B</Kbd> save</span>
+          <span><Kbd>↵</Kbd> hear</span>
+        </p>
+      )}
       {cold && <Welcome onStart={onStartFirstRun} />}
       <Tour id="feed" ready={tourSlot !== null} steps={feedTour(tourSlot ?? 0)} />
       {slots.map((w, i) => {
@@ -969,6 +1037,10 @@ const SWIPE_PX = 90;
  *  German word inside an English sentence, and only content can give the word its
  *  own `lang` — an `aria-label` string is read in one voice, so the word the feed
  *  exists to teach was pronounced in English. */
+function Kbd({ children }: { children: React.ReactNode }) {
+  return <kbd className="font-mono text-txt border border-line rounded px-1 mr-0.5">{children}</kbd>;
+}
+
 function Action({ children, label, pressed, onClick }: {
   children: React.ReactNode; label: React.ReactNode; pressed?: boolean; onClick: () => void;
 }) {

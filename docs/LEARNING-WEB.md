@@ -10,6 +10,11 @@ source's own claims and say so where the source is the vendor. Corpus figures co
 set of learning websites that people call effective or beautiful, and asks what their
 architecture teaches.*
 
+*Status, later on 2026-11-21: proposals 1–4 are built, and the first slice of 5 (the
+keyboard). BACKLOG, *Web first*, item 4, tracks what is left. The shipped transfer
+gate is stricter than the measurement in §1: it puts a line on 21.7% of A1 cards, not
+the 45% found here, because it refuses what a reader could not see.*
+
 ---
 
 ## The short version

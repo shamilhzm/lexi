@@ -1,7 +1,9 @@
 # Lexi on the open web: a page per headword
 
-*Written 2026-11-21 from the web-first ruling (VISION, settled decisions). A **plan**,
-not a shipped state: no page exists yet. Every number below comes from `npm run
+*Written 2026-11-21 from the web-first ruling (VISION, settled decisions). **Status,
+later the same day:** steps 2 and 3 below are built. `npm run build` writes 11,153
+pages to `dist/wort/` with `noindex`, and `#/w/<id>` opens a word in the app. Step 4
+waits for the domain. The rest of this document is the plan as written. Every number below comes from `npm run
 pages:measure`, run this session on `482f2d5` plus this change. **Re-run it before
 quoting any of them.** Host limits are the host's terms, read on 2026-11-21 at the
 links given, and they can change.*

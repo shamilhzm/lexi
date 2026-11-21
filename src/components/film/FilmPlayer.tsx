@@ -32,6 +32,7 @@ import { genderColor, haptic } from '../../lib/ui.ts';
 import { shownTerm } from '../../lib/focus.ts';
 import { falseFriend } from '../../lib/falseFriends.ts';
 import { markFilmSeen } from '../../store.ts';
+import { loadTransfer, type TransferData } from '../../lib/transfer.ts';
 import type { Beat, Film, Gender } from '../../films/types.ts';
 import type { Word } from '../../types.ts';
 
@@ -185,6 +186,7 @@ function render(beat: Beat, picked: number | undefined, onPick: (k: number) => v
     case 'example': return <><Line>{beat.line}</Line><ExampleBeat term={beat.term} match={beat.match} mark={beat.mark} /></>;
     case 'say': return <><Line>{beat.line}</Line><SayBeat de={beat.de} en={beat.en} /></>;
     case 'chart': return <><Line>{beat.line}</Line><ChartBeat bars={beat.bars} de={beat.de} en={beat.en} /></>;
+    case 'shift': return <><Line>{beat.line}</Line><ShiftBeat rule={beat.rule} terms={beat.terms} /></>;
     case 'outro': return <OutroBeat line={beat.line} wordCount={wordCount} onStudy={onStudy} onDone={onDone} />;
   }
 }
@@ -628,6 +630,74 @@ export function splitMarks(s: string, marks: string[]): { t: string; on: boolean
   }
   if (pos < s.length) out.push({ t: s.slice(pos), on: false });
   return out;
+}
+
+/** Split a word around every match of a pattern, for marking a sound shift. */
+export function markSpans(s: string, source: string | undefined, flags = 'g'): { t: string; on: boolean }[] {
+  if (!source) return [{ t: s, on: false }];
+  const out: { t: string; on: boolean }[] = [];
+  let pos = 0;
+  for (const m of s.matchAll(new RegExp(source, flags.includes('g') ? flags : flags + 'g'))) {
+    if (!m[0]) continue;
+    if (m.index > pos) out.push({ t: s.slice(pos, m.index), on: false });
+    out.push({ t: m[0], on: true });
+    pos = m.index + m[0].length;
+  }
+  if (pos < s.length) out.push({ t: s.slice(pos), on: false });
+  return out;
+}
+
+function Marked({ text, source, flags }: { text: string; source?: string; flags?: string }) {
+  return <>{markSpans(text, source, flags).map((p, k) => p.on
+    ? <span key={k} className="text-accent underline decoration-2 underline-offset-4">{p.t}</span>
+    : <span key={k}>{p.t}</span>)}</>;
+}
+
+/** German beside English, one sound correspondence marked in both. Everything but
+ *  the German comes from `transfer.json`, fetched when the beat plays; until it
+ *  arrives the English side waits and the German is already there to hear. */
+function ShiftBeat({ rule, terms }: { rule: string; terms: string[] }) {
+  const [data, setData] = useState<TransferData | null>(null);
+  useEffect(() => {
+    let live = true;
+    void loadTransfer().then((d) => { if (live) setData(d); });
+    return () => { live = false; };
+  }, []);
+  const r = data?.rules[rule];
+  return (
+    <div>
+      <ul>
+        {terms.map((t, k) => (
+          <ShiftRow key={t} term={t} en={data?.words[t]?.[1] || undefined} mark={r?.mark} delay={0.12 * k} />
+        ))}
+      </ul>
+      {r && (
+        <p className="text-2xs text-dim mt-3">
+          German <b lang="de" className="text-txt">{r.de}</b>, English <b className="text-txt">{r.en}</b>:{' '}
+          {r.n} pairs among the words Lexi teaches.
+        </p>
+      )}
+    </div>
+  );
+}
+function ShiftRow({ term, en, mark, delay }: { term: string; en?: string; mark?: [string, string]; delay: number }) {
+  const w = cardByTerm(term);
+  const a = useIn(delay); const b = useIn(delay + 0.2);
+  if (!w) return null;
+  const art = /^(der|die|das)\s+/i.exec(w.term)?.[1];
+  return (
+    <li className="grid grid-cols-[1fr_1.25rem_1fr] gap-x-3 items-baseline py-2.5 border-b border-line last:border-0">
+      <motion.button {...a} onClick={() => speak(w.term)} lang="de"
+        className="headword text-xl font-bold text-left min-w-0 break-words">
+        {art && <span style={w.gender ? { color: genderColor(w.gender) } : undefined}>{art} </span>}
+        <Marked text={bare(w.term)} source={mark?.[0]} flags="gi" />
+      </motion.button>
+      <span className="text-dim text-center" aria-hidden>→</span>
+      <motion.span {...b} className="headword text-xl font-bold min-w-0 break-words">
+        {en ? <Marked text={en} source={mark?.[1]} /> : <span className="text-dim" aria-hidden>…</span>}
+      </motion.span>
+    </li>
+  );
 }
 
 function SayBeat({ de, en }: { de: string; en?: string }) {

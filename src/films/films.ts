@@ -11,6 +11,33 @@ import type { Film } from './types.ts';
 
 export const FILMS: Film[] = [
   // ---- A1 --------------------------------------------------------------------
+  // The A1 prelude (course.ts PRELUDES): before unit 1, what an English speaker owns.
+  // Every pair and every count is transfer.json's (VISION, *The transfer line*).
+  {
+    id: 'a1-vorspann', title: 'Was du schon kannst', minutes: 3,
+    beats: [
+      { kind: 'title', title: 'Was du schon kannst',
+        line: 'English and German grew from one language. Many German words still show it, once you know where to look.' },
+      { kind: 'words', terms: ['die Hand', 'der Finger', 'der Arm', 'der Winter', 'das Glas'],
+        line: 'Some you can read already. Tap one to hear how German says it.' },
+      { kind: 'shift', rule: 'z-t', terms: ['zehn', 'zwei', 'das Herz', 'das Salz'],
+        line: 'Others changed one sound, long ago. Where English has t, German often has z.' },
+      { kind: 'shift', rule: 'ss-t', terms: ['das Wasser', 'essen', 'groß', 'der Fuß'],
+        line: 'Inside a word, the same t often became ss or ß.' },
+      { kind: 'shift', rule: 'd-th', terms: ['drei', 'denken', 'danken', 'dick'],
+        line: 'English th is often German d.' },
+      { kind: 'shift', rule: 't-d', terms: ['trinken', 'gut', 'kalt', 'die Tür'],
+        line: 'And English d is often German t.' },
+      { kind: 'shift', rule: 'cht-ght', terms: ['acht', 'das Licht', 'die Tochter'],
+        line: 'English spells gh where German writes ch.' },
+      { kind: 'choice', prompt: 'Welches Wort ist make?', options: ['machen', 'mähen', 'mögen'], answer: 0,
+        line: 'Guess first. Which of these is the English make?',
+        reveal: 'machen. German ch is often English k, so das Buch is a book.' },
+      { kind: 'trap', term: 'bekommen',
+        line: 'A word can look like English and mean something else. These are rarer, and Lexi marks each one.' },
+      { kind: 'outro', line: 'When a word you learn is related to English, its card says so after you answer. Look for the line marked English.' },
+    ],
+  },
   {
     id: 'a1-artikel', title: 'Der, die, das', minutes: 2,
     beats: [

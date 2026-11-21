@@ -17,6 +17,7 @@ import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAtte
 import { haptic, tick, fmt} from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession, withRetry, SESSION_CEILING, type SessionItem } from '../session.ts';
 import { loadDetailFor, detailLoadedFor } from '../data/detail.ts';
+import { loadTransfer } from '../lib/transfer.ts';
 // `Grade` is taken in this file — it is the FSRS rating type from srs.ts. The
 // drill callback type is aliased rather than renamed at its definition, where
 // `Grade` is the honest name.
@@ -40,7 +41,7 @@ import MiniSky from '../components/MiniSky.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import BackupNudge from '../components/BackupNudge.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
-import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
+import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, TransferNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
@@ -162,6 +163,9 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     loadDetailFor(scope).then(() => { if (live) setDetailReady(true); });
     return () => { live = false; };
   }, [detailReady, scope]);
+  // The reveal's English line (lib/transfer.ts) is 24 KB: fetch it while the learner
+  // is still on the first front, so the first reveal does not grow a line late.
+  useEffect(() => { void loadTransfer(); }, []);
 
   const restored = useMemo(() => (firstRun ? null : loadSession(target)), [target, lvKey, firstRun]);
   const built = useMemo(
@@ -874,6 +878,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                   </RevealBlock>
                 )}
                 <FalseFriendNote term={card.term} />
+                <TransferNote term={card.term} />
                 {/* Government, where the card carries it. A learner who knows
                     *warten* and not *warten auf + Akkusativ* cannot build the
                     sentence, and the corpus has been holding this inside the

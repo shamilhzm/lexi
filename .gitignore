@@ -40,3 +40,6 @@ scripts/authoring/batches/inputs/
 .claude/*
 !.claude/skills/
 .env*
+
+# Corpus releases (npm run corpus:release). Published as release assets, never committed.
+/release/

@@ -14,7 +14,7 @@
 //
 // `parseHash` takes its hash as an argument precisely so this can run in Node.
 import { describe, it, expect } from 'vitest';
-import { parseHash, toHash, knownRoute, DEFAULT_ROUTE } from './route.ts';
+import { parseHash, toHash, knownRoute, DEFAULT_ROUTE, parseWordHash, wordHash } from './route.ts';
 
 /** Every destination that is a place you can *go*, plus the ones that are only
  *  opened from somewhere but must survive a reload. Enumerated from `VIEWS` in
@@ -190,5 +190,22 @@ describe('hostile and stale links', () => {
       const r = parseHash(h);
       expect(knownRoute(r, known)).toBe(r);
     }
+  });
+});
+
+describe('word links (#/w/<id>)', () => {
+  it('round-trips an id with spaces, colons and an umlaut', () => {
+    for (const id of ['voc:A1:der Name', 'voc:B2:die Größe', 'voc:A2:sich freuen auf']) {
+      expect(parseWordHash(wordHash(id))).toBe(id);
+    }
+  });
+  it('is not a view: the feed is what sits underneath', () => {
+    expect(parseHash(wordHash('voc:A1:der Name'))).toEqual(DEFAULT_ROUTE);
+  });
+  it('ignores every other hash, and an empty or broken id', () => {
+    for (const h of ['', '#/', '#/feed', '#/words', '#/w', '#/w/', '#main', '#/wort/haus']) {
+      expect(parseWordHash(h)).toBeNull();
+    }
+    expect(parseWordHash('#/w/100%')).toBe('100%'); // a stray % reads as typed, never throws
   });
 });

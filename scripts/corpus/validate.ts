@@ -457,6 +457,19 @@ async function main() {
     }
   }
 
+  // transfer.json (VISION, *The transfer line*) is the fifth file that names a card,
+  // by term rather than id so a relevel leaves it alone. A rename or a merge still
+  // orphans a row, which then shows nothing, silently. Fix: corpus:transfer -- --write.
+  const transferPath = join(PATHS.repoRoot, 'public', 'data', 'transfer.json');
+  if (fileExists(transferPath)) {
+    const t = readJSON<{ rules?: Record<string, unknown>; words?: Record<string, unknown[]> }>(transferPath);
+    const terms = new Set(words.map((w) => w.term));
+    const dead = Object.keys(t.words ?? {}).filter((term) => !terms.has(term));
+    const badRule = Object.entries(t.words ?? {}).filter(([, r]) => r[2] && !t.rules?.[r[2] as string]);
+    if (dead.length) allErrors.push({ id: 'transfer.json', msg: `${dead.length} row(s) on terms no card has (${dead.slice(0, 3).join(', ')}…) — run corpus:transfer -- --write` });
+    if (badRule.length) allErrors.push({ id: 'transfer.json', msg: `${badRule.length} row(s) name a rule the file does not define` });
+  }
+
   // Authoring rulings that no longer describe their card.
   //
   // `scripts/authoring/verify-rulings.tsv` records facts de.wiktionary does not

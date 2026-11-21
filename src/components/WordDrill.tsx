@@ -182,7 +182,7 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
   // dragging left and you leave it by dragging right — the mirror of the entry,
   // and the reason both feel like the same gesture rather than two rules.
   return (
-    <Layer side="right" label={`Practise ${word.term}`} onClose={onClose}>
+    <Layer side="right" label={`Practise ${word.term}`} onClose={onClose} arrowBack>
       <div className="pb-16">
         <div className="flex items-center gap-3 mb-5">
           <button onClick={onClose} aria-label="Close"

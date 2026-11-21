@@ -77,8 +77,12 @@ export function useLayerStack(el: () => HTMLElement | null): () => boolean {
   return useCallback(() => open[open.length - 1] === me, [me]);
 }
 
-export default function Layer({ children, side, label, back = 'Wort', onClose, footer }: {
+export default function Layer({ children, side, label, back = 'Wort', onClose, footer, arrowBack = false }: {
   children: React.ReactNode;
+  /** The arrow key pointing back at the word closes the panel (→ for a panel on
+   *  the left), the keyboard's version of the opposite drag. Opt-in, because a
+   *  film uses both arrows to move between its beats. */
+  arrowBack?: boolean;
   /** Controls that stay put while the content scrolls — the film's *Weiter*.
    *  Positioned against the layer itself, which is the box the tab bar sits in,
    *  rather than made `sticky` inside the scroller: on iOS Safari a sticky offset
@@ -149,10 +153,19 @@ export default function Layer({ children, side, label, back = 'Wort', onClose, f
   close.current = onClose;
   useEffect(() => { panel.current?.focus({ preventScroll: true }); }, []);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && isTop()) close.current(); };
+    const backKey = side === 'left' ? 'ArrowRight' : 'ArrowLeft';
+    const onKey = (e: KeyboardEvent) => {
+      if (!isTop()) return;
+      if (e.key === 'Escape') { close.current(); return; }
+      const t = e.target as HTMLElement | null;
+      if (!arrowBack || e.key !== backKey || e.altKey || e.metaKey || e.ctrlKey || e.defaultPrevented) return;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+      e.preventDefault();
+      close.current();
+    };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [isTop]);
+  }, [isTop, arrowBack, side]);
 
   // Dismissal is the *reverse* of the entry direction, so the strip metaphor
   // holds: the word is still on the side it came from. Closing hands off to the

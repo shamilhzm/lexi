@@ -596,6 +596,22 @@ proof of the language either.
 For a noun that means the gender **and the plural**. Trust a cognate only when the
 entry's own prose names it as English.
 
+### 2026-11-21 — the transfer gate passed *Enkel · ankle* and *Schlager · hit*
+
+**Believed:** with homographs separated by gender and plural, and English cognates
+read from prose, the *hidden* class was ready to ship once its English word was common.
+**True:** reading the 252 lines it would have shipped found five kinds of wrong line.
+*der Enkel* (grandchild) still joined the obsolete *Enkel* (ankle): same gender, same
+plural. *saugen · suck* came in as a borrowing because a `sl` template marks a
+**semantic loan**, where only the sense was borrowed. *lesen · lease* is English in a
+sense nobody knows it by (“to gather”), and *Robbe · rub* was only "compared".
+*Muster · english*, *Kragen · for* and *U-Bahn · known* were prose that is not a
+cognate statement at all. When I then added a resemblance gate, it let *Schlager · hit*
+through, because it applied the g ↔ y pattern to an English word with no y.
+**Rule:** before shipping a generated line, read every line a learner at A1–A2 would
+see, not three. A pattern is evidence only where both sides of it are present.
+Separate homographs by their senses as well as their headword lines.
+
 ---
 
 ## Class 4 — an id is a promise, and moving one breaks it silently
@@ -2320,3 +2336,32 @@ Präteritum. **Rule:** a membership check against a list that can hold alternati
 proves *a* form, not *the* form. Flag the rows with two answers and rule them. Before
 fixing a reported symptom, trace the path where it reaches the learner.
 
+
+## A new overlay that `go()` does not know about outlives every tab *(added 2026-11-21)*
+
+**Believed:** a word link (`#/w/<id>`) was done once it opened the entry and Back left
+it. **True:** on the phone, tapping *Üben* under it moved the tab and left the entry on
+top. `go()` and `returnTo()` close every overlay by name, and the comment above them
+records the same miss for the saved-words sheet in September; the new `link` state was
+not on the list. **Rule:** an overlay state added to `App` is added to both reset lists
+in the same change, and checked by tapping a tab through it on the simulator.
+
+## Hot reload splits a module-level stack in two *(added 2026-11-21)*
+
+**Believed:** → did not close the entry, because the layer's key handler never ran
+(the pane said the key arrived un-prevented). **True:** I had edited `Layer.tsx`
+mid-test. Fast Refresh gave the feed a new module with an empty layer stack, while the
+open layer had registered with the old one, so the feed saw no layer and the layer
+thought it was not on top. A clean reload passed all four arrows first time. A second
+false lead in the same hour: the pane suspends animation frames, so an exiting layer's
+DOM node lingers after a correct close. **Rule:** after editing a module that holds
+module-level state (`Layer`'s stack, the store), reload before testing a key or
+gesture, and judge "did it close" by a screenshot, not by the DOM.
+
+## An ignore pattern without a leading slash matches at every depth *(added 2026-11-21)*
+
+**Believed:** `release/` in `.gitignore` ignored the build output folder. **True:** it
+also ignored `scripts/release/`, so the release script and its tests were missing from
+`git status` and would have been left out of the commit. **Rule:** an ignore line for a
+root folder starts with `/`, and `git check-ignore -v` is run on a source path beside
+it before the line is committed.

@@ -54,13 +54,23 @@ import Chip from './ui/Chip.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Word } from '../types.ts';
 
-export default function SearchSheet({ onClose }: { onClose: () => void }) {
+export default function SearchSheet({ onClose, linked, seed = '' }: {
+  onClose: () => void;
+  /** A word reached by link (`#/w/<id>`). Its entry opens at once, with save and
+   *  practise, and closing it closes the sheet: the learner came for that word,
+   *  not for a search. */
+  linked?: Word;
+  /** A spelling to search for: a link whose card has gone lands on its search
+   *  rather than on nothing. */
+  seed?: string;
+}) {
   const v = useStore();
-  const [q, setQ] = useState('');
-  const [detail, setDetail] = useState<Word | null>(null);
+  const [q, setQ] = useState(seed);
+  const [detail, setDetail] = useState<Word | null>(linked ?? null);
   const [drill, setDrill] = useState<Word | null>(null);
   const [noted, setNoted] = useState(false);
   const input = useRef<HTMLInputElement>(null);
+  const focusOnOpen = useRef(!linked);
 
   const hits = useMemo(() => search(q), [q]);
   const asking = q.trim().length >= MIN_QUERY;
@@ -122,7 +132,9 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
     // this sat in an effect keyed on `onClose`, which App passes inline, so every
     // store change (noting a word, say) pulled focus back to the input and, on
     // iOS, the keyboard up with it (2026-11-20).
-    input.current?.focus({ preventScroll: true });
+    // Not for a linked word: the entry is what they came for, and on iOS a focused
+    // input under it would put the keyboard over it.
+    if (focusOnOpen.current) input.current?.focus({ preventScroll: true });
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = prev; };
@@ -314,9 +326,10 @@ export default function SearchSheet({ onClose }: { onClose: () => void }) {
         )}
       </div>
 
-      {detail && <WordDetail word={detail} onClose={() => setDetail(null)}
+      {detail && <WordDetail word={detail} onClose={() => { setDetail(null); if (linked) onClose(); }}
         onPractise={() => { setDrill(detail); setDetail(null); }} />}
-      {drill && <WordDrill word={drill} onClose={() => setDrill(null)} backLabel="Back to search" />}
+      {drill && <WordDrill word={drill} onClose={() => { setDrill(null); if (linked) onClose(); }}
+        backLabel={linked ? 'Back to Wörter' : 'Back to search'} />}
     </div>,
     document.body,
   );

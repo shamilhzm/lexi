@@ -22,7 +22,7 @@ import { showsGermanDefs } from '../views/Review.tsx';
 import { placementLevel, isSaved, toggleSaved } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { WORDS } from '../data/index.ts';
-import { GenderTerm, SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, CardSource } from './Reveal.tsx';
+import { GenderTerm, SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, TransferNote, CardSource } from './Reveal.tsx';
 import Picto from './Picto.tsx';
 import Kicker from './ui/Kicker.tsx';
 import ReportFlag from './ReportFlag.tsx';
@@ -53,7 +53,7 @@ export default function WordDetail({ word, onClose, onPractise }: {
   // focus and the × all come from there too, so this file is now only the entry
   // itself, which is all it should ever have been.
   return (
-    <Layer side="left" label={`${word.term}, full entry`} onClose={onClose}>
+    <Layer side="left" label={`${word.term}, full entry`} onClose={onClose} arrowBack>
       <div className="pb-16">
 
         {/* The headword at display size, exactly as the feed showed it — same
@@ -124,6 +124,7 @@ export default function WordDetail({ word, onClose, onPractise }: {
             </RevealBlock>
           )}
           <FalseFriendNote term={word.term} />
+          <TransferNote term={word.term} />
           {/* Government, where the card carries it. A learner who knows *warten*
               and not *warten auf + Akkusativ* cannot build the sentence. Never
               shows a case it had to guess — see lib/valency.ts. */}

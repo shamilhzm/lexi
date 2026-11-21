@@ -125,6 +125,18 @@ export function parseHash(hash = location.hash): Route {
   return { view, words: INDEX };
 }
 
+/** `#/w/<card id>`: a link to one word, from a word page (`/wort/…`, PAGES.md) or a
+ *  shared link. It is not a view. `parseHash` reads it as the feed, which is what
+ *  sits underneath, and App opens the word's entry over it. Arriving saves
+ *  nothing: only the bookmark does. */
+export function parseWordHash(hash = location.hash): string | null {
+  const m = /^#\/w\/(.+)$/.exec(hash);
+  return m ? decode(m[1]) || null : null;
+}
+
+/** The hash a word link uses. Ids carry spaces and colons (`voc:A1:der Name`). */
+export const wordHash = (id: string) => `#/w/${encodeURIComponent(id)}`;
+
 /** The deck names the loaded corpus carries. */
 export interface KnownNames {
   groups: ReadonlySet<string>;

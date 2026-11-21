@@ -20,6 +20,8 @@ import { speak, useGermanVoice } from '../lib/tts.ts';
 import { genderColor } from '../lib/ui.ts';
 import { shownTerm } from '../lib/focus.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
+import { loadTransfer, transferFor, type TransferData } from '../lib/transfer.ts';
+import { bare } from '../lib/slug.ts';
 import { loadProvenance, freqBand, exampleCitation, levelBasis, type Provenance } from '../lib/provenance.ts';
 import { loadAudioManifest, creditFor, type AudioEntry } from '../lib/audio.ts';
 import Kicker from './ui/Kicker.tsx';
@@ -233,6 +235,45 @@ export function FalseFriendNote({ term }: { term: string }) {
           </span>
         </span>
       </p>
+    </RevealBlock>
+  );
+}
+
+/** What the word has to do with English (VISION, *The transfer line*).
+ *
+ *  An English speaker arrives owning part of German, and until 2026-11-21 nothing
+ *  in Lexi said so: *Wasser* was taught as if *water* were a coincidence. One line,
+ *  and a second when the spelling follows a pattern that holds across enough of the
+ *  corpus to be worth learning (German z is often English t: Salz · salt, zehn · ten).
+ *
+ *  On the reveal, never the front, where it would answer the drill. Silent where a
+ *  curated false-friend note already speaks about the English word, and silent
+ *  until the file arrives: it is a detail, and a missing one says nothing. */
+export function TransferNote({ term }: { term: string }) {
+  const [data, setData] = useState<TransferData | null>(null);
+  useEffect(() => {
+    let live = true;
+    void loadTransfer().then((d) => { if (live) setData(d); });
+    return () => { live = false; };
+  }, []);
+  const t = transferFor(data, term, bare(term));
+  if (!t || (t.kind !== 'b' && !t.en) || falseFriend(term)) return null;
+  return (
+    <RevealBlock label="English">
+      <p className="text-sm leading-relaxed text-dim">
+        {t.kind === 'b'
+          ? <>Borrowed from English{t.en && <> <span className="text-txt font-semibold">{t.en}</span></>}.</>
+          : <>Related to English <span className="text-txt font-semibold">{t.en}</span>.</>}
+      </p>
+      {t.rule && (
+        <p className="text-sm leading-relaxed text-dim mt-0.5">
+          German <span lang="de" className="text-txt font-semibold">{t.rule.de}</span> is often
+          English <span className="text-txt font-semibold">{t.rule.en}</span>:{' '}
+          {t.rule.ex.map(([d, e], i) => (
+            <span key={d}>{i > 0 && ', '}<span lang="de" className="text-txt">{d}</span> · {e}</span>
+          ))}.
+        </p>
+      )}
     </RevealBlock>
   );
 }

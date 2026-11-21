@@ -469,6 +469,41 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   decision 1), and **when** a shell is built. STORES.md's conditions still decide that;
   this ruling decides only that the shell wraps.
 
+- **The transfer line: a card says what its word has to do with English** *(2026-11-21,
+  at the owner's direction to build LEARNING-WEB.md's proposals)*. **What it settles.**
+  An English speaker arrives owning part of German, and Lexi taught *Wasser* as if
+  *water* were a coincidence. Now a card's reveal can carry one line, **English**:
+  *Borrowed from English*, or *Related to English water*, and a second line when the
+  spelling follows a counted pattern: *German ss, ß is often English t: essen · eat,
+  groß · great, heiß · hot*. It is a **property of the word**, so the 2026-09-05
+  ruling admits it; it is shown, never drilled, so nothing grades on it.
+
+  *How it is gated*, because the source is noisy (LEARNING-WEB §1, LESSONS
+  *der Tag*): `npm run corpus:transfer -- --write` ships only what English
+  Wiktionary's etymology **states**: a borrowing, or a named English cognate. It
+  ships nothing the script infers (an ancestor spelled like the gloss, a lookalike).
+  A cognate the gloss does not show ships only when the English word is everyday
+  English (50+ uses in Tatoeba's English), when the prose neither denies nor hedges
+  it, and when the two words look alike once the named patterns are allowed. A
+  pattern is named only when it holds over 12 shipped pairs, and its examples are
+  shipped pairs. Measured at the first write: **897 cards** carry a line (21.7% of
+  A1, 2.5% of C1), and **10 patterns** are named.
+
+  *Where it shows:* the reveal in Üben and the word's entry (and its word page).
+  **Never on a front**, where *related to English house* is the answer.
+
+  *Forbids:* an English link written by a model or by hand into the data file, since
+  a wrong one is refused in the script (`REFUSE`, with its reason) and never added;
+  a link on a card's front; a drill that tests it (a sound shift is a rule of the
+  language); and a line beside a curated false friend, whose note already speaks
+  about the English word.
+
+  *Leaves open:* whether it **helps**. The research is mixed (explicit teaching of
+  the shifts beat incidental exposure in one study; another found little extra gain),
+  so the claim waits for learners. Also open are compounds whose parts carry the
+  line (*Hausnummer*: 170 nouns have both parts visible), and the Latinate half that
+  rises toward C2.
+
 ---
 
 ## Six questions, ruled *(2026-09-09)*

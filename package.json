@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/pages/build.ts",
     "preview": "vite preview --host --port 4318",
     "typecheck": "tsc --noEmit",
     "og:image": "node scripts/marketing/og-image.ts",
@@ -50,6 +50,7 @@
     "corpus:sense": "node scripts/corpus/sense-audit.ts",
     "corpus:freq": "node scripts/corpus/freq.ts",
     "corpus:transfer": "node scripts/corpus/transfer.ts",
+    "corpus:release": "node scripts/release/corpus.ts",
     "probe:asr": "node scripts/probe/serve.ts",
     "corpus:selftest": "node scripts/corpus/selftest.ts",
     "corpus:enrich": "node scripts/corpus/enrich-fields.ts",
@@ -74,7 +75,8 @@
     "icons": "node scripts/icons/build.ts",
     "corpus:homograph": "node scripts/corpus/homograph.ts",
     "corpus:spelling": "node scripts/corpus/spelling.ts",
-    "golden:record": "node scripts/golden/record.ts"
+    "golden:record": "node scripts/golden/record.ts",
+    "pages:lock": "node scripts/pages/build.ts --lock"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

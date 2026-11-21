@@ -1,0 +1,39 @@
+# How to cite Lexi and its corpus. `npm run corpus:release` copies this file into each
+# release and stamps its version. A DOI is open: it needs a host (Zenodo archives a
+# GitHub release and mints one), which is the owner's decision (docs/BACKLOG.md).
+cff-version: 1.2.0
+message: "If you use the Lexi corpus or app, please cite it as below."
+type: dataset
+title: "Lexi German–English vocabulary corpus"
+abstract: >-
+  German vocabulary for English speakers, levelled A1 to C2. Gender, plural, part of
+  speech and IPA come from Wiktionary, and since 2026-08-11 every new card is checked
+  against it by a machine gate that refuses what it cannot verify. Each card also
+  records its relation to English where Wiktionary's etymology states one.
+authors:
+  - name: "Lexi contributors"
+  - alias: "shamilhzm"
+repository-code: "https://github.com/shamilhzm/lexi"
+url: "https://github.com/shamilhzm/lexi"
+license: CC-BY-SA-4.0
+version: "unreleased"
+keywords:
+  - German
+  - English
+  - vocabulary
+  - CEFR
+  - language learning
+  - spaced repetition
+  - cognates
+references:
+  - type: database
+    title: "Wiktionary, via Wiktextract (kaikki.org)"
+    authors:
+      - name: "Wiktionary contributors"
+    url: "https://kaikki.org"
+    license: CC-BY-SA-4.0
+  - type: database
+    title: "Tatoeba"
+    authors:
+      - name: "Tatoeba Project contributors"
+    url: "https://tatoeba.org"

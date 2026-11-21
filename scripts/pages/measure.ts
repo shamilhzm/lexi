@@ -14,6 +14,7 @@ import { readFileSync, readdirSync, mkdirSync, writeFileSync, rmSync } from 'nod
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { gzipSync } from 'node:zlib';
+import { bare, slug } from '../../src/lib/slug.ts';
 
 interface Card { id: string; term: string; en: string; pos: string; level: string; gender?: string; plural?: string; ipa?: string; kind: string }
 interface Example { de: string; en: string; lvl?: string }
@@ -27,12 +28,6 @@ const cards = (JSON.parse(readFileSync(join(DATA, 'cards.json'), 'utf8')) as Car
 const detail: Record<string, Detail> = {};
 for (const f of readdirSync(join(DATA, 'detail'))) Object.assign(detail, JSON.parse(readFileSync(join(DATA, 'detail', f), 'utf8')));
 
-/** The headword a page is named after: the term without its article. */
-export const bare = (term: string) => term.normalize('NFC').replace(/^(?:der|die|das)(?:\/(?:der|die|das))*\s+/, '').trim();
-
-/** The page's path segment: case-folded, real spelling kept (ä ö ü ß survive). */
-export const slug = (term: string) =>
-  bare(term).toLocaleLowerCase('de').replace(/\s+/g, '-').replace(/[^\p{L}\p{N}-]/gu, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
 
 const ascii = (s: string) => s.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 

@@ -96,15 +96,21 @@ kinds (`src/films/types.ts`):
 | `example` | A card's own sentence, the point marked | The card's examples |
 | `say` | One written German line and its English | Written |
 | `chart` | A small bar chart and the sentence for it | Written |
+| `shift` | German beside English, one sound correspondence marked in both (z ↔ t) | `transfer.json`: the English word, the marks and the count |
 | `outro` | The hand-off to the unit's words | — |
 
 **The contract** (`src/films/films.test.ts`, which fails the suite if any breaks): every
 named card exists; gender beats ask only nouns; plurals exist and begin with *die*;
-traps are in the false-friends list; every pattern's claimed article is the corpus's
+traps are in the false-friends list; every `shift` pair carries its rule in `transfer.json`, marked on both sides; every pattern's claimed article is the corpus's
 majority at ≥ 85% over ≥ 15 nouns; compounds are what they say they are and take the
 last part's article; every example quotes a sentence the card really has, marks
 included; choices are answerable; a film opens with a title, closes with an outro and
 has 5–10 beats; the player imports nothing from the store but `markFilmSeen`.
+
+**A prelude** is a film with no unit, shown before a level's unit 1 (`PRELUDES` in
+`data/course.ts`). A1 has one, *Was du schon kannst*: the German an English speaker
+already owns, which explains how to read every unit after it and so belongs to none.
+It has no words and no session, and the plan stays eight units a level.
 
 **Before adding one:** link it from its unit (`film:` in `data/course.ts`), run
 `npm test`, then **play it on the iPhone simulator** — three layout defects in the first
@@ -113,7 +119,7 @@ slide-in) were found that way.
 
 ## The plan
 
-Generated from `data/course.ts` by `node scripts/course-plan.ts --write` on 2026-11-19. Every unit has a film.
+Generated from `data/course.ts` by `node scripts/course-plan.ts --write` on 2026-11-21. Every unit has a film.
 
 ### A1
 

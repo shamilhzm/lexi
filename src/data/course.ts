@@ -52,6 +52,14 @@ export interface Unit {
   bridge?: boolean;
 }
 
+/** A level's prelude: a film with no unit and no session, shown before unit 1.
+ *  A1's is the German an English speaker already owns (VISION, *The transfer line*):
+ *  it explains how to read every unit after it, so it belongs to none of them, and
+ *  the plan stays eight units a level. */
+export const PRELUDES: Partial<Record<CEFR, { film: string; title: string; en: string }>> = {
+  A1: { film: 'a1-vorspann', title: 'Was du schon kannst', en: 'The German you already know' },
+};
+
 const u = (level: CEFR, id: string, title: string, en: string, focus: string, sectors: string[],
   extra: Partial<Unit> = {}): Unit => ({ id, level, title, en, focus, sectors, ...extra });
 
@@ -202,6 +210,7 @@ export function filmTerms(film: Film): string[] {
     if (b.kind === 'compound') out.push(...b.parts, b.whole);
     if (b.kind === 'pair') out.push(...b.left.items, ...b.right.items);
     if (b.kind === 'scale') for (const s of b.steps) if (s.term) out.push(s.term);
+    if (b.kind === 'shift') out.push(...b.terms);
   }
   return out.filter((t) => !!cardByTerm(t));
 }

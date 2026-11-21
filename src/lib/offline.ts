@@ -51,6 +51,7 @@ export function offlineUrls(base: string, opts: OfflineOptions & { shards?: numb
     ...DETAIL_LEVELS.map((l) => `${d}detail/${l}.json`),
     `${d}inflections.json`,
     `${d}provenance.json`,
+    `${d}transfer.json`,
     `${d}audio.json`,
     ...PICTO.map((f) => `${d}picto/${f}`),
     `${d}lex/index.json`,

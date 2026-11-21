@@ -59,6 +59,11 @@ export type Beat =
   | { kind: 'say'; line: string; de: string; en?: string }
   /** A small bar chart and the sentence that describes it. */
   | { kind: 'chart'; line: string; bars: { label: string; value: number }[]; de: string; en: string }
+  /** German cards beside their English relatives, the letters of one sound
+   *  correspondence marked (German z, English t). The English word, the marks and
+   *  the count all come from `transfer.json`; `rule` names one of its rules, and a
+   *  test fails if a card stops carrying it. */
+  | { kind: 'shift'; line: string; rule: string; terms: string[] }
   /** The hand-off to the unit's words. */
   | { kind: 'outro'; line: string };
 

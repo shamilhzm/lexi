@@ -69,7 +69,9 @@ cheap the first time and invisible the second.
   entries) · https://kaikki.org/dewiktionary/ (German Wiktionary)
 - **License:** CC BY-SA 4.0 **and** GFDL (Wiktionary's dual license).
 - **Used for:** part of speech, gender, plural, IPA, English glosses, and (as a
-  fallback) example sentences.
+  fallback) example sentences. *Since 2026-11-21* also the etymology relations
+  (borrowed from English, cognate with an English word) behind each card's English
+  line, `public/data/transfer.json`, written by `npm run corpus:transfer`.
 - **Attribution:** "Definitions and usage examples from Wiktionary
   (https://www.wiktionary.org), via Wiktextract/kaikki.org, licensed CC BY-SA
   4.0."
@@ -90,6 +92,9 @@ cheap the first time and invisible the second.
   (https://tatoeba.org), licensed CC BY 2.0 FR." Per-sentence provenance
   (Tatoeba sentence id) is recorded in `public/data/provenance.json`, and the card's
   *Where this came from* links the sentence.
+- **The English side, counted, not shipped** *(2026-11-21)*: `corpus:transfer` reads
+  the English sentences only to count how often an English word is used, so a
+  cognate too rare for a reader to know is not offered. No English sentence ships.
 - **⚠️ The gap, measured 2026-09-25** (`node scripts/corpus/tatoeba-credit.ts`):
   of 24,159 example sentences on 10,078 word cards, **4,610 (in 2,685 cards) are
   exact Tatoeba sentences, and only 1,885 carry the provenance link**. The other

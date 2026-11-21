@@ -27,8 +27,8 @@
 >
 > *VISION ruled that the web is the product and a native shell only wraps it. The
 > ruling names three places where the web falls short of the promise; this is that
-> work, in order. The four-week freeze below still holds: nothing here starts before
-> it ends unless it is a fix.*
+> work, in order. (The four-week freeze set on 2026-10-04 ended on 2026-11-01; it no
+> longer gates anything.)*
 >
 > 1. **Owner: name and domain.** This was already owner decision 1, and the ruling makes
 >    it block the pages' launch as well as the stores.
@@ -37,14 +37,31 @@
 >    step is offered to protect progress. · S · 📱
 > 3. **A page per headword** ([PAGES.md](PAGES.md)). `npm run pages:measure` sized it:
 >    11,153 pages for 11,220 cards. In order:
->    - the `#/w/<id>` word route and `/wort/` as a document path in `public/sw.js` · S
->    - `scripts/pages/build.ts`, `pages.css` and the tests, shipped with `noindex` · M
+>    - ~~the `#/w/<id>` word route and `/wort/` as a document path in `public/sw.js`~~ ✅ 2026-11-21
+>    - ~~`scripts/pages/build.ts`, `pages.css` and the tests, shipped with `noindex`~~ ✅ 2026-11-21
 >    - canonical URLs, the sitemap and Search Console, once the domain is settled · S
+>      (`LEXI_PUBLIC_ORIGIN` at build time switches all three on; nothing else changes)
 > 4. **What the web makes possible** ([LEARNING-WEB.md](LEARNING-WEB.md), research). Its
->    first proposal needs an owner ruling: **the transfer line** on cards. `npm run
->    corpus:transfer` finds 31.1% of A1 cards recognisable to an English reader and
->    14.1% more with an English cognate the gloss never shows. Lexi uses none of this
->    except 36 hand-listed false friends.
+>    proposals, as they stand after 2026-11-21:
+>    - ✅ **The transfer line** (VISION, *The transfer line*): 897 cards, 10 named sound
+>      patterns, on the reveal, the entry and the word pages.
+>    - ✅ **The A1 film *Was du schon kannst*** as the course's first prelude.
+>      Open: **a Latinate companion at C1** (*-tion*, *-ität*, *-ieren*), same beat.
+>    - ✅ **The corpus release** (`npm run corpus:release`, CITATION.cff). Open for the
+>      **owner**: where it is hosted, and whether to mint a DOI (Zenodo). Publish only
+>      from a clean tree; the version says `.dirty` otherwise.
+>    - ✅ **The desktop layout, first slice**: the feed's keyboard grammar (↑↓ words,
+>      ← entry, → practise, B save, ↵ hear; the opposite arrow closes a layer).
+>      Open: **the grammar laid flat at wide viewports** (entry and practice beside
+>      the word, not over it). Needs a DESIGN pass; it must stay one axis.
+>    - **False-friend candidates for the owner**: 172 of them (83 cognates that
+>      drifted, 89 lookalikes), from `npm run corpus:transfer -- --false-friends`.
+>      Read them and add the real ones to `lib/falseFriends.ts`; none is automatic.
+>    - **Compounds**: 170 of the 897 rows are compounds. Whether a compound should
+>      say what its parts share with English is undecided.
+>    - Blocked: Common Voice audio (the ASR gate, COSTS), implicit credit (a VISION
+>      #9 amendment after shadow data), E2EE sync (VISION open decision 1), the
+>      efficacy note (needs learners).
 >
 > ---
 >

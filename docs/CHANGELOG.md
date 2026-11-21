@@ -11,6 +11,51 @@ it is already built.
 
 ---
 
+### 2026-11-21 · what an English speaker already owns: the transfer line, a first film, word pages, a release, the keyboard
+
+**What shipped.** The first four proposals of `docs/LEARNING-WEB.md`, and the first
+slice of the fifth:
+
+- **The transfer line** (VISION, *The transfer line*). `public/data/transfer.json`,
+  written by `npm run corpus:transfer -- --write`, says what 897 cards have to do with
+  English. 446 are related to an English word the gloss already shows (*Wasser ·
+  water*), 281 were borrowed from English (*das Team*), and 170 are related to one it
+  does not show (*klein · clean*). Ten sound patterns hold over 12 or more shipped
+  pairs, and each is named with three of its pairs (*German ss, ß is often English t:
+  essen · eat*). The line sits on the Üben reveal, the full entry and the word pages,
+  never on a card's front, where it would give the answer away. It reaches 21.7% of A1
+  cards and 1.7% of C2. `corpus:validate` fails on a row for a card that is gone.
+- **The course opens with a prelude film**, *Was du schon kannst* (A1, before unit 1).
+  It uses a new `shift` beat: German and English side by side, the changed letters
+  marked, and the live count of pairs. A prelude has no unit, so the course is still 52
+  units with 52 films. `films.test.ts` holds every shift pair to `transfer.json`.
+- **Word links and word pages.** `#/w/<id>` opens a word's entry over the feed, and
+  the service worker treats `/wort/` as documents. `npm run build` writes 11,153 static
+  pages to `dist/wort/`, each under 2 KB gzipped. They have no script and are
+  `noindex` until `LEXI_PUBLIC_ORIGIN` is set. `scripts/pages/published.txt` and
+  `redirects.json` mean a published slug never 404s.
+- **The corpus as a dataset.** `npm run corpus:release` writes a versioned folder
+  (JSON Lines, TSV, the transfer rules, README with counted numbers, NOTICE,
+  CITATION.cff, SHA-256 sums). Nothing is published: hosting and a DOI are the owner's.
+- **The feed takes a keyboard.** ↑↓ move between words, ← opens the entry, → opens
+  practice, B saves, ↵ speaks, and the opposite arrow closes the layer. A legend shows
+  on fine pointers until the first key is pressed. The search sheet became its own
+  chunk to pay for it.
+
+**Why.** Lexi's learners already know thousands of German words through English and
+were never shown which ones. That was the widest gap between Lexi and the best
+learning sites, and closing it needed no new kind of fact: every line is a Wiktionary
+etymology, gated.
+
+**Caught on the way.** Eleven wrong lines came out of the gate before it shipped,
+from *Enkel · ankle* to *Schlager · hit* (LESSONS, Class 3). On the phone, a word
+link's entry survived a tab switch because `go()` did not know about it (LESSONS).
+
+**Checks.** Typecheck, 2,469 tests in 116 files, build, `budget.ts` (entry 282.7 of
+285 KB, boot set 792.1 of 860 KB) and `corpus:validate --strict` all pass. Driven
+on the iPhone 17 Pro simulator with the `a1` seed: the prelude film, the shift beats,
+the guess, two word links and the entry's English line. **Not deployed.**
+
 ### 2026-11-21 · the web is the product: a ruling, and a plan for a page per headword
 
 **What shipped.** No app change. VISION's settled decisions now rule that a native

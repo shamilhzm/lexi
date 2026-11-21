@@ -52,7 +52,11 @@ import Profile from './views/Profile.tsx';
 // put 14 headings and 3.7 screens behind one tab.
 const Settings = lazy(() => import('./views/Settings.tsx'));
 import { Drill, type Mode } from './views/drills.tsx';
-import SearchSheet from './components/SearchSheet.tsx';
+// Opened by a tap or a word link, never before first paint, so it is its own chunk:
+// the entry had 0.9 KB to spare (2026-11-21). App prefetches it after first paint,
+// so the worker has it cached and search still opens offline.
+const loadSearch = () => import('./components/SearchSheet.tsx');
+const SearchSheet = lazy(loadSearch);
 // The text scanner. Opened deliberately and rarely, and it pulls the whole
 // matcher — no business on the boot path.
 const TextGaps = lazy(() => import('./views/TextGaps.tsx'));
@@ -63,14 +67,15 @@ import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseGateHash } from './lib/tuer.ts';
-import { parseHash, toHash, knownRoute, type Route, type WordsRoute } from './route.ts';
-import { GROUPS, SECTORS } from './data/index.ts';
+import { parseHash, parseWordHash, toHash, knownRoute, type Route, type WordsRoute } from './route.ts';
+import { GROUPS, SECTORS, BY_ID } from './data/index.ts';
+import { ID_MAP } from './data/idmap.ts';
 import SagEs from './components/SagEs.tsx';
 import { FOCUS } from './lib/focus.ts';
 import ListenBar, { LISTEN_BAR_SPACE } from './components/ListenBar.tsx';
 import ListenSheet from './components/ListenSheet.tsx';
 import { useHoeren, start as startHoeren, stop as stopHoeren } from './lib/hoeren.ts';
-import type { Target } from './types.ts';
+import type { Target, Word } from './types.ts';
 
 export type View = 'feed' | 'session' | 'words' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
@@ -89,6 +94,17 @@ const BAR_B = 'calc(58px + max(8px, env(safe-area-inset-bottom) - 14px) + 8px)';
  *  The corpus is loaded before first paint (`main.tsx`), so the names are real. */
 function routeFromHash(): Route {
   return knownRoute(parseHash(), { groups: new Set(GROUPS), sectors: new Set(SECTORS.map((s) => s.name)) });
+}
+
+/** A word link (`#/w/<id>`), resolved. A renamed card follows `ID_MAP`, as a stored
+ *  schedule does; a card that is gone lands on a search for its spelling. */
+function readLink(): { word?: Word; seed?: string } | null {
+  const id = parseWordHash();
+  if (!id) return null;
+  let cur = id;
+  for (let i = 0; i < 8 && !BY_ID.has(cur) && ID_MAP[cur]; i++) cur = ID_MAP[cur];
+  const word = BY_ID.get(cur);
+  return word ? { word } : { seed: id.split(':').slice(2).join(':').replace(/^(der|die|das)\s+/, '') || id };
 }
 
 export default function App() {
@@ -126,6 +142,12 @@ export default function App() {
   // are, and closing the answer has to put you back there — mid-scroll in the
   // feed, mid-card in a session. See components/SearchSheet.
   const [searching, setSearching] = useState(false);
+  // A word link opens the same sheet with that word's entry already showing.
+  const [link, setLink] = useState(readLink);
+  useEffect(() => {
+    const t = setTimeout(() => { void loadSearch(); }, 4000);
+    return () => clearTimeout(t);
+  }, []);
   const [showSaved, setShowSaved] = useState(false);
   // **Where a scoped session was opened from**, so its Back arrow can go there.
   // It always went to Themen — labelled "Back to Wortschatz", a surface renamed
@@ -295,6 +317,8 @@ export default function App() {
       // The Türsteher renders instead of the app (main.tsx), so reaching it from
       // inside means booting again.
       if (parseGateHash(location.hash)) { location.reload(); return; }
+      const l = readLink();
+      if (l) setLink(l);
       fromHash.current = true;
       const r = routeFromHash();
       setView(r.view);
@@ -314,7 +338,8 @@ export default function App() {
     // card leaves the app once instead of walking a trail of identical entries.
     // So does a level chip inside the course: switching A2 → B1 is a tab, not a
     // step, and system Back should leave the course rather than replay the chips.
-    if (view === 'session' || (next.startsWith('#/words/kurs') && location.hash.startsWith('#/words/kurs'))) location.replace(next);
+    // And a word link: it is the feed underneath, so Back should not reopen the word.
+    if (view === 'session' || parseWordHash() || (next.startsWith('#/words/kurs') && location.hash.startsWith('#/words/kurs'))) location.replace(next);
     else location.hash = next;
   }, [view, target, words]);
 
@@ -327,7 +352,7 @@ export default function App() {
    *  Themen reopens on the deck you were in and the feed on the word you were
    *  reading, rather than on their index and their first word. */
   const returnTo = (v: View) => {
-    setOrigin(null); setDrill(null); setShowSaved(false); setSearching(false);
+    setOrigin(null); setDrill(null); setShowSaved(false); setSearching(false); setLink(null);
     setView(v); setNavTick((t) => t + 1);
   };
   /** The feed is a fixed, full-bleed surface: it owns the viewport and paints its
@@ -354,7 +379,8 @@ export default function App() {
     // things that can be open. Tapping *Themen* over the saved-words sheet moved the
     // selected tab, left the sheet on top of the new surface, and left its back
     // button pointing at a word the learner was no longer on.
-    setShowSaved(false); setSearching(false);
+    // A word link's entry is the same sheet as search, so it goes too.
+    setShowSaved(false); setSearching(false); setLink(null);
     setGuided(false); setView(v); setNavTick((t) => t + 1);
   };
 
@@ -546,7 +572,12 @@ export default function App() {
         <BottomNav view={view} onGo={go} />
       </div>
 
-      {searching && <SearchSheet onClose={() => setSearching(false)} />}
+      {(searching || link) && (
+        <Suspense fallback={null}>
+          <SearchSheet key={link?.word?.id ?? link?.seed ?? 'search'}
+            onClose={() => { setSearching(false); setLink(null); }} linked={link?.word} seed={link?.seed} />
+        </Suspense>
+      )}
       <AnimatePresence>
         {showSaved && <SavedWords key="saved" onClose={() => setShowSaved(false)} onStudy={study}
           onListen={() => { setShowSaved(false); listen(); }} />}

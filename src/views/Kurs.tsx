@@ -12,7 +12,7 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { ArrowLeft, Check, ChevronRight, GraduationCap, Play } from 'lucide-react';
-import { unitsFor, unitCards, nextUnit, type Unit } from '../data/course.ts';
+import { unitsFor, unitCards, nextUnit, PRELUDES, type Unit } from '../data/course.ts';
 import { FILM_BY_ID } from '../films/films.ts';
 import FilmPlayer from '../components/film/FilmPlayer.tsx';
 import { statusOf, filmsSeen, studyLevel } from '../store.ts';
@@ -44,7 +44,9 @@ export default function Kurs({ level, onLevel, onBack, onStudy }: {
   useStore();
   const main = unitsFor(level);
   const seen = filmsSeen();
-  const [playing, setPlaying] = useState<Unit | null>(null);
+  // A unit's film, or the level's prelude, which has a film and no words.
+  const [playing, setPlaying] = useState<{ film: string; title: string; unit?: Unit } | null>(null);
+  const prelude = PRELUDES[level];
 
   // `unitCards` is computed once for the whole course and cached.
   const known = (x: Unit) => {
@@ -58,7 +60,7 @@ export default function Kurs({ level, onLevel, onBack, onStudy }: {
     onStudy({ kind: 'custom', name: `Kurs · ${x.title}`, ids: ws.map((w) => w.id), course: x.id });
   };
 
-  const film = playing?.film ? FILM_BY_ID.get(playing.film) : undefined;
+  const film = playing ? FILM_BY_ID.get(playing.film) : undefined;
 
   return (
     <div className="w-full max-w-[760px] mx-auto">
@@ -85,11 +87,15 @@ export default function Kurs({ level, onLevel, onBack, onStudy }: {
         ))}
       </div>
 
-      <ol className="-mx-3 sm:-mx-5 border-y border-line divide-y divide-line">
+      {prelude && (
+        <PreludeRow title={prelude.title} en={prelude.en} seen={seen.has(prelude.film)}
+          onFilm={() => setPlaying({ film: prelude.film, title: prelude.title })} />
+      )}
+      <ol className={`-mx-3 sm:-mx-5 border-line divide-y divide-line ${prelude ? 'border-b' : 'border-y'}`}>
         {main.map((x, k) => (
           <UnitRow key={x.id} n={k + 1} unit={x} known={known(x)} count={unitCards(x).length}
             seen={!!x.film && seen.has(x.film)} next={x === suggested}
-            onFilm={() => setPlaying(x)} onStudy={() => study(x)} />
+            onFilm={() => x.film && setPlaying({ film: x.film, title: x.title, unit: x })} onStudy={() => study(x)} />
         ))}
       </ol>
 
@@ -100,11 +106,32 @@ export default function Kurs({ level, onLevel, onBack, onStudy }: {
       <AnimatePresence>
         {playing && film && (
           <FilmPlayer key={film.id} film={film} unitTitle={playing.title}
-            wordCount={unitCards(playing).length}
-            onStudy={() => { const x = playing; setPlaying(null); study(x); }}
+            wordCount={playing.unit ? unitCards(playing.unit).length : 0}
+            onStudy={() => { const x = playing.unit; setPlaying(null); if (x) study(x); }}
             onClose={() => setPlaying(null)} />
         )}
       </AnimatePresence>
+    </div>
+  );
+}
+
+/** Before unit 1: a film with no words of its own, so no ring, no count and no
+ *  session. It explains how to read every unit after it (course.ts, PRELUDES). */
+function PreludeRow({ title, en, seen, onFilm }: { title: string; en: string; seen: boolean; onFilm: () => void }) {
+  return (
+    <div className="-mx-3 sm:-mx-5 border-t border-line px-3 sm:px-5 py-4 flex gap-3.5">
+      <span className="grid place-items-center w-[44px] h-[44px] flex-shrink-0 rounded-full border-[3px] border-line" aria-hidden>
+        <Play size={15} className="text-accent translate-x-[1px]" />
+      </span>
+      <div className="flex-1 min-w-0">
+        <Kicker className="block">Before you start</Kicker>
+        <h2 lang="de" className="headword text-xl font-bold leading-tight">{title}</h2>
+        <p className="text-sm text-dim">{en}</p>
+        <button onClick={onFilm}
+          className="tap-44 mt-3 inline-flex items-center gap-1.5 rounded-full key bg-key text-key-ink font-semibold text-sm px-4 h-10 active:scale-95 transition">
+          <Play size={14} /> {seen ? 'Watch again' : 'Film'}
+        </button>
+      </div>
     </div>
   );
 }
