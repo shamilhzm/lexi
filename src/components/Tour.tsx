@@ -14,6 +14,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { createPortal } from 'react-dom';
 import { animate, type MotionValue } from 'motion/react';
 import Button from './ui/Button.tsx';
+import { useAnyLayerOpen } from './Layer.tsx';
 import { DEMO_EVENT, DEMO_STOP, markTourSeen, tourSeen, type TourId } from '../lib/hints.ts';
 
 export interface TourStep {
@@ -43,7 +44,10 @@ export default function Tour({ id, steps, ready = true }: { id: TourId; steps: T
   const anchored = useRef(false);
   const primary = useRef<HTMLButtonElement>(null);
   const step = steps[k];
-  const show = open && ready && !!step;
+  // It explains the surface, so it waits while a layer covers it: a word link opens
+  // its entry over the feed, and the feed's tour starts once that entry closes.
+  const covered = useAnyLayerOpen();
+  const show = open && ready && !covered && !!step;
   const bubble = useRef<HTMLDivElement>(null);
   // The bubble's own height, measured after it renders: placement is a second
   // pass, so it never guesses how tall a step's copy wraps at this text size.

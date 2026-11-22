@@ -14,7 +14,7 @@
 //
 // `parseHash` takes its hash as an argument precisely so this can run in Node.
 import { describe, it, expect } from 'vitest';
-import { parseHash, toHash, knownRoute, DEFAULT_ROUTE, parseWordHash, wordHash } from './route.ts';
+import { parseHash, toHash, knownRoute, DEFAULT_ROUTE, parseWordHash, wordHash, hashWrite } from './route.ts';
 
 /** Every destination that is a place you can *go*, plus the ones that are only
  *  opened from somewhere but must survive a reload. Enumerated from `VIEWS` in
@@ -207,5 +207,30 @@ describe('word links (#/w/<id>)', () => {
       expect(parseWordHash(h)).toBeNull();
     }
     expect(parseWordHash('#/w/100%')).toBe('100%'); // a stray % reads as typed, never throws
+  });
+});
+
+describe('what the address bar does (hashWrite)', () => {
+  const link = wordHash('voc:A1:der Brief');
+  it('keeps a word link while its entry is open, so a reload reopens the word', () => {
+    expect(hashWrite(link, '#/feed', { view: 'feed', linkOpen: true })).toEqual({});
+  });
+  it('turns a closed link into the feed in place, so Back does not reopen it', () => {
+    expect(hashWrite(link, '#/feed', { view: 'feed', linkOpen: false })).toEqual({ settle: '#/feed' });
+  });
+  it('pushes a tab over that feed, so Back from the tab lands on the feed', () => {
+    expect(hashWrite(link, '#/words', { view: 'words', linkOpen: false }))
+      .toEqual({ settle: '#/feed', hash: '#/words', replace: false });
+  });
+  it('lets a session take the address even with the link still open', () => {
+    expect(hashWrite(link, '#/session', { view: 'session', linkOpen: true }))
+      .toEqual({ settle: '#/feed', hash: '#/session', replace: true });
+  });
+  it('pushes a tab, replaces a session and a course chip, and leaves a match alone', () => {
+    expect(hashWrite('#/feed', '#/words', { view: 'words', linkOpen: false })).toEqual({ hash: '#/words', replace: false });
+    expect(hashWrite('#/feed', '#/session', { view: 'session', linkOpen: false })).toEqual({ hash: '#/session', replace: true });
+    expect(hashWrite('#/words/kurs/A2', '#/words/kurs/B1', { view: 'words', linkOpen: false }))
+      .toEqual({ hash: '#/words/kurs/B1', replace: true });
+    expect(hashWrite('#/words', '#/words', { view: 'words', linkOpen: false })).toEqual({});
   });
 });

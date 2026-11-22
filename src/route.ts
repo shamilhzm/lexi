@@ -137,6 +137,32 @@ export function parseWordHash(hash = location.hash): string | null {
 /** The hash a word link uses. Ids carry spaces and colons (`voc:A1:der Name`). */
 export const wordHash = (id: string) => `#/w/${encodeURIComponent(id)}`;
 
+/** What the address bar does when the app's route changes, from what it shows now
+ *  (`current`) to what the state says (`next`). `settle` rewrites the current entry
+ *  in place first; `hash` is then written, replacing or pushing.
+ *
+ *  **A word link keeps its hash while its entry is open**, so a reload brings the
+ *  word back: the learner's own, or the one `reloadIfBuildMoved` makes at boot
+ *  after a deploy. Rewriting it to the feed on arrival sent a returning visitor
+ *  who opened a link just after a deploy to the feed (2026-11-22). Once the entry
+ *  closes, the link becomes the feed it sat on, in place, so Back leaves the app
+ *  rather than reopening the word.
+ *
+ *  The session replaces rather than pushes: Back from the card leaves the app once
+ *  instead of walking a trail of identical entries. So does a level chip inside the
+ *  course: switching A2 → B1 is a tab, not a step. */
+export function hashWrite(current: string, next: string, o: { view: View; linkOpen: boolean }):
+  { settle?: string; hash?: string; replace?: boolean } {
+  let settle: string | undefined;
+  if (parseWordHash(current) !== null) {
+    if (o.linkOpen && o.view === 'feed') return {};
+    settle = current = toHash('feed', undefined, INDEX);
+  }
+  if (current === next) return settle ? { settle } : {};
+  const replace = o.view === 'session' || (next.startsWith('#/words/kurs') && current.startsWith('#/words/kurs'));
+  return { settle, hash: next, replace };
+}
+
 /** The deck names the loaded corpus carries. */
 export interface KnownNames {
   groups: ReadonlySet<string>;

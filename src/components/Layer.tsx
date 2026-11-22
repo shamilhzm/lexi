@@ -30,7 +30,7 @@
 //
 // Not `aria-modal`: the navigation behind is still live and still usable, and
 // claiming otherwise would tell a screen reader the opposite of what is true.
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -56,8 +56,19 @@ const SPRING = { type: 'spring' as const, stiffness: 260, damping: 30, mass: 0.8
 // form a stack: only the top one answers Escape, and the ones under it are inert.
 type Entry = { el: () => HTMLElement | null; parent: Entry | null };
 const open: Entry[] = [];
+const watchers = new Set<() => void>();
 function restack() {
   open.forEach((e, i) => { const el = e.el(); if (el) el.inert = i < open.length - 1; });
+  watchers.forEach((f) => f());
+}
+const watch = (f: () => void) => { watchers.add(f); return () => { watchers.delete(f); }; };
+const anyOpen = () => open.length > 0;
+
+/** Whether any layer is open, for what has to wait until none is. A first-visit
+ *  tour explains the surface; drawn over a layer it dimmed the thing the learner
+ *  had just opened, the entry a word link brought them to (2026-11-22). */
+export function useAnyLayerOpen(): boolean {
+  return useSyncExternalStore(watch, anyOpen, () => false);
 }
 
 /** The layer a component is rendered inside, so a layer opened within it (the

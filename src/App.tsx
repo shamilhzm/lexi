@@ -67,7 +67,7 @@ import { primeVoices } from './lib/ui.ts';
 import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseGateHash } from './lib/tuer.ts';
-import { parseHash, parseWordHash, toHash, knownRoute, type Route, type WordsRoute } from './route.ts';
+import { parseHash, parseWordHash, toHash, hashWrite, knownRoute, type Route, type WordsRoute } from './route.ts';
 import { GROUPS, SECTORS, BY_ID } from './data/index.ts';
 import { ID_MAP } from './data/idmap.ts';
 import SagEs from './components/SagEs.tsx';
@@ -330,18 +330,17 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const next = toHash(view, target, words);
     if (fromHash.current) { fromHash.current = false; return; }
-    if (location.hash === next) return;
+    // Which entries replace and which push, and why a word link keeps its hash
+    // while its entry is open: `hashWrite` in route.ts, where they are tested.
+    const w = hashWrite(location.hash, toHash(view, target, words), { view, linkOpen: !!link });
+    // `replaceState` fires no `hashchange`, so it needs no `selfWrote`.
+    if (w.settle) history.replaceState(history.state, '', location.pathname + location.search + w.settle);
+    if (!w.hash) return;
     selfWrote.current = true;
-    // The session is the root, so it replaces rather than pushes: Back from the
-    // card leaves the app once instead of walking a trail of identical entries.
-    // So does a level chip inside the course: switching A2 → B1 is a tab, not a
-    // step, and system Back should leave the course rather than replay the chips.
-    // And a word link: it is the feed underneath, so Back should not reopen the word.
-    if (view === 'session' || parseWordHash() || (next.startsWith('#/words/kurs') && location.hash.startsWith('#/words/kurs'))) location.replace(next);
-    else location.hash = next;
-  }, [view, target, words]);
+    if (w.replace) location.replace(w.hash);
+    else location.hash = w.hash;
+  }, [view, target, words, link]);
 
   /** Study a specific scope — a deck, a sector, a list of ids from a text. */
   const study = (t: Target) => {

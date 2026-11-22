@@ -11,6 +11,32 @@ it is already built.
 
 ---
 
+### 2026-11-22 · a word link survives a reload; the tour waits for the entry
+
+**What shipped.** Two defects seen on production 76d68ce, both older than it.
+
+- **A word link keeps its hash while its entry is open.** The app used to turn
+  `#/w/<id>` into `#/feed` the moment it booted. A returning visitor whose browser
+  still held the previous build then lost the word: that build rewrote the hash,
+  `reloadIfBuildMoved` reloaded into the new build, and the new build saw the feed.
+  Now the hash stays until the entry closes, and only then becomes the feed, in place,
+  so Back still leaves rather than reopening the word. A reload of any kind reopens
+  the word. The rules live in `hashWrite` (`route.ts`), with five tests. Visitors
+  holding 76d68ce or older lose the word once more at the next deploy, because the
+  rewrite happens in the build they already have.
+- **The welcome tour waits while a layer is open.** A first visit through a word
+  link drew the feed's tour over the entry and dimmed the word the visitor came to
+  read. `Tour` now reads `useAnyLayerOpen()` from the layer stack and starts once the
+  entry closes. It holds for every surface's tour, since none of them explains a
+  layer.
+
+**Checks.** Typecheck, 2,484 tests in 117 files, build, `budget.ts` (entry 283.6 of
+285 KB, boot set 793.1 of 860 KB) and the devseed grep pass. On the iPhone 17 Pro
+simulator, from a fresh origin: the link opens the entry with no tour, *Wort* closes
+it to the welcome slot, the tour starts on the first word, and a reload after closing
+lands on the feed. In the browser pane, the hash stays `#/w/…` while the entry is open
+and a reload reopens it. Not deployed.
+
 ### 2026-11-21 · the entry laid flat on a wide screen
 
 **What shipped.** At 1280px and wider, the entry the feed opens (ⓘ, ←, or a drag)

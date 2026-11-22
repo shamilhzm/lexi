@@ -2403,3 +2403,16 @@ taken from effects is child-first within a commit; a stack of nested things must
 a layer above the one that contains it, not above whatever registered before it. And a
 new way into a surface is verified by using the surface it opens: scroll it and press
 its own back button.
+
+## What the app takes out of the address bar, a reload cannot put back *(added 2026-11-22)*
+
+**Believed:** rewriting a word link (`#/w/<id>`) to `#/feed` on arrival was tidy, since
+the feed is what sits under the entry and Back should not reopen the word. **True:** the
+app reloads itself at boot when a new build is live (`reloadIfBuildMoved`), and that
+reload read the rewritten address, so a returning visitor who opened a link just after
+a deploy got the feed. Found on production 76d68ce, older than it. The same pass found
+the welcome tour drawn over the entry, because the tour knew the surface but not what
+covered it. **Rule:** the address keeps whatever the screen shows until the screen stops
+showing it; tidy it on close, not on arrival. Anything the app does to itself on boot (a
+reload, a tour, a restore) is tested by arriving through a deep link, not only through
+the front door.
