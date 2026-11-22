@@ -35,7 +35,9 @@ it is already built.
 simulator, from a fresh origin: the link opens the entry with no tour, *Wort* closes
 it to the welcome slot, the tour starts on the first word, and a reload after closing
 lands on the feed. In the browser pane, the hash stays `#/w/…` while the entry is open
-and a reload reopens it. Not deployed.
+and a reload reopens it. Deployed as b46b3f5 (built 2026-11-22T13:32Z). On production
+the pane's cached 76d68ce lost the word once, as predicted; the next open on b46b3f5
+kept `#/w/…` with the entry open.
 
 ### 2026-11-21 · the entry laid flat on a wide screen
 
