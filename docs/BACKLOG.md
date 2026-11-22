@@ -41,6 +41,12 @@
 >    - ~~`scripts/pages/build.ts`, `pages.css` and the tests, shipped with `noindex`~~ ✅ 2026-11-21
 >    - canonical URLs, the sitemap and Search Console, once the domain is settled · S
 >      (`LEXI_PUBLIC_ORIGIN` at build time switches all three on; nothing else changes)
+>    - Two word-link defects seen on production 76d68ce (2026-11-22, iPhone 17 Pro
+>      simulator), both older than it. **A link opened over a stale build lands on the
+>      feed:** the cached build turns `#/w/<id>` into `#/feed` (`App.tsx`), then
+>      `reloadIfBuildMoved` reloads into the new build without the word. Once per
+>      returning visitor per deploy. **The feed's welcome tour opens over the entry**
+>      for a first visit, dimming the word the visitor came to read. · S
 > 4. **What the web makes possible** ([LEARNING-WEB.md](LEARNING-WEB.md), research). Its
 >    proposals, as they stand after 2026-11-21:
 >    - ✅ **The transfer line** (VISION, *The transfer line*): 889 cards since the

@@ -29,7 +29,7 @@ rule is written on `Layer`'s `beside`.
 **Checks.** Typecheck, 2,479 tests, build, `budget.ts` (entry 283.4 of 285 KB, boot
 set 792.9 of 860 KB) pass. Measured in the browser pane at 1440 and 1280 (panel
 0–420 and 0–340, word column from 360) and at 1279 (full cover); on the iPhone 17
-Pro simulator the entry still covers the word. Not deployed.
+Pro simulator the entry still covers the word. Deployed as 76d68ce (built 2026-11-21T22:33Z).
 
 ### 2026-11-21 · word links open a live entry; seventeen false friends
 
@@ -55,7 +55,7 @@ owner; none of those was added.
 
 **Checks.** Typecheck, 2,479 tests in 117 files, build, `budget.ts` (entry 283.3 of
 285 KB, up 0.6 with the 17 entries and the stack's context; boot set 792.7 of 860 KB),
-`corpus:validate --strict` and the devseed grep all pass. Not deployed.
+`corpus:validate --strict` and the devseed grep all pass. Deployed as 76d68ce (built 2026-11-21T22:33Z); a `#/w/` link on production opens a live entry on the iPhone 17 Pro simulator.
 
 ### 2026-11-21 · the C1 prelude: the Latin you already read
 
@@ -81,7 +81,7 @@ each pair is now one row that wraps whole.
 
 **Checks.** Typecheck, 2,474 tests in 116 files, build, `budget.ts` (entry 282.7 of
 285 KB, boot set 792.1 of 860 KB) and `corpus:validate --strict` pass. All ten beats
-played on the iPhone 17 Pro simulator with the `a1` seed. Not deployed.
+played on the iPhone 17 Pro simulator with the `a1` seed. Deployed as 76d68ce (built 2026-11-21T22:33Z).
 
 ### 2026-11-21 · what an English speaker already owns: the transfer line, a first film, word pages, a release, the keyboard
 
