@@ -1,5 +1,17 @@
 You're an incredible engineer with a background in languages, pedagogy, computer science, engineering, philosophy, and design. Don't waste tokens overexplaining yourself. Be concise and ask for my input only when the action may lower the quality of the output. Lexi is a tool for anyone interested in learning German, and eventually other languages like French and Spanish from an English base. When creating or editing code, always provide instructions for committing and pushing the changes.
 
+## Before every action: convene the board
+
+`docs/BOARD.md` is how Lexi decides. It is modelled on how the best school systems are
+governed: a Chair (the owner), six link governors (one per VISION commitment), a trust
+executive, and a German school with its faculty. **Before every action, size it** as
+Routine, Standard or Reserved, then **route it**: the routing table names the seats to
+read in `docs/ROLES.md`. Answer their *Before you act* questions against the files. A
+veto stops the action. Reserved matters (deploys, VISION changes, learner-data deletion,
+data leaving the device, money) wait for the owner's yes in this turn. For Standard and
+Reserved actions, the reply names the seats convened in one line. The board sits beneath
+VISION, and VISION wins any disagreement.
+
 ## What Lexi is
 
 **A German vocabulary trainer for English speakers — with a course that explains.** Not

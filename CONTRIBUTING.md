@@ -4,8 +4,11 @@ Lexi is MIT-licensed and built in the open. This file is the door: what the proj
 trying to be, what it deliberately won't build, and the four rules that keep a
 local-first learning app from quietly corrupting somebody's year of work.
 
-Read [`docs/VISION.md`](docs/VISION.md) first. It is short, and it will save you
-building something that gets declined for reasons that were settled months ago.
+Read [`docs/VISION.md`](docs/VISION.md) first. It will save you building something that
+gets declined for reasons that were settled months ago. Then
+[`docs/BOARD.md`](docs/BOARD.md) tells you which seats review a change like yours
+(the Registrar for learner data, the Head of German for anything that shows German, and
+so on), and [`docs/ROLES.md`](docs/ROLES.md) lists the questions each seat asks.
 
 ## Getting set up
 
@@ -38,11 +41,13 @@ renames, relevels or merges a card, it must ship `src/data/idmap.ts` entries tha
 the schedule across. `store-idmap.test.ts` guards this. There is no telemetry and no
 server backup — if a schedule breaks, it breaks silently and forever.
 
-**4. Never render wrong German.** Drills are constructed from verified corpus facts and
-gated so they cannot produce a wrong fragment — `caseSafe` excludes n-Deklination
-masculines, genitive frames are restricted to feminines, `canTransform` excludes verbs
-whose bare finite form would be nonsense. If your feature can emit German, it needs a
-gate and a test that pins it.
+**4. Never render wrong German.** Drills are built from verified corpus facts, and every
+mode is gated in one place, `canAsk` in `src/views/drills.tsx`, so it cannot ask a
+question it can't mark honestly. For example, `recallSafe` asks for typed recall only
+when the English gloss points back at exactly one German answer. `canConjugate` drills a
+verb only when the conjugator marks its table reliable. `isTypoFor` forgives a one-letter
+slip only when what was typed is not itself a German word, so *Butter* is never accepted
+for *Mutter*. If your feature can emit German, it needs a gate and a test that pins it.
 
 ## Before you open a pull request
 
@@ -76,15 +81,17 @@ without network access.
 Not because the ideas are bad — because they were argued and declined on the record.
 [`docs/VISION.md`](docs/VISION.md) has the reasoning for each:
 
-- **Grammar teaching.** *Ruled 2026-09-05, and the most likely thing to be proposed:* a
-  drill earns its place if it tests a property of the **word** — gender, plural,
-  spelling, the German you have to produce — and goes if it tests a **rule of the
+- **Grammar drills.** *Ruled 2026-09-05, and the most likely thing to be proposed.* A
+  drill earns its place if it tests a property of the **word** (gender, plural,
+  spelling, the German you have to produce). It goes if it tests a **rule of the
   language**. The 140-point syllabus, the exam room and seven drill modes were removed
-  under that rule. Reversing it is allowed; doing it without arguing with the ruling
-  first is not.
-- **A home screen.** The app opens on a card. A surface whose job is to get the learner
-  to a session is a session you have not started yet.
-- An AI conversation tutor, or anything requiring a backend or API keys at runtime
+  under that rule. *Narrowed 2026-11-19:* a course film may **explain** a rule, but
+  never grades. Reversing the ruling is allowed, but only after arguing with it first.
+- **A home screen.** The app opens on the feed, one word per screen. A surface whose job
+  is to get the learner to a session is a session you have not started yet.
+- An AI chatbot. The optional tutor explains a sentence and corrects a write-back, and
+  it never scores. Anything that needs accounts, or that holds learner data on a server,
+  is also refused.
 - Machine-marked writing or speaking, or ASR pronunciation scoring
 - Leagues, streak-shaming, or social pressure mechanics
 - Any claim of competence the evidence doesn't support

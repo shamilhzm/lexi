@@ -11,6 +11,43 @@ it is already built.
 
 ---
 
+### 2026-11-23 · The board: an org chart that is consulted before every action
+
+**What shipped.** `docs/BOARD.md` and `docs/ROLES.md`, written at the owner's direction,
+with a pointer from `CLAUDE.md` and from `docs/README.md`. No code changed.
+
+**The board's first finding** (People & Development): `CONTRIBUTING.md` had gone stale.
+Its rule 4 named two gates, `caseSafe` and `canTransform`, that left the code with the
+drills they guarded. It now names `canAsk`, `recallSafe`, `canConjugate` and
+`isTypoFor`. It also said the app opens on a card (it opens on the feed), refused grammar
+*teaching* (narrowed on 2026-11-19 to grammar *drills*), and refused any runtime backend
+(the optional tutor has one stateless function). All three now match VISION.
+
+**Why.** No session remembers the last one, so each had to rebuild the judgement a
+school keeps in its staff. The two panels (2026-09-25 and 2026-10-04) showed that ten
+seats, each asking its own question, catch what one generalist misses. The board makes
+those seats permanent. It is modelled on what the best-run school systems share: governance
+kept apart from management and teaching (England's governance handbook), a core
+curriculum with local design (Finland), lesson study (Japan, Shanghai), specialist career
+tracks (Singapore), independent inspection, one welfare team (Finland), and shared
+services with autonomous schools (multi-academy trusts).
+
+**The decisions inside it.** The line between the trust and its schools *is* the language
+boundary. A file owned by a school seat may know German, and a file owned by a trust seat
+must not, which turns VISION's multilingual rule into a reporting line. The French and
+Spanish schools are vacant until a pair is actually built. Each action is sized as
+Routine, Standard or Reserved before anything else, so that fixing a typo does not
+convene the whole board. Vetoes are tied to VISION's *Forbids* lines and must restate what
+they prevent (LESSONS). A veto that only quotes a rule counts as a concern. The tie-break
+order for concerns is derived from VISION's goal sentence and from the 2026-09-25 panel,
+which put data loss first unanimously. The order is a proposal for the Chair to ratify.
+
+**Not done on purpose.** VISION's own index of docs (*How the docs serve this*) is not
+edited. Amending VISION is a reserved matter under the board it describes, and
+`docs/README.md` is the index that people read.
+
+---
+
 ### 2026-11-23 · 313 of the most frequent dictionary words become cards
 
 **What shipped.** 313 cards through `authoring:new`, in three batches

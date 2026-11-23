@@ -8,6 +8,9 @@ Planning, strategy and reference. Code and product truth live in `src/` and the 
 - **[VISION.md](VISION.md)** — **the anchor.** What we are building, the six
   commitments and what each one forbids, the refusals, the settled decisions, and the
   three things that are genuinely still open. When two docs disagree, this one decides.
+- **[BOARD.md](BOARD.md)** — **read before every action.** How Lexi decides: the org
+  chart, the convening (Routine / Standard / Reserved), the routing table that says which
+  seats in [ROLES.md](ROLES.md) to read, vetoes, reserved matters and the tie-break.
 - **[BACKLOG.md](BACKLOG.md)** — the single prioritised list of **open** work. If you
   want to know what to do next, it is here and nothing else is.
 - **[DICTIONARY.md](DICTIONARY.md)** — the two-layer plan: why the taught corpus stops
@@ -41,6 +44,8 @@ should be deleted — git history is what history is for.
 
 | Doc | What it is | Use it when |
 |---|---|---|
+| [BOARD.md](BOARD.md) | How the project decides, modelled on how the best school systems are governed: the Chair, six link governors, the trust/school split (the language boundary), the seven-step convening, the routing table, decision rights, reserved matters, vetoes. Beneath VISION. | **Before every action.** |
+| [ROLES.md](ROLES.md) | Every seat on the board: its real-world model, its duty, the files it owns, its veto, and the questions it asks before an action. | When BOARD's routing table names a seat. |
 | [DESIGN.md](DESIGN.md) | The design system as it actually is: tokens, the elevation ramp, radius/hue/motion rules, the two-rooms principle, and the gotchas that cost time. Living — argue with it. | Touching anything visual. |
 | [BACKEND.md](BACKEND.md) | **Proposal, not policy.** The accounts + sync design: what would sync, what deliberately would not, how two offline devices merge. No code written, and it contradicts the current shipping behaviour — see VISION § open decisions. | Before touching auth, sync or push. |
 | [COSTS.md](COSTS.md) | What Lexi costs to run and who pays each part — measured by `scripts/costs.ts`, not estimated — plus what would change the bill, the grant window, and how to help. | Before adding a server, a download, or any way of taking money. |
