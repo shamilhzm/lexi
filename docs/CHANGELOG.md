@@ -88,6 +88,9 @@ they prevent (LESSONS). A veto that only quotes a rule counts as a concern. The 
 order for concerns is derived from VISION's goal sentence and from the 2026-09-25 panel,
 which put data loss first unanimously. The order is a proposal for the Chair to ratify.
 
+**Deployed** 2026-11-23 by `git push` as e4563a3 over 9736e8b (`version.json` builtAt
+2026-11-23T15:39:32Z).
+
 **Not done on purpose.** VISION's own index of docs (*How the docs serve this*) is not
 edited. Amending VISION is a reserved matter under the board it describes, and
 `docs/README.md` is the index that people read.
