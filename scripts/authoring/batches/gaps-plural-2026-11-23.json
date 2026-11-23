@@ -1,0 +1,194 @@
+[
+  {
+    "id": "voc:B2:das Bürgergeld",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Bürgergeld — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:die Energieversorgung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Energieversorgung — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:das Marihuana",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Marihuana — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:das Tageslicht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Tageslicht — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:C1:die Reue",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Reue — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B1:die Weihnachtszeit",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Weihnachtszeit — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:A2:die Mathe",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Mathe — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:C1:der Anschein",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Anschein — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:der Gestank",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Gestank — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B1:das Kleingeld",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Kleingeld — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:der Terrorismus",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Terrorismus — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:das Selbstbewusstsein",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Selbstbewusstsein — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:die Stromversorgung",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Stromversorgung — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:C1:die Zuflucht",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Zuflucht — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:C1:die Fernwärme",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Fernwärme — «|Nominativ Plural=—», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:der Wohnungsbau",
+    "expect": {
+      "plural": null
+    },
+    "plural": "nur Singular",
+    "src": "de.wiktionary.org/wiki/Wohnungsbau — «|Nominativ Plural=-», «{{kPl.}}» (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:die Flitterwochen",
+    "expect": {
+      "plural": "die Flitterwochen"
+    },
+    "plural": "nur Plural",
+    "src": "de.wiktionary.org/wiki/Flitterwochen — «|Genus=0», «{{kSg.}}»: plurale tantum, written as die Eltern and die Ferien are (read 2026-11-23)"
+  },
+  {
+    "id": "voc:A2:die Sommerferien",
+    "expect": {
+      "plural": "die Sommerferien"
+    },
+    "plural": "nur Plural",
+    "src": "de.wiktionary.org/wiki/Sommerferien — «|Genus=0», «{{kSg.}}»: plurale tantum, written as die Eltern and die Ferien are (read 2026-11-23)"
+  },
+  {
+    "id": "voc:A2:die Pommes",
+    "expect": {
+      "plural": "die Pommes"
+    },
+    "plural": "nur Plural",
+    "src": "de.wiktionary.org/wiki/Pommes — «|Genus=0», «{{kSg.}}»: plurale tantum, written as die Eltern and die Ferien are (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B1:die Bauarbeiten",
+    "expect": {
+      "plural": "die Bauarbeiten"
+    },
+    "plural": "nur Plural",
+    "src": "de.wiktionary.org/wiki/Bauarbeiten — «|Genus=0», «{{kSg.}}»: plurale tantum, written as die Eltern and die Ferien are (read 2026-11-23)"
+  },
+  {
+    "id": "voc:C1:der Stab",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Stäbe",
+    "src": "de.wiktionary.org/wiki/Stab — first entry (m, «länglicher zylindrischer Gegenstand»): «|Nominativ Plural=Stäbe»; the second entry, plural «Stab», is the historical unit of length (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:der Acker",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Äcker",
+    "src": "de.wiktionary.org/wiki/Acker — «|Nominativ Plural 1=Äcker» bound to [1] «landwirtschaftlich genutzte Fläche»; Plural 2 «Acker» is [2], the old unit of area (read 2026-11-23)"
+  },
+  {
+    "id": "voc:C1:der Kiefer",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Kiefer",
+    "src": "de.wiktionary.org/wiki/Kiefer — the m/n entry (jaw): «|Nominativ Plural=Kiefer»; «Kiefern» is the f entry, the pine (read 2026-11-23)"
+  },
+  {
+    "id": "voc:B2:der Safe",
+    "expect": {
+      "plural": null
+    },
+    "plural": "die Safes",
+    "src": "de.wiktionary.org/wiki/Safe — «|Nominativ Plural=Safes» (read 2026-11-23)"
+  }
+]

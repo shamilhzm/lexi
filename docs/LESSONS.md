@@ -2427,3 +2427,27 @@ until a port the device had never visited (4327) served the real build. **Rule:*
 phone, a freshly built preview goes on a port that device has never opened, or its
 build stamp (`version.json`) is read before anything on screen is believed. A port is an
 origin, and an origin keeps its worker.
+
+## The gate is stricter than the app it guards *(added 2026-11-23)*
+
+**Believed:** «example does not contain *kneifen*» meant the sentence lacked the word.
+**True:** the gate builds its matcher over the corpus plus the draft, without the
+attested table (`inflections.json`) the app loads. A draft has no table yet, so every
+form the rules cannot generate is invisible to the gate. Batch C of the frequency gaps
+had 13 rejections on the first pass. Every sentence was correct German: *gekniffen*,
+*errang*, *aufgehängt*, *heimgekommen*, *preisgegeben* and *vollendete* are all in the
+table once `corpus:inflections` runs. I rewrote them into infinitives before checking,
+which is the narrowing `verify.ts` warns about. **Rule:** before rewriting a rejected
+example, look the form up in the dictionary table. A regular-looking form the gate
+cannot see is a gap in the gate, not in the sentence.
+
+## A card the gate passes can still take other cards' sentences *(added 2026-11-23)*
+
+**Believed:** a card that passes the gate is safe to land. **True:** *ausarbeiten* and
+*gutmachen* passed. Then `ownership` showed them taking *arbeiten* in «Zunehmend arbeiten
+Menschen von zu Hause aus» and *machen* in «Tschüss, mach's gut!». The matcher reads any
+clause-final particle as the verb's, and *aus* closing *von … aus* or adverbial *gut*
+look exactly like one. Telling them apart is not decidable from the particle: «Ich gehe
+von einem Erfolg aus» really is *ausgehen*. **Rule:** read every "taken from an old card"
+line. When one is wrong and the matcher cannot tell, the new card waits, because two
+wrong glosses in other cards' sentences cost more than one missing card.

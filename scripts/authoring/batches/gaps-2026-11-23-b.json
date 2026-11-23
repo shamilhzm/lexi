@@ -1,0 +1,1805 @@
+[
+  {
+    "term": "die Schiene",
+    "en": "rail, track",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Der Zug ist aus den Schienen gesprungen.",
+        "en": "The train jumped the rails."
+      },
+      {
+        "de": "Auf der Schiene liegt ein umgestürzter Baum.",
+        "en": "A fallen tree is lying on the track."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Marktanteil",
+    "en": "market share",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Economy & Markets",
+    "ex": [
+      {
+        "de": "Die Firma hat ihren Marktanteil auf zwanzig Prozent erhöht.",
+        "en": "The company has increased its market share to twenty per cent."
+      },
+      {
+        "de": "Elektroautos gewinnen jedes Jahr Marktanteile.",
+        "en": "Electric cars gain market share every year."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Pfadfinder",
+    "en": "scout",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Free time",
+    "ex": [
+      {
+        "de": "Als Kind war ich bei den Pfadfindern.",
+        "en": "As a child I was in the scouts."
+      },
+      {
+        "de": "Die Pfadfinder bauen ihre Zelte am See auf.",
+        "en": "The scouts are pitching their tents by the lake."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "das Rudel",
+    "en": "pack (of wolves, dogs)",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Animals",
+    "ex": [
+      {
+        "de": "Wölfe jagen meistens im Rudel.",
+        "en": "Wolves mostly hunt in packs."
+      },
+      {
+        "de": "Ein Rudel Hunde lief über die Straße.",
+        "en": "A pack of dogs ran across the road."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "die Prophezeiung",
+    "en": "prophecy",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Religion",
+    "ex": [
+      {
+        "de": "Die Prophezeiung hat sich nicht erfüllt.",
+        "en": "The prophecy did not come true."
+      },
+      {
+        "de": "Niemand glaubte an die Prophezeiung der alten Frau.",
+        "en": "Nobody believed the old woman's prophecy."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Pianist",
+    "en": "pianist",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Music & Theatre",
+    "ex": [
+      {
+        "de": "Der Pianist spielte ein Stück von Chopin.",
+        "en": "The pianist played a piece by Chopin."
+      },
+      {
+        "de": "Der Pianist übt jeden Tag sechs Stunden.",
+        "en": "The pianist practises six hours every day."
+      }
+    ],
+    "gender": "der",
+    "sameAsGerman": true
+  },
+  {
+    "term": "die Palme",
+    "en": "palm tree",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Am Strand stehen hohe Palmen.",
+        "en": "Tall palm trees stand on the beach."
+      },
+      {
+        "de": "Unsere Palme im Wohnzimmer braucht viel Licht.",
+        "en": "Our palm in the living room needs a lot of light."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Polizeibericht",
+    "en": "police report",
+    "pos": "noun",
+    "level": "B2",
+    "field": "News Media",
+    "ex": [
+      {
+        "de": "Laut Polizeibericht war der Fahrer zu schnell.",
+        "en": "According to the police report, the driver was going too fast."
+      },
+      {
+        "de": "Der Polizeibericht erwähnt zwei Zeugen.",
+        "en": "The police report mentions two witnesses."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "das Vorstandsmitglied",
+    "en": "board member",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Business & Workplace",
+    "ex": [
+      {
+        "de": "Ein Vorstandsmitglied hat das Unternehmen verlassen.",
+        "en": "A board member has left the company."
+      },
+      {
+        "de": "Die Vorstandsmitglieder verzichten auf ihre Boni.",
+        "en": "The board members are forgoing their bonuses."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "die Konfrontation",
+    "en": "confrontation",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Die Regierung will eine Konfrontation mit den Gewerkschaften vermeiden.",
+        "en": "The government wants to avoid a confrontation with the unions."
+      },
+      {
+        "de": "Es kam zu einer Konfrontation zwischen Fans und Polizei.",
+        "en": "There was a confrontation between fans and police."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Lebensstil",
+    "en": "lifestyle",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Health",
+    "ex": [
+      {
+        "de": "Ein gesunder Lebensstil senkt das Risiko für Herzkrankheiten.",
+        "en": "A healthy lifestyle lowers the risk of heart disease."
+      },
+      {
+        "de": "Ihr Lebensstil hat sich nach dem Umzug völlig verändert.",
+        "en": "Her lifestyle changed completely after the move."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "das Funkgerät",
+    "en": "two-way radio, walkie-talkie",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Technology",
+    "ex": [
+      {
+        "de": "Die Bergretter sprechen über Funkgerät miteinander.",
+        "en": "The mountain rescuers talk to each other by radio."
+      },
+      {
+        "de": "Das Funkgerät hat keinen Empfang mehr.",
+        "en": "The radio has lost its signal."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "die Musikschule",
+    "en": "music school",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Music & Theatre",
+    "ex": [
+      {
+        "de": "Meine Tochter lernt an der Musikschule Geige.",
+        "en": "My daughter is learning the violin at music school."
+      },
+      {
+        "de": "Die Musikschule gibt im Sommer ein Konzert.",
+        "en": "The music school gives a concert in the summer."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Turbulenz",
+    "en": "turbulence",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Während des Flugs gab es starke Turbulenzen.",
+        "en": "There was severe turbulence during the flight."
+      },
+      {
+        "de": "Die Börse erlebt gerade Turbulenzen.",
+        "en": "The stock market is going through turbulence."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Vierbeiner",
+    "en": "four-legged friend",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Animals",
+    "ex": [
+      {
+        "de": "Hunde sind in diesem Hotel willkommen, auch große Vierbeiner.",
+        "en": "Dogs are welcome in this hotel, even large four-legged friends."
+      },
+      {
+        "de": "Der kleine Vierbeiner wartet jeden Abend an der Tür.",
+        "en": "The little four-legged friend waits at the door every evening."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "das Genick",
+    "en": "(back of the) neck",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Er brach sich bei dem Sturz das Genick.",
+        "en": "He broke his neck in the fall."
+      },
+      {
+        "de": "Die Kälte kroch mir ins Genick.",
+        "en": "The cold crept down the back of my neck."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "die Todesstrafe",
+    "en": "death penalty",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "In der EU ist die Todesstrafe abgeschafft.",
+        "en": "The death penalty has been abolished in the EU."
+      },
+      {
+        "de": "Ihm droht die Todesstrafe.",
+        "en": "He faces the death penalty."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Mordkommission",
+    "en": "homicide squad",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Die Mordkommission hat die Ermittlungen übernommen.",
+        "en": "The homicide squad has taken over the investigation."
+      },
+      {
+        "de": "Er leitet seit Jahren die Mordkommission.",
+        "en": "He has headed the homicide squad for years."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "das Stadium",
+    "en": "stage, phase",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Die Krankheit wurde in einem frühen Stadium erkannt.",
+        "en": "The disease was detected at an early stage."
+      },
+      {
+        "de": "Das Projekt ist noch im Stadium der Planung.",
+        "en": "The project is still at the planning stage."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "das Meisterwerk",
+    "en": "masterpiece",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Arts and culture",
+    "ex": [
+      {
+        "de": "Das Bild gilt als Meisterwerk der Renaissance.",
+        "en": "The painting is considered a masterpiece of the Renaissance."
+      },
+      {
+        "de": "Mit diesem Roman ist ihr ein Meisterwerk gelungen.",
+        "en": "With this novel she has produced a masterpiece."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "der Abflug",
+    "en": "departure (of a flight), take-off",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Travel",
+    "ex": [
+      {
+        "de": "Bitte seien Sie zwei Stunden vor Abflug am Flughafen.",
+        "en": "Please be at the airport two hours before departure."
+      },
+      {
+        "de": "Der Abflug verzögert sich um eine Stunde.",
+        "en": "The departure is delayed by an hour."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Millionär",
+    "en": "millionaire",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Mit dem Lottogewinn wurde er über Nacht zum Millionär.",
+        "en": "The lottery win made him a millionaire overnight."
+      },
+      {
+        "de": "Nicht jeder Millionär lebt im Luxus.",
+        "en": "Not every millionaire lives in luxury."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Reue",
+    "en": "remorse, regret",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Der Angeklagte zeigte keine Reue.",
+        "en": "The defendant showed no remorse."
+      },
+      {
+        "de": "Voller Reue bat er seine Schwester um Verzeihung.",
+        "en": "Full of remorse, he asked his sister for forgiveness."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "das Enkelkind",
+    "en": "grandchild",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Family",
+    "ex": [
+      {
+        "de": "Am Wochenende besuchen uns die Enkelkinder.",
+        "en": "The grandchildren are visiting us at the weekend."
+      },
+      {
+        "de": "Sie hat fünf Enkelkinder.",
+        "en": "She has five grandchildren."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "die Hintertür",
+    "en": "back door",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Der Dieb kam durch die Hintertür ins Haus.",
+        "en": "The thief got into the house through the back door."
+      },
+      {
+        "de": "Das Gesetz lässt eine Hintertür offen.",
+        "en": "The law leaves a back door open."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Anhaltspunkt",
+    "en": "clue, indication",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Die Polizei hat keinen Anhaltspunkt für eine Straftat.",
+        "en": "The police have no indication of a crime."
+      },
+      {
+        "de": "Der Preis gibt einen ersten Anhaltspunkt.",
+        "en": "The price gives a first indication."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Freigabe",
+    "en": "release, approval, clearance",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Administration",
+    "ex": [
+      {
+        "de": "Für die Freigabe brauchen wir die Unterschrift der Chefin.",
+        "en": "We need the boss's signature for the approval."
+      },
+      {
+        "de": "Das Flugzeug wartet auf die Freigabe zum Start.",
+        "en": "The plane is waiting for clearance to take off."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Staatssekretär",
+    "en": "state secretary, junior minister",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Der Staatssekretär vertrat die Ministerin bei dem Treffen.",
+        "en": "The state secretary represented the minister at the meeting."
+      },
+      {
+        "de": "Er war vier Jahre Staatssekretär im Finanzministerium.",
+        "en": "He was state secretary at the finance ministry for four years."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Weihnachtszeit",
+    "en": "Christmas season",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Festivals & customs",
+    "ex": [
+      {
+        "de": "In der Weihnachtszeit sind die Städte voller Lichter.",
+        "en": "At Christmas time the towns are full of lights."
+      },
+      {
+        "de": "Die Weihnachtszeit ist für viele Läden die wichtigste Zeit des Jahres.",
+        "en": "The Christmas season is the most important time of year for many shops."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "das Sortiment",
+    "en": "range (of goods)",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Der Supermarkt hat sein Sortiment erweitert.",
+        "en": "The supermarket has expanded its range."
+      },
+      {
+        "de": "Dieses Modell ist leider nicht mehr im Sortiment.",
+        "en": "Unfortunately this model is no longer in our range."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "das Bekenntnis",
+    "en": "confession, profession (of faith); commitment",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Religion",
+    "ex": [
+      {
+        "de": "Die Rede war ein klares Bekenntnis zu Europa.",
+        "en": "The speech was a clear commitment to Europe."
+      },
+      {
+        "de": "Sie legte ein offenes Bekenntnis ab.",
+        "en": "She made an open confession."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "die Mathe",
+    "en": "maths (colloquial)",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Education",
+    "ex": [
+      {
+        "de": "In Mathe habe ich eine Zwei bekommen.",
+        "en": "I got a B in maths."
+      },
+      {
+        "de": "Mathe war nie mein Lieblingsfach.",
+        "en": "Maths was never my favourite subject."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Zweig",
+    "en": "twig, branch",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Ein Vogel sitzt auf dem Zweig.",
+        "en": "A bird is sitting on the twig."
+      },
+      {
+        "de": "Die Firma ist in einem neuen Zweig der Industrie tätig.",
+        "en": "The company is active in a new branch of industry."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Arbeitsgruppe",
+    "en": "working group",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Work",
+    "ex": [
+      {
+        "de": "Die Arbeitsgruppe legt nächste Woche ihre Ergebnisse vor.",
+        "en": "The working group will present its findings next week."
+      },
+      {
+        "de": "Wir teilen uns in drei Arbeitsgruppen auf.",
+        "en": "We'll split into three working groups."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "das Pulver",
+    "en": "powder",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Objects & Materials",
+    "ex": [
+      {
+        "de": "Das Pulver in warmem Wasser auflösen.",
+        "en": "Dissolve the powder in warm water."
+      },
+      {
+        "de": "Er hat sein Pulver schon verschossen.",
+        "en": "He has already shot his bolt."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "die Altersgruppe",
+    "en": "age group",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Society",
+    "ex": [
+      {
+        "de": "Das Spiel ist für die Altersgruppe von sechs bis zehn Jahren.",
+        "en": "The game is for the six-to-ten age group."
+      },
+      {
+        "de": "In dieser Altersgruppe ist die Krankheit selten.",
+        "en": "The disease is rare in this age group."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Laterne",
+    "en": "lantern; street lamp",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Urban life",
+    "ex": [
+      {
+        "de": "Die Kinder ziehen mit ihren Laternen durch die Straßen.",
+        "en": "The children parade through the streets with their lanterns."
+      },
+      {
+        "de": "Er hat sein Fahrrad an eine Laterne geschlossen.",
+        "en": "He locked his bike to a street lamp."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Hürde",
+    "en": "hurdle, obstacle",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Die Sprache war anfangs die größte Hürde.",
+        "en": "At first the language was the biggest hurdle."
+      },
+      {
+        "de": "Die Läuferin stolperte über die letzte Hürde.",
+        "en": "The runner tripped over the last hurdle."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Anschein",
+    "en": "appearance, impression",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Es hat den Anschein, als würde es heute regnen.",
+        "en": "It looks as if it will rain today."
+      },
+      {
+        "de": "Dem Anschein nach ist niemand zu Hause.",
+        "en": "By all appearances nobody is at home."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Aufruhr",
+    "en": "uproar, turmoil",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Die Nachricht versetzte die ganze Stadt in Aufruhr.",
+        "en": "The news threw the whole town into turmoil."
+      },
+      {
+        "de": "Der Plan sorgte im Parlament für Aufruhr.",
+        "en": "The plan caused an uproar in parliament."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Eiche",
+    "en": "oak",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Vor dem Haus steht eine alte Eiche.",
+        "en": "There is an old oak in front of the house."
+      },
+      {
+        "de": "Der Tisch ist aus Eiche.",
+        "en": "The table is made of oak."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Gegenspieler",
+    "en": "opponent",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Er ließ seinen Gegenspieler einfach stehen.",
+        "en": "He simply left his opponent standing."
+      },
+      {
+        "de": "Im Wahlkampf ist er ihr wichtigster Gegenspieler.",
+        "en": "In the campaign he is her main opponent."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Zufahrt",
+    "en": "access road, driveway",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Urban life",
+    "ex": [
+      {
+        "de": "Die Zufahrt zum Krankenhaus muss frei bleiben.",
+        "en": "The access road to the hospital must be kept clear."
+      },
+      {
+        "de": "Bitte nicht in der Zufahrt parken.",
+        "en": "Please do not park in the driveway."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Asphalt",
+    "en": "asphalt, tarmac",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Urban life",
+    "ex": [
+      {
+        "de": "Im Sommer wird der Asphalt richtig heiß.",
+        "en": "In summer the tarmac gets really hot."
+      },
+      {
+        "de": "Die Straße bekommt neuen Asphalt.",
+        "en": "The road is getting new asphalt."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Bräutigam",
+    "en": "bridegroom",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Relationships",
+    "ex": [
+      {
+        "de": "Der Bräutigam wartete nervös vor der Kirche.",
+        "en": "The bridegroom waited nervously outside the church."
+      },
+      {
+        "de": "Die Braut und der Bräutigam tanzten den ersten Tanz.",
+        "en": "The bride and groom danced the first dance."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Sensation",
+    "en": "sensation",
+    "pos": "noun",
+    "level": "B2",
+    "field": "News Media",
+    "ex": [
+      {
+        "de": "Der Sieg des kleinen Vereins war eine Sensation.",
+        "en": "The small club's win was a sensation."
+      },
+      {
+        "de": "Die Zeitungen machten aus der Geschichte eine Sensation.",
+        "en": "The newspapers turned the story into a sensation."
+      }
+    ],
+    "gender": "die",
+    "sameAsGerman": true
+  },
+  {
+    "term": "der Philosoph",
+    "en": "philosopher",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Arts and culture",
+    "ex": [
+      {
+        "de": "Kant ist einer der bekanntesten deutschen Philosophen.",
+        "en": "Kant is one of the best-known German philosophers."
+      },
+      {
+        "de": "Der Philosoph stellte unbequeme Fragen.",
+        "en": "The philosopher asked uncomfortable questions."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Wahlkreis",
+    "en": "constituency",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Sie hat ihren Wahlkreis direkt gewonnen.",
+        "en": "She won her constituency outright."
+      },
+      {
+        "de": "In diesem Wahlkreis wählen die meisten konservativ.",
+        "en": "Most people in this constituency vote conservative."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Gestank",
+    "en": "stench, stink",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Aus dem Müllcontainer kam ein furchtbarer Gestank.",
+        "en": "A terrible stench came from the rubbish skip."
+      },
+      {
+        "de": "Ich halte den Gestank nicht mehr aus.",
+        "en": "I can't stand the stink any more."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Diktator",
+    "en": "dictator",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Politics & History",
+    "ex": [
+      {
+        "de": "Der Diktator ließ seine Gegner verhaften.",
+        "en": "The dictator had his opponents arrested."
+      },
+      {
+        "de": "Das Land wurde dreißig Jahre von einem Diktator regiert.",
+        "en": "The country was ruled by a dictator for thirty years."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Sonnenbrille",
+    "en": "sunglasses",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Clothing",
+    "ex": [
+      {
+        "de": "Hast du meine Sonnenbrille gesehen?",
+        "en": "Have you seen my sunglasses?"
+      },
+      {
+        "de": "Im Sommer trägt sie immer eine Sonnenbrille.",
+        "en": "In summer she always wears sunglasses."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Kläger",
+    "en": "plaintiff, claimant",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Der Kläger verlangt Schadenersatz.",
+        "en": "The claimant is demanding damages."
+      },
+      {
+        "de": "Das Gericht gab dem Kläger recht.",
+        "en": "The court ruled in favour of the plaintiff."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Stichwahl",
+    "en": "run-off (election)",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Keiner der Kandidaten hat die Mehrheit, also gibt es eine Stichwahl.",
+        "en": "None of the candidates has a majority, so there will be a run-off."
+      },
+      {
+        "de": "Sie gewann die Stichwahl knapp.",
+        "en": "She narrowly won the run-off."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Verkehrsminister",
+    "en": "transport minister",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Der Verkehrsminister will mehr Geld in die Bahn stecken.",
+        "en": "The transport minister wants to put more money into the railways."
+      },
+      {
+        "de": "Die Verkehrsminister der EU beraten über neue Regeln.",
+        "en": "The EU transport ministers are discussing new rules."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Ferse",
+    "en": "heel",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Die neuen Schuhe drücken an der Ferse.",
+        "en": "The new shoes pinch at the heel."
+      },
+      {
+        "de": "Die Polizei war ihm dicht auf den Fersen.",
+        "en": "The police were hot on his heels."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "das Kleingeld",
+    "en": "small change",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Ich habe leider kein Kleingeld für den Automaten.",
+        "en": "Sorry, I don't have any change for the machine."
+      },
+      {
+        "de": "Sie sammelt ihr Kleingeld in einem Glas.",
+        "en": "She collects her small change in a jar."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "der Untersuchungsausschuss",
+    "en": "committee of inquiry",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Der Bundestag hat einen Untersuchungsausschuss eingesetzt.",
+        "en": "The Bundestag has set up a committee of inquiry."
+      },
+      {
+        "de": "Die Ministerin musste vor dem Untersuchungsausschuss aussagen.",
+        "en": "The minister had to testify before the committee of inquiry."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Acker",
+    "en": "field (for crops)",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Farm",
+    "ex": [
+      {
+        "de": "Der Bauer pflügt seinen Acker.",
+        "en": "The farmer is ploughing his field."
+      },
+      {
+        "de": "Auf dem Acker wachsen Kartoffeln.",
+        "en": "Potatoes are growing in the field."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Waffenruhe",
+    "en": "ceasefire",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Military concepts",
+    "ex": [
+      {
+        "de": "Die Waffenruhe hielt nur zwei Tage.",
+        "en": "The ceasefire lasted only two days."
+      },
+      {
+        "de": "Beide Seiten haben einer Waffenruhe zugestimmt.",
+        "en": "Both sides have agreed to a ceasefire."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Rebellion",
+    "en": "rebellion",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Politics & History",
+    "ex": [
+      {
+        "de": "Die Rebellion wurde von der Armee niedergeschlagen.",
+        "en": "The rebellion was crushed by the army."
+      },
+      {
+        "de": "Für ihn war das Tattoo eine kleine Rebellion gegen die Eltern.",
+        "en": "For him the tattoo was a small rebellion against his parents."
+      }
+    ],
+    "gender": "die",
+    "sameAsGerman": true
+  },
+  {
+    "term": "der Seemann",
+    "en": "sailor, seaman",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Der alte Seemann erzählte von seinen Reisen.",
+        "en": "The old sailor told stories of his voyages."
+      },
+      {
+        "de": "Sein Großvater war Seemann.",
+        "en": "His grandfather was a sailor."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Truthahn",
+    "en": "turkey",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Food & drink",
+    "ex": [
+      {
+        "de": "Zu Thanksgiving gibt es Truthahn.",
+        "en": "There's turkey at Thanksgiving."
+      },
+      {
+        "de": "Ein Truthahn lief über den Hof.",
+        "en": "A turkey ran across the yard."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Geldbeutel",
+    "en": "wallet, purse",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Ich habe meinen Geldbeutel zu Hause vergessen.",
+        "en": "I left my wallet at home."
+      },
+      {
+        "de": "Im Geldbeutel waren nur noch zehn Euro.",
+        "en": "There were only ten euros left in the purse."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Atomwaffe",
+    "en": "nuclear weapon",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Military concepts",
+    "ex": [
+      {
+        "de": "Neun Staaten besitzen Atomwaffen.",
+        "en": "Nine countries possess nuclear weapons."
+      },
+      {
+        "de": "Der Vertrag soll die Verbreitung von Atomwaffen verhindern.",
+        "en": "The treaty is meant to prevent the spread of nuclear weapons."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Herzschlag",
+    "en": "heartbeat; heart attack",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Ich konnte meinen eigenen Herzschlag hören.",
+        "en": "I could hear my own heartbeat."
+      },
+      {
+        "de": "Er starb an einem Herzschlag.",
+        "en": "He died of a heart attack."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Drogendealer",
+    "en": "drug dealer",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Die Polizei hat einen Drogendealer am Bahnhof festgenommen.",
+        "en": "The police arrested a drug dealer at the station."
+      },
+      {
+        "de": "Er wurde als Drogendealer zu vier Jahren verurteilt.",
+        "en": "He was sentenced to four years as a drug dealer."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Terrorismus",
+    "en": "terrorism",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Military concepts",
+    "ex": [
+      {
+        "de": "Die Länder wollen beim Kampf gegen Terrorismus zusammenarbeiten.",
+        "en": "The countries want to cooperate in the fight against terrorism."
+      },
+      {
+        "de": "Terrorismus will Angst verbreiten.",
+        "en": "Terrorism aims to spread fear."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Superheld",
+    "en": "superhero",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Arts and culture",
+    "ex": [
+      {
+        "de": "Mein Sohn will ein Superheld werden.",
+        "en": "My son wants to be a superhero."
+      },
+      {
+        "de": "Im Kino laufen nur noch Filme über Superhelden.",
+        "en": "The cinemas only show superhero films now."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "das Kriegsverbrechen",
+    "en": "war crime",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Military concepts",
+    "ex": [
+      {
+        "de": "Der General wurde wegen Kriegsverbrechen angeklagt.",
+        "en": "The general was charged with war crimes."
+      },
+      {
+        "de": "Die Bombardierung des Krankenhauses war ein Kriegsverbrechen.",
+        "en": "The bombing of the hospital was a war crime."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "das Selbstbewusstsein",
+    "en": "self-confidence",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Der Sieg hat ihr Selbstbewusstsein gestärkt.",
+        "en": "The win boosted her self-confidence."
+      },
+      {
+        "de": "Ihm fehlt es an Selbstbewusstsein.",
+        "en": "He lacks self-confidence."
+      }
+    ],
+    "gender": "das"
+  },
+  {
+    "term": "der Straßenrand",
+    "en": "roadside",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Wir haben am Straßenrand angehalten.",
+        "en": "We stopped at the roadside."
+      },
+      {
+        "de": "Am Straßenrand standen Hunderte Zuschauer.",
+        "en": "Hundreds of spectators stood along the roadside."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Fernsehsender",
+    "en": "TV channel, television station",
+    "pos": "noun",
+    "level": "B2",
+    "field": "News Media",
+    "ex": [
+      {
+        "de": "Der Fernsehsender zeigt das Spiel live.",
+        "en": "The TV channel is showing the match live."
+      },
+      {
+        "de": "Sie arbeitet als Reporterin bei einem privaten Fernsehsender.",
+        "en": "She works as a reporter for a private television station."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Pfannkuchen",
+    "en": "pancake",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Food & drink",
+    "ex": [
+      {
+        "de": "Zum Frühstück gibt es Pfannkuchen mit Apfelmus.",
+        "en": "There are pancakes with apple sauce for breakfast."
+      },
+      {
+        "de": "Oma backt die besten Pfannkuchen.",
+        "en": "Grandma makes the best pancakes."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Pakt",
+    "en": "pact",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Die beiden Länder schlossen einen Pakt.",
+        "en": "The two countries concluded a pact."
+      },
+      {
+        "de": "Er hat einen Pakt mit dem Teufel geschlossen.",
+        "en": "He made a pact with the devil."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Stromversorgung",
+    "en": "power supply",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Energy & Resources",
+    "ex": [
+      {
+        "de": "Die Stromversorgung im Dorf ist wiederhergestellt.",
+        "en": "The power supply in the village has been restored."
+      },
+      {
+        "de": "Der Laptop braucht eine stabile Stromversorgung.",
+        "en": "The laptop needs a stable power supply."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Hebamme",
+    "en": "midwife",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Health",
+    "ex": [
+      {
+        "de": "Die Hebamme kommt nach der Geburt zu uns nach Hause.",
+        "en": "The midwife comes to our home after the birth."
+      },
+      {
+        "de": "Sie arbeitet seit zwanzig Jahren als Hebamme.",
+        "en": "She has worked as a midwife for twenty years."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Lokomotive",
+    "en": "locomotive",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Die alte Lokomotive steht heute im Museum.",
+        "en": "The old locomotive is now in a museum."
+      },
+      {
+        "de": "Die Lokomotive zieht zwanzig Waggons.",
+        "en": "The locomotive pulls twenty wagons."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Rückweg",
+    "en": "way back, return journey",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Travel",
+    "ex": [
+      {
+        "de": "Auf dem Rückweg haben wir noch eingekauft.",
+        "en": "We did some shopping on the way back."
+      },
+      {
+        "de": "Der Rückweg dauerte doppelt so lange.",
+        "en": "The way back took twice as long."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Tournee",
+    "en": "tour",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Music & Theatre",
+    "ex": [
+      {
+        "de": "Die Band geht im Herbst auf Tournee.",
+        "en": "The band is going on tour in the autumn."
+      },
+      {
+        "de": "Die Tournee führt durch zwanzig Städte.",
+        "en": "The tour takes in twenty cities."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Brennstoff",
+    "en": "fuel",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Energy & Resources",
+    "ex": [
+      {
+        "de": "Holz ist der älteste Brennstoff der Menschheit.",
+        "en": "Wood is humanity's oldest fuel."
+      },
+      {
+        "de": "Das Kraftwerk verbrennt keine fossilen Brennstoffe mehr.",
+        "en": "The power station no longer burns fossil fuels."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Kommunalwahl",
+    "en": "local election",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Bei der Kommunalwahl dürfen auch EU-Bürger wählen.",
+        "en": "EU citizens may also vote in the local election."
+      },
+      {
+        "de": "Die Kommunalwahl findet im Mai statt.",
+        "en": "The local election takes place in May."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Sumpf",
+    "en": "swamp, marsh",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Im Sumpf leben viele seltene Vögel.",
+        "en": "Many rare birds live in the swamp."
+      },
+      {
+        "de": "Der Weg führt mitten durch einen Sumpf.",
+        "en": "The path leads right through a marsh."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Psychologie",
+    "en": "psychology",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Science concepts",
+    "ex": [
+      {
+        "de": "Sie studiert Psychologie in Wien.",
+        "en": "She is studying psychology in Vienna."
+      },
+      {
+        "de": "Werbung nutzt die Psychologie der Kunden.",
+        "en": "Advertising exploits the psychology of customers."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Wildnis",
+    "en": "wilderness",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Sie verbrachten eine Woche in der Wildnis Kanadas.",
+        "en": "They spent a week in the Canadian wilderness."
+      },
+      {
+        "de": "Der Garten ist zu einer Wildnis geworden.",
+        "en": "The garden has turned into a wilderness."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Preissteigerung",
+    "en": "price increase",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Economy & Markets",
+    "ex": [
+      {
+        "de": "Die Preissteigerung bei Lebensmitteln trifft vor allem Familien.",
+        "en": "The rise in food prices hits families above all."
+      },
+      {
+        "de": "Für nächstes Jahr wird eine Preissteigerung von drei Prozent erwartet.",
+        "en": "A price increase of three per cent is expected next year."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Strafanzeige",
+    "en": "criminal complaint",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Sie hat gegen ihren Nachbarn Strafanzeige erstattet.",
+        "en": "She has filed a criminal complaint against her neighbour."
+      },
+      {
+        "de": "Die Strafanzeige liegt jetzt bei der Staatsanwaltschaft.",
+        "en": "The criminal complaint is now with the public prosecutor."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Volltreffer",
+    "en": "direct hit; bullseye, smash hit",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Das Geschenk war ein Volltreffer.",
+        "en": "The present was a real hit."
+      },
+      {
+        "de": "Die Rakete erzielte einen Volltreffer.",
+        "en": "The missile scored a direct hit."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Kraftstoff",
+    "en": "fuel (for engines)",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Der Wagen verbraucht wenig Kraftstoff.",
+        "en": "The car uses little fuel."
+      },
+      {
+        "de": "Die Preise für Kraftstoff sind gestiegen.",
+        "en": "Fuel prices have risen."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Fracht",
+    "en": "freight, cargo",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Das Schiff hat Container als Fracht an Bord.",
+        "en": "The ship has containers on board as cargo."
+      },
+      {
+        "de": "Die Fracht wird per Bahn transportiert.",
+        "en": "The freight is transported by rail."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Zuflucht",
+    "en": "refuge, shelter",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Society",
+    "ex": [
+      {
+        "de": "Die Familie fand Zuflucht in einer Kirche.",
+        "en": "The family found refuge in a church."
+      },
+      {
+        "de": "In schweren Zeiten suchte er Zuflucht in der Musik.",
+        "en": "In hard times he sought refuge in music."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "die Pest",
+    "en": "plague",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Health",
+    "ex": [
+      {
+        "de": "Im Mittelalter starben Millionen an der Pest.",
+        "en": "Millions died of the plague in the Middle Ages."
+      },
+      {
+        "de": "Ich hasse Montage wie die Pest.",
+        "en": "I hate Mondays like the plague."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Bagger",
+    "en": "excavator, digger",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Urban life",
+    "ex": [
+      {
+        "de": "Ein Bagger hebt die Grube für das neue Haus aus.",
+        "en": "An excavator is digging the pit for the new house."
+      },
+      {
+        "de": "Die Kinder schauen den Baggern auf der Baustelle zu.",
+        "en": "The children watch the diggers on the building site."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Dinosaurier",
+    "en": "dinosaur",
+    "pos": "noun",
+    "level": "A2",
+    "field": "Animals",
+    "ex": [
+      {
+        "de": "Vor Millionen Jahren lebten hier Dinosaurier.",
+        "en": "Dinosaurs lived here millions of years ago."
+      },
+      {
+        "de": "Mein Sohn weiß alles über Dinosaurier.",
+        "en": "My son knows everything about dinosaurs."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Lippenstift",
+    "en": "lipstick",
+    "pos": "noun",
+    "level": "B1",
+    "field": "Clothing",
+    "ex": [
+      {
+        "de": "Sie trägt heute roten Lippenstift.",
+        "en": "She's wearing red lipstick today."
+      },
+      {
+        "de": "Ich habe meinen Lippenstift im Café liegen lassen.",
+        "en": "I left my lipstick in the café."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Sattel",
+    "en": "saddle",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Der Sattel meines Fahrrads ist zu hoch.",
+        "en": "My bike saddle is too high."
+      },
+      {
+        "de": "Sie schwang sich in den Sattel und ritt los.",
+        "en": "She swung herself into the saddle and rode off."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Vorverkauf",
+    "en": "advance booking, advance sale",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Free time",
+    "ex": [
+      {
+        "de": "Karten gibt es im Vorverkauf ab zwanzig Euro.",
+        "en": "Tickets are available in advance from twenty euros."
+      },
+      {
+        "de": "Der Vorverkauf beginnt am Montag.",
+        "en": "Advance sales start on Monday."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Dolch",
+    "en": "dagger",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Objects & Materials",
+    "ex": [
+      {
+        "de": "Der Dolch lag auf dem Tisch.",
+        "en": "The dagger lay on the table."
+      },
+      {
+        "de": "Im Museum sieht man einen Dolch aus der Bronzezeit.",
+        "en": "In the museum you can see a dagger from the Bronze Age."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "die Fernwärme",
+    "en": "district heating",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Energy & Resources",
+    "ex": [
+      {
+        "de": "Die neue Siedlung wird mit Fernwärme beheizt.",
+        "en": "The new estate is heated by district heating."
+      },
+      {
+        "de": "Die Stadt will das Netz für Fernwärme ausbauen.",
+        "en": "The city wants to expand the district heating network."
+      }
+    ],
+    "gender": "die"
+  },
+  {
+    "term": "der Wohnungsbau",
+    "en": "housebuilding, house construction",
+    "pos": "noun",
+    "level": "B2",
+    "field": "Real Estate & Moving",
+    "ex": [
+      {
+        "de": "Die Regierung will den Wohnungsbau fördern.",
+        "en": "The government wants to promote housebuilding."
+      },
+      {
+        "de": "Im Wohnungsbau fehlen Fachkräfte.",
+        "en": "Housebuilding is short of skilled workers."
+      }
+    ],
+    "gender": "der"
+  },
+  {
+    "term": "der Kontrahent",
+    "en": "opponent, rival",
+    "pos": "noun",
+    "level": "C1",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Im Finale trifft er auf seinen alten Kontrahenten.",
+        "en": "In the final he faces his old rival."
+      },
+      {
+        "de": "Die beiden Kontrahenten gaben sich nach der Debatte die Hand.",
+        "en": "The two opponents shook hands after the debate."
+      }
+    ],
+    "gender": "der"
+  }
+]

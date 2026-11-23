@@ -395,6 +395,12 @@ export const FORM_RULINGS: FormRuling[] = [
       + 'plurals and two pronunciations that share six letters.',
   },
   {
+    rule: 'keep', form: 'voc:C1:der Kiefer', lemma: 'voc:B2:die Kiefer',
+    why: 'der Kiefer (die Kiefer) is the jaw; die Kiefer (die Kiefern) is the pine. de.wiktionary '
+      + 'files them as two entries with their own genders and plurals, and the jaw\'s invariant '
+      + 'plural is what spells the tree. Same case as der/die Band. Ruled 2026-11-23.',
+  },
+  {
     rule: 'keep', form: 'voc:A2:die Alpen', lemma: 'voc:B1:die Alp',
     why: 'die Alpen is a proper name. die Alp is an alpine pasture (and, separately, a '
       + 'nightmare); the mountain range is not its plural in any useful sense.',

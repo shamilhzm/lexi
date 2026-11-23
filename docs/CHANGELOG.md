@@ -11,6 +11,43 @@ it is already built.
 
 ---
 
+### 2026-11-23 · 313 of the most frequent dictionary words become cards
+
+**What shipped.** 313 cards through `authoring:new`, in three batches
+(`batches/gaps-2026-11-23-{a,b,c}.json`, 104 + 100 + 109): 166 nouns, 105 verbs, 38
+adjectives and 4 adverbs; A2 14 · B1 38 · B2 157 · C1 104. The corpus goes from 11,335
+to 11,648 cards. They were picked by hand from the frequency-ranked list of dictionary
+entries without a card (`gap-candidates.ts`). The top of that list is mostly subtitle
+English, surnames, slurs and colloquialisms, so it is a shortlist, not an answer.
+Every fact came from de.wiktionary. Four plurale tantum (*Flitterwochen*,
+*Sommerferien*, *Pommes*, *Bauarbeiten*) carry a hand ruling in `verify-rulings.tsv`.
+`batches/gaps-plural-2026-11-23.json` sets 24 plurals with the page cited: 16 *nur
+Singular*, the four *nur Plural* as the corpus writes *die Eltern*, and four where the
+page binds plurals to senses (*der Stab* → die Stäbe for the rod, *der Acker* → die
+Äcker for the field, *der Kiefer* → die Kiefer for the jaw, *der Safe* → die Safes).
+*der Kiefer* beside *die Kiefer* (pine) is ruled as a homograph in `form-rulings.ts`, as
+*der/die Band* is. `ownership` moved 167 tokens to the new cards. 36 came from older
+cards, each read: compounds now resolve to themselves (*Wahlkreis*, not *Kreis*), and
+split verbs to their separable card (*rief … hervor*).
+
+**The conjugator, fixed on the way.** `corpus:conjugate-check` failed on 8 of the new
+verbs. *heim-*, *preis-*, *bereit-*, *bevor-* and *gut-* join the split-only separable
+prefixes, which ends **heimkommte**, **gepreisgebt**, **bereithaltete**,
+**bevorstehte** and **gegutmacht**. *kneifen* (kniff, gekniffen), *interviewen*
+(interviewt) and *aufhängen* (hängte auf, the transitive *hang up*) get table rows. It
+also fixed an older card: *bereitstellen* had been drilled as «ich bereitstelle» and
+now gives *stelle bereit*. The golden recording was re-recorded for that one line.
+
+**Held back.** *ausarbeiten* and *gutmachen* passed the gate, then took other cards'
+sentences: «von zu Hause aus» and «mach's gut». The matcher cannot tell those from a
+particle, so both wait for it (BACKLOG). The gate also refused 13 correct examples
+because its matcher has no attested forms for a draft (LESSONS, *The gate is stricter
+than the app it guards*). The corpus skill's landing order now runs `freq` and
+`inflections` before `validate`.
+
+**Budget.** `cards.json` 477.3 of 480 KB, boot set 806.6 of 860, entry 283.9 of 285.
+About 65 more cards fit before the ceiling, so the next batch is a decision first.
+
 ### 2026-11-23 · Gans and her family are cards
 
 **What shipped.** Five cards, through `authoring:new`

@@ -2524,6 +2524,20 @@
       }
     ]
   },
+  "voc:B1:ausverkaufen": {
+    "ex": [
+      {
+        "de": "Das Konzert ist schon ausverkauft.",
+        "en": "The concert is already sold out.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Laden hat alle Winterjacken ausverkauft.",
+        "en": "The shop has sold out of all its winter jackets.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:auswandern": {
     "def": "To leave your own country to live permanently in another.",
     "ex": [
@@ -4070,6 +4084,20 @@
       }
     ]
   },
+  "voc:B1:borgen": {
+    "ex": [
+      {
+        "de": "Kannst du mir dein Fahrrad borgen?",
+        "en": "Can you lend me your bike?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe mir das Buch von meiner Schwester geborgt.",
+        "en": "I borrowed the book from my sister.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:brandneu": {
     "ex": [
       {
@@ -5219,6 +5247,20 @@
         "de": "Für sein soziales Engagement wurde er ausgezeichnet.",
         "en": "He was honoured for his social commitment.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:das Enkelkind": {
+    "ex": [
+      {
+        "de": "Am Wochenende besuchen uns die Enkelkinder.",
+        "en": "The grandchildren are visiting us at the weekend.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie hat fünf Enkelkinder.",
+        "en": "She has five grandchildren.",
+        "lvl": "B1"
       }
     ]
   },
@@ -6400,6 +6442,20 @@
       }
     ]
   },
+  "voc:B1:das Kleingeld": {
+    "ex": [
+      {
+        "de": "Ich habe leider kein Kleingeld für den Automaten.",
+        "en": "Sorry, I don't have any change for the machine.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie sammelt ihr Kleingeld in einem Glas.",
+        "en": "She collects her small change in a jar.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Kleinkind": {
     "ex": [
       {
@@ -6814,6 +6870,20 @@
         "de": "Tom überflog das Magazin.",
         "en": "Tom skimmed through the magazine.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:das Make-up": {
+    "ex": [
+      {
+        "de": "Sie trägt kaum Make-up.",
+        "en": "She wears hardly any make-up.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Vor der Show bekommen alle Gäste Make-up.",
+        "en": "All the guests get make-up before the show.",
+        "lvl": "B1"
       }
     ]
   },
@@ -10415,6 +10485,20 @@
       }
     ]
   },
+  "voc:B1:der Bagger": {
+    "ex": [
+      {
+        "de": "Ein Bagger hebt die Grube für das neue Haus aus.",
+        "en": "An excavator is digging the pit for the new house.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder schauen den Baggern auf der Baustelle zu.",
+        "en": "The children watch the diggers on the building site.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Ballon": {
     "ex": [
       {
@@ -10568,6 +10652,20 @@
         "de": "Hinter dem schillernden Begriff verbirgt sich wenig Konkretes.",
         "en": "Behind the flashy term hides little of substance.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Beifahrer": {
+    "ex": [
+      {
+        "de": "Der Beifahrer wurde bei dem Unfall leicht verletzt.",
+        "en": "The front-seat passenger was slightly injured in the accident.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Als Beifahrer kann ich die Landschaft genießen.",
+        "en": "As a passenger I can enjoy the scenery.",
+        "lvl": "B1"
       }
     ]
   },
@@ -14783,6 +14881,20 @@
       }
     ]
   },
+  "voc:B1:der Lippenstift": {
+    "ex": [
+      {
+        "de": "Sie trägt heute roten Lippenstift.",
+        "en": "She's wearing red lipstick today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe meinen Lippenstift im Café liegen lassen.",
+        "en": "I left my lipstick in the café.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Livestream": {
     "ex": [
       {
@@ -14987,6 +15099,20 @@
       {
         "de": "Das Auto ist nur einen Millimeter zu breit.",
         "en": "The car is only a millimetre too wide.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Millionär": {
+    "ex": [
+      {
+        "de": "Mit dem Lottogewinn wurde er über Nacht zum Millionär.",
+        "en": "The lottery win made him a millionaire overnight.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nicht jeder Millionär lebt im Luxus.",
+        "en": "Not every millionaire lives in luxury.",
         "lvl": "B1"
       }
     ]
@@ -16567,6 +16693,20 @@
       }
     ]
   },
+  "voc:B1:der Rückweg": {
+    "ex": [
+      {
+        "de": "Auf dem Rückweg haben wir noch eingekauft.",
+        "en": "We did some shopping on the way back.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Rückweg dauerte doppelt so lange.",
+        "en": "The way back took twice as long.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Saal": {
     "ex": [
       {
@@ -17919,6 +18059,20 @@
       }
     ]
   },
+  "voc:B1:der Stromausfall": {
+    "ex": [
+      {
+        "de": "Wegen eines Stromausfalls fielen alle Ampeln aus.",
+        "en": "All the traffic lights failed because of a power cut.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Beim Stromausfall saßen wir zwei Stunden im Dunkeln.",
+        "en": "During the power cut we sat in the dark for two hours.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Studienabbruch": {
     "def": "The act of quitting a university course before finishing.",
     "ex": [
@@ -17999,6 +18153,20 @@
       {
         "de": "Der Sturz war zum Glück nicht schlimm.",
         "en": "Luckily the fall wasn't bad.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:der Superheld": {
+    "ex": [
+      {
+        "de": "Mein Sohn will ein Superheld werden.",
+        "en": "My son wants to be a superhero.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Kino laufen nur noch Filme über Superhelden.",
+        "en": "The cinemas only show superhero films now.",
         "lvl": "B1"
       }
     ]
@@ -18339,6 +18507,20 @@
       }
     ]
   },
+  "voc:B1:der Traktor": {
+    "ex": [
+      {
+        "de": "Der Bauer fährt mit dem Traktor aufs Feld.",
+        "en": "The farmer drives the tractor out to the field.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Auf der Landstraße fuhr ein langsamer Traktor vor uns.",
+        "en": "A slow tractor was driving in front of us on the country road.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Transport": {
     "def": "The moving of people or goods from one place to another.",
     "ex": [
@@ -18670,6 +18852,20 @@
         "de": "Über den genauen Ursprung des Streits herrscht Uneinigkeit.",
         "en": "There is disagreement about the exact origin of the dispute.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:der Valentinstag": {
+    "ex": [
+      {
+        "de": "Am Valentinstag schenkt er ihr Blumen.",
+        "en": "On Valentine's Day he gives her flowers.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Valentinstag ist im Februar.",
+        "en": "Valentine's Day is in February.",
+        "lvl": "B1"
       }
     ]
   },
@@ -20105,6 +20301,20 @@
       }
     ]
   },
+  "voc:B1:deutschsprachig": {
+    "ex": [
+      {
+        "de": "In der Schweiz gibt es deutschsprachige und französischsprachige Kantone.",
+        "en": "Switzerland has German-speaking and French-speaking cantons.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie liest am liebsten deutschsprachige Literatur.",
+        "en": "She prefers reading German-language literature.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:dicht": {
     "def": "thick, tight, dense; tight, intoxicated",
     "ex": [
@@ -21346,6 +21556,20 @@
       {
         "de": "Für die Bastelei brauchen wir Schere und Kleber.",
         "en": "For the crafting we need scissors and glue.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Bauarbeiten": {
+    "ex": [
+      {
+        "de": "Wegen Bauarbeiten ist die Straße gesperrt.",
+        "en": "The road is closed because of roadworks.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Bauarbeiten am Bahnhof dauern noch ein Jahr.",
+        "en": "The construction work at the station will take another year.",
         "lvl": "B1"
       }
     ]
@@ -25645,6 +25869,20 @@
       }
     ]
   },
+  "voc:B1:die Hintertür": {
+    "ex": [
+      {
+        "de": "Der Dieb kam durch die Hintertür ins Haus.",
+        "en": "The thief got into the house through the back door.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Das Gesetz lässt eine Hintertür offen.",
+        "en": "The law leaves a back door open.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Hitze": {
     "def": "Very warm temperature; hot weather.",
     "ex": [
@@ -26329,6 +26567,20 @@
       {
         "de": "Stör ihn nicht mit Kleinigkeiten.",
         "en": "Don't trouble him with trifles.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Kleinstadt": {
+    "ex": [
+      {
+        "de": "Sie ist in einer Kleinstadt in Bayern aufgewachsen.",
+        "en": "She grew up in a small town in Bavaria.",
+        "lvl": "B1"
+      },
+      {
+        "de": "In der Kleinstadt kennt jeder jeden.",
+        "en": "In the small town everybody knows everybody.",
         "lvl": "B1"
       }
     ]
@@ -27131,6 +27383,20 @@
         "de": "Der Beitrag wird per Lastschrift eingezogen.",
         "en": "The fee is collected by direct debit.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:die Laterne": {
+    "ex": [
+      {
+        "de": "Die Kinder ziehen mit ihren Laternen durch die Straßen.",
+        "en": "The children parade through the streets with their lanterns.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat sein Fahrrad an eine Laterne geschlossen.",
+        "en": "He locked his bike to a street lamp.",
+        "lvl": "B1"
       }
     ]
   },
@@ -28249,6 +28515,20 @@
       }
     ]
   },
+  "voc:B1:die Musikschule": {
+    "ex": [
+      {
+        "de": "Meine Tochter lernt an der Musikschule Geige.",
+        "en": "My daughter is learning the violin at music school.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Musikschule gibt im Sommer ein Konzert.",
+        "en": "The music school gives a concert in the summer.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Muskulatur": {
     "def": "the muscles of the body",
     "ex": [
@@ -28758,6 +29038,20 @@
       {
         "de": "Tom ist ein Mitglied dieser Organisation.",
         "en": "Tom is a member of this organisation.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Palme": {
+    "ex": [
+      {
+        "de": "Am Strand stehen hohe Palmen.",
+        "en": "Tall palm trees stand on the beach.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Unsere Palme im Wohnzimmer braucht viel Licht.",
+        "en": "Our palm in the living room needs a lot of light.",
         "lvl": "B1"
       }
     ]
@@ -29910,6 +30204,20 @@
       }
     ]
   },
+  "voc:B1:die Sackgasse": {
+    "ex": [
+      {
+        "de": "Wir wohnen in einer ruhigen Sackgasse.",
+        "en": "We live in a quiet cul-de-sac.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Verhandlungen stecken in einer Sackgasse.",
+        "en": "The negotiations have reached a dead end.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Sahne": {
     "def": "cream (milkfat)",
     "ex": [
@@ -31045,6 +31353,20 @@
         "de": "Die Annahme einer neuen Staatsbürgerschaft ist mit zahlreichen Formalitäten verbunden.",
         "en": "Taking on a new citizenship involves numerous formalities.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Stadthalle": {
+    "ex": [
+      {
+        "de": "Das Konzert findet in der Stadthalle statt.",
+        "en": "The concert takes place in the civic hall.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Stadthalle wird gerade renoviert.",
+        "en": "The civic hall is being renovated.",
+        "lvl": "B1"
       }
     ]
   },
@@ -33136,6 +33458,20 @@
       }
     ]
   },
+  "voc:B1:die Weihnachtszeit": {
+    "ex": [
+      {
+        "de": "In der Weihnachtszeit sind die Städte voller Lichter.",
+        "en": "At Christmas time the towns are full of lights.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Weihnachtszeit ist für viele Läden die wichtigste Zeit des Jahres.",
+        "en": "The Christmas season is the most important time of year for many shops.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Weile": {
     "def": "while (uncertain duration of time, period of time)",
     "ex": [
@@ -34542,6 +34878,20 @@
       }
     ]
   },
+  "voc:B1:einatmen": {
+    "ex": [
+      {
+        "de": "Bitte tief einatmen!",
+        "en": "Breathe in deeply, please!",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er hat giftigen Rauch eingeatmet.",
+        "en": "He inhaled toxic smoke.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:einbauen": {
     "ex": [
       {
@@ -35665,6 +36015,20 @@
       }
     ]
   },
+  "voc:B1:erraten": {
+    "ex": [
+      {
+        "de": "Du wirst nie erraten, wen ich getroffen habe.",
+        "en": "You'll never guess who I met.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Sie errät jedes Rätsel sofort.",
+        "en": "She guesses every riddle straight away.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:erreichbar": {
     "def": "Able to be reached — by telephone, or by travelling there.",
     "defDe": "nicht steigerbar: sich erreichen lassend: mündlich per Telefon oder schriftlich per Fax, E-Mail oder Post",
@@ -36762,6 +37126,20 @@
       }
     ]
   },
+  "voc:B1:fürchterlich": {
+    "ex": [
+      {
+        "de": "Das Wetter war fürchterlich.",
+        "en": "The weather was dreadful.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich habe fürchterliche Kopfschmerzen.",
+        "en": "I have a terrible headache.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:füreinander": {
     "def": "for each other / one another",
     "ex": [
@@ -37041,6 +37419,20 @@
       {
         "de": "Sie blieb auch in der Prüfung völlig gelassen.",
         "en": "She stayed completely calm even during the exam.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:gelaunt": {
+    "ex": [
+      {
+        "de": "Warum bist du heute so schlecht gelaunt?",
+        "en": "Why are you in such a bad mood today?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kellnerin war sehr gut gelaunt.",
+        "en": "The waitress was in a very good mood.",
         "lvl": "B1"
       }
     ]
@@ -37720,6 +38112,20 @@
       }
     ]
   },
+  "voc:B1:heimkommen": {
+    "ex": [
+      {
+        "de": "Ich möchte heute früh heimkommen.",
+        "en": "I'd like to come home early today.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder müssen vor acht Uhr heimkommen.",
+        "en": "The children have to be home before eight.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:heimlich": {
     "def": "secret, clandestine (done or kept in secret)",
     "ex": [
@@ -38321,6 +38727,20 @@
       {
         "de": "Immerhin habe ich etwas getan.",
         "en": "At least I did something.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:impfen": {
+    "ex": [
+      {
+        "de": "Der Arzt hat das Kind gegen Masern geimpft.",
+        "en": "The doctor vaccinated the child against measles.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Lass dich vor der Reise impfen.",
+        "en": "Get vaccinated before the trip.",
         "lvl": "B1"
       }
     ]
@@ -38976,6 +39396,20 @@
       }
     ]
   },
+  "voc:B1:kauen": {
+    "ex": [
+      {
+        "de": "Du sollst gründlich kauen.",
+        "en": "You should chew thoroughly.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er kaut ständig Kaugummi.",
+        "en": "He's constantly chewing gum.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:kaum": {
     "def": "barely, hardly (qualifying verbs or adjectives); barely any, almost no (qualifying amounts)",
     "ex": [
@@ -39029,6 +39463,20 @@
       {
         "de": "Der Mieter klagt gegen den Vermieter.",
         "en": "The tenant is suing the landlord.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:klarkommen": {
+    "ex": [
+      {
+        "de": "Kommst du mit der neuen Software klar?",
+        "en": "Are you coping with the new software?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Ich komme mit meinem Mitbewohner gut klar.",
+        "en": "I get on well with my flatmate.",
         "lvl": "B1"
       }
     ]
@@ -41474,6 +41922,20 @@
       {
         "de": "Tom erzielte 30 Punkte.",
         "en": "Tom scored 30 points.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:pusten": {
+    "ex": [
+      {
+        "de": "Das Kind pustet die Kerzen auf dem Kuchen aus.",
+        "en": "The child blows out the candles on the cake.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Puste mal, die Suppe ist heiß!",
+        "en": "Blow on it, the soup is hot!",
         "lvl": "B1"
       }
     ]
@@ -43945,6 +44407,20 @@
       {
         "de": "Viele Menschen spenden für den guten Zweck.",
         "en": "Many people donate to a good cause.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:spendieren": {
+    "ex": [
+      {
+        "de": "Heute spendiere ich dir einen Kaffee.",
+        "en": "Today I'm treating you to a coffee.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Der Chef hat allen ein Eis spendiert.",
+        "en": "The boss treated everyone to an ice cream.",
         "lvl": "B1"
       }
     ]
@@ -46620,6 +47096,20 @@
       }
     ]
   },
+  "voc:B1:verspätet": {
+    "ex": [
+      {
+        "de": "Der Zug kommt verspätet an.",
+        "en": "The train is arriving late.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wegen des verspäteten Flugs haben wir den Anschluss verpasst.",
+        "en": "Because of the delayed flight we missed our connection.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:versteigern": {
     "def": "To sell something to the highest bidder.",
     "ex": [
@@ -47406,6 +47896,34 @@
       }
     ]
   },
+  "voc:B1:wegrennen": {
+    "ex": [
+      {
+        "de": "Der Hund ist vor dem Gewitter weggerannt.",
+        "en": "The dog ran away from the thunderstorm.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Als die Polizei kam, rannten die Jugendlichen weg.",
+        "en": "When the police came, the youths ran away.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:wegschicken": {
+    "ex": [
+      {
+        "de": "Der Türsteher hat uns weggeschickt.",
+        "en": "The bouncer sent us away.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Schick ihn nicht einfach weg!",
+        "en": "Don't just send him away!",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:wegwerfen": {
     "def": "separable: ich werfe … weg",
     "ex": [
@@ -47488,6 +48006,20 @@
         "de": "Was man gelernt hat, gewinnt erst dadurch Wert, dass man es weitergibt.",
         "en": "What you’ve learned gains value only by passing it on.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:weiterhelfen": {
+    "ex": [
+      {
+        "de": "Können Sie mir weiterhelfen?",
+        "en": "Can you help me?",
+        "lvl": "B1"
+      },
+      {
+        "de": "Leider kann ich Ihnen da nicht weiterhelfen.",
+        "en": "Unfortunately I can't help you with that.",
+        "lvl": "B1"
       }
     ]
   },

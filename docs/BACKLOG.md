@@ -84,6 +84,25 @@
 >
 > ---
 >
+> ## Left open by the 2026-11-23 frequency-gap cards
+>
+> 1. **`cards.json` is the ceiling on more cards.** It measures 477.3 of 480 KB after
+>    313 cards; the first 204 cost 8.2 KB, about 40 bytes a card, so roughly 65 more
+>    fit. Another batch needs a decision first: raise the ceiling (the boot set is
+>    806.6 of 860 KB), or move a field out of `cards.json` into `detail/`. · S
+> 2. **The gate cannot see attested forms of a draft.** `exampleTeachesWord` builds
+>    its matcher without `inflections.json`, so a form the rules cannot generate is
+>    refused (13 false rejects in one batch: *gekniffen*, *errang*, *aufgehängt*…).
+>    Look the draft up in `kaikki-de.jsonl` the way `corpus:inflections` does, and
+>    pass those forms in. · M
+> 3. **A clause-final adverb or circumposition read as a separable particle.** *von zu
+>    Hause aus* resolved to *ausarbeiten* and *mach's gut* to *gutmachen*, so both
+>    cards were held back. Not decidable by the particle alone: *von X aus* is
+>    *ausgehen* in «Ich gehe von einem Erfolg aus». Needs a rule that knows the
+>    circumposition and the fixed phrase, and both cards are owed when it lands. · M
+>
+> ---
+>
 > ## Left open by the 2026-11-20 persona pass — ✅ all five closed 2026-11-21
 >
 > The blind-spot logs, the conjugator (33 verbs, not 23), *die Geraden*, the blank cloze

@@ -120,6 +120,12 @@ const TABLE: Record<string, Entry> = {
   abbiegen: { praesens: six('biege ab','biegst ab','biegt ab','biegen ab','biegt ab','biegen ab'), praeteritum: six('bog ab','bogst ab','bog ab','bogen ab','bogt ab','bogen ab'), partizip: 'abgebogen', aux: 'haben' },
   abhängen: { praesens: six('hänge ab','hängst ab','hängt ab','hängen ab','hängt ab','hängen ab'), praeteritum: six('hing ab','hingst ab','hing ab','hingen ab','hingt ab','hingen ab'), partizip: 'abgehangen', aux: 'haben' },
   abonnieren: { praesens: six('abonniere','abonnierst','abonniert','abonnieren','abonniert','abonnieren'), praeteritum: six('abonnierte','abonniertest','abonnierte','abonnierten','abonniertet','abonnierten'), partizip: 'abonniert', aux: 'haben' },
+  // `aufhängen` is the transitive *hang up* (the washing, a picture), so it is weak:
+  // hängte auf, aufgehängt. Through `hängen` it inherited the intransitive *hing*,
+  // which is *hang* (be suspended); its table attests both pasts (2026-11-23).
+  aufhängen: { praesens: six('hänge auf','hängst auf','hängt auf','hängen auf','hängt auf','hängen auf'), praeteritum: six('hängte auf','hängtest auf','hängte auf','hängten auf','hängtet auf','hängten auf'), partizip: 'aufgehängt', aux: 'haben' },
+  // Stress on the last syllable (/ɪntɐˈvjuːən/), so no ge-, as with -ieren: interviewt.
+  interviewen: { praesens: six('interviewe','interviewst','interviewt','interviewen','interviewt','interviewen'), praeteritum: six('interviewte','interviewtest','interviewte','interviewten','interviewtet','interviewten'), partizip: 'interviewt', aux: 'haben' },
   absolvieren: { praesens: six('absolviere','absolvierst','absolviert','absolvieren','absolviert','absolvieren'), praeteritum: six('absolvierte','absolviertest','absolvierte','absolvierten','absolviertet','absolvierten'), partizip: 'absolviert', aux: 'haben' },
   analysieren: { praesens: six('analysiere','analysierst','analysiert','analysieren','analysiert','analysieren'), praeteritum: six('analysierte','analysiertest','analysierte','analysierten','analysiertet','analysierten'), partizip: 'analysiert', aux: 'haben' },
   anknüpfen: { praesens: six('knüpfe an','knüpfst an','knüpft an','knüpfen an','knüpft an','knüpfen an'), praeteritum: six('knüpfte an','knüpftest an','knüpfte an','knüpften an','knüpftet an','knüpften an'), partizip: 'angeknüpft', aux: 'haben' },
@@ -259,6 +265,8 @@ const TABLE: Record<string, Entry> = {
   // haben in *betreten* and sein in *eintreten* — so verbs whose auxiliary
   // depends on the prefix are deliberately left out rather than guessed.
   greifen:   { praesens: six('greife','greifst','greift','greifen','greift','greifen'), praeteritum: six('griff','griffst','griff','griffen','grifft','griffen'), partizip: 'gegriffen', aux: 'haben' },
+  // Same ablaut as greifen; came out weak («kneifte, gekneift») until 2026-11-23.
+  kneifen:   { praesens: six('kneife','kneifst','kneift','kneifen','kneift','kneifen'), praeteritum: six('kniff','kniffst','kniff','kniffen','knifft','kniffen'), partizip: 'gekniffen', aux: 'haben' },
   schneiden: { praesens: six('schneide','schneidest','schneidet','schneiden','schneidet','schneiden'), praeteritum: six('schnitt','schnittst','schnitt','schnitten','schnittet','schnitten'), partizip: 'geschnitten', aux: 'haben' },
   messen:    { praesens: six('messe','misst','misst','messen','messt','messen'), praeteritum: six('maß','maßest','maß','maßen','maßt','maßen'), partizip: 'gemessen', aux: 'haben' },
   genießen:  { praesens: six('genieße','genießt','genießt','genießen','genießt','genießen'), praeteritum: six('genoss','genossest','genoss','genossen','genosst','genossen'), partizip: 'genossen', aux: 'haben' },
@@ -598,6 +606,12 @@ const SEPARABLE = [
   // still needs a known root after the prefix, so `da` does not touch *danken*
   // or *dauern*, and `weh` does not touch *wehren*.
   'weh', 'hoch', 'sicher', 'fertig', 'nahe', 'da', 'dazu', 'zuvor', 'schief',
+  // Added 2026-11-23, same check, same shape, from the frequency-gap cards:
+  // **heimkommte / geheimkommt**, **gepreisgebt**, **bereithaltete**,
+  // **bevorstehte**, **gegutmacht**. Split-only, so `preis` leaves *preisen*,
+  // `bereit` leaves *bereiten* and `bevor` leaves *bevorzugen* alone — none of
+  // them has a known root after the prefix.
+  'heim', 'preis', 'bereit', 'bevor', 'gut',
 ];
 
 // **Longest first**, or a short prefix shadows a long one. *voraussetzen* was
@@ -608,7 +622,8 @@ const SEP_SCAN = [...SEPARABLE].sort((a, b) => b.length - a.length);
 // older ones also mark a verb that *looks* split but has no root as unreliable
 // (*aufräumen* before *räumen* was seeded); for these that test fires on
 // *dauern*, *danken* and *sich wehren*, which are not prefixed at all.
-const SPLIT_ONLY = new Set(['weh', 'hoch', 'sicher', 'fertig', 'nahe', 'da', 'dazu', 'zuvor', 'schief']);
+const SPLIT_ONLY = new Set(['weh', 'hoch', 'sicher', 'fertig', 'nahe', 'da', 'dazu', 'zuvor', 'schief',
+  'heim', 'preis', 'bereit', 'bevor', 'gut']);
 const INSEP_SCAN = [...INSEPARABLE].sort((a, b) => b.length - a.length);
 const STRONG_SCAN = [...new Set([...GATE_PREFIXES, ...SEPARABLE, ...AMBIGUOUS_PREFIXES])].sort((a, b) => b.length - a.length);
 

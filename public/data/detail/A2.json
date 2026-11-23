@@ -1039,6 +1039,20 @@
       }
     ]
   },
+  "voc:A2:aufhängen": {
+    "ex": [
+      {
+        "de": "Kannst du die Wäsche aufhängen?",
+        "en": "Can you hang up the washing?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wo sollen wir das Bild aufhängen?",
+        "en": "Where shall we hang the picture?",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:aufladen": {
     "ex": [
       {
@@ -1693,6 +1707,20 @@
       {
         "de": "Der Lkw wird beladen.",
         "en": "The lorry is being loaded.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:bellen": {
+    "ex": [
+      {
+        "de": "Der Hund des Nachbarn bellt die ganze Nacht.",
+        "en": "The neighbour's dog barks all night.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Hunde, die bellen, beißen nicht.",
+        "en": "Dogs that bark don't bite.",
         "lvl": "A2"
       }
     ]
@@ -4058,6 +4086,20 @@
       }
     ]
   },
+  "voc:A2:das Hotelzimmer": {
+    "ex": [
+      {
+        "de": "Unser Hotelzimmer hat einen Blick aufs Meer.",
+        "en": "Our hotel room has a view of the sea.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe ein Hotelzimmer für zwei Nächte gebucht.",
+        "en": "I've booked a hotel room for two nights.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Hühnchen": {
     "ex": [
       {
@@ -6317,6 +6359,20 @@
       }
     ]
   },
+  "voc:A2:das Würstchen": {
+    "ex": [
+      {
+        "de": "Zum Kartoffelsalat gibt es Würstchen.",
+        "en": "There are sausages with the potato salad.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Er grillt Würstchen im Garten.",
+        "en": "He is grilling sausages in the garden.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Zeichen": {
     "def": "sign, token (object representing something); sign, indication (fact that reveals an underlying state)",
     "ex": [
@@ -6499,6 +6555,20 @@
         "de": "Sie hat den ganzen Tag an ihn gedacht.",
         "en": "She thought about him all day.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:der Abflug": {
+    "ex": [
+      {
+        "de": "Bitte seien Sie zwei Stunden vor Abflug am Flughafen.",
+        "en": "Please be at the airport two hours before departure.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Abflug verzögert sich um eine Stunde.",
+        "en": "The departure is delayed by an hour.",
+        "lvl": "A2"
       }
     ]
   },
@@ -7740,6 +7810,20 @@
       }
     ]
   },
+  "voc:A2:der Dinosaurier": {
+    "ex": [
+      {
+        "de": "Vor Millionen Jahren lebten hier Dinosaurier.",
+        "en": "Dinosaurs lived here millions of years ago.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mein Sohn weiß alles über Dinosaurier.",
+        "en": "My son knows everything about dinosaurs.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:der Dokumentarfilm": {
     "def": "A film that shows real people and facts, not a made-up story.",
     "ex": [
@@ -8029,6 +8113,20 @@
         "de": "Der Fahrplan gilt ab dem ersten Januar.",
         "en": "The timetable is valid from the first of January.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:der Fahrstuhl": {
+    "ex": [
+      {
+        "de": "Der Fahrstuhl ist schon wieder kaputt.",
+        "en": "The lift is broken again.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Wir nehmen den Fahrstuhl in den fünften Stock.",
+        "en": "We'll take the lift to the fifth floor.",
+        "lvl": "A2"
       }
     ]
   },
@@ -8449,6 +8547,20 @@
         "de": "Der Geldautomat ist leider außer Betrieb.",
         "en": "The cash machine is unfortunately out of order.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:der Geldbeutel": {
+    "ex": [
+      {
+        "de": "Ich habe meinen Geldbeutel zu Hause vergessen.",
+        "en": "I left my wallet at home.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Geldbeutel waren nur noch zehn Euro.",
+        "en": "There were only ten euros left in the purse.",
+        "lvl": "A2"
       }
     ]
   },
@@ -10315,6 +10427,20 @@
       {
         "de": "Er verlangte ihren Personalausweis.",
         "en": "He asked her for her ID.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:der Pfannkuchen": {
+    "ex": [
+      {
+        "de": "Zum Frühstück gibt es Pfannkuchen mit Apfelmus.",
+        "en": "There are pancakes with apple sauce for breakfast.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Oma backt die besten Pfannkuchen.",
+        "en": "Grandma makes the best pancakes.",
         "lvl": "A2"
       }
     ]
@@ -17768,6 +17894,20 @@
       }
     ]
   },
+  "voc:A2:die Mathe": {
+    "ex": [
+      {
+        "de": "In Mathe habe ich eine Zwei bekommen.",
+        "en": "I got a B in maths.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Mathe war nie mein Lieblingsfach.",
+        "en": "Maths was never my favourite subject.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Maus": {
     "def": "mouse (animal); mouse (input device)",
     "ex": [
@@ -18572,6 +18712,20 @@
       {
         "de": "Sie ist Polizistin in Bonn.",
         "en": "She's a police officer in Bonn.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Pommes": {
+    "ex": [
+      {
+        "de": "Ich nehme eine Currywurst mit Pommes.",
+        "en": "I'll have a currywurst with chips.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Kinder essen am liebsten Pommes mit Ketchup.",
+        "en": "The children like chips with ketchup best.",
         "lvl": "A2"
       }
     ]
@@ -19660,6 +19814,34 @@
         "de": "In der Skischule lernen Anfänger das Bremsen.",
         "en": "In ski school beginners learn to brake.",
         "lvl": "B1"
+      }
+    ]
+  },
+  "voc:A2:die Sommerferien": {
+    "ex": [
+      {
+        "de": "In den Sommerferien fahren wir nach Schweden.",
+        "en": "In the summer holidays we're going to Sweden.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Die Sommerferien dauern in Bayern sechs Wochen.",
+        "en": "The summer holidays in Bavaria last six weeks.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:die Sonnenbrille": {
+    "ex": [
+      {
+        "de": "Hast du meine Sonnenbrille gesehen?",
+        "en": "Have you seen my sunglasses?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Sommer trägt sie immer eine Sonnenbrille.",
+        "en": "In summer she always wears sunglasses.",
+        "lvl": "A2"
       }
     ]
   },
@@ -27810,6 +27992,20 @@
       {
         "de": "Er ist sehr sexy.",
         "en": "He's very sexy.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:shoppen": {
+    "ex": [
+      {
+        "de": "Am Samstag gehen wir in der Stadt shoppen.",
+        "en": "On Saturday we're going shopping in town.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Sie shoppt am liebsten online.",
+        "en": "She prefers shopping online.",
         "lvl": "A2"
       }
     ]

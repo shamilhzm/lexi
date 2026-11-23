@@ -1,0 +1,1855 @@
+[
+  {
+    "term": "entgegennehmen",
+    "en": "to accept, to receive (a delivery, a call)",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Business & Workplace",
+    "ex": [
+      {
+        "de": "Können Sie das Paket für mich entgegennehmen?",
+        "en": "Can you take the parcel for me?"
+      },
+      {
+        "de": "Der Präsident nahm den Preis persönlich entgegen.",
+        "en": "The president accepted the prize in person."
+      }
+    ]
+  },
+  {
+    "term": "erklingen",
+    "en": "to ring out, to sound",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Music & Theatre",
+    "ex": [
+      {
+        "de": "Um Mitternacht erklangen die Glocken.",
+        "en": "At midnight the bells rang out."
+      },
+      {
+        "de": "Aus dem Saal erklingt leise Musik.",
+        "en": "Soft music sounds from the hall."
+      }
+    ]
+  },
+  {
+    "term": "anregen",
+    "en": "to suggest; to stimulate",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Kaffee regt den Kreislauf an.",
+        "en": "Coffee stimulates the circulation."
+      },
+      {
+        "de": "Sie hat angeregt, das Treffen zu verschieben.",
+        "en": "She suggested postponing the meeting."
+      }
+    ]
+  },
+  {
+    "term": "sich ducken",
+    "en": "to duck",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Intermediate everyday verbs",
+    "ex": [
+      {
+        "de": "Er duckte sich hinter das Auto.",
+        "en": "He ducked behind the car."
+      },
+      {
+        "de": "Duck dich, da kommt ein Ball!",
+        "en": "Duck, there's a ball coming!"
+      }
+    ]
+  },
+  {
+    "term": "beherbergen",
+    "en": "to house, to accommodate",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Travel",
+    "ex": [
+      {
+        "de": "Das alte Schloss beherbergt heute ein Museum.",
+        "en": "The old castle now houses a museum."
+      },
+      {
+        "de": "Die Familie hat zwei Studenten beherbergt.",
+        "en": "The family put up two students."
+      }
+    ]
+  },
+  {
+    "term": "bedrohen",
+    "en": "to threaten",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Der Mann bedrohte die Kassiererin mit einem Messer.",
+        "en": "The man threatened the cashier with a knife."
+      },
+      {
+        "de": "Die Dürre bedrohte die ganze Ernte.",
+        "en": "The drought threatened the whole harvest."
+      }
+    ]
+  },
+  {
+    "term": "aufhängen",
+    "en": "to hang (up)",
+    "pos": "verb",
+    "level": "A2",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Kannst du die Wäsche aufhängen?",
+        "en": "Can you hang up the washing?"
+      },
+      {
+        "de": "Wo sollen wir das Bild aufhängen?",
+        "en": "Where shall we hang the picture?"
+      }
+    ]
+  },
+  {
+    "term": "verzaubern",
+    "en": "to enchant; to cast a spell on",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Arts and culture",
+    "ex": [
+      {
+        "de": "Die Hexe verzauberte den Prinzen in einen Frosch.",
+        "en": "The witch turned the prince into a frog."
+      },
+      {
+        "de": "Die Stadt hat uns sofort verzaubert.",
+        "en": "The city enchanted us straight away."
+      }
+    ]
+  },
+  {
+    "term": "heimkommen",
+    "en": "to come home",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Ich möchte heute früh heimkommen.",
+        "en": "I'd like to come home early today."
+      },
+      {
+        "de": "Die Kinder müssen vor acht Uhr heimkommen.",
+        "en": "The children have to be home before eight."
+      }
+    ]
+  },
+  {
+    "term": "sich blamieren",
+    "en": "to make a fool of oneself",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Social life",
+    "ex": [
+      {
+        "de": "Ich will mich vor meinen Kollegen nicht blamieren.",
+        "en": "I don't want to make a fool of myself in front of my colleagues."
+      },
+      {
+        "de": "Bei der Präsentation hat er sich total blamiert.",
+        "en": "He made a complete fool of himself during the presentation."
+      }
+    ]
+  },
+  {
+    "term": "anmerken",
+    "en": "to remark; to notice (in someone)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Ich möchte noch etwas anmerken.",
+        "en": "I'd like to add a remark."
+      },
+      {
+        "de": "Man merkte ihr die Nervosität nicht an.",
+        "en": "You couldn't tell she was nervous."
+      }
+    ]
+  },
+  {
+    "term": "inhaftieren",
+    "en": "to detain, to imprison",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Die Journalistin wurde ohne Anklage inhaftiert.",
+        "en": "The journalist was imprisoned without charge."
+      },
+      {
+        "de": "Die Behörden inhaftierten mehrere Demonstranten.",
+        "en": "The authorities detained several protesters."
+      }
+    ]
+  },
+  {
+    "term": "zischen",
+    "en": "to hiss",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Intermediate everyday verbs",
+    "ex": [
+      {
+        "de": "Die Schlange zischte.",
+        "en": "The snake hissed."
+      },
+      {
+        "de": "Das Wasser zischt auf der heißen Platte.",
+        "en": "The water hisses on the hot plate."
+      }
+    ]
+  },
+  {
+    "term": "anfertigen",
+    "en": "to make, to produce (by hand or to order)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Work",
+    "ex": [
+      {
+        "de": "Der Schneider kann den Anzug nach Maß anfertigen.",
+        "en": "The tailor can make the suit to measure."
+      },
+      {
+        "de": "Wir lassen die Möbel beim Tischler anfertigen.",
+        "en": "We're having the furniture made by a carpenter."
+      }
+    ]
+  },
+  {
+    "term": "bestehlen",
+    "en": "to rob, to steal from (someone)",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Im Bus wurde ich bestohlen.",
+        "en": "I was robbed on the bus."
+      },
+      {
+        "de": "Er hat seinen eigenen Chef bestohlen.",
+        "en": "He stole from his own boss."
+      }
+    ]
+  },
+  {
+    "term": "bereithalten",
+    "en": "to have ready",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Administration",
+    "ex": [
+      {
+        "de": "Bitte Ihren Ausweis bereithalten.",
+        "en": "Please have your ID ready."
+      },
+      {
+        "de": "Für Notfälle sollte man etwas Bargeld bereithalten.",
+        "en": "You should keep some cash ready for emergencies."
+      }
+    ]
+  },
+  {
+    "term": "lokalisieren",
+    "en": "to locate, to pinpoint",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Technology",
+    "ex": [
+      {
+        "de": "Die Feuerwehr konnte das Feuer schnell lokalisieren.",
+        "en": "The fire brigade was able to locate the fire quickly."
+      },
+      {
+        "de": "Das Handy wurde in der Nähe des Bahnhofs lokalisiert.",
+        "en": "The phone was located near the station."
+      }
+    ]
+  },
+  {
+    "term": "modernisieren",
+    "en": "to modernise",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Technology",
+    "ex": [
+      {
+        "de": "Die Stadt modernisiert ihre Schulen.",
+        "en": "The town is modernising its schools."
+      },
+      {
+        "de": "Das Bad wurde komplett modernisiert.",
+        "en": "The bathroom was completely modernised."
+      }
+    ]
+  },
+  {
+    "term": "hervorrufen",
+    "en": "to cause, to provoke",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Das Medikament kann Müdigkeit hervorrufen.",
+        "en": "The medicine can cause tiredness."
+      },
+      {
+        "de": "Seine Worte riefen heftige Kritik hervor.",
+        "en": "His words provoked fierce criticism."
+      }
+    ]
+  },
+  {
+    "term": "absuchen",
+    "en": "to search, to comb (an area)",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Die Polizei sucht den Wald nach dem Kind ab.",
+        "en": "The police are combing the forest for the child."
+      },
+      {
+        "de": "Wir haben das ganze Haus abgesucht.",
+        "en": "We searched the whole house."
+      }
+    ]
+  },
+  {
+    "term": "einatmen",
+    "en": "to breathe in, to inhale",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Bitte tief einatmen!",
+        "en": "Breathe in deeply, please!"
+      },
+      {
+        "de": "Er hat giftigen Rauch eingeatmet.",
+        "en": "He inhaled toxic smoke."
+      }
+    ]
+  },
+  {
+    "term": "besteigen",
+    "en": "to climb (a mountain); to board",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Sie hat den Kilimandscharo bestiegen.",
+        "en": "She has climbed Kilimanjaro."
+      },
+      {
+        "de": "Die Passagiere besteigen das Flugzeug.",
+        "en": "The passengers are boarding the plane."
+      }
+    ]
+  },
+  {
+    "term": "verschließen",
+    "en": "to lock, to seal",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Vergiss nicht, die Tür zu verschließen.",
+        "en": "Don't forget to lock the door."
+      },
+      {
+        "de": "Er verschließt jeden Brief sorgfältig.",
+        "en": "He seals every letter carefully."
+      }
+    ]
+  },
+  {
+    "term": "entfachen",
+    "en": "to kindle, to spark",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Der Wind entfachte das Feuer erneut.",
+        "en": "The wind rekindled the fire."
+      },
+      {
+        "de": "Die Entscheidung hat eine heftige Debatte entfacht.",
+        "en": "The decision has sparked a fierce debate."
+      }
+    ]
+  },
+  {
+    "term": "konzipieren",
+    "en": "to design, to conceive",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Business & Workplace",
+    "ex": [
+      {
+        "de": "Das Museum wurde für Kinder konzipiert.",
+        "en": "The museum was designed for children."
+      },
+      {
+        "de": "Sie konzipiert gerade eine neue Ausstellung.",
+        "en": "She is currently designing a new exhibition."
+      }
+    ]
+  },
+  {
+    "term": "vollenden",
+    "en": "to complete, to finish",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Work",
+    "ex": [
+      {
+        "de": "Er konnte sein letztes Buch nicht mehr vollenden.",
+        "en": "He was unable to complete his last book."
+      },
+      {
+        "de": "Der Architekt starb, bevor er die Kirche vollenden konnte.",
+        "en": "The architect died before he could complete the church."
+      }
+    ]
+  },
+  {
+    "term": "verabreichen",
+    "en": "to administer (medicine)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Health",
+    "ex": [
+      {
+        "de": "Die Ärztin verabreichte ihm ein Schmerzmittel.",
+        "en": "The doctor gave him a painkiller."
+      },
+      {
+        "de": "Das Medikament wird zweimal täglich verabreicht.",
+        "en": "The medicine is administered twice a day."
+      }
+    ]
+  },
+  {
+    "term": "beteuern",
+    "en": "to protest, to insist (on one's innocence)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Der Angeklagte beteuert seine Unschuld.",
+        "en": "The defendant protests his innocence."
+      },
+      {
+        "de": "Sie beteuerte, nichts davon gewusst zu haben.",
+        "en": "She insisted she had known nothing about it."
+      }
+    ]
+  },
+  {
+    "term": "kneifen",
+    "en": "to pinch; to chicken out",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Du sollst deine Schwester nicht kneifen!",
+        "en": "Don't pinch your sister!"
+      },
+      {
+        "de": "Wenn es ernst wird, kneifen viele.",
+        "en": "When things get serious, many people chicken out."
+      }
+    ]
+  },
+  {
+    "term": "erraten",
+    "en": "to guess (correctly)",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Games",
+    "ex": [
+      {
+        "de": "Du wirst nie erraten, wen ich getroffen habe.",
+        "en": "You'll never guess who I met."
+      },
+      {
+        "de": "Sie errät jedes Rätsel sofort.",
+        "en": "She guesses every riddle straight away."
+      }
+    ]
+  },
+  {
+    "term": "shoppen",
+    "en": "to go shopping",
+    "pos": "verb",
+    "level": "A2",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Am Samstag gehen wir in der Stadt shoppen.",
+        "en": "On Saturday we're going shopping in town."
+      },
+      {
+        "de": "Sie shoppt am liebsten online.",
+        "en": "She prefers shopping online."
+      }
+    ]
+  },
+  {
+    "term": "erringen",
+    "en": "to win, to gain (after a struggle)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Die Mannschaft will den Titel erringen.",
+        "en": "The team wants to win the title."
+      },
+      {
+        "de": "Nur mit Geduld kann man ihr Vertrauen erringen.",
+        "en": "Only with patience can you win her trust."
+      }
+    ]
+  },
+  {
+    "term": "bevorstehen",
+    "en": "to be imminent, to lie ahead",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Abstract",
+    "ex": [
+      {
+        "de": "Ihm könnte eine schwere Operation bevorstehen.",
+        "en": "He may be facing a serious operation."
+      },
+      {
+        "de": "Was uns noch bevorsteht, weiß niemand.",
+        "en": "Nobody knows what still lies ahead of us."
+      }
+    ]
+  },
+  {
+    "term": "erbitten",
+    "en": "to request",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Business Correspondence",
+    "ex": [
+      {
+        "de": "Wir erbitten Ihre Antwort bis zum 30. Juni.",
+        "en": "We request your reply by 30 June."
+      },
+      {
+        "de": "Er hat sich Bedenkzeit erbeten.",
+        "en": "He has asked for time to think it over."
+      }
+    ]
+  },
+  {
+    "term": "abschieben",
+    "en": "to deport; to shift (blame) onto",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Migration & Integration",
+    "ex": [
+      {
+        "de": "Die Familie soll nach Albanien abgeschoben werden.",
+        "en": "The family is to be deported to Albania."
+      },
+      {
+        "de": "Er schiebt die Verantwortung immer auf andere ab.",
+        "en": "He always shifts the responsibility onto others."
+      }
+    ]
+  },
+  {
+    "term": "mitwirken",
+    "en": "to take part, to contribute",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Work",
+    "ex": [
+      {
+        "de": "An dem Film haben über hundert Menschen mitgewirkt.",
+        "en": "Over a hundred people contributed to the film."
+      },
+      {
+        "de": "Sie wirkt im Schulchor mit.",
+        "en": "She takes part in the school choir."
+      }
+    ]
+  },
+  {
+    "term": "miterleben",
+    "en": "to witness, to live through",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Ich habe den Fall der Mauer miterlebt.",
+        "en": "I witnessed the fall of the Wall."
+      },
+      {
+        "de": "Sie wollte die Geburt ihrer Enkelin miterleben.",
+        "en": "She wanted to be there for her granddaughter's birth."
+      }
+    ]
+  },
+  {
+    "term": "verwundern",
+    "en": "to surprise, to astonish",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Seine Reaktion hat mich verwundert.",
+        "en": "His reaction surprised me."
+      },
+      {
+        "de": "Es verwundert kaum, dass die Preise steigen.",
+        "en": "It's hardly surprising that prices are rising."
+      }
+    ]
+  },
+  {
+    "term": "pochen",
+    "en": "to throb, to pound; to insist (on)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Mein Herz pochte vor Aufregung.",
+        "en": "My heart was pounding with excitement."
+      },
+      {
+        "de": "Die Gewerkschaft pocht auf ihre Rechte.",
+        "en": "The union insists on its rights."
+      }
+    ]
+  },
+  {
+    "term": "abrufen",
+    "en": "to retrieve, to call up",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Technology",
+    "ex": [
+      {
+        "de": "Sie können Ihre E-Mails auch unterwegs abrufen.",
+        "en": "You can check your emails on the go too."
+      },
+      {
+        "de": "Die Daten wurden über tausend Mal abgerufen.",
+        "en": "The data was accessed over a thousand times."
+      }
+    ]
+  },
+  {
+    "term": "bejubeln",
+    "en": "to cheer",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Die Fans bejubelten den Sieg bis tief in die Nacht.",
+        "en": "The fans cheered the win late into the night."
+      },
+      {
+        "de": "Sie wurde nach ihrem Auftritt bejubelt.",
+        "en": "She was cheered after her performance."
+      }
+    ]
+  },
+  {
+    "term": "vorfinden",
+    "en": "to find (on arrival)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Als wir zurückkamen, fanden wir die Wohnung völlig verwüstet vor.",
+        "en": "When we got back, we found the flat completely wrecked."
+      },
+      {
+        "de": "Die Helfer haben chaotische Zustände vorgefunden.",
+        "en": "The helpers found chaotic conditions."
+      }
+    ]
+  },
+  {
+    "term": "umzingeln",
+    "en": "to surround, to encircle",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Military concepts",
+    "ex": [
+      {
+        "de": "Die Polizei umzingelte das Gebäude.",
+        "en": "The police surrounded the building."
+      },
+      {
+        "de": "Die Stadt ist von feindlichen Truppen umzingelt.",
+        "en": "The city is surrounded by enemy troops."
+      }
+    ]
+  },
+  {
+    "term": "verschlucken",
+    "en": "to swallow; (sich) to choke",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Das Kind hat eine Münze verschluckt.",
+        "en": "The child swallowed a coin."
+      },
+      {
+        "de": "Ich habe mich an einer Gräte verschluckt.",
+        "en": "I choked on a fishbone."
+      }
+    ]
+  },
+  {
+    "term": "kauen",
+    "en": "to chew",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Food & drink",
+    "ex": [
+      {
+        "de": "Du sollst gründlich kauen.",
+        "en": "You should chew thoroughly."
+      },
+      {
+        "de": "Er kaut ständig Kaugummi.",
+        "en": "He's constantly chewing gum."
+      }
+    ]
+  },
+  {
+    "term": "anschreien",
+    "en": "to shout at",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Bitte schrei mich nicht an.",
+        "en": "Please don't shout at me."
+      },
+      {
+        "de": "Der Trainer hat die Spieler in der Pause angeschrien.",
+        "en": "The coach shouted at the players at half-time."
+      }
+    ]
+  },
+  {
+    "term": "zünden",
+    "en": "to ignite, to fire; to catch on",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Technology",
+    "ex": [
+      {
+        "de": "Die Rakete zündet in zehn Sekunden.",
+        "en": "The rocket fires in ten seconds."
+      },
+      {
+        "de": "Der Witz hat nicht gezündet.",
+        "en": "The joke fell flat."
+      }
+    ]
+  },
+  {
+    "term": "auswechseln",
+    "en": "to replace, to substitute",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Sport",
+    "ex": [
+      {
+        "de": "Der Torwart musste nach zwanzig Minuten ausgewechselt werden.",
+        "en": "The goalkeeper had to be substituted after twenty minutes."
+      },
+      {
+        "de": "Wir müssen die Batterien auswechseln.",
+        "en": "We need to change the batteries."
+      }
+    ]
+  },
+  {
+    "term": "klappern",
+    "en": "to rattle, to clatter",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Intermediate everyday verbs",
+    "ex": [
+      {
+        "de": "Das Fenster klappert im Wind.",
+        "en": "The window rattles in the wind."
+      },
+      {
+        "de": "Mir klappern vor Kälte die Zähne.",
+        "en": "My teeth are chattering with cold."
+      }
+    ]
+  },
+  {
+    "term": "komponieren",
+    "en": "to compose",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Music & Theatre",
+    "ex": [
+      {
+        "de": "Mozart komponierte schon als Kind.",
+        "en": "Mozart was composing even as a child."
+      },
+      {
+        "de": "Sie hat die Musik für den Film komponiert.",
+        "en": "She composed the music for the film."
+      }
+    ]
+  },
+  {
+    "term": "borgen",
+    "en": "to borrow; to lend",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Kannst du mir dein Fahrrad borgen?",
+        "en": "Can you lend me your bike?"
+      },
+      {
+        "de": "Ich habe mir das Buch von meiner Schwester geborgt.",
+        "en": "I borrowed the book from my sister."
+      }
+    ]
+  },
+  {
+    "term": "vermischen",
+    "en": "to mix",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Food & drink",
+    "ex": [
+      {
+        "de": "Das Mehl mit dem Zucker vermischen.",
+        "en": "Mix the flour with the sugar."
+      },
+      {
+        "de": "In ihrem Roman vermischen sich Traum und Wirklichkeit.",
+        "en": "In her novel, dream and reality merge."
+      }
+    ]
+  },
+  {
+    "term": "weiterhelfen",
+    "en": "to help (someone get further)",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Können Sie mir weiterhelfen?",
+        "en": "Can you help me?"
+      },
+      {
+        "de": "Leider kann ich Ihnen da nicht weiterhelfen.",
+        "en": "Unfortunately I can't help you with that."
+      }
+    ]
+  },
+  {
+    "term": "misshandeln",
+    "en": "to mistreat, to abuse",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Der Hund wurde von seinem Besitzer misshandelt.",
+        "en": "The dog was mistreated by its owner."
+      },
+      {
+        "de": "Wer Kinder misshandelt, muss bestraft werden.",
+        "en": "Anyone who abuses children must be punished."
+      }
+    ]
+  },
+  {
+    "term": "diagnostizieren",
+    "en": "to diagnose",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Health",
+    "ex": [
+      {
+        "de": "Bei ihr wurde Diabetes diagnostiziert.",
+        "en": "She was diagnosed with diabetes."
+      },
+      {
+        "de": "Der Arzt diagnostizierte eine Lungenentzündung.",
+        "en": "The doctor diagnosed pneumonia."
+      }
+    ]
+  },
+  {
+    "term": "schmunzeln",
+    "en": "to smile (with quiet amusement)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Bei dem Gedanken musste sie schmunzeln.",
+        "en": "She had to smile at the thought."
+      },
+      {
+        "de": "Der alte Mann schmunzelte über die Frage.",
+        "en": "The old man smiled at the question."
+      }
+    ]
+  },
+  {
+    "term": "schimmern",
+    "en": "to shimmer, to gleam",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Landscape & nature",
+    "ex": [
+      {
+        "de": "Das Wasser schimmert in der Abendsonne.",
+        "en": "The water shimmers in the evening sun."
+      },
+      {
+        "de": "Durch die Vorhänge schimmerte Licht.",
+        "en": "Light gleamed through the curtains."
+      }
+    ]
+  },
+  {
+    "term": "wegschicken",
+    "en": "to send away",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Der Türsteher hat uns weggeschickt.",
+        "en": "The bouncer sent us away."
+      },
+      {
+        "de": "Schick ihn nicht einfach weg!",
+        "en": "Don't just send him away!"
+      }
+    ]
+  },
+  {
+    "term": "durchatmen",
+    "en": "to breathe deeply; to catch one's breath",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Body & health",
+    "ex": [
+      {
+        "de": "Jetzt muss ich erst mal durchatmen.",
+        "en": "Now I need to catch my breath."
+      },
+      {
+        "de": "Nach der Prüfung konnte ich endlich durchatmen.",
+        "en": "After the exam I could finally breathe again."
+      }
+    ]
+  },
+  {
+    "term": "spendieren",
+    "en": "to treat (someone to something)",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Heute spendiere ich dir einen Kaffee.",
+        "en": "Today I'm treating you to a coffee."
+      },
+      {
+        "de": "Der Chef hat allen ein Eis spendiert.",
+        "en": "The boss treated everyone to an ice cream."
+      }
+    ]
+  },
+  {
+    "term": "einspringen",
+    "en": "to step in, to stand in",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Work",
+    "ex": [
+      {
+        "de": "Kannst du morgen für mich einspringen?",
+        "en": "Can you stand in for me tomorrow?"
+      },
+      {
+        "de": "Sie ist kurzfristig für die kranke Sängerin eingesprungen.",
+        "en": "She stepped in at short notice for the sick singer."
+      }
+    ]
+  },
+  {
+    "term": "anlocken",
+    "en": "to attract, to lure",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Animals",
+    "ex": [
+      {
+        "de": "Das Licht lockt Insekten an.",
+        "en": "The light attracts insects."
+      },
+      {
+        "de": "Das Festival hat über 50.000 Besucher angelockt.",
+        "en": "The festival attracted over 50,000 visitors."
+      }
+    ]
+  },
+  {
+    "term": "interviewen",
+    "en": "to interview",
+    "pos": "verb",
+    "level": "B2",
+    "field": "News Media",
+    "ex": [
+      {
+        "de": "Die Journalistin interviewt den Bürgermeister.",
+        "en": "The journalist is interviewing the mayor."
+      },
+      {
+        "de": "Für die Studie wurden 500 Personen interviewt.",
+        "en": "500 people were interviewed for the study."
+      }
+    ]
+  },
+  {
+    "term": "ausgraben",
+    "en": "to dig up, to excavate",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Science concepts",
+    "ex": [
+      {
+        "de": "Wir müssen den alten Baum ausgraben.",
+        "en": "We have to dig up the old tree."
+      },
+      {
+        "de": "Archäologen wollen die römische Stadt ausgraben.",
+        "en": "Archaeologists want to excavate the Roman town."
+      }
+    ]
+  },
+  {
+    "term": "zerlegen",
+    "en": "to dismantle, to take apart",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Technology",
+    "ex": [
+      {
+        "de": "Er hat das Radio in seine Einzelteile zerlegt.",
+        "en": "He took the radio apart."
+      },
+      {
+        "de": "Das Regal lässt sich leicht zerlegen.",
+        "en": "The shelf is easy to dismantle."
+      }
+    ]
+  },
+  {
+    "term": "erzwingen",
+    "en": "to force, to compel",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Die Opposition will Neuwahlen erzwingen.",
+        "en": "The opposition wants to force new elections."
+      },
+      {
+        "de": "Liebe kann man nicht erzwingen.",
+        "en": "You can't force love."
+      }
+    ]
+  },
+  {
+    "term": "anbringen",
+    "en": "to fix, to mount, to attach",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Home",
+    "ex": [
+      {
+        "de": "Wir müssen noch die Lampe an der Decke anbringen.",
+        "en": "We still have to mount the lamp on the ceiling."
+      },
+      {
+        "de": "Am Eingang wurde eine Kamera angebracht.",
+        "en": "A camera was installed at the entrance."
+      }
+    ]
+  },
+  {
+    "term": "absprechen",
+    "en": "to arrange, to agree on",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Work",
+    "ex": [
+      {
+        "de": "Das müssen wir noch mit dem Team absprechen.",
+        "en": "We still need to agree that with the team."
+      },
+      {
+        "de": "Wir haben den Termin vorher abgesprochen.",
+        "en": "We arranged the appointment beforehand."
+      }
+    ]
+  },
+  {
+    "term": "posieren",
+    "en": "to pose",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Arts and culture",
+    "ex": [
+      {
+        "de": "Die Stars posieren auf dem roten Teppich.",
+        "en": "The stars are posing on the red carpet."
+      },
+      {
+        "de": "Er posierte stolz neben seinem neuen Auto.",
+        "en": "He posed proudly next to his new car."
+      }
+    ]
+  },
+  {
+    "term": "erwirtschaften",
+    "en": "to generate, to make (a profit)",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Economy & Markets",
+    "ex": [
+      {
+        "de": "Das Unternehmen erwirtschaftete einen Gewinn von zwei Millionen Euro.",
+        "en": "The company made a profit of two million euros."
+      },
+      {
+        "de": "Der Hof erwirtschaftet kaum genug zum Leben.",
+        "en": "The farm barely earns enough to live on."
+      }
+    ]
+  },
+  {
+    "term": "davonlaufen",
+    "en": "to run away",
+    "pos": "verb",
+    "level": "B2",
+    "field": "Core verbs",
+    "ex": [
+      {
+        "de": "Die Katze ist vor dem Hund davongelaufen.",
+        "en": "The cat ran away from the dog."
+      },
+      {
+        "de": "Man kann seinen Problemen nicht davonlaufen.",
+        "en": "You can't run away from your problems."
+      }
+    ]
+  },
+  {
+    "term": "klarkommen",
+    "en": "to cope; to get on (with someone)",
+    "pos": "verb",
+    "level": "B1",
+    "field": "Everyday Life",
+    "ex": [
+      {
+        "de": "Kommst du mit der neuen Software klar?",
+        "en": "Are you coping with the new software?"
+      },
+      {
+        "de": "Ich komme mit meinem Mitbewohner gut klar.",
+        "en": "I get on well with my flatmate."
+      }
+    ]
+  },
+  {
+    "term": "zustehen",
+    "en": "to be entitled to; to be (someone's) place to",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Ihnen stehen dreißig Tage Urlaub zu.",
+        "en": "You are entitled to thirty days' holiday."
+      },
+      {
+        "de": "Dieses Urteil steht dir nicht zu.",
+        "en": "That judgement is not yours to make."
+      }
+    ]
+  },
+  {
+    "term": "preisgeben",
+    "en": "to reveal, to disclose",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Communication",
+    "ex": [
+      {
+        "de": "Die Firma will keine Details preisgeben.",
+        "en": "The company doesn't want to disclose any details."
+      },
+      {
+        "de": "Eine Journalistin darf ihre Quellen nicht preisgeben.",
+        "en": "A journalist must not reveal her sources."
+      }
+    ]
+  },
+  {
+    "term": "ergattern",
+    "en": "to get hold of, to snap up",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Money & shopping",
+    "ex": [
+      {
+        "de": "Ich habe noch zwei Karten für das Konzert ergattert.",
+        "en": "I managed to get hold of two more tickets for the concert."
+      },
+      {
+        "de": "Wer früh kommt, ergattert die besten Plätze.",
+        "en": "Whoever comes early gets the best seats."
+      }
+    ]
+  },
+  {
+    "term": "festsetzen",
+    "en": "to set, to fix; to detain",
+    "pos": "verb",
+    "level": "C1",
+    "field": "Administration",
+    "ex": [
+      {
+        "de": "Der Preis wurde auf zehn Euro festgesetzt.",
+        "en": "The price was set at ten euros."
+      },
+      {
+        "de": "Die Polizei hat den Verdächtigen am Flughafen festgesetzt.",
+        "en": "The police detained the suspect at the airport."
+      }
+    ]
+  },
+  {
+    "term": "zumeist",
+    "en": "mostly, for the most part",
+    "pos": "adverb",
+    "level": "C1",
+    "field": "Adverbs",
+    "ex": [
+      {
+        "de": "Die Besucher kommen zumeist aus der Region.",
+        "en": "The visitors mostly come from the region."
+      },
+      {
+        "de": "Im April regnet es zumeist.",
+        "en": "It mostly rains in April."
+      }
+    ]
+  },
+  {
+    "term": "diskret",
+    "en": "discreet",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Bitte behandeln Sie die Sache diskret.",
+        "en": "Please treat the matter discreetly."
+      },
+      {
+        "de": "Er ist ein sehr diskreter Mensch.",
+        "en": "He's a very discreet person."
+      }
+    ]
+  },
+  {
+    "term": "rechtskräftig",
+    "en": "final, legally binding",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Das Urteil ist noch nicht rechtskräftig.",
+        "en": "The verdict is not yet final."
+      },
+      {
+        "de": "Er wurde rechtskräftig verurteilt.",
+        "en": "His conviction is final."
+      }
+    ]
+  },
+  {
+    "term": "deutschsprachig",
+    "en": "German-speaking, German-language",
+    "pos": "adjective",
+    "level": "B1",
+    "field": "Countries",
+    "ex": [
+      {
+        "de": "In der Schweiz gibt es deutschsprachige und französischsprachige Kantone.",
+        "en": "Switzerland has German-speaking and French-speaking cantons."
+      },
+      {
+        "de": "Sie liest am liebsten deutschsprachige Literatur.",
+        "en": "She prefers reading German-language literature."
+      }
+    ]
+  },
+  {
+    "term": "erbärmlich",
+    "en": "pathetic, wretched",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Das war eine erbärmliche Leistung.",
+        "en": "That was a pathetic performance."
+      },
+      {
+        "de": "Die Tiere lebten unter erbärmlichen Bedingungen.",
+        "en": "The animals lived in wretched conditions."
+      }
+    ]
+  },
+  {
+    "term": "prächtig",
+    "en": "magnificent, splendid",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Der Garten blüht dieses Jahr prächtig.",
+        "en": "The garden is in magnificent bloom this year."
+      },
+      {
+        "de": "Sie wohnen in einem prächtigen alten Haus.",
+        "en": "They live in a splendid old house."
+      }
+    ]
+  },
+  {
+    "term": "unbemerkt",
+    "en": "unnoticed",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Der Dieb verließ das Haus unbemerkt.",
+        "en": "The thief left the house unnoticed."
+      },
+      {
+        "de": "Der Fehler blieb wochenlang unbemerkt.",
+        "en": "The mistake went unnoticed for weeks."
+      }
+    ]
+  },
+  {
+    "term": "gewissermaßen",
+    "en": "so to speak, in a way",
+    "pos": "adverb",
+    "level": "C1",
+    "field": "Adverbs",
+    "ex": [
+      {
+        "de": "Das ist gewissermaßen unser zweites Zuhause.",
+        "en": "This is our second home, so to speak."
+      },
+      {
+        "de": "Er war gewissermaßen der Chef der Gruppe.",
+        "en": "He was, in a way, the leader of the group."
+      }
+    ]
+  },
+  {
+    "term": "schnellstmöglich",
+    "en": "as quickly as possible",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Time",
+    "ex": [
+      {
+        "de": "Bitte antworten Sie schnellstmöglich.",
+        "en": "Please reply as quickly as possible."
+      },
+      {
+        "de": "Wir suchen eine schnellstmögliche Lösung.",
+        "en": "We are looking for the quickest possible solution."
+      }
+    ]
+  },
+  {
+    "term": "obendrein",
+    "en": "on top of that, into the bargain",
+    "pos": "adverb",
+    "level": "C1",
+    "field": "Adverbs",
+    "ex": [
+      {
+        "de": "Das Essen war kalt und obendrein teuer.",
+        "en": "The food was cold and expensive into the bargain."
+      },
+      {
+        "de": "Er kam zu spät und hat obendrein seine Unterlagen vergessen.",
+        "en": "He was late and on top of that forgot his papers."
+      }
+    ]
+  },
+  {
+    "term": "radikal",
+    "en": "radical",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Die Partei vertritt radikale Positionen.",
+        "en": "The party holds radical positions."
+      },
+      {
+        "de": "Das Unternehmen hat seine Strategie radikal geändert.",
+        "en": "The company radically changed its strategy."
+      }
+    ]
+  },
+  {
+    "term": "gelaunt",
+    "en": "in a (good or bad) mood",
+    "pos": "adjective",
+    "level": "B1",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Warum bist du heute so schlecht gelaunt?",
+        "en": "Why are you in such a bad mood today?"
+      },
+      {
+        "de": "Die Kellnerin war sehr gut gelaunt.",
+        "en": "The waitress was in a very good mood."
+      }
+    ]
+  },
+  {
+    "term": "inakzeptabel",
+    "en": "unacceptable",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Dieses Verhalten ist inakzeptabel.",
+        "en": "This behaviour is unacceptable."
+      },
+      {
+        "de": "Die Gewerkschaft nennt das Angebot inakzeptabel.",
+        "en": "The union calls the offer unacceptable."
+      }
+    ]
+  },
+  {
+    "term": "grandios",
+    "en": "magnificent, brilliant",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Das Konzert war grandios.",
+        "en": "The concert was magnificent."
+      },
+      {
+        "de": "Sie hat eine grandiose Leistung gezeigt.",
+        "en": "She gave a brilliant performance."
+      }
+    ]
+  },
+  {
+    "term": "sensationell",
+    "en": "sensational",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Der Ausblick vom Gipfel ist sensationell.",
+        "en": "The view from the summit is sensational."
+      },
+      {
+        "de": "Die Mannschaft feierte einen sensationellen Sieg.",
+        "en": "The team celebrated a sensational win."
+      }
+    ]
+  },
+  {
+    "term": "rege",
+    "en": "lively, active",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Es gab eine rege Diskussion.",
+        "en": "There was a lively discussion."
+      },
+      {
+        "de": "Das Angebot wurde rege genutzt.",
+        "en": "The offer was taken up eagerly."
+      }
+    ]
+  },
+  {
+    "term": "turbulent",
+    "en": "turbulent, eventful",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Das war ein turbulentes Jahr.",
+        "en": "That was a turbulent year."
+      },
+      {
+        "de": "Die Sitzung verlief ziemlich turbulent.",
+        "en": "The meeting was rather turbulent."
+      }
+    ]
+  },
+  {
+    "term": "gewalttätig",
+    "en": "violent",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Legal Terms",
+    "ex": [
+      {
+        "de": "Die Demonstration wurde gewalttätig.",
+        "en": "The demonstration turned violent."
+      },
+      {
+        "de": "Er war seiner Frau gegenüber gewalttätig.",
+        "en": "He was violent towards his wife."
+      }
+    ]
+  },
+  {
+    "term": "synthetisch",
+    "en": "synthetic",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Science concepts",
+    "ex": [
+      {
+        "de": "Die Jacke ist aus synthetischem Material.",
+        "en": "The jacket is made of synthetic material."
+      },
+      {
+        "de": "Die Polizei fand synthetische Drogen.",
+        "en": "The police found synthetic drugs."
+      }
+    ]
+  },
+  {
+    "term": "begabt",
+    "en": "gifted, talented",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Education",
+    "ex": [
+      {
+        "de": "Sie ist musikalisch sehr begabt.",
+        "en": "She is very musically gifted."
+      },
+      {
+        "de": "Die Schule fördert begabte Kinder.",
+        "en": "The school supports gifted children."
+      }
+    ]
+  },
+  {
+    "term": "kühn",
+    "en": "bold, daring",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Das ist ein kühner Plan.",
+        "en": "That's a bold plan."
+      },
+      {
+        "de": "Die Brücke ist eine kühne Konstruktion.",
+        "en": "The bridge is a daring piece of engineering."
+      }
+    ]
+  },
+  {
+    "term": "lukrativ",
+    "en": "lucrative",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Economy & Markets",
+    "ex": [
+      {
+        "de": "Das Geschäft mit Ferienwohnungen ist sehr lukrativ.",
+        "en": "The holiday-flat business is very lucrative."
+      },
+      {
+        "de": "Er bekam ein lukratives Angebot aus Zürich.",
+        "en": "He got a lucrative offer from Zurich."
+      }
+    ]
+  },
+  {
+    "term": "fürchterlich",
+    "en": "terrible, dreadful",
+    "pos": "adjective",
+    "level": "B1",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Das Wetter war fürchterlich.",
+        "en": "The weather was dreadful."
+      },
+      {
+        "de": "Ich habe fürchterliche Kopfschmerzen.",
+        "en": "I have a terrible headache."
+      }
+    ]
+  },
+  {
+    "term": "beängstigend",
+    "en": "frightening, alarming",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Die Situation ist beängstigend.",
+        "en": "The situation is frightening."
+      },
+      {
+        "de": "Die Preise steigen in einem beängstigenden Tempo.",
+        "en": "Prices are rising at an alarming rate."
+      }
+    ]
+  },
+  {
+    "term": "bizarr",
+    "en": "bizarre",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Das war eine bizarre Situation.",
+        "en": "That was a bizarre situation."
+      },
+      {
+        "de": "Die Felsen haben bizarre Formen.",
+        "en": "The rocks have bizarre shapes."
+      }
+    ]
+  },
+  {
+    "term": "spektakulär",
+    "en": "spectacular",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Opinion",
+    "ex": [
+      {
+        "de": "Die Aussicht ist spektakulär.",
+        "en": "The view is spectacular."
+      },
+      {
+        "de": "Der Film endet mit einer spektakulären Verfolgungsjagd.",
+        "en": "The film ends with a spectacular chase."
+      }
+    ]
+  },
+  {
+    "term": "krumm",
+    "en": "crooked, bent",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Der Nagel ist krumm.",
+        "en": "The nail is bent."
+      },
+      {
+        "de": "Er sitzt immer krumm am Schreibtisch.",
+        "en": "He always sits hunched at his desk."
+      }
+    ]
+  },
+  {
+    "term": "kurzerhand",
+    "en": "without further ado, on the spot",
+    "pos": "adverb",
+    "level": "C1",
+    "field": "Adverbs",
+    "ex": [
+      {
+        "de": "Wir haben kurzerhand beschlossen, ans Meer zu fahren.",
+        "en": "We decided on the spot to go to the seaside."
+      },
+      {
+        "de": "Der Wirt hat ihn kurzerhand vor die Tür gesetzt.",
+        "en": "The landlord threw him out without further ado."
+      }
+    ]
+  },
+  {
+    "term": "harmonisch",
+    "en": "harmonious",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Relationships",
+    "ex": [
+      {
+        "de": "Die beiden führen eine harmonische Ehe.",
+        "en": "The two have a harmonious marriage."
+      },
+      {
+        "de": "Das Treffen verlief harmonisch.",
+        "en": "The meeting went harmoniously."
+      }
+    ]
+  },
+  {
+    "term": "empört",
+    "en": "outraged, indignant",
+    "pos": "adjective",
+    "level": "B2",
+    "field": "Emotions",
+    "ex": [
+      {
+        "de": "Die Anwohner sind empört über den Lärm.",
+        "en": "The residents are outraged by the noise."
+      },
+      {
+        "de": "Sie reagierte empört auf die Frage.",
+        "en": "She reacted indignantly to the question."
+      }
+    ]
+  },
+  {
+    "term": "verspätet",
+    "en": "delayed, late",
+    "pos": "adjective",
+    "level": "B1",
+    "field": "Transport & Mobility",
+    "ex": [
+      {
+        "de": "Der Zug kommt verspätet an.",
+        "en": "The train is arriving late."
+      },
+      {
+        "de": "Wegen des verspäteten Flugs haben wir den Anschluss verpasst.",
+        "en": "Because of the delayed flight we missed our connection."
+      }
+    ]
+  },
+  {
+    "term": "inoffiziell",
+    "en": "unofficial",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Politics",
+    "ex": [
+      {
+        "de": "Nach inoffiziellen Angaben gab es drei Tote.",
+        "en": "According to unofficial reports, three people died."
+      },
+      {
+        "de": "Das Treffen war inoffiziell.",
+        "en": "The meeting was unofficial."
+      }
+    ]
+  },
+  {
+    "term": "instabil",
+    "en": "unstable",
+    "pos": "adjective",
+    "level": "C1",
+    "field": "Adjectives",
+    "ex": [
+      {
+        "de": "Die politische Lage ist instabil.",
+        "en": "The political situation is unstable."
+      },
+      {
+        "de": "Das Gerüst wirkt instabil.",
+        "en": "The scaffolding looks unstable."
+      }
+    ]
+  }
+]

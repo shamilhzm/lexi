@@ -42,13 +42,22 @@ checks both.
 4. **Write:** the same command with `--write`.
 5. **Land it:**
    ```bash
-   npm run corpus:split && npm run corpus:validate -- --strict && npm run corpus:freq && npm run corpus:ownership && npm test
+   npm run corpus:split && npm run corpus:freq && npm run corpus:inflections && npm run corpus:validate -- --strict && npm run corpus:ownership && npm test
    ```
    - `split` regenerates `cards.json` and `detail/`, the files the app actually loads.
+   - `freq` recomputes ranks. It runs before `validate`, which refuses a stale
+     `freq.json`.
+   - `inflections` rebuilds the attested forms per card id. A new card has none until it
+     runs, and `conjugate-check.test.ts` compares the conjugator against them.
    - `validate --strict` is what CI runs. Commit only on a PASS.
-   - `freq` recomputes ranks. Stale ranks fail silently.
    - `ownership` catches a new card taking inflected forms from its neighbours'
-     examples. The gate checks only a card's own examples.
+     examples. The gate checks only a card's own examples. Read every "taken from an
+     old card" line. A separable verb whose particle is also a clause-final adverb or
+     the end of a circumposition (*von … aus*, *mach's gut*) takes sentences it has
+     no claim to.
+   - A gate rejection of a form like *aufgehängt* or *gekniffen* can be the gate's
+     own gap: its matcher has no attested table for a draft. Look the form up before
+     rewriting a correct sentence.
    - Several tests are derived from the corpus and go stale without a sound.
 
 ## Moving, renaming, releveling or merging a card
