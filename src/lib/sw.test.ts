@@ -329,7 +329,7 @@ describe('the cache holds one build, and all of it', () => {
     '/assets/index-NEWentry.js': ENTRY,
     '/assets/index-NEWstyle.css': CSS,
     '/assets/fraunces-var-DihXLNYH.woff2': 'font',
-    '/data/cards.json': '[]', '/data/sectors.json': '[]', '/data/freq.json': '{}',
+    '/data/cards.pack.json': '{}', '/data/sectors.json': '[]', '/data/freq.json': '{}',
   };
 
   it('install keeps what the shell needs to paint — script, style, the fonts it names, the lexicon', async () => {
@@ -337,7 +337,7 @@ describe('the cache holds one build, and all of it', () => {
     await sw.install();
     const keys = await sw.cache.keys();
     for (const f of ['/assets/index-NEWentry.js', '/assets/index-NEWstyle.css',
-      '/assets/fraunces-var-DihXLNYH.woff2', '/data/cards.json', '/data/sectors.json', '/data/freq.json']) {
+      '/assets/fraunces-var-DihXLNYH.woff2', '/data/cards.pack.json', '/data/sectors.json', '/data/freq.json']) {
       expect(keys).toContain(`${ORIGIN}${f}`);
     }
     // Lazy chunks are named but never fetched ahead.

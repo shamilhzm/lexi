@@ -11,6 +11,52 @@ it is already built.
 
 ---
 
+### 2026-11-23 · The boot file loses 75 KB: the cards, packed by position
+
+**What shipped.** The app now boots from `data/cards.pack.json`. It holds the same rows
+as `cards.json`, stored as one key list plus positional rows instead of an array of
+objects (`src/data/pack.ts`). The build emits it from `public/data/cards.json`, and the
+dev server packs on each request (`vite.config.ts`, `lexi-cards-pack`), so the repo never
+holds a second copy that could drift. Measured this session against the previous commit:
+the boot file went from 477.3 to 402.0 KB gzipped (ceiling 480), the boot set from 806.6
+to 731.6 KB (ceiling 860), and the entry chunk from 283.9 to 284.1 KB. A card costs about
+34 bytes in the pack (three random samples of 313 rows), so the room holds roughly 2,300
+more cards. No ceiling moved. Closes BACKLOG *Left open by the 2026-11-23
+frequency-gap cards*, item 1.
+
+**The board, convened** (BOARD.md). Seats: Corpus Engineer, Lexicographer, Registrar,
+Site Reliability Lead, Lead Engineer, QA Lead, Classroom Teacher, Bursar. The backlog
+offered two options, and the board took a third:
+- *Raise the ceiling.* Site Reliability declined it. The ceilings are ceilings, not
+  targets, and the learner would still pay the 75 KB of repeated keys before the first
+  word paints.
+- *Move a field into `detail/`.* The Classroom Teacher objected. The feed's first screen
+  shows the IPA and the gloss, the two heaviest fields, so either would pop in late.
+- *Derive ids from `level` + `term`* would save another 40 KB. The Registrar vetoed it.
+  It works on today's data (the 110 `gram:` ids are the only exceptions), but an id is
+  the key every FSRS schedule hangs on, and a derivation that ever disagreed would
+  re-point a schedule without a sound. That is tie-break 1.
+- *Pack by position.* No field moves, no id changes, and the learner sees nothing.
+  Taken.
+
+**Why a new URL instead of a new shape at the old one.** The service worker serves
+`/data/` stale-while-revalidate, so on the launch after a deploy a shell can meet a data
+file from the other build. An old shell reading packed rows at `cards.json` would fail to
+boot. With the pack at its own URL, an old shell never asks for it, `cards.json` keeps
+shipping, and `loadCards` falls back to it when the pack is missing or unreadable (the new
+shell on a cache that holds only the old file). Both paths were driven on a production
+build: with the pack it is the only card file fetched, and with the pack deleted from
+`dist` the app boots from `cards.json`. The feed paints either way, with no warning.
+
+**Guards.** `packCards` refuses a row that is missing a key, instead of shipping it as
+`null`, and it checks its own round trip, so a lossy pack fails the build.
+`src/data/pack.test.ts` holds the shipped `cards.json` to the pack field for field and in
+id order. That matters because `freq.json` is by position. `budget.ts` and `costs.ts`
+measure the pack, and the worker precaches it in place of `cards.json`. 2,511 tests pass,
+and typecheck, lint (0 errors) and budget all pass.
+
+---
+
 ### 2026-11-23 · The board: an org chart that is consulted before every action
 
 **What shipped.** `docs/BOARD.md` and `docs/ROLES.md`, written at the owner's direction,

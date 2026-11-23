@@ -56,7 +56,9 @@ const CORE = [
 ];
 
 /** What a first launch needs before it can paint, besides the shell's own files. */
-const BOOT_DATA = ['./data/cards.json', './data/sectors.json', './data/freq.json'];
+/** `cards.pack.json` since 2026-11-23: the boot rows, packed at build (src/data/pack.ts).
+ *  `cards.json` still ships for older shells, and is fetched only as a fallback. */
+const BOOT_DATA = ['./data/cards.pack.json', './data/sectors.json', './data/freq.json'];
 
 /** A file Vite emitted: `name-HASH.ext`, flat in `assets/`. The hash may itself
  *  contain `-` and `_` (`index-C2-rQNTW.js`, `node.browser-DovLY4l_.js`). */

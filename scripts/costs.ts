@@ -92,12 +92,12 @@ const days = (...paths: string[]) => new Set(
 ).size;
 const cardsDays = days('public/data/cards.json');
 const bundleDays = days('src', 'index.html');
-const cards = boot.find((s) => s.path.endsWith('cards.json'));
+const cards = boot.find((s) => s.path.endsWith('cards.pack.json'));   // the boot rows since 2026-11-23
 // Fonts are content-hashed and never change with the code, so a new build re-sends
 // only the script and the stylesheet.
 const bundle = boot.filter((s) => s.path.includes('assets/') && !s.path.endsWith('.woff2'));
 console.log('\n3 · Churn, last 30 days (days with a commit touching…)');
-row('cards.json', cardsDays, `× ${kb(cards?.gz ?? 0)} gz`);
+row('cards.pack.json', cardsDays, `× ${kb(cards?.gz ?? 0)} gz`);
 row('src/ or index.html (new bundle hashes)', bundleDays, `× ${kb(sum(bundle, 'gz'))} gz`);
 
 // ---- 4. MODEL: a daily learner's month, and the free tier's ceiling -----------------

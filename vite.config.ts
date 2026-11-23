@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { rmSync } from 'node:fs';
+import { rmSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
 import { publicCopy } from './scripts/marketing/publicCopyPlugin.ts';
+import { packCards } from './src/data/pack.ts';
 
 /** Which commit this bundle was built from, and when.
  *
@@ -67,6 +68,30 @@ const dropCanonicalCorpus = {
   },
 };
 
+/** `data/cards.pack.json`: the boot file, packed from `public/data/cards.json` (see
+ *  src/data/pack.ts). It is emitted, not committed, for the same reason as the version
+ *  stamp: a second copy in `public/` would be a file someone has to remember to
+ *  regenerate, and every corpus script writes `cards.json`. The dev server packs on
+ *  each request, so dev boots through the same path as production. `cards.json` itself
+ *  still ships, because a shell older than the pack asks for it. */
+const cardsPack = (() => {
+  const source = join('public', 'data', 'cards.json');
+  const packed = () => JSON.stringify(packCards(JSON.parse(readFileSync(source, 'utf8'))));
+  return {
+    name: 'lexi-cards-pack',
+    configureServer(server: { middlewares: { use: (fn: (req: { url?: string }, res: { setHeader: (k: string, v: string) => void; end: (s: string) => void }, next: () => void) => void) => void } }) {
+      server.middlewares.use((req, res, next) => {
+        if (!req.url?.split('?')[0].endsWith('/data/cards.pack.json')) return next();
+        res.setHeader('Content-Type', 'application/json');
+        res.end(packed());
+      });
+    },
+    generateBundle(this: { emitFile: (f: { type: 'asset'; fileName: string; source: string }) => void }) {
+      this.emitFile({ type: 'asset', fileName: 'data/cards.pack.json', source: packed() });
+    },
+  };
+})();
+
 /** A build for an app store: `VITE_STORE_BUILD=1 npm run build`.
  *
  *  Two things differ, and `docs/STORES.md` says why each one does.
@@ -92,7 +117,7 @@ export default defineConfig({
   base: storeBuild ? './' : process.env.VERCEL ? '/' : '/lexi/',
   // `publicCopy` stamps the word counts and the public origin into index.html's
   // meta tags from the shipped data (see src/lib/publicCopy.ts).
-  plugins: [react(), tailwindcss(), dropCanonicalCorpus, versionStamp, publicCopy()],
+  plugins: [react(), tailwindcss(), dropCanonicalCorpus, versionStamp, cardsPack, publicCopy()],
   define: {
     __BUILD_SHA__: JSON.stringify(buildSha),
     __BUILD_TIME__: JSON.stringify(buildTime),

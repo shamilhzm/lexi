@@ -20,7 +20,10 @@ describe('offline pack — the list is the shipped data, not a memory of it', ()
     const walk = (dir: string): string[] => readdirSync(join(PUBLIC, dir), { withFileTypes: true })
       .flatMap((e) => (e.isDirectory() ? walk(`${dir}/${e.name}`) : [`/${dir}/${e.name}`]));
     const shipped = walk('data').filter((f) => f.endsWith('.json'));
-    const BOOT = ['/data/cards.json', '/data/sectors.json', '/data/freq.json'];   // the worker's own BOOT_DATA
+    // The worker's own BOOT_DATA, as it sits in public/. The pack it precaches is emitted at
+    // build time (vite.config.ts), so it is not in this walk, and `cards.json` is what it is
+    // packed from: shipped for shells older than the pack, and never needed offline.
+    const BOOT = ['/data/cards.json', '/data/sectors.json', '/data/freq.json'];
     const NEVER_SHIPPED = ['/data/vocab.json'];                                   // dropped from dist by vite.config.ts
     const listed = new Set(offlineUrls('/', { dictionary: true, shards }));
     const missing = shipped.filter((f) => !listed.has(f) && !BOOT.includes(f) && !NEVER_SHIPPED.includes(f));

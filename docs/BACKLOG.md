@@ -86,10 +86,12 @@
 >
 > ## Left open by the 2026-11-23 frequency-gap cards
 >
-> 1. **`cards.json` is the ceiling on more cards.** It measures 477.3 of 480 KB after
->    313 cards; the first 204 cost 8.2 KB, about 40 bytes a card, so roughly 65 more
->    fit. Another batch needs a decision first: raise the ceiling (the boot set is
->    806.6 of 860 KB), or move a field out of `cards.json` into `detail/`. · S
+> 1. ~~**`cards.json` is the ceiling on more cards.**~~ ✅ 2026-11-23, with neither
+>    option it offered. The boot now fetches `cards.pack.json`, the same rows packed
+>    positionally at build: 402.0 of 480 KB, with the boot set at 731.6 of 860 (CHANGELOG).
+>    A card costs about 34 bytes in the pack, so the 78 KB of room holds roughly 2,300
+>    more cards. **What trips next is the entry chunk, at 284.1 of 285 KB.** That is code,
+>    not cards, and lazy-loading Hören is the way back (*The course* below).
 > 2. **The gate cannot see attested forms of a draft.** `exampleTeachesWord` builds
 >    its matcher without `inflections.json`, so a form the rules cannot generate is
 >    refused (13 false rejects in one batch: *gekniffen*, *errang*, *aufgehängt*…).

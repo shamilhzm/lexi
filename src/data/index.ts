@@ -8,9 +8,14 @@
 // after first paint via `data/detail.ts`. `vocab.json` remains the canonical file
 // that every `scripts/corpus/*` tool reads and writes; both shipped files are
 // projections of it. See scripts/corpus/split.ts.
+//
+// *Since 2026-11-23* the boot fetch is `cards.pack.json`: the same rows packed
+// positionally at build time, 75 KB lighter gzipped (data/pack.ts). `cards.json` is
+// still the file every script reads, and it is the fallback in `loadCards`.
 import type { Word, SectorMeta, CEFR } from '../types.ts';
 import { setKnownVerbs } from '../lib/conjugate.ts';
 import { primeFreq, decodeFreq } from '../lib/freq.ts';
+import { unpackCards } from './pack.ts';
 
 export let WORDS: Word[] = [];
 export let SECTORS: SectorMeta[] = [];
@@ -121,6 +126,29 @@ export function registerWords(words: Word[]): Word[] {
   return added;
 }
 
+/** The canonical boot file, which every build still ships for shells older than the
+ *  pack. Deliberately not written as the literal `fetch(base + 'data/….json')`:
+ *  `scripts/costs.ts` counts that form as boot traffic, and this fetch happens only
+ *  when the pack cannot be read. */
+const LEGACY_CARDS = 'data/cards.json';
+
+/** Every card's front. The pack first (`cards.pack.json`, see data/pack.ts), then
+ *  `cards.json`. On the launch after the deploy that introduced the pack, the service
+ *  worker can answer a new shell from a cache that holds only the old file. In that
+ *  case the pack request misses offline, or a dev server without the plugin 404s it,
+ *  and the canonical file has the same rows. */
+async function loadCards(base: string): Promise<Word[]> {
+  const pack = await fetch(base + 'data/cards.pack.json')
+    .then((r) => (r.ok ? (r.json() as Promise<unknown>) : null))
+    .catch(() => null);
+  const rows = unpackCards(pack);
+  if (rows) return rows as unknown as Word[];
+  if (pack != null) console.warn('cards.pack.json is unreadable; booting from cards.json');
+  const legacy = unpackCards(await fetch(base + LEGACY_CARDS).then((r) => r.json() as Promise<unknown>));
+  if (!legacy) throw new Error('cards.json is not a list of cards');
+  return legacy as unknown as Word[];
+}
+
 let loaded = false;
 export function isLoaded() { return loaded; }
 
@@ -128,7 +156,7 @@ export async function initData(): Promise<void> {
   if (loaded) return;
   const base = import.meta.env.BASE_URL || '/';
   const [words, sectors, freq] = await Promise.all([
-    fetch(base + 'data/cards.json').then((r) => r.json() as Promise<Word[]>),
+    loadCards(base),
     fetch(base + 'data/sectors.json').then((r) => r.json() as Promise<SectorMeta[]>),
     // Frequency ranks for intra-band ordering, by position in `cards.json` (see
     // lib/freq.ts). Optional by construction: an older deploy without the file, a

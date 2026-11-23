@@ -47,7 +47,7 @@ const BUDGET = {
   entryJs: 285 * KB,      // the script index.html names (280 until 2026-11-20)
   css: 16 * KB,
   lazyChunk: 64 * KB,     // any other script (the Anthropic SDK chunk is ~50)
-  cards: 480 * KB,        // data/cards.json — grows with the corpus
+  cards: 480 * KB,        // data/cards.pack.json (cards.json until 2026-11-23) — grows with the corpus
   boot: 860 * KB,         // entry + css + cards + sectors + freq: everything before first paint (820 until 2026-11-19)
 };
 
@@ -72,8 +72,10 @@ for (const f of styles) { const s = gz(join(DIST, 'assets', f)); boot += s; rows
 for (const f of assets.filter((a) => a.endsWith('.js') && !entry.includes(a))) {
   rows.push({ what: `chunk ${f}`, size: gz(join(DIST, 'assets', f)), limit: BUDGET.lazyChunk });
 }
-const cards = gz(join(DIST, 'data', 'cards.json'));
-rows.push({ what: 'data/cards.json', size: cards, limit: BUDGET.cards });
+// The boot fetches the pack, not `cards.json` (2026-11-23, src/data/pack.ts): same rows,
+// no repeated keys. The ceiling did not move. The room it frees is the corpus's.
+const cards = gz(join(DIST, 'data', 'cards.pack.json'));
+rows.push({ what: 'data/cards.pack.json', size: cards, limit: BUDGET.cards });
 boot += cards + gz(join(DIST, 'data', 'sectors.json')) + gz(join(DIST, 'data', 'freq.json'));
 rows.push({ what: 'boot set (before first paint)', size: boot, limit: BUDGET.boot });
 
