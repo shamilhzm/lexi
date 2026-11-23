@@ -15581,6 +15581,20 @@
       }
     ]
   },
+  "voc:A2:die Gans": {
+    "ex": [
+      {
+        "de": "Auf dem Hof laufen Hühner, Enten und Gänse herum.",
+        "en": "Chickens, ducks and geese run around the farm.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Martinstag essen viele Familien eine Gans.",
+        "en": "On St Martin's Day many families eat a goose.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:die Garage": {
     "def": "garage (building used to store cars, tools, etc.); car park, parking garage (building, often with multiple storeys, for vehicles to park in)",
     "ex": [

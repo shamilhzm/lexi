@@ -11,6 +11,25 @@ it is already built.
 
 ---
 
+### 2026-11-23 · Gans and her family are cards
+
+**What shipped.** Five cards, through `authoring:new`
+(`batches/gans-family-2026-11-23.json`): *die Gans* (A2, Farm), *die Gänsehaut* (B1),
+*das Gänseblümchen* (B1), *das Gänsefüßchen* (B2, Language) and *der Ganter* (C1). The
+gate took gender, plural and IPA for all five from de.wiktionary and rejected none.
+*die Gänsehaut* came through with no plural, which `validate --strict` refuses, so
+`batches/gans-family-plural-2026-11-23.json` records it as *nur Singular*, citing the
+page's «Nominativ Plural=—» and «{{kPl.}}». The corpus goes from 11,330 to 11,335
+cards; `ownership` moved one token to the new cards and took none from an old one.
+
+**Why.** The about page drew these five as dictionary entries in dashed frames, because
+that is what they were. The owner asked for them to be cards. The page now draws them
+as cards: a solid frame with level, gender, plural and gloss read from the card, each
+linked to its word page. The two-layer lesson the dashed frames taught is now a
+sentence. Each note's fact is checked at build (the umlaut plural *Gänse*, *trinken ·
+drink* as a t–d cognate, and every literal reading's senses), and each check was shown
+to fire on a copy with the fact broken.
+
 ### 2026-11-23 · Gans, and the about page
 
 **What shipped.** A mascot and a public page, on the theme the owner gave: *language is

@@ -8835,6 +8835,20 @@
       }
     ]
   },
+  "voc:C1:der Ganter": {
+    "ex": [
+      {
+        "de": "Der Ganter verteidigt das Nest und zischt jeden an, der zu nahe kommt.",
+        "en": "The gander defends the nest and hisses at anyone who comes too close.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Auf der Wiese stehen ein Ganter und drei Gänse.",
+        "en": "A gander and three geese are standing in the meadow.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Garant": {
     "ex": [
       {

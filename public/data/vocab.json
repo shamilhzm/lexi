@@ -334571,5 +334571,140 @@
     ],
     "field": "Emotions",
     "kind": "word"
+  },
+  {
+    "id": "voc:A2:die Gans",
+    "term": "die Gans",
+    "en": "goose",
+    "pos": "noun",
+    "level": "A2",
+    "gender": "die",
+    "plural": "die Gänse",
+    "ipa": "ɡans",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Auf dem Hof laufen Hühner, Enten und Gänse herum.",
+        "en": "Chickens, ducks and geese run around the farm.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Am Martinstag essen viele Familien eine Gans.",
+        "en": "On St Martin's Day many families eat a goose.",
+        "lvl": "A2"
+      }
+    ],
+    "field": "Farm",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:die Gänsehaut",
+    "term": "die Gänsehaut",
+    "en": "goose bumps",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "die",
+    "plural": "nur Singular",
+    "ipa": "ˈɡɛnzəˌhaʊ̯t",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Bei diesem Lied bekomme ich jedes Mal Gänsehaut.",
+        "en": "I get goose bumps every time I hear this song.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Vor Kälte hatte sie eine Gänsehaut auf den Armen.",
+        "en": "She had goose bumps on her arms from the cold.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Body & health",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B1:das Gänseblümchen",
+    "term": "das Gänseblümchen",
+    "en": "daisy",
+    "pos": "noun",
+    "level": "B1",
+    "gender": "das",
+    "plural": "die Gänseblümchen",
+    "ipa": "ˈɡɛnzəˌblyːmçən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Im Frühling ist die Wiese voller Gänseblümchen.",
+        "en": "In spring the meadow is full of daisies.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder machen einen Kranz aus Gänseblümchen.",
+        "en": "The children are making a daisy chain.",
+        "lvl": "B1"
+      }
+    ],
+    "field": "Landscape & nature",
+    "kind": "word"
+  },
+  {
+    "id": "voc:B2:das Gänsefüßchen",
+    "term": "das Gänsefüßchen",
+    "en": "quotation mark",
+    "pos": "noun",
+    "level": "B2",
+    "gender": "das",
+    "plural": "die Gänsefüßchen",
+    "ipa": "ˈɡɛnzəfyːsçən",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Setz das Zitat bitte in Gänsefüßchen.",
+        "en": "Please put the quotation in quotation marks.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Deutschen steht das erste Gänsefüßchen unten auf der Zeile.",
+        "en": "In German the opening quotation mark sits low on the line.",
+        "lvl": "B2"
+      }
+    ],
+    "field": "Language",
+    "kind": "word"
+  },
+  {
+    "id": "voc:C1:der Ganter",
+    "term": "der Ganter",
+    "en": "gander",
+    "pos": "noun",
+    "level": "C1",
+    "gender": "der",
+    "plural": "die Ganter",
+    "ipa": "ˈɡantɐ",
+    "def": null,
+    "syn": [],
+    "ant": [],
+    "ex": [
+      {
+        "de": "Der Ganter verteidigt das Nest und zischt jeden an, der zu nahe kommt.",
+        "en": "The gander defends the nest and hisses at anyone who comes too close.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Auf der Wiese stehen ein Ganter und drei Gänse.",
+        "en": "A gander and three geese are standing in the meadow.",
+        "lvl": "C1"
+      }
+    ],
+    "field": "Animals",
+    "kind": "word"
   }
 ]

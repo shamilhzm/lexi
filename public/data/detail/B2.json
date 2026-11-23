@@ -3558,6 +3558,20 @@
       }
     ]
   },
+  "voc:B2:das Gänsefüßchen": {
+    "ex": [
+      {
+        "de": "Setz das Zitat bitte in Gänsefüßchen.",
+        "en": "Please put the quotation in quotation marks.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Im Deutschen steht das erste Gänsefüßchen unten auf der Zeile.",
+        "en": "In German the opening quotation mark sits low on the line.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Halbjahr": {
     "ex": [
       {

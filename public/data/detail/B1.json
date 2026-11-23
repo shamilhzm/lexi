@@ -5941,6 +5941,20 @@
       }
     ]
   },
+  "voc:B1:das Gänseblümchen": {
+    "ex": [
+      {
+        "de": "Im Frühling ist die Wiese voller Gänseblümchen.",
+        "en": "In spring the meadow is full of daisies.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Kinder machen einen Kranz aus Gänseblümchen.",
+        "en": "The children are making a daisy chain.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Halbfinale": {
     "ex": [
       {
@@ -25306,6 +25320,20 @@
       {
         "de": "Die Gymnastik hilft gegen Rückenschmerzen.",
         "en": "The exercises help with back pain.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Gänsehaut": {
+    "ex": [
+      {
+        "de": "Bei diesem Lied bekomme ich jedes Mal Gänsehaut.",
+        "en": "I get goose bumps every time I hear this song.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Vor Kälte hatte sie eine Gänsehaut auf den Armen.",
+        "en": "She had goose bumps on her arms from the cold.",
         "lvl": "B1"
       }
     ]

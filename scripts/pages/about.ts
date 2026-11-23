@@ -11,10 +11,10 @@
 // **Every German word on it is a card, and the build proves it.** The page is
 // written from the shipped data — `cards.json`, `detail/`, `transfer.json`, the
 // dictionary shards and `FALSE_FRIENDS` — and `loadFacts` throws when a word, an
-// example sentence, a compound's parts or a cognate it names is not there. A word
-// that is only a dictionary entry (Gans herself) is drawn in the entry's dashed
-// chrome and says so, the same line the app holds (VISION, *Two layers*). The
-// counts are read, not typed. The only hand-written things are the explanation and
+// example sentence, a compound's parts or a cognate it names is not there. Gans
+// and her family are cards too (since 2026-11-23), drawn in a card's solid frame and
+// linked to their word pages; the page explains, in words, that a dictionary entry
+// wears a dashed one (VISION, *Two layers*). The counts are read, not typed. The only hand-written things are the explanation and
 // the English literal readings (*hand-shoe*), and each literal must use a sense the
 // part's own card gives.
 //
@@ -63,14 +63,22 @@ const FRIENDS = ['gift', 'bekommen', 'rat', 'rock', 'handy', 'chef', 'kind', 'ba
  *  cognate in `transfer.json`, with this English word. */
 const NASAL: [string, string][] = [['der Zahn', 'tooth'], ['der Mund', 'mouth'], ['fünf', 'five'], ['anderer', 'other']];
 
-/** Dictionary entries, not cards: drawn in the entry's chrome. */
-const GOOSE_ENTRIES = ['Gans', 'Gänsefüßchen', 'Gänsehaut', 'Gänseblümchen', 'Ganter'];
+/** Her family, every one a card. A literal reading must contain a sense from each
+ *  part's own card, as the compounds' do; the note is the hand-written explanation,
+ *  and `verify` proves the fact each note leans on. */
+interface Kin { term: string; parts?: [string, string][]; literal?: string; note: string }
+const KIN: Kin[] = [
+  { term: 'die Gans', note: 'Herself. One Gans, two Gänse: the plural takes an umlaut.' },
+  { term: 'das Gänsefüßchen', parts: [['die Gans', 'goose'], ['der Fuß', 'foot']], literal: 'little goose foot', note: 'Her footprint, and half of the pair around every line of German dialogue.' },
+  { term: 'die Gänsehaut', parts: [['die Gans', 'goose'], ['die Haut', 'skin']], literal: 'goose skin', note: 'Both languages reached for the goose to name the same shiver.' },
+  { term: 'das Gänseblümchen', parts: [['die Gans', 'goose'], ['die Blume', 'flower']], literal: 'little goose flower', note: 'English has its own name for it. German kept the goose.' },
+  { term: 'der Ganter', note: 'The same word again, with German t for English d, as in trinken · drink.' },
+];
 
 // ── The data ──────────────────────────────────────────────────────────────────────
 
 interface Card { id: string; term: string; en: string; pos: string; level: string; gender?: string; plural?: string; kind?: string }
 interface Example { de: string; en: string }
-interface Entry { w: string; p: string; g: string[]; x?: string }
 interface Rule { de: string; en: string; n: number; ex: [string, string][]; mark: [string, string] }
 interface Transfer { rules: Record<string, Rule>; words: Record<string, (string | 0)[]> }
 
@@ -79,7 +87,6 @@ export interface Facts {
   dictionary: number;
   card: (term: string) => Card;
   examples: Record<string, Example[]>;
-  entries: Map<string, Entry>;
   transfer: Transfer;
 }
 
@@ -104,18 +111,10 @@ export function loadFacts(dataDir = join(ROOT, 'public', 'data')): Facts {
       if (d.ex) examples[id] = d.ex;
     }
   }
-  // The dictionary is 225 shards; read until every entry the page names is found.
-  const entries = new Map<string, Entry>();
-  const want = new Set(GOOSE_ENTRIES);
-  for (const f of readdirSync(join(dataDir, 'lex')).filter((f) => /^\d+\.json$/.test(f))) {
-    for (const e of (read(join('lex', f)) as { e: Entry[] }).e) if (want.has(e.w) && !entries.has(e.w)) entries.set(e.w, e);
-    if (entries.size === want.size) break;
-  }
-  for (const w of want) if (!entries.has(w)) throw new Error(`about: "${w}" is not in the dictionary`);
   const facts: Facts = {
     words: countTaught(cards),
     dictionary: Number(read('lex/index.json').n),
-    card, examples, entries,
+    card, examples,
     transfer: read('transfer.json') as Transfer,
   };
   verify(facts);
@@ -147,6 +146,17 @@ export function verify(f: Facts) {
     if (!FALSE_FRIENDS[k]) throw new Error(`about: no false friend "${k}"`);
     friendCard(f, k);
   }
+  for (const k of KIN) {
+    const c = f.card(k.term);
+    for (const [term, sense] of k.parts ?? []) {
+      const p = f.card(term);
+      if (!senses(p.en).includes(sense)) throw new Error(`about: "${sense}" is not a sense of ${p.term} (${p.en})`);
+      if (!k.literal?.includes(sense)) throw new Error(`about: the literal reading of ${c.term} does not use "${sense}"`);
+    }
+  }
+  if (f.card('die Gans').plural !== 'die Gänse') throw new Error('about: the note on die Gans names its plural, die Gänse');
+  const drink = f.transfer.words['trinken'];
+  if (!drink || drink[0] !== 'c' || drink[1] !== 'drink' || drink[2] !== 't-d') throw new Error('about: the note on der Ganter leans on trinken · drink as a t-d cognate');
   for (const [de, en] of NASAL) {
     const row = f.transfer.words[f.card(de).term];
     if (!row || row[0] !== 'c' || row[1] !== en) throw new Error(`about: transfer.json does not relate ${de} to ${en}`);
@@ -193,13 +203,18 @@ function trail(): string {
   return `<div class="trail" aria-hidden="true">${steps}</div>`;
 }
 
-function entryCard(e: Entry, note: string, literal?: string): string {
-  const art = e.x ? `<span class="art g-${esc(e.x)}">${esc(e.x)}</span> ` : '';
-  const gloss = e.g[0].replace(/\s*\(.*$/, '');
-  return `<li class="entry"><p class="entry-tag">Dictionary entry · unchecked</p>` +
-    `<p class="entry-w" lang="de">${art}${esc(e.w)}</p><p class="entry-g">${esc(gloss)}</p>` +
-    (literal ? `<p class="entry-lit">literally <i>${esc(literal)}</i></p>` : '') +
-    `<p class="entry-note">${note}</p></li>`;
+/** One of Gans's family, as a card: the solid frame, its level, gender, plural and
+ *  gloss from the card, and its word page behind it. */
+function kinCard(f: Facts, k: Kin): string {
+  const c = f.card(k.term);
+  const pl = c.plural && !/^nur /.test(c.plural) ? c.plural : '';
+  return `<li><a class="kin" href="${wort(c.term)}">` +
+    `<span class="kin-tag">Card · ${esc(c.level)}</span>` +
+    `<span class="kin-w" lang="de">${term(c)}</span>` +
+    (pl ? `<span class="kin-pl" lang="de">${esc(pl)}</span>` : '') +
+    `<span class="kin-g">${esc(firstSense(c.en))}</span>` +
+    (k.literal ? `<span class="kin-lit">literally <i>${esc(k.literal)}</i></span>` : '') +
+    `<span class="kin-note">${esc(k.note)}</span></a></li>`;
 }
 
 export function renderAbout(f: Facts, opts: { fonts?: { fraunces?: string; mono400?: string; mono700?: string }; origin?: string } = {}): string {
@@ -216,7 +231,6 @@ export function renderAbout(f: Facts, opts: { fonts?: { fraunces?: string; mono4
   // What Gans says when pressed: hallo, then one pair from every counted pattern.
   const lines: [string, string][] = [[f.card('hallo').term, firstSense(f.card('hallo').en)], ...rules.map(([, r]) => r.ex[0])];
 
-  const g = (k: string) => f.entries.get(k)!;
   const buch = f.card('das Buch');
   const fonts = opts.fonts ?? {};
   const face = (family: string, file: string | undefined, weight: string, fmt = 'woff2') =>
@@ -258,13 +272,10 @@ export function renderAbout(f: Facts, opts: { fonts?: { fraunces?: string; mono4
       }).join('')}</ul>
     </article>
   </div>
-  <ul class="entries">
-    ${entryCard(g('Gänsehaut'), 'Both languages reached for the goose to name the same shiver.', 'goose skin')}
-    ${entryCard(g('Gänseblümchen'), 'English has its own name for it. German kept the goose.', 'little goose flower')}
-    ${entryCard(g('Ganter'), 'The same word again, with German t for English d, as in trinken · drink.')}
-    ${entryCard(g('Gans'), 'Herself. She is an entry, not a card, and she would want you to know.')}
+  <ul class="kin-list">
+    ${KIN.map((k) => kinCard(f, k)).join('\n    ')}
   </ul>
-  <p class="aside">Note the dashed borders. These are <b>dictionary entries</b>: Wiktionary’s glosses, which Lexi shows but has not checked. A <b>card</b> is different. Its gender, plural and pronunciation were checked by machine before it shipped, and every example sentence on it contains the word. In Lexi the two never wear the same frame.</p>
+  <p class="aside">Her whole family is in Lexi as <b>cards</b>: gender, plural and pronunciation checked by machine before they shipped, and every example sentence proven to contain its word. Each one opens its page. Search for a word Lexi does not teach and you get a <b>dictionary entry</b> instead, in a dashed frame: Wiktionary’s gloss, unchecked, with one action, <i>note this word</i>. In Lexi the two never wear the same frame.</p>
 </section>`;
 
   const shift = `

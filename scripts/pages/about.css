@@ -167,13 +167,23 @@ h2 { margin: 0; }
 .pairs a { font: 600 1.25rem/1.2 var(--serif); color: var(--txt); text-decoration: none; }
 .pairs a:hover { text-decoration: underline; }
 
-.entries { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
-.entry { border: 2px dashed var(--line); border-radius: 16px; padding: 16px 18px; min-width: 0; }
-.entry-tag { font: 500 11px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
-.entry-w { font: 600 1.5rem/1.15 var(--serif); margin: 0 0 4px; overflow-wrap: anywhere; }
-.entry-g { margin: 0 0 4px; }
-.entry-lit { color: var(--dim); margin: 0 0 8px; }
-.entry-note { color: var(--dim); font-size: .92rem; margin: 0; }
+.kin-list { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); }
+.kin-list li { min-width: 0; display: grid; }
+.kin {
+  display: grid; align-content: start; gap: 3px; padding: 16px 18px 18px; color: var(--txt); text-decoration: none;
+  background: var(--card); border: 2px solid var(--txt); border-radius: 20px; box-shadow: 0 4px 0 var(--lip);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.kin:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--lip); }
+.kin:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--lip); }
+.kin-tag { font: 500 11px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+.kin-w { font: 620 1.5rem/1.12 var(--serif); hyphens: manual; overflow-wrap: anywhere; }
+.kin-w .art { display: block; font-size: .62em; }
+.kin-pl { color: var(--dim); font-size: .92rem; }
+.kin-g { font-weight: 600; margin-top: 4px; }
+.kin-lit { color: var(--dim); }
+.kin-note { color: var(--dim); font-size: .92rem; margin-top: 6px; }
+@media (prefers-reduced-motion: reduce) { .kin, .kin:hover, .kin:active { transition: none; transform: none; } }
 
 /* 02 — the shift machine */
 .machine {

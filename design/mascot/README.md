@@ -9,10 +9,12 @@ it did in *tooth · Zahn*, *mouth · Mund* and *five · fünf*. So the mascot is
 cognate pair, which is the theme of the page she lives on: *language is always in
 dialogue with itself*.
 
-She is a dictionary entry, not a card. *Gans* is one of the 93,000+ headwords Lexi
-answers, not one of the words it teaches, and the about page draws her and her family
-(*Gänsefüßchen*, *Gänsehaut*, *Gänseblümchen*, *Ganter*) in entry chrome. The two layers
-never wear the same clothes (VISION, *Two layers*), and that holds for the mascot too.
+She is a card. *die Gans* (A2) and her family, *das Gänsefüßchen*, *die Gänsehaut*,
+*das Gänseblümchen* and *der Ganter*, went through the authoring gate on 2026-11-23
+(`scripts/authoring/batches/gans-family-2026-11-23.json`), so a learner who meets her
+can study her. The about page draws them in a card's solid frame, each linked to its
+word page, and says in words that a dictionary entry wears a dashed one: the two layers
+never wear the same clothes (VISION, *Two layers*), the mascot included.
 
 ## How she is built
 
