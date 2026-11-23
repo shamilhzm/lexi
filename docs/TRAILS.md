@@ -90,6 +90,11 @@ the seed list, and it is how the gaps are found. Today they are *Meldebescheinig
 
 ## The mascot
 
+> **Superseded 2026-11-23.** Lexi's mascot is **Gans**, a goose, not a Dackel
+> ([design/mascot/README.md](../design/mascot/README.md)). Her footprints are German
+> quotation marks, and she keeps every refusal below. The Dackel is kept here as the
+> proposal it was.
+
 **A Dackel, drawn on the pictogram grid** ([PICTOGRAMS.md](PICTOGRAMS.md)).
 
 - **The precedent.** Waldi, the 1972 Munich Olympic dachshund, was the first official

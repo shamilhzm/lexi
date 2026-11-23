@@ -9,6 +9,9 @@ no ads, nothing to cancel, and your progress stays on your device.
 **[Open Lexi →](https://lexi-eosin.vercel.app)** It runs in the browser. Add it to your
 home screen and it works offline.
 
+Why English and German are one conversation, and who the goose is: **[About Lexi · meet
+Gans](https://lexi-eosin.vercel.app/about)**.
+
 [![Every word Lexi teaches as a night sky, the commonest at the centre, beside the line: Scroll German. Save a word. Lexi makes it stick.](public/og.jpg)](https://lexi-eosin.vercel.app)
 
 ## Who it is for
@@ -187,7 +190,7 @@ public/data/    the shipped corpus: cards.json, detail.json, sectors.json, freq.
 scripts/corpus/     build-time ingestion, audits and one-shot corpus fixes (npm run corpus:*)
 scripts/authoring/  the verified card-authoring loop: batch in, machine-gated, audit trail
 docs/           VISION (the anchor) · BACKLOG (open) · CHANGELOG (shipped, with reasoning)
-design/         logo sources
+design/         logo sources · mascot/ (Gans, the goose, and her rules)
 ```
 
 Nothing under `scripts/` ships to the browser: it runs on a maintainer's machine and

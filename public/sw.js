@@ -270,9 +270,10 @@ self.addEventListener('fetch', (e) => {
  *  names the app is the scope root or `index.html`. Anything else ending in
  *  `.html` is a separate page, and so is every word page: `/wort/<slug>` is served
  *  without its extension (vercel.json rewrites it), so the extension test alone
- *  would answer a search result with the feed (docs/PAGES.md). */
+ *  would answer a search result with the feed (docs/PAGES.md). `/about` is the
+ *  same case: the about page, rewritten from `about.html`. */
 function isShellPath(pathname) {
-  if (/\/wort\//.test(pathname)) return false;
+  if (/\/wort\//.test(pathname) || /\/about\/?$/.test(pathname)) return false;
   return !/\.html$/.test(pathname) || /\/index\.html$/.test(pathname);
 }
 

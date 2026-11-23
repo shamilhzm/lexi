@@ -2,7 +2,7 @@
 // from placement, streak from visits) with an editable display name. Settings and
 // data backup live inside it (reached from the sidebar’s profile button).
 import { useState } from 'react';
-import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight, Scale } from 'lucide-react';
+import { Flame, Pencil, Check, Heart, Compass, Target, SlidersHorizontal, ChevronRight, Scale, Feather } from 'lucide-react';
 import { FOCUS } from '../lib/focus.ts';
 import { profileName, setProfileName, placementLevel, streak, totals, goal, setGoal, localDayKey } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -120,6 +120,12 @@ export default function Profile({ onSettings }: { onSettings: () => void }) {
         <Heart size={13} /> What Lexi costs, and how to help
       </a>
       )}
+      {/* The about page and Gans, its goose — a static page written after the build
+          (scripts/pages/about.ts). It reads nothing the learner owns. */}
+      <a href="./about.html" target="_blank" rel="noopener"
+        className="tap-44 flex items-center justify-center gap-1.5 text-xs text-dim hover:text-accent">
+        <Feather size={13} /> About Lexi · meet Gans
+      </a>
       {/* Privacy notice, credits (CC BY-SA and CC BY ask for them where the data is
           used) and the Impressum — one static page, public/legal.html. */}
       <a href="./legal.html" target="_blank" rel="noopener"

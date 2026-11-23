@@ -11,6 +11,45 @@ it is already built.
 
 ---
 
+### 2026-11-23 · Gans, and the about page
+
+**What shipped.** A mascot and a public page, on the theme the owner gave: *language is
+always in dialogue with itself*.
+
+- **Gans, a goose** (`design/mascot/README.md`, drawn by `scripts/pages/gans.ts`). German
+  quotation marks are *Gänsefüßchen*, "little goose feet", so her footprints are „ “. And
+  *goose · Gans* is a cognate pair: English lost the *n* before *s*, as in *tooth · Zahn*.
+  She is built from the card box's materials only (white card, charcoal ink, teal wing,
+  coral beak and feet), in four poses. She replaces TRAILS' Dackel and keeps its
+  refusals. Where she appears inside the app is still VISION 3c.
+- **`/about`** (`scripts/pages/about.ts`, written into `dist/` after the build, like the
+  word pages). Seven sections, each an English heading answered in German: the sound
+  shifts (a machine cycling through `transfer.json`'s rules and pairs), compounds that
+  split into their parts, separable verbs drawn as an arc from the verb to its particle,
+  false friends that turn over, how Lexi works, and what Gans never does. Press her and
+  she honks, a sound synthesised in the browser, then speaks German and then English.
+- **Every German word on the page is checked at build.** Compound parts must spell the
+  card and use a sense from each part's own gloss. Split sentences must be shipped
+  examples. False friends must be in `FALSE_FRIENDS` and be cards. Nasal pairs must be
+  cognates in `transfer.json`. The goose family must be dictionary entries. The build
+  throws on the first mismatch, and the counts are stamped with `roundedDown`.
+  `about.test.ts` adds no inline script, every `wort/` link a page that exists, and
+  every marked sound-shift span real.
+- **Wiring.** The build script runs `about.ts`, `vercel.json` rewrites `/about`, the
+  service worker treats `/about` as a page rather than the shell (`sw.test.ts`), and
+  `.vercelignore` uploads the four new script files. `public/og-gans.jpg`
+  (`npm run og:gans`) is its link preview. Profile links to it beside the legal notice.
+
+**What it reads.** Nothing a learner owns: no storage, no network, no store. Without
+script the page still says everything, with every compound split and every false friend
+turned over.
+
+**Checks.** Typecheck, 2,495 tests in 118 files, build (about.html 67.4 KB), `budget.ts`
+(entry 283.8 of 285 KB, boot set 793.3 of 860 KB) and the devseed grep pass. On the iPhone
+17 Pro simulator: the hero, the honk and bubble, the shift machine as pills, compound
+splits, verb arcs and false-friend flips, checked again on the full build. Desktop light
+and dark were checked in the browser pane. Not deployed.
+
 ### 2026-11-22 · a word link survives a reload; the tour waits for the entry
 
 **What shipped.** Two defects seen on production 76d68ce, both older than it.

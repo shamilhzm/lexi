@@ -7,7 +7,8 @@
     "api/tutor.ts": { "maxDuration": 60 }
   },
   "rewrites": [
-    { "source": "/wort/:slug", "destination": "/wort/:slug.html" }
+    { "source": "/wort/:slug", "destination": "/wort/:slug.html" },
+    { "source": "/about", "destination": "/about.html" }
   ],
   "headers": [
     {

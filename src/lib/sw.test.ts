@@ -416,7 +416,7 @@ describe('a page that is not the app', () => {
   // `/wort/band` has no extension, so the `.html` test alone would call it the app,
   // and an installed learner tapping a search result would be shown the feed.
   it('serves a word page as itself, with or without its extension', async () => {
-    for (const path of ['/wort/band', '/wort/band.html', '/lexi/wort/m%C3%A4dchen']) {
+    for (const path of ['/wort/band', '/wort/band.html', '/lexi/wort/m%C3%A4dchen', '/about', '/about.html', '/lexi/about.html']) {
       const sw = load(async () => basic(body('"page"', 'word page')));
       sw.cache.store.set('./index.html', basic(body('"same"', 'shell')));
       expect(await (await sw.request(path, { mode: 'navigate' }))!.text()).toBe('word page');

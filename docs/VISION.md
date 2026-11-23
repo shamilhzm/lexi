@@ -752,7 +752,15 @@ motorsport news; games only by keyword). **Undecided.**
 ### 3c. Trails — Trailhead's shape for vocabulary *(proposal, 2026-10-02; partly superseded 2026-11-19)*
 
 *The units-of-scenes half now exists as the course (Settled decisions, "The course
-returns, as films"). Stamps, ranks and the mascot remain undecided and unbuilt.*
+returns, as films"). Stamps and ranks remain undecided and unbuilt.*
+
+*The mascot exists (2026-11-23).* The owner asked for one, and she is **Gans**, a goose
+whose footprints are German quotation marks (*Gänsefüßchen*) and whose name is a cognate
+pair with *goose* ([design/mascot/README.md](../design/mascot/README.md)). She replaces
+TRAILS' Dackel. She lives on the public about page (`/about`) and its link preview.
+**Inside the app she is still undecided.** Until it is decided, the panel's answer holds:
+at milestones, and nowhere else. She keeps the Dackel's refusals: she never guilt-trips,
+never mourns a streak, never grades, and never says more than a check proved.
 
 
 The owner named Salesforce Trailhead as the benchmark for a tangible outcome: units

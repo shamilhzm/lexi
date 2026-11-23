@@ -2416,3 +2416,14 @@ covered it. **Rule:** the address keeps whatever the screen shows until the scre
 showing it; tidy it on close, not on arrival. Anything the app does to itself on boot (a
 reload, a tour, a restore) is tested by arriving through a deep link, not only through
 the front door.
+
+## A reused preview port serves the build its service worker remembers *(added 2026-11-23)*
+
+**Believed:** `npm run preview` on port 4318 showed the build just made. **True:** the
+simulator's Safari had visited that origin weeks earlier, and the service worker that
+build installed answered the navigation from its own cache. The phone showed an app
+claiming "6,700 words", and for several minutes the about page looked unreachable,
+until a port the device had never visited (4327) served the real build. **Rule:** on the
+phone, a freshly built preview goes on a port that device has never opened, or its
+build stamp (`version.json`) is read before anything on screen is believed. A port is an
+origin, and an origin keeps its worker.

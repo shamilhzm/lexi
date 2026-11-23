@@ -7,10 +7,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/pages/build.ts",
+    "build": "vite build && node scripts/pages/build.ts && node scripts/pages/about.ts",
     "preview": "vite preview --host --port 4318",
     "typecheck": "tsc --noEmit",
     "og:image": "node scripts/marketing/og-image.ts",
+    "og:gans": "node scripts/marketing/og-gans.ts",
     "pages:measure": "node scripts/pages/measure.ts",
     "test": "vitest run",
     "test:watch": "vitest",

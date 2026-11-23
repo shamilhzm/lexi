@@ -36,6 +36,11 @@ scripts/pages/*
 !scripts/pages/build.ts
 !scripts/pages/published.txt
 !scripts/pages/redirects.json
+# The about page and Gans, its goose, are written after vite too (2026-11-23).
+!scripts/pages/about.ts
+!scripts/pages/about.css
+!scripts/pages/about.client.js
+!scripts/pages/gans.ts
 
 # Local-only material, gitignored too: DaF textbook scans and design screenshots
 # (~444 MB), the source for the A1/A2 corpus work.
