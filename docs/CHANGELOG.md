@@ -48,6 +48,9 @@ than the app it guards*). The corpus skill's landing order now runs `freq` and
 **Budget.** `cards.json` 477.3 of 480 KB, boot set 806.6 of 860, entry 283.9 of 285.
 About 65 more cards fit before the ceiling, so the next batch is a decision first.
 
+Deployed as 9736e8b (built 2026-11-23T11:05Z), carrying the two Gans commits below with
+it. On production, *kneifen*'s word page and `/about` were checked on the iPhone.
+
 ### 2026-11-23 · Gans and her family are cards
 
 **What shipped.** Five cards, through `authoring:new`
