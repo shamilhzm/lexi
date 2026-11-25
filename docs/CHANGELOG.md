@@ -55,6 +55,11 @@ id order. That matters because `freq.json` is by position. `budget.ts` and `cost
 measure the pack, and the worker precaches it in place of `cards.json`. 2,511 tests pass,
 and typecheck, lint (0 errors) and budget all pass.
 
+**Deployed** 2026-11-25 by `git push` as 3868fb2 over e4563a3 (`version.json` builtAt
+2026-11-25T19:52:47Z). Production serves `cards.pack.json` (11,648 rows) beside
+`cards.json`, the worker precaches the pack, and a fresh load of the live app fetches the
+pack as its only card file and paints the feed with no warning.
+
 ---
 
 ### 2026-11-23 · The board: an org chart that is consulted before every action
