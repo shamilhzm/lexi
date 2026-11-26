@@ -19,15 +19,14 @@
 //   from the corpus while the beat plays (`measure.ts`).
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { LayoutGroup, motion, useReducedMotion } from 'motion/react';
-import { ArrowRight, Check, ChevronLeft, GraduationCap, RotateCcw, Volume2, X } from 'lucide-react';
+import { ArrowRight, Check, ChevronLeft, GraduationCap, RotateCcw, X } from 'lucide-react';
 import Layer, { topLayer } from '../Layer.tsx';
 import Button from '../ui/Button.tsx';
 import Kicker from '../ui/Kicker.tsx';
-import { GenderTerm, InkedArticle, SpeakButton, fitStyle } from '../Reveal.tsx';
+import { GenderTerm, InkedArticle, fitStyle } from '../Reveal.tsx';
 import { cardByTerm, filmTerms } from '../../data/course.ts';
 import { loadDetailFor } from '../../data/detail.ts';
 import { countEnding, suffixMatch, suffixPairs } from '../../films/measure.ts';
-import { speak } from '../../lib/tts.ts';
 import { genderColor, haptic } from '../../lib/ui.ts';
 import { shownTerm } from '../../lib/focus.ts';
 import { falseFriend } from '../../lib/falseFriends.ts';
@@ -215,11 +214,10 @@ function WordRow({ term, delay = 0 }: { term: string; delay?: number }) {
   if (!w) return null;
   return (
     <motion.li {...enter}>
-      <button onClick={() => speak(w.term)} className="w-full text-left flex items-baseline gap-3 py-2.5 border-b border-line last:border-0">
+      <div className="w-full text-left flex items-baseline gap-3 py-2.5 border-b border-line last:border-0">
         <GenderTerm term={w.term} gender={w.gender} className="headword text-xl font-bold" />
         <span className="text-dim text-sm truncate flex-1">{w.en}</span>
-        <Volume2 size={14} className="text-accent flex-shrink-0 self-center" aria-hidden />
-      </button>
+      </div>
     </motion.li>
   );
 }
@@ -355,7 +353,7 @@ function CompoundBeat({ parts, whole, glue }: { parts: string[]; whole: string; 
       {w && (
         <motion.div initial={reduce ? undefined : { y: 14 }} animate={{ y: 0 }}
           transition={{ type: 'spring', stiffness: 220, damping: 22, delay: 0.45 }}>
-          <GenderTerm term={w.term} gender={w.gender} fit className="headword hw-answer font-bold" />
+          <GenderTerm term={w.term} gender={w.gender} swash fit className="headword hw-answer font-bold" />
           <p className="text-dim text-sm mt-1">{w.en}</p>
           {lastPart && lastPart.gender && lastPart.gender === w.gender && (
             <p className="text-sm mt-3"><Check size={14} className="inline -mt-0.5 mr-1 text-green" />
@@ -462,11 +460,11 @@ function Item({ text }: { text: string }) {
   const w = cardByTerm(text);
   const phrase = !w && /\s/.test(text.trim());
   return (
-    <button onClick={() => speak(w?.term ?? text)} className="block text-left max-w-full">
+    <div className="block text-left max-w-full">
       <span lang="de" className={phrase ? 'block text-base font-semibold leading-snug' : 'block headword text-lg font-bold leading-tight break-words'}>
         {w ? <InkedArticle term={w.term} gender={w.gender} /> : text}
       </span>
-    </button>
+    </div>
   );
 }
 
@@ -513,7 +511,7 @@ function ScaleRow({ step, delay }: { step: { label: string; de: string; term?: s
     <motion.li {...enter} className="pl-4 relative">
       <span aria-hidden className="absolute -left-[7px] top-2 w-3 h-3 rounded-full bg-accent" />
       <Kicker className="block">{step.label}</Kicker>
-      <button onClick={() => speak(step.de)} lang="de" className="headword text-xl font-bold text-left">{step.de}</button>
+      <p lang="de" className="headword text-xl font-bold text-left">{step.de}</p>
     </motion.li>
   );
 }
@@ -543,22 +541,20 @@ function PluralRow({ term, delay }: { term: string; delay: number }) {
   return (
     <li className="grid grid-cols-[1fr_auto_1fr] items-baseline gap-x-3 py-2.5 border-b border-line last:border-0">
       <motion.span {...a} className="min-w-0">
-        <button onClick={() => speak(w.term)} className="text-left">
-          <GenderTerm term={w.term} gender={w.gender} className="headword text-lg font-bold" />
-        </button>
+        <GenderTerm term={w.term} gender={w.gender} className="headword text-lg font-bold" />
       </motion.span>
       <span className="text-dim" aria-hidden>→</span>
       <motion.span {...b} className="min-w-0 flex items-baseline gap-2 flex-wrap">
         {/* The plural's article in plain ink: die here is not the feminine die,
             and colouring it pink would teach that it is. */}
-        <button onClick={() => speak(w.plural!)} lang="de" className="headword text-lg font-bold text-left">
+        <span lang="de" className="headword text-lg font-bold text-left">
           <span className="text-dim font-semibold">die </span>
           {shape
             ? <>{[...pl.slice(0, pl.length - shape.ending.length)].map((c, i) => shape.umlaut.includes(i)
                 ? <span key={i} className="text-accent">{c}</span> : <span key={i}>{c}</span>)}
                 <span className="text-accent">{shape.ending}</span></>
             : pl}
-        </button>
+        </span>
         {tag && <span className="font-mono text-2xs text-dim">{tag}</span>}
       </motion.span>
     </li>
@@ -576,9 +572,9 @@ function TrapBeat({ term }: { term: string }) {
       {/* w-full: a button shrink-wraps even as a block, and the fitted headword
           is a size container with no intrinsic width — without it the measure was
           0 and "das Menü" printed one letter per line (simulator, 2026-11-19). */}
-      <motion.button {...a} onClick={() => speak(w.term)} className="block w-full text-left">
-        <GenderTerm term={w.term} gender={w.gender} fit className="headword hw-answer font-bold" />
-      </motion.button>
+      <motion.div {...a} className="block w-full text-left">
+        <GenderTerm term={w.term} gender={w.gender} swash fit className="headword hw-answer font-bold" />
+      </motion.div>
       <motion.p {...b} className="text-base">
         <span className="text-dim">Looks like </span>
         <span className="line-through decoration-2 decoration-[var(--color-red)]">{f.looksLike}</span>
@@ -605,7 +601,6 @@ function ExampleBeat({ term, match, mark }: { term: string; match: string; mark:
         {parts.map((p, k) => p.on
           ? <mark key={k} className="bg-key text-key-ink rounded px-1 font-semibold">{p.t}</mark>
           : <span key={k}>{p.t}</span>)}
-        {' '}<SpeakButton text={ex.de} label="Hear the sentence:" />
       </p>
       {ex.en && <p className="text-dim text-sm italic mt-2">{ex.en}</p>}
       <p className="text-2xs text-dim mt-3">From the card for <span lang="de" className="text-txt">{shownTerm(w.term)}</span>.</p>
@@ -712,11 +707,11 @@ function SuffixRow({ term, en, mark, delay }: { term: string; en?: string; mark:
   const art = /^(der|die|das)\s+/i.exec(w.term)?.[1];
   return (
     <li className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 py-2 border-b border-line last:border-0">
-      <motion.button {...a} onClick={() => speak(w.term)} lang="de"
+      <motion.span {...a} lang="de"
         className="headword text-lg font-bold text-left whitespace-nowrap">
         {art && <span style={w.gender ? { color: genderColor(w.gender) } : undefined}>{art} </span>}
         <Marked text={bare(w.term)} source={mark[0]} flags="gi" />
-      </motion.button>
+      </motion.span>
       <motion.span {...b} className="headword text-lg font-bold whitespace-nowrap">
         <span className="text-dim font-normal" aria-hidden>→ </span>
         {en ? <Marked text={en} source={mark[1] || undefined} /> : <span className="text-dim" aria-hidden>…</span>}
@@ -731,11 +726,11 @@ function ShiftRow({ term, en, mark, delay }: { term: string; en?: string; mark?:
   const art = /^(der|die|das)\s+/i.exec(w.term)?.[1];
   return (
     <li className="grid grid-cols-[1fr_1.25rem_1fr] gap-x-3 items-baseline py-2.5 border-b border-line last:border-0">
-      <motion.button {...a} onClick={() => speak(w.term)} lang="de"
+      <motion.span {...a} lang="de"
         className="headword text-xl font-bold text-left min-w-0 break-words">
         {art && <span style={w.gender ? { color: genderColor(w.gender) } : undefined}>{art} </span>}
         <Marked text={bare(w.term)} source={mark?.[0]} flags="gi" />
-      </motion.button>
+      </motion.span>
       <span className="text-dim text-center" aria-hidden>→</span>
       <motion.span {...b} className="headword text-xl font-bold min-w-0 break-words">
         {en ? <Marked text={en} source={mark?.[1]} /> : <span className="text-dim" aria-hidden>…</span>}
@@ -749,9 +744,6 @@ function SayBeat({ de, en }: { de: string; en?: string }) {
     <div className="text-center py-4">
       <p lang="de" className="headword text-2xl font-bold leading-snug text-balance">{de}</p>
       {en && <p className="text-dim text-sm mt-2">{en}</p>}
-      <button onClick={() => speak(de)} className="tap-44 mt-3 inline-flex items-center gap-1.5 text-sm text-accent">
-        <Volume2 size={15} /> Hear it
-      </button>
     </div>
   );
 }

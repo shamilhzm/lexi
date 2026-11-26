@@ -11,7 +11,7 @@ const pub = join(import.meta.dirname, '..', '..', 'public');
 interface Img { src: string; sizes: string; type: string; purpose?: string; form_factor?: string; label?: string }
 const m = JSON.parse(readFileSync(join(pub, 'manifest.webmanifest'), 'utf8')) as {
   id: string; start_url: string; scope: string; icons: Img[]; screenshots: Img[];
-  shortcuts: { name: string; url: string; icons: Img[] }[];
+  shortcuts: { name: string; short_name?: string; url: string; icons: Img[] }[];
 };
 const file = (src: string) => join(pub, src.replace(/^\.\//, ''));
 
@@ -70,12 +70,8 @@ describe('manifest.webmanifest', () => {
     }
   });
 
-  it('offers Hören as a home-screen shortcut, on the URL App.tsx opens it from', () => {
-    const listen = m.shortcuts.find((s) => s.name === 'Listen');
-    expect(listen?.url).toBe('./?listen');
-    const app = readFileSync(join(pub, '..', 'src', 'App.tsx'), 'utf8');
-    expect(app).toMatch(/URLSearchParams\(location\.search\)\.has\('listen'\)/);
-    // The retired "Start a walk" shortcut lives on in home screens that pinned it.
-    expect(app).toMatch(/URLSearchParams\(location\.search\)\.has\('walk'\)/);
+  it('offers the exam room as a shortcut, and nothing that plays sound (Lexi is silent, 2026-11-26)', () => {
+    expect(m.shortcuts.find((s) => s.short_name === 'Prüfung')?.url).toBe('./#/exam');
+    for (const s of m.shortcuts) expect(s.url).not.toMatch(/[?&](listen|walk)\b/);
   });
 });

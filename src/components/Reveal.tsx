@@ -14,16 +14,14 @@
 // affordance would invite flipping *before* answering, which destroys the
 // retrieval attempt the drill exists to create.
 import { useEffect, useState, type CSSProperties } from 'react';
-import { Info, TriangleAlert, Volume2, VolumeX } from 'lucide-react';
+import { Info, TriangleAlert } from 'lucide-react';
 import { widestRun } from '../lib/fit.ts';
-import { speak, useGermanVoice } from '../lib/tts.ts';
-import { genderColor } from '../lib/ui.ts';
+import { genderColor, markColor } from '../lib/ui.ts';
 import { shownTerm } from '../lib/focus.ts';
 import { falseFriend } from '../lib/falseFriends.ts';
 import { loadTransfer, transferFor, type TransferData } from '../lib/transfer.ts';
 import { bare } from '../lib/slug.ts';
 import { loadProvenance, freqBand, exampleCitation, levelBasis, type Provenance } from '../lib/provenance.ts';
-import { loadAudioManifest, creditFor, type AudioEntry } from '../lib/audio.ts';
 import Kicker from './ui/Kicker.tsx';
 import type { Example } from '../types.ts';
 
@@ -58,55 +56,6 @@ export function useChoiceKeys({ count, answered, onPick, onNext }: {
   }, [count, answered, onPick, onNext]);
 }
 
-/** Speak one German string. Small by design: these sit inline beside text rather
- *  than acting as a primary control, so they take the 24px WCAG 2.5.8 floor
- *  rather than the 44px one `IconButton` enforces for standalone targets. */
-export function SpeakButton({ text, label }: {
-  text: string;
-  /** The English half of the name, e.g. "Hear the example". The German `text` is
-   *  appended as content in its own `lang` *(2026-09-25 panel)*: as one
-   *  `aria-label` string the German was spoken with English phonology. */
-  label?: string;
-}) {
-  // **Not offered when it cannot work.** Without a German voice the platform reads
-  // German spelling with English phonology — *Zeit* as "zyte", every `ei` wrong —
-  // and says nothing about having done so. `speakDe` refuses that; this is the
-  // other half, so the learner is told *before* pressing rather than met with
-  // silence after. `aria-disabled` rather than `disabled`: the button keeps its
-  // place in the tab order so a screen-reader user can read the reason.
-  const voice = useGermanVoice();
-  if (!voice) {
-    return (
-      <span role="button" aria-disabled="true"
-        aria-label="No German voice is installed on this device. Use the IPA above."
-        title="No German voice installed on this device"
-        className="tap-hit inline-grid place-items-center w-[24px] h-[24px] rounded-sm text-dim/50
-          flex-shrink-0 align-middle cursor-not-allowed">
-        <VolumeX size={14} />
-      </span>
-    );
-  }
-  return (
-    <button
-      onClick={(e) => { e.stopPropagation(); speak(text); }}
-      // `tap-hit` rather than a bigger box: the speaker sits inline beside a
-      // sentence at 24px by design, and growing it for real would push the
-      // reveal's typography around. The target reaches 44px, the ink does not
-      // move. These never sit adjacent to another control, so the enlarged area
-      // cannot overlap a neighbour's.
-      // `inline-grid`, not `grid`: this sits *inside* the sentence paragraph in
-      // a sentence in running text, and a block-level grid box breaks to its own line — so every
-      // near-miss sentence card carried an orphaned speaker icon on a line of its
-      // own, and the `align-middle` two lines down had nothing to act on. The
-      // comment above already said "inline"; only the class disagreed.
-      className="tap-hit inline-grid place-items-center w-[24px] h-[24px] rounded-sm text-dim hover:text-accent
-        active:scale-95 transition-colors flex-shrink-0 align-middle">
-      <Volume2 size={14} aria-hidden />
-      <span className="sr-only">{label ?? 'Hear'} <span lang="de">{text}</span></span>
-    </button>
-  );
-}
-
 /** A German noun with its article inked by gender.
  *
  *  Colour-coding der/die/das is the most useful single mark on a German card, and
@@ -116,8 +65,21 @@ export function SpeakButton({ text, label }: {
  *
  *  Never the only signal: the article is always spelled out beside its colour, so
  *  the information survives for anyone who can't distinguish them. */
-export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id, fit = false, boxClassName = '' }: {
+export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id, fit = false, boxClassName = '', swash = false, marked = false, markIn = false, stack = false }: {
   term: string; gender?: string | null; className?: string;
+  /** The article as a highlighter stroke in its gender's pen rather than as ink
+   *  *(2026-11-26)* — for a display headword, where the article is a mark you can
+   *  see from across the room. Text-size terms keep the ink. */
+  swash?: boolean;
+  /** The word itself highlighted in yellow: the learner saved it. */
+  marked?: boolean;
+  /** Draw that stroke now (the save that just happened), rather than show it. */
+  markIn?: boolean;
+  /** The article on its own line above the noun, at half size — the feed's poster
+   *  setting. Inline, `text-wrap: balance` hyphenated *Über-raschung* to even the
+   *  two lines against *die*; stacked, the noun is alone on its line and only
+   *  breaks when it has to. */
+  stack?: boolean;
   /** A display headword: set smaller until its longest word fits the measure, and
    *  hyphenated past that, instead of broken at whichever letter ran out of room
    *  (`.hw-fit`, lib/fit.ts). Renders a full-width block around the word — the
@@ -138,8 +100,10 @@ export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id,
   const bare = shownTerm(term.replace(/^(der|die|das)\s+/i, ''));
   const word = (
     <Tag lang="de" id={id} className={fit ? `hw-fit ${className}` : className} style={fit ? fitStyle(bare) : undefined}>
-      {gender && <span style={{ color: genderColor(gender) }}>{gender} </span>}
-      {bare}
+      {gender && (swash
+        ? <><span className={`swash${stack ? ' hw-article' : ''}`} style={{ '--swash': markColor(gender) } as CSSProperties}>{gender}</span>{' '}</>
+        : <span style={{ color: genderColor(gender) }}>{gender} </span>)}
+      {marked ? <span className={`swash${markIn ? ' swash-in' : ''}`}>{bare}</span> : bare}
     </Tag>
   );
   return fit ? <div className={`hw-box ${boxClassName}`}>{word}</div> : word;
@@ -182,27 +146,16 @@ export function RevealBlock({ label, children, className = '' }: {
 }
 
 /** Worked examples, as a dictionary sets them: the German on the line, its
- *  translation indented beneath. Each German string is speakable — the moment you
- *  learn what a word means is the moment you most want to hear it used, and the
- *  front's pronunciation button disappeared on flip. */
+ *  translation indented beneath. Silent since 2026-11-26 (VISION, *Lexi is
+ *  silent*): the speaker that travelled with the last word went with the voices. */
 export function ExampleList({ items, max = 2 }: { items: Example[]; max?: number }) {
   if (!items.length) return null;
   return (
     <ul className="space-y-2">
       {items.slice(0, max).map((e, k) => {
-        // **The speaker travels with the last word.** As a sibling after the
-        // sentence it was free to wrap alone, and a sentence that exactly filled
-        // the line left a speaker icon on a line of its own under it — one in
-        // three entries on a 390pt phone. Held to the final word, the pair wraps
-        // together or not at all.
-        const cut = e.de.lastIndexOf(' ');
         return (
           <li key={k} className="text-sm leading-relaxed">
-            {cut > 0 && <span lang="de" className="text-txt">{e.de.slice(0, cut + 1)}</span>}
-            <span className="whitespace-nowrap">
-              <span lang="de" className="text-txt">{e.de.slice(cut + 1)}</span>{' '}
-              <SpeakButton text={e.de} label="Hear the example:" />
-            </span>
+            <span lang="de" className="text-txt">{e.de}</span>
             {e.en && <span className="block text-dim italic pl-3.5 mt-0.5">{e.en}</span>}
           </li>
         );
@@ -293,29 +246,13 @@ export function TransferNote({ term }: { term: string }) {
 export function CardSource({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
   const [prov, setProv] = useState<Provenance | null | undefined>(undefined);
-  // The human recording's credit. CC BY asks for the creator's *name*, and until
-  // 2026-09-25 `creditFor` existed with no caller: the voice was thanked only as
-  // "a Tatoeba contributor" in a tooltip (panel review). The app plays from the
-  // same manifest, so this can only name the recording that actually plays.
-  const [rec, setRec] = useState<AudioEntry | null>(null);
 
   useEffect(() => {
     if (!open) return;
     let live = true;
     loadProvenance().then((m) => { if (live) setProv(m.get(id) ?? null); });
-    loadAudioManifest().then(() => { if (live) setRec(creditFor(id)); });
     return () => { live = false; };
   }, [open, id]);
-
-  const recording = rec && (
-    <p className="text-xs text-dim">
-      Example read by{' '}
-      {rec.attribution
-        ? <a href={rec.attribution} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">{rec.by || 'a Tatoeba contributor'}</a>
-        : (rec.by || 'a Tatoeba contributor')}
-      {' '}for Tatoeba, {rec.license}.
-    </p>
-  );
 
   if (!open) {
     return (
@@ -330,7 +267,6 @@ export function CardSource({ id }: { id: string }) {
     return (
       <RevealBlock label="Source">
         <p className="text-xs text-dim">No source recorded for this card.</p>
-        {recording}
       </RevealBlock>
     );
   }
@@ -356,7 +292,6 @@ export function CardSource({ id }: { id: string }) {
               : cite.label}.
           </p>
         )}
-        {recording}
       </div>
     </RevealBlock>
   );

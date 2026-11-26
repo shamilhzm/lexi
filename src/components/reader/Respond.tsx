@@ -11,14 +11,13 @@
 // Feedback needs an AI key and never marks anything: no score, no FSRS grade, no
 // effect on any number in the app. What is kept is the writing itself, in the
 // learner's journal, because having written is the point.
-import { useEffect, useRef, useState } from 'react';
-import { Mic, MicOff, Sparkles, Loader2, Check } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { Sparkles, Loader2, Check } from 'lucide-react';
 import UmlautBar from '../UmlautBar.tsx';
 import { aiReady, aiConsented, correctWriting, AiError } from '../../lib/ai.ts';
 import AiConsent from '../AiConsent.tsx';
 import { addJournal, updateJournal, type Correction } from '../../lib/news/library.ts';
 import { correctionDiff } from '../../lib/news/diff.ts';
-import { createListener, support, type Listener } from '../../lib/asr.ts';
 import { studyLevel } from '../../store.ts';
 
 const KIND_LABEL: Record<string, string> = {
@@ -41,37 +40,13 @@ export default function Respond({ articleId, title, targets, onSettings }: {
   const [checked, setChecked] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [entryId, setEntryId] = useState<string | null>(null);
-  const [listening, setListening] = useState(false);
-  const [asked, setAsked] = useState(false);
   /** The first correction for a provider waits for a yes (lib/ai.ts, *consent*). */
   const [askingAi, setAskingAi] = useState(false);
   const box = useRef<HTMLTextAreaElement>(null);
-  const listener = useRef<Listener | null>(null);
-  const mic = support();
-
-  useEffect(() => () => listener.current?.stop(), []);
-
   const words = targets.slice(0, 3);
   // A stem test, not a word test: *Konzept* is used in *Konzepte*. Plain string
   // search — the word is learner-facing data, never a pattern (LESSONS, Class 12).
   const used = (w: string) => text.toLowerCase().includes(w.toLowerCase().slice(0, Math.max(4, w.length - 2)));
-
-  const dictate = () => {
-    if (listening) { listener.current?.stop(); setListening(false); return; }
-    // Every browser recogniser sends audio to its maker; say so before the first
-    // recording, once, and never record without the tap that follows.
-    if (!asked) { setAsked(true); return; }
-    listener.current ??= createListener({
-      onHeard: (h) => {
-        if (!h.final || !h.text.trim()) return;
-        setText((t) => (t.trim() ? `${t.trim()} ${h.text.trim()}` : h.text.trim()));
-      },
-      onEnd: () => setListening(false),
-      onError: () => setListening(false),
-    });
-    listener.current.listen();
-    setListening(true);
-  };
 
   const submit = async () => {
     const body = text.trim();
@@ -129,13 +104,6 @@ export default function Respond({ articleId, title, targets, onSettings }: {
       />
       <div className="mt-2"><UmlautBar targetRef={box} value={text} onChange={setText} /></div>
 
-      {asked && !listening && mic.available && (
-        <p className="mt-2 text-xs text-dim">
-          Your browser recognises speech in its maker’s cloud, so the recording goes there and never to Lexi. Tap
-          {' '}<b className="text-txt">Say it</b> again to record.
-        </p>
-      )}
-
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button onClick={submit} disabled={!text.trim() || state === 'checking'}
           className={`${pill} key bg-key text-key-ink`}>
@@ -143,11 +111,6 @@ export default function Respond({ articleId, title, targets, onSettings }: {
             ? <><Loader2 size={14} className="animate-spin" /> Reading your German…</>
             : aiReady() ? <><Sparkles size={14} /> Check my German</> : <>Save to my journal</>}
         </button>
-        {mic.available && (
-          <button onClick={dictate} aria-pressed={listening} className={`${pill} glass`}>
-            {listening ? <><MicOff size={14} /> Stop</> : <><Mic size={14} className="text-accent" /> Say it</>}
-          </button>
-        )}
         {state === 'saved' && !result && !error && (
           <span className="text-xs text-dim">
             Saved to your journal.{!aiReady() && (

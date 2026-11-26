@@ -25,6 +25,16 @@ describe('exportData', () => {
     expect(b.settings['lexi.texts.v1']).toBeDefined();
   });
 
+  it('carries the exam room — sittings and short-test bests (2026-11-26)', async () => {
+    localStorage.setItem('lexi.exam.v1', JSON.stringify({ current: null, past: [{ paperId: 'goethe-a1-01' }] }));
+    localStorage.setItem('lexi.quiz.v1', JSON.stringify({ 'mixed:A1': { correct: 9, total: 12 } }));
+    const store = await import('./store.ts');
+    await store.hydrate();
+    const b = JSON.parse(store.exportData());
+    expect(JSON.parse(b.settings['lexi.exam.v1']).past[0].paperId).toBe('goethe-a1-01');
+    expect(b.settings['lexi.quiz.v1']).toBeDefined();
+  });
+
   it('carries the reader’s state', async () => {
     // 'lexi.ai.v1' (provider and model) left the list with bring-your-own-key, 2026-10-04.
     for (const k of ['lexi.news.topics.v1', 'lexi.reading.v1', 'lexi.savedfrom.v1', 'lexi.journal.v1']) {

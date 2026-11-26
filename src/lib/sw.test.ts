@@ -311,7 +311,7 @@ describe('the cache holds one build, and all of it', () => {
   const SHELL = (js: string, css: string) =>
     `<!doctype html><script type="module" crossorigin src="/assets/${js}"></script>` +
     `<link rel="stylesheet" crossorigin href="/assets/${css}">`;
-  const CSS = 'body{font-family:x}@font-face{src:url(/assets/fraunces-var-DihXLNYH.woff2)}';
+  const CSS = 'body{font-family:x}@font-face{src:url(/assets/bricolage-grotesque-var-DihXLNYH.woff2)}';
   const ENTRY = 'import("./Settings-zumihNS4.js");const d=["assets/ArticleLayer-D5ZsCXgN.js"];';
 
   /** A server holding one build: its shell, entry, stylesheet, font and data. */
@@ -328,7 +328,7 @@ describe('the cache holds one build, and all of it', () => {
     shell: SHELL('index-NEWentry.js', 'index-NEWstyle.css'),
     '/assets/index-NEWentry.js': ENTRY,
     '/assets/index-NEWstyle.css': CSS,
-    '/assets/fraunces-var-DihXLNYH.woff2': 'font',
+    '/assets/bricolage-grotesque-var-DihXLNYH.woff2': 'font',
     '/data/cards.pack.json': '{}', '/data/sectors.json': '[]', '/data/freq.json': '{}',
   };
 
@@ -337,7 +337,7 @@ describe('the cache holds one build, and all of it', () => {
     await sw.install();
     const keys = await sw.cache.keys();
     for (const f of ['/assets/index-NEWentry.js', '/assets/index-NEWstyle.css',
-      '/assets/fraunces-var-DihXLNYH.woff2', '/data/cards.pack.json', '/data/sectors.json', '/data/freq.json']) {
+      '/assets/bricolage-grotesque-var-DihXLNYH.woff2', '/data/cards.pack.json', '/data/sectors.json', '/data/freq.json']) {
       expect(keys).toContain(`${ORIGIN}${f}`);
     }
     // Lazy chunks are named but never fetched ahead.
@@ -358,7 +358,7 @@ describe('the cache holds one build, and all of it', () => {
     sw.cache.store.set('./index.html', basic(new Response(SHELL('index-OLDentry.js', 'index-OLDstyle.css'),
       { headers: { ETag: '"b1"', 'Content-Type': 'text/html' } })));
     for (const f of ['index-OLDentry.js', 'index-OLDstyle.css', 'Settings-OLDchunk.js',
-      'Settings-zumihNS4.js', 'fraunces-var-DihXLNYH.woff2']) {
+      'Settings-zumihNS4.js', 'bricolage-grotesque-var-DihXLNYH.woff2']) {
       sw.cache.store.set(`${ORIGIN}/assets/${f}`, basic(body('"x"')));
     }
     await sw.request('/', { mode: 'navigate' });
@@ -366,7 +366,7 @@ describe('the cache holds one build, and all of it', () => {
     const assets = (await sw.cache.keys()).filter((k) => k.includes('/assets/'));
     expect(assets.sort()).toEqual([
       `${ORIGIN}/assets/Settings-zumihNS4.js`,        // named by the new entry: kept
-      `${ORIGIN}/assets/fraunces-var-DihXLNYH.woff2`, // named by the new stylesheet: kept
+      `${ORIGIN}/assets/bricolage-grotesque-var-DihXLNYH.woff2`, // named by the new stylesheet: kept
       `${ORIGIN}/assets/index-NEWentry.js`,           // the new boot set: fetched
       `${ORIGIN}/assets/index-NEWstyle.css`,
     ].sort());

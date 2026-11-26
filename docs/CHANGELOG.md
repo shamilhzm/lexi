@@ -11,6 +11,89 @@ it is already built.
 
 ---
 
+### 2026-11-26 · Das Heft, the exam room returns, and Lexi goes silent
+
+**Where it is.** On branch `redesign/lexi-2`, not deployed. Production is still
+`1e40fd3`. The app as it was is the tag `classic-2026-11-26`.
+
+**The board, convened** (BOARD.md). Seats: Creative Director, Product Designer,
+Assessment Lead, Head of German, Legal & Licensing, Speech & Listening Teacher,
+Safeguarding & DPO, Registrar, QA Lead, Lead Engineer. The owner's message approved the
+two VISION changes (the exam room, and silence). It did not approve a deploy, so none
+was made.
+
+**The look: das Heft.** The card box (cream, charcoal, a teal tab) was a look, not a
+place. The Heft is an exercise book, the one object every language learner already
+owns, and every colour in it has one job:
+- paper for the ground and Königsblau ink for the accent;
+- one yellow highlighter for the one primary thing on a screen;
+- the article highlighters behind *der · die · das*;
+- red pen for a correction;
+- squared paper (`.karo`) in the exam room, ruled paper with a red margin (`.lined`)
+  for writing, and a stamp for a result.
+
+The display face moved from Fraunces to Bricolage Grotesque (700 for a headword, 800
+for display), and data stays in IBM Plex Mono. `lib/fit.ts` was re-measured for the new
+face with `scripts/probe/headword-fit.js`. Its estimate is within +3.0% / −5.8% across
+24–60px, so `MARGIN` is 1.031. The contrast of every token pair is in DESIGN §1, and
+the lowest is 5.56:1 (*die* on paper). The icon, manifest, boot screen, runtime
+theme-color, word pages, about page and legal page moved with it. The goose did not
+(BACKLOG).
+
+**The exam room returns as Prüfung, the fifth door** (`views/Exam.tsx`, `lib/exam.ts`,
+`lib/quiz.ts`). Every level has four short tests generated from its cards: *Gemischt*
+(12 items), *Wortschatz* (10), *Der, die, das* (12) and *Im Kontext* (10). A wrong
+answer explains itself, and the missed items can be practised in Üben or saved. Every
+level also has one practice paper in the telc or Goethe format, written for Lexi, plus a
+Sprechen sheet. The room never writes FSRS, never ranks work by an exam date, and never
+answers *am I ready*. It is not affiliated with telc or the Goethe-Institut, and no
+Modellsatz text is copied in. The two new storage keys (`lexi.exam.v1`,
+`lexi.quiz.v1`) are in `SETTING_KEYS`, so a backup carries them.
+
+**Lexi is silent.** TTS, the HD voice, Hören, walk mode, *Sag es*, speech recognition,
+the clip pipeline, `audio.json` and the about page's goose honk are gone. The CSP now
+says `media-src 'none'`. Every voice Lexi could ship was a closed model or the device's
+own synthesis, so it waits for an open-source German voice (VISION, refusal *A closed
+voice*). The papers are sat without Hören and scored on what was sat (`SILENT`,
+`sittable`, `sittableBlocks`), and a result says so. No learner row was deleted.
+
+Each paper as sat, against the original (a probe over `src/data/exams/`, run this
+session):
+
+| Paper | Items | Points | Minutes | Writing clock |
+| --- | --- | --- | --- | --- |
+| Goethe A1 | 15 of 30 | 75 of 100 | 60 of 80 | Lesen und Schreiben, 45 |
+| Goethe A2 | 20 of 40 | 75 of 100 | 75 of 105 | Schreiben, 30 |
+| telc B1 | 40 of 60 | 225 of 300 | 120 of 150 | Schriftlicher Ausdruck, 30 |
+| Goethe B2 | 20 of 40 | 75 of 100 | 155 of 195 | Schreiben, 50 |
+| Goethe C1 | 30 of 50 | 75 of 100 | 165 of 205 | Schreiben, 65 |
+| Goethe C2 | 20 of 40 | 75 of 100 | 175 of 210 | Schreiben, 60 |
+
+**Fixed on the way** (each has a LESSONS entry): a level colour built at runtime that
+Tailwind never emitted (the B1 cover and the feed's level label printed black); a cloze
+that blanked substrings; gender options that moved on every item; a best score compared
+across different maxima; telc B1's copy and 30-minute writing clock on Goethe papers.
+
+**Found on the phone** (iPhone 17 Pro simulator, persona `b1`, light and dark). The first
+generated question asked what *Nigeria* means and offered "Nigeria" among three verbs
+and phrases. The quiz now skips words spelled the same in both languages, draws wrong
+answers from the same part of speech, and never offers a synonym or a same-gloss card
+as a wrong answer. Its build loop also stopped early only when all four kinds were
+asked, so a vocabulary test built an item from every card in the band. Over 600
+generated quizzes (six levels, four kinds, 25 seeds) a quiz now takes 2.3 ms on
+average; the same sweep had not finished in 300 s. Picking the longest, shortest or
+wordiest option scores 21.7%, 18.7% and 6.9% against 25% chance. The sweep is now a
+test, and it fails with the old code. Also fixed there: the paper's running head cut
+its title to "telc Deutsch B1 · Ü…", a part's subtitle was set in mono capitals, and
+all nine topic emblems on Themen wore the yellow highlighter (now paper discs with
+Königsblau line on a coral pad).
+
+**Measured this session.** Entry 263.3 KB of 285, CSS 15.0 of 16, the Exam chunk 24.7 KB
+and the largest paper (telc B1) 37.3 KB of 64, the boot set 711.5 of 860 KB. `npm test`:
+2,549 passed in 114 files. Typecheck clean, lint 0 errors, devseed absent from the bundle.
+
+**Left open.** BACKLOG, *Das Heft, Prüfung and silence*.
+
 ### 2026-11-23 · The boot file loses 75 KB: the cards, packed by position
 
 **What shipped.** The app now boots from `data/cards.pack.json`. It holds the same rows

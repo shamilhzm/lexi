@@ -24,7 +24,8 @@ starting from zero, use it beside a course, not instead of one.
 ## What makes it different
 
 - **Nothing to pass.** Lexi opens on a German word, not a quiz: one word per screen,
-  with its sound, its meaning and an example, and nothing is graded until you ask.
+  with its article highlighted, its meaning and an example, and nothing is graded until
+  you ask.
   Every few words there is a German news story on topics you choose (tagesschau, SRF,
   DW, heise), fetched by your own browser. Tap any word in it to save it.
 - **You choose what you learn.** Save a word and **Üben** (practice) brings it back
@@ -34,9 +35,15 @@ starting from zero, use it beside a course, not instead of one.
 - **Checked, not generated.** Gender, plural, part of speech and pronunciation come
   from Wiktionary, never from a model, and a new card is refused outright if any of them
   disagrees with de.wiktionary or its example sentence does not contain the word.
-- **Lexi in your ears.** *Walk* turns a session into audio for a walk or a run, 5 to 60
-  minutes: hear the English, say the German aloud, then hear it. You grade with your
-  headphone buttons; silence grades nothing, and your voice is never scored.
+- **A testing room, A1 to C2.** **Prüfung** has short tests generated from the cards
+  (meaning both ways, der/die/das, a word in its own sentence) and a full practice paper
+  at every level in the telc and Goethe formats — timed or not, the letter and the oral
+  self-assessed on the examiners' grids. Nothing there touches your schedule. Lexi is
+  not affiliated with either board, and every text is written for Lexi.
+- **Silent, on purpose.** Lexi plays no audio and never opens the microphone. Every
+  voice it had came from a model nobody can inspect or ship; it speaks again with an
+  open-source German voice, or not at all. So the practice papers are sat without
+  Hören, and the result says so.
 - **Your German, as a sky.** Every word Lexi teaches is a star, the commonest at the
   centre, and the ones you know are lit as brightly as you would recall them today.
   Share it, and the picture carries the link.
@@ -90,11 +97,13 @@ guarded by `src/lib/publicCopy.test.ts`, which fails when the corpus outgrows th
 
 ## Surfaces
 
-Four destinations, and the first one is where the app opens.
+Five doors, and the first one is where the app opens. The look is **das Heft** — the
+German school exercise book: paper, Königsblau ink, a yellow highlighter, the three
+article highlighters, red pen and a stamp.
 
 - **Wörter** — *the feed.* One German word per screen, scrolled: the headword with its
-  article inked by gender, the IPA as a pill you press to hear it, the meaning, and one
-  example sentence. Three actions — ⓘ opens everything the corpus knows, **🔖 saves the
+  article drawn in its gender's highlighter, the IPA, the meaning, and one example
+  sentence. Three actions — ⓘ opens everything the corpus knows, **🔖 saves the
   word to your next session**, and 🎓 practises it now. The feed does not grade you:
   scrolling is not evidence, so nothing here touches your schedule. The order is the scheduler's,
   though — what's due, then unseen words from your thinnest topics, then the rest by
@@ -107,10 +116,15 @@ Four destinations, and the first one is where the app opens.
   session out of them.
 - **Üben** — *test me.* Flip cards interleaved with the three word-fact drills, on one
   FSRS queue that opens with the words you bookmarked. Interval previews on the grade
-  buttons, German text-to-speech on every string, a hint ladder and near-miss tolerance
+  buttons, a hint ladder and near-miss tolerance
   on typed answers, and a line under each item saying *why it is here* ("you flipped
   *anbieten* a few cards ago — now produce it"). Silence when there is nothing
   non-obvious to say.
+- **Prüfung** — *what does my level look like on paper?* Four short tests a level,
+  generated from the cards, and one full practice paper a level (Goethe A1, A2, B2, C1,
+  C2; telc B1) in *Übungsmodus* or *Prüfungsmodus*, on squared paper, the letter on
+  ruled paper, the result stamped. Hören is not set while Lexi is silent, and every
+  maximum and pass line is scaled to what was sat.
 - **Fortschritt** — *how is it going?* **Dein Deutsch**, the sky of every word Lexi
   teaches with the ones you know lit, a replay of how it filled, and each word's own
   memory curve; words you know, the two-minute placement test, the
@@ -120,7 +134,7 @@ Four destinations, and the first one is where the app opens.
   each row a tap into a run of that drill.
 - **Profile**, off the avatar — name, level, streak, goal, topics, flagged cards, and
   **Settings**: theme, text size, review intensity (FSRS desired retention), daily pace,
-  which drills are in a session, the HD German voice, and backup / restore.
+  which drills are in a session, and backup / restore.
 
 ### The loop
 
@@ -129,12 +143,6 @@ Four destinations, and the first one is where the app opens.
 Bookmarking is the one thing a feed can honestly record, and it is an instruction to the
 scheduler rather than a wishlist: `buildBriefing` serves saved words ahead of the ones it
 would have picked itself.
-
-**Walk** — *On a walk* on the saved-words sheet, or `?walk` — is the day's queue as audio for
-a walk or a run: the English, a cue tone, a pause to say the German aloud, then the
-German. Only a deliberate headphone press grades — next track *knew it*, previous track
-*didn't* — and a word met for the first time is taught before it is tested. See
-`src/lib/walk.ts`.
 
 ### The three drills
 
@@ -186,7 +194,7 @@ npm run corpus:validate && npm run corpus:selftest
 ```
 src/            the app — views/, components/ (+ ui/ primitives), lib/, data/
 public/data/    the shipped corpus: cards.json, detail.json, sectors.json, freq.json,
-                provenance.json, audio.json (vocab.json is canonical, not deployed)
+                provenance.json (vocab.json is canonical, not deployed)
 scripts/corpus/     build-time ingestion, audits and one-shot corpus fixes (npm run corpus:*)
 scripts/authoring/  the verified card-authoring loop: batch in, machine-gated, audit trail
 docs/           VISION (the anchor) · BACKLOG (open) · CHANGELOG (shipped, with reasoning)

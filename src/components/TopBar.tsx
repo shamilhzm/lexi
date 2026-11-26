@@ -32,7 +32,7 @@
 //
 // The rule holds either way: places on the left, the action on the right, the
 // person at the end.
-import { Layers, TrendingUp, LayoutGrid, GraduationCap, Flame, Bookmark, Check, Search, Headphones, AudioLines } from 'lucide-react';
+import { Layers, TrendingUp, LayoutGrid, GraduationCap, Flame, Bookmark, Check, Search, Stamp } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { savedToday, DAILY_SAVE_GOAL } from '../store.ts';
 import { initialOf } from '../lib/ui.ts';
@@ -41,10 +41,11 @@ import type { View } from '../App.tsx';
 export function LexiMark({ size = 28, className = '' }: { size?: number; className?: string }) {
   return (
     <svg viewBox="0 0 150 150" width={size} height={size} role="img" aria-label="Lexi" className={`flex-shrink-0 ${className}`}>
-      <rect width="150" height="150" rx="34" fill="#2b2b2b" />
-      <rect x="52" y="40" width="20" height="72" rx="3" fill="#93c1c1" />
-      <rect x="52" y="92" width="60" height="20" rx="3" fill="#93c1c1" />
-      <rect x="88" y="40" width="20" height="22" rx="3" fill="#f39483" />
+      {/* The Heft *(2026-11-26)*: an L in highlighter on ink, and Gans's coral. */}
+      <rect width="150" height="150" rx="36" fill="#16181f" />
+      <rect x="46" y="34" width="24" height="80" rx="4" fill="#ffe45e" />
+      <rect x="46" y="90" width="64" height="24" rx="4" fill="#ffe45e" />
+      <rect x="86" y="34" width="24" height="24" rx="12" fill="#ff9466" />
     </svg>
   );
 }
@@ -81,11 +82,18 @@ export function LexiMark({ size = 28, className = '' }: { size?: number; classNa
  *  *Wortschatz* on the page, which taught nothing and matched nothing.
  *
  *  Profile is still not here. It is reachable from the avatar at every width,
- *  which is what let the mobile drawer go in the first place. */
+ *  which is what let the mobile drawer go in the first place.
+ *
+ *  **Five, 2026-11-26: Prüfung.** The owner asked for a testing space, A1 to C2,
+ *  in the format of the exams learners actually sit (VISION, *The exam room
+ *  returns*). It is a place, not an action: you go there to sit a paper, and it
+ *  sits between the loop it tests (Üben) and the record it adds to (Fortschritt).
+ *  It never writes a card's schedule. */
 export const NAV: { id: View; label: string; icon: LucideIcon }[] = [
   { id: 'feed', label: 'Wörter', icon: Layers },
   { id: 'words', label: 'Themen', icon: LayoutGrid },
   { id: 'session', label: 'Üben', icon: GraduationCap },
+  { id: 'exam', label: 'Prüfung', icon: Stamp },
   { id: 'progress', label: 'Fortschritt', icon: TrendingUp },
 ];
 
@@ -131,13 +139,8 @@ function GoalPill({ onOpen }: { onOpen: () => void }) {
   );
 }
 
-export default function TopBar({ view, onGo, onSearch, onListen, listening = false, onProfile, onSaved, name, level, streak }: {
+export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name, level, streak }: {
   view: View; onGo: (v: View) => void;
-  /** Hören — German in the background (lib/hoeren.ts). An action like search, and
-   *  for the same reason: it starts from wherever you are. */
-  onListen?: () => void;
-  /** Hören is playing or preparing: the button lights, and opens the sheet. */
-  listening?: boolean;
   /** Opens the saved-words layer — the list the pill's number refers to. */
   onSaved: () => void;
   /** The one thing in the bar that is an *action* rather than a place. It earns
@@ -174,7 +177,7 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
       <button onClick={() => onGo('feed')} aria-label="Lexi home"
         className="home-btn flex items-center gap-2.5 pr-2 sm:pr-4 tap-44 rounded-full hover:opacity-80 transition-opacity">
         <LexiMark size={26} />
-        <span className="wordmark font-bold text-lg tracking-wide leading-none">Lexi</span>
+        <span className="wordmark display text-xl leading-none">Lexi</span>
       </button>
 
       {/* Destinations. Hidden on a phone, where they live in the bottom bar and
@@ -186,7 +189,7 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
             <button key={n.id} onClick={() => onGo(n.id)}
               aria-current={active ? 'page' : undefined}
               className={`tap-44 flex items-center gap-1.5 px-3 py-2 rounded-full text-sm transition-colors ${
-                active ? 'bg-panel2 text-accent' : 'text-dim hover:text-txt hover:bg-panel2/60'}`}>
+                active ? 'bg-key text-key-ink font-semibold' : 'text-dim hover:text-txt hover:bg-panel2/60'}`}>
               <n.icon size={17} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
               <span lang="de">{n.label}</span>
             </button>
@@ -202,15 +205,6 @@ export default function TopBar({ view, onGo, onSearch, onListen, listening = fal
           happened, and pressing bookmark is. Small, right-aligned, next to the
           person it belongs to — a goal is a fact about you, not a scoreboard. */}
       {view === 'feed' && <GoalPill onOpen={onSaved} />}
-
-      {onListen && (
-        <button onClick={onListen} aria-label={listening ? 'Hören is playing. Open the player' : 'Hören: play German in the background'}
-          aria-pressed={listening}
-          className={`tap-44 grid place-items-center w-[40px] h-[40px] rounded-full
-            hover:bg-panel2/70 active:scale-95 transition flex-shrink-0 ${listening ? 'text-accent' : 'text-txt'}`}>
-          {listening ? <AudioLines size={19} /> : <Headphones size={19} />}
-        </button>
-      )}
 
       <button onClick={onSearch} aria-label="Look up a word" data-tour="search"
         className="tap-44 grid place-items-center w-[40px] h-[40px] rounded-full text-txt

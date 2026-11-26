@@ -11,10 +11,10 @@
 // paper. What is left is a vocabulary player, which is what this app is.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Volume2, VolumeX, ArrowLeft, Check, X, Undo2, SkipForward, Flag, Share2, ClipboardList, Mic } from 'lucide-react';
+import { ArrowLeft, Check, X, Undo2, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
-import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, sound, setSound, hdVoice, hdOffered, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, studiedToday } from '../store.ts';
-import { haptic, tick, fmt} from '../lib/ui.ts';
+import { review, restoreCard, cardOf, levels, statusOf, streak, logMiss, logAttempt, checkMilestones, checkCompletions, flagCard, isFlagged, placementLevel, totals, type MissDetail, lastGapDays, longestStreak, buildBriefing, studiedToday } from '../store.ts';
+import { haptic, fmt } from '../lib/ui.ts';
 import { buildMixedSession, loadSession, saveSession, withRetry, SESSION_CEILING, type SessionItem } from '../session.ts';
 import { loadDetailFor, detailLoadedFor } from '../data/detail.ts';
 import { loadTransfer } from '../lib/transfer.ts';
@@ -28,20 +28,17 @@ import { useMedia } from '../lib/useMedia.ts';
 // `Card` here is the UI surface; the FSRS card type is aliased so the two
 // can coexist in this file.
 import { Rating, emptyCard, previewInterval, type Grade, type Card as SrsCard } from '../srs.ts';
-import { speak, onSystemVoice } from '../lib/tts.ts';
-import { sayExample, hasHumanAudio, stopAudio } from '../lib/audio.ts';
 import { familyOf } from '../lib/family.ts';
 import { valencyOf, valencyLabel } from '../lib/valency.ts';
 import { FOCUS } from '../lib/focus.ts';
 import { WORDS } from '../data/index.ts';
-import VoiceOffer from '../components/VoiceOffer.tsx';
 import { Illustration } from '../lib/illustration.tsx';
 import SessionRecap, { type RecapData } from '../components/SessionRecap.tsx';
 import MiniSky from '../components/MiniSky.tsx';
 import InstallNudge from '../components/InstallNudge.tsx';
 import BackupNudge from '../components/BackupNudge.tsx';
 import WhyThisCard from '../components/WhyThisCard.tsx';
-import { SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, TransferNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
+import { RevealBlock, ExampleList, TermList, FalseFriendNote, TransferNote, GenderTerm, CardSource } from '../components/Reveal.tsx';
 import Card from '../components/ui/Card.tsx';
 import Button from '../components/ui/Button.tsx';
 import Chip from '../components/ui/Chip.tsx';
@@ -111,7 +108,7 @@ export function showsGermanDefs(placed: CEFR | null): boolean {
   return !!placed && ALL_LEVELS.indexOf(placed) >= ALL_LEVELS.indexOf('B2');
 }
 
-export default function Review({ target, onDone, onPick, onBack, backTo, onGame, onProfile, onPlacement, firstRun = false }:
+export default function Review({ target, onDone, onPick, onBack, backTo, onProfile, onPlacement, firstRun = false }:
   { target: Target;
     /** Leave the guided chain — the recap's "Got it". */
     onDone: () => void;
@@ -120,10 +117,6 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     /** Where a scoped session's Back arrow goes, and what it says — the surface
      *  that opened it (App keeps the origin). Absent: Themen, as before. */
     onBack?: () => void; backTo?: string;
-    /** Open `Sag es`, the pronunciation game. Offered from the empty state, which is
-     *  the one moment the app knows a learner has time and nothing owed. Absent
-     *  while speaking is out of focus (lib/focus.ts), and then nothing offers it. */
-    onGame?: () => void;
     /** Backup, reminders, settings — offered from the recap's nudges. */
     onProfile: () => void;
     /** Offered from the first-run recap — see DoneState. */
@@ -242,15 +235,6 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     sessionMisses.current.set(tag, (sessionMisses.current.get(tag) ?? 0) + 1);
   };
   const [breather, setBreather] = useState(false);
-  // F4: the engine tells us when it fell back to the built-in voice, so the offer
-  // lands on the tap that motivated it rather than in a settings screen nobody
-  // opens. Once per learner, ever — hdOffered() outlives the session.
-  const [offerVoice, setOfferVoice] = useState(false);
-  useEffect(() => {
-    if (hdVoice() || hdOffered()) return;
-    onSystemVoice(() => setOfferVoice(true));
-    return () => onSystemVoice(null);
-  }, []);
   const breatherShown = useRef(false);
   // Every answer gets an acknowledgment. Before this, a correct answer produced
   // a colour change and a haptic tick and nothing else — persona P8, at B2 with
@@ -278,11 +262,9 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     setAck({ n: ++ackSeq.current, ok, interval, comeback: isComeback ? lapses : undefined });
     if (ok) {
       missRun.current = 0;
-      tick('good');
       if (term && lapses >= 2) setComeback((c) => (!c || lapses > c.lapses ? { term, lapses } : c));
       return;
     }
-    tick('wrong');
     if (++missRun.current >= 4 && !breatherShown.current) {
       breatherShown.current = true;
       setBreather(true);
@@ -296,10 +278,6 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
     const t = setTimeout(() => setAck((a) => (a && a.n === ack.n ? null : a)), ack.comeback ? 2600 : 1600);
     return () => clearTimeout(t);
   }, [ack?.n]);
-
-  // A clip playing over the next card is worse than no audio, so every advance
-  // and every exit silences whatever is in flight.
-  useEffect(() => stopAudio, []);
 
   // restart the session when scope (target) or level filter changes
   useEffect(() => {
@@ -324,7 +302,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
   const shownAt = useRef(0);
   useEffect(() => { shownAt.current = performance.now(); }, [item?.srsId, i]);
   const settled = () => performance.now() - shownAt.current >= GRADE_SETTLE_MS;
-  const flip = useCallback(() => { shownAt.current = performance.now(); setFlipped((f) => !f); tick('flip'); }, []);
+  const flip = useCallback(() => { shownAt.current = performance.now(); setFlipped((f) => !f); }, []);
 
   // **The answers are never left behind the tab bar** *(2026-10-14)*. The stage
   // shrinks the card to fit, but a drill's four answer keys cannot shrink, and at a
@@ -513,11 +491,11 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
       </div>
     );
   }
-  if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} onGame={onGame} />;
+  if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} />;
   if (!item) return <DoneState done={done} newLearned={newLearned} retrieved={retrieved} retrievedOk={retrievedOk} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current} onPlacement={onPlacement}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
-    onDone={onDone} onPick={onPick} onGame={onGame} onProfile={onProfile} />;
+    onDone={onDone} onPick={onPick} onProfile={onProfile} />;
 
   const card = item.word;
   // No memo: familyOf keeps its own reverse index, so this is a Map lookup.
@@ -537,7 +515,6 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
           lost card height on every card after (2026-10-14, a 13 mini at large text). */}
       {i === 0 && <ReturnNotice firstRun={firstRun} />}
       <Tour id="session" ready={!!item && item.type === 'flip'} steps={SESSION_TOUR} />
-      {offerVoice && <div className="mb-2.5"><VoiceOffer onClose={() => setOfferVoice(false)} /></div>}
       {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
           patch. Offer a graceful stop at a natural break — once, then quiet. */}
       {breather && (
@@ -548,7 +525,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
           </p>
           <div className="flex gap-2">
             <Button variant="quiet" size="sm"
-              onClick={() => { setBreather(false); setI(queue.length); tick('done'); }}>Stop here</Button>
+              onClick={() => { setBreather(false); setI(queue.length); }}>Stop here</Button>
             <Button size="sm" onClick={() => setBreather(false)}>Keep going</Button>
           </div>
         </div>
@@ -589,17 +566,6 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
             {Math.min(i + 1, queue.length)} / {queue.length}
           </Chip>
           <div data-tour="session-tools" className="ml-auto flex items-center gap-1 flex-shrink-0">
-            {/* Sound is on by default now, so muting has to be reachable from
-                inside the session — not three taps away in Settings.
-                **One name, and the state in `aria-pressed`.** The label used to flip
-                between "Mute sound" and "Unmute sound" *as well as* the pressed
-                state, so a muted session announced "Unmute sound, selected" — two
-                encodings of one fact that contradicted each other. */}
-            <IconButton onClick={() => setSound(!sound())}
-              label="Mute sound"
-              aria-pressed={!sound()} active={!sound()}>
-              {sound() ? <Volume2 size={15} /> : <VolumeX size={15} />}
-            </IconButton>
             {/* It restores the FSRS state of the last grade (or steps back over a
                 skip), so it is named for what it does: "Previous card" described
                 the movement and hid the consequence. */}
@@ -686,7 +652,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
               <ModeItem key={item.srsId} mode={item.type} word={card} forms={inflections()?.[card.id]} onGrade={gradeDrill} />
             </div>
           ) : (<>
-          <SwipeCard key={item.srsId} onFlip={flip} onSwipe={(knew) => grade(knew ? Rating.Good : Rating.Again, 'swipe')} onThrow={() => tick('swipe')} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>
+          <SwipeCard key={item.srsId} onFlip={flip} onSwipe={(knew) => grade(knew ? Rating.Good : Rating.Again, 'swipe')} labelledBy={`card-hw-${item.srsId}`} behind={Math.min(2, queue.length - i - 1)}>
             <div className={`flip-inner ${flipped ? 'is-flipped' : ''}`}>
               {/* FRONT — the prompt: word + German context, no translation to spoil
                   the test. Except on first sight: a card the learner has never met
@@ -741,58 +707,19 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     pronounces the entire lexicon of a German app in an English
                     voice, which is the one thing this surface must not do. */}
                 <GenderTerm term={card.term} gender={card.gender} id={`card-hw-${item.srsId}`}
-                  fit boxClassName="px-2 shrink-0"
+                  swash fit boxClassName="px-2 shrink-0"
                   className="headword hw-front font-bold leading-tight" />
                 {/* `.ipa`, not `font-mono`: IPA is not data, and Plex Mono's
                     unicode-range stops short of the IPA block, so every ə ʁ ː fell
                     back glyph by glyph to a different monospace. `aria-hidden`
-                    because a screen reader spells IPA out as glyph names — the
-                    speaker below is the accessible pronunciation. */}
+                    because a screen reader spells IPA out as glyph names. */}
                 {card.ipa && <span aria-hidden className="ipa text-base text-dim">{card.ipa}</span>}
                 {isNew && (
                   <span className="text-green font-semibold text-xl sm:text-2xl leading-tight max-w-[92%]">{card.en}</span>
                 )}
-                {(
-                  <button onClick={(e) => { e.stopPropagation(); speak(card.term); }}
-                    className="grid place-items-center w-[44px] h-[44px] rounded-full bg-panel border border-line text-accent hover:bg-panel2 active:scale-95" title="Pronunciation">
-                    <Volume2 size={18} aria-hidden />
-                    {/* Named in content, not by `title` (DESIGN §10: not reliably
-                        announced) and not by `aria-label`: an attribute string has one
-                        language and this name has two, so the German word was read
-                        in an English voice. Content can carry its own `lang`. */}
-                    <span className="sr-only">Hear <span lang="de">{card.term}</span></span>
-                  </button>
-                )}
-                {/* The example is audible, and prefers a real human reading of it
-                    over synthesis where Tatoeba has one (see lib/audio.ts). The
-                    headword button above stays synthesis — it's a pronunciation
-                    model, and Piper is the more consistent teacher for a single
-                    word. Sentences are where a human voice actually earns its
-                    place: rhythm, linking and stress are the things TTS flattens.
-
-                    This replaced a `SpeakButton` sitting beside the text, so the
-                    whole sentence is now the target rather than a 24px speaker —
-                    which is the better touch affordance. `aria-label` carries the
-                    naming that `SpeakButton` used to provide: without it the
-                    accessible name is the German sentence alone, which never says
-                    the control plays anything.
-
-                    **The name is built from content, in two languages.** It was
-                    `lang="de"` on the button with an English `aria-label`, so the
-                    English half ("Hear the example") was spoken with German phonology.
-                    The instruction is English, the sentence is German, and each
-                    carries its own language now. */}
+                {/* The example, as text. Silent since 2026-11-26. */}
                 {card.ex[0] && (
-                  <button
-                    onClick={(e) => { e.stopPropagation(); sayExample(card.id, card.ex[0].de); }}
-                    title={hasHumanAudio(card.id) ? 'Play, read by a Tatoeba contributor' : 'Play this sentence'}
-                    className="text-dim italic text-base leading-relaxed max-w-[90%] hover:text-txt transition-colors cursor-pointer">
-                    <span className="sr-only">Hear the example: </span>
-                    <span lang="de">{card.ex[0].de}</span>
-                    {hasHumanAudio(card.id) && (
-                      <Volume2 size={13} aria-hidden className="inline-block ml-1.5 -mt-0.5 text-accent" />
-                    )}
-                  </button>
+                  <p lang="de" className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</p>
                 )}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
                 {/* The bottom padding, made sticky — see `.face-end` in index.css. It
@@ -844,7 +771,6 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onGame,
                     </>
                   )}
                   <span className="ml-auto flex items-center gap-1 flex-shrink-0">
-                    <SpeakButton text={card.term} />
                     {/* Flag lives on the back *(2026-09-25 panel)*: "something’s
                         wrong with this card" is a judgement you make after reading
                         the answer, and in the header it cost the row its fit. Local,
@@ -1257,10 +1183,10 @@ function StatusPip({ id }: { id: string }) {
   );
 }
 
-function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onGame, onProfile, onPlacement }:
+function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onProfile, onPlacement }:
   { done: number; newLearned: number; retrieved: number; retrievedOk: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
     composition?: RecapData['composition']; met: Word[]; onDone: () => void; onPick: () => void;
-    onGame?: () => void; onProfile: () => void;
+    onProfile: () => void;
     /** Offered from the first recap, once there is something to calibrate. */
     onPlacement?: () => void }) {
   // **Recall is only defined where a retrieval happened.**
@@ -1282,7 +1208,6 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
   // so the bigger sound stays rare enough to still mean something.
   const [milestone] = useState(() => {
     const m = checkMilestones();
-    tick(m ? 'milestone' : 'done');
     return m;
   });
   // Finishing a sector is the one thing in this app you can actually complete.
@@ -1357,7 +1282,6 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
                   the learner owes nothing. Not on a first run: the first session ends
                   in the placement test, and a microphone prompt across that is a
                   second ask on top of a first impression. */}
-              {onGame && <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>}
             </>}
         </div>
         {/* The pride moment — the market as a designed image, not a cropped
@@ -1379,8 +1303,8 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
  *  achievement rather than an absence — "the system holds until tomorrow" is the
  *  true thing to say to somebody who has served every review and spent the whole
  *  new-card budget. */
-function EmptyState({ target, scoped, onPick, onGame }: {
-  target: Target; scoped: boolean; onPick: () => void; onGame?: () => void;
+function EmptyState({ target, scoped, onPick }: {
+  target: Target; scoped: boolean; onPick: () => void;
 }) {
   const t = totals();
   return (
@@ -1410,7 +1334,6 @@ function EmptyState({ target, scoped, onPick, onGame }: {
           {/* The game is offered here and only here for now. This is the one state
               where the app knows the learner has time and owes nothing, which is the
               honest moment to suggest something that is not studying. */}
-          {onGame && <Button variant="secondary" onClick={onGame}><Mic size={15} /> Sag es</Button>}
         </div>
       </div>
     </div>

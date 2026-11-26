@@ -40,7 +40,47 @@ it is either shipped or superseded by this file.
 
 ---
 
-## 1. The identity — **the card box** *(changed 2026-10-11)*
+## 1. The identity — **das Heft** *(changed 2026-11-26)*
+
+> **The owner asked for it in one line:** make Lexi unbelievably beautiful and engaging,
+> with better taste than the docs. The card box had the right method and the wrong
+> object: a Karteikasten is where words are *kept*. The thing a German learner
+> *works in* is the **Heft** — the school exercise book — and everything Lexi asks of a
+> learner (mark the article, write the plural, sit the paper, get it back corrected)
+> already happens in one.
+
+| | In the Heft | In the app |
+|---|---|---|
+| The paper | an off-white page | `--color-bg` `#f4f1e8`, `--color-card` white; dark is *die Tafel*, the chalkboard: graphite `#16181d` and chalk ink `#efebe0` |
+| The ink | the Königsblau of a school fountain pen | `--color-accent` `#2b3ea6` — links, rails, kickers, the heat ramp |
+| The highlighter | yellow, for the one thing that matters | `--color-key` `#ffe45e` — the primary key, the active tab, the pressed state. One per screen |
+| The article | three highlighters a learner colours der/die/das with | `.swash` + `markColor()`: `--color-mark-der/-die/-das` `#bfe0ff` / `#ffc8de` / `#bdeccd`, always under `--color-mark-ink`, drawn in with `.swash-in` when a word is saved or an article is answered |
+| The red pen | corrections | `--color-red` / `--color-red-txt`, a strike-through on a wrong option |
+| Squared paper | the maths Heft — and the exam sheet | `.karo`, a 20px grid in `--color-karo` `#d5dde6`: the paper cover and the runner's sheet in Prüfung |
+| Ruled paper | the writing Heft, with its red margin | `.lined`: 2rem rules, margin `--color-margin` `#e8a4a0` — the letter in a paper |
+| The stamp | the teacher's result | `.stamp`: a rotated double rule, ink speckled by a noise mask, pressed in by `.stamp-in` — quiz and paper verdicts only |
+
+**The type.** **Bricolage Grotesque** (variable, opsz + wght; OFL) for the German and the
+page titles — 700 for a headword, 800 for `.display` — because a grotesque with
+ink-traps and an optical axis reads like a schoolbook's headings and holds up at 6xl on
+a phone; Fraunces was a serif in an app whose subject is a modern language. IBM Plex
+Mono stays for data. `lib/fit.ts` was re-measured for the new face (the ADVANCE table).
+
+**Measured by script on 2026-11-26** (the WCAG formula over `src/index.css`; the pins
+are in `palette.test.ts`). Light: txt/bg **15.70**, dim/bg **7.22**, dim/panel2 **6.47**,
+accent/bg **7.94**, accent/panel2 **7.11**, key-ink/key **13.94**, mark-ink on the three
+article highlighters **12.93 / 12.30 / 13.54**, red-txt/bg **6.43**, der/die/das ink on
+bg **5.78 / 5.56 / 5.71**. Dark: txt/bg **14.91**, dim/bg **7.92**, accent/bg **9.60**,
+key-ink/key **13.44**, mark-ink **10.22 / 9.58 / 11.53**. The gender inks and the CEFR
+inks no longer collide (the palette test's known-collision list is empty): A is ochre,
+B plum, C graphite.
+
+**What the card box left, kept on purpose.** The key material (a hard edge and a lip),
+`Card` for the study surface only, `Band` for grouping, light primary with dark fully
+designed, every guard. The revert point for the whole look is the tag
+`classic-2026-11-26`.
+
+### The card box *(2026-10-11 → 2026-11-26)* — kept as history
 
 > **The owner asked for it, with two reference folders** — `reference/karteto`
 > (a German flashcard app: cream ground, white index cards, the whole screen washing
@@ -160,9 +200,11 @@ Tailwind palette classes anywhere in `src/`, and it should stay that way.
 | `--color-card` | **the study surface** — the thing you read from |
 | `--color-line` | hairlines |
 | `--color-txt` / `--color-dim` | primary / secondary ink |
-| `--color-accent` | the brand **ink** — the teal tab deepened to clear AA (`#2c6b6b` light, `#93c1c1` dark) |
-| `--color-key` / `--color-key-ink` | the teal tab as a **fill** — primary keys, chosen options, emblem discs — and the only ink allowed on it |
-| `--color-coral` | the second tab — halftone pads and the mark's tab; never ink |
+| `--color-accent` | the brand **ink** — Königsblau (`#2b3ea6` light, `#aebbff` dark) *(2026-11-26; was the teal tab)* |
+| `--color-key` / `--color-key-ink` | the yellow highlighter as a **fill** — the primary key, the active tab, a pressed state — and the only ink allowed on it |
+| `--color-mark` / `--color-mark-der/-die/-das` / `--color-mark-ink` | the highlighters behind a `.swash`: yellow for a saved word, one per article; fills, never ink |
+| `--color-karo` / `--color-margin` | the squared and ruled paper's lines; never ink |
+| `--color-coral` | the mark's dot and the og image; never ink |
 | `--color-lip` | the hard edge and lip under a key |
 | `--color-knew` / `--color-again` | the swipe wash and the two grade keys; never ink |
 | `--color-green` / `--color-red` / `--color-red-txt` | gains / losses / AA-safe small red |
@@ -177,10 +219,14 @@ each. Only luminance inverts.
 
 | | light (primary) | dark |
 |---|---|---|
-| `bg` | `#faf6e6` | `#282828` |
-| `panel` | `#fdfbf2` | `#2e2e2e` |
-| `panel2` | `#efead5` | `#202020` |
-| `card` | `#ffffff` | `#393939` |
+| `bg` | `#f4f1e8` | `#16181d` |
+| `panel` | `#faf8f2` | `#1c1f25` |
+| `panel2` | `#e9e5d8` | `#111317` |
+| `card` | `#ffffff` | `#252830` |
+
+*(2026-11-26, the Heft. The card box's values were light `#faf6e6`/`#fdfbf2`/`#efead5`/`#fff`,
+dark `#282828`/`#2e2e2e`/`#202020`/`#393939`. The paragraph below is the card box's
+reasoning and still holds for the light ramp.)*
 
 Since 2026-10-11 the light steps are small (bg→card **1.08**) and that is
 deliberate: Karteto's card is set apart by a shadow, not by a value step, and an
@@ -309,6 +355,11 @@ bilingual examples + synonyms + antonyms) did.
 
 ## 4. Typography
 
+> *Changed 2026-11-26:* **Bricolage Grotesque** replaced Fraunces as the German and the
+> page title — 700 for `.headword`, 800 for `.display` (§1). Read every "Fraunces" below
+> as Bricolage; the reasoning about where the display face goes is unchanged, and the
+> fit table in `lib/fit.ts` was re-measured for it.
+
 Self-hosted, so the identity survives offline and is identical on every OS.
 Previously `--font-mono` resolved to SF Mono on macOS, Consolas on Windows and
 Roboto Mono on Android — the terminal look only actually existed on a Mac.
@@ -318,8 +369,8 @@ Roboto Mono on Android — the terminal look only actually existed on a Mac.
 | Data | **IBM Plex Mono** (400/700) | every stat, CEFR badge, numeral, interval |
 | Kicker | system sans, semibold, tracked caps | `ui/Kicker` — *was mono until 2026-10-11; a kicker is a label, not a measurement* |
 | UI | system sans | body, labels, controls, **section headings** |
-| The German | **Fraunces** variable | `.headword` — the flip faces **and the exercise prompt** |
-| The page title | **Fraunces** variable | `.display` — one per surface |
+| The German | **Bricolage Grotesque** variable, 700 | `.headword` — the flip faces **and the exercise prompt** |
+| The page title | **Bricolage Grotesque** variable, 800 | `.display` — one per surface |
 
 `.headword` was scoped to the flip faces alone: two lines per screen, on the app's
 only warm typeface, while the German being *tested* was set in system sans. The
@@ -736,7 +787,12 @@ The rules the feed does own:
 > **dense, mono, cool and comparative**, because scanning wants that. That is a
 > description of a *room*, not a licence to borrow a trading floor's furniture.
 
-## 8a. Four destinations, and the first one is a feed
+## 8a. Five destinations, and the first one is a feed
+
+> **Changed 2026-11-26.** **Prüfung** joins as the fifth: *what does my level look like on
+> paper?* It is a room the learner chooses to enter, like the four, and it grades nothing
+> the scheduler reads — so it does not compete with Üben for the day's twenty minutes, it
+> answers a different question. The bottom bar holds five at 375px.
 
 > **Changed 2026-09-05.** This section said three, then four, then five, and now four
 > again — and the set is not any of the old ones. The rule never changed; what changed

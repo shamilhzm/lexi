@@ -265,7 +265,8 @@ describe('der · die · das at large text sizes', () => {
     // go smaller than it, never larger.
     expect(css).toMatch(/\.hw-front\s*\{ --hw-size: min\(var\(--text-4xl\), 46px\); \}/);
     expect(css).toMatch(/\.hw-front, \.hw-answer, \.hw-feed, \.hw-entry \{ font-size: var\(--hw-size\); \}/);
-    expect(css).toMatch(/clamp\(calc\(var\(--hw-size\) \* 0\.72\), calc\(100cqi \/ var\(--hw-em, 1\)\), var\(--hw-size\)\)/);
+    // The floor is 72% unless a surface says otherwise (the feed's poster says 60%).
+    expect(css).toMatch(/clamp\(calc\(var\(--hw-size\) \* var\(--hw-floor, 0\.72\)\), calc\(100cqi \/ var\(--hw-em, 1\)\), var\(--hw-size\)\)/);
     expect(src).toMatch(/headword hw-front/);
   });
 });

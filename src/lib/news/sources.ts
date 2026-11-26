@@ -17,7 +17,7 @@
 // |---|---|
 // | **tagesschau** (ARD) | API use "für den privaten, nicht-kommerziellen Gebrauch ist gestattet, die Veröffentlichung hingegen nicht"; **max 60 requests/hour** — enforced below. |
 // | **SRF** | Public RSS; article pages served with open CORS. Read in place, linked back. |
-// | **DW** *Langsam gesprochene Nachrichten* | DW's free learner programme, text and audio; read in place, linked back. |
+// | **DW** *Langsam gesprochene Nachrichten* | DW's free learner programme; the text is read in place and linked back. Its mp3 is not played — Lexi is silent (2026-11-26). |
 // | **heise online** | Public Atom feed of teasers; the full article stays on heise.de. |
 //
 // If Lexi ever charges money, the Tagesschau line needs re-reading first.
@@ -98,7 +98,7 @@ export const TOPICS: Topic[] = [
   { id: 'kultur', label: 'Art & culture', de: 'Kunst & Kultur', feeds: ['srf:kultur', 'ts:inland', 'ts:ausland'], match: CULTURE, whole: ['srf:kultur'] },
   { id: 'wissen', label: 'Science', de: 'Wissenschaft', feeds: ['ts:wissen', 'srf:wissen'], whole: ['ts:wissen', 'srf:wissen'] },
   { id: 'sport', label: 'Sport', de: 'Sport', feeds: ['ts:sport', 'srf:sport'], whole: ['ts:sport', 'srf:sport'] },
-  { id: 'langsam', label: 'Slow news, with audio', de: 'Langsam gesprochen', feeds: ['dw:lgn'], whole: ['dw:lgn'] },
+  { id: 'langsam', label: 'Slow news, in simple German', de: 'Langsam gesprochen', feeds: ['dw:lgn'], whole: ['dw:lgn'] },
 ];
 
 export const TOPIC_BY_ID = new Map(TOPICS.map((t) => [t.id, t]));

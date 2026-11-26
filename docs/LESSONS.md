@@ -155,6 +155,12 @@ name. `--color-amber` sat in Tailwind's `@theme`, which auto-generates `text-amb
 that no longer existed, with the typecheck and the build both green. **Grep the built
 output, not the source, to prove a rename landed.**
 
+**…build a CSS variable name at runtime.** Don't. Tailwind v4 writes a `@theme` variable
+into the CSS only if its name appears, spelled out, somewhere it scans, so
+`var(--color-${level})` resolves to nothing for any level the source never names in
+full. Use a literal map (`LEVEL_INK`, `markColor`) and read the computed style. *(The
+B1 cover printed black, with typecheck and build green.)*
+
 **…animate anything that content depends on.** An entrance that doesn't run leaves the
 thing invisible or mis-sized. See DESIGN §7.
 
@@ -2451,3 +2457,84 @@ look exactly like one. Telling them apart is not decidable from the particle: «
 von einem Erfolg aus» really is *ausgehen*. **Rule:** read every "taken from an old card"
 line. When one is wrong and the matcher cannot tell, the new card waits, because two
 wrong glosses in other cards' sentences cost more than one missing card.
+
+## A theme variable Tailwind never saw is not in the CSS *(added 2026-11-26)*
+
+**Believed:** `var(--color-${level.toLowerCase()})` works because `--color-b1` is
+declared in `@theme`. **True:** Tailwind v4 emits a theme variable only when its name
+appears in source it scans. Nothing spelled out `--color-b1` in full, so the variable
+was never written. The B1 paper's cover printed its level in plain black, and the
+feed's level label had the same bug. The typecheck, the build and the guard suite were
+all green. **Rule:** never build a theme variable's name from data. Spell every value
+out in a literal map (`LEVEL_INK` in `lib/ui.ts`, `markColor`) so the scanner sees it,
+and check the computed colour, not the class list.
+
+## `$&` in a replacement string is not a dollar and an ampersand *(added 2026-11-26)*
+
+**Believed:** a scripted edit `s.replace(old, text)` inserts `text` as written.
+**True:** a replacement *string* is a template. `$&` means "the matched text", and the
+text being inserted was a regex escaper whose body is `'\\$&'`. The edit spliced
+the old code into the middle of the new, and `quiz.ts` no longer parsed. **Rule:** in
+scripted edits use `s.split(old).join(text)` or a function replacer, and make the
+script throw when `old` is not found. The same pass had an edit to `fit.ts`'s comment
+that matched nothing and reported nothing.
+
+## A file restored from history is older than the guards *(added 2026-11-26)*
+
+**Believed:** the exam room's views, restored from the commit before 2026-09-05, were
+working code. **True:** they predated three guards and both look rulings. They had
+mono capitals, faded-ink opacity and rem-sized icon boxes, which `design-rules` and
+`dynamic-type` refuse. They also carried telc B1's numbers onto every paper. The
+writing task said "45 Punkte" and "~150 Wörter" on Goethe papers, and the writing clock
+defaulted to 30 minutes where Goethe A1 gives Lesen und Schreiben 45. **Rule:** a
+restored file is new code. Run the guard suite on it, then read every number it prints
+against each paper it now serves. A number written for the one paper that existed at
+the time is a claim about every paper now.
+
+## Three options that move are a reading test *(added 2026-11-26)*
+
+**Believed:** shuffling options is always fairer. **True:** the generated gender
+questions shuffled *der · die · das* for every item, so each question began with
+finding where the articles had gone this time. The drills had always pinned that order.
+**Rule:** shuffle an open set of options. A closed set the hand learns (the three
+articles, a grade scale) keeps one order everywhere.
+
+## `includes` is a regex over German text too *(added 2026-11-26)*
+
+**Believed:** the cloze builder found the headword in its example. **True:** it found a
+substring. It would blank *Rat* inside *Ratgeber*, and turn *Tische* into "____e",
+leaving a gap that was not the word. The checklist's rule about `\b` was obeyed, and
+the bug was a substring test that is not a regex at all. **Rule:** whole words only,
+with `(?<!\p{L})…(?!\p{L})` and the `u` flag. An example where only an inflected form
+appears is skipped, not half-blanked.
+
+## A best score across sittings with different maxima *(added 2026-11-26)*
+
+**Believed:** the best sitting of a paper is the one with the most points. **True:** a
+silent sitting (no Hören) is scored out of what was sat. Raw points would rank an old
+full sitting above a better silent one. **Rule:** when the denominator can differ
+between rows, compare shares and show the row's own maximum.
+
+## Changing the display face invalidates every table measured from it *(added 2026-11-26)*
+
+**Believed:** `lib/fit.ts` was face-agnostic apart from its advance table. **True:** its
+margin and its accuracy claim were measured too. Fraunces was 16–17% wider at headword
+sizes than at 100px, and Bricolage Grotesque goes the other way (3% wider at 24px than
+at 40, 6% narrower at 60). Swapping only the table would have left a margin that let a
+word be set wider than it fits. **Rule:** a new face means rerunning
+`scripts/probe/headword-fit.js` and replacing the table, `MARGIN`, `TRACKING` and the
+comment's stated error from the same run.
+
+## A generator that imitates a drill skipped the drill's rules *(added 2026-11-26)*
+
+**Believed:** the generated quizzes were fair, because every key sat among real
+glosses from the learner's band. **True:** the first quiz opened on the phone asked
+what *Nigeria* means and offered "Nigeria" among "to do a doctorate", "post-war period"
+and "to mark". The quiz drew wrong answers from every part of speech, kept words spelled
+the same in both languages, and let a card's synonym stand as a "wrong" answer. The
+meaning drill had closed all three long ago, and ruling 7 sweeps it in
+`rulings.test.ts`. The quiz had no such sweep. Its loop also only stopped early when all
+four kinds were asked, so the vocabulary test built an item from every card in the band
+and took seconds. Fourteen green unit tests had seen none of it. **Rule:** a new
+generator of items is held to the same corpus sweep as the drill it imitates, from the
+first commit. Read its first screen on the phone before trusting its unit tests.

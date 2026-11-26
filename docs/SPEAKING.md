@@ -1,5 +1,10 @@
 # Sag es — the pronunciation game
 
+> **Retired 2026-11-26.** Lexi is silent (VISION, refusal *A closed voice*): Sag es, the
+> recogniser and every voice went, and the code is at the tag `classic-2026-11-26`. This
+> file is kept as the record of what was built and why, for the day an open German voice
+> and an open recogniser exist.
+
 **Status: MVP, 2026-09-09.** Scope, plan, the critical pass that changed the plan,
 and what is built. The empirical gates are named and **three of the four are not yet
 measured** — they need a human and a microphone, and are marked ⬜ throughout.

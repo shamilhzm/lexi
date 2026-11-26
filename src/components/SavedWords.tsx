@@ -22,7 +22,7 @@
 // cap is "teach me this now", which is the wrong answer on a bus.
 import { InkedArticle } from './Reveal.tsx';
 import { useMemo } from 'react';
-import { X, Play, Bookmark, Headphones } from 'lucide-react';
+import { X, Play, Bookmark } from 'lucide-react';
 import { savedWords, toggleSaved, statusOf, DAILY_SAVE_GOAL, savedToday } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { BY_ID } from '../data/index.ts';
@@ -33,11 +33,9 @@ import Chip from './ui/Chip.tsx';
 import Kicker from './ui/Kicker.tsx';
 import type { Target } from '../types.ts';
 
-export default function SavedWords({ onClose, onStudy, onListen }: {
+export default function SavedWords({ onClose, onStudy }: {
   onClose: () => void;
   onStudy: (t: Target) => void;
-  /** Hören — the same words, in the background; saved words play first. */
-  onListen?: () => void;
 }) {
   const v = useStore();
   const words = useMemo(
@@ -67,11 +65,6 @@ export default function SavedWords({ onClose, onStudy, onListen }: {
             <Button onClick={() => { onStudy({ kind: 'custom', name: 'Saved words', ids: words.map((w) => w.id) }); onClose(); }}>
               <Play size={14} /> Practise these {words.length}
             </Button>
-            {onListen && (
-              <Button variant="secondary" className="ml-2" onClick={onListen}>
-                <Headphones size={14} /> Listen
-              </Button>
-            )}
 
             <ul className="-mx-5 mt-5 divide-y divide-line border-y border-line">
               {words.map((w) => (

@@ -18,14 +18,13 @@
 //
 // The sentence can be heard, and — with a key set — explained.
 import { useEffect, useState } from 'react';
-import { X, Volume2, Bookmark, BookmarkCheck, GraduationCap, Info, Plus, Check, Sparkles, ExternalLink, Loader2 } from 'lucide-react';
+import { X, Bookmark, BookmarkCheck, GraduationCap, Info, Plus, Check, Sparkles, ExternalLink, Loader2 } from 'lucide-react';
 import { lookupLex, type LexEntry } from '../../lib/lexicon.ts';
 import { saveFromArticle } from '../../lib/news/library.ts';
 import { explainSentence, aiReady, aiConsented, AiError, type Explanation } from '../../lib/ai.ts';
 import AiConsent from '../AiConsent.tsx';
 import { statusOf, isSaved, toggleSaved, isWanted, noteWanted, studyLevel } from '../../store.ts';
-import { speak } from '../../lib/tts.ts';
-import { genderColor, haptic, tick } from '../../lib/ui.ts';
+import { genderColor, haptic } from '../../lib/ui.ts';
 import { GenderTerm } from '../Reveal.tsx';
 import type { Word } from '../../types.ts';
 
@@ -155,8 +154,8 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
         {card ? (
           <>
             <button onClick={() => {
-              if (saved) { toggleSaved(card.id); haptic('wrong'); tick('wrong'); }
-              else { saveFromArticle(card.id, article, sentence); haptic('grade'); tick('good'); }
+              if (saved) { toggleSaved(card.id); haptic('wrong'); }
+              else { saveFromArticle(card.id, article, sentence); haptic('grade'); }
               bump((n) => n + 1);
             }} aria-pressed={saved}
               className={`${pill} ${saved ? 'bg-key text-key-ink' : 'glass text-accent'}`}>
@@ -195,10 +194,6 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
               ? <>{sentence.slice(0, at)}<mark className="bg-transparent text-accent font-semibold">{surface}</mark>{sentence.slice(at + surface.length)}</>
               : sentence}
           </p>
-          <button onClick={() => speak(sentence)} aria-label="Hear the sentence"
-            className="grid place-items-center w-[40px] h-[40px] rounded-full glass text-accent flex-shrink-0">
-            <Volume2 size={16} />
-          </button>
         </div>
         <div className="mt-2">
           {aiReady() ? (

@@ -74,7 +74,11 @@ describe.each(['light', 'dark'] as const)('palette — %s', (theme) => {
   // A gender ink that is also a CEFR ink: a "der" and an "A1" on one card, the
   // same blue, the colour carrying two unrelated meanings.
   //
-  // **Ruled tolerable, not ruled correct.** Neither ink is ever the only signal —
+  // **Closed 2026-11-26.** The Heft palette moved CEFR off the gender hues and onto
+  // the framework's own three bands (A ochre, B plum, C graphite), and the known
+  // collisions went from three to none. The history below is why the guard exists.
+  //
+  // **Ruled tolerable, not ruled correct** (card box, until 2026-11-26). Neither ink is ever the only signal —
   // `genderColor`'s contract in lib/ui.ts is "the article itself is always spelled
   // out beside it", and a CEFR badge renders "A1" as text — so this is polish
   // rather than ambiguity, and moving a hue is a real decision: the gender ramp
@@ -82,7 +86,7 @@ describe.each(['light', 'dark'] as const)('palette — %s', (theme) => {
   // has its own documented order. Enumerated here so a **new** collision fails
   // while the known five stay visible, and so the count in BACKLOG is the measured
   // one — it carried this as a single pair (der/a1) and it is five.
-  const KNOWN = new Set(['der/a1', 'die/c2', 'das/b1']);
+  const KNOWN = new Set<string>();
 
   it('adds no new collision between a gender ink and a CEFR ink', () => {
     const surprises: string[] = [];
@@ -97,12 +101,27 @@ describe.each(['light', 'dark'] as const)('palette — %s', (theme) => {
     expect(surprises).toEqual([]);
   });
 
-  it('has exactly the collisions BACKLOG records — light 3, dark 2', () => {
+  it('has no collision between a gender ink and a CEFR ink, in either theme', () => {
+    // The card box had three in light and two in dark (der/a1, das/b1, and die/c2
+    // in light only); counting by eye in one theme had said one.
     const found = GENDER.flatMap((g) => CEFR.filter((c) => distance(p[g], p[c]) < MIN_DISTANCE).map((c) => `${g}/${c}`));
-    // `die`/`c2` is a light-theme collision only: dark lifts them to #f472b6 and
-    // #fb7185, which are 45 apart. That asymmetry is why counting by eye in one
-    // theme got the number wrong.
-    expect(found.sort()).toEqual(theme === 'light' ? ['das/b1', 'der/a1', 'die/c2'] : ['das/b1', 'der/a1']);
+    expect(found).toEqual([]);
+  });
+
+  // The highlighters *(2026-11-26)*. A swash is a light pen under dark ink in both
+  // themes, so the pair to hold is `mark-ink` on each fill — and the three gender
+  // pens must still be three pens, and none of them the yellow that means "saved".
+  it('keeps every highlighter legible under its ink, and the pens apart', () => {
+    const pens = ['mark', 'mark-der', 'mark-die', 'mark-das'];
+    for (const pen of pens) {
+      expect(p[pen], `--color-${pen}`).toMatch(/^#[0-9a-f]{6}$/);
+      expect(contrast(p['mark-ink'], p[pen]), `mark-ink on ${pen}`).toBeGreaterThanOrEqual(7);
+    }
+    for (let i = 0; i < pens.length; i++) {
+      for (let j = i + 1; j < pens.length; j++) {
+        expect(distance(p[pens[i]], p[pens[j]]), `${pens[i]} vs ${pens[j]}`).toBeGreaterThanOrEqual(MIN_DISTANCE);
+      }
+    }
   });
 
   it('keeps the CEFR ramp internally distinguishable', () => {
@@ -283,14 +302,21 @@ describe('the warm ground beats the palette it replaced', () => {
     expect(contrast(PAPER.dim, PAPER.panel2)).toBeCloseTo(5.38, 1);
     // The pair the guard caught at 4.49 before paper's panel2 was corrected.
     expect(contrast(PAPER.accent, PAPER.panel2)).toBeCloseTo(4.62, 1);
-    // The card box *(2026-10-11)*: every one of those pairs improved again.
+    // The card box *(2026-10-11 → 2026-11-26)*: every one of those pairs improved
+    // again. Pinned as data now that the Heft has replaced it.
+    const BOX = { bg: '#faf6e6', panel2: '#efead5', dim: '#5c5850', accent: '#2c6b6b' };
+    expect(contrast(BOX.dim, BOX.bg)).toBeCloseTo(6.54, 1);
+    expect(contrast(BOX.dim, BOX.panel2)).toBeCloseTo(5.86, 1);
+    expect(contrast(BOX.accent, BOX.panel2)).toBeCloseTo(5.08, 1);
+    // The Heft *(2026-11-26)*: and again — Königsblau is the first accent that
+    // clears AAA (7:1) on the sunken fill.
     const now = palette('light');
-    expect(contrast(now.dim, now.bg)).toBeCloseTo(6.54, 1);
-    expect(contrast(now.dim, now.panel2)).toBeCloseTo(5.86, 1);
-    expect(contrast(now.accent, now.panel2)).toBeCloseTo(5.08, 1);
+    expect(contrast(now.dim, now.bg)).toBeCloseTo(7.22, 1);
+    expect(contrast(now.dim, now.panel2)).toBeCloseTo(6.47, 1);
+    expect(contrast(now.accent, now.panel2)).toBeCloseTo(7.11, 1);
   });
 
-  /** The teal tab is a fill, never ink — `key-ink` is the only text it carries. */
+  /** The highlighter is a fill, never ink — `key-ink` is the only text it carries. */
   it('keeps the key legible under its own ink, in both themes', () => {
     for (const theme of ['light', 'dark'] as const) {
       const p = palette(theme);
@@ -404,8 +430,8 @@ describe('text stays legible through the glass', () => {
     // The worst grounds a floating bar can be given: the app's own darkest and
     // most saturated surfaces, sliding under it at the engaged alpha.
     const SATURATED = {
-      light: { ink: '#2b2b2b', heat4: '#2c6b6b' },
-      dark: { ink: '#f0ebe1', heat4: '#93c1c1' },
+      light: { ink: '#16181f', heat4: '#2b3ea6' },
+      dark: { ink: '#efebe0', heat4: '#aebbff' },
     } as const;
 
     for (const theme of ['light', 'dark'] as const) {

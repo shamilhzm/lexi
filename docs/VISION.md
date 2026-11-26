@@ -58,6 +58,10 @@ rules, and teaching them well is a different product with a different shape.
 | **Rooms** | the feed · Themen · Üben · Fortschritt | the grammar syllabus · the exam room · the observatory · the typing race · the worksheet printer · the reading list |
 | **Data** | `cards.json` · `detail.json` · `sectors.json` · `freq.json` · `provenance.json` · `audio.json` | `grammar.json` (2.3 MB) · `brain-mesh.bin` (934 KB) · the 110 `kind: 'grammar'` cards, filtered at load |
 
+*Two cells of that table were reversed on 2026-11-26: the exam room is a room again
+(Settled decisions, *The exam room returns, and Lexi is silent*), and `audio.json` stopped
+shipping with every voice in the app.*
+
 *Diktat — hear a sentence, type it — went the same day, on the same rule pointed one
 notch finer: it was the only drill whose unit was a **sentence** rather than a word, and
 the only one that failed silently when a device's speech synthesis was unavailable. Its
@@ -140,9 +144,11 @@ app can drop you into cannot be a room you have to know how to leave.**
 Not "styled". The app draws on the German design tradition it teaches — Otl Aicher and
 HfG Ulm, cartography, the printed lexicon — because form matching subject is the
 difference between a tool that looks competent and one that feels like its subject.
-The identity is **the card box** — the Karteikasten: cream ground, white index card,
-charcoal ink, two coloured tabs *(2026-10-11; was the Atlas)*. [DESIGN.md](DESIGN.md)
-is the system of record.
+The identity is **das Heft** — the German school exercise book: a paper ground, Königsblau
+ink, a yellow highlighter for the one thing that matters on a screen, the three article
+highlighters drawn under *der*, *die* and *das*, red pen for corrections, squared paper
+for the exam room and a rubber stamp for a result *(2026-11-26; was the card box, which
+was the Atlas)*. [DESIGN.md](DESIGN.md) is the system of record.
 
 **Forbids:** a visual language that could belong to any dashboard. Motion that has a
 library instead of a director. Restraint used as a synonym for absence.
@@ -259,6 +265,7 @@ changed.
 | **A teacher dashboard** | Needs accounts, which every teacher persona named as the thing they would lose. |
 | **Saying "you can now …" from a word count** | It would be the most dishonest sentence in the app. |
 | **A home screen** | *New, 2026-09-05.* A briefing whose job is to reach a word is a word you have not shown yet. The app opens on the feed. |
+| **A closed voice** | *New, 2026-11-26, at the owner's direction.* Lexi speaks with an open model or not at all. Every voice it had — the device's speech synthesis, a hosted neural voice, pre-rendered clips — came from a model nobody can inspect, reproduce or ship under the corpus's terms, and recognition the same. Until an open-source German voice exists that can be pinned and shipped, Lexi is **silent**: no pronunciation audio, no Hören, no listening parts in the exam room. IPA stays; it is text. |
 | **Grading the feed** | *New, 2026-09-05.* Scrolling is not evidence. A feed that marked words *seen* would feed the scheduler its strongest signal from the app's weakest event. Bookmark is deliberate; a thumb is not. |
 
 ---
@@ -353,6 +360,8 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   Goethe's A1, A2 and B1 Wortlisten, and a card is filed at the level the exam names
   the word at. Above B1 neither body publishes a list, and Lexi says so rather than
   inventing one. **Unchanged:** no exam room, no papers, no *am I ready* (Track E #10).
+  *Amended 2026-11-26:* the room and the papers are back, and *am I ready* is still not
+  answered — see *The exam room returns, and Lexi is silent*.
   The lists are fetched, never shipped; whether a card may be *labelled* as on an exam
   list in the app is the same question as open decision 2b and is not decided.
 - **The exams guide the progression; nobody's exam is the goal** *(2026-11-21, the
@@ -371,7 +380,8 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   — ruled by hand, and refused by a test unless that card's own examples already show
   it. `eligibleModes` is still the original three: this drill is asked for, or comes
   back on the schedule of a learner who has met it.
-- **Hören — German in the background** *(2026-10-02, at the owner's direction)*.
+- **Hören — German in the background** *(2026-10-02, at the owner's direction;
+  **retired 2026-11-26** with every voice in the app — see the refusal *A closed voice*)*.
   Walk mode was hard to find and the wrong shape for the ask: "the audio to just run
   in the background while I do other things … without having to have my headphones
   in or clicking anything." Hören is one tap in the top bar on every surface: each word
@@ -436,8 +446,8 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   arrives, installs and comes back. A store copy (a Play TWA, an iOS Capacitor app,
   STORES.md) is that same build in a wrapper, never a fork. A wrapper may add only what
   the web cannot do for a local-first app: storage that Safari does not evict, a
-  notification that fires with no server, and the OS's own surfaces (lock-screen audio
-  for Hören, widgets, the Türsteher's gate). Each of those is a **door** into the same
+  notification that fires with no server, and the OS's own surfaces (widgets, the
+  Türsteher's gate; lock-screen audio went with Hören on 2026-11-26). Each of those is a **door** into the same
   app. Anything a door grades goes through the same drills and the same FSRS store as
   the web, so a word answered on a widget is the word Üben schedules.
 
@@ -503,6 +513,51 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   so the claim waits for learners. Also open are compounds whose parts carry the
   line (*Hausnummer*: 170 nouns have both parts visible), and the Latinate half that
   rises toward C2.
+
+- **The exam room returns, and Lexi is silent** *(2026-11-26, at the owner's direction:
+  "Create testing space for Lexi, with telc/goethe styled practice quizzes and exams for
+  A1–C2. Remove all voice and audio modules until an open-source audio and voice model
+  exists.")*. **What it settles.** A fifth door, **Prüfung** (`#/exam`, `views/Exam.tsx`, a
+  lazy chunk): at every level, four short tests generated from the cards (meaning both
+  ways, der/die/das, a word in its own example sentence) and one full paper in the
+  published format — Goethe A1, A2, B2, C1 and C2, telc B1 — sat in *Übungsmodus*
+  (check each Teil as you go) or *Prüfungsmodus* (timed per block, nothing marked until
+  you hand in), with the letter and the oral self-assessed on the examiners' grids.
+  The six papers are the ones retired on 2026-09-05, restored from git with their tests.
+
+  *Why reverse a refusal that was argued.* The 2026-09-05 cut was right that a room
+  competes for the same twenty minutes, and it was right about what a session is. It
+  was wrong that a learner at a level has no business seeing what that level looks
+  like on paper — the formats, the timing, the 60% line both boards pass at. That is
+  information, and a vocabulary app that teaches to B1 can show it honestly. What made
+  the old room dishonest was never the papers; it was the **readiness read**, a
+  percentage that pretended to predict a result. It stays gone.
+
+  *The rules it keeps.* **Nothing here writes an FSRS card**: a quiz reports, a paper
+  scores, and a word missed in either reaches Üben only when the learner presses
+  *üben* or *merken*. **No exam date ranks anything** (2026-11-21). **Lexi still does
+  not answer *am I ready*** (Track E #10): a result is points on a paper written for
+  Lexi, against that paper's own scheme. **No board's material is reproduced**: the
+  structure, item counts, timing and mark schemes follow what telc and the
+  Goethe-Institut publish, every text is written for Lexi, and the room says Lexi is
+  affiliated with neither. Sittings and quiz bests ride the backup (`lexi.exam.v1`,
+  `lexi.quiz.v1`), because a letter the learner wrote is theirs.
+
+  *Lexi is silent.* Every voice left the app the same day (the refusal *A closed
+  voice*): pronunciation audio, Hören, *Practise aloud*, *Sag es*, the listen bar,
+  the ASR probe and the clip pipeline. So the papers are sat **without Hören**: the
+  runner sets no listening part, the cover says what is left out, and the result is
+  scored against what was sat, with every maximum and pass line scaled to it. Measured
+  by script this session: telc B1 is sat as 40 of its 60 items, out of 225 of 300, in
+  about 120 of 150 minutes; Goethe A1 as 15 of 30 items, out of 75 of 100. A listening
+  part read as a transcript would be a reading test wearing Hören's name, so there is
+  none. No FSRS row and no setting is deleted: `lexi.hdvoice.v1` and `lexi.sound.v1`
+  still ride the backup, inert, for the day a voice returns.
+
+  *Forbids:* a readiness percentage, an exam-date countdown, a paper text copied from
+  a Modellsatz, a listening part without an open voice, and any path from a test to a
+  schedule that is not a press. *Leaves open:* more than one paper a level, and which
+  open German voice to wait for (BACKLOG).
 
 ---
 
@@ -646,6 +701,11 @@ Silence was the worse option, because the app shows a CEFR letter and a lit-up l
 — it has made the claim whether or not it means to. `PathCard` now ends with one line:
 these letters count the words you have studied here, they are not an exam result, and
 Goethe's and telc's free *Modellsätze* are what can tell you.
+
+*Still ruled after 2026-11-26.* The exam room is back and it still does not answer the
+question: a sitting reports points on a paper written for Lexi, scaled to what was sat,
+beside the 60% line both boards pass at — and the room ends by sending the learner to the
+real Modellsätze.
 
 ---
 

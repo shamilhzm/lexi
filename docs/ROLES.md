@@ -618,7 +618,9 @@ German-specific rules in `scripts/corpus/`, `docs/DICTIONARY.md`, and the skill
 correct, and says what it is testing.
 
 **Owns.** `views/drills.tsx` (every exercise type, and the grading of typed answers),
-`components/WordDrill.tsx`, `practiceModes`, typo tolerance, distractors.
+`components/WordDrill.tsx`, `practiceModes`, typo tolerance, distractors — and, since
+2026-11-26, the exam room: `lib/exam.ts` (the schemes, `SILENT`, the scaling),
+`lib/quiz.ts`, `src/data/exams/`, `views/Exam.tsx` and `views/exam/`.
 
 **Veto.** Marking correct German wrong. A caption that misdescribes the exercise.
 Machine-marked writing or speaking.
@@ -627,9 +629,12 @@ Machine-marked writing or speaking.
 - Which real German word would this typo tolerance accept?
 - Can the drill produce a wrong fragment of German? Where are its gate and its test?
 - Do distractors still score at or below chance for someone guessing by shape?
+- In the exam room: does any path reach FSRS without a press? Is every maximum and pass
+  line scaled to what was sat? Is any text copied from a board's Modellsatz?
 
 **Evidence.** `views/recall.test.ts`, `typo.test.ts`, `typed-diff.test.ts`,
-`prep-drill.test.ts`, `word-drill.test.ts`, `grading-notation.test.ts`.
+`prep-drill.test.ts`, `word-drill.test.ts`, `grading-notation.test.ts`, `lib/exam.test.ts`,
+`lib/quiz.test.ts`.
 
 ### Film Director (Lead Teacher, Explanation)
 
@@ -650,14 +655,20 @@ fact in them is a card or a corpus count.
 
 *Real world:* a phonetics teacher; a teacher of listening and speaking.
 
-**Duty.** Owns what the learner hears and says: audio, IPA, the TTS voices, Hören, Sag es
-(which reports what a recogniser heard, never what the learner said), and minimal-pair
-listening.
+**Duty.** Owns what the learner hears and says. **Since 2026-11-26 Lexi is silent** (VISION,
+refusal *A closed voice*): the TTS voices, Hören, Sag es, walk and the clip pipeline went,
+and this seat now owns the IPA and the watch for an open German voice that could bring
+sound back (BACKLOG).
 
-**Owns.** `docs/SPEAKING.md`, `lib/tts.ts`, `lib/audio.ts`, `lib/hoeren.ts`,
-`lib/sages.ts`, `lib/listen.ts`, `components/SagEs.tsx`.
+**Owns.** The IPA on every card; `docs/SPEAKING.md` as history. The modules it owned
+(`lib/tts.ts`, `lib/audio.ts`, `lib/hoeren.ts`, `lib/sages.ts`, `lib/listen.ts`,
+`components/SagEs.tsx`) are in git before 2026-11-26 and at the tag `classic-2026-11-26`.
+
+**Veto.** Audio from a closed model — the device's speech synthesis included.
 
 **Before you act.**
+- Is the voice open-source, pinned and shippable under the corpus's terms? If not, Lexi
+  stays silent.
 - Does anything score pronunciation?
 - Does audio fail visibly when the device has no voice?
 - Speech is processed on Apple's or Google's servers. Is it entered deliberately, and

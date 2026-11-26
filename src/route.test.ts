@@ -89,9 +89,14 @@ describe('retired hashes still land', () => {
   // refocus. A learner who installed the PWA and pinned one of these must not get
   // Today with no explanation of where their link went.
   it('sends the retired drill rooms to Progress, where weaknesses now live', () => {
-    for (const h of ['#/library', '#/games', '#/practice', '#/exam', '#/print', '#/brain']) {
+    for (const h of ['#/library', '#/games', '#/practice', '#/print', '#/brain']) {
       expect(parseHash(h).view, h).toBe('progress');
     }
+  });
+
+  it('opens the exam room at #/exam again (2026-11-26)', () => {
+    expect(parseHash('#/exam').view).toBe('exam');
+    expect(parseHash('#/exam/telc-b1-01').view).toBe('exam');
   });
 
   it('sends #/read to the text scanner, which is what survived of it', () => {

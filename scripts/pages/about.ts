@@ -217,7 +217,7 @@ function kinCard(f: Facts, k: Kin): string {
     `<span class="kin-note">${esc(k.note)}</span></a></li>`;
 }
 
-export function renderAbout(f: Facts, opts: { fonts?: { fraunces?: string; mono400?: string; mono700?: string }; origin?: string } = {}): string {
+export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono400?: string; mono700?: string }; origin?: string } = {}): string {
   const words = roundedDown(f.words);
   const dictionary = roundedDown(f.dictionary);
   const origin = (opts.origin ?? PUBLIC_ORIGIN).replace(/\/+$/, '');
@@ -248,7 +248,7 @@ export function renderAbout(f: Facts, opts: { fonts?: { fraunces?: string; mono4
   </div>
   <div class="hero-gans">
     <p class="bubble" id="bubble" aria-live="polite"><span lang="de">„Hallo!“</span></p>
-    <button class="gans-btn" type="button" aria-describedby="bubble" aria-label="Gans the goose. Press her to hear her talk." data-lines="${esc(JSON.stringify(lines))}">${gans({ pose: 'stand', cls: 'big', talk: true })}</button>
+    <button class="gans-btn" type="button" aria-describedby="bubble" aria-label="Gans the goose. Press her and she talks." data-lines="${esc(JSON.stringify(lines))}">${gans({ pose: 'stand', cls: 'big', talk: true })}</button>
   </div>
 </section>`;
 
@@ -422,8 +422,8 @@ export function renderAbout(f: Facts, opts: { fonts?: { fraunces?: string; mono4
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#faf6e6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#282828" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16181d" media="(prefers-color-scheme: dark)">
 <title>Lexi · German, in dialogue with English</title>
 <meta name="description" content="Lexi is a free, open-source German vocabulary app for English speakers: ${esc(words)} machine-checked words, no account, no tracking. Meet Gans, the goose whose footprints are German quotation marks.">
 <meta property="og:type" content="website">
@@ -437,13 +437,13 @@ export function renderAbout(f: Facts, opts: { fonts?: { fraunces?: string; mono4
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="stylesheet" href="about.css">
-<style>${face('Fraunces', fonts.fraunces, '100 900', 'woff2-variations')}${face('IBM Plex Mono', fonts.mono400, '400')}${face('IBM Plex Mono', fonts.mono700, '700')}</style>
+<style>${face('Bricolage Grotesque', fonts.display, '200 800', 'woff2-variations')}${face('IBM Plex Mono', fonts.mono400, '400')}${face('IBM Plex Mono', fonts.mono700, '700')}</style>
 <script src="about.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the page</a>
 <header class="bar">
-  <a class="brand" href="./" aria-label="Lexi, open the app"><svg viewBox="0 0 150 150" aria-hidden="true"><rect width="150" height="150" rx="34" fill="#2b2b2b"/><rect x="52" y="40" width="20" height="72" rx="3" fill="#93c1c1"/><rect x="52" y="92" width="60" height="20" rx="3" fill="#93c1c1"/><rect x="88" y="40" width="20" height="22" rx="3" fill="#f39483"/></svg><span>Lexi</span></a>
+  <a class="brand" href="./" aria-label="Lexi, open the app"><svg viewBox="0 0 150 150" aria-hidden="true"><rect width="150" height="150" rx="36" fill="#16181f"/><rect x="46" y="34" width="24" height="80" rx="4" fill="#ffe45e"/><rect x="46" y="90" width="64" height="24" rx="4" fill="#ffe45e"/><rect x="86" y="34" width="24" height="24" rx="12" fill="#ff9466"/></svg><span>Lexi</span></a>
   <nav aria-label="On this page"><a href="#meet">Gans</a><a href="#shift">Cognates</a><a href="#how">The app</a></nav>
   <a class="open" href="./">Open the app <span aria-hidden="true">→</span></a>
 </header>
@@ -480,7 +480,7 @@ export function buildAbout(dist: string, facts = loadFacts()) {
   const find = (re: RegExp) => assets.find((f) => re.test(f));
   const html = renderAbout(facts, {
     fonts: {
-      fraunces: find(/^fraunces-var-.*\.woff2$/),
+      display: find(/^bricolage-grotesque-var-.*\.woff2$/),
       mono400: find(/^ibm-plex-mono-400-.*\.woff2$/),
       mono700: find(/^ibm-plex-mono-700-.*\.woff2$/),
     },

@@ -16,9 +16,9 @@
 //
 // The number at the top is the same meter the text scanner uses, so "known"
 // means one thing across the app. Names are looked up, not guessed, and leave it.
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
+import { useEffect, useMemo, useState, type KeyboardEvent, type MouseEvent } from 'react';
 import { AnimatePresence } from 'motion/react';
-import { ExternalLink, Volume2, Square, Check, Loader2, Headphones, Bookmark } from 'lucide-react';
+import { ExternalLink, Check, Loader2, Bookmark } from 'lucide-react';
 import Layer from '../Layer.tsx';
 import WordSheet, { type Picked } from './WordSheet.tsx';
 import Respond from './Respond.tsx';
@@ -33,7 +33,6 @@ import { markRead, isRead, saveFromArticle } from '../../lib/news/library.ts';
 import { namesIn } from '../../lib/news/names.ts';
 import { sentenceSpanAt, wordCount, ago } from '../../lib/news/text.ts';
 import { cleanPaste } from '../../lib/matcher.ts';
-import { readAloud } from '../../lib/news/voice.ts';
 import { isSaved } from '../../store.ts';
 import { useStore } from '../../useStore.ts';
 import { fmt, haptic } from '../../lib/ui.ts';
@@ -60,14 +59,12 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
   const [picked, setPicked] = useState<(Picked & { key: string }) | null>(null);
   const [entry, setEntry] = useState<Word | null>(null);
   const [drill, setDrill] = useState<Word | null>(null);
-  const [speaking, setSpeaking] = useState(-1);
-  const stopRef = useRef<(() => void) | null>(null);
   const [done, setDone] = useState(() => isRead(article.id));
 
   useEffect(() => {
     let live = true;
     loadBody(article).then((b) => { if (live) setBody(b ?? 'failed'); }).catch(() => { if (live) setBody('failed'); });
-    return () => { live = false; stopRef.current?.(); };
+    return () => { live = false; };
   }, [article]);
 
   const paras = useMemo(() => (body !== 'loading' && body !== 'failed' ? body.paras : []), [body]);
@@ -139,11 +136,6 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
     if (next) { el.tabIndex = -1; next.tabIndex = 0; next.focus(); }
   };
 
-  const toggleAloud = () => {
-    if (speaking >= 0) { stopRef.current?.(); stopRef.current = null; return; }
-    stopRef.current = readAloud(paras.map((p) => p.text), setSpeaking);
-  };
-
   return (
     <>
       <Layer side="right" label={article.title} back="Wörter" onClose={onClose}>
@@ -183,21 +175,6 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
             </div>
           )}
 
-          {paras.length > 0 && (
-            article.audio ? (
-              <div className="mt-4">
-                <p className="text-xs text-dim flex items-center gap-1.5 mb-1.5"><Headphones size={13} /> Read slowly by DW. Listen while you read</p>
-                {/* eslint-disable-next-line jsx-a11y/media-has-caption -- the captions are the page: DW's audio is a reading of exactly the text below. */}
-                <audio controls preload="none" src={article.audio} className="w-full" />
-              </div>
-            ) : (
-              <button onClick={toggleAloud}
-                className="tap-44 mt-4 inline-flex items-center gap-2 rounded-full glass px-4 h-10 text-sm font-semibold active:scale-95 transition">
-                {speaking >= 0 ? <><Square size={12} /> Stop reading</> : <><Volume2 size={15} className="text-accent" /> Read it to me</>}
-              </button>
-            )
-          )}
-
           {body === 'loading' && <p className="mt-6 flex items-center gap-2 text-sm text-dim"><Loader2 size={14} className="animate-spin" /> Fetching the article…</p>}
           {body === 'failed' && (
             <p className="mt-6 text-sm text-dim">
@@ -215,7 +192,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
               {paras.map((p, pi) => (p.kind === 'h'
                 ? <h3 key={pi} className="headword text-xl font-bold mt-2 leading-snug">{renderTokens(paraCovs[pi], pi, picked?.key)}</h3>
                 : (
-                  <p key={pi} className={`transition-colors ${speaking === pi ? 'border-l-2 border-accent pl-3 -ml-3.5' : ''}`}>
+                  <p key={pi}>
                     {renderTokens(paraCovs[pi], pi, picked?.key)}
                   </p>
                 )))}

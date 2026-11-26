@@ -103,7 +103,12 @@ cheap the first time and invisible the second.
   `--list` prints the uncited rows with their sentence ids — the input a credit pass
   needs. **Open: give every one its link** (CHANGELOG, *Panel review*, left open).
 
-### 3b. Tatoeba audio — human recordings of example sentences
+### 3b. Tatoeba audio — human recordings of example sentences *(retired 2026-11-26)*
+
+> **Lexi is silent** (VISION, *A closed voice*). `audio.json`, `corpus:audio` and the
+> player went on 2026-11-26, so nothing below is fetched or played any more. Kept as
+> the record of how the obligation was met, for the day audio returns.
+
 - **URL:** https://downloads.tatoeba.org/exports/sentences_with_audio.tar.bz2
 - **License:** **per recording, chosen by the contributor.** This is the only
   source here without a single corpus-wide licence, and Tatoeba's download page
@@ -257,12 +262,12 @@ publisher gives a credit.
 |---|---|---|
 | **tagesschau** (ARD-aktuell) — `tagesschau.de/api2u` | lists, article text, teaser images | "Die Nutzung der Inhalte für den privaten, nicht-kommerziellen Gebrauch ist gestattet, die Veröffentlichung hingegen nicht" (bundesAPI/tagesschau-api README); max 60 requests/hour — enforced client-side at 45 (`lib/news/feed.ts`). **Re-read before Lexi ever charges money.** |
 | **SRF** — public RSS + article pages | lists, article text, images | Public feeds and pages, read in place for private reading and linked back; not republished. |
-| **DW** — *Langsam gesprochene Nachrichten* | transcript, mp3 (played from DW's server), image | DW's free learner programme; read and played in place, linked back; not republished. |
+| **DW** — *Langsam gesprochene Nachrichten* | transcript, image | DW's free learner programme; read in place, linked back; not republished. The mp3 has not been played since 2026-11-26 (Lexi is silent). |
 | **heise online** — public Atom feed | headlines, teasers, images | The full article stays on heise.de; the reader links to it. |
 | **de.wiktionary** — MediaWiki API, `prop=categories` | whether a capitalised word is a name | Category membership only; CC BY-SA 4.0 content is not stored or shown. Word *meanings* come from the shipped offline lexicon (source 2). |
-| **Tatoeba** — `tatoeba.org/audio/download/<id>` | a recording, on first play | Per-recording licence, allow-listed (source 3b); cached on the device. |
-| **The HD voice** — `cdn.jsdelivr.net` (vits-web 1.0.3), `cdnjs.cloudflare.com` (onnxruntime-web), `huggingface.co` (the Piper voice) | the speech engine and the Thorsten voice, once, when the learner turns it on | Loaded, not redistributed: Lexi's repo and build contain none of it. The hosts were read from the library's own source on 2026-09-25 — **a CSP must allow all three**, not only jsDelivr. |
-| **Speech recognition** — the browser's own (Apple for Safari, Google for Chrome) | the learner's recording | Disclosed before the first recording (`Respond.tsx`, `SagEs.tsx`). |
+| ~~**Tatoeba** — `tatoeba.org/audio/download/<id>`~~ | *retired 2026-11-26* | Nothing is fetched since Lexi went silent (source 3b). |
+| ~~**The HD voice** — jsDelivr, cdnjs, Hugging Face~~ | *retired 2026-11-26* | The Piper engine and voice are no longer loaded; the CSP no longer needs the three hosts. |
+| ~~**Speech recognition** — the browser's own~~ | *retired 2026-11-26* | Lexi never opens the microphone. |
 
 Every one of these is named, with what it sends, on the learner-facing page
 [`public/legal.html`](public/legal.html); `src/lib/legal-page.test.ts` fails when a
@@ -315,7 +320,7 @@ changes. The output is labelled as AI wherever it is shown.
   claimed); the batch manifest `scripts/corpus/picto/pilot-01.meta.json` (author model,
   grammar, prompt, date) beside the per-asset rows and the blind-recognition record; and
   *AI-drawn* where the learner meets them (the full entry, and the legal page).
-- **Walk mode's audio is not shipped media.** It is synthesised on the learner's device
+- *(Retired 2026-11-26, with every voice: kept as history.)* **Walk mode's audio is not shipped media.** It is synthesised on the learner's device
   from the words on the walk, with Piper "Thorsten" (German; Thorsten-Voice, CC0) and
   Piper "Cori" (English; trained on public-domain LibriVox recordings). Nothing is
   redistributed; both voices are named as synthetic on the legal page.

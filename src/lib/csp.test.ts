@@ -1,12 +1,13 @@
 // The Content-Security-Policy in vercel.json, held to the code it has to allow.
 //
 // Why there is one at all *(panel review, 2026-09-25)*: the tutor's key lives in
-// localStorage (`lib/ai.ts`) and the HD voice is a runtime import from jsDelivr
-// (`lib/tts.ts`). Production sent no CSP, so any injected script — or any
+// localStorage (`lib/ai.ts`) and the HD voice was a runtime import from jsDelivr.
+// Production sent no CSP, so any injected script — or any
 // compromise of a CDN package — could read the key and post it anywhere. The
 // policy pins scripts to this origin, the one inline block in index.html (by
-// hash) and the two CDNs the voice needs, and pins `connect-src` to the hosts the
-// app actually talks to.
+// hash), and pins `connect-src` to the hosts the app actually talks to. Since
+// 2026-11-26 Lexi is silent (VISION): the voice, its two CDNs, WebAssembly and every
+// media source went, and the policy says so — `media-src 'none'`.
 //
 // Why it is tested: a CSP fails *silently in production* — the theme script stops
 // running, a story source stops loading, the voice hangs — and none of that shows
@@ -75,14 +76,13 @@ describe('the Content-Security-Policy', () => {
   it('lets the app reach every host its code fetches from', () => {
     // The files that hold the app's network destinations. Link-only hosts (DeepL,
     // GitHub, the classic build) are navigations, which connect-src does not govern.
-    const files = ['src/lib/news/sources.ts', 'src/lib/wiktionary.ts', 'src/lib/audio.ts', 'src/lib/ai.ts'];
+    const files = ['src/lib/news/sources.ts', 'src/lib/wiktionary.ts', 'src/lib/ai.ts'];
     const connect = directive('connect-src');
     for (const origin of new Set(files.flatMap(originsIn))) {
       expect(allows(connect, origin), `connect-src does not allow ${origin}`).toBe(true);
     }
-    // Implicit ones: the DW articles an RSS item links to, and where the Piper
-    // voice model redirects.
-    for (const origin of ['https://learngerman.dw.com', 'https://huggingface.co', 'https://us.aws.cdn.hf.co']) {
+    // Implicit: the DW articles an RSS item links to.
+    for (const origin of ['https://learngerman.dw.com']) {
       expect(allows(connect, origin), `connect-src does not allow ${origin}`).toBe(true);
     }
   });
@@ -97,12 +97,14 @@ describe('the Content-Security-Policy', () => {
     }
   });
 
-  it('lets the HD voice load its code', () => {
+  it('is silent: no script CDN, no WebAssembly, no media (VISION, 2026-11-26)', () => {
     const script = directive('script-src');
-    for (const origin of originsIn('src/lib/tts.ts')) {
-      expect(allows(script, origin), `script-src does not allow ${origin}`).toBe(true);
+    expect(script.filter((s) => s.startsWith('https:') || s.startsWith('https://'))).toEqual([]);
+    expect(script).not.toContain("'wasm-unsafe-eval'");
+    expect(directive('media-src')).toEqual(["'none'"]);
+    for (const origin of ['https://huggingface.co', 'https://cdn.jsdelivr.net', 'https://tatoeba.org']) {
+      expect(allows(directive('connect-src'), origin), `connect-src still allows ${origin}`).toBe(false);
     }
-    expect(script).toContain("'wasm-unsafe-eval'");
   });
 
   it('caches hashed assets for a year, and nothing else', () => {

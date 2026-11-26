@@ -159,7 +159,8 @@ A seat in **bold** holds a veto on that row.
 | The feed (`views/Feed.tsx`, `lib/feedSlots.ts`, exposures) | Principal · **Learning Scientist** · Product Designer | — |
 | The course or a film (`data/course.ts`, `src/films/`, `Kurs.tsx`) | Head of Curriculum · Film Director · **Head of German** | skill `lexi-film-authoring` |
 | Stories, the dictionary layer, search, the text scanner | Librarian · Product Designer · **Legal & Licensing** | — |
-| Audio, IPA, speech, Hören, Sag es | Speech & Listening Teacher · **Safeguarding & DPO** | `docs/SPEAKING.md` |
+| Audio, IPA, speech — Lexi is silent since 2026-11-26, so any sound is a VISION change | Speech & Listening Teacher · **Safeguarding & DPO** · Legal & Licensing | VISION, refusal *A closed voice* |
+| The exam room (`views/Exam.tsx`, `views/exam/`, `lib/exam.ts`, `lib/quiz.ts`, `data/exams/`) | **Assessment Lead** · Head of German · Legal & Licensing · Learning Scientist | VISION, *The exam room returns* |
 | The tutor (`lib/ai.ts`, `api/tutor.ts`) | Teaching Assistant · **Safeguarding & DPO** · Security Officer · Bursar | — |
 | Any words a learner reads in the interface | UX Writer · Classroom Teacher · **Clerk** if it states a number or a competence | — |
 | Anything visual: layout, motion, gesture | Creative Director · **Product Designer** · Inclusion Lead · Lesson Study Lead | skill `lexi-persona-drive` |

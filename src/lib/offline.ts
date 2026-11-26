@@ -24,7 +24,7 @@
 // the words, **4.40 MB** for the dictionary (19.8 MB once stored). The first labels
 // on the buttons said 2 and 29, which were a guess and a `du`.
 //
-// The voice is not here: it has its own switch in Settings and its own 75 MB.
+// No audio: Lexi is silent until an open-source German voice exists (VISION, 2026-11-26).
 
 export interface OfflineOptions { dictionary: boolean }
 export interface OfflineProgress { done: number; total: number }
@@ -52,7 +52,6 @@ export function offlineUrls(base: string, opts: OfflineOptions & { shards?: numb
     `${d}inflections.json`,
     `${d}provenance.json`,
     `${d}transfer.json`,
-    `${d}audio.json`,
     ...PICTO.map((f) => `${d}picto/${f}`),
     `${d}lex/index.json`,
   ];

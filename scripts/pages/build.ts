@@ -179,22 +179,22 @@ export function renderSitemap(origin: string, base: string, slugs: string[]): st
 
 /** One stylesheet for every page: the card box's tokens, both themes, the display
  *  serif from the app's own hashed font file. */
-export function renderCss(base: string, fraunces?: string): string {
-  const face = fraunces ? `@font-face{font-family:"Fraunces";src:url("${base}assets/${fraunces}") format("woff2-variations");font-weight:100 900;font-display:swap}` : '';
+export function renderCss(base: string, display?: string): string {
+  const face = display ? `@font-face{font-family:"Bricolage Grotesque";src:url("${base}assets/${display}") format("woff2-variations");font-weight:200 800;font-display:swap}` : '';
   return `${face}
-:root{--bg:#faf6e6;--card:#fff;--line:#e0dac5;--txt:#2b2b2b;--dim:#5c5850;--accent:#2c6b6b;--key:#93c1c1;--key-ink:#2b2b2b;--der:#2a55d6;--die:#be185d;--das:#0d6e66;color-scheme:light dark}
-@media (prefers-color-scheme:dark){:root{--bg:#282828;--card:#393939;--line:#4a4a48;--txt:#f0ebe1;--dim:#bab4a8;--accent:#93c1c1;--der:#8db0ff;--die:#f58cc0;--das:#5fd6c6}}
+:root{--bg:#f4f1e8;--card:#fff;--line:#d9d3c2;--txt:#16181f;--dim:#4d4f58;--accent:#2b3ea6;--key:#ffe45e;--key-ink:#16181f;--der:#0b5fa8;--die:#b4235f;--das:#0b6b58;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#16181d;--card:#252830;--line:#353943;--txt:#efebe0;--dim:#b0ada5;--accent:#aebbff;--der:#7cc0ff;--die:#ff8fbf;--das:#62d6b4}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--txt);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 a{color:var(--accent)}
 .bar{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;max-width:44rem;margin:0 auto;padding:18px 16px 4px}
-.mark{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:22px;color:var(--txt);text-decoration:none}
+.mark{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:22px;color:var(--txt);text-decoration:none}
 .tag{color:var(--dim);font-size:13px}
 main{max-width:44rem;margin:0 auto;padding:8px 16px 24px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:16px 0;box-shadow:0 1px 2px rgb(0 0 0/.04),0 8px 24px -12px rgb(0 0 0/.12)}
 .kicker{font:600 11px/1.4 ui-monospace,"SFMono-Regular",Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:0}
-.hw{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto;font-weight:600;font-size:clamp(34px,8vw,48px);line-height:1.1;letter-spacing:-.01em;margin:8px 0 4px;overflow-wrap:anywhere}
+.hw{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-optical-sizing:auto;font-weight:700;font-size:clamp(34px,8vw,48px);line-height:1.1;letter-spacing:-.01em;margin:8px 0 4px;overflow-wrap:anywhere}
 .g-der{color:var(--der)}.g-die{color:var(--die)}.g-das{color:var(--das)}
 .gloss{font-size:20px;margin:4px 0 12px}
 .facts{display:flex;flex-wrap:wrap;gap:8px 28px;margin:0 0 12px}
@@ -224,7 +224,7 @@ export function buildPages(dist: string, cards: PageCard[], opts: { base: string
   rmSync(out, { recursive: true, force: true });
   mkdirSync(out, { recursive: true });
   const assets = existsSync(join(dist, 'assets')) ? readdirSync(join(dist, 'assets')) : [];
-  writeFileSync(join(out, 'pages.css'), renderCss(opts.base, assets.find((f) => /^fraunces-var-.*\.woff2$/.test(f))));
+  writeFileSync(join(out, 'pages.css'), renderCss(opts.base, assets.find((f) => /^bricolage-grotesque-var-.*\.woff2$/.test(f))));
   const label = (s: string) => pages.get(s)![0].term;
   slugs.forEach((s, i) => {
     const ctx: Ctx = {

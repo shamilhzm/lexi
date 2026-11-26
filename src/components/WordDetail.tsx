@@ -22,7 +22,7 @@ import { showsGermanDefs } from '../views/Review.tsx';
 import { placementLevel, isSaved, toggleSaved } from '../store.ts';
 import { haptic } from '../lib/ui.ts';
 import { WORDS } from '../data/index.ts';
-import { GenderTerm, SpeakButton, RevealBlock, ExampleList, TermList, FalseFriendNote, TransferNote, CardSource } from './Reveal.tsx';
+import { GenderTerm, RevealBlock, ExampleList, TermList, FalseFriendNote, TransferNote, CardSource } from './Reveal.tsx';
 import Picto from './Picto.tsx';
 import Kicker from './ui/Kicker.tsx';
 import ReportFlag from './ReportFlag.tsx';
@@ -63,17 +63,13 @@ export default function WordDetail({ word, onClose, onPractise, beside }: {
             rather than as a different page about it. */}
         <div className="text-center">
           <Picto id={word.id} size={120} className="mb-2" caption="AI-drawn" />
-          <GenderTerm term={word.term} gender={word.gender} fit
+          <GenderTerm term={word.term} gender={word.gender} swash fit
             className="headword hw-entry font-bold leading-tight" />
-          <div className="mt-3 flex items-center justify-center">
-            {word.ipa && (
-              <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1.5">
-                <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>
-                <SpeakButton text={word.term} />
-              </span>
-            )}
-            {!word.ipa && <SpeakButton text={word.term} />}
-          </div>
+          {word.ipa && (
+            <p className="mt-3 flex items-center justify-center">
+              <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>
+            </p>
+          )}
           <p className="mt-3.5 text-lg leading-snug">
             {!(word.pos === "noun" && word.gender) && <span className="text-dim">({word.pos}) </span>}{word.en}
           </p>

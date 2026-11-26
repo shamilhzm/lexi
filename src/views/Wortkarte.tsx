@@ -11,11 +11,9 @@
 //     phone and not the drawing; since 2026-11-14 it is cut to the drawing (see
 //     `WIDE` below).
 import { useMemo, useState } from 'react';
-import { Volume2 } from 'lucide-react';
 import { WORDS_BY_SECTOR, SECTORS } from '../data/index.ts';
 import { statusOf } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { speak } from '../lib/tts.ts';
 import { conceptForSector, conceptPaths, SHOW_ILLUSTRATIONS } from '../lib/illustration.tsx';
 import Card from '../components/ui/Card.tsx';
 import { useIsNarrow } from '../lib/useMedia.ts';
@@ -203,9 +201,9 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
             <g key={n.w.id} className="node-in"
               style={{ cursor: 'pointer' }}
               role="button" tabIndex={0}
-              aria-label={`${n.w.term}, ${n.w.en}. ${STATUS_LABEL[st]}. Activate to hear it.`}
-              onClick={() => { setActive(n.w.id); speak(n.w.term); }}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(n.w.id); speak(n.w.term); } }}>
+              aria-label={`${n.w.term}, ${n.w.en}. ${STATUS_LABEL[st]}.`}
+              onClick={() => setActive(n.w.id)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(n.w.id); } }}>
               <circle cx={n.x} cy={n.y} r={n.r} fill="var(--color-panel)" stroke={STATUS_COLOR[st]} strokeWidth={on ? 2.5 : 1.4} />
               <text lang="de" x={n.x} y={n.gloss ? n.y - 1 : n.y + L.term * 0.35} textAnchor="middle"
                 fill="var(--color-txt)" fontSize={L.term} fontWeight={600}>{n.term}</text>
@@ -216,8 +214,7 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
       </svg>
 
       <div className="px-4 py-2.5 border-t border-line text-2xs text-dim flex items-center gap-2" role="status" aria-live="polite">
-        {active ? <ActiveInfo id={active} /> : <span>Node = word · line to centre = sector · line between nodes = synonym. Tap a node to hear it.</span>}
-        <Volume2 size={13} className="ml-auto text-accent flex-shrink-0" />
+        {active ? <ActiveInfo id={active} /> : <span>Node = word · line to centre = sector · line between nodes = synonym. Tap a node to see it.</span>}
       </div>
     </Card>
   );

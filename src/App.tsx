@@ -39,7 +39,6 @@ import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 're
 import TopBar from './components/TopBar.tsx';
 import BottomNav from './components/BottomNav.tsx';
 import SavedWords from './components/SavedWords.tsx';
-import WalkLayer from './components/WalkLayer.tsx';
 import { AnimatePresence, MotionConfig } from 'motion/react';
 import Review from './views/Review.tsx';
 import Feed, { forgetFeedPosition } from './views/Feed.tsx';
@@ -60,24 +59,20 @@ const SearchSheet = lazy(loadSearch);
 // The text scanner. Opened deliberately and rarely, and it pulls the whole
 // matcher — no business on the boot path.
 const TextGaps = lazy(() => import('./views/TextGaps.tsx'));
+// The exam room (2026-11-26): its papers are a lazy chunk of their own, so a learner
+// who never sits one never downloads one.
+const Exam = lazy(() => import('./views/Exam.tsx'));
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
 import { useStore } from './useStore.ts';
-import { primeVoices } from './lib/ui.ts';
-import { loadAudioManifest } from './lib/audio.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseGateHash } from './lib/tuer.ts';
 import { parseHash, parseWordHash, toHash, hashWrite, knownRoute, type Route, type WordsRoute } from './route.ts';
 import { GROUPS, SECTORS, BY_ID } from './data/index.ts';
 import { ID_MAP } from './data/idmap.ts';
-import SagEs from './components/SagEs.tsx';
-import { FOCUS } from './lib/focus.ts';
-import ListenBar, { LISTEN_BAR_SPACE } from './components/ListenBar.tsx';
-import ListenSheet from './components/ListenSheet.tsx';
-import { useHoeren, start as startHoeren, stop as stopHoeren } from './lib/hoeren.ts';
 import type { Target, Word } from './types.ts';
 
-export type View = 'feed' | 'session' | 'words' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
+export type View = 'feed' | 'session' | 'words' | 'exam' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 /** What a scoped session's Back arrow names, by the surface that opened it. */
 const BACK_TO: Partial<Record<View, string>> = {
@@ -117,21 +112,6 @@ export default function App() {
   // Local state rather than a route: it is a scoped exercise set, which is not a
   // linkable thing, and it is always entered from the surface that motivated it.
   const [drill, setDrill] = useState<Mode | null>(null);
-  // `Sag es`, the pronunciation game. Local state for the same reason `drill` is:
-  // it is a scoped run rather than a linkable place, and it is always entered from
-  // the surface that offered it. It is *not* a route on purpose — a link that opens
-  // the microphone is a link that should not exist.
-  //
-  // `?game=1` in dev opens it directly. The game cannot be reached without finishing
-  // a session, which makes it the most expensive thing in the app to get to on a
-  // phone — and driving it on a phone is the only way to test it, because the
-  // browser pane runs hidden and `requestAnimationFrame` is suspended there, so the
-  // track never moves. `import.meta.env.DEV` folds to `false` at build time and the
-  // whole expression goes with it; `greppable.test.ts` guards that.
-  const [game, setGame] = useState(() =>
-    FOCUS.speaking && import.meta.env.DEV && new URLSearchParams(location.search).has('game'));
-  // Nothing offers the game while speaking is out of focus (lib/focus.ts).
-  const openGame = FOCUS.speaking ? () => setGame(true) : undefined;
   // Bumped by every `go()`. It is part of the route container's key, so tapping
   // the tab you are already on remounts that destination — which is how a tab bar
   // is expected to behave, and on *Lernen* it is also how you rebuild the day's
@@ -156,28 +136,8 @@ export default function App() {
   // A Back that goes somewhere you never were is a second way to get lost.
   // Cleared by every tab press: a tab is a fresh place, not a return.
   const [origin, setOrigin] = useState<View | null>(null);
-  // Practise aloud (walk mode) is a layer, not a route, for the same reason search
-  // is: it starts from wherever you are. `?walk` still opens it, for home screens
-  // that kept the old "Start a walk" shortcut.
-  const [showWalk, setShowWalk] = useState(() =>
-    typeof location !== 'undefined' && new URLSearchParams(location.search).has('walk'));
-  // Hören — German in the background (lib/hoeren.ts). The top bar's button starts
-  // it in one tap; the sheet is for length, looping, the one-time voice download
-  // and Practise aloud. `?listen` opens the sheet — sound cannot start before a tap.
-  const hoeren = useHoeren();
-  const [showListen, setShowListen] = useState(() =>
-    typeof location !== 'undefined' && new URLSearchParams(location.search).has('listen'));
-  const listening = hoeren.phase !== 'idle' && hoeren.phase !== 'consent';
-  // First time only: the voices have to download, and that is asked, not assumed —
-  // so a programme waiting on consent opens the sheet, and closing it declines.
-  const listenSheet = showListen || hoeren.phase === 'consent';
-  const closeListen = () => { setShowListen(false); if (hoeren.phase === 'consent') stopHoeren(); };
-  const listen = () => {
-    if (hoeren.phase === 'idle' || hoeren.phase === 'error') startHoeren();
-    else setShowListen(true);
-  };
 
-  useEffect(() => { recordVisit(); recordSnapshot(); primeVoices(); }, []);
+  useEffect(() => { recordVisit(); recordSnapshot(); }, []);
 
   // ---- the bars materialise -------------------------------------------------
   // `data-scrolled` on <html>, read by `.glass-bar` in index.css.
@@ -268,10 +228,6 @@ export default function App() {
     };
   }, []);
 
-  // The human-audio manifest is a small id list; loading it at boot lets cards
-  // decide synchronously whether to show the "real voice" marker. A missing file
-  // resolves to an empty manifest, so this can never block or fail the app.
-  useEffect(() => { loadAudioManifest(); }, []);
   // Examples and definitions used to be fetched here, all 857 KB gzipped of them,
   // on every first visit. They are six files now — one per CEFR level — and the
   // surfaces that need them ask for the ones they are about to show: the feed for
@@ -442,7 +398,6 @@ export default function App() {
       <TopBar
         view={view} onGo={go}
         onSearch={() => setSearching(true)}
-        onListen={listen} listening={listening}
         onSaved={() => setShowSaved(true)}
         onProfile={() => go('profile')}
         name={profileName()} level={placementLevel()} streak={streak()}
@@ -472,9 +427,7 @@ export default function App() {
           // seat the capsule; if they disagree, content scrolls to a stop in the
           // wrong place.
           ['--bar-t' as string]: 'calc(56px + env(safe-area-inset-top))',
-          // Hören's mini-player is chrome too: while it is up, the bottom clearance
-          // grows by its height (components/ListenBar.tsx).
-          ['--bar-b' as string]: listening ? `calc(${BAR_B} + ${LISTEN_BAR_SPACE})` : BAR_B,
+          ['--bar-b' as string]: BAR_B,
         }}>
         <main id="main" tabIndex={-1} ref={mainRef}
           onScroll={(e) => { offsets.current.set(livePlace.current, e.currentTarget.scrollTop); }}
@@ -505,18 +458,16 @@ export default function App() {
               // route is a document that should size to its content — and on a short
               // viewport this still overflows once the card hits its 260px floor,
               // which is the right order to give up in.
-              : `route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] ${listening ? 'md:pb-24' : 'md:pb-6'}${
+              : `route-in max-w-[1280px] w-full mx-auto flex flex-col px-3 sm:px-5 py-4 pb-[var(--bar-b)] md:pb-6${
                   view === 'session' ? ' min-h-full' : ''}`}>
               {/* Keyed on where you are inside Themen too: Back from a broken course page
                   to the deck list kept showing the error (2026-11-20). */}
-              <ErrorBoundary resetKey={`${view}:${words.level}:${words.group ?? ''}:${words.sector ?? ''}:${words.course ?? ''}:${drill ?? ''}:${game ? 'game' : ''}`}>
-                {game
-                  ? <SagEs onExit={() => setGame(false)} />
-                  : drill
+              <ErrorBoundary resetKey={`${view}:${words.level}:${words.group ?? ''}:${words.sector ?? ''}:${words.course ?? ''}:${drill ?? ''}`}>
+                {drill
                   ? <Drill mode={drill} onExit={() => setDrill(null)} />
                   : <>
                     {view === 'feed' && <Feed onStartFirstRun={startFirstRun} onSettings={() => go('settings')}
-                      onStudy={study} onListen={listen} />}
+                      onStudy={study} />}
                     {view === 'session' && (
                       <Review
                         target={target} firstRun={guided}
@@ -530,11 +481,10 @@ export default function App() {
                         onPick={() => go('words')}
                         onBack={origin && BACK_TO[origin] ? () => returnTo(origin) : undefined}
                         backTo={origin ? BACK_TO[origin] : undefined}
-                        onGame={openGame}
                         onProfile={() => go('profile')}
                       />
                     )}
-                    {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} onText={() => go('text')} onGame={openGame} />}
+                    {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} onText={() => go('text')} />}
                     {/* The heatmap is a map *of the corpus*, so its drill-down lands in
                         the corpus rather than one level further into a stats page. An
                         empty group name means "the index" — the browse-everything row
@@ -543,6 +493,11 @@ export default function App() {
                       <Progress onStudy={study} onDrill={setDrill} onPlacement={() => go('placement')}
                         onOpenGroup={(g) => { setWords(g ? { level: 'group', group: g } : { level: 'index' }); setView('words'); }}
                         onCourse={(l) => { setWords({ level: 'kurs', course: l }); setView('words'); }} />
+                    )}
+                    {view === 'exam' && (
+                      <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
+                        <Exam onStudy={study} />
+                      </Suspense>
                     )}
                     {view === 'text' && (
                       <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
@@ -567,7 +522,6 @@ export default function App() {
             Inert itself — `pointer-events-none` — so nothing here can swallow a
             tap meant for the tab bar when no layer is open. */}
         <div id="layer-root" className="absolute inset-0 z-40 pointer-events-none" />
-        <ListenBar onOpen={() => setShowListen(true)} />
         <BottomNav view={view} onGo={go} />
       </div>
 
@@ -578,11 +532,7 @@ export default function App() {
         </Suspense>
       )}
       <AnimatePresence>
-        {showSaved && <SavedWords key="saved" onClose={() => setShowSaved(false)} onStudy={study}
-          onListen={() => { setShowSaved(false); listen(); }} />}
-        {listenSheet && <ListenSheet key="listen" onClose={closeListen}
-          onPractise={() => { closeListen(); setShowWalk(true); }} />}
-        {showWalk && <WalkLayer key="walk" onClose={() => setShowWalk(false)} />}
+        {showSaved && <SavedWords key="saved" onClose={() => setShowSaved(false)} onStudy={study} />}
       </AnimatePresence>
     </div>
     </MotionConfig>

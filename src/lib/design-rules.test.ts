@@ -65,8 +65,6 @@ const FADED_INK = /(?<![\w:-])(?:text-[a-z0-9-]+\/\d{1,2}(?!\d)|opacity-[1-9]\d?
  *  cannot outlive the code it excuses. */
 const FADE_ALLOWED: [file: string, fragment: string, why: string][] = [
   ['src/components/film/FilmPlayer.tsx', "canNext ? '' : 'opacity-40'", 'a disabled control; WCAG exempts inactive components'],
-  ['src/components/Reveal.tsx', 'text-dim/50', 'the aria-disabled speaker shown when no German voice is installed'],
-  ['src/components/SagEs.tsx', 'gap-4 opacity-45" aria-hidden', 'the words still to come, shown in full when they arrive (speaking is off under Focus)'],
 ];
 
 describe('ink is never faded below the pair it was tested as (DESIGN §2)', () => {

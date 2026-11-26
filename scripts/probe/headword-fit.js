@@ -5,8 +5,9 @@
 // console of the running app (`npm run dev`, any route) and read the object it
 // returns. It draws nothing and changes nothing.
 //
-// **Measure at the size the word is set.** Fraunces has an optical-size axis and
-// is 16–17% wider per em at 34–46px than at 100px. The first run of this probe
+// **Measure at the size the word is set.** The display face has an optical-size
+// axis (Fraunces was 16–17% wider per em at 34–46px than at 100px; Bricolage,
+// since 2026-11-26, narrows as it grows). The first run of this probe
 // used 100px and reported 273 feed headwords; the answer at the real size was 758.
 //
 // The measures are what a 390pt iPhone gives each surface (read off the DOM on
@@ -21,10 +22,11 @@
   const strip = (t) => t.replace(/^(der|die|das)\s+/i, '');
   const tokens = [...new Set(cards.flatMap((c) => strip(c.term).split(/\s+/)))];
   const ctx = document.createElement('canvas').getContext('2d');
-  const font = async (px) => { await document.fonts.load(`700 ${px}px Fraunces`); ctx.font = `700 ${px}px Fraunces`; };
+  const FACE = '"Bricolage Grotesque"', WEIGHT = 700;   // `.headword` in index.css
+  const font = async (px) => { await document.fonts.load(`${WEIGHT} ${px}px ${FACE}`); ctx.font = `${WEIGHT} ${px}px ${FACE}`; };
 
   // -- how many break --------------------------------------------------------
-  const TRACKING = -0.01;   // `.headword { letter-spacing }`
+  const TRACKING = -0.02;   // `.headword { letter-spacing }`
   const over = async (measure, px) => {
     await font(px);
     return cards.filter((c) => Math.max(...strip(c.term).split(/\s+/)
@@ -52,5 +54,5 @@
     }
     error.push(`${px}px: browser/estimate ${lo.toFixed(4)}–${hi.toFixed(4)}`);
   }
-  return { cards: cards.length, fontLoaded: document.fonts.check('700 40px Fraunces'), counts, error, advance: JSON.stringify(advance) };
+  return { cards: cards.length, fontLoaded: document.fonts.check(`${WEIGHT} 40px ${FACE}`), counts, error, advance: JSON.stringify(advance) };
 })();

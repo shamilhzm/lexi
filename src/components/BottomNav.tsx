@@ -59,7 +59,7 @@ export default function BottomNav({ view, onGo }: {
             return (
               <button key={n.id} onClick={() => onGo(n.id)} aria-current={active ? 'page' : undefined}
                 className={`relative flex-1 flex flex-col items-center justify-center gap-0.5 h-full min-w-0 px-0.5 transition-colors ${
-                  active ? 'text-accent' : 'text-dim active:text-txt'}`}>
+                  active ? 'text-key-ink' : 'text-dim active:text-txt'}`}>
                 {/* The active tab was signalled by colour and stroke weight alone.
                     A shared-layout rule slides between tabs, so the change reads
                     as one object moving rather than two colour flips. */}
@@ -72,19 +72,16 @@ export default function BottomNav({ view, onGo }: {
                 {active && (
                   <motion.span layoutId="bottomnav-active" aria-hidden
                     transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 480, damping: 38 }}
-                    // Opaque, not `/80`. The pill is the active tab's *plate*: it is what stops
-                    // `--color-accent` being read against whatever is sliding under the bar.
-                    // At 80% it still let 20% of a headword through and measured **4.40**
-                    // against it in light — under AA by a tenth. Solid, it is 4.62 and 8.13,
-                    // and it is the same colour it always looked like anyway.
-                    className="absolute inset-y-1.5 inset-x-1 rounded-full bg-panel2" />
+                    // **The highlighter marks where you are** *(2026-11-26)*. Opaque, as the
+                    // grey plate was: the pill is what stops the label being read against
+                    // whatever is sliding under the bar, and `key-ink` on `key` is 13.9:1.
+                    className="absolute inset-y-1.5 inset-x-0.5 rounded-full bg-key" />
                 )}
                 <span className="relative flex flex-col items-center gap-0.5">
                 <n.icon size={19} strokeWidth={active ? 2.4 : 1.8} className="tab-icon flex-shrink-0" />
-                {/* Four tabs at 375px is ~94px each — *Fortschritt* is the long
-                    one and fits at `text-2xs` with room to spare, which is why
-                    the labels can be the German surface names in full rather
-                    than one clipped English word. */}
+                {/* Five tabs at 375px is ~70px each *(2026-11-26: Prüfung joined)*.
+                    *Fortschritt* is the long one: 63px at `text-2xs` with the
+                    tight tracking, so the German surface names still fit in full. */}
                 {/* **`leading-[1.35]`, and the 0.35 is the umlaut.** `truncate` is
                     `overflow: hidden`, and with `line-height: 1` the line box is
                     exactly 1em while the font's own is ~1.2 — so 0.1em is cut off
@@ -97,7 +94,7 @@ export default function BottomNav({ view, onGo }: {
                     layout boxes and knows nothing about ink outside them, and it was
                     run against the deployed build rather than the one carrying the
                     fix. Both mistakes are in `docs/LESSONS.md`. */}
-                <span lang="de" className="text-2xs leading-[1.35] tracking-tight truncate max-w-full">{n.label}</span>
+                <span lang="de" className={`text-2xs leading-[1.35] tracking-tight truncate max-w-full ${active ? 'font-bold' : 'font-medium'}`}>{n.label}</span>
                 </span>
               </button>
             );

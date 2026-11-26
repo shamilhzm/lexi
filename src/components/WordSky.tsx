@@ -46,7 +46,7 @@ import { loadLedger, type ReviewEvent } from '../lib/ledger.ts';
 import { firstLight, memoryCurve, reachCurve, type Star, type MemoryCurve } from '../lib/sky.ts';
 import { paintSky, place, token, type Look, type Placed, type Scene } from './skyPaint.ts';
 import { skyGeometry, looksFor, type Lens } from './skyModel.ts';
-import { fmt, haptic } from '../lib/ui.ts';
+import { LEVEL_INK, fmt, haptic } from '../lib/ui.ts';
 import { shareProgress } from '../lib/sharecard.ts';
 import { GenderTerm } from './Reveal.tsx';
 import WordDetail from './WordDetail.tsx';
@@ -489,7 +489,7 @@ function HoverChip({ word, x, y }: { word: Word; x: number; y: number }) {
 function Legend({ lens, glints, fading }: { lens: Lens; glints: boolean; fading: boolean }) {
   const dot = (ink: string, label: string, alpha = 1) => (
     <span className="inline-flex items-center gap-1.5">
-      <span className="inline-block w-[8px] h-[8px] rounded-full" style={{ background: `var(${ink})`, opacity: alpha }} />
+      <span className="inline-block w-[8px] h-[8px] rounded-full" style={{ background: ink.startsWith('var(') ? ink : `var(${ink})`, opacity: alpha }} />
       {label}
     </span>
   );
@@ -500,7 +500,7 @@ function Legend({ lens, glints, fading }: { lens: Lens; glints: boolean; fading:
         {fading && <span className="inline-flex items-center gap-1.5"><span className="inline-block w-[9px] h-[9px] rounded-full border border-accent" />fading, due again</span>}
         {glints && <span className="inline-flex items-center gap-1.5"><span className="text-accent">✦</span>reviewed today</span>}
       </>}
-      {lens === 'level' && <>{(['a1', 'a2', 'b1', 'b2', 'c1', 'c2'] as const).map((l) => <span key={l}>{dot(`--color-${l}`, l.toUpperCase())}</span>)}</>}
+      {lens === 'level' && <>{(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const).map((l) => <span key={l}>{dot(LEVEL_INK[l], l)}</span>)}</>}
       {lens === 'gender' && <>{dot('--color-der', 'der')}{dot('--color-die', 'die')}{dot('--color-das', 'das')}{dot('--color-dim', 'not a noun', 0.5)}</>}
       <span>rings: the 100 · 500 · 1k · 3k commonest words. The arc shows how many you’ve lit</span>
     </p>

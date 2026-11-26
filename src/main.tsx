@@ -6,7 +6,6 @@ import { initData } from './data/index.ts';
 import { hydrate, applyTextScale } from './store.ts';
 import { applyTheme, watchSystemTheme } from './theme.ts';
 import { shouldReloadForChunk } from './lib/chunkReload.ts';
-import { audioBusy } from './lib/player.ts';
 import { dropRefParam } from './lib/ref.ts';
 import { parseGateHash } from './lib/tuer.ts';
 
@@ -133,9 +132,6 @@ boot()
 // because the page is about to be replaced. When the answer is no, the error
 // reaches the view's ErrorBoundary as before.
 window.addEventListener('vite:preloadError', (event) => {
-  // Not while Hören or Practise aloud is playing: a reload would end the programme
-  // in somebody's pocket. The view's ErrorBoundary says what happened instead.
-  if (audioBusy()) return;
   const reload = shouldReloadForChunk({
     now: Date.now(),
     online: navigator.onLine !== false,
@@ -164,9 +160,7 @@ if (typeof window !== 'undefined' && import.meta.env.PROD) {
     await reloadIfBuildMoved({
       now: () => performance.now(),
       storage: (() => { try { return sessionStorage; } catch { return null; } })(),
-      // A new build waits for the programme to end (lib/player.ts); the next
-      // launch picks it up.
-      reload: () => { if (!audioBusy()) location.reload(); },
+      reload: () => location.reload(),
     });
   };
   if (document.readyState === 'complete') void check();

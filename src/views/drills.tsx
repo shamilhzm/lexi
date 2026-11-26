@@ -46,7 +46,7 @@ import { governed, ALSO_TAKES } from '../data/government.ts';
 import { cardOf, review, levels, logMiss, logAttempt, streak, statusOf, type MissDetail } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import { isDue, Rating } from '../srs.ts';
-import { haptic, tick } from '../lib/ui.ts';
+import { haptic, markColor } from '../lib/ui.ts';
 import { lookupSurface } from '../lib/surface.ts';
 import UmlautBar from '../components/UmlautBar.tsx';
 import { GenderTerm, fitStyle } from '../components/Reveal.tsx';
@@ -523,7 +523,6 @@ export function Drill({ mode, onExit }: { mode: Mode; onExit: () => void }) {
     if (!word) return;
     review(gymId(mode, word), ok ? Rating.Good : Rating.Again);
     haptic(ok ? 'grade' : 'wrong');
-    tick(ok ? 'good' : 'wrong');
     logAttempt(MODE_TAG[mode]);
     if (!ok) logMiss(MODE_TAG[mode], word.term, detail);
     setDone((d) => d + 1); setCorrect((c) => c + (ok ? 1 : 0)); setI((n) => n + 1);
@@ -581,15 +580,18 @@ export function GenderItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
           the word broke inside its own key. `.gender-keys` stacks them from the app's
           `lg` text size up (index.css); below it, three across always fits. */}
       <div className="gender-keys gap-2.5 short:gap-2">
-        {GENDER.map(({ g, color }) => {
+        {GENDER.map(({ g }) => {
           const state = !picked ? 'idle' : g === word.gender ? 'right' : g === picked ? 'wrong' : 'idle';
           return (
             <button key={g} onClick={() => choose(g)} disabled={!!picked}
               className={`key rounded-key py-3.5 short:py-2 px-3 font-bold text-xl leading-tight ${
                 state === 'right' ? 'bg-[var(--color-green-d)] border-green text-green'
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt'
-                : 'bg-card'}`}
-              style={state === 'idle' ? { color } : undefined}>
+                : ''}`}
+              // *(2026-11-26)* Each key in its own highlighter, the way a DaF
+              // classroom colours der/die/das. Fixed per article, so it gives
+              // nothing away; the answer is still marked in green and red pen.
+              style={state === 'idle' ? { background: markColor(g), color: 'var(--color-mark-ink)' } : undefined}>
               {g}
             </button>
           );

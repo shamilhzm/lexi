@@ -16,17 +16,19 @@ const rows: { term: string; kind?: string }[] = Array.isArray(cards) ? cards : (
 const terms = rows.filter((c) => c.kind !== 'grammar').map((c) => shownTerm(c.term.replace(/^(der|die|das)\s+/i, '')));
 
 describe('emWidth', () => {
-  // Glyph widths the browser measured at 40px, from the probe; on the page each
-  // letter then gives back `.headword`'s 0.01em of tracking.
+  // Glyph widths the browser measured at 40px, from the probe (Bricolage Grotesque
+  // 700, 2026-11-26); on the page each letter then gives back `.headword`'s 0.02em
+  // of tracking. 4%, not 3%: this face's opsz range is wider than Fraunces', so
+  // MARGIN is 3.1% and the tracking it is applied before makes the ratio a little more.
   it.each([
-    ['Bundespräsident', 8.372],
-    ['Geschwindigkeitsbeschränkung', 15.677],
-    ['zusammenkommen', 9.604],
-  ])('%s is within 3%% of what the browser draws, and never under it', (word, glyphs) => {
-    const real = glyphs - 0.01 * word.length;
+    ['Bundespräsident', 8.144],
+    ['Geschwindigkeitsbeschränkung', 15.249],
+    ['zusammenkommen', 9.369],
+  ])('%s is within 4%% of what the browser draws, and never under it', (word, glyphs) => {
+    const real = glyphs - 0.02 * word.length;
     const est = emWidth(word);
     expect(est).toBeGreaterThanOrEqual(real);
-    expect(est / real).toBeLessThan(1.03);
+    expect(est / real).toBeLessThan(1.04);
   });
 
   it('assumes an unmeasured glyph is wide rather than free', () => {
@@ -63,11 +65,15 @@ describe('the table against the corpus', () => {
   });
 
   it('finds the long words it exists for', () => {
-    // At the feed's 46.75px on a 342pt measure, a run over 7.3em does not fit.
-    // The browser counted 758 (probe, 2026-11-14). The estimate errs wide by
-    // design, so it may find somewhat more — never fewer, and not half as many again.
-    const over = terms.filter((t) => widestRun(t) > 342 / 46.75).length;
-    expect(over).toBeGreaterThanOrEqual(758);
-    expect(over).toBeLessThan(758 * 1.25);
+    // At the feed's 59.5px (text-6xl at a 17px root, 2026-11-26) on a 342pt
+    // measure, a run over 5.75em does not fit. The browser counted 1,920 (probe,
+    // 2026-11-26; Fraunces at 46.75px was 758). The estimate errs wide by design, and
+    // at this size by more than it did: one table serves 24–60px, MARGIN is set for
+    // the widest end (24px, +3%), and at 60px the face draws 6% under the table — so
+    // the estimate counted 2,583, and a word near the line is set up to ~9% smaller
+    // than it could be. Never fewer than the browser, and under 1.4× of it.
+    const over = terms.filter((t) => widestRun(t) > 342 / 59.5).length;
+    expect(over).toBeGreaterThanOrEqual(1920);
+    expect(over).toBeLessThan(1920 * 1.4);
   });
 });

@@ -34,9 +34,10 @@ export function applyTheme() {
   // They had drifted: the ground went to warm paper on 2026-08-26 in index.css
   // alone, so the status bar stayed cool grey-blue (#e7ecee) above a warm page
   // and the installed app's splash was still the retired terminal black
-  // (#080b11). Four files, one value each, now all #faf6e6 / #282828.
+  // (#080b11). Four files, one value each, now all #f4f1e8 / #16181d (the Heft,
+  // 2026-11-26; the card box's #faf6e6 / #282828 had been left here).
   document.querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', t === 'light' ? '#faf6e6' : '#282828');
+    ?.setAttribute('content', t === 'light' ? '#f4f1e8' : '#16181d');
 }
 
 export function setThemePref(p: ThemePref) {

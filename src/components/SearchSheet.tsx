@@ -39,12 +39,11 @@ import { InkedArticle } from './Reveal.tsx';
 import { LayerOwner, useLayerStack } from './Layer.tsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Search, X, Volume2, Check, Plus } from 'lucide-react';
+import { Search, X, Check, Plus } from 'lucide-react';
 import { search, MAX_HITS, MIN_QUERY } from '../lib/search.ts';
 import { lookupLex, lexiconSize, primeLexicon, type LexEntry } from '../lib/lexicon.ts';
 import { statusOf, isWanted, noteWanted, noteable } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import { speak } from '../lib/tts.ts';
 import { genderColor, haptic, fmt } from '../lib/ui.ts';
 import { shownTerm } from '../lib/focus.ts';
 import { WORDS } from '../data/index.ts';
@@ -217,11 +216,6 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
                       <span className="block text-xs text-dim truncate">{w.en}</span>
                     </span>
                     <StatusChip id={w.id} version={v} />
-                    <span onClick={(e) => { e.stopPropagation(); speak(w.term); }}
-                      role="button" tabIndex={-1} aria-hidden
-                      className="grid place-items-center w-[36px] h-[36px] rounded-full text-dim hover:text-accent flex-shrink-0">
-                      <Volume2 size={15} />
-                    </span>
                   </button>
                 </li>
               ))}
@@ -247,10 +241,6 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
                     </span>
                     <span className="text-2xs text-dim">{e.p}</span>
                     {e.i && <span aria-hidden className="ipa text-2xs text-dim">{e.i}</span>}
-                    <span onClick={() => speak(e.w)} role="button" tabIndex={-1} aria-hidden
-                      className="ml-auto grid place-items-center w-[32px] h-[32px] rounded-full text-dim hover:text-accent">
-                      <Volume2 size={15} />
-                    </span>
                   </div>
                   <ol className="mt-1 text-sm text-dim list-decimal list-inside marker:text-2xs">
                     {e.g.map((g, n) => <li key={n}>{g}</li>)}

@@ -1,4 +1,4 @@
-// Fills the two parts of legal.html that live in data, not prose.
+// Fills the part of legal.html that lives in data, not prose: the Impressum.
 //
 // Plain script, no build step and no framework: the page must work without the
 // app bundle. Everything is written with textContent — the operator types
@@ -43,29 +43,4 @@
     })
     .catch(function () { /* offline: the page keeps saying "pending", which is true of what it can show */ });
 
-  // ---- Recordings -------------------------------------------------------------
-  // Straight from the manifest the app plays from, so the list cannot drift from
-  // what ships. CC BY asks for the creator's name; this is where every one is.
-  fetch('./data/audio.json')
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (m) {
-      if (!m) return;
-      var by = {};
-      Object.keys(m).forEach(function (id) {
-        var e = m[id] || {};
-        var who = filled(e.by) ? e.by : 'a Tatoeba contributor';
-        var key = who + '\u0000' + (e.license || '');
-        (by[key] = by[key] || { who: who, license: e.license || 'licence recorded in audio.json', url: e.attribution, n: 0 }).n++;
-      });
-      var list = document.getElementById('recording-list');
-      Object.keys(by).sort().forEach(function (k) {
-        var r = by[k];
-        var li = el('li');
-        if (filled(r.url)) { var a = el('a', r.who); a.href = r.url; li.appendChild(a); }
-        else li.appendChild(document.createTextNode(r.who));
-        li.appendChild(document.createTextNode(' (Tatoeba), ' + r.license + ' — ' + r.n + (r.n === 1 ? ' recording' : ' recordings')));
-        list.appendChild(li);
-      });
-    })
-    .catch(function () { /* the paragraph above still says where credits live */ });
 })();

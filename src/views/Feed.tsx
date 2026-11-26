@@ -37,7 +37,7 @@
 import { Fragment, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { loadDetailFor } from '../data/detail.ts';
 import { AnimatePresence, motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
-import { Info, Bookmark, GraduationCap, Volume2, VolumeX, Play, ChevronDown, Headphones } from 'lucide-react';
+import { Info, Bookmark, GraduationCap, Play, ChevronDown } from 'lucide-react';
 import { BY_ID, WORDS } from '../data/index.ts';
 import {
   levels, statusOf, cardOf, buildBriefing, onboarded,
@@ -48,8 +48,7 @@ import { SESSION_CEILING, estimateMinutes } from '../session.ts';
 import { readyFrom, nextReadyAt, topicAskAllowed, READY_AT, type Ready } from '../lib/feedSlots.ts';
 import { useStore } from '../useStore.ts';
 import { byFrequency } from '../lib/freq.ts';
-import { speak, useGermanVoice } from '../lib/tts.ts';
-import { haptic, tick, fmt } from '../lib/ui.ts';
+import { haptic, fmt, LEVEL_INK } from '../lib/ui.ts';
 import Tour, { useSwipeDemo, type TourStep } from '../components/Tour.tsx';
 import { GenderTerm } from '../components/Reveal.tsx';
 import Picto from '../components/Picto.tsx';
@@ -242,12 +241,10 @@ function shuffle<T>(a: T[], from = 0, to = a.length): void {
   }
 }
 
-export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }: {
+export default function Feed({ onStartFirstRun, onSettings, onStudy }: {
   onStartFirstRun: () => void; onSettings: () => void;
   /** Start a session — the ready slot's one action. */
   onStudy: (t: Target) => void;
-  /** Hören, offered beside the session for the same words — they play first. */
-  onListen?: () => void;
 }) {
   const v = useStore();
   const lvKey = [...levels()].sort().join('');
@@ -368,11 +365,8 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
     const timers = new Map<Element, number>();
     const obs = new IntersectionObserver((entries) => {
       for (const e of entries) {
-        // A page passing: the quietest cue in the app, once per slot arrived at.
-        // Not on the first slot the feed opens on — nothing was scrolled.
         const slot = Number((e.target as HTMLElement).dataset.slot);
         if (e.isIntersecting && Number.isFinite(slot) && slot !== shownSlot.current) {
-          if (shownSlot.current >= 0) tick('page');
           shownSlot.current = slot;
         }
         const id = (e.target as HTMLElement).dataset.word;
@@ -486,14 +480,12 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
       let used = true;
       if (e.key === 'ArrowDown' || e.key === 'j') move(1);
       else if (e.key === 'ArrowUp' || e.key === 'k') move(-1);
-      else if (!e.repeat && (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'b' || e.key === 'B' || e.key === 'Enter')) {
-        // Enter on a focused control is that control's.
-        const slot = e.key === 'Enter' && t?.closest('button, a') ? null : onScreen();
+      else if (!e.repeat && (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'b' || e.key === 'B')) {
+        const slot = onScreen();
         const w = slot?.dataset.word ? BY_ID.get(slot.dataset.word) : undefined;
         if (!slot || !w) used = false;
         else if (e.key === 'ArrowLeft') setDetail(w);
         else if (e.key === 'ArrowRight') setDrill(w);
-        else if (e.key === 'Enter') speak(w.term);
         // The bookmark is the slot's one pressed-state button: the same path as a tap.
         else slot.querySelector<HTMLButtonElement>('button[aria-pressed]')?.click();
       } else used = false;
@@ -542,7 +534,6 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
           <span><Kbd>←</Kbd> entry</span>
           <span><Kbd>→</Kbd> practise</span>
           <span><Kbd>B</Kbd> save</span>
-          <span><Kbd>↵</Kbd> hear</span>
         </p>
       )}
       {cold && <Welcome onStart={onStartFirstRun} />}
@@ -558,7 +549,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
             )}
             {story && <StorySlot story={story} onOpen={setReading} />}
             {i === readyAt && (
-              <ReadySlot ready={ready} onListen={onListen}
+              <ReadySlot ready={ready}
                 onStart={() => onStudy({ kind: 'custom', name: 'Ready now', ids: ready.ids })} />
             )}
           </Fragment>
@@ -613,7 +604,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy, onListen }:
  *  No `data-word`: like a story it is invisible to the dwell observer, records no
  *  exposure and grades nothing. The session it starts is an ordinary scoped one,
  *  whose Back arrow returns here (App keeps the origin; the feed keeps its place). */
-function ReadySlot({ ready, onStart, onListen }: { ready: Ready; onStart: () => void; onListen?: () => void }) {
+function ReadySlot({ ready, onStart }: { ready: Ready; onStart: () => void }) {
   const n = ready.ids.length;
   const parts = [
     ready.saved > 0 && `${ready.saved} you saved`,
@@ -634,12 +625,6 @@ function ReadySlot({ ready, onStart, onListen }: { ready: Ready; onStart: () => 
               {parts} · about {estimateMinutes(n)} min
             </p>
             <Button onClick={onStart}><Play size={14} /> Learn them now</Button>
-            {onListen && (
-              <button onClick={onListen}
-                className="tap-44 mt-3 mx-auto flex items-center gap-1.5 text-sm text-dim hover:text-accent">
-                <Headphones size={14} aria-hidden /> or play them in the background
-              </button>
-            )}
             <p className="text-dim text-2xs mt-5">Back from the session brings you to this spot.</p>
           </>
         ) : (
@@ -711,14 +696,15 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
   watch: (el: HTMLElement | null) => void;
 }) {
   // Read through `version` so a save anywhere re-renders the marks.
-  const voice = useGermanVoice();
   const saved = useMemo(() => isSaved(word.id), [word.id, version]);
   const status = useMemo(() => statusOf(word.id), [word.id, version]);
 
+  // The stroke is drawn when the save happens here, and simply shown otherwise.
+  const [drew, setDrew] = useState(false);
   const onSave = useCallback(() => {
     const now = toggleSaved(word.id);
+    setDrew(now);
     haptic(now ? 'grade' : 'wrong');
-    tick(now ? 'good' : 'wrong');
     // Reported upward rather than announced here — the feed owns the one live
     // region. See the `aria-hidden` note below the actions.
     onAnnounce(now
@@ -776,12 +762,17 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
         {/* Where this word stands, said quietly and only when it says something.
             A learner scrolling their own lexicon should be able to see the ones
             they have already got without a badge on every single card. */}
-        <span className="h-5 mb-2 flex items-center">
+        {/* The level, in its band's ink (data, so mono), and — only when it says
+            something — where the word stands for you (a label, so the kicker). */}
+        <span className="h-5 mb-3 flex items-center gap-2">
+          <span className="font-mono text-xs font-bold" style={{ color: LEVEL_INK[word.level] }}>{word.level}</span>
           {status !== 'new' && (
-            <span className={`text-2xs font-semibold uppercase tracking-widest ${
-              status === 'known' ? 'text-green' : 'text-accent'}`}>
-              {status === 'known' ? 'known' : 'learning'}
-            </span>
+            <>
+              <span aria-hidden className="text-line">/</span>
+              <span className={`text-2xs font-semibold uppercase tracking-widest ${status === 'known' ? 'text-green' : 'text-accent'}`}>
+                {status === 'known' ? 'known' : 'learning'}
+              </span>
+            </>
           )}
         </span>
 
@@ -792,49 +783,33 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
         {/* The headword. `lang="de"` and gender ink on the article — the single
             most useful mark on a German card, and the reason this is not just a
             big word in a serif. */}
+        {/* *(2026-11-26)* The article is a highlighter stroke in its gender's pen,
+            and a saved word is highlighted yellow — the two marks a learner makes
+            in a real Heft, and the only colour on the screen. */}
         <GenderTerm as="h2" id={`hw-${word.id}`} term={word.term} gender={word.gender}
+          swash stack marked={saved} markIn={drew}
           fit boxClassName="text-center flex-shrink-0"
-          className="headword hw-feed font-bold leading-[1.05]" />
+          className="headword hw-feed leading-[1.08]" />
 
-        {/* Pronunciation, as a pill you can press. The whole pill is the target,
-            not a 24px speaker beside it. */}
-        {/* Without a German voice the pill is not a button: the platform would read
-            German spelling with English phonology and say nothing about it, which is
-            worse than silence for the learner least able to catch it. The IPA is
-            still the point of the pill, so the pill stays and only the offer goes. */}
-        {voice ? (
-          <button onClick={() => speak(word.term)}
-            className="tap-44 mt-4 inline-flex items-center gap-2 rounded-full glass
-              px-4 py-2 hover:brightness-[.98] active:scale-95 transition">
-            {word.ipa && <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>}
-            <Volume2 size={16} aria-hidden className="text-accent flex-shrink-0" />
-            {/* Named in content, not `aria-label`: the name is English with a German
-                word in it, and only content can carry the word's own `lang` — as an
-                attribute string the German was read in an English voice. */}
-            <span className="sr-only">Hear <span lang="de">{word.term}</span></span>
-          </button>
-        ) : (
-          <span title="No German voice installed on this device"
-            className="mt-4 inline-flex items-center gap-2 rounded-full glass px-4 py-2">
-            {word.ipa && <span aria-hidden className="ipa text-sm text-dim">{word.ipa}</span>}
-            <VolumeX size={16} aria-label="No German voice is installed on this device"
-              className="text-dim flex-shrink-0" />
-          </span>
-        )}
+        {/* The IPA, as text. Lexi is silent until an open-source German voice
+            exists (VISION, 2026-11-26); the transcription is the pronunciation. */}
+        {word.ipa && <span aria-hidden className="ipa mt-4 text-sm text-dim">{word.ipa}</span>}
 
         {/* The meaning, present rather than hidden. This is the line the flip
             card kept behind a tap; on a feed there is nothing to test, so there
             is nothing to hide. */}
-        <p className="mt-5 text-lg sm:text-xl leading-snug max-w-[30ch]">
-          {/* A noun already says so with its article, in gender ink. */}
-          {!(word.pos === "noun" && word.gender) && <span className="text-dim">({word.pos}) </span>}{word.en}
+        <p className="mt-6 text-xl sm:text-2xl font-medium leading-snug max-w-[28ch] text-balance">
+          {/* A noun already says so with its article. */}
+          {!(word.pos === "noun" && word.gender) && (
+            <span className="text-2xs font-semibold uppercase tracking-widest text-dim align-middle mr-2">{word.pos}</span>
+          )}{word.en}
         </p>
 
         {/* One example, the way a dictionary sets it. The feed earns its scroll
             on this line: a word with a sentence under it is a word you have met,
             and one without is a word you have looked at. */}
         {word.ex[0]?.de && (
-          <p lang="de" className="mt-3 text-sm text-dim italic leading-relaxed max-w-[36ch]">
+          <p lang="de" className="mt-4 text-base text-dim italic leading-relaxed max-w-[34ch] text-balance">
             {word.ex[0].de}
           </p>
         )}
@@ -1046,8 +1021,8 @@ function Action({ children, label, pressed, onClick }: {
 }) {
   return (
     <button onClick={onClick} aria-pressed={pressed}
-      className={`tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition
-        active:scale-90 ${pressed ? 'text-accent' : 'text-txt hover:text-accent'}`}>
+      className={`tap-44 grid place-items-center w-[48px] h-[48px] rounded-full transition
+        active:scale-90 ${pressed ? 'bg-key text-key-ink' : 'text-txt hover:text-accent'}`}>
       {children}
       <span className="sr-only">{label}</span>
     </button>

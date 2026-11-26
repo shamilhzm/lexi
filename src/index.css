@@ -33,13 +33,15 @@
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
-/* Fraunces variable (opsz 9–144 + wght 100–900). The optical-size axis is the
-   reason to pick Fraunces at all: the headword renders at 34–44px and gets a
-   genuinely different, higher-contrast drawing there than at caption size. */
+/* Bricolage Grotesque variable (opsz 12–96 + wght 200–800), OFL. The optical-size
+   axis is why it is here: at 40–60px it draws its display cut — tighter, with ink
+   traps — and at caption size a quieter text cut, from one 75 KB file. The `wdth`
+   axis is left out (the standard file is 131 KB); a long compound is fitted by size,
+   in lib/fit.ts, not squeezed. */
 @font-face {
-  font-family: "Fraunces";
-  src: url("./fonts/fraunces-var.woff2") format("woff2-variations");
-  font-weight: 100 900;
+  font-family: "Bricolage Grotesque";
+  src: url("./fonts/bricolage-grotesque-var.woff2") format("woff2-variations");
+  font-weight: 200 800;
   font-style: normal;
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
@@ -48,116 +50,79 @@
 }
 
 /* ============================================================
-   THE CARD BOX — theme tokens *(2026-10-11; was THE ATLAS)*.
-   @theme color tokens auto-generate Tailwind utilities
-   (bg-bg, text-accent, border-line, bg-key, …). LIGHT by default;
-   `html.dark` overrides below.
+   DAS HEFT — theme tokens *(2026-11-26; was the card box)*.
+   @theme colour tokens generate Tailwind utilities (bg-bg,
+   text-accent, bg-mark-der, …). Light by default; `html.dark`
+   overrides below. DESIGN §1 has the identity in full.
 
-   Light is primary: this app is read, in daylight, for fifteen
-   minutes at a time, and a 12-persona review found the light theme
-   carried better hierarchy than the dark one. See docs/DESIGN.md §1
-   for the identity — cream box, white index card, charcoal ink, two
-   coloured tabs (teal, coral) — and why it replaced Atlas blue.
+   An exercise book, because that is where a language is learned:
+   paper, Königsblau ink (the fountain-pen blue German schools write
+   in), highlighters for what you chose to mark, a red pen that only
+   ever corrects, a stamp at the end of an exam. Colour means one
+   thing each:
+
+     ink (accent)  something you can press or follow
+     yellow (key)  the one thing to do next, and what you saved
+     blue · pink · green highlighter   der · die · das
+     red pen       a correction — never decoration
+     A ochre · B plum · C graphite     the CEFR's own three bands
+
+   Every pair below was designed with a contrast script and is
+   pinned in palette.test.ts — read that before moving a value.
    ============================================================ */
 @theme {
-  /* Warmed to paper 2026-08-26. These were a cool grey-blue "biased toward the
-     accent", which is a screen colour: it made the instrument read as a
-     dashboard, and a dashboard is the one thing §1 spent a whole section
-     retiring. Two of the three traditions this palette descends from — the
-     printed lexicon and cartography — are ink on *paper*, and paper is warm.
-
-     Not the cream that was rejected in the `.paper` case study below. That
-     failure was a *nested scope* carrying its own accent, which swung the brand
-     hue 153° on entering a card. This is the global ground, the accent is
-     byte-identical (#1d6a8c, hue 198°), and no scope overrides anything.
-
-     Measured before it shipped, which is the only reason it did: every text
-     pair clears 4.5, and `dim` — the value that was closest to failing —
-     *improves* on every ground (bg 5.18 → 5.85, panel2 4.74 → 5.38). The
-     elevation ramp is preserved: bg→panel 1.14, panel→card 1.05, against the
-     documented 1.12 / 1.05. Warmer and more legible, not warmer at a cost.
-
-     `panel2` is #e6e1d8 and not the #e3ded4 this started at, because the first
-     value put **accent on panel2 at 4.49** — under AA by a hundredth, on the
-     sunken fill every nested row uses. Nothing caught that by eye and the
-     hand-rolled script that designed the palette did not test the pair; the new
-     guard in `palette.test.ts` failed on its first run and named it. #e6e1d8
-     restores the accent to 4.62, which is exactly what the cool palette scored,
-     so the warm ground costs nothing on the pair it was worst at. */
-  /* **The card box** *(2026-10-11)* — see DESIGN §1. The ground is the cream of a
-     Karteikasten, the card is the white index card that sits in it, the ink is
-     charcoal rather than blue-black, and colour comes from two *tabs*: teal and
-     coral. Measured before it shipped (scripted, then pinned in palette.test.ts):
-     every text pair clears 4.5 in both themes, `dim` on `panel2` went 5.38 → 5.86
-     and `accent` on `panel2` 4.62 → 5.08. */
-  --color-bg:      #faf6e6;   /* page — the box's cream */
-  --color-panel:   #fdfbf2;   /* chrome surfaces */
-  --color-panel2:  #efead5;   /* sunken fills, nested rows */
-  --color-card:    #ffffff;   /* the study surface — pure white, reserved */
-  --color-line:    #e0dac5;   /* hairlines */
-  --color-txt:     #2b2b2b;   /* primary ink — charcoal */
-  --color-dim:     #5c5850;   /* secondary ink — AA on cream and on white */
-  --color-chrome:  #55524a;   /* secondary ink *on glass* — see `.glass-bar` below */
-  /* The accent is the teal tab *as ink*. The tab itself (#93c1c1) is 2.0 on cream
-     and can never carry text, so it is a separate token — `key` — that is only
-     ever a fill, always under `key-ink`. */
-  --color-accent:  #2c6b6b;   /* brand ink / focus (teal, deepened for AA) */
-  --color-key:     #93c1c1;   /* the teal tab — a fill, never ink */
-  --color-key-ink: #2b2b2b;   /* the only ink allowed on `key` (7.2:1) */
-  --color-coral:   #f39483;   /* the second tab — marks and pads, never ink */
-  --color-lip:     #2b2b2b;   /* the hard edge under a key you can press */
+  --color-bg:      #f4f1e8;   /* the page — recycled-paper warm, not cream */
+  --color-panel:   #faf8f2;   /* chrome surfaces */
+  --color-panel2:  #e9e5d8;   /* sunken fills, nested rows */
+  --color-card:    #ffffff;   /* the study surface — white, reserved */
+  --color-line:    #d9d3c2;   /* hairlines */
+  --color-txt:     #16181f;   /* ink — blue-black, not grey */
+  --color-dim:     #4d4f58;   /* secondary ink */
+  --color-chrome:  #4a4c54;   /* secondary ink *on glass* — see `.glass-bar` */
+  --color-accent:  #2b3ea6;   /* Königsblau — interactive ink and focus */
+  /* The highlighter. A fill, never ink: `key-ink` is the only text it carries. */
+  --color-key:     #ffe45e;
+  --color-key-ink: #16181f;
+  --color-mark:    #ffe45e;   /* the same yellow, named for what it means on a word */
+  --color-lip:     #16181f;   /* the hard edge under a key you can press */
+  --color-coral:   #ff9466;   /* Gans's beak and feet — a fill, never ink */
+  /* Gender as the highlighters a DaF classroom uses. Fills under `mark-ink`. */
+  --color-mark-der: #bfe0ff;
+  --color-mark-die: #ffc8de;
+  --color-mark-das: #bdeccd;
+  --color-mark-ink: #16181f;
+  /* The squared paper of the exam room (Karopapier), and the margin rule. */
+  --color-karo:    #d5dde6;
+  --color-margin:  #e8a4a0;
   /* The swipe verdict, as a wash over the whole room (Review). Never text. */
-  --color-knew:    #c6f3b8;
-  --color-again:   #f7d2c1;
-  /* #3f7a3a until 2026-09-25: 4.32 on bg and 3.98 on panel2, and it is set as
-     small text — the feed's `known`, the session acknowledgment, the drill's
-     "Answer:", search's "Noted". The guard only checked txt/dim/accent, so no test
-     saw it. Same hue, darker; every ground now clears 4.5 (palette.test.ts). */
-  --color-green:   #3a6e2e;   /* gains / mastered */
-  --color-green-d: #e3f3d9;
-  --color-red:     #a3402f;   /* losses / weak */
-  --color-red-d:   #f9e1d6;
-  --color-red-txt: #96351f;
+  --color-knew:    #d6f0c6;
+  --color-again:   #fbd9cf;
+  --color-green:   #2f6a22;   /* right / mastered */
+  --color-green-d: #ddf0d2;
+  --color-red:     #b8321f;   /* the red pen */
+  --color-red-d:   #fbe0d8;
+  --color-red-txt: #a12c1a;
 
-  /* NB: the coverage ramp (--heat-*) is deliberately NOT declared here — see
-     the :root block just below this @theme for why. */
+  /* Gender ink — the highlighter colours deepened until they read as text. */
+  --color-der: #0b5fa8;
+  --color-die: #b4235f;
+  --color-das: #0b6b58;
 
-  /* Grammatical gender ink. der/die/das were previously two tokens and one raw
-     hex (#f472b6), so `die` was the only one that didn't follow the theme — and
-     on a light surface that pink fell below AA. Three tokens, three themes.
+  /* CEFR ink, in the framework's own three bands: A (basic user) ochre, B
+     (independent) plum, C (proficient) graphite — the second level of each band
+     the deeper one. No value is within distance 40 of a gender ink. */
+  --color-a1: #8a4b00;
+  --color-a2: #6b3a00;
+  --color-b1: #7a3bb5;
+  --color-b2: #55258c;
+  --color-c1: #475468;
+  --color-c2: #252d3b;
 
-     Merge note (2026-08-04): the outstanding-work branch retuned these against a
-     *dark* --color-card, which the Atlas inversion has since made `html.dark`'s
-     job — those values now live in the html.dark block below, so its retune is
-     superseded, not lost. The one finding that survives the inversion: `der` and
-     `a1` are the identical hex in BOTH themes (#2d5be3 light / #7fa5ff dark) —
-     one colour carrying two unrelated meanings. Tracked in the backlog; not
-     changed here, because a hue move needs a contrast pass, not a merge. */
-  /* Darkened 2026-09-25, same hues: `der` measured 4.34 and `das` 4.20 on panel2,
-     which is the ground of search's dictionary section, where the whole headword
-     is set in gender ink at 15px (#2d5be3 / #0f766e were the old values). `a1` and
-     `b1` move with them because they are the same hex by design — see the known
-     collisions in palette.test.ts. */
-  --color-der: #2a55d6;
-  --color-die: #be185d;
-  --color-das: #0d6e66;
-
-  /* CEFR ink — its own ramp, decoupled from the green/red/amber status colors
-     (blue → teal → violet → fuchsia → coral). No value equals a status color. */
-  --color-a1: #2a55d6;
-  --color-a2: #0c6c86;   /* was #0e7490: 4.47 on bg */
-  --color-b1: #0d6e66;
-  --color-b2: #6d28d9;
-  --color-c1: #a21caf;
-  --color-c2: #be185d;
-
-  /* Mono is the brand voice: every stat, kicker, CEFR badge and numeral. It is
-     shipped, not borrowed — the system stack only covers the swap window. */
+  /* Mono is data: every stat, kicker, CEFR badge and numeral. */
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  /* UI text stays native: fast, familiar, zero bytes. The identity is carried
-     by the two faces that actually mean something. */
+  /* UI text stays native: fast, familiar, zero bytes. */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Type ramp — the ONLY font sizes in the app. line-height stays `normal` so
      the ramp is a pure size scale; leading-* utilities set rhythm per-use.
@@ -175,20 +140,15 @@
   --text-5xl: 2.75rem;    --text-5xl--line-height: normal;
   --text-6xl: 3.5rem;     --text-6xl--line-height: normal;
 
-  /* Radius scale — three steps + full. sm chips · md buttons · lg cards.
-     `xl` arrived with the glass chrome (2026-09-05): a floating bar wants a
-     radius that reads as an *object resting on the page* rather than a panel
-     let into it, and 16px at 430px wide does not. Concentric by construction —
-     a 10px control inset 6px inside a 22px container shares its centre. */
+  /* Radius scale — three steps + full. sm chips · md buttons · lg cards · xl the
+     floating bars. Concentric by construction: a 10px control inset 6px inside a
+     16px container shares its centre. */
   --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 22px;
-  /* **A key's radius, in px on purpose** *(2026-10-16)*. Keys were `rounded-full`,
-     whose end radius is half the height — so a key in a narrow column that grows
-     with large text (der/die/das at an accessibility size) turned into a circle and
-     its word ran past the curve. 28px is a full pill for any key up to 56px tall,
-     which is every key at default text, and a rounded rectangle above that. */
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  /* A key's radius, in px on purpose *(2026-10-16)*: `rounded-full` turned a key
+     that grows with large text into a circle and ran its word past the curve. */
   --radius-key: 28px;
 
   /* Uppercase-kicker tracking (used with text-2xs). */
@@ -197,140 +157,76 @@
 }
 
 /* ── The coverage ramp ───────────────────────────────────────────────────────
-   Five classes, not a continuous gradient, and *classified over the observed
-   range* rather than 0–100% (see lib/ui.ts → makeHeatScale). The old scale
-   mapped linearly across 0–100 while real coverage spans roughly 26–45%, so ten
-   genuinely different territories all landed in a 19-point slice of a 100-point
-   ramp and the map rendered as one flat colour. Cartography settled this a
-   century ago: classify over the observed range, and show the classes.
-
-   Declared in :root, NOT in @theme. Tailwind v4 only emits custom properties
-   that fall inside a theme namespace (--color-*, --text-*, --radius-*, …) and
-   silently drops the rest — so `--heat-0` inside @theme produced *no* variable
-   at all, every `var(--heat-N)` resolved to nothing, and every tile painted
-   transparent. It appeared to work only in dark, where `html.dark` is ordinary
-   CSS and therefore untouched. If you add a token here, keep it out of @theme
-   unless it is genuinely a --color-*.
-
-   Ink is paired to its class so contrast is decided here, once, rather than
-   guessed from a luminance threshold at paint time. */
+   Five classes, classified over the observed range (lib/ui.ts → makeHeatScale),
+   not 0–100%. Declared in :root, NOT in @theme: Tailwind v4 only emits custom
+   properties inside a theme namespace and silently drops the rest, so `--heat-0`
+   inside @theme produced no variable at all. Ink is paired to its class so
+   contrast is decided here, once. Königsblau, from a wash to the ink itself. */
 :root {
-  /* Teal, ending on the accent; `heat-2` is the key tab itself. */
-  --heat-0: #e4e9dc;  --heat-ink-0: #3b4a48;
-  --heat-1: #c3dad5;  --heat-ink-1: #1f3333;
-  --heat-2: #93c1c1;  --heat-ink-2: #142828;
-  --heat-3: #3f7f7f;  --heat-ink-3: #ffffff;
-  --heat-4: #2c6b6b;  --heat-ink-4: #ffffff;
-
+  --heat-0: #e6e8f1;  --heat-ink-0: #2f3550;
+  --heat-1: #c6cdf0;  --heat-ink-1: #1c2350;
+  --heat-2: #93a2e6;  --heat-ink-2: #121839;
+  --heat-3: #4b5dc4;  --heat-ink-3: #ffffff;
+  --heat-4: #2b3ea6;  --heat-ink-4: #ffffff;
 }
 
-/* The German headword — the one place the display serif is used.
+/* The German headword — Bricolage at its display cut.
  *
- * This used to live inside a `.paper` scope that also re-skinned the card in
- * warm cream. That scope is gone: it was authored as a *standalone whole-app
- * theme*, and nesting a whole theme nests its accent too — the brand hue swung
- * 189° → 36° (cyan to brown) the moment you entered a card, so the speaker
- * button, kicker and status pip all inverted. For a few seconds it wasn't the
- * same product. It also only worked in one theme: the cream card scored 18.4
- * contrast against the dark room and 1.07 against the light one, where it read
- * as a stain rather than an object.
- *
- * The card is now distinguished by *material* instead — grain, radius,
- * elevation and this serif — inside one unchanging palette. See docs/DESIGN.md.
- *
- * font-optical-sizing lets Fraunces' opsz axis follow the rendered size, which
- * is the whole reason for a variable display face on a word set this large. */
+ * `font-optical-sizing: auto` lets the opsz axis follow the rendered size, which is
+ * the reason for a variable face on a word set this large. Weight 700 is the one
+ * lib/fit.ts measured: change it and re-derive the table. */
 .headword {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 /* der · die · das: three across, stacked at an accessibility text size (see the
    GenderItem comment in drills.tsx). `data-type` is set in App.tsx from the root
-   size: `lg` from 22px, `ax` from 30. Measured at 402pt wide: three across holds at
-   21px (90px keys) and overflows by 28px (77px keys for a 35px "der"). Two-and-one, which an auto-fit grid produced at Extra-Extra Large, reads as
-   a ranking. */
+   size: `lg` from 22px, `ax` from 30. Two-and-one reads as a ranking. */
 .gender-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 html[data-type='lg'] .gender-keys,
 html[data-type='ax'] .gender-keys { grid-template-columns: minmax(0, 1fr); }
 
-/* **The study word stops growing before the card does** *(2026-10-16)*. These are
-   the ramp's own steps (4xl/5xl on the front, 3xl/4xl for the answer and a drill's
-   prompt), capped in px. At default text the cap is far away and nothing changes;
-   at an accessibility size `text-4xl` reached ~70px and *die Erlaubnis* broke after
-   its article — the card showed "die" and the noun sat below the fold. Body text
-   keeps scaling with the learner's setting; one display word at 46px is already
-   larger than anything else on the screen. */
+/* **The study word stops growing before the card does** *(2026-10-16)*. The ramp's
+   own steps, capped in px: at an accessibility size `text-4xl` reached ~70px and
+   *die Erlaubnis* broke after its article. */
 .hw-front  { --hw-size: min(var(--text-4xl), 46px); }
 .hw-answer { --hw-size: min(var(--text-3xl), 40px); }
-/* The feed's word and the entry's are the ramp's own steps, uncapped as they
-   were: the feed has its own accessibility layout (`data-type='ax'` below). */
-.hw-feed   { --hw-size: var(--text-5xl); }
+.hw-feed   { --hw-size: var(--text-6xl); --hw-floor: 0.6; }
 .hw-entry  { --hw-size: var(--text-4xl); }
 @media (min-width: 640px) {
   .hw-front  { --hw-size: min(var(--text-5xl), 60px); }
   .hw-answer { --hw-size: min(var(--text-4xl), 46px); }
-  .hw-feed   { --hw-size: var(--text-6xl); }
+  .hw-feed   { --hw-size: 4.5rem; }
   .hw-entry  { --hw-size: var(--text-5xl); }
 }
 .hw-front, .hw-answer, .hw-feed, .hw-entry { font-size: var(--hw-size); }
 
-/* **A headword shrinks to fit before it breaks** *(2026-11-14)*. `break-words`
-   kept a long word inside its card by cutting it at whichever letter ran out of
-   room — *der Bundespräsiden / t* — and on a 390pt phone at the default text size
-   that was 758 words in the feed and 410 on the session card (lib/fit.ts has the
-   measurement). A word is one object: it is set smaller until its widest
-   unbreakable run fits the measure, down to 72% of its size, and past that it
-   breaks where German does — at a syllable, with a hyphen — which `lang="de"`
-   on the element is what makes possible.
-
-   `.hw-box` is the measure: a full-width box whose inline size `100cqi` reads.
-   `--hw-em` is that widest run in em, set inline from `widestRun()`. Without
-   container units the word keeps its size and only the hyphenation applies. */
+/* **A headword shrinks to fit before it breaks** *(2026-11-14)*. A word is one
+   object: it is set smaller until its widest unbreakable run fits the measure,
+   down to 72% of its size, and past that it breaks where German does — at a
+   syllable, with a hyphen — which `lang="de"` on the element makes possible.
+   `.hw-box` is the measure; `--hw-em` is the widest run in em, from `widestRun()`. */
 .hw-box { display: block; inline-size: 100%; min-inline-size: 0; container-type: inline-size; }
 .hw-fit { -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; text-wrap: balance; }
 @supports (width: 1cqi) {
-  .hw-fit { font-size: clamp(calc(var(--hw-size) * 0.72), calc(100cqi / var(--hw-em, 1)), var(--hw-size)); }
+  .hw-fit { font-size: clamp(calc(var(--hw-size) * var(--hw-floor, 0.72)), calc(100cqi / var(--hw-em, 1)), var(--hw-size)); }
 }
 
-/* The page title — Fraunces at display size, one per surface.
- *
- * §4 used to say the display serif was "the one place" it is used, scoped to the
- * German being *tested*. That was the right instinct applied too narrowly: the
- * third tradition in §1 is **the printed lexicon**, and a lexicon sets its
- * running heads in the same serif as its headwords. Every page title in this app
- * was system sans, which is the register of an admin panel.
- *
- * It does not dilute the "Fraunces means German" rule, because §9 already
- * requires surfaces to be named with German nouns — *Wortschatz*, *Üben*,
- * *Lesen*, *Heute*. The face still marks German; it now also does the job it was
- * bought for. Section headings (h2) stay sans: serif is the app speaking, sans is
- * the app labelling.
- *
- * `opsz` is the whole reason Fraunces is here — at 26–34px it draws with
- * noticeably higher contrast and tighter joins than the same face at caption
- * size, which is what makes a title look set rather than scaled. */
+/* The page title — the display face at its heaviest, one per surface. Surfaces
+   are named with German nouns (§9), so the face still marks German. */
 .display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
-/* IPA — one face, and not the data face *(2026-09-25 panel).*
- *
- * It was `font-mono`, and Plex Mono's `unicode-range` (top of this file) stops at
- * U+00FF plus a handful of spacing marks: ə ʁ ʊ ŋ ʃ ɛ, and the length mark ː, all
- * fell back one glyph at a time to whatever monospace the OS had. On an iPhone
- * "hoːx" drew its ː heavier and offset with a gap after it, and the syllabic mark
- * in "ˈzaːgn̩" landed beside its n. Mono also meant data here (§4), and a
- * pronunciation is not a measurement.
- *
- * The system sans covers the IPA Extensions block on Apple, Android and Windows,
- * so the whole transcription comes from one face. The slashes are drawn here so
- * every surface shows them the same way — the feed's pill had none and every other
- * surface had them, typed by hand. */
+/* IPA — the system sans, which covers the IPA Extensions block on every platform;
+   Plex Mono's range stops at U+00FF and fell back glyph by glyph. The slashes are
+   drawn here so every surface shows them the same way. */
 .ipa {
   font-family: var(--font-sans);
   letter-spacing: 0.01em;
@@ -339,59 +235,58 @@ html[data-type='ax'] .gender-keys { grid-template-columns: minmax(0, 1fr); }
 .ipa::after { content: '/'; }
 
 /* ============================================================
-   Dark theme — the alternate, toggled via `html.dark` (see
-   theme.ts). Light is now the @theme default. Same hues, same
-   three-step elevation ramp, same semantics — only the luminance
-   inverts, so "raised" means the same thing in both.
-   Measured: bg→panel 1.12 (light: 1.12), panel→card 1.07 (light: 1.05).
+   Dark theme — *die Tafel*: the classroom's other surface. A
+   graphite board, chalk-white ink, and the same highlighters,
+   which glow on it the way they do under a desk lamp. Same
+   elevation ramp, same meanings; only luminance inverts.
    ============================================================ */
 html.dark {
-  /* Charcoal, not blue-black: the box with the lid on. Neutral greys so the two
-     tabs are the only colour in the room, exactly as they are in light. */
-  --color-bg:      #282828;
-  --color-panel:   #2e2e2e;
-  --color-panel2:  #202020;
-  --color-card:    #393939;
-  --color-line:    #4a4a48;
-  --color-txt:     #f0ebe1;   /* the cream, as ink */
-  --color-dim:     #bab4a8;   /* AA on every dark surface */
-  --color-chrome:  #d2ccc1;   /* secondary ink *on glass* — see `.glass-bar` */
-  --color-accent:  #93c1c1;   /* on charcoal the tab is light enough to be ink */
-  --color-key:     #93c1c1;
-  --color-key-ink: #2b2b2b;
-  --color-coral:   #f39483;
-  --color-lip:     #0e0e0e;
-  --color-knew:    #2d4a26;
-  --color-again:   #55302a;
-  --color-green:   #9fcf7a;
-  --color-green-d: #2c3a24;
-  --color-red:     #f39483;
-  --color-red-d:   #4a2b25;
-  --color-red-txt: #f6a596;
+  --color-bg:      #16181d;
+  --color-panel:   #1c1f25;
+  --color-panel2:  #111317;
+  --color-card:    #252830;
+  --color-line:    #353943;
+  --color-txt:     #efebe0;   /* chalk */
+  --color-dim:     #b0ada5;
+  --color-chrome:  #c9c5bb;
+  --color-accent:  #aebbff;   /* Königsblau, lifted until it reads on graphite */
+  --color-key:     #ffdf4f;
+  --color-key-ink: #16181f;
+  --color-mark:    #ffdf4f;
+  --color-lip:     #050608;
+  --color-coral:   #ff9466;
+  --color-mark-der: #8ccbff;
+  --color-mark-die: #ffa3cb;
+  --color-mark-das: #86e3b4;
+  --color-mark-ink: #16181f;
+  --color-karo:    #2a2f39;
+  --color-margin:  #6b3a3a;
+  --color-knew:    #22361d;
+  --color-again:   #46251f;
+  --color-green:   #9bd57f;
+  --color-green-d: #233220;
+  --color-red:     #ff9a85;
+  --color-red-d:   #3d2420;
+  --color-red-txt: #ffab99;
 
-  /* The ramp inverts direction: on a dark ground the *unlearned* end must
-     recede into the page, not glow off it. Same five classes, same pairing
-     rule — ink is decided here, per class, not guessed at paint time. */
-  --heat-0: #333836;  --heat-ink-0: #a3b0ad;
-  --heat-1: #2f4d4d;  --heat-ink-1: #d7e8e6;
-  --heat-2: #3f7272;  --heat-ink-2: #f0f7f6;
-  --heat-3: #6fa3a3;  --heat-ink-3: #10201f;
-  --heat-4: #93c1c1;  --heat-ink-4: #10201f;
+  --heat-0: #23262e;  --heat-ink-0: #a9b0c6;
+  --heat-1: #2c3560;  --heat-ink-1: #dfe4ff;
+  --heat-2: #4253a8;  --heat-ink-2: #f3f5ff;
+  --heat-3: #7f8fe0;  --heat-ink-3: #0e1330;
+  --heat-4: #aebbff;  --heat-ink-4: #0e1330;
 
-  /* Lifted from the Atlas values: the card is #393939 now, not #1f2b30, and the
-     old `der` / `die` / `c2` measured 4.3–4.4 on it. Same hues. */
-  --color-der: #8db0ff;
-  --color-die: #f58cc0;
-  --color-das: #5fd6c6;
-  --color-a1: #8db0ff;
-  --color-a2: #5cc8f0;
-  --color-b1: #5fd6c6;
-  --color-b2: #b9a2fb;
-  --color-c1: #ec94f9;
-  --color-c2: #fc8a9b;
+  --color-der: #7cc0ff;
+  --color-die: #ff8fbf;
+  --color-das: #62d6b4;
+  --color-a1: #f0b25a;
+  --color-a2: #d99a52;
+  --color-b1: #c9a3ff;
+  --color-b2: #a985f0;
+  --color-c1: #b7c2d6;
+  --color-c2: #e2e7f0;
 }
-/* Dark is flat charcoal. The Atlas had a blue glow and a dotted map grid here;
-   the box has neither — one quiet ground, so the tabs carry the colour. */
+
+/* The board is one even ground: no glow, no grid. The highlighters carry the colour. */
 html.dark body { background-image: none; }
 /* On dark the panel/card material highlight is a light wash rather than the
    soft dark one the light theme uses. */
@@ -776,13 +671,92 @@ body {
 .swipe-knew { background: var(--color-knew); }
 .swipe-again { background: var(--color-again); }
 
-/* ── The pad — a halftone coral disc that an emblem stands on ─────────────────
-   The second tab's one figurative use. Dots, not a fill, so it reads as *print*
-   and stays quieter than the teal it sits beside. */
+/* ── The pad — a coral halftone disc that an emblem stands on ────────────────
+   Dots, not a fill, so it reads as *print* and stays quieter than a key. Coral,
+   not the highlighter: the yellow marks one primary thing a screen (2026-11-26). */
 .pad {
-  background-image: radial-gradient(var(--color-coral) 1.1px, transparent 1.4px);
+  background-image: radial-gradient(var(--color-coral) 1.2px, transparent 1.5px);
   background-size: 5px 5px;
 }
+
+/* ── The Heft's materials *(2026-11-26)* ─────────────────────────────────────
+   Four things a learner's exercise book has and a screen does not, each with one
+   job. None introduces a colour: they draw with the tokens above.
+
+   **The swash** — a highlighter stroke behind a word. `--swash` picks the pen
+   (`var(--color-mark-der)` for an article; the yellow by default, which means
+   *saved*). It is a background on the inline box, not a pseudo-element, so a word
+   that hyphenates onto two lines gets two strokes (`box-decoration-break: clone`)
+   instead of one rectangle round both. The slanted ends are the gradient's angle.
+   The ink on it is always `mark-ink`: a light pen under dark ink in both themes. */
+.swash {
+  color: var(--color-mark-ink);
+  background-image: linear-gradient(100deg,
+    transparent 0.06em, var(--swash, var(--color-mark)) 0.16em,
+    var(--swash, var(--color-mark)) calc(100% - 0.14em), transparent calc(100% - 0.04em));
+  background-repeat: no-repeat;
+  background-size: 100% 74%;
+  background-position: 0 72%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  /* The stroke overhangs the word as a pen does; the negative margin gives the
+     overhang back, so a highlighted word measures what it did unmarked and
+     `.hw-fit` is not wrong by 0.32em (it hyphenated *Überra-schung* when it was). */
+  padding: 0 0.16em;
+  margin: 0 -0.16em;
+  border-radius: 0.1em 0.28em 0.16em 0.3em;
+}
+/* Saving a word draws the stroke across it. Fill-mode-free (DESIGN §7): a stalled
+   stroke still shows a third of itself, and the saved state is also the filled
+   bookmark, so the swash is never the only signal. */
+/* The stacked article (GenderTerm `stack`): its own line, half the noun's size. */
+.hw-article { display: table; margin: 0 auto 0.14em; font-size: 0.48em; letter-spacing: 0; }
+@keyframes swashin { from { background-size: 30% 74%; } }
+.swash-in { animation: swashin .34s cubic-bezier(.2,.8,.2,1); }
+
+/* **Karopapier** — the 5 mm squares of a German maths book, under the exam room.
+   A test is written on squared paper; that is what tells the room it is one. */
+.karo {
+  background-color: var(--color-card);
+  background-image:
+    linear-gradient(var(--color-karo) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-karo) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: -1px -1px;
+}
+/* **Lineatur** — ruled lines with a margin, for the writing task. The rule pitch is
+   the line-height, so the learner's text sits on the lines as it would in ink. */
+.lined {
+  --rule: 2rem;
+  line-height: var(--rule);
+  background-image:
+    linear-gradient(90deg, transparent 2.25rem, var(--color-margin) 2.25rem, var(--color-margin) calc(2.25rem + 1px), transparent calc(2.25rem + 1px)),
+    linear-gradient(transparent calc(var(--rule) - 1px), var(--color-karo) calc(var(--rule) - 1px));
+  background-size: 100% 100%, 100% var(--rule);
+  background-attachment: local;
+  padding-left: 2.75rem;
+}
+/* **The stamp** — the result of an exam, pressed rather than printed. Double rule,
+   rotated, ink speckled by a noise mask so it reads as rubber on paper. */
+.stamp {
+  display: inline-block;
+  padding: 0.3em 0.75em 0.25em;
+  border: 4px double currentColor;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  transform: rotate(-7deg);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.75'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.75'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* It lands: large and turned, then pressed flat. Transform-only, so a stalled
+   stamp is a bigger stamp, never a missing result. */
+@keyframes stampin { from { transform: rotate(-16deg) scale(1.7); } 70% { transform: rotate(-6deg) scale(.96); } }
+.stamp-in { animation: stampin .42s cubic-bezier(.3,.7,.2,1.1); }
+@media (prefers-reduced-motion: reduce) { .swash-in, .stamp-in { animation: none; } }
 
 /* Live status dot */
 .live-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); }

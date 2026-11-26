@@ -52,7 +52,7 @@ export interface Route {
 // Three of these are nav destinations; the rest are places you open from one of
 // them. All are linkable, and none of the last four is a fourth thing competing
 // for the bottom bar.
-const VIEWS: View[] = ['feed', 'session', 'words', 'progress', 'placement', 'interests', 'profile', 'settings', 'text'];
+const VIEWS: View[] = ['feed', 'session', 'words', 'exam', 'progress', 'placement', 'interests', 'profile', 'settings', 'text'];
 
 /** Hashes that used to name a destination, and where they land now.
  *
@@ -61,10 +61,13 @@ const VIEWS: View[] = ['feed', 'session', 'words', 'progress', 'placement', 'int
  *  the grammar room, the exam room, the worksheet printer and the observatory
  *  are gone. `read` keeps its meaning — the text scanner is what was useful in
  *  it — and the drill rooms point at Progress, which is where the app now says
- *  what you keep getting wrong. */
+ *  what you keep getting wrong.
+ *
+ *  `exam` left this table on 2026-11-26: the exam room is a destination again
+ *  (VISION, *The exam room returns*), so an old pinned `#/exam` lands in it. */
 const ALIAS: Record<string, View> = {
   library: 'progress', games: 'progress', practice: 'progress',
-  exam: 'progress', print: 'progress', brain: 'progress',
+  print: 'progress', brain: 'progress',
   read: 'text',
   // The daily briefing. Its job was to get you to a word, so it now *is* one.
   today: 'feed',

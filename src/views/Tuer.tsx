@@ -13,7 +13,7 @@ import { inflections } from '../lib/inflections.ts';
 import { haptic } from '../lib/ui.ts';
 import { Rating, type Grade } from '../srs.ts';
 import { ModeItem, MODE_TAG } from './drills.tsx';
-import { GenderTerm, SpeakButton } from '../components/Reveal.tsx';
+import { GenderTerm } from '../components/Reveal.tsx';
 import Button from '../components/ui/Button.tsx';
 import Card from '../components/ui/Card.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
@@ -171,8 +171,8 @@ function Flip({ item, onGrade }: { item: SessionItem; onGrade: (g: Grade) => voi
     <div className="flex-1 flex flex-col">
       <Card tone="card" pad="lg" className="flex flex-col items-center text-center gap-3">
         <Kicker>{first ? 'New word' : `${w.pos} · ${w.level}`}</Kicker>
-        <GenderTerm term={w.term} gender={w.gender} fit className="headword hw-front font-bold leading-tight" />
-        <SpeakButton text={w.term} />
+        <GenderTerm term={w.term} gender={w.gender} swash fit className="headword hw-front font-bold leading-tight" />
+        {w.ipa && <span aria-hidden className="ipa text-sm text-dim">{w.ipa}</span>}
         {open && (
           <>
             <p className="text-lg leading-snug">{w.en}</p>

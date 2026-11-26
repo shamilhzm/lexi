@@ -1,18 +1,16 @@
-// Einstellungen — device-local settings: appearance, review intensity, the HD
-// German voice (Piper Thorsten, downloaded once and run in-browser), and backup /
-// restore. Everything here lives in localStorage / the browser; nothing is sent
+// Einstellungen — device-local settings: appearance, review intensity and backup /
+// restore. (The HD voice and the sound cues went on 2026-11-26: Lexi is silent until
+// an open-source German voice exists — VISION.) Everything here lives in localStorage / the browser; nothing is sent
 // anywhere.
 import { useState, useRef, type ChangeEvent } from 'react';
-import { Volume2, Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, Music, DoorOpen, CalendarClock, List, Layers, RefreshCw, Info, History, ArrowLeft } from 'lucide-react';
+import { Check, Loader2, Download, Upload, Archive, X, Palette, Sun, Moon, Monitor, Gauge, Type, DoorOpen, CalendarClock, List, Layers, RefreshCw, Info, History, ArrowLeft } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { hdVoice, setHdVoice, retention, setRetentionTarget, importData, textScale, setTextScale, sound, setSound, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
+import { retention, setRetentionTarget, importData, textScale, setTextScale, pace, setPace, PACE, statusOf, mutedModes, toggleDrillMode, setAllDrillModes, type Pace } from '../store.ts';
 import { downloadBackup } from '../lib/backup.ts';
 import { MODE_TAG, MODES, type Mode } from './drills.tsx';
 import { FOCUS } from '../lib/focus.ts';
 import { WORDS } from '../data/index.ts';
 import { useStore } from '../useStore.ts';
-import { speak } from '../lib/tts.ts';
-import { useHdVoice } from '../lib/useHdVoice.ts';
 import { themePref, setThemePref, type ThemePref } from '../theme.ts';
 import { BUILD, PREVIOUS_BUILD, buildLabel, checkForUpdate, updateNow, type UpdateState } from '../lib/build.ts';
 import Card from '../components/ui/Card.tsx';
@@ -60,8 +58,6 @@ export default function Settings({ onExit }: { onExit: () => void }) {
     setUpdate(await checkForUpdate());
     setChecking(false);
   };
-
-  const { percent: dl, phase: hdPhase, error: hdErr, enable: enableHd } = useHdVoice();
 
   const [theme, setTheme] = useState<ThemePref>(themePref());
   const pickTheme = (p: ThemePref) => { setThemePref(p); setTheme(p); };
@@ -146,15 +142,6 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         </div>
       </Card>
 
-      {/* Sound — feedback cues, on by default; also mutable from the session header. */}
-      <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Music size={16} className="text-accent" /><h2 className="text-base font-semibold">Sound</h2></div>
-        <p className="text-dim text-xs mb-3">Soft cues as you answer: a tick when you’re right, a quieter falling note when you’re not, and a chime at the end of a session. You can also mute from the header during a session.</p>
-        <button onClick={() => setSound(!sound())} aria-pressed={sound()} className={toggle(sound())}>
-          {sound() ? 'Sound on' : 'Sound off'}
-        </button>
-      </Card>
-
       {/* The first-visit tours (components/Tour.tsx), on demand. */}
       <Card as="section" className="mb-4">
         <div className="flex items-center gap-2 mb-1"><Info size={16} className="text-accent" /><h2 className="text-base font-semibold">Tips</h2></div>
@@ -190,38 +177,6 @@ export default function Settings({ onExit }: { onExit: () => void }) {
         </div>
       </Card>}
 
-      {/* HD voice */}
-      <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><Volume2 size={16} className="text-accent" /><h2 className="text-base font-semibold">German voice</h2></div>
-        <p className="text-dim text-xs mb-3">
-          The HD voice is a native-German neural voice (Piper “Thorsten”) that runs on your device.
-          It downloads once (about 75 MB), then works offline, and sounds far better than the browser’s built-in voice.
-          {/* Lexi says it works offline, and that is true of everything except this
-              one step: enabling the voice fetches both a library and the voice
-              itself over the network. Saying so here is cheaper than a learner
-              discovering it on a train. */}
-          <span className="block mt-1">
-            Setting it up needs a connection and a few minutes, so do it on Wi-Fi, not on the way to class.
-            Until then Lexi uses your device’s built-in German voice, which works offline straight away.
-          </span>
-        </p>
-        {hdVoice() ? (
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="flex items-center gap-1.5 text-green text-xs"><Check size={15} /> HD voice on</span>
-            <button onClick={() => speak('Guten Tag! Wie geht es dir heute?')} className="text-xs text-dim hover:text-accent">Test</button>
-            <button onClick={() => setHdVoice(false)} className="text-xs text-dim hover:text-red-txt ml-auto">Turn off</button>
-          </div>
-        ) : hdPhase !== null ? (
-          <div className="flex items-center gap-2 text-xs text-dim"><Loader2 size={15} className="animate-spin" />{' '}
-            {hdPhase === 'downloading' ? `Downloading voice… ${dl ?? 0}%`
-              : hdPhase === 'preparing' ? 'Unpacking the voice…'
-              : 'Testing the voice…'}</div>
-        ) : (
-          <Button onClick={enableHd}><Download size={15} /> Enable HD German voice</Button>
-        )}
-        {hdErr && <p className="text-red-txt text-xs mt-2">{hdErr}</p>}
-      </Card>
-
       {/* Stories and the tutor that only serves them are absent from a store copy
           (lib/platform.ts). */}
       {storiesAvailable() && <NewsTopicsSettings />}
@@ -237,7 +192,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
           on this device, so export first if unsure.
         </p>
         {/* The one page that lists every exception to "lives on this device" —
-            stories, recordings, the voice, the tutor — with credits and the
+            stories and the tutor — with credits and the
             Impressum. Static, so it opens without this bundle (public/legal.html). */}
         <p className="text-dim text-xs mb-3">
           <a href="./legal.html" target="_blank" rel="noopener" className="underline decoration-dotted hover:text-accent">

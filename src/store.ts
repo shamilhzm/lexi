@@ -2272,6 +2272,10 @@ const SETTING_KEYS = [
   'lexi.focus.v1', 'lexi.pace.v1',
   // The course: films watched (2026-11-19).
   'lexi.films.v1',
+  // The exam room's sittings and short-test bests (restored 2026-11-26). A sitting
+  // is an afternoon of the learner's own work — the letter they wrote is in it.
+  // Literal keys, not imports: lib/exam-store.ts is a lazy chunk.
+  'lexi.exam.v1', 'lexi.quiz.v1',
   // Four keys that were never in the backup, all found on 2026-09-05 by auditing
   // this array against the key declarations above it rather than by anything
   // failing. Commitment 2 is the rule: **the backup is the only copy, so anything

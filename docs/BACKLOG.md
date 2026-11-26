@@ -23,6 +23,28 @@
 >
 > ---
 >
+> ## Das Heft, Prüfung and silence — open work *(2026-11-26)*
+>
+> *The redesign is on branch `redesign/lexi-2`, and production is still `1e40fd3`. The
+> look before it is the tag `classic-2026-11-26`.*
+>
+> 1. **Owner: ship or hold.** A deploy is a Reserved matter. Drive the branch on the
+>    phone first, then run the `lexi-deploy` pre-flight before anything reaches `main`.
+> 2. **An open German voice.** Hören, *Sag es* and every spoken surface wait for a German
+>    voice with open weights and an open licence, running on the device or on a host Lexi
+>    controls (VISION, refusal *A closed voice*). The exam room's first step back is one
+>    line, `SILENT` in `lib/exam.ts`. Sittings already saved keep the score they got.
+> 3. **A second paper per level.** Each level has one practice paper (Goethe A1, A2, B2,
+>    C1 and C2, telc B1) and a Sprechen sheet. A second paper per level would make a
+>    retake a new paper instead of the same one. It is written for Lexi, never copied
+>    from a Modellsatz.
+> 4. **Gans and the share images still wear the card box.** `scripts/pages/gans.ts`
+>    (teal wing) and `scripts/marketing/og-gans.ts` (cream ground, teal accent) were
+>    left alone on purpose. Recolouring the goose is a Creative Director call. After
+>    that, regenerate `og.jpg` and `og-gans.jpg`.
+>
+> ---
+>
 > ## Web first — open work *(2026-11-21)*
 >
 > *VISION ruled that the web is the product and a native shell only wraps it. The

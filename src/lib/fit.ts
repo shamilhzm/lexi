@@ -19,29 +19,31 @@
 // It is a pure function — usable in a test, identical on every device, and never
 // wrong because a webfont had not arrived when it was asked. The cost is that it is
 // an estimate; the table is the display face's own advance widths, so the estimate
-// is within +2.0% / −3.5% of the browser's answer for every headword of six letters
-// or more across 24–52px (the probe prints that too). `MARGIN` covers the +2%, so
-// a word is never set larger than fits and at most ~5% smaller than it could be.
+// is within +3.0% / −5.8% of the browser's answer for every headword of six letters
+// or more across 24–60px (the probe prints that too). `MARGIN` covers the +3%, so
+// a word is never set larger than fits and at most ~9% smaller than it could be.
 //
-// **The table is measured at 40px, not at 100px.** Fraunces has an optical-size
-// axis and `.headword` leaves it on `auto`, so the face is 16–17% wider per em at
-// the sizes a headword is set than at the size a ruler is convenient to hold. The
-// first version of this table was measured at 100px and would have under-fitted
-// every word (LESSONS, *A ruler held at the wrong size*).
+// **The table is measured at 40px, not at 100px.** The display face has an
+// optical-size axis and `.headword` leaves it on `auto`, so its width per em depends
+// on the size it is set at. Fraunces (the face until 2026-11-26) was 16–17% wider at
+// headword sizes than at 100px, and a first table measured at 100px would have
+// under-fitted every word (LESSONS, *A ruler held at the wrong size*). Bricolage
+// Grotesque runs the other way: 3% wider at 24px than at 40, 6% narrower at 60.
 
-/** Advance widths of Fraunces 700 at 40px, in em. Re-derive with
- *  `scripts/probe/headword-fit.js` if the display face ever changes. */
+/** Advance widths of Bricolage Grotesque 700 at 40px, in em (probe run 2026-11-26).
+ *  Re-derive with `scripts/probe/headword-fit.js` if the display face ever changes. */
 const ADVANCE: Record<string, number> = {
-  '0': 0.693, '1': 0.475, '2': 0.633, '3': 0.584, '!': 0.324, "'": 0.196, '(': 0.373, ')': 0.373,
-  '+': 0.55, ',': 0.299, '-': 0.382, '.': 0.288, '/': 0.476, '?': 0.566,
-  A: 0.745, B: 0.732, C: 0.703, D: 0.805, E: 0.667, F: 0.622, G: 0.764, H: 0.862, I: 0.424,
-  J: 0.536, K: 0.814, L: 0.638, M: 0.938, N: 0.759, O: 0.792, P: 0.721, Q: 0.794, R: 0.777,
-  S: 0.621, T: 0.711, U: 0.746, V: 0.721, W: 1.07, Y: 0.69, Z: 0.642,
-  a: 0.565, b: 0.614, c: 0.525, d: 0.624, e: 0.533, f: 0.406, g: 0.585, h: 0.644, i: 0.323,
-  j: 0.323, k: 0.624, l: 0.325, m: 0.959, n: 0.644, o: 0.595, p: 0.628, q: 0.615, r: 0.493,
-  s: 0.495, t: 0.401, u: 0.635, v: 0.554, w: 0.84, x: 0.561, y: 0.572, z: 0.5,
-  Ä: 0.745, Ö: 0.792, Ü: 0.746, ß: 0.72, ä: 0.565, è: 0.533, é: 0.533, í: 0.319, ö: 0.595, ü: 0.635,
-  '—': 0.846, '…': 0.947, '₂': 0.278, '€': 0.713,
+  '0': 0.643, '1': 0.33, '2': 0.585, '3': 0.592, '!': 0.279, "'": 0.174, '(': 0.312,
+  ')': 0.309, '+': 0.515, ',': 0.19, '-': 0.338, '.': 0.23, '/': 0.355, '?': 0.413,
+  A: 0.682, B: 0.657, C: 0.664, D: 0.674, E: 0.594, F: 0.566, G: 0.698, H: 0.694, I: 0.274,
+  J: 0.356, K: 0.664, L: 0.492, M: 0.898, N: 0.746, O: 0.702, P: 0.625, Q: 0.703, R: 0.656,
+  S: 0.63, T: 0.552, U: 0.696, V: 0.658, W: 0.962, Y: 0.623, Z: 0.563,
+  a: 0.569, b: 0.616, c: 0.556, d: 0.616, e: 0.566, f: 0.388, g: 0.584, h: 0.606, i: 0.259,
+  j: 0.265, k: 0.571, l: 0.258, m: 0.915, n: 0.606, o: 0.595, p: 0.615, q: 0.616, r: 0.419,
+  s: 0.534, t: 0.385, u: 0.599, v: 0.557, w: 0.84, x: 0.557, y: 0.58, z: 0.508,
+  'Ä': 0.682, 'Ö': 0.702, 'Ü': 0.696, 'ß': 0.665, 'ä': 0.569, 'è': 0.566, 'é': 0.566,
+  'í': 0.259, 'ö': 0.595, 'ü': 0.599,
+  '—': 0.79, '…': 0.748, '₂': 0.278, '€': 0.724,
 };
 
 /** A glyph the table has never met is assumed wide, so an unknown word is set
@@ -50,11 +52,11 @@ const ADVANCE: Record<string, number> = {
 const UNKNOWN = 0.8;
 
 /** The face is widest per em at the small end of the range: at 24px the browser
- *  measures up to 2.04% more than this 40px table says. */
-const MARGIN = 1.021;
+ *  measures up to 3.04% more than this 40px table says. */
+const MARGIN = 1.031;
 
-/** `.headword { letter-spacing: -0.01em }` — every glyph gives a little back. */
-const TRACKING = -0.01;
+/** `.headword { letter-spacing: -0.02em }` — every glyph gives a little back. */
+const TRACKING = -0.02;
 
 /** Every character the table knows — for the test that walks the corpus. */
 export const MEASURED = new Set(Object.keys(ADVANCE));

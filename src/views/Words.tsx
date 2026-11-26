@@ -291,14 +291,16 @@ function Taxonomy({ onOpenGroup }: { onOpenGroup: (g: string) => void }) {
  *  isometric scenes, no borrowed drawings — see DESIGN §1, *The card box*. */
 function GroupEmblem({ group }: { group: string }) {
   const concept = conceptForSector(group);
-  // **Two tabs, one mark** *(2026-10-11)*. The teal disc carries the emblem in
-  // charcoal line; the coral halftone pad under it, offset down and right, is
-  // what sets it on the page — the reference's lesson (a topic is a coloured
-  // mark before it is a label) drawn in this app's own line language.
+  // **Two tabs, one mark** *(2026-10-11)*. The disc carries the emblem in line;
+  // the coral halftone pad under it, offset down and right, is what sets it on
+  // the page — the reference's lesson (a topic is a coloured mark before it is a
+  // label) drawn in this app's own line language. In the Heft *(2026-11-26)* the
+  // disc is paper with Königsblau line, not the yellow key: nine yellow discs on
+  // one screen spent the highlighter that marks the one primary thing.
   return (
     <span aria-hidden className="relative block w-[60px] h-[60px] flex-shrink-0">
       <span className="pad absolute left-[10px] top-[16px] w-[50px] h-[44px] rounded-full" />
-      <span className="absolute left-0 top-0 grid place-items-center w-[52px] h-[52px] rounded-full bg-key text-key-ink border-[1.5px] border-lip">
+      <span className="absolute left-0 top-0 grid place-items-center w-[52px] h-[52px] rounded-full bg-card text-accent border-[1.5px] border-lip">
         <svg width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="currentColor"
           strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round"
           dangerouslySetInnerHTML={{ __html: conceptPaths(concept) }} />

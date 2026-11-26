@@ -1,5 +1,5 @@
 // about.js — the about page's only script (scripts/pages/about.ts copies it into
-// dist/). It animates, toggles and honks. It reads and writes nothing a learner owns:
+// dist/). It animates and toggles. It reads and writes nothing a learner owns:
 // no storage, no network, no store. Without it the page says everything, with every
 // compound split and every false friend turned over.
 (() => {
@@ -15,43 +15,11 @@
   const goose = btn && btn.querySelector('svg');
   let lines = [];
   try { lines = JSON.parse((btn && btn.dataset.lines) || '[]'); } catch { lines = []; }
-  let said = 1, answer = 0, audio = null;
+  let said = 1, answer = 0;
 
-  /** Two short nasal honks, synthesised: a falling sawtooth through two formants. */
-  function honk() {
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return;
-    try {
-      audio = audio || new AC();
-      if (audio.state === 'suspended') audio.resume();
-      const t0 = audio.currentTime + 0.02;
-      const out = audio.createGain();
-      out.gain.value = 0.45;
-      out.connect(audio.destination);
-      [0, 0.21].forEach((d, i) => {
-        const t = t0 + d, f = i ? 330 : 395;
-        const o = audio.createOscillator();
-        o.type = 'sawtooth';
-        o.frequency.setValueAtTime(f, t);
-        o.frequency.exponentialRampToValueAtTime(f * 0.78, t + 0.16);
-        const g = audio.createGain();
-        g.gain.setValueAtTime(0.0001, t);
-        g.gain.exponentialRampToValueAtTime(0.9, t + 0.015);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.17);
-        for (const [freq, q] of [[820, 3], [1650, 5], [2600, 6]]) {
-          const bp = audio.createBiquadFilter();
-          bp.type = 'bandpass';
-          bp.frequency.value = freq;
-          bp.Q.value = q;
-          o.connect(bp);
-          bp.connect(g);
-        }
-        g.connect(out);
-        o.start(t);
-        o.stop(t + 0.2);
-      });
-    } catch { /* no sound is fine */ }
-  }
+  // She honked until 2026-11-26 — two synthesised sawtooth honks through Web Audio.
+  // Lexi is silent until an open German voice exists (VISION, *A closed voice*), and
+  // a page that honks while the app cannot say a word would be the wrong way round.
 
   function say(text, lang) {
     bubble.innerHTML = `<span lang="${lang}">${lang === 'de' ? `„${esc(cap(text))}“` : esc(text)}</span>`;
@@ -68,7 +36,6 @@
     btn.addEventListener('click', () => {
       const [de, en] = lines[said % lines.length];
       said++;
-      honk();
       talk(380);
       say(de, 'de');
       clearTimeout(answer);

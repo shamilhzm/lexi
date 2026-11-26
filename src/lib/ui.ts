@@ -82,58 +82,6 @@ export function heatText(p: number): string {
   return p >= 0.5 ? 'var(--color-green)' : 'var(--color-dim)';
 }
 
-let voicesReady = false;
-export function primeVoices() {
-  if (voicesReady || typeof speechSynthesis === 'undefined') return;
-  speechSynthesis.getVoices();
-  speechSynthesis.onvoiceschanged = () => { voicesReady = true; };
-}
-
-/** What happened when we tried to say a German word out loud. */
-export type SpeakResult = 'spoken' | 'no-german-voice' | 'unsupported';
-
-/** Is there a German voice on this device at all? */
-export function hasGermanVoice(): boolean {
-  if (typeof speechSynthesis === 'undefined') return false;
-  try { return speechSynthesis.getVoices().some((v) => v.lang.toLowerCase().startsWith('de')); }
-  catch { return false; }
-}
-
-/** Speak a German term with the platform's de-DE voice — **or not at all**.
- *
- *  It used to set `u.lang = 'de-DE'`, look for a German voice, and carry on
- *  regardless when there wasn't one. A `SpeechSynthesisUtterance` with no voice
- *  is read by the device's default, and the device's default on an English phone
- *  is an English voice, which applies English phonology to German spelling: *Zeit*
- *  as "zyte", *viel* as "vile", every `w` as /w/, every `ei` wrong. Silently.
- *
- *  That is worse than silence, and much worse for exactly the learner who cannot
- *  check it against a native speaker. Ten of 6,810 cards have human audio; the
- *  rest are this. So it now refuses, and says why, and the caller tells the
- *  learner rather than the app quietly teaching a wrong pronunciation.
- *
- *  `lang.startsWith('de')` and not `=== 'de-DE'`: `de-AT` and `de-CH` are German
- *  voices, and a learner who has Austrian German installed is far better served
- *  by it than by an American one. */
-export function speakDe(text: string): SpeakResult {
-  if (typeof speechSynthesis === 'undefined') return 'unsupported';
-  try {
-    const v = speechSynthesis.getVoices().find((x) => x.lang.toLowerCase().startsWith('de'));
-    if (!v) return 'no-german-voice';
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'de-DE';
-    u.rate = 0.95;
-    u.voice = v;
-    speechSynthesis.cancel();
-    // Hören pauses for the word and picks up after it (lib/player.ts).
-    const resume = interrupt();
-    u.onend = resume;
-    u.onerror = resume;
-    speechSynthesis.speak(u);
-    return 'spoken';
-  } catch { return 'unsupported'; }
-}
-
 /** Group digits for an English-language UI.
  *
  *  This was `toLocaleString('de-DE')`, which renders 2320 as "2.320". Lexi's
@@ -171,6 +119,25 @@ export function genderColor(gender: string | null | undefined): string | undefin
   return undefined;
 }
 
+/** The highlighter for an article *(2026-11-26)*: the fill a `.swash` draws behind
+ *  *der*, *die* or *das* on a display headword. A fill, never ink — the article on it
+ *  is `--color-mark-ink` — and, like the ink above, never the only signal. */
+export function markColor(gender: string | null | undefined): string | undefined {
+  if (gender === 'der') return 'var(--color-mark-der)';
+  if (gender === 'die') return 'var(--color-mark-die)';
+  if (gender === 'das') return 'var(--color-mark-das)';
+  return undefined;
+}
+
+/** The CEFR band inks, spelled out in full. Tailwind v4 emits a theme variable
+ *  only when it sees its name in source, so a `var(--color-${level})` built at
+ *  runtime pointed at variables that did not exist and the B1 cover printed black
+ *  (2026-11-26). Every level is named here so all six always ship. */
+export const LEVEL_INK: Record<string, string> = {
+  A1: 'var(--color-a1)', A2: 'var(--color-a2)', B1: 'var(--color-b1)',
+  B2: 'var(--color-b2)', C1: 'var(--color-c1)', C2: 'var(--color-c2)',
+};
+
 /** A tiny vibration on grade commit. No-op on iOS Safari (navigator.vibrate is
  *  unsupported there); a real win on Android/Chrome and installed PWAs.
  *  `kind` shapes the pattern: a miss should feel different from a hit without
@@ -178,78 +145,3 @@ export function genderColor(gender: string | null | undefined): string | undefin
 export const haptic = (kind: 'grade' | 'wrong' = 'grade') => {
   navigator.vibrate?.(kind === 'wrong' ? [8, 40, 8] : 10);
 };
-
-// ---- sound cues (the feel layer) ------------------------------------------
-// Tiny synthesized blips — no assets, no library. Gated on the sound setting
-// (on by default) and created lazily on first use (autoplay policies require
-// a user gesture, and grading is one).
-//
-// The set is deliberately small and tonal. `wrong` falls rather than rises and
-// sits quieter than `good`: it has to be distinguishable without being a buzzer,
-// because a learner hears it dozens of times a session and it must never read as
-// a scold. `milestone` is the only cue that gets a chord.
-import { sound } from '../store.ts';
-import { interrupt } from './player.ts';
-
-type Cue = 'good' | 'wrong' | 'done' | 'milestone' | 'flip' | 'swipe' | 'page';
-/** A tone: [frequency Hz, start offset s, peak gain, length s]. */
-type Note = [number, number, number, number?];
-/** A band-passed noise burst — the physical sounds (card turned, card thrown, a
- *  page passing) are texture, not pitch, so they cannot be mistaken for a verdict.
- *  [centre Hz, start offset s, peak gain, length s, sweep-to Hz]. */
-type Noise = [number, number, number, number, number?];
-const CUES: Record<Cue, { tones?: Note[]; noise?: Noise[] }> = {
-  good:      { tones: [[880, 0, 0.06], [1320, 0.06, 0.04]] },                  // a small lift
-  wrong:     { tones: [[420, 0, 0.045], [330, 0.08, 0.045]] },                 // a small fall
-  done:      { tones: [[660, 0, 0.06], [990, 0.09, 0.06]] },                   // a two-note rise
-  milestone: { tones: [[660, 0, 0.05], [880, 0.08, 0.05], [1320, 0.16, 0.06]] }, // a rising triad
-  flip:      { noise: [[2400, 0, 0.05, 0.05]] },                                // a card turned
-  swipe:     { noise: [[900, 0, 0.07, 0.16, 3200]] },                           // a card thrown
-  page:      { noise: [[3200, 0, 0.018, 0.035]], tones: [[1760, 0, 0.008, 0.03]] }, // a page passing — the quietest cue
-};
-
-let audioCtx: AudioContext | null = null;
-let noiseBuf: AudioBuffer | null = null;
-export function tick(kind: Cue) {
-  if (!sound() || typeof AudioContext === 'undefined') return;
-  try {
-    const ctx = (audioCtx ??= new AudioContext());
-    // iOS starts a context suspended until a gesture; every cue follows one.
-    if (ctx.state === 'suspended') void ctx.resume();
-    const { tones = [], noise = [] } = CUES[kind];
-    for (const [freq, offset, peak, len = 0.12] of tones) {
-      const t0 = ctx.currentTime + offset;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = freq;
-      gain.gain.setValueAtTime(peak, t0);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + len);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(t0);
-      osc.stop(t0 + len + 0.01);
-    }
-    if (noise.length && !noiseBuf) {
-      noiseBuf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * 0.3), ctx.sampleRate);
-      const d = noiseBuf.getChannelData(0);
-      for (let k = 0; k < d.length; k++) d[k] = Math.random() * 2 - 1;
-    }
-    for (const [freq, offset, peak, len, to] of noise) {
-      const t0 = ctx.currentTime + offset;
-      const src = ctx.createBufferSource();
-      src.buffer = noiseBuf;
-      const band = ctx.createBiquadFilter();
-      band.type = 'bandpass';
-      band.Q.value = 1.2;
-      band.frequency.setValueAtTime(freq, t0);
-      if (to) band.frequency.exponentialRampToValueAtTime(to, t0 + len);
-      const gain = ctx.createGain();
-      gain.gain.setValueAtTime(0.0001, t0);
-      gain.gain.exponentialRampToValueAtTime(peak, t0 + Math.min(0.015, len / 3));
-      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + len);
-      src.connect(band).connect(gain).connect(ctx.destination);
-      src.start(t0);
-      src.stop(t0 + len + 0.01);
-    }
-  } catch { /* audio unavailable — silence is fine */ }
-}

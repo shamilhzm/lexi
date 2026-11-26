@@ -19,7 +19,7 @@
 // than a word list. It says how much of the text the learner already knows, once
 // the text is on the device.
 import { useEffect, useState } from 'react';
-import { Headphones, ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { loadBody, cachedBody, bodyText, tagesschauBudget, type FeedArticle } from '../../lib/news/feed.ts';
 import { SOURCE_LABEL, TOPICS, TOPIC_BY_ID, primaryTopic, type TopicId } from '../../lib/news/sources.ts';
 import { isRead, setNewsTopics } from '../../lib/news/library.ts';
@@ -76,7 +76,6 @@ export function StorySlot({ story, onOpen }: { story: FeedArticle; onOpen: (a: F
             <span className="font-semibold uppercase tracking-widest text-accent">{SOURCE_LABEL[story.source]}</span>
             {topic && <span>{topic.label}</span>}
             {story.published > 0 && <span>{ago(story.published)}</span>}
-            {story.audio && <span className="inline-flex items-center gap-0.5"><Headphones size={11} /> read slowly</span>}
             {read && <span className="inline-flex items-center gap-0.5 text-green"><Check size={11} /> read</span>}
           </p>
           {story.topline && <p lang="de" className="mt-2 text-xs font-semibold text-dim">{story.topline}</p>}

@@ -38,7 +38,7 @@ import Layer from './Layer.tsx';
 import { loadDetailFor } from '../data/detail.ts';
 import { review, logAttempt, logMiss } from '../store.ts';
 import { Rating } from '../srs.ts';
-import { haptic, tick } from '../lib/ui.ts';
+import { haptic } from '../lib/ui.ts';
 import {
   practiceModes, gymId, stripArticle, prepOf, MODE_TAG,
   MeaningItem, ModeItem,
@@ -162,7 +162,6 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
       if (!ok) logMiss(MODE_TAG[step], word.term, detail);
     }
     haptic(ok ? 'grade' : 'wrong');
-    tick(ok ? 'good' : 'wrong');
     setRight((r) => r + (ok ? 1 : 0));
     setI((n) => n + 1);
   }, [i, steps, word]);
