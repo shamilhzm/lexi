@@ -73,7 +73,7 @@ export default function Kurs({ level, onLevel, onBack, onStudy }: {
       </div>
 
       <Kicker className="block mb-0.5">Course</Kicker>
-      <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">{LEVEL_NAME[level]}</h1>
+      <h1 lang="de" translate="no" className="display text-3xl sm:text-4xl mb-1">{LEVEL_NAME[level]}</h1>
       <p className="text-dim text-sm mb-4 max-w-[60ch] text-balance">{LEVEL_LINE[level]}</p>
 
       {/* Levels as chips — taps, never a swipe: one horizontal axis per app. */}
@@ -125,7 +125,7 @@ function PreludeRow({ title, en, seen, onFilm }: { title: string; en: string; se
       </span>
       <div className="flex-1 min-w-0">
         <Kicker className="block">Before you start</Kicker>
-        <h2 lang="de" className="headword text-xl font-bold leading-tight">{title}</h2>
+        <h2 lang="de" translate="no" className="headword text-xl font-bold leading-tight">{title}</h2>
         <p className="text-sm text-dim">{en}</p>
         <button onClick={onFilm}
           className="tap-44 mt-3 inline-flex items-center gap-1.5 rounded-full key bg-key text-key-ink font-semibold text-sm px-4 h-10 active:scale-95 transition">
@@ -156,7 +156,7 @@ function UnitRow({ n, unit, known, count, seen, next, onFilm, onStudy }: {
         </span>
         <div className="flex-1 min-w-0">
           <div className="flex items-baseline gap-2 flex-wrap">
-            <h2 lang="de" className="headword text-xl font-bold leading-tight">{unit.title}</h2>
+            <h2 lang="de" translate="no" className="headword text-xl font-bold leading-tight">{unit.title}</h2>
             {unit.strand && (
               <span className={`text-2xs font-semibold uppercase tracking-widest ${unit.bridge ? 'text-accent' : 'text-dim'}`}>
                 {unit.bridge ? 'Brücke' : STRAND_LABEL[unit.strand]}
@@ -166,7 +166,7 @@ function UnitRow({ n, unit, known, count, seen, next, onFilm, onStudy }: {
           </div>
           <p className="text-sm text-dim">{unit.en}</p>
           <p className="text-xs mt-1">
-            <span lang="de" className="text-txt">{unit.focus}</span>
+            <span lang="de" translate="no" className="text-txt">{unit.focus}</span>
             <span className="text-dim"> · {count} words · {pct}% known</span>
           </p>
           <div className="flex gap-2 mt-3 flex-wrap">
@@ -210,9 +210,9 @@ export function KursBand({ onOpen }: { onOpen: (l: CEFR) => void }) {
       </span>
       <span className="flex-1 min-w-0">
         <Kicker className="block">Kurs · {level}</Kicker>
-        <span lang="de" className="block text-lg font-semibold leading-tight mt-0.5">{next.title}</span>
+        <span lang="de" translate="no" className="block text-lg font-semibold leading-tight mt-0.5">{next.title}</span>
         <span className="block text-xs text-dim mt-0.5">
-          Unit {n} of {main.length} · <span lang="de">{next.focus}</span>
+          Unit {n} of {main.length} · <span lang="de" translate="no">{next.focus}</span>
         </span>
         {/* One segment a unit: the path at a glance, the way a course book's
             contents page shows where the bookmark is. */}

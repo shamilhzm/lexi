@@ -190,7 +190,7 @@ export default function WordDrill({ word, onClose, backLabel = 'Back to the feed
             <Kicker className="block">Üben</Kicker>
             {/* See `headerTerm`. The line keeps its height when it has nothing it
                 may say, so the card below does not move between steps. */}
-            <span lang="de" aria-hidden={shown === null} className={`block text-base font-semibold truncate ${shown === null ? 'invisible' : ''}`}>
+            <span lang="de" translate="no" aria-hidden={shown === null} className={`block text-base font-semibold truncate ${shown === null ? 'invisible' : ''}`}>
               {shown ?? '–'}
             </span>
           </div>
@@ -244,7 +244,7 @@ function Done({ word, right, of, onClose, backLabel }: { word: Word; right: numb
         {right} of {of} right
       </p>
       <p className="text-dim text-sm max-w-[34ch] mx-auto leading-relaxed mb-7 text-balance">
-        <span lang="de" className="text-txt">{shownTerm(word.term)}</span>{' '}
+        <span lang="de" translate="no" className="text-txt">{shownTerm(word.term)}</span>{' '}
         {perfect
           ? 'is in your schedule now. Üben brings it back just before you’d forget it.'
           : 'is in your schedule now, and the parts you missed will come back soonest.'}

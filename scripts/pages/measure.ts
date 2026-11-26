@@ -59,7 +59,7 @@ console.log(`coverage — ipa ${pct(has((c) => c.ipa))} · def ${pct(has((c) => 
 const esc = (s = '') => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const render = (s: string, cs: Card[]) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(bare(cs[0].term))} — meaning, gender and plural | Lexi</title><meta name="description" content="${esc(cs.map((c) => `${c.term}: ${c.en}`).join('; '))}"><link rel="canonical" href="https://example.invalid/wort/${encodeURIComponent(s)}"><link rel="stylesheet" href="/pages.css"></head><body><main>${cs.map((c) => {
   const d = detail[c.id] ?? {};
-  return `<article><h1 lang="de">${esc(c.term)}</h1><p>${esc([c.pos, c.level, c.plural, c.ipa && `/${c.ipa}/`].filter(Boolean).join(' · '))}</p><p>${esc(c.en)}</p>${d.def ? `<p>${esc(d.def)}</p>` : ''}<ul>${(d.ex ?? []).map((e) => `<li><span lang="de">${esc(e.de)}</span> — ${esc(e.en)}</li>`).join('')}</ul><a href="/#/w/${encodeURIComponent(c.id)}">Learn this word in Lexi</a></article>`;
+  return `<article><h1 lang="de" translate="no">${esc(c.term)}</h1><p>${esc([c.pos, c.level, c.plural, c.ipa && `/${c.ipa}/`].filter(Boolean).join(' · '))}</p><p>${esc(c.en)}</p>${d.def ? `<p>${esc(d.def)}</p>` : ''}<ul>${(d.ex ?? []).map((e) => `<li><span lang="de" translate="no">${esc(e.de)}</span> — ${esc(e.en)}</li>`).join('')}</ul><a href="/#/w/${encodeURIComponent(c.id)}">Learn this word in Lexi</a></article>`;
 }).join('')}</main><footer>CC BY-SA 4.0 · Wiktionary, Tatoeba and others · <a href="/data/NOTICE.txt">sources</a></footer></body></html>`;
 
 rmSync(OUT, { recursive: true, force: true });

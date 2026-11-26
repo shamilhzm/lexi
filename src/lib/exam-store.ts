@@ -55,6 +55,9 @@ export interface Attempt {
      *  every Goethe sitting. Absent on rows filed before this existed — read them
      *  as telc B1, which is what they were. */
     max?: number; passed?: boolean;
+    /** True when a productive part was still unmarked: the points are a floor and
+     *  `passed` is not a verdict. Absent on rows filed before 2026-11-26. */
+    provisional?: boolean;
   };
   /** Per-strand share of that strand's maximum, 0..1, frozen with the score.
    *  The only evidence the app has about reading, writing and speaking, kept
@@ -113,12 +116,14 @@ export function history(paperId?: string): Attempt[] {
  *  By share and not by points: a sitting from before Lexi went silent was out of
  *  300 with Hören in it, one after is out of 255, and 200 of the second is the
  *  better result. Rows with no frozen maximum are telc B1's, out of 300. */
-export function best(paperId: string): { total: number; max: number; passed?: boolean } | null {
-  let top: { total: number; max: number; passed?: boolean } | null = null;
+export function best(paperId: string): { total: number; max: number; passed?: boolean; provisional?: boolean } | null {
+  let top: { total: number; max: number; passed?: boolean; provisional?: boolean } | null = null;
   for (const a of history(paperId)) {
     if (!a.score) continue;
     const max = a.score.max ?? 300;
-    if (!top || a.score.total / max > top.total / top.max) top = { total: a.score.total, max, passed: a.score.passed };
+    if (!top || a.score.total / max > top.total / top.max) {
+      top = { total: a.score.total, max, passed: a.score.passed, provisional: a.score.provisional };
+    }
   }
   return top;
 }

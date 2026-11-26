@@ -201,13 +201,14 @@ function TitleBeat({ title, line }: { title: string; line: string }) {
       <motion.div {...tabs} aria-hidden className="flex gap-1.5 mb-5">
         {ARTICLES.map((g) => <span key={g} className="h-2 w-10 rounded-full" style={{ background: genderColor(g) }} />)}
       </motion.div>
-      <h2 lang="de" className="headword font-bold text-3xl sm:text-4xl leading-tight mb-3 text-balance">{title}</h2>
+      <h2 lang="de" translate="no" className="headword font-bold text-3xl sm:text-4xl leading-tight mb-3 text-balance">{title}</h2>
       <p className="text-dim text-base leading-relaxed text-balance">{line}</p>
     </div>
   );
 }
 
-/** A card as a row: the term in its ink, the gloss, tap to hear. */
+/** A card as a row: the term in its ink, and the gloss. (A row spoke its word
+ *  when tapped, until Lexi went silent on 2026-11-26.) */
 function WordRow({ term, delay = 0 }: { term: string; delay?: number }) {
   const w = cardByTerm(term);
   const enter = useIn(delay);
@@ -236,7 +237,7 @@ function GenderBeat({ term, line, picked, onPick }: { term: string; line: string
     <>
       <Line>{line}</Line>
       <div className="hw-box text-center my-6">
-        <div lang="de" className="headword hw-answer hw-fit font-bold" style={fitStyle(`${w.gender} ${word}`)}>
+        <div lang="de" translate="no" className="headword hw-answer hw-fit font-bold" style={fitStyle(`${w.gender} ${word}`)}>
           {/* The space stays outside the inline-block: trailing whitespace inside
               one collapses, and the reveal read "dasAbendessen" (simulator, 2026-11-19). */}
           {picked === undefined
@@ -268,7 +269,7 @@ function ChoiceBeat({ beat, picked, onPick }: { beat: Extract<Beat, { kind: 'cho
   return (
     <>
       <Line>{beat.line}</Line>
-      <p lang="de" className="headword text-xl font-bold leading-snug mb-4 text-balance">{beat.prompt}</p>
+      <p lang="de" translate="no" className="headword text-xl font-bold leading-snug mb-4 text-balance">{beat.prompt}</p>
       <div className="grid gap-2.5">
         {beat.options.map((o, k) => {
           const state = picked === undefined ? 'idle' : k === beat.answer ? 'right' : k === picked ? 'wrong' : 'idle';
@@ -279,7 +280,7 @@ function ChoiceBeat({ beat, picked, onPick }: { beat: Extract<Beat, { kind: 'cho
                 : state === 'wrong' ? 'bg-[var(--color-red-d)] border-red text-red-txt' : 'bg-card'}`}>
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
-              <span lang="de">{o}</span>
+              <span lang="de" translate="no">{o}</span>
             </button>
           );
         })}
@@ -301,11 +302,11 @@ function PatternBeat({ endings }: { endings: string[] }) {
         return (
           <li key={c.ending}>
             <div className="flex items-baseline justify-between gap-3 mb-1.5">
-              <span lang="de" className="headword text-lg font-bold">-{c.ending}</span>
+              <span lang="de" translate="no" className="headword text-lg font-bold">-{c.ending}</span>
               <span className="text-sm">
                 <b className="font-mono tabular-nums">{c[c.majority]}</b>
                 <span className="text-dim"> of {c.total} are </span>
-                <b lang="de" style={{ color: genderColor(c.majority) }}>{c.majority}</b>
+                <b lang="de" translate="no" style={{ color: genderColor(c.majority) }}>{c.majority}</b>
               </span>
             </div>
             <motion.div className="flex h-3 rounded-full overflow-hidden bg-panel2 origin-left" aria-hidden
@@ -317,7 +318,7 @@ function PatternBeat({ endings }: { endings: string[] }) {
             </motion.div>
             {c.exceptions.length > 0 && (
               <p className="text-2xs text-dim mt-1.5">
-                {share === 1 ? '' : 'Exceptions: '}<span lang="de">{c.exceptions.slice(0, 6).join(', ')}</span>
+                {share === 1 ? '' : 'Exceptions: '}<span lang="de" translate="no">{c.exceptions.slice(0, 6).join(', ')}</span>
                 {c.exceptions.length > 6 && ` and ${c.exceptions.length - 6} more`}
               </p>
             )}
@@ -357,7 +358,7 @@ function CompoundBeat({ parts, whole, glue }: { parts: string[]; whole: string; 
           <p className="text-dim text-sm mt-1">{w.en}</p>
           {lastPart && lastPart.gender && lastPart.gender === w.gender && (
             <p className="text-sm mt-3"><Check size={14} className="inline -mt-0.5 mr-1 text-green" />
-              The article comes from the last part: <span lang="de" style={{ color: genderColor(lastPart.gender) }}>{lastPart.gender}</span> <span lang="de">{bare(lastPart.term)}</span>.
+              The article comes from the last part: <span lang="de" translate="no" style={{ color: genderColor(lastPart.gender) }}>{lastPart.gender}</span> <span lang="de" translate="no">{bare(lastPart.term)}</span>.
             </p>
           )}
         </motion.div>
@@ -369,7 +370,7 @@ function CompoundBeat({ parts, whole, glue }: { parts: string[]; whole: string; 
 /** Sentences stacked on a grid so the slot column lines up: before | slot | after. */
 function OrderBeat({ rows, slot, label }: { rows: string[][]; slot: number; label: string }) {
   return (
-    <div lang="de">
+    <div lang="de" translate="no">
       <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 gap-y-3 items-center">
         <span />
         <Kicker tone="accent" className="text-center">{label}</Kicker>
@@ -414,7 +415,7 @@ function BracketBeat({ tokens, from, to, label }: { tokens: string[]; from: numb
           <text x={(arc.x1 + arc.x2) / 2} y={arc.y + 12} textAnchor="middle" fill="var(--color-accent)" fontSize={12} fontWeight={700}>{label}</text>
         </svg>
       )}
-      <p lang="de" className="text-xl leading-loose flex flex-wrap gap-x-2">
+      <p lang="de" translate="no" className="text-xl leading-loose flex flex-wrap gap-x-2">
         {tokens.map((t, k) => (
           <span key={k} ref={(el) => { refs.current[k] = el; }}
             className={k === from || k === to ? 'rounded-md bg-key text-key-ink font-bold px-1.5' : ''}>{t}</span>
@@ -434,7 +435,7 @@ function MoveBeat({ from, to }: { from: string[]; to: string[] }) {
   return (
     <div>
       <LayoutGroup>
-        <p lang="de" className="text-xl leading-loose flex flex-wrap gap-x-2 min-h-[3.5rem]">
+        <p lang="de" translate="no" className="text-xl leading-loose flex flex-wrap gap-x-2 min-h-[3.5rem]">
           {row.map((t) => {
             const shared = from.some((f) => key(f) === key(t)) && to.some((f) => key(f) === key(t));
             return (
@@ -461,7 +462,7 @@ function Item({ text }: { text: string }) {
   const phrase = !w && /\s/.test(text.trim());
   return (
     <div className="block text-left max-w-full">
-      <span lang="de" className={phrase ? 'block text-base font-semibold leading-snug' : 'block headword text-lg font-bold leading-tight break-words'}>
+      <span lang="de" translate="no" className={phrase ? 'block text-base font-semibold leading-snug' : 'block headword text-lg font-bold leading-tight break-words'}>
         {w ? <InkedArticle term={w.term} gender={w.gender} /> : text}
       </span>
     </div>
@@ -511,7 +512,7 @@ function ScaleRow({ step, delay }: { step: { label: string; de: string; term?: s
     <motion.li {...enter} className="pl-4 relative">
       <span aria-hidden className="absolute -left-[7px] top-2 w-3 h-3 rounded-full bg-accent" />
       <Kicker className="block">{step.label}</Kicker>
-      <p lang="de" className="headword text-xl font-bold text-left">{step.de}</p>
+      <p lang="de" translate="no" className="headword text-xl font-bold text-left">{step.de}</p>
     </motion.li>
   );
 }
@@ -547,7 +548,7 @@ function PluralRow({ term, delay }: { term: string; delay: number }) {
       <motion.span {...b} className="min-w-0 flex items-baseline gap-2 flex-wrap">
         {/* The plural's article in plain ink: die here is not the feminine die,
             and colouring it pink would teach that it is. */}
-        <span lang="de" className="headword text-lg font-bold text-left">
+        <span lang="de" translate="no" className="headword text-lg font-bold text-left">
           <span className="text-dim font-semibold">die </span>
           {shape
             ? <>{[...pl.slice(0, pl.length - shape.ending.length)].map((c, i) => shape.umlaut.includes(i)
@@ -582,7 +583,7 @@ function TrapBeat({ term }: { term: string }) {
       </motion.p>
       <motion.p {...c} className="text-sm">
         <span className="text-dim">For “{f.looksLike}”, say </span>
-        <span lang="de" className="font-semibold">{f.insteadSay}</span>
+        <span lang="de" translate="no" className="font-semibold">{f.insteadSay}</span>
       </motion.p>
     </div>
   );
@@ -597,13 +598,13 @@ function ExampleBeat({ term, match, mark }: { term: string; match: string; mark:
   const parts = splitMarks(ex.de, mark);
   return (
     <div>
-      <p lang="de" className="text-xl leading-relaxed">
+      <p lang="de" translate="no" className="text-xl leading-relaxed">
         {parts.map((p, k) => p.on
           ? <mark key={k} className="bg-key text-key-ink rounded px-1 font-semibold">{p.t}</mark>
           : <span key={k}>{p.t}</span>)}
       </p>
       {ex.en && <p className="text-dim text-sm italic mt-2">{ex.en}</p>}
-      <p className="text-2xs text-dim mt-3">From the card for <span lang="de" className="text-txt">{shownTerm(w.term)}</span>.</p>
+      <p className="text-2xs text-dim mt-3">From the card for <span lang="de" translate="no" className="text-txt">{shownTerm(w.term)}</span>.</p>
     </div>
   );
 }
@@ -669,7 +670,7 @@ function ShiftBeat({ rule, terms }: { rule: string; terms: string[] }) {
       </ul>
       {r && (
         <p className="text-2xs text-dim mt-3">
-          German <b lang="de" className="text-txt">{r.de}</b>, English <b className="text-txt">{r.en}</b>:{' '}
+          German <b lang="de" translate="no" className="text-txt">{r.de}</b>, English <b className="text-txt">{r.en}</b>:{' '}
           {r.n} pairs among the words Lexi teaches.
         </p>
       )}
@@ -691,7 +692,7 @@ function SuffixBeat({ de, en, terms }: { de: string; en: string; terms: string[]
         })}
       </ul>
       <p className="text-2xs text-dim mt-3">
-        German <b lang="de" className="text-txt">-{de}</b>, {en ? <>English <b className="text-txt">-{en}</b></> : 'an English verb'}:{' '}
+        German <b lang="de" translate="no" className="text-txt">-{de}</b>, {en ? <>English <b className="text-txt">-{en}</b></> : 'an English verb'}:{' '}
         {n} pairs among the words Lexi teaches.
       </p>
     </div>
@@ -707,7 +708,7 @@ function SuffixRow({ term, en, mark, delay }: { term: string; en?: string; mark:
   const art = /^(der|die|das)\s+/i.exec(w.term)?.[1];
   return (
     <li className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 py-2 border-b border-line last:border-0">
-      <motion.span {...a} lang="de"
+      <motion.span {...a} lang="de" translate="no"
         className="headword text-lg font-bold text-left whitespace-nowrap">
         {art && <span style={w.gender ? { color: genderColor(w.gender) } : undefined}>{art} </span>}
         <Marked text={bare(w.term)} source={mark[0]} flags="gi" />
@@ -726,7 +727,7 @@ function ShiftRow({ term, en, mark, delay }: { term: string; en?: string; mark?:
   const art = /^(der|die|das)\s+/i.exec(w.term)?.[1];
   return (
     <li className="grid grid-cols-[1fr_1.25rem_1fr] gap-x-3 items-baseline py-2.5 border-b border-line last:border-0">
-      <motion.span {...a} lang="de"
+      <motion.span {...a} lang="de" translate="no"
         className="headword text-xl font-bold text-left min-w-0 break-words">
         {art && <span style={w.gender ? { color: genderColor(w.gender) } : undefined}>{art} </span>}
         <Marked text={bare(w.term)} source={mark?.[0]} flags="gi" />
@@ -742,7 +743,7 @@ function ShiftRow({ term, en, mark, delay }: { term: string; en?: string; mark?:
 function SayBeat({ de, en }: { de: string; en?: string }) {
   return (
     <div className="text-center py-4">
-      <p lang="de" className="headword text-2xl font-bold leading-snug text-balance">{de}</p>
+      <p lang="de" translate="no" className="headword text-2xl font-bold leading-snug text-balance">{de}</p>
       {en && <p className="text-dim text-sm mt-2">{en}</p>}
     </div>
   );
@@ -766,7 +767,7 @@ function ChartBeat({ bars, de, en }: { bars: { label: string; value: number }[];
       <div className="flex gap-3 px-2 mt-1">
         {bars.map((b) => <span key={b.label} className="flex-1 text-center font-mono text-2xs text-dim">{b.label}</span>)}
       </div>
-      <p lang="de" className="headword text-xl font-bold leading-snug mt-4 text-balance">{de}</p>
+      <p lang="de" translate="no" className="headword text-xl font-bold leading-snug mt-4 text-balance">{de}</p>
       <p className="text-dim text-sm mt-1">{en}</p>
     </div>
   );

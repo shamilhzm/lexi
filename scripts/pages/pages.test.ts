@@ -71,7 +71,7 @@ describe('a page', () => {
 
 describe('the English line', () => {
   it('says what transfer.json says, and nothing for a word it does not name', () => {
-    expect(page('wasser')).toContain('Related to English <b>water</b>. German <b lang="de">ss, ß</b> is often English <b>t</b>:');
+    expect(page('wasser')).toContain('Related to English <b>water</b>. German <b lang="de" translate="no">ss, ß</b> is often English <b>t</b>:');
     expect(page('team')).toContain('Borrowed from English.');
     expect(page('wohnung')).not.toContain('Related to English');
   });

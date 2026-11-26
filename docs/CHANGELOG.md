@@ -11,6 +11,100 @@ it is already built.
 
 ---
 
+### 2026-11-26 · Second pass: marks that tell the truth, the goose in the Heft, and pictures of the app as it is
+
+**Where it is.** On branch `redesign/lexi-2`, on top of `e311df9`, not deployed.
+Production is still `1e40fd3`.
+
+**The board, convened** (BOARD.md). Seats: Creative Director, Illustrator, Product
+Designer, UX Writer, Inclusion Lead, Assessment Lead, Head of German, Registrar,
+Admissions & Marketing, QA Lead, Lead Engineer. No VISION change, no deploy, and no
+learner row touched.
+
+**Self-marking can no longer mark for you** (`views/exam/Writing.tsx`, `Speaking.tsx`,
+`SelfAssess.tsx`). One tap on a criterion used to commit B for every criterion the
+learner had not touched, and a *Bewertung eintragen* button committed B, B, B outright.
+A default had become a grade. Both panels now keep a draft and write a mark only when
+every criterion has one. Kriterium IV's extra points open only after I to III are
+graded. The writing chip shows the mark on the paper's own scale (`writingOnScheme`:
+telc's 45-point grid, scaled to the 25 points Goethe A1 gives Schreiben), and a Goethe
+paper says the grid is telc's. Labels follow the board: *Ihr Brief* and *Musterbriefe*
+on telc, *Ihr Text* and *Mustertexte* on Goethe. A ticked Leitpunkt, a picked band and
+a picked answer fill in Königsblau, the learner's own ink, and a finished part is
+outlined in it. Green stays for *right*. The hints lost their asterisks, and criterion
+I's figures are shown only on a paper with four Leitpunkte, which is the paper telc's
+grid was written for.
+
+**A floor is not a verdict** (`lib/exam.ts`, `views/exam/Results.tsx`,
+`views/Exam.tsx`, `lib/exam-store.ts`). With Sprechen unmarked, the result read *nicht
+bestanden* in red over a red 0/25 bar, and that fail was frozen into the paper's
+history and its cover stamp. `scoreExam` now names what is still unmarked
+(`Result.unmarked`). The results say which part, and that the total is a floor. An
+unmarked part shows *noch nicht bewertet* and a dash instead of a bar, a half that is
+only partly marked says *vorläufig*, and a provisional sitting is stamped in ink, not
+red or green, on the cover and in the history (`provisional` on a stored sitting).
+Goethe papers name their parts Lesen, Hören, Schreiben and Sprechen, and the C1 paper's
+two writing tasks are told apart. `fmtPoints` replaced three copies of one formatter,
+and a test holds `unmarked` to its three cases.
+
+**The study card speaks in ink** (`views/Review.tsx`, `components/ui/Kicker.tsx`). The
+answer face is outlined and labelled in Königsblau, not green: green is a verdict, and
+turning a card over is not one. A new card's meaning is in plain ink, the front names
+its part of speech and level, and the tour step says *Undo and skip*.
+
+**Numbers that agree with their neighbours.** Fortschritt's percentage was words *seen*
+over the level, beside a count of words *known*, so an A1 learner read "98 of 1,256 ·
+9%" above a strip that said 8%. It is now known over count. Stats says *known · seen ·
+due now*. The forecast inks today instead of its last bar, and today is *heute* beside
+the German weekdays.
+
+**German is never handed to a page translator.** Every `lang="de"` element carries
+`translate="no"`: a codemod over 31 components, the dynamic sites in the drills, the
+quiz, `Layer` and `WhyThisCard`, and the word and about pages. A translator that turns
+*der Tisch* into *the table* turns every drill into its own answer.
+`design-rules.test.ts` refuses a German element without it.
+
+**Gans wears the Heft** (`scripts/pages/gans.ts`, `design/mascot/`). Her wing is the
+*die* highlighter, because she is *die Gans*, and her sheets sit on paper. The about
+page's alt text says so. This closes BACKLOG *Das Heft, Prüfung and silence*, item 4.
+
+**The share images are set in the app's type** (`scripts/marketing/raster.ts`,
+`og-image.ts`, `og-gans.ts`). CoreSVG set them in whatever the Mac had installed
+(Iowan Old Style, Helvetica). Headless Chrome now renders them from HTML with the
+app's own woff2 files inlined, so they are Bricolage Grotesque and IBM Plex Mono on
+paper, with the yellow highlighter. `og.jpg` is 211 KB and `og-gans.jpg` 119 KB, both
+1200×630.
+
+**The install screenshots show the app as it is** (`npm run screens`). The three in
+the manifest dated from 2026-10-12 and still showed the card box, a speaker button and
+Hören's headphones. `scripts/marketing/screens.ts` now takes them over the DevTools
+protocol from a seeded dev server (persona `b1`, 360×649 at 2×): the feed, search, the
+sky and, new, the exam room.
+
+**The sky draws its unlit words in pencil** (`components/skyPaint.ts`). They were the
+line colour, which vanishes on paper. `devseed`'s word pool now interleaves the
+frequency bands, top band first, as its comment always said. It concatenated them, so
+a B1 persona's sky was dark at the centre.
+
+**Smaller.** Text fields drew two focus lines, because the unlayered global ring beats
+Tailwind's layered `outline-none` and `focus:border-accent` added a second. They now
+draw one 2px line in ink. The writing sheet's red margin never showed: the sheet sat on
+`bg-card`, whose `soft-light` blend erased the margin, and in dark mode `bg-card`
+replaced the lines altogether. *Sag es* had left a door in Themen that nothing opened,
+and two comments describing sound. The welcome lists the three doors a new learner
+uses and promises IPA, not sound. The A1 prelude no longer says "tap one to hear", and
+the link preview promises the exam room instead of walk mode. Blind spots ink each
+article in its highlighter. Search says *Lexi teaches · the top 40*.
+
+**Measured this session.** Entry 263.6 KB of 285, CSS 15.1 of 16, the Exam chunk 25.0 KB
+and telc B1 37.3 KB of 64, the boot set 711.9 of 860 KB. `npm test`: 2,625 passed in 114
+files. Typecheck clean, lint 0 errors and no new warnings in the files this pass
+touched, devseed absent from the bundle. Driven on the iPhone 17 Pro simulator: a whole
+Goethe A1 sitting to its results, with Schreiben self-marked and Sprechen left
+unmarked.
+
+**Left open.** BACKLOG, *Das Heft, Prüfung and silence*.
+
 ### 2026-11-26 · Das Heft, the exam room returns, and Lexi goes silent
 
 **Where it is.** On branch `redesign/lexi-2`, not deployed. Production is still

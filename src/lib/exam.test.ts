@@ -169,6 +169,13 @@ describe('scoring a sitting', () => {
     expect(scoreExam(PAPER, { responses: perfect, writing: marks() }).provisional).toBe(true);
   });
 
+  it('names only the productive parts still unmarked', () => {
+    expect(scoreExam(PAPER, { responses: perfect }).unmarked).toEqual(['writing', 'speaking']);
+    expect(scoreExam(PAPER, { responses: perfect, writing: marks() }).unmarked).toEqual(['speaking']);
+    expect(scoreExam(PAPER, { responses: perfect, writing: marks(), speaking: { 1: allA, 2: allA, 3: allA } })
+      .unmarked).toEqual([]);
+  });
+
   it('scores an empty sheet at zero rather than throwing', () => {
     const r = scoreExam(PAPER, { responses: {} });
     expect(r.total).toBe(0);

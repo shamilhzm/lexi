@@ -1598,17 +1598,10 @@ export function setTextScale(scale: number) {
   emit();
 }
 
-// ---- sound (the feel layer; on by default) ---------------------------------
-// Tri-state on purpose. The key used to mean "1 = the learner opted in", with
-// absent = off; now absent means "hasn't chosen", which defaults to on. Opting
-// out therefore has to be stored explicitly as '0' rather than by deleting the
-// key — deleting it would silently re-enable sound on the next visit.
-const SOUND_KEY = 'lexi.sound.v1';
-export function sound(): boolean { return localStorage.getItem(SOUND_KEY) !== '0'; }
-export function setSound(on: boolean) {
-  localStorage.setItem(SOUND_KEY, on ? '1' : '0');
-  emit();
-}
+// ---- sound: retired 2026-11-26 ---------------------------------------------
+// Lexi is silent (VISION), so nothing reads `lexi.sound.v1` any more and its
+// getter and setter went. The key stays in SETTING_KEYS: a learner's choice
+// still round-trips through a backup, ready for the day an open voice exists.
 
 // ---- daily reminder (the habit anchor) -----------------------------------
 // A time of day, not a notification schedule. Local-first means there is no

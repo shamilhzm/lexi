@@ -99,7 +99,7 @@ export function GenderTerm({ term, gender, className = '', as: Tag = 'span', id,
 }) {
   const bare = shownTerm(term.replace(/^(der|die|das)\s+/i, ''));
   const word = (
-    <Tag lang="de" id={id} className={fit ? `hw-fit ${className}` : className} style={fit ? fitStyle(bare) : undefined}>
+    <Tag lang="de" translate="no" id={id} className={fit ? `hw-fit ${className}` : className} style={fit ? fitStyle(bare) : undefined}>
       {gender && (swash
         ? <><span className={`swash${stack ? ' hw-article' : ''}`} style={{ '--swash': markColor(gender) } as CSSProperties}>{gender}</span>{' '}</>
         : <span style={{ color: genderColor(gender) }}>{gender} </span>)}
@@ -155,7 +155,7 @@ export function ExampleList({ items, max = 2 }: { items: Example[]; max?: number
       {items.slice(0, max).map((e, k) => {
         return (
           <li key={k} className="text-sm leading-relaxed">
-            <span lang="de" className="text-txt">{e.de}</span>
+            <span lang="de" translate="no" className="text-txt">{e.de}</span>
             {e.en && <span className="block text-dim italic pl-3.5 mt-0.5">{e.en}</span>}
           </li>
         );
@@ -184,7 +184,7 @@ export function FalseFriendNote({ term }: { term: string }) {
           Looks like <span className="text-txt font-semibold">“{ff.looksLike}”</span>, but it means{' '}
           <span className="text-txt font-semibold">{ff.actually}</span>.
           <span className="block text-dim mt-0.5">
-            For “{ff.looksLike}” say <span lang="de" className="text-txt">{ff.insteadSay}</span>.
+            For “{ff.looksLike}” say <span lang="de" translate="no" className="text-txt">{ff.insteadSay}</span>.
           </span>
         </span>
       </p>
@@ -220,10 +220,10 @@ export function TransferNote({ term }: { term: string }) {
       </p>
       {t.rule && (
         <p className="text-sm leading-relaxed text-dim mt-0.5">
-          German <span lang="de" className="text-txt font-semibold">{t.rule.de}</span> is often
+          German <span lang="de" translate="no" className="text-txt font-semibold">{t.rule.de}</span> is often
           English <span className="text-txt font-semibold">{t.rule.en}</span>:{' '}
           {t.rule.ex.map(([d, e], i) => (
-            <span key={d}>{i > 0 && ', '}<span lang="de" className="text-txt">{d}</span> · {e}</span>
+            <span key={d}>{i > 0 && ', '}<span lang="de" translate="no" className="text-txt">{d}</span> · {e}</span>
           ))}.
         </p>
       )}
@@ -308,7 +308,7 @@ export function TermList({ label, terms, tone = 'txt' }: {
   return (
     <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm">
       <Kicker className="flex-shrink-0">{label}</Kicker>
-      <span lang="de" className={tone === 'red' ? 'text-red-txt' : 'text-txt'}>{terms.join(', ')}</span>
+      <span lang="de" translate="no" className={tone === 'red' ? 'text-red-txt' : 'text-txt'}>{terms.join(', ')}</span>
     </p>
   );
 }

@@ -20,7 +20,7 @@ import Card from '../../components/ui/Card.tsx';
 import Button from '../../components/ui/Button.tsx';
 import Chip from '../../components/ui/Chip.tsx';
 import Kicker from '../../components/ui/Kicker.tsx';
-import { MAX, type ExamPaper, type Result, type Scheme, type Subtest } from '../../lib/exam.ts';
+import { MAX, fmtPoints as fmt, type ExamPaper, type Result, type Scheme, type Subtest } from '../../lib/exam.ts';
 
 const SUBTEST_LABEL: Record<Subtest, string> = {
   reading: 'Leseverstehen',
@@ -28,6 +28,12 @@ const SUBTEST_LABEL: Record<Subtest, string> = {
   listening: 'Hörverstehen',
   writing: 'Schriftlicher Ausdruck',
   speaking: 'Mündliche Prüfung',
+};
+
+/** Goethe names its four parts by the skill. telc's longer names ("Schriftlicher
+ *  Ausdruck") on a Goethe result read as somebody else's certificate. */
+const GOETHE_LABEL: Partial<Record<Subtest, string>> = {
+  reading: 'Lesen', listening: 'Hören', writing: 'Schreiben', speaking: 'Sprechen',
 };
 
 /** The fallback when a paper says nothing of its own. Deliberately free of point
@@ -54,7 +60,9 @@ export default function Results({ paper, result, onReview }: {
   const { bySubtest } = result;
   const scheme = sat(paper.scheme ?? MAX, result);
   const remedy = { ...REMEDY, ...paper.remedy };
-  const label = { ...SUBTEST_LABEL, ...paper.subtestLabels };
+  const label = { ...SUBTEST_LABEL, ...(paper.provider === 'goethe' ? GOETHE_LABEL : {}), ...paper.subtestLabels };
+  const unmarked = new Set(result.unmarked);
+  const unmarkedNames = result.unmarked.map((s) => label[s]);
   // Weakest as a *proportion* of its own maximum — Sprachbausteine can never
   // lose 40 points, so ranking by raw loss would always name Hörverstehen. A
   // subtest this paper does not have (`max` 0) is not a candidate.
@@ -99,9 +107,12 @@ export default function Results({ paper, result, onReview }: {
           <div className="flex items-start gap-2.5">
             <AlertTriangle size={16} className="text-accent flex-shrink-0 mt-0.5" />
             <p className="text-sm leading-relaxed">
-              <span className="font-semibold">Provisional.</span> The letter and the oral are not marked
-              yet, so everything below is a <em>floor</em>, not a score. Assess them against the criteria
-              and this becomes a real total.
+              {/* Names what is actually unmarked. It said "the letter and the oral"
+                  whatever the learner had done (2026-11-26). */}
+              <span className="font-semibold">Provisional.</span> {unmarkedNames.join(' and ')}
+              {unmarkedNames.length > 1 ? ' are' : ' is'} not marked yet, so everything below is
+              a <em>floor</em>, not a score. Mark {unmarkedNames.length > 1 ? 'them' : 'it'} against the
+              criteria and this becomes a real total.
             </p>
           </div>
         </Card>
@@ -114,7 +125,7 @@ export default function Results({ paper, result, onReview }: {
         <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
           {result.modules.map((m) => (
             <Half key={m.subtest} label={label[m.subtest]} points={m.points} max={m.max}
-              need={m.need} passed={m.passed} />
+              need={m.need} passed={m.passed} pending={unmarked.has(m.subtest as 'writing') ? 'blank' : undefined} />
           ))}
         </div>
       ) : (
@@ -125,9 +136,11 @@ export default function Results({ paper, result, onReview }: {
         // the claim is not.
         <div className="grid sm:grid-cols-2 gap-2.5 mb-4">
           <Half label="Schriftliche Prüfung" points={result.written} max={scheme.written}
-            need={scheme.pass.written} passed={result.passedWritten} judged={scheme.pass.written > 0} />
+            need={scheme.pass.written} passed={result.passedWritten} judged={scheme.pass.written > 0}
+            pending={unmarked.has('writing') ? 'floor' : undefined} />
           <Half label="Mündliche Prüfung" points={result.oral} max={scheme.oral}
-            need={scheme.pass.oral} passed={result.passedOral} judged={scheme.pass.oral > 0} />
+            need={scheme.pass.oral} passed={result.passedOral} judged={scheme.pass.oral > 0}
+            pending={unmarked.has('speaking') ? 'blank' : undefined} />
         </div>
       )}
 
@@ -143,9 +156,15 @@ export default function Results({ paper, result, onReview }: {
           </div>
           <div className="text-right">
             <Kicker className="block mb-1">Note</Kicker>
-            <p className={`text-xl font-bold ${result.passed ? 'text-green' : 'text-red-txt'}`}>
-              {result.note}
-            </p>
+            {/* No grade while a part is unmarked: a red "nicht bestanden" under a
+                VORLÄUFIG stamp was a verdict on work not yet graded (2026-11-26). */}
+            {result.provisional ? (
+              <p className="text-xl font-bold text-dim">steht aus</p>
+            ) : (
+              <p className={`text-xl font-bold ${result.passed ? 'text-green' : 'text-red-txt'}`}>
+                {result.note}
+              </p>
+            )}
           </div>
         </div>
         <p className="text-2xs text-dim mt-3 leading-relaxed">{passRule(scheme)}</p>
@@ -158,7 +177,7 @@ export default function Results({ paper, result, onReview }: {
             as a wiped part. */}
         {(Object.keys(SUBTEST_LABEL) as Subtest[]).filter((s) => bySubtest[s].max > 0).map((s) => (
           <SubtestRow key={s} label={label[s]} points={bySubtest[s].points} max={bySubtest[s].max}
-            parts={result.parts.filter((p) => p.subtest === s)} />
+            parts={result.parts.filter((p) => p.subtest === s)} unmarked={unmarked.has(s as 'writing')} />
         ))}
       </div>
 
@@ -176,7 +195,6 @@ export default function Results({ paper, result, onReview }: {
   );
 }
 
-const fmt = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1).replace('.', ','));
 const round1 = (n: number) => Math.round(n * 10) / 10;
 
 /** The scheme as sat: what was not set (Hören) leaves the written half and the
@@ -211,18 +229,24 @@ function passRule(s: Scheme): string {
     + `Ein starker Teil gleicht einen schwachen nicht aus.`;
 }
 
-function Half({ label, points, max, need, passed, judged = true }: {
+function Half({ label, points, max, need, passed, judged = true, pending }: {
   label: string; points: number; max: number; need: number; passed: boolean;
   /** False when this half carries no pass rule of its own — see the call site. */
   judged?: boolean;
+  /** A self-assessed part in this half is still unmarked: `floor` when the half
+   *  has other points (they show, unjudged), `blank` when it has nothing else. */
+  pending?: 'floor' | 'blank';
 }) {
-  const pct = Math.max(0, Math.min(1, points / max));
+  const pct = pending === 'blank' ? 0 : Math.max(0, Math.min(1, points / max));
   const needPct = need / max;
+  const ink = pending ? 'var(--color-dim)' : passed ? 'var(--color-green)' : 'var(--color-red)';
   return (
     <Card pad="sm">
       <div className="flex items-baseline justify-between gap-2 mb-2">
         <span className="text-sm font-semibold">{label}</span>
-        {judged ? (
+        {pending ? (
+          <Chip tone="dim">{pending === 'blank' ? 'nicht bewertet' : 'vorläufig'}</Chip>
+        ) : judged ? (
           <Chip tone={passed ? 'good' : 'bad'}>
             {passed ? <Check size={11} /> : <X size={11} />}
             {passed ? 'bestanden' : 'nicht bestanden'}
@@ -232,11 +256,12 @@ function Half({ label, points, max, need, passed, judged = true }: {
         )}
       </div>
       <p className="text-2xl font-bold tabular-nums mb-2">
-        {fmt(points)}<span className="text-dim text-base font-normal"> / {max}</span>
+        {pending === 'blank' ? <span className="text-dim">–</span> : fmt(points)}
+        <span className="text-dim text-base font-normal"> / {max}</span>
       </p>
       <div className="relative h-2 rounded-full bg-bg overflow-hidden">
         <div className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-500"
-          style={{ width: `${pct * 100}%`, background: passed ? 'var(--color-green)' : 'var(--color-red)' }} />
+          style={{ width: `${pct * 100}%`, background: ink }} />
       </div>
       {/* The floor line, drawn on the bar rather than stated beside it: the only
           question a learner has here is "am I over it". Omitted when there is no
@@ -254,9 +279,11 @@ function Half({ label, points, max, need, passed, judged = true }: {
   );
 }
 
-function SubtestRow({ label, points, max, parts }: {
+function SubtestRow({ label, points, max, parts, unmarked = false }: {
   label: string; points: number; max: number;
   parts: { partId: string; label: string; correct: number; total: number; points: number; max: number }[];
+  /** A self-assessed part not yet marked: no bar, no zero, no red. */
+  unmarked?: boolean;
 }) {
   const pct = max ? points / max : 0;
   return (
@@ -270,17 +297,17 @@ function SubtestRow({ label, points, max, parts }: {
             </span>
           )}
           {parts.length === 0 && (
-            <span className="block font-mono text-2xs text-dim">selbst bewertet</span>
+            <span className="block font-mono text-2xs text-dim">{unmarked ? 'noch nicht bewertet' : 'selbst bewertet'}</span>
           )}
         </span>
         <span className="w-16 sm:w-24 flex-shrink-0">
           <span className="block h-1.5 rounded-full bg-bg overflow-hidden">
-            <span className="block h-full transition-[width] duration-500"
-              style={{ width: `${Math.max(pct * 100, 2)}%`, background: pct >= 0.6 ? 'var(--color-green)' : 'var(--color-red)' }} />
+            {!unmarked && <span className="block h-full transition-[width] duration-500"
+              style={{ width: `${Math.max(pct * 100, 2)}%`, background: pct >= 0.6 ? 'var(--color-green)' : 'var(--color-red)' }} />}
           </span>
         </span>
         <span className="font-mono text-sm tabular-nums w-16 text-right flex-shrink-0">
-          {fmt(points)}<span className="text-dim">/{max}</span>
+          {unmarked ? <span className="text-dim">–</span> : fmt(points)}<span className="text-dim">/{max}</span>
         </span>
       </div>
     </Card>

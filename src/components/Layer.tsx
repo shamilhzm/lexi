@@ -273,7 +273,7 @@ export default function Layer({ children, side, label, back = 'Wort', onClose, f
             className="tap-44 inline-flex items-center gap-1.5 rounded-full glass pl-2.5 pr-3.5 h-11
               text-txt active:scale-95 transition mb-3 text-sm font-semibold">
             <BackArrow size={18} />
-            <span lang={back === 'Wort' ? 'de' : undefined}>{back}</span>
+            <span lang={back === 'Wort' ? 'de' : undefined} translate={back === 'Wort' ? 'no' : undefined}>{back}</span>
           </button>
           <LayerOwner value={entry}>{children}</LayerOwner>
           {footer && <div aria-hidden className="h-24" />}

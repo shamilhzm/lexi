@@ -193,7 +193,7 @@ function mark(word: string, source: string, side: 'de' | 'en', flags = ''): stri
 
 function sectionHead(n: string, kicker: string, en: string, de: string, id: string): string {
   return `<header class="sec-h"><p class="kicker">${n} · ${esc(kicker)}</p>` +
-    `<h2 id="${id}"><span class="h-en">${esc(en)}</span><span class="h-de" lang="de"><span class="q" aria-hidden="true">„</span>${esc(de)}<span class="q" aria-hidden="true">“</span></span></h2></header>`;
+    `<h2 id="${id}"><span class="h-en">${esc(en)}</span><span class="h-de" lang="de" translate="no"><span class="q" aria-hidden="true">„</span>${esc(de)}<span class="q" aria-hidden="true">“</span></span></h2></header>`;
 }
 
 /** A row of footprints between two sections: Gans walked through here. */
@@ -210,8 +210,8 @@ function kinCard(f: Facts, k: Kin): string {
   const pl = c.plural && !/^nur /.test(c.plural) ? c.plural : '';
   return `<li><a class="kin" href="${wort(c.term)}">` +
     `<span class="kin-tag">Card · ${esc(c.level)}</span>` +
-    `<span class="kin-w" lang="de">${term(c)}</span>` +
-    (pl ? `<span class="kin-pl" lang="de">${esc(pl)}</span>` : '') +
+    `<span class="kin-w" lang="de" translate="no">${term(c)}</span>` +
+    (pl ? `<span class="kin-pl" lang="de" translate="no">${esc(pl)}</span>` : '') +
     `<span class="kin-g">${esc(firstSense(c.en))}</span>` +
     (k.literal ? `<span class="kin-lit">literally <i>${esc(k.literal)}</i></span>` : '') +
     `<span class="kin-note">${esc(k.note)}</span></a></li>`;
@@ -241,13 +241,13 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
   <div class="hero-text">
     <p class="kicker">Lexi · German for English speakers</p>
     <h1 id="h1"><span class="feet-open">${footprints({ cls: 'q-open' })}</span>Language is always in dialogue with&nbsp;itself.<span class="feet-close">${footprints({ closing: true, cls: 'q-close' })}</span></h1>
-    <p class="reply" lang="de">Sprache ist immer im Gespräch mit sich selbst.</p>
+    <p class="reply" lang="de" translate="no">Sprache ist immer im Gespräch mit sich selbst.</p>
     <p class="lede">English and German are two halves of one very old conversation. Lexi teaches German to English speakers by letting you listen in: <strong>${words}</strong> words you can study, every one machine-checked, and <strong>${dictionary}</strong> more you can look up.</p>
     <p class="ctas"><a class="key" href="./">Open Lexi</a><a class="ghost" href="#how">How it works</a></p>
     <p class="small">Free · open source · no account · nothing tracked</p>
   </div>
   <div class="hero-gans">
-    <p class="bubble" id="bubble" aria-live="polite"><span lang="de">„Hallo!“</span></p>
+    <p class="bubble" id="bubble" aria-live="polite"><span lang="de" translate="no">„Hallo!“</span></p>
     <button class="gans-btn" type="button" aria-describedby="bubble" aria-label="Gans the goose. Press her and she talks." data-lines="${esc(JSON.stringify(lines))}">${gans({ pose: 'stand', cls: 'big', talk: true })}</button>
   </div>
 </section>`;
@@ -259,16 +259,16 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
   <div class="two">
     <article class="why">
       <p class="kicker">Her feet</p>
-      <p class="big-quote" lang="de"><span class="bq">${footprints()}</span>Hallo!<span class="bq hi">${footprints({ closing: true })}</span></p>
-      <p>German calls quotation marks <b lang="de">Gänsefüßchen</b>: little goose feet. Every line of German dialogue is written between her footprints, one pair low to open and one pair high to close.</p>
+      <p class="big-quote" lang="de" translate="no"><span class="bq">${footprints()}</span>Hallo!<span class="bq hi">${footprints({ closing: true })}</span></p>
+      <p>German calls quotation marks <b lang="de" translate="no">Gänsefüßchen</b>: little goose feet. Every line of German dialogue is written between her footprints, one pair low to open and one pair high to close.</p>
     </article>
     <article class="why">
       <p class="kicker">Her name</p>
-      <p class="pair-big"><span lang="en">goose</span> <span class="tilde" aria-hidden="true">·</span> <span lang="de">Ga<mark class="de">n</mark>s</span></p>
+      <p class="pair-big"><span lang="en">goose</span> <span class="tilde" aria-hidden="true">·</span> <span lang="de" translate="no">Ga<mark class="de">n</mark>s</span></p>
       <p>The same word. English lost its <i>n</i> before <i>f</i>, <i>s</i> and <i>th</i>; German kept it. You already know the pattern:</p>
       <ul class="pairs">${NASAL.map(([de, en]) => {
         const c = f.card(de);
-        return `<li><span lang="en">${esc(en)}</span><a lang="de" href="${wort(c.term)}">${mark(bareOf(c.term), 'n', 'de')}</a></li>`;
+        return `<li><span lang="en">${esc(en)}</span><a lang="de" translate="no" href="${wort(c.term)}">${mark(bareOf(c.term), 'n', 'de')}</a></li>`;
       }).join('')}</ul>
     </article>
   </div>
@@ -284,16 +284,16 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
   <p class="lead">English and German grew from one language, and their consonants drifted apart in patterns. Lexi finds the patterns in its own cards: <strong>${related}</strong> of them are related to an English word, <strong>${kinds.b}</strong> were borrowed from English, and a pattern gets a name only when at least <strong>${minN}</strong> cards follow it.</p>
   <div class="machine">
     <button type="button" class="m-pause" aria-pressed="false" hidden>Pause</button>
-    <p class="m-rule">German <span class="m-de" lang="de">${esc(rules[0][1].de)}</span> <span class="m-arrow" aria-hidden="true">⇄</span> English <span class="m-en">${esc(rules[0][1].en)}</span></p>
-    <p class="m-words"><span class="m-w de" lang="de">${mark(rules[0][1].ex[0][0], rules[0][1].mark[0], 'de', 'i')}</span><span class="m-w en">${mark(rules[0][1].ex[0][1], rules[0][1].mark[1], 'en')}</span></p>
+    <p class="m-rule">German <span class="m-de" lang="de" translate="no">${esc(rules[0][1].de)}</span> <span class="m-arrow" aria-hidden="true">⇄</span> English <span class="m-en">${esc(rules[0][1].en)}</span></p>
+    <p class="m-words"><span class="m-w de" lang="de" translate="no">${mark(rules[0][1].ex[0][0], rules[0][1].mark[0], 'de', 'i')}</span><span class="m-w en">${mark(rules[0][1].ex[0][1], rules[0][1].mark[1], 'en')}</span></p>
   </div>
   <ol class="rules">${rules.map(([id, r], i) => `
     <li class="rule">
       <button type="button" class="rule-btn" aria-pressed="${i === 0}" data-rule="${esc(id)}" data-de="${esc(r.de)}" data-en="${esc(r.en)}" data-mark="${esc(JSON.stringify(r.mark))}" data-ex="${esc(JSON.stringify(r.ex))}">
-        <span class="r-pat"><span lang="de">${esc(r.de)}</span> · ${esc(r.en)}</span>
+        <span class="r-pat"><span lang="de" translate="no">${esc(r.de)}</span> · ${esc(r.en)}</span>
         <span class="r-n">${r.n} cards</span>
       </button>
-      <ul class="r-ex">${r.ex.map(([de, en]) => `<li><a lang="de" href="${wort(de)}">${mark(de, r.mark[0], 'de', 'i')}</a> <span>${mark(en, r.mark[1], 'en')}</span></li>`).join('')}</ul>
+      <ul class="r-ex">${r.ex.map(([de, en]) => `<li><a lang="de" translate="no" href="${wort(de)}">${mark(de, r.mark[0], 'de', 'i')}</a> <span>${mark(en, r.mark[1], 'en')}</span></li>`).join('')}</ul>
     </li>`).join('')}
   </ol>
   <p class="aside">In all, ${linked} of Lexi’s cards say what they have to do with English, on the back of the card, never on the front, where it would give the answer away. Etymologies are English Wiktionary’s, and a link ships only when Wiktionary states it.</p>
@@ -309,11 +309,11 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
     return `
     <li class="spec">
       <button type="button" class="spec-btn" aria-expanded="false">
-        <span class="spec-w" lang="de">${term(c)}</span>
+        <span class="spec-w" lang="de" translate="no">${term(c)}</span>
         <span class="spec-slot">
           <span class="spec-hint" aria-hidden="true">tap to split</span>
           <span class="spec-body">
-            <span class="spec-parts" lang="de">${parts.map(([seg]) => `<span class="seg">${esc(seg)}</span>`).join('<span class="plus" aria-hidden="true">+</span>')}</span>
+            <span class="spec-parts" lang="de" translate="no">${parts.map(([seg]) => `<span class="seg">${esc(seg)}</span>`).join('<span class="plus" aria-hidden="true">+</span>')}</span>
             <span class="spec-lit"><i>${esc(lit)}</i></span>
             <span class="spec-en">= ${esc(firstSense(c.en))}</span>
           </span>
@@ -322,7 +322,7 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
     </li>`;
   }).join('')}
   </ul>
-  <p class="aside">The last one is the two languages having the same conversation: <span lang="de">Feuerwerk</span>, <i>fireworks</i>. Every part above is a card of its own, and every literal reading uses a sense that card gives.</p>
+  <p class="aside">The last one is the two languages having the same conversation: <span lang="de" translate="no">Feuerwerk</span>, <i>fireworks</i>. Every part above is a card of its own, and every literal reading uses a sense that card gives.</p>
 </section>`;
 
   const splits = `
@@ -338,13 +338,13 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
       t === s.verb ? `<span class="v">${esc(t)}</span>` : i === all.length - 1 ? `<span class="p">${esc(t)}</span>` : esc(t)).join(' ');
     return `
     <li class="sent">
-      <p class="inf" lang="de"><span class="p">${esc(s.particle)}</span><span class="split" aria-hidden="true">|</span><span class="v">${esc(c.term.slice(s.particle.length))}</span> <span class="inf-en">${esc(firstSense(c.en))}</span></p>
-      <p class="de" lang="de"><svg class="arc" aria-hidden="true" focusable="false"><path d=""/></svg>${tokens}${esc(stop)}</p>
+      <p class="inf" lang="de" translate="no"><span class="p">${esc(s.particle)}</span><span class="split" aria-hidden="true">|</span><span class="v">${esc(c.term.slice(s.particle.length))}</span> <span class="inf-en">${esc(firstSense(c.en))}</span></p>
+      <p class="de" lang="de" translate="no"><svg class="arc" aria-hidden="true" focusable="false"><path d=""/></svg>${tokens}${esc(stop)}</p>
       <p class="en">${esc(ex.en)}</p>
     </li>`;
   }).join('')}
   </ul>
-  <p class="aside">Read this section’s German title again. In a clause like that one the verb puts itself back together: <span lang="de"><i>anruft</i></span>.</p>
+  <p class="aside">Read this section’s German title again. In a clause like that one the verb puts itself back together: <span lang="de" translate="no"><i>anruft</i></span>.</p>
 </section>`;
 
   const friends = `
@@ -360,10 +360,10 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
     return `
     <li class="ff">
       <button type="button" class="ff-btn" aria-pressed="false">
-        <span class="ff-w" lang="de">${term(c)}</span>
+        <span class="ff-w" lang="de" translate="no">${term(c)}</span>
         <span class="ff-slot">
           <span class="ff-front"><span class="ff-looks">looks like <i>${esc(ff.looksLike)}</i></span><span class="ff-hint" aria-hidden="true">tap to turn over</span></span>
-          <span class="ff-back"><span class="ff-means">means <b>${esc(ff.actually)}</b></span><span class="ff-say">for <i>${esc(ff.looksLike)}</i>, say <span lang="de">${esc(ff.insteadSay)}</span></span></span>
+          <span class="ff-back"><span class="ff-means">means <b>${esc(ff.actually)}</b></span><span class="ff-say">for <i>${esc(ff.looksLike)}</i>, say <span lang="de" translate="no">${esc(ff.insteadSay)}</span></span></span>
         </span>
       </button>
     </li>`;
@@ -375,11 +375,11 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
 <section class="sec" aria-labelledby="how">
   ${sectionHead('06', 'The app', 'How Lexi works', 'So funktioniert Lexi.', 'how')}
   <ol class="loop">
-    <li><div class="mini"><p class="mini-k">Wörter</p><p class="mini-w" lang="de">${term(f.card('das Wasser'))}</p><p class="mini-g">water</p><p class="mini-hint" aria-hidden="true">↕</p></div>
+    <li><div class="mini"><p class="mini-k">Wörter</p><p class="mini-w" lang="de" translate="no">${term(f.card('das Wasser'))}</p><p class="mini-g">water</p><p class="mini-hint" aria-hidden="true">↕</p></div>
       <h3>Browse</h3><p>One German word per screen, with its meaning showing. Scroll as far as you like: scrolling never counts as a test.</p></li>
-    <li><div class="mini"><p class="mini-k">Wörter</p><p class="mini-w" lang="de">${term(f.card('der Apfel'))}</p><p class="mini-g">apple</p><p class="mini-save" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></p></div>
+    <li><div class="mini"><p class="mini-k">Wörter</p><p class="mini-w" lang="de" translate="no">${term(f.card('der Apfel'))}</p><p class="mini-g">apple</p><p class="mini-save" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></p></div>
       <h3>Save</h3><p>Keep the words that catch you. A save is the one thing Lexi takes from the feed, and it is an instruction: saved words come first.</p></li>
-    <li><div class="mini"><p class="mini-k">Üben</p><p class="mini-w" lang="de">${esc(bareOf(buch.term))}</p><p class="mini-keys" aria-hidden="true">${['der', 'die', 'das'].map((a) => `<span${a === buch.gender ? ' class="on"' : ''}>${a}</span>`).join('')}</p></div>
+    <li><div class="mini"><p class="mini-k">Üben</p><p class="mini-w" lang="de" translate="no">${esc(bareOf(buch.term))}</p><p class="mini-keys" aria-hidden="true">${['der', 'die', 'das'].map((a) => `<span${a === buch.gender ? ' class="on"' : ''}>${a}</span>`).join('')}</p></div>
       <h3>Practise</h3><p>Üben practises what you chose: the meaning, the gender, the plural, writing it yourself. Each word comes back just before you would forget it.</p></li>
   </ol>
   <ul class="facts">
@@ -412,7 +412,7 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
 
   const end = `
 <section class="end" aria-labelledby="bye">
-  <p class="bye" id="bye"><span lang="de"><span class="q" aria-hidden="true">„</span>Bis bald.<span class="q" aria-hidden="true">“</span></span> <span class="bye-en">${esc(cap(firstSense(f.card('Bis bald').en)))}.</span></p>
+  <p class="bye" id="bye"><span lang="de" translate="no"><span class="q" aria-hidden="true">„</span>Bis bald.<span class="q" aria-hidden="true">“</span></span> <span class="bye-en">${esc(cap(firstSense(f.card('Bis bald').en)))}.</span></p>
   <p class="ctas"><a class="key" href="./">Open Lexi</a></p>
   ${gans({ pose: 'talk', cls: 'walk' })}
 </section>`;
@@ -432,7 +432,7 @@ export function renderAbout(f: Facts, opts: { fonts?: { display?: string; mono40
 <meta property="og:image" content="${esc(origin)}/og-gans.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Gans, Lexi's goose: white, with a teal wing and coral beak and feet, beside the words Language is always in dialogue with itself.">
+<meta property="og:image:alt" content="Gans, Lexi's goose: white, with a pink wing (the die highlighter, because she is die Gans) and coral beak and feet, beside the words Language is always in dialogue with itself.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">

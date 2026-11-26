@@ -94,8 +94,10 @@ const SESSION_TOUR: TourStep[] = [
     demo: true,
   },
   {
-    title: 'Sound, undo, skip',
-    body: <>Mute the sounds, undo the last card, or skip one without grading. A session is capped, and you can leave whenever you like. Nothing is lost.</>,
+    // "Sound, undo, skip" until 2026-11-26: the mute button left with the sounds,
+    // and the tour went on offering it.
+    title: 'Undo and skip',
+    body: <>Undo the last card, or skip one without grading. A session is capped, and you can leave whenever you like. Nothing is lost.</>,
     target: '[data-tour="session-tools"]',
   },
 ];
@@ -698,9 +700,14 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
                     measurement), so the same three words changed typeface when the
                     card was turned — and mono at this tracking is wide enough that
                     *Core Vocabulary* was cut to "CORE VOC…" on a first-sight card. */}
+                {/* **The topic moved to the back** *(2026-11-26)*. Topic names run to
+                    35 characters ("Intermediate descriptive adjectives"), so the
+                    front cut one mid-word on every narrow phone ("FIRST WORDS TO…"),
+                    and a label that ends in an ellipsis reads as a fault. The back's
+                    kicker still names it, where it wraps. */}
                 <Kicker className="max-w-full truncate shrink-0">
                   {isNew && <span className="text-accent">New · </span>}
-                  {card.pos || 'word'} · {card.level}{card.field ? ` · ${card.field}` : ''}
+                  {card.pos || 'word'} · {card.level}
                 </Kicker>
                 <Illustration word={card} size={68} className="text-accent select-none" />
                 {/* lang="de" on every German string: without it a screen reader
@@ -714,12 +721,16 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
                     back glyph by glyph to a different monospace. `aria-hidden`
                     because a screen reader spells IPA out as glyph names. */}
                 {card.ipa && <span aria-hidden className="ipa text-base text-dim">{card.ipa}</span>}
+                {/* Set as the feed sets it *(2026-11-26)*: the same word should not
+                    change ink between the feed and its first study card, and green
+                    is the verdict colour, which a card nobody has graded yet has not
+                    earned. */}
                 {isNew && (
-                  <span className="text-green font-semibold text-xl sm:text-2xl leading-tight max-w-[92%]">{card.en}</span>
+                  <span className="font-medium text-xl sm:text-2xl leading-snug max-w-[92%] text-balance">{card.en}</span>
                 )}
                 {/* The example, as text. Silent since 2026-11-26. */}
                 {card.ex[0] && (
-                  <p lang="de" className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</p>
+                  <p lang="de" translate="no" className="text-dim italic text-base leading-relaxed max-w-[90%]">{card.ex[0].de}</p>
                 )}
                 {isNew && card.ex[0]?.en && <span className="text-dim text-sm leading-relaxed max-w-[90%]">{card.ex[0].en}</span>}
                 {/* The bottom padding, made sticky — see `.face-end` in index.css. It
@@ -740,7 +751,10 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
                      Painting the whole answer face in it delivers a verdict before
                      any grading has happened — on a card you may be about to fail —
                      and it collides with the drills' own green "correct" surface.
-                     Green now survives as an edge rule, the kicker and the ink.
+                     Green then survived as an edge rule, the kicker and the ink;
+                     *(2026-11-26)* those went to Königsblau too. In the Heft green
+                     means *right*, and the answer is written in the pen's ink, the
+                     way a vocabulary notebook sets the English beside the German.
                   3. Three alignments in one 400px face: the face was `items-center
                      text-center`, the examples block `text-left`, and the synonyms
                      centred again. Nothing shared an edge.
@@ -754,9 +768,9 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
               <div aria-hidden={!flipped} inert={!flipped}
                    className="flip-face flip-back bg-card border border-line border-l-4 rounded-lg
                               flex flex-col items-stretch text-left overflow-y-auto"
-                   style={{ borderLeftColor: 'var(--color-green)' }}>
+                   style={{ borderLeftColor: 'var(--color-accent)' }}>
                 <div className="flex items-center gap-2 mb-2.5">
-                  <Kicker tone="reward">Answer</Kicker>
+                  <Kicker tone="accent">Answer</Kicker>
                   {(
                     <>
                       {/* The German stays in view at the reveal: seeing the pair
@@ -784,7 +798,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
                     </IconButton>
                   </span>
                 </div>
-                <span className="headword hw-answer font-bold text-green leading-tight break-words">{card.en}</span>
+                <span className="headword hw-answer font-bold text-accent leading-tight break-words">{card.en}</span>
                 <Kicker className="block mt-1.5">
                   {card.pos} · {card.level}{card.field ? ` · ${card.field}` : ''}
                 </Kicker>
@@ -800,7 +814,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
                     it is a fact about who is reading. */}
                 {card.defDe && germanDefs && (
                   <RevealBlock label="Auf Deutsch">
-                    <p lang="de" className="text-txt text-sm leading-relaxed">{card.defDe}</p>
+                    <p lang="de" translate="no" className="text-txt text-sm leading-relaxed">{card.defDe}</p>
                   </RevealBlock>
                 )}
                 <FalseFriendNote term={card.term} />
@@ -811,7 +825,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
                     headword string where nothing could read it. Never shows a
                     case it had to guess — see lib/valency.ts. */}
                 {valency && (
-                  <p lang="de" className="text-sm text-accent font-mono mb-2">{valencyLabel(valency, FOCUS.grammar)}</p>
+                  <p lang="de" translate="no" className="text-sm text-accent font-mono mb-2">{valencyLabel(valency, FOCUS.grammar)}</p>
                 )}
                 {card.ex.length > 0 && (
                   <RevealBlock label="In use"><ExampleList items={card.ex} /></RevealBlock>
@@ -896,7 +910,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
             <span aria-hidden className="text-dim text-xs h-4 leading-4 text-center max-w-full truncate">
               {ack ? <Acknowledgement ack={ack} />
                 : isNew
-                  ? 'First time seeing this. Take it in, then say how it landed'
+                  ? 'First time seeing this. Take it in, then say how it landed.'
                   : keyboard
                     ? (flipped ? '← didn’t know · → knew it · Space turns it back' : 'Space shows the answer · ← / → grades')
                     : (flipped ? 'Swipe right if you knew it, left if not' : 'Tap to turn · swipe right knew it, left didn’t')}
@@ -1222,7 +1236,7 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
       <SessionRecap data={{ reviewed: retrieved || undefined, recall, newLearned, minedCount, milestone, weakest, composition, streak: streak() }}>
         {finished.length > 0 && (
           <p className="text-sm mb-5">
-            You finished <span lang="de" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span>. Every card in it is yours.
+            You finished <span lang="de" translate="no" className="text-green font-bold">{finished.map((f) => f.name).join(', ')}</span>. Every card in it is yours.
           </p>
         )}
         {/* Drills, said separately. Folded into `done` they were invisible, and
@@ -1274,14 +1288,9 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
             ? <Button onClick={onDone}>Got it</Button>
             : <>
               <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
-              {/* The game is offered *here*, and the first place it was offered is
-                  worth recording: the Üben empty state, which this file's own comment
-                  says a learner inside a 6,700-word corpus never reaches — the branch
-                  needs no fresh cards either, so it is unreachable in practice. The
-                  recap is reached every day, and it is the one moment the app knows
-                  the learner owes nothing. Not on a first run: the first session ends
-                  in the placement test, and a microphone prompt across that is a
-                  second ask on top of a first impression. */}
+              {/* *Sag es*, the pronunciation game, was offered here until 2026-11-26.
+                  It needed the device's speech recogniser, so it went with every other
+                  spoken surface (VISION, refusal *A closed voice*). */}
             </>}
         </div>
         {/* The pride moment — the market as a designed image, not a cropped

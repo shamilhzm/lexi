@@ -135,7 +135,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
         </IconButton>
         <div className="ml-1.5">
           <Kicker className="block mb-0.5">From a text</Kicker>
-          <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Wörter aus einem Text</h1>
+          <h1 lang="de" translate="no" className="display text-3xl sm:text-4xl mb-1">Wörter aus einem Text</h1>
           <p className="text-dim text-xs max-w-[56ch]">
             Paste German you actually want to read, or a list of words you met. Lexi marks what
             you already know, counts the gap, and can save every word it teaches for Üben.
@@ -158,7 +158,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
           // driven through this field (2026-11-14). The search box and the recall
           // field already switch it off; this one had not.
           autoCorrect="off" autoCapitalize="none" autoComplete="off"
-          lang="de"
+          lang="de" translate="no"
           className="w-full rounded-md bg-panel2 border border-line p-3 text-sm leading-relaxed
                      focus:border-accent focus:outline-none"
           placeholder="Die Bundesregierung hat heute ein neues Gesetz beschlossen …"
@@ -210,7 +210,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
             {respelled.length > 0 && (
               <p className="mt-2 text-xs text-dim border-t border-line pt-2">
                 Read without their umlauts as typed:{' '}
-                <span lang="de" className="text-txt">{respelled.slice(0, 8).join(' · ')}</span>
+                <span lang="de" translate="no" className="text-txt">{respelled.slice(0, 8).join(' · ')}</span>
                 {respelled.length > 8 && <> and {respelled.length - 8} more</>}.
               </p>
             )}
@@ -255,9 +255,9 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                               className={`tap-44 flex items-center gap-1.5 rounded-md border px-3 py-2 text-sm transition-colors
                                 ${has ? 'border-accent bg-panel2 text-accent' : 'border-line bg-panel2 hover:border-accent'}`}>
                               {has && <Check size={13} />}
-                              <span lang="de" className="text-dim line-through decoration-dim/50">{typed}</span>
+                              <span lang="de" translate="no" className="text-dim line-through decoration-dim/50">{typed}</span>
                               <span aria-hidden>→</span>
-                              <span lang="de" className="font-semibold">{word.term}</span>
+                              <span lang="de" translate="no" className="font-semibold">{word.term}</span>
                             </button>
                           </li>
                         );
@@ -276,7 +276,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                           : <><Plus size={14} className="text-accent" /> Note {unnoted.length > room ? `${room} of the ${unnoted.length}` : `the ${unnoted.length}`} Lexi doesn’t teach</>}
                     </Button>
                     <p className="mt-1.5 text-xs text-dim max-w-[52ch]">
-                      <span lang="de" className="text-txt">{missing.slice(0, 6).join(', ')}</span>{missing.length > 6 && ' …'}: kept in your profile. A dictionary check decides which become cards.
+                      <span lang="de" translate="no" className="text-txt">{missing.slice(0, 6).join(', ')}</span>{missing.length > 6 && ' …'}: kept in your profile. A dictionary check decides which become cards.
                     </p>
                   </div>
                 )}
@@ -299,7 +299,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                       onClick={() => setSelected(u.word)}
                       className="tap-44 flex items-center gap-2 rounded-md border border-line bg-panel2
                                  px-3 py-2 text-sm hover:border-accent transition-colors">
-                      <span lang="de" className="font-semibold">{u.word.term}</span>
+                      <span lang="de" translate="no" className="font-semibold">{u.word.term}</span>
                       {u.occurrences > 1 && <span className="text-2xs text-dim">×{u.occurrences}</span>}
                     </button>
                   </li>
@@ -321,7 +321,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
 
           <Card tone="panel" pad="md">
             <Kicker>The text, marked</Kicker>
-            <p lang="de" className="mt-2 text-base leading-loose">
+            <p lang="de" translate="no" className="mt-2 text-base leading-loose">
               {cov.tokens.map((t, i) =>
                 t.isWord && t.counted
                   ? (
@@ -358,17 +358,17 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                       answering a question it cannot answer. */}
                   {partOf && (
                     <>
-                      <p lang="de" className="font-serif text-xl font-bold">{partOf}</p>
+                      <p lang="de" translate="no" className="font-serif text-xl font-bold">{partOf}</p>
                       <p className="text-sm text-dim">
                         Not a card in Lexi, but it ends in one. A compound usually, <em>but not always</em>, means a kind of its last part.
                       </p>
                       <p className="mt-2 text-2xs text-dim">the part Lexi teaches</p>
                     </>
                   )}
-                  <p lang="de" className={`font-serif font-bold ${partOf ? 'text-base' : 'text-xl'}`}>{selected.term}</p>
+                  <p lang="de" translate="no" className={`font-serif font-bold ${partOf ? 'text-base' : 'text-xl'}`}>{selected.term}</p>
                   <p className="text-sm text-dim">{selected.en}</p>
                   {selected.plural && (
-                    <p className="mt-1 text-2xs text-dim">plural: <span lang="de">{selected.plural}</span></p>
+                    <p className="mt-1 text-2xs text-dim">plural: <span lang="de" translate="no">{selected.plural}</span></p>
                   )}
                 </div>
                 <Button variant="quiet" size="sm" onClick={() => { setSelected(null); setPartOf(null); }}>Close</Button>
@@ -392,7 +392,7 @@ export default function TextGaps({ onStudy, onExit }: { onStudy: (t: Target) => 
                     {Math.round(c.ratio * 100)}%
                   </span>
                   <span className="flex-1 min-w-0">
-                    <span lang="de" className="block text-sm truncate">{t.title}</span>
+                    <span lang="de" translate="no" className="block text-sm truncate">{t.title}</span>
                     {/* `learning` is shown here and not only in the detail view:
                         one grade moves a card to Learning, not Review, so without
                         this line a learner who just studied three of these words

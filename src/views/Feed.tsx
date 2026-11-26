@@ -615,7 +615,7 @@ function ReadySlot({ ready, onStart }: { ready: Ready; onStart: () => void }) {
       className="feed-slot snap-start snap-always h-full flex-shrink-0 w-full flex flex-col items-center justify-safe-center px-6
       pt-[var(--bar-t)] pb-[var(--bar-b)]">
       <div className="w-full max-w-[460px] text-center">
-        <p className="font-semibold text-2xs uppercase tracking-widest text-accent">Waiting in <span lang="de">Üben</span></p>
+        <p className="font-semibold text-2xs uppercase tracking-widest text-accent">Waiting in <span lang="de" translate="no">Üben</span></p>
         {n > 0 ? (
           <>
             <h2 id="feed-ready" className="text-2xl font-bold mt-1">
@@ -640,6 +640,12 @@ function ReadySlot({ ready, onStart }: { ready: Ready; onStart: () => void }) {
   );
 }
 
+const WELCOME_STEPS: [string, string][] = [
+  ['Wörter', 'Scroll, and save the words that catch you.'],
+  ['Üben', 'Brings each saved word back just before you’d forget it.'],
+  ['Prüfung', 'Short tests and practice papers in the telc and Goethe formats.'],
+];
+
 function Welcome({ onStart }: { onStart: () => void }) {
   return (
     // `.feed-slot` and safe centring, exactly like a word slot. Without the class this
@@ -653,17 +659,26 @@ function Welcome({ onStart }: { onStart: () => void }) {
         {/* `h2`, not `h1`. The feed's `h1` names the surface; every slot below it
             is a sibling — this one, each word, and the end of the list. Two `h1`s
             on one document is two answers to "where am I". */}
-        <h2 id="feed-welcome" lang="de" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h2>
+        <h2 id="feed-welcome" lang="de" translate="no" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h2>
         <p className="text-dim text-sm mb-6 text-balance">German vocabulary for English speakers, A1&nbsp;to&nbsp;C2.</p>
 
-        <p className="text-base leading-relaxed mb-1">
-          {fmt(WORDS.length)} German words, one per screen, with the sound, the meaning and an example.
-          Scroll through them. Nothing tests you until you ask.
+        {/* No "sound" here since 2026-11-26: Lexi is silent until an open German voice
+            exists (VISION, refusal *A closed voice*), and the welcome still promised
+            it (simulator, persona `cold`). The IPA is the pronunciation Lexi has. */}
+        <p className="text-base leading-relaxed mb-5 text-balance">
+          {fmt(WORDS.length)} German words, one per screen, each with its meaning, its
+          pronunciation in IPA and an example. Nothing tests you until you ask.
         </p>
-        <p className="text-dim text-sm leading-relaxed mb-7 max-w-[38ch] mx-auto">
-          Save the ones you want, and <span lang="de">Üben</span> (practice) brings each one back just
-          before you’d forget it.
-        </p>
+        {/* The loop, as three lines of an exercise book: the three doors a new learner
+            needs, in the order they use them. */}
+        <ol className="text-left text-sm leading-snug max-w-[36ch] mx-auto mb-7 space-y-2.5">
+          {WELCOME_STEPS.map(([de, en], k) => (
+            <li key={de} className="flex items-baseline gap-3">
+              <span aria-hidden className="font-mono text-2xs text-dim tabular-nums w-[1.2em] shrink-0">{k + 1}</span>
+              <span><b lang="de" translate="no" className="font-semibold">{de}</b> <span className="text-dim">{en}</span></span>
+            </li>
+          ))}
+        </ol>
 
         <Button onClick={onStart}><Play size={14} /> Learn ten words now</Button>
         <p className="text-dim text-2xs mt-6 flex items-center justify-center gap-1.5">
@@ -671,7 +686,7 @@ function Welcome({ onStart }: { onStart: () => void }) {
         </p>
         <p className="text-dim text-2xs mt-6 leading-relaxed max-w-[40ch] mx-auto">
           Free and open source. No account. Your progress stays on this device.
-          Every gloss and example is in English.
+          Everything is explained in English.
         </p>
       </div>
     </section>
@@ -809,7 +824,7 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             on this line: a word with a sentence under it is a word you have met,
             and one without is a word you have looked at. */}
         {word.ex[0]?.de && (
-          <p lang="de" className="mt-4 text-base text-dim italic leading-relaxed max-w-[34ch] text-balance">
+          <p lang="de" translate="no" className="mt-4 text-base text-dim italic leading-relaxed max-w-[34ch] text-balance">
             {word.ex[0].de}
           </p>
         )}
@@ -834,15 +849,15 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             accelerant for people who already know what is there, and it cannot be
             the only way to reach anything. */}
         <div data-tour="feed-actions" className="feed-actions mt-8 flex items-center gap-8">
-          <Action label={<>What else Lexi knows about <span lang="de">{word.term}</span></>} onClick={onInfo}>
+          <Action label={<>What else Lexi knows about <span lang="de" translate="no">{word.term}</span></>} onClick={onInfo}>
             <Info size={24} strokeWidth={1.6} />
           </Action>
-          <Action label={saved ? <>Stop learning <span lang="de">{word.term}</span></>
-            : <>Learn <span lang="de">{word.term}</span> in my next session</>}
+          <Action label={saved ? <>Stop learning <span lang="de" translate="no">{word.term}</span></>
+            : <>Learn <span lang="de" translate="no">{word.term}</span> in my next session</>}
             pressed={saved} onClick={onSave}>
             <Bookmark size={24} strokeWidth={1.6} className={saved ? 'fill-current' : ''} />
           </Action>
-          <Action label={<>Practise <span lang="de">{word.term}</span> now, with every drill</>} onClick={onDrill}>
+          <Action label={<>Practise <span lang="de" translate="no">{word.term}</span> now, with every drill</>} onClick={onDrill}>
             <GraduationCap size={24} strokeWidth={1.6} />
           </Action>
         </div>

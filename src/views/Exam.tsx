@@ -43,7 +43,7 @@ import { levelStats, studyLevel } from '../store.ts';
 import { useStore } from '../useStore.ts';
 import * as ex from '../lib/exam-store.ts';
 import {
-  MAX, PAPERS, loadPaper, papersFor, scoreExam, sittable, sittableBlocks, writingClock,
+  MAX, PAPERS, fmtPoints as fmt, loadPaper, papersFor, scoreExam, sittable, sittableBlocks, writingClock,
   type ExamPaper, type PaperMeta, type Part, type Provider, type Sitting, type SpeakingMarks, type WritingMarks,
 } from '../lib/exam.ts';
 import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
@@ -62,7 +62,6 @@ export default function Exam({ onStudy }: { onStudy: (t: Target) => void }) {
 /** The provider as the cover prints it — a format, never a claim of origin. */
 const FORMAT: Record<Provider, string> = { telc: 'telc-Format', goethe: 'Goethe-Format' };
 
-const fmt = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1).replace('.', ','));
 const seed = () => Math.floor(Math.random() * 1e9);
 
 // ---- the room --------------------------------------------------------------
@@ -202,7 +201,8 @@ function Cover({ meta, onLab }: { meta: PaperMeta; onLab: () => void }) {
             <h3 className="text-base font-bold mt-2 leading-snug">{meta.title}</h3>
           </div>
           {best && (
-            <span className={`stamp text-xs mt-1 flex-shrink-0 ${best.passed ? 'text-green' : 'text-red-txt'}`}
+            <span className={`stamp text-xs mt-1 flex-shrink-0 ${
+              best.provisional ? 'text-accent' : best.passed ? 'text-green' : 'text-red-txt'}`}
               aria-label={`Bestes Ergebnis ${fmt(best.total)} von ${fmt(best.max)}`}>
               Bestes<br />{fmt(best.total)}/{fmt(best.max)}
             </span>
@@ -323,7 +323,9 @@ function History() {
                 </span>
               </span>
               {a.score
-                ? <span className={`font-mono text-sm font-bold tabular-nums ${passed ? 'text-green' : 'text-red-txt'}`}>
+                // A provisional sitting is a floor: ink, not a verdict colour.
+                ? <span className={`font-mono text-sm font-bold tabular-nums ${
+                  a.score.provisional ? 'text-accent' : passed ? 'text-green' : 'text-red-txt'}`}>
                   {fmt(a.score.total)}<span className="text-dim font-normal">/{fmt(max)}</span>
                 </span>
                 : <span className="font-mono text-2xs text-dim">abgebrochen</span>}
@@ -417,6 +419,8 @@ function Runner({ attempt }: { attempt: ex.Attempt }) {
     written: result.written, oral: result.oral, total: result.total,
     // The maximum of what was sat, frozen with the points (Hören is not in it).
     max: result.max, passed: result.passed,
+    // Frozen too, so history never files a floor as a fail (2026-11-26).
+    provisional: result.provisional,
   });
   const hand = () => {
     const score = frozen();
@@ -427,7 +431,9 @@ function Runner({ attempt }: { attempt: ex.Attempt }) {
     for (const k of ['reading', 'language', 'listening', 'writing', 'speaking'] as const) {
       const { points, max } = result.bySubtest[k];
       if (!max) continue;
-      if ((k === 'writing' && !attempt.writing) || (k === 'speaking' && !attempt.speaking)) continue;
+      // `unmarked` and not `!attempt.speaking`: one marked Teil of three is not a
+      // marked oral, and counting the other two as zero understated the strand.
+      if ((k === 'writing' || k === 'speaking') && result.unmarked.includes(k)) continue;
       strands[k] = points / max;
     }
     ex.submit(score, strands);
@@ -477,12 +483,17 @@ function Runner({ attempt }: { attempt: ex.Attempt }) {
       <nav ref={navRef} aria-label="Teile" className="relative flex gap-1.5 overflow-x-auto pb-2 mb-4 -mx-3 px-3 sm:mx-0 sm:px-0">
         {screens.map((s, i) => {
           const on = i === ix;
-          const done = s.kind === 'part' && s.part.items.every((it) => attempt.responses[it.n]);
+          const done = s.kind === 'part' ? s.part.items.every((it) => attempt.responses[it.n])
+            : (s.kind === 'writing' || s.kind === 'speaking') && !result.unmarked.includes(s.kind);
+          // A Teil with every item answered is written in the pen's ink
+          // *(2026-11-26)*. It was green, which in the Heft means *right*, on a
+          // tab that in Prüfungsmodus knows nothing about right until hand-in.
           return (
             <button key={s.key} onClick={() => setIx(i)} aria-current={on ? 'step' : undefined}
+              aria-label={done && !on ? `${s.short}, alles beantwortet` : undefined}
               className={`tap-44 flex-shrink-0 rounded-key border px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors
                 ${on ? 'border-transparent bg-key text-key-ink'
-                  : done ? 'border-green/40 text-green' : 'border-line text-dim hover:border-accent'}`}>
+                  : done ? 'border-accent text-accent' : 'border-line text-dim hover:border-accent'}`}>
               {s.short}
             </button>
           );

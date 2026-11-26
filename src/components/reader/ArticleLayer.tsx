@@ -148,8 +148,8 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
               Original <ExternalLink size={10} />
             </a>
           </p>
-          {article.topline && <p lang="de" className="mt-2 text-sm font-semibold text-dim">{article.topline}</p>}
-          <h2 lang="de" className="display text-3xl sm:text-4xl leading-tight mt-1">{article.title}</h2>
+          {article.topline && <p lang="de" translate="no" className="mt-2 text-sm font-semibold text-dim">{article.topline}</p>}
+          <h2 lang="de" translate="no" className="display text-3xl sm:text-4xl leading-tight mt-1">{article.title}</h2>
 
           {article.image && (
             <figure className="mt-4 -mx-5 sm:mx-0">
@@ -187,7 +187,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
             // A delegation target: the interactive elements are the word spans inside
             // (role="button", roving tabindex), and both events are handled here.
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-            <div lang="de" role="group" aria-label="Article text" onClick={onWord} onKeyDown={onKeys}
+            <div lang="de" translate="no" role="group" aria-label="Article text" onClick={onWord} onKeyDown={onKeys}
               className="mt-6 flex flex-col gap-5 text-lg leading-[1.8]">
               {paras.map((p, pi) => (p.kind === 'h'
                 ? <h3 key={pi} className="headword text-xl font-bold mt-2 leading-snug">{renderTokens(paraCovs[pi], pi, picked?.key)}</h3>
@@ -235,7 +235,7 @@ export default function ArticleLayer({ article, onClose, onSettings }: {
                         className={`tap-44 inline-flex items-center gap-1.5 rounded-full px-3.5 h-10 text-sm transition active:scale-95
                           ${on ? 'bg-key text-key-ink font-semibold' : 'glass'}`}>
                         {on ? <Check size={13} /> : <Bookmark size={13} className="text-accent" />}
-                        <span lang="de">{u.word.term}</span>
+                        <span lang="de" translate="no">{u.word.term}</span>
                         {u.occurrences > 1 && <span className="text-2xs">×{u.occurrences}</span>}
                       </button>
                     </li>

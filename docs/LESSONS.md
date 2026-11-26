@@ -205,6 +205,15 @@ deliberate negative margins (`-mx-2` for optical alignment) and on decorative
 overflowing pseudo-elements. If the overflow is *the same number of pixels at every
 viewport width*, it is a constant in the CSS, not a layout failure.
 
+**…remove a feature.** Grep its name in props, copy and comments, not only in imports,
+and retake every picture of the app (`npm run screens`, `npm run og:image`, `npm run
+og:gans`). On 2026-11-26 the install sheet still showed a speaker button a month after
+the sound went (see *A removed feature leaves its pictures and its doors*).
+
+**…show a result with a part unmarked.** It is a floor, not a verdict: no pass or fail
+colour, no bar for the missing part, and the stored sitting says it was provisional
+(see *A floor drawn as a verdict*).
+
 ---
 
 ## Class 1 — guessing a number instead of measuring it
@@ -2538,3 +2547,79 @@ four kinds were asked, so the vocabulary test built an item from every card in t
 and took seconds. Fourteen green unit tests had seen none of it. **Rule:** a new
 generator of items is held to the same corpus sweep as the drill it imitates, from the
 first commit. Read its first screen on the phone before trusting its unit tests.
+
+## A default that becomes a grade *(added 2026-11-26)*
+
+**Believed:** filling the criteria a learner had not touched with B saved taps on the
+self-marking panels. **True:** one tap on criterion I committed B for II and III, and
+the score treated that as the learner's mark. A *Bewertung eintragen* button committed
+B, B, B outright. A self-assessment the app completes is the app's assessment, made
+without reading the text. **Rule:** a mark is written only once the learner has given
+every part of it. Until then it is a draft, and nothing downstream reads it.
+
+## A floor drawn as a verdict *(added 2026-11-26)*
+
+**Believed:** the results could score what was marked and colour the total pass or fail.
+**True:** with Sprechen unmarked, a sitting read *nicht bestanden* in red over a red
+0/25 bar, and the fail was stored in the paper's history and on its cover stamp. A
+missing mark is not a zero, and the learner had not failed anything. **Rule:** a result
+with an unmarked part says which part, draws no bar for it, uses neither red nor green,
+and is stored as provisional, so that nothing later reads it as a verdict.
+
+## A class that paints a background has to own all of it *(added 2026-11-26)*
+
+**Believed:** `.lined` drew the ruled sheet, because it comes after `.bg-card` in the
+stylesheet. **True:** it replaced `background-image` and `background-size` but not
+`background-blend-mode`, so `bg-card`'s `soft-light` blended the pink margin into the
+white, and it showed only where it crossed a rule. In dark mode `html.dark .bg-card`
+is more specific and replaced the lines altogether. My first theory, an iOS bug with
+`background-attachment: local`, went into a comment before a test page with five
+variants showed the CSS painting correctly on its own. The same pass found the global
+`:focus-visible` ring drawing over every text field's `focus:border-accent`, because
+unlayered CSS beats every Tailwind utility, `outline-none` included. **Rule:** a class
+that paints a surface sets every background longhand it relies on, or the element drops
+the other class. A rule in `index.css` outside a layer cannot be overridden by any
+utility, so it is written knowing that. A "browser bug" is reproduced in isolation
+before it goes into a comment.
+
+## A removed feature leaves its pictures and its doors *(added 2026-11-26)*
+
+**Believed:** the silence pass removed every trace of sound, since nothing imported the
+audio modules any more. **True:** the install screenshots in the manifest still showed
+a speaker button and Hören's headphones. Themen still rendered a *Sag es* door behind an
+`onGame` prop that nothing passed. Two comments described tapping a word to hear it, and
+the link preview promised walk mode. The grep had looked for imports. **Rule:** when a
+feature goes, grep its name in props, copy and comments, read the link-preview text, and
+retake the pictures (`npm run screens`, `og:image`, `og:gans`).
+
+## A percentage is the share of the number beside it *(added 2026-11-26)*
+
+**Believed:** Fortschritt's headline was right, because each figure in it was right.
+**True:** it printed known words beside a percentage of *seen* words, so an A1 learner
+read "98 of 1,256 · 9%" above a level strip that said 8%. **Rule:** a percentage
+printed beside a count is that count divided by its total. When two surfaces show the
+same share, they compute it the same way.
+
+## A codemod reads text, not syntax *(added 2026-11-26)*
+
+**Believed:** a regex that added `translate="no"` after every `lang="de"` in JSX was
+safe. **True:** it also rewrote comments that quoted the attribute, and put `translate`
+on SVG `<text>`, where it is not a valid attribute. **Rule:** read a codemod's diff by
+file before keeping it, run the typecheck, and give the guard that enforces the result
+an exemption list (here `GERMAN_EXEMPT`) instead of a looser pattern.
+
+## The comment said interleave, and the code concatenated *(added 2026-11-26)*
+
+**Believed:** the persona seeder took its words one frequency band at a time, top band
+first, as its comment said. **True:** it concatenated the bands, so a `b1` learner knew
+the rare words of one band before the common words of the next, and the sky was dark
+at the centre, where the commonest words sit. It was found by looking at the sky, not
+by reading the seeder. The same mistake is recorded on 2026-11-14 (*The comment said "a
+lemma always wins"*). **Rule:** when a comment describes an order, test the order.
+
+## A hot reload is a remount, a second time *(added 2026-11-26)*
+
+Driving a Goethe A1 sitting on the phone, I edited `Results.tsx` and `lib/exam.ts`, and
+the room jumped back to *Vorher*. The sitting survived, because it is stored, but the
+view did not. The rule from 2026-11-15 stands, and it is on the checklist above. Finish
+the drive, then edit.

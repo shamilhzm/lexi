@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react';
 import { levelStats, levels, setLevels, studyLevel } from '../store.ts';
 import { CAN_DO, coverageNote } from '../lib/candos.ts';
 import { useStore } from '../useStore.ts';
-import { heat } from '../lib/ui.ts';
+import { fmt, heat } from '../lib/ui.ts';
 import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
 
 const ADVANCE = 0.8;
@@ -103,7 +103,7 @@ export default function LevelProgress({ onStudy, onCourse }: {
           <div className="flex items-baseline gap-2 flex-wrap mb-1.5">
             <span className="text-xs font-semibold">{edge} means being able to…</span>
             <span className="text-2xs text-dim font-mono ml-auto">
-              {edgeStat.known} / {edgeStat.count} words
+              {fmt(edgeStat.known)} / {fmt(edgeStat.count)} words
             </span>
           </div>
           <ul className="space-y-0.5 mb-2">

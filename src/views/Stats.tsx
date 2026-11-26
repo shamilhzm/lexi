@@ -57,8 +57,10 @@ export default function Stats() {
         <BarChart3 size={18} className="text-accent" />
         <h2 id="trend-heading" className="text-lg font-bold">Trend</h2>
       </div>
+      {/* "seen", as the headline says it *(2026-11-26)*. It said "learning", which
+          read as a second pile beside "known" when it is the pile known sits in. */}
       <p className="text-dim text-xs mb-3">
-        {fmt(t.known)} known · {fmt(t.learned)} learning · {fmt(t.due)} due now
+        {fmt(t.known)} known · {fmt(t.learned)} seen · {fmt(t.due)} due now
       </p>
 
       {/* **Two-up at every width.** It was one column on a phone, which made four
@@ -82,8 +84,8 @@ export default function Stats() {
         </Panel>
 
         <Panel title="Due forecast" sub="reviews due, next 7 days">
-          <Bars values={forecast}
-            labels={forecast.map((_, i) => i === 0 ? 'today' : dayLabel(dayKey(-i)))}
+          <Bars values={forecast} focus={0}
+            labels={forecast.map((_, i) => i === 0 ? 'heute' : dayLabel(dayKey(-i)))}
             color="var(--color-accent)" />
         </Panel>
 
@@ -246,30 +248,35 @@ function Empty({ text }: { text: string }) {
  *  rather than as a series of enormous values. */
 const MIN_COLUMNS = 7;
 
-function Bars({ values, labels, color, max, muted, suffix = '' }:
-  { values: number[]; labels: string[]; color: string; max?: number; muted?: boolean[]; suffix?: string }) {
+/** `focus` is the bar that is inked and numbered: the latest day for a history,
+ *  but *today* for a forecast *(2026-11-26)*. The forecast used to ink its last
+ *  bar, a week out, and print that bar's count in the middle of the axis, so
+ *  "today · 3 · Mi" read as three due today beside a bar of twenty-two. The
+ *  number now sits at the end its bar is on. */
+function Bars({ values, labels, color, max, muted, suffix = '', focus }:
+  { values: number[]; labels: string[]; color: string; max?: number; muted?: boolean[]; suffix?: string; focus?: number }) {
   const top = max ?? Math.max(1, ...values);
   const n = values.length;
   const bw = 100 / Math.max(n, MIN_COLUMNS);
-  const last = values[n - 1];
+  const at = focus ?? n - 1;
+  const value = <b className="text-txt font-bold">{values[at]}{suffix}</b>;
   return (
     <div>
       <svg viewBox="0 0 100 44" preserveAspectRatio="none" className="w-full h-[120px] block" role="img"
-        aria-label={`${n} bars, latest ${last}${suffix}`}>
+        aria-label={`${n} bars, ${labels[at]} ${values[at]}${suffix}`}>
         {values.map((val, i) => {
           const h = Math.max(val > 0 ? 1.5 : 0.75, (val / top) * 40);
           return (
             <rect key={i} className="bar-grow" x={i * bw + bw * 0.15} y={44 - h} width={bw * 0.7} height={h} rx={0.8}
-              fill={muted?.[i] ? 'var(--color-line)' : color} opacity={i === n - 1 ? 1 : 0.55}>
+              fill={muted?.[i] ? 'var(--color-line)' : color} opacity={i === at ? 1 : 0.55}>
               <title>{`${labels[i]}: ${val}${suffix}`}</title>
             </rect>
           );
         })}
       </svg>
-      <div className="flex justify-between text-2xs text-dim font-mono mt-1">
-        <span>{labels[0]}</span>
-        <span className="text-txt font-bold">{last}{suffix}</span>
-        <span>{labels[n - 1]}</span>
+      <div className="flex justify-between gap-2 text-2xs text-dim font-mono mt-1">
+        <span>{labels[0]}{at === 0 && <> · {value}</>}</span>
+        <span>{at === n - 1 && n > 1 && <>{value} · </>}{n > 1 ? labels[n - 1] : ''}</span>
       </div>
     </div>
   );

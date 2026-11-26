@@ -223,6 +223,6 @@ export default function Wortkarte({ initialSector, onStudy }: { initialSector: s
 function ActiveInfo({ id }: { id: string }) {
   const w = useMemo(() => [...WORDS_BY_SECTOR.values()].flat().find((x) => x.id === id), [id]);
   if (!w) return null;
-  return <span className="text-txt"><b lang="de" className="text-accent">{w.term}</b> · {w.en}{w.ipa ? ` · /${w.ipa}/` : ''}{w.ex[0] ? <> · <span lang="de">„{w.ex[0].de}“</span></> : ''}</span>;
+  return <span className="text-txt"><b lang="de" translate="no" className="text-accent">{w.term}</b> · {w.en}{w.ipa ? ` · /${w.ipa}/` : ''}{w.ex[0] ? <> · <span lang="de" translate="no">„{w.ex[0].de}“</span></> : ''}</span>;
 }
 const Dot = ({ c }: { c: string }) => <span className="inline-block w-2 h-2 rounded-full align-middle" style={{ background: c }} />;

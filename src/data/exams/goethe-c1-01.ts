@@ -58,7 +58,7 @@ export const PAPER: ExamPaper = {
     + 'essay, and the oral’s talk-from-data and joint decision, with models at three levels.',
   oralFormat: '(paarweise, 15 Minuten Vorbereitung davor)',
   scheme: GOETHE_C1,
-  subtestLabels: { language: 'Schreiben, Aufgabe 2' },
+  subtestLabels: { language: 'Schreiben, Aufgabe 2', writing: 'Schreiben, Aufgabe 1' },
   blocks: [
     { label: 'Lesen', minutes: 70, partIds: ['l1', 'l2', 'l3'] },
     { label: 'Hören', minutes: 40, partIds: ['h1', 'h2'] },

@@ -78,11 +78,11 @@ export function StorySlot({ story, onOpen }: { story: FeedArticle; onOpen: (a: F
             {story.published > 0 && <span>{ago(story.published)}</span>}
             {read && <span className="inline-flex items-center gap-0.5 text-green"><Check size={11} /> read</span>}
           </p>
-          {story.topline && <p lang="de" className="mt-2 text-xs font-semibold text-dim">{story.topline}</p>}
-          <h2 id={`story-${story.id}`} lang="de" className="headword text-[1.75rem] sm:text-4xl font-bold leading-[1.1] mt-1 break-words">
+          {story.topline && <p lang="de" translate="no" className="mt-2 text-xs font-semibold text-dim">{story.topline}</p>}
+          <h2 id={`story-${story.id}`} lang="de" translate="no" className="headword text-[1.75rem] sm:text-4xl font-bold leading-[1.1] mt-1 break-words">
             {story.title}
           </h2>
-          {story.teaser && <p lang="de" className="mt-2 text-base text-dim leading-snug line-clamp-3">{story.teaser}</p>}
+          {story.teaser && <p lang="de" translate="no" className="mt-2 text-base text-dim leading-snug line-clamp-3">{story.teaser}</p>}
           <div className="mt-4 flex items-center gap-3">
             <span className="inline-flex items-center gap-1.5 key rounded-full bg-key text-key-ink font-bold text-sm px-4 h-10">
               Lesen <ArrowRight size={15} />

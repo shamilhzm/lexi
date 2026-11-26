@@ -377,7 +377,7 @@ export default function WordSky({ onStudy }: { onStudy: (t: Target) => void }) {
     <section aria-labelledby="sky-h" className="mb-6">
       <div className="flex items-end justify-between gap-3 flex-wrap mb-2">
         <div>
-          <h2 id="sky-h" lang="de" className="headword text-2xl font-bold leading-tight">Dein Deutsch</h2>
+          <h2 id="sky-h" lang="de" translate="no" className="headword text-2xl font-bold leading-tight">Dein Deutsch</h2>
           <p className="text-xs text-dim mt-0.5 max-w-[52ch]">
             Every word Lexi teaches, with the commonest at the centre. The ones you’ve studied are lit, as brightly as you’d remember them today.
           </p>

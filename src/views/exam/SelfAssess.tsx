@@ -46,11 +46,12 @@ export function CriterionRow({ c, value, onPick }: {
             <button
               key={b} role="radio" aria-checked={picked} onClick={() => onPick(b)}
               className={`tap-44 w-full flex items-start gap-2.5 rounded-md border px-3 py-2 text-left text-sm
-                transition-colors ${picked ? 'border-accent bg-panel2' : 'border-line bg-panel2 hover:border-accent'}`}
+                transition-colors ${picked ? 'border-accent bg-accent text-bg' : 'border-line bg-panel2 hover:border-accent'}`}
             >
-              <span className={`font-mono font-bold flex-shrink-0 w-4 ${picked ? 'text-accent' : 'text-dim'}`}>{b}</span>
+              {/* Filled when picked, as every answer on the sheet is (2026-11-26). */}
+              <span className={`font-mono font-bold flex-shrink-0 w-4 ${picked ? 'text-bg' : 'text-dim'}`}>{b}</span>
               <span className="flex-1 min-w-0">{c.levels[i]}</span>
-              <span className={`font-mono text-2xs tabular-nums flex-shrink-0 pt-0.5 ${picked ? 'text-accent' : 'text-dim'}`}>
+              <span className={`font-mono text-2xs tabular-nums flex-shrink-0 pt-0.5 ${picked ? 'text-bg' : 'text-dim'}`}>
                 {c.points[i]}
               </span>
             </button>
@@ -82,9 +83,9 @@ export const WRITING_CRITERIA: Criterion[] = [
     key: 'gestaltung', n: 'II', title: 'Kommunikative Gestaltung',
     judges: 'Bewertet werden: die sinnvolle Anordnung der Leitpunkte · die Verknüpfung der Sätze · '
       + 'die inhalts- und adressatenbezogene Ausdrucksweise · der Adressatenbezug (Datum, Anrede, Grußformel).',
-    hint: 'Did you write a letter or a list? Check for a date, a greeting, an opening line that reacts to '
-      + 'hers, connectors between the four points, and a sign-off. Missing the date alone is a common '
-      + 'reason this drops from A to B.',
+    hint: 'Did you write a text or a list? Check for a greeting, an opening line that answers what you '
+      + 'were sent, connectors between the points, and a sign-off. In a letter, a missing date alone is '
+      + 'a common reason this drops from A to B.',
     levels: ['voll angemessen', 'im Großen und Ganzen angemessen', 'kaum noch akzeptabel', 'insgesamt nicht ausreichend'],
     points: [5, 3, 1, 0],
   },
@@ -92,7 +93,7 @@ export const WRITING_CRITERIA: Criterion[] = [
     key: 'richtigkeit', n: 'III', title: 'Formale Richtigkeit',
     judges: 'Bewertet werden Syntax, Morphologie und Orthografie.',
     hint: 'Be strict but not cruel with yourself: B is "mistakes that do not impede understanding", and '
-      + 'that is a normal, passing B1 letter. Reserve C for errors at points where a reader would '
+      + 'that is a normal, passing text at this level. Keep C for errors at points where a reader would '
       + 'genuinely lose the thread.',
     levels: [
       'keine oder nur vereinzelte Fehler',
@@ -125,7 +126,7 @@ export function speakingCriteria(teil: 1 | 2 | 3): Criterion[] {
       key: 'task', n: '2', title: 'Aufgabenbewältigung',
       judges: 'Bewertet werden: die Gesprächsbeteiligung · die Verwendung von Strategien · die '
         + 'Flüssigkeit der Rede.',
-      hint: 'This is the criterion about *behaviour*, not language. Did you answer the task that was '
+      hint: 'This is the criterion about behaviour, not language. Did you answer the task that was '
         + 'set, ask your partner back, react to what they said, and — in Teil 3 — actually decide '
         + 'things? Two parallel monologues score badly here even in perfect German.',
       levels: ['voll angemessen', 'im Großen und Ganzen angemessen', 'kaum noch akzeptabel', 'durchgehend nicht ausreichend'],
@@ -134,7 +135,7 @@ export function speakingCriteria(teil: 1 | 2 | 3): Criterion[] {
     {
       key: 'accuracy', n: '3', title: 'Formale Richtigkeit',
       judges: 'Bewertet werden Syntax und Morphologie.',
-      hint: 'Spoken B1 is allowed to be untidy. B — "mistakes that do not impede understanding" — is '
+      hint: 'Spoken German at any level is allowed to be untidy. B — "mistakes that do not impede understanding" — is '
         + 'the honest self-assessment for most candidates who pass.',
       levels: [
         'keine oder nur vereinzelte Fehler',

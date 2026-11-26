@@ -66,7 +66,7 @@ export default function WantedWords() {
       <ul className="divide-y divide-line rounded-md border border-line overflow-hidden">
         {list.map((w) => (
           <li key={w.term} className="flex items-center gap-3 px-3 py-2 bg-panel2">
-            <span lang="de" className="flex-1 min-w-0 text-sm truncate">{w.term}</span>
+            <span lang="de" translate="no" className="flex-1 min-w-0 text-sm truncate">{w.term}</span>
             {/* Only once it means something. "1×" on every row is wallpaper. */}
             {w.n > 1 && <Kicker className="flex-shrink-0">{w.n}×</Kicker>}
             <IconButton label={`Remove ${w.term} from the list`} onClick={() => unwantWord(w.term)}>

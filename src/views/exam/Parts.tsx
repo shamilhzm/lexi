@@ -13,7 +13,7 @@
 import { Check, X } from 'lucide-react';
 import Card from '../../components/ui/Card.tsx';
 import Kicker from '../../components/ui/Kicker.tsx';
-import { clozeSegments, type AdsPart, type ClozePart, type MatchPart, type McPart, type Part, type Responses, type TfPart } from '../../lib/exam.ts';
+import { clozeSegments, fmtPoints as fmtPts, type AdsPart, type ClozePart, type MatchPart, type McPart, type Part, type Responses, type TfPart } from '../../lib/exam.ts';
 import Rich from './Rich.tsx';
 
 export interface PartProps {
@@ -59,7 +59,6 @@ function Rubric({ part }: { part: Part }) {
   );
 }
 
-const fmtPts = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1).replace('.', ','));
 
 // ---- the shared answer control ---------------------------------------------
 // One grid of letters, used by three of the five item types. Squares rather than
@@ -205,10 +204,14 @@ function McView({ part, responses, onAnswer, reveal, locked }: PartProps & { par
               <p className="text-sm font-semibold mb-2.5">
                 <span className="font-mono text-dim mr-2">{q.n}.</span>{q.stem}
               </p>
+              {/* The notices are framed, not filled *(2026-11-26)*: they were the
+                  same beige as the answer rows under them, so on a phone the ad
+                  you read looked like a button and the button like more text. A
+                  frame is how the printed paper sets them. */}
               {q.stimulus && (
                 <div className="grid sm:grid-cols-2 gap-2 mb-2.5">
                   {q.stimulus.map((st) => (
-                    <Card key={st.label} tone="sunken" pad="sm">
+                    <Card key={st.label} tone="panel" nested pad="sm">
                       <Kicker tone="accent" className="block mb-1">{st.label}</Kicker>
                       <p className="text-xs leading-relaxed whitespace-pre-line">{st.body}</p>
                     </Card>
@@ -242,10 +245,13 @@ function OptionRow({ opt, picked, isKey, isMiss, disabled, onPick }: {
         transition-colors disabled:pointer-events-none
         ${isKey ? 'border-green bg-green-d'
           : isMiss ? 'border-red bg-red-d'
-          : picked ? 'border-accent bg-panel2'
+          : picked ? 'border-accent bg-accent text-bg'
           : 'border-line bg-panel2 hover:border-accent'}`}
     >
-      <span className={`font-mono font-bold flex-shrink-0 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-accent' : 'text-dim'}`}>
+      {/* Picked is filled in the pen's ink, as richtig/falsch is *(2026-11-26)*.
+          It was an outline on the same beige, the weakest mark on the sheet for
+          the one thing the candidate did. */}
+      <span className={`font-mono font-bold flex-shrink-0 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-bg' : 'text-dim'}`}>
         {opt.k})
       </span>
       <span className="min-w-0">{opt.text}</span>
@@ -358,8 +364,8 @@ function ClozeView({ part, responses, onAnswer, reveal, locked }: PartProps & { 
                           className={`tap-44 rounded-md border px-3 py-2 text-sm transition-colors disabled:pointer-events-none
                             ${isKey ? 'border-green bg-green-d'
                               : isMiss ? 'border-red bg-red-d'
-                              : picked ? 'border-accent bg-panel2' : 'border-line bg-panel2 hover:border-accent'}`}>
-                          <span className={`font-mono mr-1.5 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-accent' : 'text-dim'}`}>{o.k})</span>
+                              : picked ? 'border-accent bg-accent text-bg' : 'border-line bg-panel2 hover:border-accent'}`}>
+                          <span className={`font-mono mr-1.5 ${isKey ? 'text-green' : isMiss ? 'text-red-txt' : picked ? 'text-bg' : 'text-dim'}`}>{o.k})</span>
                           {o.text}
                         </button>
                       );

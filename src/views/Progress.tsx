@@ -85,7 +85,7 @@ export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement, o
           oversight rather than a choice. `Fortschritt` is a B1 word the learner
           meets on the way past this screen anyway. */}
       <Kicker className="block mb-0.5">Progress</Kicker>
-      <h1 lang="de" className="display text-3xl sm:text-4xl mb-3">Fortschritt</h1>
+      <h1 lang="de" translate="no" className="display text-3xl sm:text-4xl mb-3">Fortschritt</h1>
 
       {/* The KPI strip used to sit here (it rode on top of the Karte view).
           Composing the two surfaces made it obvious they were the same four
@@ -287,7 +287,11 @@ function Met() {
  *  answers how far you've come. */
 function Headline() {
   const t = totals();
-  const pct = Math.round(t.coverage * 100);
+  // The share of the number it sits beside *(2026-11-26)*. It was `coverage`,
+  // which is words *seen* over the total, so an A1 learner read "98 of 1,256 · 9%"
+  // when 98 of 1,256 is 8%, and the level strip below said 8%.
+  const share = t.count ? t.known / t.count : 0;
+  const pct = Math.round(share * 100);
   // Read once, on mount, before Karte's own effect records the new state —
   // both surfaces animate from the same baseline, so the number and the map
   // agree about what changed.
@@ -307,7 +311,7 @@ function Headline() {
         </span>
         <span className="text-dim text-base mb-1.5">
           of {fmt(t.count)} at your levels
-          <span className="ml-1.5 font-semibold" style={{ color: heatText(t.coverage) }}>· {pct}%</span>
+          <span className="ml-1.5 font-semibold" style={{ color: heatText(share) }}>· {pct}%</span>
         </span>
       </div>
       <p className="text-dim text-xs mt-2.5">

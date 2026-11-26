@@ -24,7 +24,7 @@
 // back-stack. Decks and Wortkarte are unchanged; they moved house, they were not
 // rewritten.
 import { lazy, Suspense, useMemo } from 'react';
-import { ArrowLeft, ChevronRight, FileText, Mic } from 'lucide-react';
+import { ArrowLeft, ChevronRight, FileText } from 'lucide-react';
 import { WORDS, GROUPS, GROUP_SECTORS, WORDS_BY_SECTOR } from '../data/index.ts';
 import { groupStats, levels, studyLevel } from '../store.ts';
 import { useStore } from '../useStore.ts';
@@ -44,15 +44,12 @@ import type { CEFR, Target } from '../types.ts';
 const Kurs = lazy(() => import('./Kurs.tsx'));
 const KursBand = lazy(() => import('./Kurs.tsx').then((m) => ({ default: m.KursBand })));
 
-export default function Words({ route, onNavigate, onStudy, onText, onGame }: {
+export default function Words({ route, onNavigate, onStudy, onText }: {
   route: WordsRoute;
   onNavigate: (next: WordsRoute) => void;
   onStudy: (t: Target) => void;
   /** The other way to choose words: paste a text, study what’s in the way. */
   onText: () => void;
-  /** Open `Sag es`, the pronunciation game. Absent while speaking is out of
-   *  focus (lib/focus.ts). */
-  onGame?: () => void;
 }) {
   useStore();
 
@@ -96,14 +93,14 @@ export default function Words({ route, onNavigate, onStudy, onText, onGame }: {
     );
   }
 
-  return <Index onOpenGroup={(g) => onNavigate({ level: 'group', group: g })} onText={onText} onGame={onGame}
+  return <Index onOpenGroup={(g) => onNavigate({ level: 'group', group: g })} onText={onText}
     onKurs={(l) => onNavigate({ level: 'kurs', course: l })} />;
 }
 
 /** The index. Search first, because that is what the surface is for; the
  *  taxonomy underneath is for the learner who does not yet have a word in mind. */
-function Index({ onOpenGroup, onText, onGame, onKurs }: {
-  onOpenGroup: (g: string) => void; onText: () => void; onGame?: () => void; onKurs: (l: CEFR) => void;
+function Index({ onOpenGroup, onText, onKurs }: {
+  onOpenGroup: (g: string) => void; onText: () => void; onKurs: (l: CEFR) => void;
 }) {
   // `useStore()` at the top of `Words` re-renders this on a filter change, and
   // the filter is a Set the store mutates by replacement — so key the memo on a
@@ -119,7 +116,7 @@ function Index({ onOpenGroup, onText, onGame, onKurs }: {
           The tab won: *Wortschatz* is also too close to *Wörter* next door for
           two tabs to carry both. */}
       <Kicker className="block mb-0.5">Topics</Kicker>
-      <h1 lang="de" className="display text-3xl sm:text-4xl mb-1">Themen</h1>
+      <h1 lang="de" translate="no" className="display text-3xl sm:text-4xl mb-1">Themen</h1>
       <p className="text-dim text-xs mb-4">
         {/* The count has to agree with the tiles below it. It said 6,520 — the
             whole corpus — above nine groups that are level-filtered, so a
@@ -160,7 +157,7 @@ function Index({ onOpenGroup, onText, onGame, onKurs }: {
           <FileText size={20} />
         </span>
         <span className="flex-1 min-w-0">
-          <span lang="de" className="block text-lg font-semibold leading-tight">Wörter aus einem Text</span>
+          <span lang="de" translate="no" className="block text-lg font-semibold leading-tight">Wörter aus einem Text</span>
           <span className="block text-xs text-dim mt-1">
             Paste an article, or the words from today’s class. Lexi marks what you know and saves the rest for Üben.
           </span>
@@ -168,27 +165,9 @@ function Index({ onOpenGroup, onText, onGame, onKurs }: {
         <ChevronRight size={18} className="text-dim flex-shrink-0" />
       </button>
 
-      {/* The third way in, and the only one that is not studying.
-          
-          It was reachable from the session recap and nowhere else, which put the
-          game behind finishing a session — the most expensive door in the app, and
-          invisible to anyone who had not already worked for it. A thing you might
-          want to *do* belongs on the surface that lists things you can do. */}
-      {onGame && <button onClick={onGame}
-        className="-mx-3 sm:-mx-5 w-[calc(100%+1.5rem)] sm:w-[calc(100%+2.5rem)] border-b border-line
-          flex items-center gap-3.5 px-3 sm:px-5 py-4 text-left hover:bg-panel2 active:bg-panel2 transition-colors">
-        <span className="grid place-items-center w-[44px] h-[44px] rounded-md flex-shrink-0 text-accent"
-          style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)' }}>
-          <Mic size={20} />
-        </span>
-        <span className="flex-1 min-w-0">
-          <span lang="de" className="block text-lg font-semibold leading-tight">Sag es</span>
-          <span className="block text-xs text-dim mt-1">
-            One minute, out loud. Say each word until the recogniser catches it. Needs a microphone.
-          </span>
-        </span>
-        <ChevronRight size={18} className="text-dim flex-shrink-0" />
-      </button>}
+      {/* *Sag es*, the pronunciation game, stood here until 2026-11-26. It needed
+          the device's speech recogniser, a closed model, so it went with every other
+          spoken surface (VISION, refusal *A closed voice*). */}
     </div>
   );
 }

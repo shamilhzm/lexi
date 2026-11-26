@@ -19,6 +19,7 @@
 // The one thing it writes directly is the pair of feed lists, because those are
 // settings rather than cards.
 import { WORDS } from '../data/index.ts';
+import { byFrequency } from './freq.ts';
 import { State } from '../srs.ts';
 import type { Word, CEFR } from '../types.ts';
 
@@ -67,13 +68,24 @@ const MAX_CARDS = 460;
  *
  *  Interleaving from the top band down models the real thing: a C1 learner knows
  *  most of C1 and B2 and essentially all of A1, so the *interesting* cards — the
- *  ones their level filter will actually include — come first. */
+ *  ones their level filter will actually include — come first.
+ *
+ *  *(2026-11-26)* It did not interleave: it concatenated the bands top-down, so
+ *  under the 460-card cap every known word of the B1 learner was a B1 word, and
+ *  their Fortschritt sky was dark at the centre, the hundred commonest words of the
+ *  language unlearned after six weeks. Now it takes one word a band per round, the
+ *  top band first, commonest first within a band (when `freq.json` is primed). */
 function pool(upTo: CEFR): Word[] {
   const bands: CEFR[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const cap = bands.indexOf(upTo);
-  const byBand = bands.slice(0, cap + 1).map((b) => WORDS.filter((w) => w.level === b));
-  // Highest band first, then down — so a narrow filter still finds known words.
-  return byBand.reverse().flat();
+  const byBand = bands.slice(0, cap + 1).reverse()
+    .map((b) => WORDS.filter((w) => w.level === b).sort(byFrequency));
+  const out: Word[] = [];
+  for (let i = 0; ; i++) {
+    const before = out.length;
+    for (const band of byBand) if (i < band.length) out.push(band[i]);
+    if (out.length === before) return out;
+  }
 }
 
 interface Persona {

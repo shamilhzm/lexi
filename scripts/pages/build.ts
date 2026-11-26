@@ -85,23 +85,23 @@ const ARTICLE = /^(der|die|das)\s+/;
 function headword(c: PageCard): string {
   const m = ARTICLE.exec(c.term);
   const tone = c.pos === 'noun' && c.gender ? ` g-${c.gender}` : '';
-  if (!m) return `<h1 class="hw${tone}" lang="de">${esc(c.term)}</h1>`;
-  return `<h1 class="hw${tone}" lang="de"><span class="art">${esc(m[1])}</span> ${esc(c.term.slice(m[0].length))}</h1>`;
+  if (!m) return `<h1 class="hw${tone}" lang="de" translate="no">${esc(c.term)}</h1>`;
+  return `<h1 class="hw${tone}" lang="de" translate="no"><span class="art">${esc(m[1])}</span> ${esc(c.term.slice(m[0].length))}</h1>`;
 }
 
 function article(c: PageCard, ctx: Ctx): string {
   const facts = [
-    c.plural && `<div><dt>Plural</dt><dd lang="de">${esc(c.plural)}</dd></div>`,
+    c.plural && `<div><dt>Plural</dt><dd lang="de" translate="no">${esc(c.plural)}</dd></div>`,
     c.ipa && `<div><dt>Say it</dt><dd class="ipa">/${esc(c.ipa)}/</dd></div>`,
   ].filter(Boolean).join('');
   const related = (label: string, xs?: string[]) => xs?.length
-    ? `<p class="rel"><span class="kicker">${label}</span> <span lang="de">${xs.map(esc).join(' · ')}</span></p>` : '';
+    ? `<p class="rel"><span class="kicker">${label}</span> <span lang="de" translate="no">${xs.map(esc).join(' · ')}</span></p>` : '';
   const t = c.transfer;
   const english = t && (t.kind === 'b' || t.en) ? `<p class="rel"><span class="kicker">English</span> ${
     t.kind === 'b' ? `Borrowed from English${t.en ? ` <b>${esc(t.en)}</b>` : ''}.` : `Related to English <b>${esc(t.en)}</b>.`}${
-    t.rule ? ` German <b lang="de">${esc(t.rule.de)}</b> is often English <b>${esc(t.rule.en)}</b>: ${
-      t.rule.ex.map(([d, e]) => `<span lang="de">${esc(d)}</span> · ${esc(e)}`).join(', ')}.` : ''}</p>` : '';
-  const ex = (c.ex ?? []).map((e) => `<li><span lang="de">${esc(e.de)}</span><span class="en">${esc(e.en)}</span></li>`).join('');
+    t.rule ? ` German <b lang="de" translate="no">${esc(t.rule.de)}</b> is often English <b>${esc(t.rule.en)}</b>: ${
+      t.rule.ex.map(([d, e]) => `<span lang="de" translate="no">${esc(d)}</span> · ${esc(e)}`).join(', ')}.` : ''}</p>` : '';
+  const ex = (c.ex ?? []).map((e) => `<li><span lang="de" translate="no">${esc(e.de)}</span><span class="en">${esc(e.en)}</span></li>`).join('');
   return `<article class="card">
 <p class="kicker">${esc(c.level)} · ${esc(c.pos)}</p>
 ${headword(c)}
@@ -111,7 +111,7 @@ ${c.def ? `<p class="def">${esc(c.def)}</p>` : ''}
 ${english}
 ${ex ? `<h2 class="kicker">Examples</h2><ul class="ex">${ex}</ul>` : ''}
 ${related('Similar', c.syn)}${related('Opposite', c.ant)}
-<p class="act"><a class="learn" href="${esc(wordLink(ctx.base, c.id))}">Learn <span lang="de">${esc(c.term)}</span> in Lexi</a></p>
+<p class="act"><a class="learn" href="${esc(wordLink(ctx.base, c.id))}">Learn <span lang="de" translate="no">${esc(c.term)}</span> in Lexi</a></p>
 </article>`;
 }
 
@@ -134,8 +134,8 @@ export function renderPage(s: string, cards: PageCard[], ctx: Ctx): string {
   const canonical = ctx.origin ? `<link rel="canonical" href="${esc(ctx.origin + pagePath(ctx.base, s))}">` : '';
   const tatoeba = cards.flatMap((c) => (c.tatoeba ? [c.tatoeba] : []));
   const nav = (ctx.prev || ctx.next) ? `<nav class="near" aria-label="Nearby words">${
-    ctx.prev ? `<a rel="prev" href="${esc(pagePath(ctx.base, ctx.prev.slug))}" lang="de">← ${esc(ctx.prev.label)}</a>` : '<span></span>'}${
-    ctx.next ? `<a rel="next" href="${esc(pagePath(ctx.base, ctx.next.slug))}" lang="de">${esc(ctx.next.label)} →</a>` : ''}</nav>` : '';
+    ctx.prev ? `<a rel="prev" href="${esc(pagePath(ctx.base, ctx.prev.slug))}" lang="de" translate="no">← ${esc(ctx.prev.label)}</a>` : '<span></span>'}${
+    ctx.next ? `<a rel="next" href="${esc(pagePath(ctx.base, ctx.next.slug))}" lang="de" translate="no">${esc(ctx.next.label)} →</a>` : ''}</nav>` : '';
   return `<!doctype html>
 <html lang="en">
 <head>

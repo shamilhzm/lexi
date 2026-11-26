@@ -12,8 +12,8 @@ import Card from '../../components/ui/Card.tsx';
 import Button from '../../components/ui/Button.tsx';
 import Chip from '../../components/ui/Chip.tsx';
 import Kicker from '../../components/ui/Kicker.tsx';
-import { scoreWriting, type Band, type Model, type Provider, type WritingMarks, type WritingTask } from '../../lib/exam.ts';
-import type { CEFR } from '../../types.ts';
+import { fmtPoints, writingOnScheme, type Band, type Model, type Provider, type WritingMarks, type WritingTask } from '../../lib/exam.ts';
+import { LEVEL_INK } from '../../lib/ui.ts';
 import { CriterionRow, WRITING_CRITERIA } from './SelfAssess.tsx';
 
 // *(2026-11-26)* The header, the rubric line and the word hint were telc B1's on
@@ -62,8 +62,11 @@ export default function Writing({ task, provider, points, letter, onLetter, mark
       <Card pad="sm" className="mb-4">
         <Kicker tone="accent" className="block mb-1.5">Schreiben Sie etwas zu {COUNT[task.leitpunkte.length] ?? 'diesen Punkten'}</Kicker>
         <p className="text-2xs text-dim mb-2.5">
-          Tick each one as you cover it. Criterion I is literally this count — four points is 5 marks,
-          three is 3, two is 1.
+          {/* telc's grid for criterion I is written for four Leitpunkte; a paper with
+              another number gets the rule without the figures. */}
+          Tick each one as you cover it. Criterion I counts them: {task.leitpunkte.length === 4
+            ? 'all four is 5 marks, three is 3, two is 1.'
+            : 'every one covered is full marks.'}
         </p>
         <ul className="space-y-1.5">
           {task.leitpunkte.map((l, i) => {
@@ -77,10 +80,13 @@ export default function Writing({ task, provider, points, letter, onLetter, mark
                     return n;
                   })}
                   aria-pressed={on}
+                  // A tick here is the writer's own claim, not a verdict, so it is
+                  // Königsblau like every other mark the learner makes. Green is kept
+                  // for "right" (2026-11-26). Square, because it is a checklist.
                   className={`tap-44 w-full flex items-start gap-2.5 rounded-md border px-3 py-2 text-left text-sm
-                    transition-colors ${on ? 'border-green bg-green-d' : 'border-line bg-panel2 hover:border-accent'}`}>
-                  <span className={`grid place-items-center w-[16px] h-[16px] rounded-sm border flex-shrink-0 mt-0.5
-                    ${on ? 'border-green text-green' : 'border-dim'}`}>
+                    transition-colors ${on ? 'border-accent bg-panel2' : 'border-line bg-panel2 hover:border-accent'}`}>
+                  <span className={`grid place-items-center w-[16px] h-[16px] rounded-[4px] border flex-shrink-0 mt-0.5
+                    ${on ? 'border-accent bg-accent text-bg' : 'border-dim'}`}>
                     {on && <Check size={12} />}
                   </span>
                   <span className="flex-1 min-w-0">
@@ -100,7 +106,7 @@ export default function Writing({ task, provider, points, letter, onLetter, mark
 
       <div className="mb-4">
         <div className="flex items-baseline justify-between mb-1.5">
-          <Kicker tone="accent">Ihr Brief</Kicker>
+          <Kicker tone="accent">{telc ? 'Ihr Brief' : 'Ihr Text'}</Kicker>
           <span className="font-mono text-2xs text-dim tabular-nums">
             {words} {words === 1 ? 'Wort' : 'Wörter'}
             {telc && <span> · ~150 üblich</span>}
@@ -114,11 +120,11 @@ export default function Writing({ task, provider, points, letter, onLetter, mark
           spellCheck={false}
           autoCapitalize="sentences"
           autoCorrect="off"
-          lang="de"
+          lang="de" translate="no"
           placeholder={telc ? 'Liebe Katja,\n\n…' : '…'}
           // Ruled paper with a red margin (index.css → .lined): the one surface in
           // the app that is written on rather than tapped.
-          className="lined w-full rounded-lg border border-line bg-card pr-4 pb-4 pt-0 text-[15px]
+          className="lined w-full rounded-lg border border-line pr-4 pb-4 pt-0 text-[15px]
             focus:outline-none focus:border-accent disabled:opacity-60"
         />
         <p className="text-2xs text-dim mt-1.5 leading-relaxed">
@@ -129,32 +135,26 @@ export default function Writing({ task, provider, points, letter, onLetter, mark
 
       <div className="mb-5">
         <Button variant="secondary" onClick={() => setShowModels((s) => !s)}>
-          <PenLine size={14} /> {showModels ? 'Musterbriefe ausblenden' : 'Musterbriefe ansehen'}
+          <PenLine size={14} /> {telc
+            ? (showModels ? 'Musterbriefe ausblenden' : 'Musterbriefe ansehen')
+            : (showModels ? 'Mustertexte ausblenden' : 'Mustertexte ansehen')}
         </Button>
         {showModels && (
           <div className="mt-3 space-y-3">
             <p className="text-xs text-dim leading-relaxed">
-              The same letter at three strengths. All three answer all four Leitpunkte — that is the
-              constant. What changes is the connective tissue between them.
+              The same text at different strengths. Every one answers every Leitpunkt, so that stays
+              constant. What changes is how the sentences are joined.
             </p>
             {task.models.map((m) => <ModelLetter key={m.band} model={m} />)}
           </div>
         )}
       </div>
 
-      <WritingMarksPanel value={marks} onChange={onMarks} />
+      <WritingMarksPanel value={marks} onChange={onMarks} points={points} telc={telc} />
     </div>
   );
 }
 
-const BAND_TONE: Record<CEFR, string> = {
-  A1: 'var(--color-a1)',
-  A2: 'var(--color-green)',
-  B1: 'var(--color-accent)',
-  B2: 'var(--color-b2)',
-  C1: 'var(--color-c1)',
-  C2: 'var(--color-c2)',
-};
 
 function ModelLetter({ model }: { model: Model }) {
   const [open, setOpen] = useState(false);
@@ -164,7 +164,8 @@ function ModelLetter({ model }: { model: Model }) {
       <button onClick={() => setOpen((o) => !o)} aria-expanded={open}
         className="tap-44 w-full flex items-center gap-3 text-left">
         <span className="font-mono text-2xs font-bold px-2 py-1 rounded-md border"
-          style={{ color: BAND_TONE[model.band], borderColor: BAND_TONE[model.band] }}>
+          // The level's own ink (lib/ui.ts). A2 was drawn in the verdict green here.
+          style={{ color: LEVEL_INK[model.band], borderColor: LEVEL_INK[model.band] }}>
           {model.band}
         </span>
         <span className="flex-1 min-w-0">
@@ -194,33 +195,51 @@ function ModelLetter({ model }: { model: Model }) {
   );
 }
 
-function WritingMarksPanel({ value, onChange }: {
+function WritingMarksPanel({ value, onChange, points, telc }: {
   value?: WritingMarks; onChange: (m: WritingMarks) => void;
+  /** What writing is worth on this paper; the grid's 45 is scaled to it. */
+  points: number;
+  telc: boolean;
 }) {
-  const base: WritingMarks = { leitpunkte: 'B', gestaltung: 'B', richtigkeit: 'B', extraRange: false, extraLength: false };
-  const cur = value ?? base;
-  const set = (patch: Partial<WritingMarks>) => onChange({ ...cur, ...patch });
+  // The writer grades each criterion; nothing is scored until all three are.
+  // *(2026-11-26)* The first tap used to commit B for the two criteria not yet
+  // touched, and a "Bewertung eintragen" button committed B/B/B outright: a grade
+  // the learner never gave, counted in the paper's total.
+  const [draft, setDraft] = useState<Partial<WritingMarks>>(() => value ?? {});
+  const cur: Partial<WritingMarks> = value ?? draft;
+  const set = (patch: Partial<WritingMarks>) => {
+    const next = { ...cur, ...patch };
+    setDraft(next);
+    if (next.leitpunkte && next.gestaltung && next.richtigkeit) {
+      onChange({ extraRange: false, extraLength: false, ...next } as WritingMarks);
+    }
+  };
+  const bands = [cur.leitpunkte, cur.gestaltung, cur.richtigkeit];
+  const graded = bands.every(Boolean);
   // The discretionary points are unavailable in exactly the cases telc says they
   // are, and the UI says why rather than silently ignoring the toggle.
-  const worseThanB = [cur.leitpunkte, cur.gestaltung, cur.richtigkeit].some((b) => b === 'C' || b === 'D');
-  const full = cur.leitpunkte === 'A' && cur.gestaltung === 'A' && cur.richtigkeit === 'A';
-  const extrasBlocked = worseThanB || full;
+  const worseThanB = bands.some((b) => b === 'C' || b === 'D');
+  const full = bands.every((b) => b === 'A');
+  const extrasBlocked = !graded || worseThanB || full;
 
   return (
     <div>
       <div className="flex items-baseline gap-2 mb-1">
-        <h3 className="text-base font-bold">Den Brief bewerten</h3>
-        {value && <Chip tone="good"><Check size={11} /> {scoreWriting(value)} / 45</Chip>}
+        <h3 className="text-base font-bold">{telc ? 'Den Brief bewerten' : 'Den Text bewerten'}</h3>
+        {/* The paper's own points, not the grid's 45, and in ink rather than the
+            verdict green: it is the writer's mark of themselves (2026-11-26). */}
+        {value && <Chip>{fmtPoints(writingOnScheme(value, points))} / {points} Punkte</Chip>}
       </div>
       <p className="text-xs text-dim leading-relaxed mb-3">
-        Two examiners mark every letter and have to agree on one grade. Mark your own against the same
-        three criteria — and be aware of the hard rule: a D on criterion I or III zeroes the letter
-        completely.
+        Mark your own text against the three criteria examiners use. One hard rule: a D on
+        criterion I or III scores the whole text 0.
+        {!telc && <> These are telc's descriptors. Lexi scales the result to the {points} points
+          Schreiben is worth on this paper.</>}
       </p>
       <div className="space-y-2.5">
         {WRITING_CRITERIA.map((c) => (
           <CriterionRow key={c.key} c={c}
-            value={value ? (cur[c.key as keyof WritingMarks] as Band) : undefined}
+            value={cur[c.key as keyof WritingMarks] as Band | undefined}
             onPick={(b) => set({ [c.key]: b } as Partial<WritingMarks>)} />
         ))}
 
@@ -230,11 +249,12 @@ function WritingMarksPanel({ value, onChange }: {
             <span className="text-sm font-bold">Zusatzpunkte</span>
           </div>
           <p className="text-xs text-dim leading-relaxed mb-2.5">
-            Up to two extra points, each worth 3 after the ×3 — but only for a letter that is not
-            already at full marks and has no C or D anywhere.
-            {extrasBlocked && (
+            Up to two extra points, only for a text that is not already at full marks and has no
+            C or D anywhere.
+            {!graded && <span>{' '}Grade criteria I to III first.</span>}
+            {graded && extrasBlocked && (
               <span className="text-red-txt">
-                {' '}Not available here: {full ? 'the letter already scores 15/15.' : 'a criterion is graded C or below.'}
+                {' '}Not available here: {full ? 'the text already has full marks.' : 'a criterion is graded C or below.'}
               </span>
             )}
           </p>
@@ -249,8 +269,8 @@ function WritingMarksPanel({ value, onChange }: {
                   className={`tap-44 w-full flex items-start gap-2.5 rounded-md border px-3 py-2 text-left text-sm
                     transition-colors disabled:opacity-40 disabled:pointer-events-none
                     ${on ? 'border-accent bg-panel2' : 'border-line bg-panel2 hover:border-accent'}`}>
-                  <span className={`grid place-items-center w-[16px] h-[16px] rounded-sm border flex-shrink-0 mt-0.5
-                    ${on ? 'border-accent text-accent' : 'border-dim'}`}>
+                  <span className={`grid place-items-center w-[16px] h-[16px] rounded-[4px] border flex-shrink-0 mt-0.5
+                    ${on ? 'border-accent bg-accent text-bg' : 'border-dim'}`}>
                     {on && <Check size={12} />}
                   </span>
                   <span className="flex-1 min-w-0">{label}</span>
@@ -260,10 +280,6 @@ function WritingMarksPanel({ value, onChange }: {
           </div>
         </Card>
       </div>
-
-      {!value && (
-        <Button className="mt-3" onClick={() => onChange(base)}>Bewertung eintragen</Button>
-      )}
     </div>
   );
 }

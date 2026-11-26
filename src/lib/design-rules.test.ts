@@ -90,3 +90,30 @@ describe('ink is never faded below the pair it was tested as (DESIGN §2)', () =
     expect(stale).toEqual([]);
   });
 });
+
+/** German that a page translator may rewrite: an element marked `lang="de"` (or
+ *  given a `lang` at runtime) without `translate`. Safari offered "Translation
+ *  Available" on the feed on 2026-11-26, and one tap would have turned every
+ *  German word on screen into English — the headword, the example, the exam
+ *  paper. `translate="no"` keeps the German and lets the English chrome be
+ *  translated for a learner who reads it less well. SVG text has no `translate`
+ *  attribute, and `<Prompt>` is a component that passes `lang` to its divs. */
+const UNGUARDED_GERMAN = /lang="de"(?![^>]*translate="no")|lang=\{(?![^>]*translate=)/;
+const GERMAN_EXEMPT = /<(text|tspan)\b|<Prompt\b/;
+
+describe('German is never handed to a page translator', () => {
+  it('the check can see the defect it is looking for', () => {
+    // The feed's example line, as it shipped until 2026-11-26.
+    expect('<p lang="de" className="mt-4 text-base text-dim italic">').toMatch(UNGUARDED_GERMAN);
+    expect('<span lang={optLang}>{o}</span>').toMatch(UNGUARDED_GERMAN);
+    expect('<p lang="de" translate="no" className="mt-4">').not.toMatch(UNGUARDED_GERMAN);
+    expect("<span lang={optLang} translate={optLang === 'de' ? 'no' : undefined}>").not.toMatch(UNGUARDED_GERMAN);
+  });
+
+  it.each(tsx)('%s marks its German translate="no"', (file) => {
+    for (const line of code(file)) {
+      if (GERMAN_EXEMPT.test(line)) continue;
+      expect(line).not.toMatch(UNGUARDED_GERMAN);
+    }
+  });
+});

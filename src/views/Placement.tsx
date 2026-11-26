@@ -208,10 +208,10 @@ export default function Placement({ onDone }: { onDone: () => void }) {
             learner — it was the one tested word in the app still set in sans — and
             fitted, so a long compound shrinks before it breaks. */}
         <div className="hw-box">
-          <div lang="de" className="headword hw-entry hw-fit font-bold leading-tight"
+          <div lang="de" translate="no" className="headword hw-entry hw-fit font-bold leading-tight"
             style={fitStyle(shownTerm(stripArticle(probe.term)))}>{shownTerm(stripArticle(probe.term))}</div>
         </div>
-        {probe.gender && <div lang="de" className="text-dim text-base mt-1.5">{probe.gender}</div>}
+        {probe.gender && <div lang="de" translate="no" className="text-dim text-base mt-1.5">{probe.gender}</div>}
       </Card>
 
       <div className="grid grid-cols-2 gap-3">

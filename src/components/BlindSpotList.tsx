@@ -13,6 +13,21 @@ import { useStore } from '../useStore.ts';
 import { modeForTag } from './PathCard.tsx';
 import type { Mode } from '../views/drills.tsx';
 import { FOCUS, visibleMode } from '../lib/focus.ts';
+import { WORDS } from '../data/index.ts';
+import type { Word } from '../types.ts';
+import { InkedArticle } from './Reveal.tsx';
+
+/** The card a logged term names, for its gender. Built on first use and rebuilt
+ *  if the lexicon grows (a learner's own words join it after boot). */
+let byTerm: Map<string, Word> | null = null;
+let builtFrom = 0;
+function cardFor(term: string): Word | undefined {
+  if (!byTerm || builtFrom !== WORDS.length) {
+    byTerm = new Map(WORDS.map((w) => [w.term, w]));
+    builtFrom = WORDS.length;
+  }
+  return byTerm.get(term);
+}
 
 /** Under focus (lib/focus.ts) a row is shown only when it maps to a drill the
  *  learner can still open. Legacy tags from the retired grammar drills and the
@@ -95,7 +110,10 @@ export default function BlindSpotList({ onDrill, days = 30 }:
                 {s.terms.slice(0, 3).map((t, k) => (
                   <span key={t.term}>
                     {k > 0 && ', '}
-                    <span lang="de" className="text-txt">{t.term}</span>
+                    {/* The article in its gender's ink *(2026-11-26)*: on a list of
+                        gender misses, the right article is the lesson, and it was
+                        printed in the same grey as the rest of the line. */}
+                    <span lang="de" translate="no" className="text-txt"><InkedArticle term={t.term} gender={cardFor(t.term)?.gender} /></span>
                     <span className="font-mono"> {t.count}×</span>
                   </span>
                 ))}
@@ -111,9 +129,9 @@ export default function BlindSpotList({ onDrill, days = 30 }:
             {s.confusions.length > 0 && s.confusions[0].count > 1 && (
               <p className="text-2xs mt-1 truncate">
                 <span className="text-dim">reaches for </span>
-                <span lang="de" className="text-red-txt">{s.confusions[0].chose}</span>
+                <span lang="de" translate="no" className="text-red-txt">{s.confusions[0].chose}</span>
                 <span className="text-dim"> when it should be </span>
-                <span lang="de" className="text-txt">{s.confusions[0].asked}</span>
+                <span lang="de" translate="no" className="text-txt">{s.confusions[0].asked}</span>
                 <span className="text-dim font-mono"> {s.confusions[0].count}×</span>
               </p>
             )}

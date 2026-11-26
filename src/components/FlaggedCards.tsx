@@ -57,7 +57,7 @@ export default function FlaggedCards() {
       <ul className="flex flex-col gap-1">
         {list.slice().reverse().map((f) => (
           <li key={f.id} className="flex items-center justify-between gap-3 py-1">
-            <span className="text-sm truncate" lang="de">{f.term}</span>
+            <span className="text-sm truncate" lang="de" translate="no">{f.term}</span>
             <div className="flex items-center gap-2 shrink-0">
               <Kicker>{new Date(f.at).toLocaleDateString()}</Kicker>
               <a href={cardIssueUrl(f, 'other')} target="_blank" rel="noopener noreferrer"

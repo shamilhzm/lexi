@@ -47,7 +47,7 @@
   "screenshots": [
     {
       "src": "./screenshots/feed-word.jpg", "sizes": "720x1298", "type": "image/jpeg", "form_factor": "narrow",
-      "label": "The feed: one German word per screen, with sound, meaning and an example"
+      "label": "The feed: one German word per screen, with its meaning, IPA and an example"
     },
     {
       "src": "./screenshots/search.jpg", "sizes": "720x1298", "type": "image/jpeg", "form_factor": "narrow",
@@ -56,6 +56,10 @@
     {
       "src": "./screenshots/progress-sky.jpg", "sizes": "720x1298", "type": "image/jpeg", "form_factor": "narrow",
       "label": "Fortschritt: every word Lexi teaches, lit as brightly as you'd remember it today"
+    },
+    {
+      "src": "./screenshots/exam-room.jpg", "sizes": "720x1298", "type": "image/jpeg", "form_factor": "narrow",
+      "label": "Prüfung: short tests from your cards, and a practice paper at every level in the telc and Goethe formats"
     }
   ]
 }

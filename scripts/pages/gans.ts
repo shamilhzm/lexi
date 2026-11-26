@@ -7,9 +7,10 @@
 // *Gans* are one word: English lost the n before s, as it did in *tooth · Zahn* and
 // *five · fünf*. The mascot is a cognate pair. Language in dialogue with itself.
 //
-// **How she is built.** The card box's materials and nothing else: the white of the
-// index card for her body, the charcoal ink for her one outline, the teal tab for her
-// wing, the coral tab for her beak and feet. Every shape is drawn twice, ink first
+// **How she is built.** The Heft's materials and nothing else *(2026-11-26)*: the
+// study card's white for her body, the Heft's blue-black ink for her one outline, the
+// *die* highlighter for her wing (she is *die Gans*, and every noun in Lexi wears its
+// article's highlighter), and her own coral for beak and feet. Every shape is drawn twice, ink first
 // and then fill, so the outline runs once around the whole silhouette the way a
 // sticker's does. No gradient, no texture: she has to survive 24 px.
 //
@@ -19,10 +20,16 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-export const INK = '#2b2b2b';
+// The values of src/index.css's light theme, spelled out because this file is
+// pure and runs at build time: --color-txt, --color-card, --color-mark-die and
+// --color-coral. The card box's charcoal, teal and coral went on 2026-11-26.
+export const INK = '#16181f';
 export const CARD = '#ffffff';
-export const TEAL = '#93c1c1';
-export const CORAL = '#f39483';
+/** The *die* highlighter: her wing wears her article. */
+export const DIE_PINK = '#ffc8de';
+export const CORAL = '#ff9466';
+/** The Heft's paper, for anything drawn behind her. */
+export const PAPER = '#f4f1e8';
 
 export type Pose = 'stand' | 'talk' | 'alarm' | 'tilt';
 
@@ -94,7 +101,7 @@ export function gans(o: GansOpts = {}): string {
       // fill: the index card
       `<path d="${BODY}" fill="${CARD}"/>` +
       `<path d="${NECK}" fill="none" stroke="${CARD}" stroke-width="26" stroke-linecap="round"/>` +
-      // the coral tab, as a beak, under the head's fill so it grows out of it
+      // the coral beak, under the head's fill so it grows out of it
       `<g class="gans-head"${tilt}>` +
         (o.talk
           ? `<g class="gans-beak beak-closed">${beak(pose)}</g><g class="gans-beak beak-open">${beak('talk')}</g>`
@@ -103,8 +110,8 @@ export function gans(o: GansOpts = {}): string {
         eye(pose) +
         `<circle cx="156" cy="59" r="5" fill="${CORAL}" opacity=".35"/>` +
       `</g>` +
-      // the teal tab, as a wing
-      `<path d="${WING}" fill="${TEAL}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>` +
+      // the wing, in the die highlighter
+      `<path d="${WING}" fill="${DIE_PINK}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>` +
       `<path d="${FEATHERS}" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round" opacity=".3"/>` +
     `</g>` +
     alarmLines +
@@ -129,7 +136,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href && process.arg
   const sheet = poses.map((p, i) =>
     `<g transform="translate(${i * 250} 0)">${gans({ pose: p }).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '')}</g>`).join('');
   writeFileSync(join(out, 'sheet.svg'),
-    `<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="472" viewBox="0 -8 1000 236"><rect x="0" y="-8" width="1000" height="236" fill="#faf6e6"/>${sheet}</svg>\n`);
+    `<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="472" viewBox="0 -8 1000 236"><rect x="0" y="-8" width="1000" height="236" fill="${PAPER}"/>${sheet}</svg>\n`);
   writeFileSync(join(out, 'footprints.svg'), footprints().replace('<svg ', '<svg width="112" height="92" xmlns="http://www.w3.org/2000/svg" ') + '\n');
   console.log(`gans: wrote ${poses.length + 2} files to ${out}`);
 }

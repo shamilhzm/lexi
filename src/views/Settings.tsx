@@ -153,7 +153,7 @@ export default function Settings({ onExit }: { onExit: () => void }) {
 
       {/* Der Türsteher, phase 0 (lib/tuer.ts): the guide to the Shortcuts door. */}
       <Card as="section" className="mb-4">
-        <div className="flex items-center gap-2 mb-1"><DoorOpen size={16} className="text-accent" /><h2 className="text-base font-semibold"><span lang="de">Türsteher</span> (prototype)</h2></div>
+        <div className="flex items-center gap-2 mb-1"><DoorOpen size={16} className="text-accent" /><h2 className="text-base font-semibold"><span lang="de" translate="no">Türsteher</span> (prototype)</h2></div>
         <p className="text-dim text-xs mb-3">Three words before Reddit, Instagram or YouTube opens. Set up once with two shortcuts on your iPhone.</p>
         <Button variant="secondary" size="sm" onClick={() => { location.hash = '#/tuer'; }}>Set up the door</Button>
       </Card>

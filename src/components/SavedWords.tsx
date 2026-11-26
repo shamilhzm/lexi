@@ -70,7 +70,7 @@ export default function SavedWords({ onClose, onStudy }: {
               {words.map((w) => (
                 <li key={w.id} className="flex items-center gap-3 px-5 py-3">
                   <span className="flex-1 min-w-0">
-                    <span lang="de" className="headword text-base font-semibold break-words">
+                    <span lang="de" translate="no" className="headword text-base font-semibold break-words">
                       <InkedArticle term={w.term} gender={w.gender} />
                     </span>
                     <span className="block text-xs text-dim truncate">{w.en}</span>

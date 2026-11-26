@@ -94,7 +94,7 @@ export default function BottomNav({ view, onGo }: {
                     layout boxes and knows nothing about ink outside them, and it was
                     run against the deployed build rather than the one carrying the
                     fix. Both mistakes are in `docs/LESSONS.md`. */}
-                <span lang="de" className={`text-2xs leading-[1.35] tracking-tight truncate max-w-full ${active ? 'font-bold' : 'font-medium'}`}>{n.label}</span>
+                <span lang="de" translate="no" className={`text-2xs leading-[1.35] tracking-tight truncate max-w-full ${active ? 'font-bold' : 'font-medium'}`}>{n.label}</span>
                 </span>
               </button>
             );

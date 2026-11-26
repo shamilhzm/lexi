@@ -75,7 +75,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
   return (
     <section aria-labelledby="respond-h" className="mt-10 border-t border-line pt-6">
       <p className="font-semibold text-2xs uppercase tracking-widest text-accent">Your turn</p>
-      <h2 id="respond-h" lang="de" className="headword text-2xl font-bold mt-1">Was denkst du?</h2>
+      <h2 id="respond-h" lang="de" translate="no" className="headword text-2xl font-bold mt-1">Was denkst du?</h2>
       <p className="text-sm text-dim mt-1">
         Two to four sentences in German about what you just read: your opinion, a question, what it means for you.
       </p>
@@ -83,7 +83,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
         <p className="mt-3 flex flex-wrap items-center gap-1.5 text-xs text-dim">
           Try to use
           {words.map((w) => (
-            <span key={w} lang="de"
+            <span key={w} lang="de" translate="no"
               className={`rounded-full px-2.5 py-1 ${used(w) ? 'bg-green-d text-green' : 'glass text-txt'}`}>
               {used(w) && <Check size={10} className="inline -mt-0.5 mr-0.5" />}{w}
             </span>
@@ -96,7 +96,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
         value={text}
         onChange={(e) => { setText(e.target.value); if (state === 'saved') setState('idle'); }}
         rows={4}
-        lang="de"
+        lang="de" translate="no"
         spellCheck={false}
         aria-label="Your response in German"
         placeholder="Ich finde, dass …"
@@ -131,7 +131,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
           <p className="text-sm">{result.verdict}</p>
           {result.issues.length > 0 ? (
             <>
-              <p lang="de" className="text-lg leading-relaxed">
+              <p lang="de" translate="no" className="text-lg leading-relaxed">
                 {correctionDiff(checked, result.corrected).map((p, i) =>
                   p.changed
                     ? <mark key={i} className="bg-transparent text-accent font-semibold underline decoration-2 underline-offset-4">{p.text}</mark>
@@ -140,8 +140,8 @@ export default function Respond({ articleId, title, targets, onSettings }: {
               <ul className="flex flex-col gap-2">
                 {result.issues.map((x, i) => (
                   <li key={i} className="rounded-lg bg-panel2 px-3 py-2 text-sm">
-                    <span lang="de" className="line-through text-dim">{x.original}</span>{' → '}
-                    <span lang="de" className="font-semibold">{x.fix}</span>
+                    <span lang="de" translate="no" className="line-through text-dim">{x.original}</span>{' → '}
+                    <span lang="de" translate="no" className="font-semibold">{x.fix}</span>
                     <span className="ml-2 font-semibold text-2xs uppercase tracking-wider text-dim">{Object.hasOwn(KIND_LABEL, x.kind) ? KIND_LABEL[x.kind] : x.kind}</span>
                     <p className="text-xs text-dim mt-0.5">{x.why}</p>
                   </li>
@@ -154,7 +154,7 @@ export default function Respond({ articleId, title, targets, onSettings }: {
           {result.natural && result.natural.trim() !== result.corrected.trim() && (
             <div>
               <p className="font-semibold text-2xs uppercase tracking-widest text-dim">How a native speaker might put it</p>
-              <p lang="de" className="text-base mt-1 leading-relaxed">{result.natural}</p>
+              <p lang="de" translate="no" className="text-base mt-1 leading-relaxed">{result.natural}</p>
             </div>
           )}
           {result.tip && <p className="text-sm"><b>Next:</b> {result.tip}</p>}

@@ -194,8 +194,8 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
           <>
             <Kicker className="block mb-2 mt-1">
               {hits.length === 0
-                ? <>Lexi teaches · {q.trim()} is a form of</>
-                : hits.length === MAX_HITS ? `first ${MAX_HITS} taught` : `${hits.length} Lexi teaches`}
+                ? <>Lexi teaches · <span lang="de" translate="no">{q.trim()}</span> is a form of</>
+                : <>Lexi teaches · {hits.length === MAX_HITS ? `the top ${MAX_HITS}` : fmt(hits.length)}</>}
             </Kicker>
             <ul className="divide-y divide-line rounded-lg border border-line overflow-hidden bg-panel">
               {cardHits.map((w) => (
@@ -208,7 +208,7 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
                             whole row used to take it, so in a list of nouns the word
                             itself was pink or blue — and the article, the one mark the
                             colour is for, was no more marked than the noun. */}
-                        <span lang="de" className="headword text-base font-semibold break-words">
+                        <span lang="de" translate="no" className="headword text-base font-semibold break-words">
                           <InkedArticle term={w.term} gender={w.gender} />
                         </span>
                         <span className="font-mono text-2xs text-dim">{w.level}</span>
@@ -235,7 +235,7 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
               {lexShown.map((e, k) => (
                 <li key={`${e.w}-${e.p}-${k}`} className="px-3.5 py-3">
                   <div className="flex items-baseline gap-1.5 flex-wrap">
-                    <span lang="de" className="headword text-base font-semibold break-words">
+                    <span lang="de" translate="no" className="headword text-base font-semibold break-words">
                       {e.x && <span style={{ color: genderColor(e.x) }}>{e.x} </span>}
                       {e.w}
                     </span>
@@ -246,7 +246,7 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
                     {e.g.map((g, n) => <li key={n}>{g}</li>)}
                   </ol>
                   {e.f && e.f.length > 0 && (
-                    <p lang="de" className="mt-1.5 text-2xs text-dim font-mono">{e.f.join(' · ')}</p>
+                    <p lang="de" translate="no" className="mt-1.5 text-2xs text-dim font-mono">{e.f.join(' · ')}</p>
                   )}
                 </li>
               ))}
@@ -283,7 +283,7 @@ export default function SearchSheet({ onClose, linked, seed = '' }: {
         {nothing && (
           <div className="mt-10 text-center px-6">
             <p className="text-base mb-1.5">
-              Nothing for <span lang="de" className="font-semibold">“{q.trim()}”</span>.
+              Nothing for <span lang="de" translate="no" className="font-semibold">“{q.trim()}”</span>.
             </p>
             <p className="text-dim text-xs mb-6 max-w-[38ch] mx-auto leading-relaxed">
               {/* Both numbers read from the data, never typed: a figure in copy

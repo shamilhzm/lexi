@@ -84,13 +84,13 @@ export default function WordDetail({ word, onClose, onPractise, beside }: {
                   onClick={() => { setSaved(toggleSaved(word.id)); haptic('grade'); }}
                   className={`tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition active:scale-90 ${saved ? 'text-accent' : 'text-txt hover:text-accent'}`}>
                   <Bookmark size={24} strokeWidth={1.6} className={saved ? 'fill-current' : ''} />
-                  <span className="sr-only">{saved ? <>Stop learning <span lang="de">{word.term}</span></>
-                    : <>Learn <span lang="de">{word.term}</span> in my next session</>}</span>
+                  <span className="sr-only">{saved ? <>Stop learning <span lang="de" translate="no">{word.term}</span></>
+                    : <>Learn <span lang="de" translate="no">{word.term}</span> in my next session</>}</span>
                 </button>
                 <button onClick={onPractise}
                   className="tap-44 grid place-items-center w-[44px] h-[44px] rounded-full transition active:scale-90 text-txt hover:text-accent">
                   <GraduationCap size={24} strokeWidth={1.6} />
-                  <span className="sr-only">Practise <span lang="de">{word.term}</span> now, with every drill</span>
+                  <span className="sr-only">Practise <span lang="de" translate="no">{word.term}</span> now, with every drill</span>
                 </button>
               </div>
               {/* Its line is always there, so pressing the bookmark does not push
@@ -105,7 +105,7 @@ export default function WordDetail({ word, onClose, onPractise, beside }: {
         <div className="mt-6 text-left">
           {word.plural && (
             <RevealBlock label="Plural">
-              <p lang="de" className="text-txt text-sm">{word.plural}</p>
+              <p lang="de" translate="no" className="text-txt text-sm">{word.plural}</p>
             </RevealBlock>
           )}
           {word.def && (
@@ -118,7 +118,7 @@ export default function WordDetail({ word, onClose, onPractise, beside }: {
               a German explain it". Gated on the *learner's* level, not the card's. */}
           {word.defDe && germanDefs && (
             <RevealBlock label="Auf Deutsch">
-              <p lang="de" className="text-txt text-sm leading-relaxed">{word.defDe}</p>
+              <p lang="de" translate="no" className="text-txt text-sm leading-relaxed">{word.defDe}</p>
             </RevealBlock>
           )}
           <FalseFriendNote term={word.term} />
@@ -130,7 +130,7 @@ export default function WordDetail({ word, onClose, onPractise, beside }: {
             <RevealBlock label="Takes">
               {/* Which preposition is vocabulary; which case it governs is a rule,
                   hidden while Lexi does one thing (lib/focus.ts). */}
-              <p lang="de" className="text-sm text-accent font-mono">{valencyLabel(valency, FOCUS.grammar)}</p>
+              <p lang="de" translate="no" className="text-sm text-accent font-mono">{valencyLabel(valency, FOCUS.grammar)}</p>
             </RevealBlock>
           )}
           {word.ex.length > 0 && (

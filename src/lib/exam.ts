@@ -398,6 +398,13 @@ export function scoreWriting(m: WritingMarks): number {
   return Math.min((base + extras) * 3, MAX.writing);
 }
 
+/** The letter on a paper's own scale: telc's 45, scaled to what writing is worth
+ *  there (25 on a Goethe paper). The self-marking panel shows this number too, so
+ *  a candidate never reads "27 / 45" under a part headed 25 Punkte. */
+export function writingOnScheme(m: WritingMarks, worth: number): number {
+  return scoreWriting(m) / MAX.writing * worth;
+}
+
 export interface SpeakingMarks {
   /** 1 Ausdrucksfähigkeit · 2 Aufgabenbewältigung · 3 Formale Richtigkeit ·
    *  4 Aussprache und Intonation. */
@@ -456,6 +463,9 @@ export interface Result {
   /** True while either productive part is still unmarked — the totals are then a
    *  floor, not a score, and the result screen must say so. */
   provisional: boolean;
+  /** Which productive parts are still unmarked, so the screen can name them
+   *  rather than claim both are missing when one is done (2026-11-26). */
+  unmarked: ('writing' | 'speaking')[];
   /** The maximum of what was sat — the scheme's total less any subtest not set. */
   max: number;
   /** Subtests in the paper that were not sat (Hören, while Lexi is silent). */
@@ -487,6 +497,11 @@ export function scorePart(part: Part, responses: Responses): PartScore {
  *  learner actually reads. Rounding each part first is how a perfect Goethe A2
  *  sheet came to 100.4 out of 100: four parts of 6.25 each rounded up to 6.3. */
 const round1 = (n: number) => Math.round(n * 10) / 10;
+
+/** Points as the paper prints them: whole numbers bare, the rest to one place with
+ *  a German comma (8,3). One formatter, so the part header, the room and the
+ *  results never disagree about the same number. */
+export const fmtPoints = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1).replace('.', ','));
 
 export interface Sitting {
   responses: Responses;
@@ -521,8 +536,7 @@ export function scoreExam(paper: ExamPaper, sitting: Sitting): Result {
   // letter, 15/30/30 for the oral — and then **scaled** to whatever this paper
   // says they are worth. Clamping instead (which is what this did) would have
   // made a B/B/B letter full marks on a 25-point scheme, because 27 clamps to 25.
-  bySubtest.writing.points = sitting.writing
-    ? scoreWriting(sitting.writing) / MAX.writing * scheme.writing : 0;
+  bySubtest.writing.points = sitting.writing ? writingOnScheme(sitting.writing, scheme.writing) : 0;
 
   // Which parts the oral *has* is the paper's business, not the engine's: telc B1
   // and Goethe A1/A2 run three, Goethe B2 upwards runs two.
@@ -567,6 +581,10 @@ export function scoreExam(paper: ExamPaper, sitting: Sitting): Result {
     passed: passedWritten && passedOral && passedTotal,
     note: noteFor(total, passedWritten && passedTotal, passedOral, scheme, scale),
     provisional: !sitting.writing || teile.some((t) => !sp[t]),
+    unmarked: [
+      ...(!sitting.writing ? ['writing' as const] : []),
+      ...(teile.some((t) => !sp[t]) ? ['speaking' as const] : []),
+    ],
     max: round1(scheme.total - gone),
     skipped,
   };

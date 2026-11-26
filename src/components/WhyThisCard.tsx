@@ -132,7 +132,7 @@ export default function WhyThisCard({ reason }: { reason?: SessionReason }) {
         <Icon size={12} className="text-accent flex-shrink-0 mt-[0.15rem]" aria-hidden />
         <span className="min-w-0 short:line-clamp-1">
           {line.lead}
-          {line.em && <b lang={line.emLang} className="text-txt font-semibold">{line.em}</b>}
+          {line.em && <b lang={line.emLang} translate={line.emLang === 'de' ? 'no' : undefined} className="text-txt font-semibold">{line.em}</b>}
           {line.tail}
         </span>
       </p>

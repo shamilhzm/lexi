@@ -22,9 +22,12 @@ One source, [`scripts/pages/gans.ts`](../../scripts/pages/gans.ts). It is a pure
 that returns SVG, and `node scripts/pages/gans.ts --write` redraws every file in this
 folder.
 
-- **The card box's materials and nothing else.** The index card's white for her body,
-  the charcoal ink (`#2b2b2b`) for her one outline, the teal tab (`#93c1c1`) for her
-  wing, the coral tab (`#f39483`) for her beak and feet. There are no new colours.
+- **The Heft's materials and nothing else** *(2026-11-26)*. The study card's white for
+  her body, the Heft's blue-black ink (`#16181f`) for her one outline, the *die*
+  highlighter (`#ffc8de`) for her wing, and her own coral (`#ff9466`, `--color-coral`)
+  for her beak and feet. The wing is the pedagogy: she is *die Gans*, and every noun in
+  Lexi wears its article's highlighter. Before the Heft she wore the card box's
+  charcoal, teal and coral (tag `classic-2026-11-26`).
 - **One outline, like a sticker's.** Every shape is drawn twice, ink first and then
   fill, so a single line runs around the whole silhouette and never crosses inside it.
 - **No gradient, no texture.** She has to read at 24 px.

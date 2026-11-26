@@ -691,7 +691,7 @@ function MCItem({ prompt, sub, hint, options, correct, askedLabel, optLang = 'de
               {/* icon + colour: right/wrong never rides on colour alone */}
               {state === 'right' && <Check size={14} className="inline -mt-0.5 mr-1.5" />}
               {state === 'wrong' && <X size={14} className="inline -mt-0.5 mr-1.5" />}
-              <span lang={optLang}>{o}</span>
+              <span lang={optLang} translate={optLang === 'de' ? 'no' : undefined}>{o}</span>
             </button>
           );
         })}
@@ -1071,7 +1071,7 @@ export function ConjugateItem({ word, onGrade }: { word: Word; onGrade: Grade })
     } catch { return null; }
   }, [word.id]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{mc.person} <span className="text-accent">·····</span></span>}
+  return <MCItem prompt={<span lang="de" translate="no">{mc.person} <span className="text-accent">·····</span></span>}
     big sub={`Which form of ${shownTerm(stripArticle(word.term))}?`} hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
@@ -1089,7 +1089,7 @@ export function DegreeItem({ word, forms, onGrade }: { word: Word; forms: string
     return buildMC(target, distract);
   }, [word.id, forms]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{shownTerm(stripArticle(word.term))} → <span className="text-accent">·····</span></span>}
+  return <MCItem prompt={<span lang="de" translate="no">{shownTerm(stripArticle(word.term))} → <span className="text-accent">·····</span></span>}
     big sub="Which is the comparative?" hint={word.en}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
 }
@@ -1180,7 +1180,7 @@ export function prepOptions(word: Word, pool: Word[] = WORDS): { options: string
 export function PrepItem({ word, onGrade }: { word: Word; onGrade: Grade }) {
   const mc = useMemo(() => prepOptions(word), [word.id]);
   if (!mc) return null;
-  return <MCItem prompt={<span lang="de">{mc.head} <span className="text-accent">·····</span></span>} big
+  return <MCItem prompt={<span lang="de" translate="no">{mc.head} <span className="text-accent">·····</span></span>} big
     sub="Which preposition does it take?" hint={word.en}
     askedLabel={`${mc.head} ${mc.options[mc.correct]}`}
     options={mc.options} correct={mc.correct} onGrade={onGrade} />;
@@ -1288,9 +1288,9 @@ export function TypeItem({ ex, onGrade, promptLang = 'de', noteFor }: {
 
   return (
     <Card>
-      {ex.prompt && <p lang={promptLang} className="headword text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>}
+      {ex.prompt && <p lang={promptLang} translate={promptLang === 'de' ? 'no' : undefined} className="headword text-xl sm:text-2xl font-bold text-center mb-4 leading-snug">{ex.prompt}</p>}
       <label className="sr-only" htmlFor="drill-answer">Your answer</label>
-      <input id="drill-answer" lang="de" ref={ref}
+      <input id="drill-answer" lang="de" translate="no" ref={ref}
         // iOS autocapitalises and autocorrects German by default, then the drill
         // marks the learner wrong for the phone's edit. Grading lowercases, so
         // the capital was only ever noise; the autocorrect was changing words.
@@ -1305,7 +1305,7 @@ export function TypeItem({ ex, onGrade, promptLang = 'de', noteFor }: {
       {/* Read back what they typed, wrapped and in full — the input above clips
           it and stays clipped once disabled. Only on a miss. */}
       {result === false && val.trim() && canonical && (
-        <p className="mt-3 text-sm text-center leading-relaxed" lang="de">
+        <p className="mt-3 text-sm text-center leading-relaxed" lang="de" translate="no">
           <span className="text-dim text-xs">You wrote: </span>
           {typedDiff(val, canonical).map((seg, i) => (
             <span key={i} className={seg.ok ? 'text-dim' : 'text-red-txt font-semibold underline decoration-dotted underline-offset-2'}>
@@ -1322,7 +1322,7 @@ export function TypeItem({ ex, onGrade, promptLang = 'de', noteFor }: {
           className="mt-4 text-center" role="status" aria-live="polite">
           {result
             ? <p className="text-green font-semibold flex items-center justify-center gap-1.5"><Check size={16} /> Correct</p>
-            : <p className="text-base"><X size={15} className="inline text-red -mt-0.5 mr-1" /> Answer: <span lang="de" className="text-green font-bold">{canonical}</span></p>}
+            : <p className="text-base"><X size={15} className="inline text-red -mt-0.5 mr-1" /> Answer: <span lang="de" translate="no" className="text-green font-bold">{canonical}</span></p>}
           {note && <p className="text-accent text-xs mt-1">{note}</p>}
           {ex.explain && <p className="text-dim text-xs mt-1.5">{ex.explain}</p>}
         </motion.div>
@@ -1390,11 +1390,11 @@ function Prompt({ children, small, gloss, big = true, lang = 'de', fit }: {
       {/* The German being *tested* is a headword too, so an exercise prompt reads
           as the subject of the app rather than as data inside it. */}
       {fit
-        ? <div className="hw-box"><div lang={lang} className="headword hw-answer hw-fit font-bold leading-snug" style={fitStyle(fit)}>{children}</div></div>
+        ? <div className="hw-box"><div lang={lang} translate={lang === 'de' ? 'no' : undefined} className="headword hw-answer hw-fit font-bold leading-snug" style={fitStyle(fit)}>{children}</div></div>
         // `text-balance`: a two-line sentence breaks into two even lines rather
         // than a full one and a word; `hyphens-auto`: a noun too long for the
         // line breaks at a syllable, not off the edge of the card.
-        : <div lang={lang} className={`headword font-bold leading-snug text-balance hyphens-auto break-words ${big ? 'hw-answer' : 'text-xl sm:text-2xl'}`}>{children}</div>}
+        : <div lang={lang} translate={lang === 'de' ? 'no' : undefined} className={`headword font-bold leading-snug text-balance hyphens-auto break-words ${big ? 'hw-answer' : 'text-xl sm:text-2xl'}`}>{children}</div>}
       {gloss && <p className="text-dim text-xs mt-2">{gloss}</p>}
     </div>
   );

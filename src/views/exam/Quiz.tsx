@@ -135,7 +135,7 @@ export default function Quiz({ preset, items, level, onExit, onRetry, onNew, onP
             ? { background: markColor(o), color: 'var(--color-mark-ink)' } : undefined;
           return (
             <button key={`${o}-${n}`} onClick={() => choose(n)} disabled={answered}
-              style={style} lang={item.kind === 'de-en' ? undefined : 'de'}
+              style={style} lang={item.kind === 'de-en' ? undefined : 'de'} translate={item.kind === 'de-en' ? undefined : 'no'}
               className={`tap-44 relative w-full rounded-md border-2 px-4 py-3 text-base transition-[opacity,border-color,background-color] duration-200
                 disabled:pointer-events-none
                 ${gender ? 'text-center font-bold text-lg' : 'text-left'}
@@ -187,7 +187,7 @@ function Prompt({ item, answered }: { item: QuizItem; answered: boolean }): Reac
   const key = item.options[item.answer];
   if (item.kind === 'gender') {
     return (
-      <p lang="de" className="headword text-4xl sm:text-5xl leading-tight">
+      <p lang="de" translate="no" className="headword text-4xl sm:text-5xl leading-tight">
         {answered
           ? <span className="swash swash-in" style={{ '--swash': markColor(key) } as CSSProperties}>{key}</span>
           : <span className="inline-block w-[2.2em] border-b-[3px] border-dim align-baseline" aria-label="Artikel" />}
@@ -198,7 +198,7 @@ function Prompt({ item, answered }: { item: QuizItem; answered: boolean }): Reac
   if (item.kind === 'cloze') {
     const [before, after] = item.prompt.split('____');
     return (
-      <p lang="de" className="text-xl sm:text-2xl font-semibold leading-snug">
+      <p lang="de" translate="no" className="text-xl sm:text-2xl font-semibold leading-snug">
         {before}
         {answered
           ? <span className="swash swash-in">{key}</span>
@@ -208,7 +208,7 @@ function Prompt({ item, answered }: { item: QuizItem; answered: boolean }): Reac
     );
   }
   return (
-    <p lang={item.kind === 'de-en' ? 'de' : undefined}
+    <p lang={item.kind === 'de-en' ? 'de' : undefined} translate={item.kind === 'de-en' ? 'no' : undefined}
       className={item.kind === 'de-en' ? 'headword text-4xl sm:text-5xl leading-tight' : 'text-2xl sm:text-3xl font-bold leading-snug'}>
       {item.prompt}
     </p>
@@ -221,20 +221,20 @@ function Missed({ item }: { item: QuizItem }) {
   const key = item.options[item.answer];
   if (item.kind === 'gender') {
     return (
-      <p lang="de" className="text-base font-bold">
+      <p lang="de" translate="no" className="text-base font-bold">
         <span className="swash" style={{ '--swash': markColor(key) } as CSSProperties}>{key}</span> {item.prompt}
       </p>
     );
   }
   if (item.kind === 'cloze') {
     const [before, after] = item.prompt.split('____');
-    return <p lang="de" className="text-sm font-semibold">{before}<span className="swash">{key}</span>{after}</p>;
+    return <p lang="de" translate="no" className="text-sm font-semibold">{before}<span className="swash">{key}</span>{after}</p>;
   }
   return (
     <p className="text-sm font-semibold">
-      <span lang={item.kind === 'de-en' ? 'de' : undefined}>{item.prompt}</span>
+      <span lang={item.kind === 'de-en' ? 'de' : undefined} translate={item.kind === 'de-en' ? 'no' : undefined}>{item.prompt}</span>
       <span className="text-dim font-normal"> → </span>
-      <span className="text-green" lang={item.kind === 'en-de' ? 'de' : undefined}>{key}</span>
+      <span className="text-green" lang={item.kind === 'en-de' ? 'de' : undefined} translate={item.kind === 'en-de' ? 'no' : undefined}>{key}</span>
     </p>
   );
 }

@@ -91,9 +91,11 @@ export function paintSky(ctx: CanvasRenderingContext2D, s: Scene, lit: (i: numbe
   ctx.beginPath(); ctx.arc(c, c, R + 9, 0, Math.PI * 2); ctx.fill();
   ctx.clip();
 
-  // Unlit seeds — one path.
-  ctx.fillStyle = inkOf('--color-line');
-  ctx.globalAlpha = dark ? 0.85 : 1;
+  // Unlit seeds — one path. On paper they are pencil: the secondary ink, faint.
+  // *(2026-11-26)* They were the hairline colour, which on the Heft's paper left
+  // the sky without an outline and a new learner looking at an empty circle.
+  ctx.fillStyle = inkOf(dark ? '--color-line' : '--color-dim');
+  ctx.globalAlpha = dark ? 0.85 : 0.3;
   ctx.beginPath();
   const ru = dot * 0.72;
   for (let i = 0; i < n; i++) {

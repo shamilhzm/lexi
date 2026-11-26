@@ -82,7 +82,7 @@ export default function PathCard({ onStudy, onDrill, onCourse }: {
         {/* Names the *scope*, which is what the strip beneath it shows. The
             placed level is already in the top bar; what nothing explained was
             why three tiles are lit. */}
-        <span lang="de" className="text-2xs text-dim font-mono tabular-nums">Studying {span}</span>
+        <span lang="de" translate="no" className="text-2xs text-dim font-mono tabular-nums">Studying {span}</span>
       </div>
 
       <LevelProgress onStudy={onStudy} onCourse={onCourse} />
@@ -108,16 +108,17 @@ export default function PathCard({ onStudy, onDrill, onCourse }: {
       )}
 
       {/* **What these letters are not.** VISION open decision 10.
-          The exam room was deleted on 2026-09-05 and nothing replaced the question
-          it answered, so a learner with a Goethe date in six weeks reads a lit-up
-          B1 tile as an answer to *am I ready*. It is not one: it counts words
-          studied here, and says nothing about reading, listening or writing.
+          A learner with a Goethe date in six weeks reads a lit-up B1 tile as an
+          answer to *am I ready*. It is not one: it counts words studied here. The
+          exam room came back on 2026-11-26 and still does not answer it, because a
+          Prüfung score is points on a paper written for Lexi. Until then this line
+          said Lexi tests no reading or writing, which the room made false.
 
           Silence was the worse option. An app that shows a CEFR letter and then
           declines to say what it means has made the claim anyway — and the honest
           version costs one line and points somewhere that can actually answer. */}
       <p className="text-2xs text-dim mt-3.5 leading-[1.5] max-w-[46ch]">
-        These letters count the words you have studied here. They aren’t an exam result. Lexi doesn’t test reading, listening or writing, so it can’t tell you whether you’re ready for Goethe or telc. Their free <i lang="de">Modellsätze</i> can.
+        These letters count the words you have studied here. They aren’t an exam result. <span lang="de" translate="no">Prüfung</span> has practice papers in the Goethe and telc formats, but a score there is points on a paper written for Lexi, so it can’t tell you whether you’re ready either. The boards’ own free <i lang="de" translate="no">Modellsätze</i> can.
       </p>
     </section>
   );

@@ -191,7 +191,7 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
               className={`tap-44 flex items-center gap-1.5 px-3 py-2 rounded-full text-sm transition-colors ${
                 active ? 'bg-key text-key-ink font-semibold' : 'text-dim hover:text-txt hover:bg-panel2/60'}`}>
               <n.icon size={17} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
-              <span lang="de">{n.label}</span>
+              <span lang="de" translate="no">{n.label}</span>
             </button>
           );
         })}

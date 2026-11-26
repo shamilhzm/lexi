@@ -19,7 +19,7 @@ export const FILMS: Film[] = [
       { kind: 'title', title: 'Was du schon kannst',
         line: 'English and German grew from one language. Many German words still show it, once you know where to look.' },
       { kind: 'words', terms: ['die Hand', 'der Finger', 'der Arm', 'der Winter', 'das Glas'],
-        line: 'Some you can read already. Tap one to hear how German says it.' },
+        line: 'Some you can read already. The spelling is the same, and so is the meaning.' },
       { kind: 'shift', rule: 'z-t', terms: ['zehn', 'zwei', 'das Herz', 'das Salz'],
         line: 'Others changed one sound, long ago. Where English has t, German often has z.' },
       { kind: 'shift', rule: 'ss-t', terms: ['das Wasser', 'essen', 'groß', 'der Fuß'],

@@ -52,7 +52,7 @@ export default function StrandedFavourites() {
       </p>
       <ul className="flex flex-wrap gap-1.5 mb-3">
         {words.map((w) => (
-          <li key={w!.id} lang="de"
+          <li key={w!.id} lang="de" translate="no"
             className="text-xs rounded-full border border-line bg-panel2 px-2.5 py-1">{w!.term}</li>
         ))}
       </ul>

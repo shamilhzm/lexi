@@ -10,12 +10,12 @@
 // Usable without a sitting, deliberately. Someone with the exam next week wants
 // this surface at a bus stop, not behind a 90-minute reading paper.
 import { useState } from 'react';
-import { Check, MessagesSquare } from 'lucide-react';
+import { MessagesSquare } from 'lucide-react';
 import Card from '../../components/ui/Card.tsx';
 import Chip from '../../components/ui/Chip.tsx';
 import Kicker from '../../components/ui/Kicker.tsx';
 import { SPEAK_MAX, scoreSpeaking, type Band, type Model, type Redemittel, type SpeakingMarks, type SpeakingTopic } from '../../lib/exam.ts';
-import type { CEFR } from '../../types.ts';
+import { LEVEL_INK } from '../../lib/ui.ts';
 import { CriterionRow, speakingCriteria } from './SelfAssess.tsx';
 
 const TEILE = [1, 2, 3] as const;
@@ -136,15 +136,6 @@ function TopicView({ topic }: { topic: SpeakingTopic }) {
   );
 }
 
-const BAND_TONE: Record<CEFR, string> = {
-  A1: 'var(--color-a1)',
-  A2: 'var(--color-green)',
-  B1: 'var(--color-accent)',
-  B2: 'var(--color-b2)',
-  C1: 'var(--color-c1)',
-  C2: 'var(--color-c2)',
-};
-
 function PromptCard({ prompt }: { prompt: SpeakingTopic['prompts'][number] }) {
   // B1 is the default because it is the target. Opening on A2 would teach the
   // safe version first, which is the right thing to *reach for* under pressure
@@ -166,7 +157,7 @@ function PromptCard({ prompt }: { prompt: SpeakingTopic['prompts'][number] }) {
           <button key={m.band} onClick={() => setBand(m.band)} aria-pressed={m.band === band}
             className={`tap-44 rounded-md border px-3 py-2 text-xs font-semibold transition-colors
               ${m.band === band ? 'bg-panel2' : 'border-line text-dim hover:border-accent'}`}
-            style={m.band === band ? { borderColor: BAND_TONE[m.band], color: BAND_TONE[m.band] } : undefined}>
+            style={m.band === band ? { borderColor: LEVEL_INK[m.band], color: LEVEL_INK[m.band] } : undefined}>
             {m.label} <span className="font-mono">{m.band}</span>
           </button>
         ))}
@@ -239,9 +230,15 @@ function SpeakingMarksPanel({ teil, value, onChange }: {
   teil: 1 | 2 | 3; value?: SpeakingMarks; onChange: (m: SpeakingMarks) => void;
 }) {
   const criteria = speakingCriteria(teil);
-  const set = (key: string, b: Band) => onChange({
-    expression: 'B', task: 'B', accuracy: 'B', pronunciation: 'B', ...value, [key]: b,
-  } as SpeakingMarks);
+  // Scored only once every criterion is graded. *(2026-11-26)* The first tap
+  // used to fill the other three with B: a grade the learner never gave.
+  const [draft, setDraft] = useState<Partial<SpeakingMarks>>(() => value ?? {});
+  const cur: Partial<SpeakingMarks> = value ?? draft;
+  const set = (key: string, b: Band) => {
+    const next = { ...cur, [key]: b };
+    setDraft(next);
+    if (criteria.every((c) => next[c.key as keyof SpeakingMarks])) onChange(next as SpeakingMarks);
+  };
   const done = !!value;
 
   return (
@@ -249,18 +246,19 @@ function SpeakingMarksPanel({ teil, value, onChange }: {
       <div className="flex items-baseline gap-2 mb-1">
         <h3 className="text-base font-bold">Teil {teil} bewerten</h3>
         {done && (
-          <Chip tone="good"><Check size={11} /> {scoreSpeaking(teil, value!)} / {SPEAK_MAX[teil]}</Chip>
+          // The speaker's mark of themselves: ink, not the verdict green.
+          <Chip>{scoreSpeaking(teil, value!)} / {SPEAK_MAX[teil]}</Chip>
         )}
       </div>
       <p className="text-xs text-dim leading-relaxed mb-3">
-        Record yourself doing the task, then mark it against the examiners' four criteria. The app will
-        not score this for you — nothing can, honestly — but the criteria are the syllabus, and applying
-        them to your own recording is the exercise.
+        Do the task aloud, with a partner if you can, then mark it against the examiners' four
+        criteria. Lexi does not score this part, because nothing can do that honestly. The criteria are
+        the syllabus, and applying them to what you said is the exercise.
       </p>
       <div className="space-y-2.5">
         {criteria.map((c) => (
           <CriterionRow key={c.key} c={c}
-            value={value?.[c.key as keyof SpeakingMarks] as Band | undefined}
+            value={cur[c.key as keyof SpeakingMarks] as Band | undefined}
             onPick={(b) => set(c.key, b)} />
         ))}
       </div>

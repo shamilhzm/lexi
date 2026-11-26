@@ -2,58 +2,65 @@
 // about page unfurls as (`scripts/pages/about.ts` names it in og:image).
 //
 // Gans, talking, beside the page's one sentence and its German reply. The light
-// ground, because the goose is the card's white and only reads against the cream.
+// ground, because the goose is the card's white and only reads against paper.
 // No count is drawn: a number in a JPEG is a number nobody re-reads (og-image.ts).
 //
-// Rasterised with macOS `sips`, on a maintainer's machine; the image is committed.
-import { writeFileSync, mkdtempSync } from 'node:fs';
+// **The Heft** *(2026-11-26)*. The about page's own hero, set the way the page sets
+// it: Bricolage Grotesque, the reply in Königsblau between coral Gänsefüßchen, the
+// bubble with its hard lip. Rendered by headless Chrome (`raster.ts`) so the type is
+// the app's. It was Iowan Old Style on the card box's cream, with a teal rule.
 import { join } from 'node:path';
-import { tmpdir } from 'node:os';
-import { execFileSync } from 'node:child_process';
-import { gans, footprints, INK, TEAL } from '../pages/gans.ts';
+import { gans, footprints, INK, CARD, CORAL, PAPER } from '../pages/gans.ts';
+import { fontFaces, rasterise } from './raster.ts';
 import { PUBLIC_ORIGIN } from '../../src/lib/publicCopy.ts';
 
 const root = process.cwd();
 const W = 1200, H = 630;
-const CREAM = '#faf6e6', DIM = '#5c5850', ACCENT = '#2c6b6b';
-const inner = (svg: string) => svg.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
+// src/index.css, light theme: --color-dim and --color-accent.
+const DIM = '#4d4f58', ACCENT = '#2b3ea6';
 const host = new URL(process.env.LEXI_PUBLIC_ORIGIN || PUBLIC_ORIGIN).host;
-const serif = `Iowan Old Style, Georgia, serif`;
-const sans = `Helvetica Neue, Helvetica, Arial, sans-serif`;
-const mono = `Menlo, monospace`;
-const X = 72;
-const k = 2.15; // goose scale: her 240-unit box becomes ~516 px
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-<rect width="${W}" height="${H}" fill="${CREAM}"/>
-<g transform="translate(${X - 6} 170) scale(1.05)">${inner(footprints())}</g>
-<text x="${X + 62}" y="196" font-family="${serif}" font-size="56" font-weight="600" fill="${INK}">Language is always</text>
-<text x="${X + 62}" y="262" font-family="${serif}" font-size="56" font-weight="600" fill="${INK}">in dialogue with</text>
-<text x="${X + 62}" y="328" font-family="${serif}" font-size="56" font-weight="600" fill="${INK}">itself.</text>
-<g transform="translate(${X + 232} 284) scale(1.05)">${inner(footprints({ closing: true }))}</g>
-<text x="${X + 62}" y="396" font-family="${serif}" font-size="28" font-style="italic" fill="${ACCENT}">Sprache ist immer im Gespräch mit sich selbst.</text>
-<text x="${X}" y="500" font-family="${sans}" font-size="24" fill="${DIM}">Lexi · German vocabulary for English speakers.</text>
-<text x="${X}" y="534" font-family="${sans}" font-size="24" fill="${DIM}">Free, open source, no account.</text>
-<text x="${X}" y="580" font-family="${mono}" font-size="22" fill="${ACCENT}">${host}/about</text>
-<g transform="translate(955 92)">
-  <rect x="-92" y="-44" width="184" height="72" rx="22" fill="#ffffff" stroke="${INK}" stroke-width="4"/>
-  <path d="M-6 26 L-26 58 L18 26 Z" fill="#ffffff" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
-  <rect x="-24" y="22" width="44" height="8" fill="#ffffff"/>
-  <text x="0" y="6" text-anchor="middle" font-family="${serif}" font-size="34" font-weight="600" fill="${INK}">„Hallo!“</text>
-</g>
-<g transform="translate(690 ${100 + 8 * k}) scale(${k})">${inner(gans({ pose: 'talk' }))}</g>
-<rect x="0" y="${H - 10}" width="${W}" height="10" fill="${TEAL}"/>
-</svg>
-`;
+const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
+${fontFaces(root)}
+html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: ${PAPER}; color: ${INK}; }
+body { position: relative; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+.kicker { position: absolute; left: 72px; top: 64px; margin: 0; font: 500 17px/1 "IBM Plex Mono";
+  letter-spacing: .17em; text-transform: uppercase; color: ${DIM}; }
+h1 { position: absolute; left: 72px; top: 112px; width: 640px; margin: 0;
+  font: 620 64px/1.02 "Bricolage Grotesque"; letter-spacing: -.025em; font-variation-settings: "opsz" 96; text-wrap: balance; }
+.feet { display: inline-block; height: auto; width: .56em; }
+.nw { white-space: nowrap; }
+.q-open { vertical-align: -.12em; margin-right: .1em; }
+.q-close { vertical-align: .52em; margin-left: .08em; }
+.reply { position: absolute; left: 72px; top: 352px; width: 640px; margin: 0;
+  font: 400 33px/1.25 "Bricolage Grotesque"; color: ${ACCENT}; text-wrap: balance; }
+.reply::before { content: "„"; color: ${CORAL}; }
+.reply::after { content: "“"; color: ${CORAL}; }
+.small { position: absolute; left: 72px; top: 458px; margin: 0; font-size: 23px; line-height: 1.5; color: ${DIM}; }
+.host { position: absolute; left: 72px; top: 560px; font: 500 21px/1 "IBM Plex Mono"; color: ${ACCENT}; }
+.goose { position: absolute; left: 720px; top: 150px; width: 430px; }
+.goose svg { display: block; width: 100%; height: auto; overflow: visible; }
+.bubble { position: absolute; left: 860px; top: 70px; margin: 0; background: ${CARD};
+  border: 4px solid ${INK}; border-radius: 22px; padding: 10px 22px 14px;
+  font: 600 40px/1.15 "Bricolage Grotesque"; box-shadow: 0 5px 0 ${INK}; white-space: nowrap; }
+.bubble::after { content: ""; position: absolute; left: 24px; bottom: -15px; width: 22px; height: 22px;
+  background: ${CARD}; border-right: 4px solid ${INK}; border-bottom: 4px solid ${INK};
+  transform: rotate(45deg) skew(8deg, 8deg); border-bottom-right-radius: 5px; }
+</style></head><body>
+<p class="kicker">Lexi · German for English speakers</p>
+<h1>${footprints({ cls: 'q-open' })}Language is always in dialogue <span class="nw">with itself.${footprints({ closing: true, cls: 'q-close' })}</span></h1>
+<p class="reply" lang="de">Sprache ist immer im Gespräch mit sich selbst.</p>
+<p class="small">German vocabulary, A1 to C2.<br>Free, open source, no account.</p>
+<div class="host">${host}/about</div>
+<p class="bubble" lang="de">„Hallo!“</p>
+<div class="goose">${gans({ pose: 'talk' })}</div>
+</body></html>`;
 
-const dir = mkdtempSync(join(tmpdir(), 'lexi-og-gans-'));
-const svgPath = join(dir, 'og-gans.svg');
-writeFileSync(svgPath, svg);
 const out = join(root, 'public', 'og-gans.jpg');
 try {
-  execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '86', svgPath, '--out', out], { stdio: 'ignore' });
+  rasterise(html, out, W, H, 86);
   console.log(`og-gans: → ${out}`);
-} catch {
-  console.error(`og-gans: sips (macOS) is not available. The SVG is at ${svgPath} — rasterise it at ${W}×${H} to public/og-gans.jpg.`);
+} catch (e) {
+  console.error(`og-gans: ${(e as Error).message}`);
   process.exit(1);
 }

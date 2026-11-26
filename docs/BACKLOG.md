@@ -38,10 +38,23 @@
 >    C1 and C2, telc B1) and a Sprechen sheet. A second paper per level would make a
 >    retake a new paper instead of the same one. It is written for Lexi, never copied
 >    from a Modellsatz.
-> 4. **Gans and the share images still wear the card box.** `scripts/pages/gans.ts`
->    (teal wing) and `scripts/marketing/og-gans.ts` (cream ground, teal accent) were
->    left alone on purpose. Recolouring the goose is a Creative Director call. After
->    that, regenerate `og.jpg` and `og-gans.jpg`.
+> 4. ~~**Gans and the share images still wear the card box.**~~ ✅ 2026-11-26, second
+>    pass: the *die* wing, paper sheets, and both share images rendered in the app's
+>    type (CHANGELOG).
+> 5. **Owner, on your own phone: does a page translator leave the German alone?**
+>    Every German element says `translate="no"`, and a guard holds the source to it.
+>    Nobody has watched Safari honour it: turning translation on sends the page to
+>    Apple, which is the learner's choice to make, not the test's. Translate one feed
+>    word, one drill and the exam room, and check the German stays German. · S · 📱
+> 6. **Design checks left from the second pass**, each to be looked at on the phone
+>    before anything changes:
+>    - the word map's treemap is Königsblau tile after tile, which reads as one blue
+>      block (Creative Director);
+>    - the sky's ring labels crowd each other near the centre at 360pt;
+>    - in the exam room the squared paper runs behind running text, which is authentic
+>      and a little busy; check it at an accessibility text size before deciding;
+>    - telc B1 Lesen Teil 3's ads (`AdsView`) still sit on the `sunken` tone, the one
+>      exam surface not yet looked at in the Heft.
 >
 > ---
 >

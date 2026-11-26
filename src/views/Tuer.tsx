@@ -141,7 +141,7 @@ function Gate({ app }: { app: GateApp }) {
       </div>
 
       <div className="mt-4">
-        <h1 lang="de" className="display text-2xl leading-tight">Drei Wörter, dann {app.name}</h1>
+        <h1 lang="de" translate="no" className="display text-2xl leading-tight">Drei Wörter, dann {app.name}</h1>
         <p className="text-dim text-sm mt-1">Three words, then {app.name} is open for {PASS_MINUTES} minutes.</p>
       </div>
 
@@ -176,7 +176,7 @@ function Flip({ item, onGrade }: { item: SessionItem; onGrade: (g: Grade) => voi
         {open && (
           <>
             <p className="text-lg leading-snug">{w.en}</p>
-            {ex?.de && <p lang="de" className="text-dim italic">{ex.de}</p>}
+            {ex?.de && <p lang="de" translate="no" className="text-dim italic">{ex.de}</p>}
           </>
         )}
       </Card>
@@ -206,7 +206,7 @@ function tallyLine(day: GateDay): string {
 function Closed({ app, day }: { app: GateApp; day: GateDay }) {
   return (
     <div className="flex-1 flex flex-col items-center justify-center text-center gap-3">
-      <h1 lang="de" className="display text-3xl">{app.name} bleibt zu.</h1>
+      <h1 lang="de" translate="no" className="display text-3xl">{app.name} bleibt zu.</h1>
       <p className="text-dim text-sm">{app.name} stays closed.</p>
       <p className="font-mono text-2xs text-dim tabular-nums">Today · {tallyLine(day)}</p>
       <Button variant="secondary" onClick={leaveToLexi}>Open Lexi</Button>
@@ -253,7 +253,7 @@ function Setup() {
   return (
     <div className="pb-10">
       <Kicker className="mt-6 block">Türsteher · setup</Kicker>
-      <h1 lang="de" className="display text-4xl leading-tight mt-1">Der Türsteher</h1>
+      <h1 lang="de" translate="no" className="display text-4xl leading-tight mt-1">Der Türsteher</h1>
       <p className="text-dim mt-2">
         Open Reddit, Instagram or YouTube and Lexi asks three words first, then lets you in
         for {PASS_MINUTES} minutes. Two shortcuts and an automation do the work. It takes about

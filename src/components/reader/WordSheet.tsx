@@ -101,11 +101,11 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
               <GenderTerm as="h3" term={card.term} gender={card.gender} className="headword text-2xl font-bold leading-tight" />
               <p className="text-base mt-1"><span className="text-dim">({card.pos})</span> {card.en}</p>
               {surface.toLowerCase() !== card.term.replace(/^(der|die|das)\s+/, '').toLowerCase() && (
-                <p className="text-2xs text-dim mt-0.5">from <span lang="de">{surface}</span></p>
+                <p className="text-2xs text-dim mt-0.5">from <span lang="de" translate="no">{surface}</span></p>
               )}
             </>
           ) : lex === 'loading' ? (
-            <p className="flex items-center gap-2 text-sm text-dim h-10"><Loader2 size={14} className="animate-spin" /> Looking up <span lang="de" className="font-semibold text-txt">{surface}</span>…</p>
+            <p className="flex items-center gap-2 text-sm text-dim h-10"><Loader2 size={14} className="animate-spin" /> Looking up <span lang="de" translate="no" className="font-semibold text-txt">{surface}</span>…</p>
           ) : entries.length ? (
             <>
               <p className="font-semibold text-2xs uppercase tracking-widest text-dim">
@@ -115,7 +115,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
                 {entries.slice(0, 2).map((e, k) => (
                   <li key={`${e.w}-${e.p}-${k}`}>
                     <p className="flex items-baseline gap-1.5 flex-wrap">
-                      <span lang="de" className="headword text-xl font-bold">
+                      <span lang="de" translate="no" className="headword text-xl font-bold">
                         {e.x && <span style={{ color: genderColor(e.x) }}>{e.x} </span>}
                         {e.w}
                       </span>
@@ -128,16 +128,16 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
               </ul>
               {compound && word && (
                 <p className="text-2xs text-dim mt-1.5">
-                  A compound built on <span lang="de" className="text-txt">{word.term}</span>, with a meaning of its own.
+                  A compound built on <span lang="de" translate="no" className="text-txt">{word.term}</span>, with a meaning of its own.
                 </p>
               )}
             </>
           ) : (
             <>
-              <p lang="de" className="headword text-xl font-bold">{surface}</p>
+              <p lang="de" translate="no" className="headword text-xl font-bold">{surface}</p>
               <p className="text-sm text-dim mt-0.5">
                 {compound && word
-                  ? <>A compound built on <span lang="de" className="text-txt">{word.term}</span>, not in the dictionary.</>
+                  ? <>A compound built on <span lang="de" translate="no" className="text-txt">{word.term}</span>, not in the dictionary.</>
                   : /^\p{Lu}/u.test(surface) ? 'Not in the dictionary. Most likely a name.' : 'Not in the dictionary.'}
               </p>
             </>
@@ -189,7 +189,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
       {/* The sentence it came from. */}
       <div className="mt-4 border-t border-line pt-3">
         <div className="flex items-start gap-2">
-          <p lang="de" className="flex-1 text-base leading-relaxed">
+          <p lang="de" translate="no" className="flex-1 text-base leading-relaxed">
             {at >= 0
               ? <>{sentence.slice(0, at)}<mark className="bg-transparent text-accent font-semibold">{surface}</mark>{sentence.slice(at + surface.length)}</>
               : sentence}
@@ -214,7 +214,7 @@ export default function WordSheet({ picked, article, onPractise, onEntry, onClos
                   <ul className="mt-2 flex flex-col gap-1.5">
                     {explain.points.map((p, i) => (
                       <li key={i} className="text-xs leading-relaxed">
-                        <span lang="de" className="font-semibold">{p.de}</span>: <span className="text-dim">{p.note}</span>
+                        <span lang="de" translate="no" className="font-semibold">{p.de}</span>: <span className="text-dim">{p.note}</span>
                       </li>
                     ))}
                   </ul>
