@@ -25,11 +25,11 @@
 >
 > ## Das Heft, Prüfung and silence — open work *(2026-11-26)*
 >
-> *The redesign is on branch `redesign/lexi-2`, and production is still `1e40fd3`. The
-> look before it is the tag `classic-2026-11-26`.*
+> *The redesign is live as `23c4ce0` (2026-11-26). The look before it is the tag
+> `classic-2026-11-26`.*
 >
-> 1. **Owner: ship or hold.** A deploy is a Reserved matter. Drive the branch on the
->    phone first, then run the `lexi-deploy` pre-flight before anything reaches `main`.
+> 1. ~~**Owner: ship or hold.**~~ ✅ Shipped 2026-11-26 as `23c4ce0`, on the owner's word,
+>    after the `lexi-deploy` pre-flight (CHANGELOG).
 > 2. **An open German voice.** Hören, *Sag es* and every spoken surface wait for a German
 >    voice with open weights and an open licence, running on the device or on a host Lexi
 >    controls (VISION, refusal *A closed voice*). The exam room's first step back is one

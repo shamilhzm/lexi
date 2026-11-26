@@ -13,13 +13,19 @@ it is already built.
 
 ### 2026-11-26 · Second pass: marks that tell the truth, the goose in the Heft, and pictures of the app as it is
 
-**Where it is.** On branch `redesign/lexi-2`, on top of `e311df9`, not deployed.
-Production is still `1e40fd3`.
+**Deployed** 2026-11-26 by `git push` as `23c4ce0` over `1e40fd3`, together with the entry
+below (`version.json` builtAt 2026-11-26T17:45:15Z). The branch reached `main` as a
+fast-forward, so production runs the commit CI tested. On the live build, the CSP carries
+the new script hash and `media-src 'none'`. A returning visitor's first boot came from the old
+service worker's shell, asked once for the retired `data/audio.json` (404), saw the
+build had moved and reloaded into `23c4ce0`. On the iPhone simulator a returning
+learner's progress came through, with five doors and the A1 paper in Prüfung.
 
 **The board, convened** (BOARD.md). Seats: Creative Director, Illustrator, Product
 Designer, UX Writer, Inclusion Lead, Assessment Lead, Head of German, Registrar,
-Admissions & Marketing, QA Lead, Lead Engineer. No VISION change, no deploy, and no
-learner row touched.
+Admissions & Marketing, QA Lead, Lead Engineer. No VISION change, and no learner row
+touched. The deploy was convened on its own: Site Reliability Lead, Principal and the
+Chair, whose word it was.
 
 **Self-marking can no longer mark for you** (`views/exam/Writing.tsx`, `Speaking.tsx`,
 `SelfAssess.tsx`). One tap on a criterion used to commit B for every criterion the
@@ -107,8 +113,8 @@ unmarked.
 
 ### 2026-11-26 · Das Heft, the exam room returns, and Lexi goes silent
 
-**Where it is.** On branch `redesign/lexi-2`, not deployed. Production is still
-`1e40fd3`. The app as it was is the tag `classic-2026-11-26`.
+**Where it is.** Live since 2026-11-26 in `23c4ce0` (the entry above). The app as it
+was is the tag `classic-2026-11-26`.
 
 **The board, convened** (BOARD.md). Seats: Creative Director, Product Designer,
 Assessment Lead, Head of German, Legal & Licensing, Speech & Listening Teacher,
