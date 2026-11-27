@@ -67,6 +67,15 @@ const SEGMENTS: Record<string, string[]> = {
   'voc:C1:ungerechtfertigt':     ['un-', 'gerechtfertigt'],
   'voc:C1:glücklos':             ['Glück', 'los'],
   'voc:B2:die Vorbestellung':    ['vor', 'Bestellung'],
+  // 2026-11-27, the modern-world batch: Wikidata attests their gender, no dictionary
+  // has a page.
+  'voc:B2:der Sprachassistent':  ['Sprach-', 'Assistent'],
+  'voc:B2:die Hassrede':         ['Hass', 'Rede'],
+  'voc:B1:der Videoanruf':       ['Video', 'Anruf'],
+  'voc:B1:der Stromanbieter':    ['Strom', 'Anbieter'],
+  'voc:C1:die Klimaanpassung':   ['Klima', 'Anpassung'],
+  'voc:B1:das Lastenrad':        ['Lasten', 'Rad'],
+  'voc:C1:der Pflegenotstand':   ['Pflege', 'Notstand'],
 };
 
 const arg = (n: string): string | undefined => {

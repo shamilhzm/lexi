@@ -37,6 +37,12 @@ export interface RecapData {
 
 interface Tile { label: string; num: number; suffix?: string; tone: string }
 
+/** Today as a German stamp prints it: *27.11.2026*. */
+function stampDate(d = new Date()): string {
+  const two = (n: number) => String(n).padStart(2, '0');
+  return `${two(d.getDate())}.${two(d.getMonth() + 1)}.${d.getFullYear()}`;
+}
+
 export default function SessionRecap({ data, title = 'Session complete', children }:
   { data: RecapData; title?: string; children?: ReactNode }) {
   const tiles: Tile[] = [];
@@ -50,9 +56,16 @@ export default function SessionRecap({ data, title = 'Session complete', childre
 
   return (
     <Card pad="none" className="text-center px-5 sm:px-10 py-12 max-w-md w-full">
-      <motion.div initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 420, damping: 18 }}
-        className="grid place-items-center w-[56px] h-[56px] rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}><Check className="text-green" /></motion.div>
+      {/* **The day's work, stamped** *(2026-11-27)*. It was a green tick that sprang
+          in from 40% and transparent — a verdict colour on a moment that judges
+          nothing, entering the way §7 forbids. A Heft gets a stamp when the work is
+          done: *Erledigt* and the date, pressed in the ink the page is written in.
+          The English title under it is its gloss. */}
+      <p aria-hidden className="mb-5 mt-1">
+        <span lang="de" translate="no" className="stamp stamp-in text-accent text-xl leading-none">
+          Erledigt<span className="block mt-1 font-mono text-2xs font-bold tracking-wider tabular-nums">{stampDate()}</span>
+        </span>
+      </p>
       <h2 className="text-2xl font-bold mb-1 cursor-blink">{title}</h2>
       {/* **A fact, not a rescue.** *2026-09-25, from the panel review.* This read
           "streak secured" beside a flame that sprang into place — copy that only

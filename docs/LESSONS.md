@@ -2623,3 +2623,46 @@ Driving a Goethe A1 sitting on the phone, I edited `Results.tsx` and `lib/exam.t
 the room jumped back to *Vorher*. The sitting survived, because it is stored, but the
 view did not. The rule from 2026-11-15 stands, and it is on the checklist above. Finish
 the drive, then edit.
+
+## A clock said from its round numbers *(added 2026-11-27)*
+
+*These four were written after their fixes, not when they were caught, which is the
+order this file asks for.*
+
+**Believed:** `uhrzeit` was right, because the table it was written from passed: *acht
+Uhr*, *Viertel nach*, *halb*, *fünf vor*. **True:** at 14:03 it said *fünf nach
+zwei*. It rounded to the nearest five before it considered *kurz*, so the three minutes
+either side of :00, :30 and :60 came out as the next five. The test that walked every
+minute of the day checked only the shape of the sentence (a full stop, no *ein* before
+*nach*), not what it said. **Rule:** a function that turns a continuous value into
+words gets its boundaries tested (here :03 and :04, :26 and :27, :33 and :34, :56 and
+:57), not only the values the table was written from. A sweep over every input proves
+that nothing throws, not that anything is right.
+
+## A slot measured on the phone it was built on *(added 2026-11-27)*
+
+**Believed:** the Jetzt slot fitted, because after two rounds of tightening it fitted
+on the iPhone 17 Pro. **True:** at 375×550, the height Safari leaves on an SE, it ran
+140px past its box and the new welcome 23px. At 375×701, just above `short:`, every
+*halb* minute ran 21px over. Word slots measured the same way fitted with 0px over. The
+17 Pro is one of the bigger phones on the simulator list, and the smallest supported
+iPhone is not on that list at all. **Rule:** a feed slot is measured at 375×550 and
+375×701 at its longest content before it is called done (DESIGN §12·4). The simulator
+then confirms the look; it does not stand in for the measurement.
+
+## An empty filter is a beginner's *(added 2026-11-27)*
+
+**Believed:** ordering Jetzt's words by "not yet known", then "inside the level
+filter", served every learner. **True:** a cold learner has no filter, so every word
+was inside it, and the seeded shuffle served *die Laune*, *die Verspätung* and *das
+Nickerchen* on day one. **Rule:** an empty filter usually belongs to someone who has
+not chosen yet, not to someone who wants everything. When nothing else decides, the
+easier word goes first.
+
+## An exemption in a guard is a defect with a permit *(added 2026-11-27)*
+
+**Believed:** `review-structure.test.ts` held every entrance to DESIGN §7's safety
+rule. **True:** it filtered out the recap's check badge, which entered from `opacity:
+0` and `scale(.4)`, the exact case the rule exists for. **Rule:** an exemption in a
+guard says why its case is safe. One that cannot say why is a defect: fix it and delete
+the exemption.

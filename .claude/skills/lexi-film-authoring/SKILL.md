@@ -57,7 +57,7 @@ where each beat gets its facts. Read both before you add a beat.
 3. `node scripts/course-plan.ts --write` regenerates the plan table in
    `docs/COURSE.md`, so the doc can't drift from `course.ts`.
 4. **Play it on the iPhone simulator** (see `lexi-persona-drive`) at
-   `#/words/kurs/<level>`. Three layout defects in the first films were found only that
+   `#/kurs/<level>` (Üben's *Kurs* half since 2026-11-27). Three layout defects in the first films were found only that
    way: wrapped pairs overlapping, *Weiter* hidden under the tab bar, and a tap freezing
    the slide-in.
 

@@ -1,0 +1,130 @@
+[
+ {
+  "id": "voc:B2:die Spracherkennung",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Spracherkennung"
+ },
+ {
+  "id": "voc:B2:das Phishing",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Phishing"
+ },
+ {
+  "id": "voc:B1:die Bundeswehr",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Bundeswehr"
+ },
+ {
+  "id": "voc:B2:die Wehrpflicht",
+  "expect": {
+   "plural": null
+  },
+  "plural": "nur Singular",
+  "src": "de.wiktionary.org/wiki/Wehrpflicht"
+ },
+ {
+  "id": "voc:B1:die KI",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die KIs",
+  "src": "Wikidata L930905, plural forms \"KIs\" (de.wiktionary entry states none)"
+ },
+ {
+  "id": "voc:C1:der Deepfake",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Deepfakes",
+  "src": "de.wiktionary.org/wiki/Deepfake — Nominativ Plural=Deepfakes, shared by Genus m and n"
+ },
+ {
+  "id": "voc:C1:die Datenkrake",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Datenkraken",
+  "src": "de.wiktionary.org/wiki/Datenkrake — Nominativ Plural=Datenkraken, shared by both genders"
+ },
+ {
+  "id": "voc:A2:das Pfand",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Pfänder",
+  "src": "de.wiktionary.org/wiki/Pfand — Nominativ Plural=Pfänder, shared by Genus n and m"
+ },
+ {
+  "id": "voc:C1:die Klimaanpassung",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Klimaanpassungen",
+  "src": "Wikidata L11543, nominative plural form \"Klimaanpassungen\" (no de.wiktionary page)"
+ },
+ {
+  "id": "voc:C1:der Pflegenotstand",
+  "expect": {
+   "plural": null
+  },
+  "plural": "die Pflegenotstände",
+  "src": "Wikidata L931403, nominative plural form \"Pflegenotstände\" (no de.wiktionary page)"
+ },
+ {
+  "id": "voc:B2:die Hassrede",
+  "expect": {
+   "ipa": null
+  },
+  "ipa": "ˈhasˌʁeːdə",
+  "src": "Hass /has/ + Rede /ˈʁeːdə/"
+ },
+ {
+  "id": "voc:B1:der Videoanruf",
+  "expect": {
+   "ipa": null
+  },
+  "ipa": "ˈviːdeoˌanʁuːf",
+  "src": "Video /ˈviːdeo/ + Anruf /ˈanˌʁuːf/"
+ },
+ {
+  "id": "voc:B1:der Stromanbieter",
+  "expect": {
+   "ipa": null
+  },
+  "ipa": "ˈʃtʁoːmˌanbiːtɐ",
+  "src": "Strom /ʃtʁoːm/ + Anbieter /ˈanˌbiːtɐ/"
+ },
+ {
+  "id": "voc:C1:die Klimaanpassung",
+  "expect": {
+   "ipa": null
+  },
+  "ipa": "ˈkliːmaˌanpasʊŋ",
+  "src": "Klima /ˈkliːma/ + Anpassung /ˈanˌpasʊŋ/"
+ },
+ {
+  "id": "voc:B1:das Lastenrad",
+  "expect": {
+   "ipa": null
+  },
+  "ipa": "ˈlastn̩ˌʁaːt",
+  "src": "Lasten /ˈlastn̩/ + Rad /ʁaːt/"
+ },
+ {
+  "id": "voc:C1:der Pflegenotstand",
+  "expect": {
+   "ipa": null
+  },
+  "ipa": "ˈp͡fleːɡəˌnoːtʃtant",
+  "src": "Pflege /ˈp͡fleːɡə/ + Notstand /ˈnoːtˌʃtant/"
+ }
+]

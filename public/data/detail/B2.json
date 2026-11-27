@@ -3293,6 +3293,21 @@
       }
     ]
   },
+  "voc:B2:das Artensterben": {
+    "def": "The dying out of many kinds of animals and plants.",
+    "ex": [
+      {
+        "de": "Das Artensterben schreitet schneller voran als erwartet.",
+        "en": "The extinction of species is moving faster than expected.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Auch das Artensterben ist eine Folge des Klimawandels.",
+        "en": "The loss of species is also a consequence of climate change.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:das Arzneimittel": {
     "ex": [
       {
@@ -3359,6 +3374,21 @@
       {
         "de": "Zum Glück hatte ich ein Backup.",
         "en": "Luckily I had a backup.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Balkonkraftwerk": {
+    "def": "A small solar panel on a balcony that plugs into an ordinary socket.",
+    "ex": [
+      {
+        "de": "Mit dem Balkonkraftwerk sparen wir ein bisschen Strom.",
+        "en": "With the balcony solar panel we save a bit of electricity.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Mieter hängen sich ein Balkonkraftwerk ans Geländer.",
+        "en": "Many tenants hang a balcony solar panel on their railing.",
         "lvl": "B2"
       }
     ]
@@ -4636,6 +4666,21 @@
       {
         "de": "Er hat sich als Spender für Organe registriert.",
         "en": "He has registered as an organ donor.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:das Phishing": {
+    "def": "Fake messages that try to trick you into giving away passwords or bank details.",
+    "ex": [
+      {
+        "de": "Die E-Mail sah echt aus, war aber Phishing.",
+        "en": "The email looked real, but it was phishing.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Bank warnt ihre Kunden vor Phishing.",
+        "en": "The bank is warning its customers about phishing.",
         "lvl": "B2"
       }
     ]
@@ -7003,6 +7048,21 @@
       }
     ]
   },
+  "voc:B2:der Cyberangriff": {
+    "def": "An attack on computers or networks to steal data or cause damage.",
+    "ex": [
+      {
+        "de": "Nach dem Cyberangriff war die Stadtverwaltung tagelang offline.",
+        "en": "After the cyberattack, the city administration was offline for days.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Krankenhäuser müssen sich besser gegen Cyberangriffe schützen.",
+        "en": "Hospitals must protect themselves better against cyberattacks.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Dachs": {
     "def": "A stocky nocturnal mammal with black-and-white head stripes, living in a burrow.",
     "defDe": "ein Säugetier mit grauem Fell und markanter weiß-schwarzer Fellzeichnung am Kopf, das in den europäischen Wäldern anzutreffen ist; der Europäische Dachs",
@@ -7539,6 +7599,21 @@
       }
     ]
   },
+  "voc:B2:der Faktencheck": {
+    "def": "A check of whether claims made in the news or online are true.",
+    "ex": [
+      {
+        "de": "Der Faktencheck zeigt, dass die Zahl im Video falsch ist.",
+        "en": "The fact check shows that the number in the video is wrong.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Viele Redaktionen machen inzwischen regelmäßig Faktenchecks.",
+        "en": "Many newsrooms now run fact checks regularly.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Falke": {
     "ex": [
       {
@@ -7636,6 +7711,21 @@
       {
         "de": "Das Handy entsperrt man mit dem Fingerabdruck.",
         "en": "You unlock the phone with your fingerprint.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Fleischersatz": {
+    "def": "A food made from plants or other ingredients that replaces meat.",
+    "ex": [
+      {
+        "de": "Im Supermarkt gibt es immer mehr Fleischersatz aus Erbsen und Soja.",
+        "en": "Supermarkets sell more and more meat substitutes made from peas and soy.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Ich koche die Bolognese mit Fleischersatz.",
+        "en": "I make the bolognese with a meat substitute.",
         "lvl": "B2"
       }
     ]
@@ -10585,6 +10675,21 @@
       }
     ]
   },
+  "voc:B2:der Sprachassistent": {
+    "def": "A program you control by speaking, on a phone or a smart speaker.",
+    "ex": [
+      {
+        "de": "Ich frage den Sprachassistenten nach dem Wetter.",
+        "en": "I ask the voice assistant about the weather.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Der Sprachassistent versteht meinen Dialekt nicht.",
+        "en": "The voice assistant doesn't understand my dialect.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:der Sprint": {
     "ex": [
       {
@@ -10927,6 +11032,21 @@
       {
         "de": "Ich habe meinen Tarif beim Stromanbieter gewechselt.",
         "en": "I switched my rate with the electricity provider.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:der Tarifvertrag": {
+    "def": "An agreement between unions and employers on pay and working conditions.",
+    "ex": [
+      {
+        "de": "Der neue Tarifvertrag bringt fünf Prozent mehr Lohn.",
+        "en": "The new collective agreement brings five percent more pay.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Nicht alle Firmen sind an einen Tarifvertrag gebunden.",
+        "en": "Not every company is bound by a collective agreement.",
         "lvl": "B2"
       }
     ]
@@ -15299,6 +15419,21 @@
       }
     ]
   },
+  "voc:B2:die Gesichtserkennung": {
+    "def": "Technology that identifies a person from their face.",
+    "ex": [
+      {
+        "de": "Mein Handy entsperre ich mit Gesichtserkennung.",
+        "en": "I unlock my phone with facial recognition.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Gesichtserkennung im öffentlichen Raum ist umstritten.",
+        "en": "Facial recognition in public spaces is controversial.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Gestalt": {
     "ex": [
       {
@@ -15564,6 +15699,21 @@
       {
         "de": "Das Spiel braucht starke Hardware.",
         "en": "The game needs powerful hardware.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Hassrede": {
+    "def": "Insulting or threatening language that attacks people for who they are.",
+    "ex": [
+      {
+        "de": "Plattformen müssen Hassrede schneller löschen.",
+        "en": "Platforms have to delete hate speech faster.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Hassrede im Netz kann strafbar sein.",
+        "en": "Hate speech online can be a criminal offence.",
         "lvl": "B2"
       }
     ]
@@ -16435,6 +16585,21 @@
       }
     ]
   },
+  "voc:B2:die Kurzarbeit": {
+    "def": "Reduced working hours during a crisis, with the state paying part of the lost wages.",
+    "ex": [
+      {
+        "de": "Während der Krise waren viele Beschäftigte in Kurzarbeit.",
+        "en": "During the crisis many employees were on short-time work.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Firma hat für drei Monate Kurzarbeit angemeldet.",
+        "en": "The company has registered short-time work for three months.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Körpersprache": {
     "ex": [
       {
@@ -16460,6 +16625,21 @@
       {
         "de": "Der Mann mittleren Alters wurde wegen Körperverletzung angeklagt.",
         "en": "The middle aged man was charged with assault.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Ladesäule": {
+    "def": "A post where you charge an electric car.",
+    "ex": [
+      {
+        "de": "Vor dem Supermarkt gibt es zwei Ladesäulen.",
+        "en": "There are two charging points in front of the supermarket.",
+        "lvl": "B2"
+      },
+      {
+        "de": "An der Ladesäule dauert es etwa eine halbe Stunde.",
+        "en": "At the charging point it takes about half an hour.",
         "lvl": "B2"
       }
     ]
@@ -18324,6 +18504,21 @@
       }
     ]
   },
+  "voc:B2:die Sicherheitslücke": {
+    "def": "A weakness in software or a system that attackers can use.",
+    "ex": [
+      {
+        "de": "Das Update schließt eine gefährliche Sicherheitslücke.",
+        "en": "The update closes a dangerous security hole.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Forscher haben eine Sicherheitslücke in der App entdeckt.",
+        "en": "Researchers have found a vulnerability in the app.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Siedlung": {
     "ex": [
       {
@@ -18507,6 +18702,21 @@
       {
         "de": "In der Spielwelt kann man alles erkunden.",
         "en": "You can explore everything in the game world.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Spracherkennung": {
+    "def": "Technology that turns spoken words into text or commands.",
+    "ex": [
+      {
+        "de": "Die Spracherkennung schreibt mit, während ich rede.",
+        "en": "Speech recognition writes along while I talk.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Bei einem starken Akzent macht die Spracherkennung noch Fehler.",
+        "en": "With a strong accent, speech recognition still makes mistakes.",
         "lvl": "B2"
       }
     ]
@@ -19838,6 +20048,21 @@
       }
     ]
   },
+  "voc:B2:die Wehrpflicht": {
+    "def": "The legal duty to serve in the armed forces for a period.",
+    "ex": [
+      {
+        "de": "In Deutschland wird wieder über die Wehrpflicht diskutiert.",
+        "en": "Conscription is being debated in Germany again.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Mein Großvater musste wegen der Wehrpflicht zur Armee.",
+        "en": "My grandfather had to join the army because of conscription.",
+        "lvl": "B2"
+      }
+    ]
+  },
   "voc:B2:die Weide": {
     "ex": [
       {
@@ -19950,6 +20175,21 @@
       {
         "de": "Bei der Wohnungsbesichtigung fielen die dünnen Wände auf.",
         "en": "At the flat viewing the thin walls stood out.",
+        "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B2:die Wohnungsnot": {
+    "def": "A lack of affordable homes for the people who need them.",
+    "ex": [
+      {
+        "de": "In den Großstädten herrscht Wohnungsnot.",
+        "en": "There's a housing shortage in the big cities.",
+        "lvl": "B2"
+      },
+      {
+        "de": "Die Wohnungsnot trifft vor allem Studierende und Familien.",
+        "en": "The housing shortage hits students and families above all.",
         "lvl": "B2"
       }
     ]

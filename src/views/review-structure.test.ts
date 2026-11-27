@@ -182,8 +182,9 @@ describe('Review — the primary action survives the coach', () => {
 // content-bearing entrances animated from `opacity: 0` (2026-09-25 panel): the
 // recap's streak number and stat tiles, and the typed-answer correction — the
 // one line a wrong answer exists to show. A stalled animation sits on its first
-// frame, so those could render nothing. The recap's check badge is decoration
-// and keeps its fade; everything else in these files may only translate or scale.
+// frame, so those could render nothing. Everything in these files may only
+// translate or scale. (The recap's check badge kept its fade as decoration until
+// 2026-11-27, when a stamp replaced it — so the exemption went with it.)
 // `Placement.tsx` still has five and is not in this list yet — it is the next
 // file to bring in, not an exemption.
 describe('motion entrances in the study loop never start invisible', () => {
@@ -193,9 +194,7 @@ describe('motion entrances in the study loop never start invisible', () => {
       const lines = text.split('\n');
       const offenders = lines
         .map((l, n) => ({ l, n }))
-        .filter(({ l }) => /initial=\{\{[^}]*opacity:\s*0\b/.test(l))
-        // The recap's check badge: an icon on a tinted disc, no text.
-        .filter(({ n }) => !lines.slice(n, n + 3).join('\n').includes('<Check className="text-green" />'));
+        .filter(({ l }) => /initial=\{\{[^}]*opacity:\s*0\b/.test(l));
       expect(offenders.map(({ l, n }) => `${file}:${n + 1} ${l.trim()}`)).toEqual([]);
     });
   }

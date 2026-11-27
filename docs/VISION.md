@@ -558,6 +558,46 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   a Modellsatz, a listening part without an open voice, and any path from a test to a
   schedule that is not a press. *Leaves open:* more than one paper a level, and which
   open German voice to wait for (BACKLOG).
+- **The feed knows what time it is** *(2026-11-27, at the owner's direction: make Lexi
+  unforgettable "from the moment the app opens to the second the user has to switch
+  out"; the same day the owner ruled that VISION gives way to a change that can justify
+  itself, and this is the justification)*. **What it settles.** A slot in the feed,
+  **Jetzt** (`components/JetztSlot.tsx`, `data/jetzt.ts`), placed once per part of the
+  day, after the word the learner resumes on. It shows the time as a German says it
+  (*Es ist kurz nach halb acht*) and the formal reading a timetable uses. It shows the
+  day as one compound that takes its last part's article (*der Freitagnachmittag*,
+  and at night *die Donnerstagnacht*), and today's date with its spoken ordinal. While
+  the clock says *halb*, a margin note names the trap in place of the date. It ends with
+  six words for this hour and season, each a card (four on a screen under 700pt). The
+  welcome greets by the clock (*Guten Morgen*, *Guten Tag*, *Guten Abend*, and after
+  midnight *Noch wach?*), and its one chip is the greeting's own card.
+
+  *Why.* Every slot in the feed taught German as a subject: a word, then the next.
+  Nothing in it was about the learner's day, and the day is where a language gets
+  used. Telling the time is the first thing a course teaches and the thing a learner
+  hears most. *Halb acht* read as 8:30 is the commonest misreading of a German clock.
+  A compound taking its last part's article is a rule the course spends a film on.
+  Jetzt puts all three on the minute the learner is in, so the input is comprehensible
+  because the learner already knows what it means: it is their own clock
+  (commitments 3 and 5). It is also German they can use the moment they close the app.
+
+  *The rules it keeps.* **It never grades and records nothing.** It has no
+  `data-word`, so the dwell observer cannot see it and no exposure is counted. Its one
+  action, *save these*, presses the bookmark once for each word: the instruction a
+  learner gives a word slot, given once. **Nothing leaves the device.** The clock and
+  the time zone are the device's own, the time zone is read for the hemisphere's
+  season and nothing else, and nothing is fetched. **Every word is a card, and the
+  German is tested.** `data/jetzt.test.ts` says every minute of the day, the number
+  and ordinal words, the compounds and both hemispheres' seasons, and checks every term
+  the slot can name against `cards.json`. The picks hold for the whole part of the day,
+  so nothing moves under a reading eye when the minute turns.
+
+  *Forbids:* a notification or nudge timed to the learner's day; storing when somebody
+  opens the app, or reading it as anything about them; a word of the day fetched from
+  anywhere; a Jetzt word that is not a card; and any write from the slot other than the
+  bookmark. *Leaves open:* regional German (*Grüß Gott*, *Moin*, *Servus*, *viertel
+  drei* for 2:15 in the south and east, *Jänner* in Austria), which needs a region
+  setting the app does not have (BACKLOG).
 
 ---
 

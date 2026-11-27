@@ -8505,6 +8505,21 @@
       }
     ]
   },
+  "voc:C1:der Deepfake": {
+    "def": "A fake video, image or recording made with AI so that it looks real.",
+    "ex": [
+      {
+        "de": "Das Video war ein Deepfake, der Politiker hat das nie gesagt.",
+        "en": "The video was a deepfake; the politician never said that.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Deepfakes sind kaum noch von echten Aufnahmen zu unterscheiden.",
+        "en": "Deepfakes can hardly be told apart from real recordings any more.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Detektor": {
     "ex": [
       {
@@ -10056,6 +10071,21 @@
       }
     ]
   },
+  "voc:C1:der Kipppunkt": {
+    "def": "A threshold after which a change, for example in the climate, can no longer be stopped.",
+    "ex": [
+      {
+        "de": "Forscher warnen, dass wichtige Kipppunkte bald überschritten werden könnten.",
+        "en": "Researchers warn that important tipping points could soon be crossed.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Das Abschmelzen des Grönlandeises gilt als möglicher Kipppunkt.",
+        "en": "The melting of the Greenland ice is seen as a possible tipping point.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:der Klacks": {
     "ex": [
       {
@@ -11262,6 +11292,21 @@
       {
         "de": "Die Firma verlässt ausgetretene Pfade.",
         "en": "The company is leaving the beaten track.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:der Pflegenotstand": {
+    "def": "A serious shortage of nurses and care workers.",
+    "ex": [
+      {
+        "de": "Der Pflegenotstand wird sich in den nächsten Jahren verschärfen.",
+        "en": "The care staff crisis will get worse in the coming years.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Gewerkschaften warnen vor einem Pflegenotstand in den Heimen.",
+        "en": "Unions warn of a care staff crisis in care homes.",
         "lvl": "C1"
       }
     ]
@@ -16564,6 +16609,21 @@
       }
     ]
   },
+  "voc:C1:die Datenkrake": {
+    "def": "A company or service that collects huge amounts of personal data.",
+    "ex": [
+      {
+        "de": "Kritiker nennen den Konzern eine Datenkrake.",
+        "en": "Critics call the corporation a data octopus.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Ich will meine Daten keiner Datenkrake schenken.",
+        "en": "I don't want to hand my data to some data octopus.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Datenschutzerklärung": {
     "ex": [
       {
@@ -16971,6 +17031,21 @@
       {
         "de": "Die Zentralbank will eine Dämpfung der Inflation.",
         "en": "The central bank wants to dampen inflation.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Echokammer": {
+    "def": "An online space where people only meet opinions that match their own.",
+    "ex": [
+      {
+        "de": "In sozialen Netzwerken landet man schnell in einer Echokammer.",
+        "en": "On social networks you quickly end up in an echo chamber.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Echokammern verstärken extreme Meinungen.",
+        "en": "Echo chambers amplify extreme opinions.",
         "lvl": "C1"
       }
     ]
@@ -19166,6 +19241,21 @@
       }
     ]
   },
+  "voc:C1:die Halluzination": {
+    "def": "Seeing or hearing things that are not there; also an AI stating invented facts as if they were true.",
+    "ex": [
+      {
+        "de": "Die KI hat eine Quelle erfunden, eine typische Halluzination.",
+        "en": "The AI invented a source, a typical hallucination.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Hohes Fieber kann Halluzinationen auslösen.",
+        "en": "A high fever can cause hallucinations.",
+        "lvl": "C1"
+      }
+    ]
+  },
   "voc:C1:die Halterung": {
     "ex": [
       {
@@ -19887,6 +19977,21 @@
       {
         "de": "Die Partei bedient ihre Klientel.",
         "en": "The party caters to its core voters.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Klimaanpassung": {
+    "def": "Measures that help people and places cope with a changing climate.",
+    "ex": [
+      {
+        "de": "Städte investieren in Klimaanpassung, zum Beispiel in mehr Bäume.",
+        "en": "Cities are investing in climate adaptation, for example in more trees.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Klimaanpassung ersetzt keinen Klimaschutz.",
+        "en": "Climate adaptation is no substitute for climate protection.",
         "lvl": "C1"
       }
     ]
@@ -25915,6 +26020,21 @@
       {
         "de": "In seiner Würdigung lobte er ihre Arbeit.",
         "en": "In his tribute he praised her work.",
+        "lvl": "C1"
+      }
+    ]
+  },
+  "voc:C1:die Zeitenwende": {
+    "def": "A historic turning point; since 2022 especially Germany's change of course in defence policy.",
+    "ex": [
+      {
+        "de": "Der Kanzler sprach von einer Zeitenwende.",
+        "en": "The chancellor spoke of a historic turning point.",
+        "lvl": "C1"
+      },
+      {
+        "de": "Für viele war der Krieg in der Ukraine eine Zeitenwende.",
+        "en": "For many people, the war in Ukraine was a turning point.",
         "lvl": "C1"
       }
     ]

@@ -50,7 +50,12 @@ import { useStore } from '../useStore.ts';
 import { byFrequency } from '../lib/freq.ts';
 import { haptic, fmt, LEVEL_INK } from '../lib/ui.ts';
 import Tour, { useSwipeDemo, type TourStep } from '../components/Tour.tsx';
-import { GenderTerm } from '../components/Reveal.tsx';
+import { GenderTerm, InkedArticle } from '../components/Reveal.tsx';
+import JetztSlot, { cardForTerm } from '../components/JetztSlot.tsx';
+import WortbauSlot from '../components/WortbauSlot.tsx';
+import { gruss, tageszeit } from '../data/jetzt.ts';
+import { flyToUeben } from '../lib/flight.ts';
+import { freqRankOf } from '../lib/freq.ts';
 import Picto from '../components/Picto.tsx';
 import Button from '../components/ui/Button.tsx';
 import WordDetail from '../components/WordDetail.tsx';
@@ -73,6 +78,26 @@ const ArticleLayer = lazy(() => import('../components/reader/ArticleLayer.tsx'))
 const STORY_EVERY = 5;
 /** Where the one-time topic question sits, for a learner who has not answered it. */
 const TOPIC_SLOT_AT = 3;
+/** Wortbau *(2026-11-27)*: a compound to put together, after the ninth word and
+ *  then after every twelfth. Rare enough to stay a surprise; offset from the
+ *  stories, which come every fifth, so the two seldom arrive together. */
+const WORTBAU_FIRST = 8;
+const WORTBAU_EVERY = 12;
+/** Which Wortbau slot follows word `i`, if one does. */
+export const wortbauAt = (i: number): number | null =>
+  i >= WORTBAU_FIRST && (i - WORTBAU_FIRST) % WORTBAU_EVERY === 0 ? (i - WORTBAU_FIRST) / WORTBAU_EVERY : null;
+
+/** Where the moment sits *(2026-11-27)*: one screen after wherever the feed opens,
+ *  once per part of the day, so the second thing a learner sees is German about the
+ *  minute they are in. Kept for the page's life: back on Wörter in the same evening,
+ *  the slot is where it was rather than in front of them again. */
+let jetztPlaced: { key: string; at: number } | null = null;
+function jetztSlotAt(resumeAt: number): number {
+  const d = new Date();
+  const key = `${d.toDateString()} ${tageszeit(d.getHours())}`;
+  if (!jetztPlaced || jetztPlaced.key !== key) jetztPlaced = { key, at: Math.max(0, resumeAt) };
+  return jetztPlaced.at;
+}
 
 /** Stories in the order the feed will show them: unread first, and round-robin
  *  across the learner's topics so three stories about one war do not arrive in a
@@ -256,6 +281,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy }: {
   const order = useMemo(() => keptOrder(lvKey), [lvKey]);
   // Where to land on mount: the word the learner was last reading, if any.
   const [resumeAt] = useState(() => keptSlot(order));
+  const [jetztAt] = useState(() => jetztSlotAt(resumeAt));
   const [count, setCount] = useState(() => Math.max(PAGE, resumeAt + LOOKAHEAD + 1));
   /** The furthest slot the dwell observer has seen. Declared up here because the
    *  observer effect below writes it; the effect that reads it is further down,
@@ -536,7 +562,7 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy }: {
           <span><Kbd>B</Kbd> save</span>
         </p>
       )}
-      {cold && <Welcome onStart={onStartFirstRun} />}
+      {cold && <Welcome onStart={onStartFirstRun} onOpen={setDetail} />}
       <Tour id="feed" ready={tourSlot !== null} steps={feedTour(tourSlot ?? 0)} />
       {slots.map((w, i) => {
         const story = (i + 1) % STORY_EVERY === 0 ? stories[(i + 1) / STORY_EVERY - 1] : undefined;
@@ -544,9 +570,11 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy }: {
           <Fragment key={w.id}>
             <Slot word={w} at={i} version={v} watch={watch} onAnnounce={announce} onSaved={onSaved}
               onInfo={() => setDetail(w)} onDrill={() => setDrill(w)} />
+            {i === jetztAt && <JetztSlot onOpen={setDetail} onSaved={onSaved} onAnnounce={announce} />}
             {i === TOPIC_SLOT_AT && askTopics && (
               <TopicSlot onChosen={() => setTopicsKey((newsTopics() ?? []).join(','))} />
             )}
+            {wortbauAt(i) !== null && <WortbauSlot k={wortbauAt(i)!} onOpen={setDetail} onSaved={onSaved} onAnnounce={announce} />}
             {story && <StorySlot story={story} onOpen={setReading} />}
             {i === readyAt && (
               <ReadySlot ready={ready}
@@ -587,13 +615,6 @@ export default function Feed({ onStartFirstRun, onSettings, onStudy }: {
 }
 
 
-/** The first thing anyone ever sees — and it is a slot in the feed, not a page in
- *  front of it.
- *
- *  Two facts a stranger actually asks before they type anything into an app:
- *  what is it, and where does my data go. Then two ways on, because there are
- *  genuinely two: scroll, which costs nothing and commits to nothing, or take the
- *  ten-card session, which is the fastest way to see why the app schedules. */
 /** The loop's third leg, as a slot: what is waiting in Üben, how long it takes,
  *  and one press to start it.
  *
@@ -640,13 +661,22 @@ function ReadySlot({ ready, onStart }: { ready: Ready; onStart: () => void }) {
   );
 }
 
-const WELCOME_STEPS: [string, string][] = [
-  ['Wörter', 'Scroll, and save the words that catch you.'],
-  ['Üben', 'Brings each saved word back just before you’d forget it.'],
-  ['Prüfung', 'Short tests and practice papers in the telc and Goethe formats.'],
-];
-
-function Welcome({ onStart }: { onStart: () => void }) {
+/** The first thing anyone ever sees — and it is a slot in the feed, not a page in
+ *  front of it.
+ *
+ *  *(2026-11-27)* It opens in German, by the clock: *Guten Abend* in the evening,
+ *  *Noch wach?* after midnight. The greeting is the product shown rather than
+ *  described — German on top, its English under it, and the card it is made of
+ *  (*der Abend*) one tap away. It was a paragraph, three numbered doors and two
+ *  buttons, and the paragraph was the part nobody needed: the screen below it
+ *  makes the same point by being a word.
+ *
+ *  Still the two facts a stranger asks before anything else — what is this, and
+ *  where does my data go — and still two ways on: scroll, which commits to
+ *  nothing, or take the ten-card session. */
+function Welcome({ onStart, onOpen }: { onStart: () => void; onOpen: (w: Word) => void }) {
+  const [g] = useState(() => gruss(new Date().getHours()));
+  const card = cardForTerm(g.term);
   return (
     // `.feed-slot` and safe centring, exactly like a word slot. Without the class this
     // kept `height: 100%` at an accessibility size while its own copy grew well past
@@ -657,36 +687,36 @@ function Welcome({ onStart }: { onStart: () => void }) {
       pt-[var(--bar-t)] pb-[var(--bar-b)]">
       <div className="w-full max-w-[460px] text-center">
         {/* `h2`, not `h1`. The feed's `h1` names the surface; every slot below it
-            is a sibling — this one, each word, and the end of the list. Two `h1`s
-            on one document is two answers to "where am I". */}
-        <h2 id="feed-welcome" lang="de" translate="no" className="display text-4xl sm:text-5xl leading-none mb-2">Guten Tag</h2>
-        <p className="text-dim text-sm mb-6 text-balance">German vocabulary for English speakers, A1&nbsp;to&nbsp;C2.</p>
+            is a sibling — this one, each word, and the end of the list. */}
+        <h2 id="feed-welcome" lang="de" translate="no"
+          className="greet-in display text-[3.25rem] short:text-[2.75rem] sm:text-6xl leading-[0.98] text-balance" style={{ '--rise': '18px' } as React.CSSProperties}>
+          {g.de}
+        </h2>
+        <p className="greet-in text-dim text-lg mt-2" style={{ '--rise': '12px' } as React.CSSProperties}>{g.en}</p>
+        {card && (
+          <button type="button" onClick={() => onOpen(card)}
+            aria-label={`${card.term}, ${card.en}. Open the entry`}
+            className="greet-in tap-44 mt-4 inline-flex items-center rounded-full border border-line bg-card px-3.5 py-1.5 text-base
+              active:bg-panel2 transition-colors" style={{ '--rise': '6px' } as React.CSSProperties}>
+            <span className="inline-flex items-baseline gap-2">
+              <span lang="de" translate="no" className="font-semibold"><InkedArticle term={card.term} gender={card.gender} /></span>
+              <span className="text-dim text-sm">{card.en}</span>
+            </span>
+          </button>
+        )}
 
-        {/* No "sound" here since 2026-11-26: Lexi is silent until an open German voice
-            exists (VISION, refusal *A closed voice*), and the welcome still promised
-            it (simulator, persona `cold`). The IPA is the pronunciation Lexi has. */}
-        <p className="text-base leading-relaxed mb-5 text-balance">
-          {fmt(WORDS.length)} German words, one per screen, each with its meaning, its
-          pronunciation in IPA and an example. Nothing tests you until you ask.
+        <p className="text-base leading-relaxed mt-9 mb-7 short:mt-6 short:mb-5 text-balance max-w-[34ch] mx-auto">
+          German vocabulary for English speakers, A1&nbsp;to&nbsp;C2: {fmt(WORDS.length)} words, one a screen,
+          the meaning right there. Save what catches you, and{' '}
+          <b lang="de" translate="no" className="font-semibold">Üben</b> brings it back before you’d forget.
         </p>
-        {/* The loop, as three lines of an exercise book: the three doors a new learner
-            needs, in the order they use them. */}
-        <ol className="text-left text-sm leading-snug max-w-[36ch] mx-auto mb-7 space-y-2.5">
-          {WELCOME_STEPS.map(([de, en], k) => (
-            <li key={de} className="flex items-baseline gap-3">
-              <span aria-hidden className="font-mono text-2xs text-dim tabular-nums w-[1.2em] shrink-0">{k + 1}</span>
-              <span><b lang="de" translate="no" className="font-semibold">{de}</b> <span className="text-dim">{en}</span></span>
-            </li>
-          ))}
-        </ol>
 
         <Button onClick={onStart}><Play size={14} /> Learn ten words now</Button>
-        <p className="text-dim text-2xs mt-6 flex items-center justify-center gap-1.5">
+        <p className="text-dim text-2xs mt-5 flex items-center justify-center gap-1.5">
           <ChevronDown size={13} aria-hidden /> or just scroll
         </p>
-        <p className="text-dim text-2xs mt-6 leading-relaxed max-w-[40ch] mx-auto">
+        <p className="text-dim text-2xs mt-7 short:mt-5 leading-relaxed max-w-[40ch] mx-auto">
           Free and open source. No account. Your progress stays on this device.
-          Everything is explained in English.
         </p>
       </div>
     </section>
@@ -713,6 +743,10 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
   // Read through `version` so a save anywhere re-renders the marks.
   const saved = useMemo(() => isSaved(word.id), [word.id, version]);
   const status = useMemo(() => statusOf(word.id), [word.id, version]);
+  const common = useMemo(() => {
+    const r = freqRankOf(word.id);
+    return r == null ? null : r <= 100 ? 'top 100' : r <= 500 ? 'top 500' : r <= 2000 ? 'top 2,000' : null;
+  }, [word.id]);
 
   // The stroke is drawn when the save happens here, and simply shown otherwise.
   const [drew, setDrew] = useState(false);
@@ -720,6 +754,9 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
     const now = toggleSaved(word.id);
     setDrew(now);
     haptic(now ? 'grade' : 'wrong');
+    // The marked word drops into Üben's tab (lib/flight.ts): where it goes, shown.
+    const hw = now ? document.getElementById(`hw-${word.id}`) : null;
+    if (hw) flyToUeben(hw.querySelector('.swash:last-child') ?? hw, word.term.replace(/^(der|die|das)\s+/, ''));
     // Reported upward rather than announced here — the feed owns the one live
     // region. See the `aria-hidden` note below the actions.
     onAnnounce(now
@@ -781,6 +818,15 @@ function Slot({ word, at, version, onInfo, onDrill, onAnnounce, onSaved, watch }
             something — where the word stands for you (a label, so the kicker). */}
         <span className="h-5 mb-3 flex items-center gap-2">
           <span className="font-mono text-xs font-bold" style={{ color: LEVEL_INK[word.level] }}>{word.level}</span>
+          {/* How common it is, when that is worth saying *(2026-11-27)*: the one
+              number that answers "is this word worth my effort", in the bands the
+              entry already uses (lib/provenance.ts, freqBand). */}
+          {common && (
+            <>
+              <span aria-hidden className="text-line">/</span>
+              <span className="font-mono text-xs text-dim tabular-nums">{common}</span>
+            </>
+          )}
           {status !== 'new' && (
             <>
               <span aria-hidden className="text-line">/</span>
@@ -980,7 +1026,11 @@ function Swipeable({ children, onLeft, onRight, term }: {
 }
 
 /** The feed's first-visit tour, pointed at the word on screen when it starts.
- *  Replaces a one-line hint that named the two swipes and nothing else. */
+ *
+ *  *(2026-11-27)* Three steps, not five. It explained scrolling to people already
+ *  scrolling, gave search a step of its own, and called the tab bar "four places"
+ *  after Prüfung had made it five. What a newcomer cannot find alone is the
+ *  sideways axis and what the bookmark does; the doors are named once, at the end. */
 function feedTour(slot: number): TourStep[] {
   const word = `[data-slot="${slot}"] [data-tour="feed-word"]`;
   // The headword, with the bubble above it: the meaning and the actions below it
@@ -988,31 +1038,20 @@ function feedTour(slot: number): TourStep[] {
   const headword = `${word} h2`;
   return [
     {
-      title: 'Welcome to Wörter',
-      body: <>One German word per screen, with its meaning. <b className="text-txt">Scroll up</b> for the next. Nothing here is a test.</>,
-      target: headword,
-      prefer: 'above',
-    },
-    {
-      title: 'Swipe a word',
-      body: <>Swipe <b className="text-txt">right</b> for everything Lexi knows about it. Swipe <b className="text-txt">left</b> to practise it right now.</>,
+      title: 'One word, three directions',
+      body: <>Scroll for the next word. Swipe <b className="text-txt">right</b> for everything Lexi knows about this one, <b className="text-txt">left</b> to practise it now. Nothing here is a test.</>,
       target: headword,
       demo: word,
       prefer: 'above',
     },
     {
-      title: 'Save what catches your eye',
-      body: <>The <b className="text-txt">bookmark</b> saves a word, and Üben teaches your saved words first. ⓘ opens the entry, and the cap starts a practice.</>,
+      title: 'Save what catches you',
+      body: <>The <b className="text-txt">bookmark</b> drops a word into Üben, which teaches your saved words first and brings each one back before you’d forget it.</>,
       target: `[data-slot="${slot}"] [data-tour="feed-actions"]`,
     },
     {
-      title: 'Look anything up',
-      body: <>Search any German or English word from any screen.</>,
-      target: '[data-tour="search"]',
-    },
-    {
-      title: 'Four places',
-      body: <><b className="text-txt">Wörter</b> to browse · <b className="text-txt">Themen</b> for topics and your own texts · <b className="text-txt">Üben</b> to study · <b className="text-txt">Fortschritt</b> to see what you know.</>,
+      title: 'Five doors',
+      body: <><b className="text-txt">Wörter</b> to browse · <b className="text-txt">Themen</b> for topics · <b className="text-txt">Üben</b> for today’s session and the course · <b className="text-txt">Prüfung</b> for practice papers · <b className="text-txt">Fortschritt</b> for what you know. The magnifier looks anything up.</>,
       target: '[data-tour="tabs"]',
     },
   ];

@@ -3068,6 +3068,21 @@
       }
     ]
   },
+  "voc:A2:das Deutschlandticket": {
+    "def": "A monthly ticket for all local buses and trains across Germany.",
+    "ex": [
+      {
+        "de": "Mit dem Deutschlandticket fahre ich jeden Tag zur Arbeit.",
+        "en": "I travel to work every day on the Deutschlandticket.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Das Deutschlandticket gilt nicht im ICE.",
+        "en": "The Deutschlandticket isn't valid on the ICE.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Dienstjubiläum": {
     "def": "a celebration of years worked at a company",
     "ex": [
@@ -3804,16 +3819,16 @@
     ]
   },
   "voc:A2:das Geschoss": {
-    "def": "Something fired from a weapon, such as a bullet.",
+    "def": "One level of a building; also, something fired from a weapon.",
     "ex": [
       {
-        "de": "Der Lehrer wurde von einem Geschoss getroffen.",
-        "en": "The teacher was hit by a projectile.",
+        "de": "Wir wohnen im dritten Geschoss.",
+        "en": "We live on the third floor.",
         "lvl": "A2"
       },
       {
-        "de": "Die Lehrerin wurde von einem Geschoss getroffen.",
-        "en": "The teacher was hit by a projectile.",
+        "de": "Das Büro liegt im ersten Geschoss.",
+        "en": "The office is on the first floor.",
         "lvl": "A2"
       }
     ]
@@ -4564,6 +4579,21 @@
       }
     ]
   },
+  "voc:A2:das Ladegerät": {
+    "def": "A device that charges the battery of a phone or another device.",
+    "ex": [
+      {
+        "de": "Hast du ein Ladegerät für mein Handy?",
+        "en": "Do you have a charger for my phone?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich habe mein Ladegerät im Hotel vergessen.",
+        "en": "I left my charger at the hotel.",
+        "lvl": "A2"
+      }
+    ]
+  },
   "voc:A2:das Lesen": {
     "def": "to read (to look at and understand symbols, words, or data); to read (to give off a certain impression while being read; of a text)",
     "ex": [
@@ -5085,6 +5115,21 @@
       {
         "de": "Er hatte Pech mit dem Wetter.",
         "en": "He was unlucky with the weather.",
+        "lvl": "A2"
+      }
+    ]
+  },
+  "voc:A2:das Pfand": {
+    "def": "Money you pay on a bottle or crate and get back when you return it.",
+    "ex": [
+      {
+        "de": "Auf die Flasche sind 25 Cent Pfand.",
+        "en": "There's a 25-cent deposit on the bottle.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Ich bringe die leeren Flaschen zurück und bekomme das Pfand.",
+        "en": "I take the empty bottles back and get the deposit.",
         "lvl": "A2"
       }
     ]
@@ -6140,6 +6185,21 @@
         "de": "Zum Vorstellungsgespräch erschien sie gut vorbereitet.",
         "en": "She arrived well prepared for the job interview.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:das WLAN": {
+    "def": "A wireless internet connection at home, in a café or in an office.",
+    "ex": [
+      {
+        "de": "Wie ist das Passwort für das WLAN?",
+        "en": "What's the Wi-Fi password?",
+        "lvl": "A2"
+      },
+      {
+        "de": "Im Zug ist das WLAN leider sehr langsam.",
+        "en": "Unfortunately the Wi-Fi on the train is very slow.",
+        "lvl": "A2"
       }
     ]
   },
@@ -10393,6 +10453,21 @@
         "de": "Die silbernen Ohrringe waren ein Geschenk ihrer Großmutter.",
         "en": "The silver earrings were a gift from her grandmother.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:A2:der Onlineshop": {
+    "def": "A website where you can buy things.",
+    "ex": [
+      {
+        "de": "Ich habe die Schuhe in einem Onlineshop bestellt.",
+        "en": "I ordered the shoes from an online shop.",
+        "lvl": "A2"
+      },
+      {
+        "de": "Der Onlineshop liefert innerhalb von zwei Tagen.",
+        "en": "The online shop delivers within two days.",
+        "lvl": "A2"
       }
     ]
   },

@@ -112,7 +112,7 @@ four surfaces look like four apps.
   Themen. A miss offers "note this word" → `store.noteWanted` → listed in Profile
   (`WantedWords.tsx`) and exportable for `authoring:new`. **Never promise a noted
   word will be added** — the authoring gate decides, not the note.
-- **The five surfaces**: `Feed.tsx` (the word feed — also the welcome slot), `Words.tsx` (Themen: the course band and `#/words/kurs/<level>`, decks, word map, text scanner), `Review.tsx` (Üben: the session, the empty state, the recap), `Exam.tsx` (Prüfung: the room, the quiz loop, the paper runner; `views/exam/` holds its parts), `Progress.tsx` (the number, the level path, the heatmap, blind spots). `WordDetail.tsx` is the sheet the feed's ⓘ opens — the old flip-card back face, now reachable from any word without being tested on it.
+- **The five surfaces**: `Feed.tsx` (the word feed — also the welcome slot), `Words.tsx` (Themen: decks, word map, text scanner), `Review.tsx` + `Kurs.tsx` (Üben: *Heute*, the session, its empty state and recap; *Kurs*, the course at `#/kurs/<level>`, since 2026-11-27 — `#/words/kurs` still lands there), `Exam.tsx` (Prüfung: the room, the quiz loop, the paper runner; `views/exam/` holds its parts), `Progress.tsx` (the number, the level path, the heatmap, blind spots). `WordDetail.tsx` is the sheet the feed's ⓘ opens — the old flip-card back face, now reachable from any word without being tested on it.
 - **The goal**: a **beautiful, bulletproof, effective, open-source, pedagogically sound**
   English→German app, built so a second language pair is an implementation and not a
   rewrite. `docs/VISION.md` is the anchor — it holds the six commitments, what each one

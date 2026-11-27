@@ -63,7 +63,7 @@ import type { Mode } from './drills.tsx';
 
 export default function Progress({ onStudy, onDrill, onOpenGroup, onPlacement, onCourse }: {
   onStudy: (t: Target) => void;
-  /** The course at a level, which lives under Themen. */
+  /** The course at a level, Üben's second half (`#/kurs/<level>`). */
   onCourse?: (l: CEFR) => void;
   /** Straight into a run of the drill the learner keeps missing. */
   onDrill: (m: Mode) => void;

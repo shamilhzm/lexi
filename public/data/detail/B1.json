@@ -5061,6 +5061,21 @@
       }
     ]
   },
+  "voc:B1:das E-Auto": {
+    "def": "A car that runs on electricity from a battery.",
+    "ex": [
+      {
+        "de": "Unser nächstes Auto wird ein E-Auto.",
+        "en": "Our next car will be an electric car.",
+        "lvl": "B1"
+      },
+      {
+        "de": "E-Autos sind leise, aber noch ziemlich teuer.",
+        "en": "Electric cars are quiet but still fairly expensive.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:das Ehepaar": {
     "def": "A husband and wife together.",
     "ex": [
@@ -6721,6 +6736,21 @@
         "de": "Beide Lager sind fast leer.",
         "en": "Both warehouses are almost empty.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:das Lastenrad": {
+    "def": "A bicycle with a large box or platform for carrying children or goods.",
+    "ex": [
+      {
+        "de": "Sie bringt die Kinder mit dem Lastenrad in die Kita.",
+        "en": "She takes the children to nursery on the cargo bike.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Immer mehr Pakete werden mit Lastenrädern ausgeliefert.",
+        "en": "More and more parcels are delivered by cargo bike.",
+        "lvl": "B1"
       }
     ]
   },
@@ -8658,6 +8688,21 @@
       {
         "de": "Er spricht in authentischem Tempo.",
         "en": "He speaks at an authentic pace.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:das Tempolimit": {
+    "def": "The highest speed you are allowed to drive on a road.",
+    "ex": [
+      {
+        "de": "Auf vielen Autobahnen gibt es kein Tempolimit.",
+        "en": "There's no speed limit on many motorways.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Befürworter sagen, ein Tempolimit würde Leben retten.",
+        "en": "Its supporters say a speed limit would save lives.",
         "lvl": "B1"
       }
     ]
@@ -18059,6 +18104,21 @@
       }
     ]
   },
+  "voc:B1:der Stromanbieter": {
+    "def": "A company that supplies electricity to homes.",
+    "ex": [
+      {
+        "de": "Wir haben den Stromanbieter gewechselt und sparen jetzt Geld.",
+        "en": "We switched electricity supplier and are saving money now.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Unser Stromanbieter hat die Preise schon wieder erhöht.",
+        "en": "Our electricity supplier has raised its prices again.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Stromausfall": {
     "ex": [
       {
@@ -19125,6 +19185,21 @@
       }
     ]
   },
+  "voc:B1:der Videoanruf": {
+    "def": "A call over the internet in which you can see each other.",
+    "ex": [
+      {
+        "de": "Ich habe jeden Sonntag einen Videoanruf mit meinen Eltern.",
+        "en": "I have a video call with my parents every Sunday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Können wir das kurz per Videoanruf besprechen?",
+        "en": "Can we discuss it briefly on a video call?",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:der Videoclip": {
     "def": "a short video, e.g. a music video",
     "ex": [
@@ -19831,6 +19906,21 @@
         "de": "Die beiden Zugänge zum Gebäude sind gesperrt.",
         "en": "Both entrances to the building are closed.",
         "lvl": "B2"
+      }
+    ]
+  },
+  "voc:B1:der Zugausfall": {
+    "def": "When a planned train does not run.",
+    "ex": [
+      {
+        "de": "Wegen eines Zugausfalls kam ich zwei Stunden zu spät.",
+        "en": "Because of a train cancellation I was two hours late.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Bei einem Zugausfall bekommt man einen Teil des Geldes zurück.",
+        "en": "If your train is cancelled, you get part of the money back.",
+        "lvl": "B1"
       }
     ]
   },
@@ -22102,6 +22192,21 @@
       }
     ]
   },
+  "voc:B1:die Bildschirmzeit": {
+    "def": "The time you spend looking at a phone, computer or TV screen.",
+    "ex": [
+      {
+        "de": "Meine Bildschirmzeit lag gestern bei sechs Stunden.",
+        "en": "My screen time was six hours yesterday.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir begrenzen die Bildschirmzeit der Kinder am Abend.",
+        "en": "We limit the children's screen time in the evening.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Bildung": {
     "def": "cultivation, refinement, education, culture",
     "ex": [
@@ -22371,6 +22476,21 @@
       {
         "de": "Tom hat sich anscheinend aufgrund eines Verkehrsstaus auf der Bundesstraße 19 verspätet.",
         "en": "Apparently, Tom was late because there was a traffic jam on Rt. 19.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Bundeswehr": {
+    "def": "Germany's armed forces: army, navy and air force.",
+    "ex": [
+      {
+        "de": "Die Bundeswehr sucht dringend neue Soldaten.",
+        "en": "The armed forces urgently need new soldiers.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Mein Bruder arbeitet als Arzt bei der Bundeswehr.",
+        "en": "My brother works as a doctor in the armed forces.",
         "lvl": "B1"
       }
     ]
@@ -26286,6 +26406,21 @@
       }
     ]
   },
+  "voc:B1:die KI": {
+    "def": "Short for Künstliche Intelligenz: computer systems that do tasks which seem to need human thinking.",
+    "ex": [
+      {
+        "de": "Die KI hat mir eine erste Fassung geschrieben, den Rest habe ich selbst gemacht.",
+        "en": "The AI wrote me a first draft; I did the rest myself.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Viele Firmen setzen inzwischen KI im Kundenservice ein.",
+        "en": "Many companies now use AI in customer service.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Kaffeebohne": {
     "ex": [
       {
@@ -27965,6 +28100,21 @@
       }
     ]
   },
+  "voc:B1:die Mediathek": {
+    "def": "A broadcaster's website or app where you can watch programmes after they have aired.",
+    "ex": [
+      {
+        "de": "Die Sendung von gestern gibt es noch in der Mediathek.",
+        "en": "Yesterday's programme is still available on demand.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Mediatheken von ARD und ZDF kosten nichts extra.",
+        "en": "The ARD and ZDF on-demand libraries cost nothing extra.",
+        "lvl": "B1"
+      }
+    ]
+  },
   "voc:B1:die Medien": {
     "def": "the mediae consonants, 'b', 'd', and 'g'. (e.g. those subject to the Medienverschiebung).",
     "ex": [
@@ -28092,6 +28242,21 @@
         "de": "Die Schule versteht Mehrsprachigkeit ausdrücklich als Chance.",
         "en": "The school explicitly regards multilingualism as an opportunity.",
         "lvl": "C1"
+      }
+    ]
+  },
+  "voc:B1:die Mehrwegflasche": {
+    "def": "A bottle that is returned, cleaned and filled again.",
+    "ex": [
+      {
+        "de": "Mehrwegflaschen bringt man in den Supermarkt zurück.",
+        "en": "You take returnable bottles back to the supermarket.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Wir kaufen Wasser nur noch in Mehrwegflaschen.",
+        "en": "We only buy water in returnable bottles now.",
+        "lvl": "B1"
       }
     ]
   },
@@ -29228,6 +29393,21 @@
       {
         "de": "Sie benötigen eine tägliche Pflege.",
         "en": "They need daily care.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Pflegekraft": {
+    "def": "A trained person who looks after sick or elderly people.",
+    "ex": [
+      {
+        "de": "In vielen Krankenhäusern fehlen Pflegekräfte.",
+        "en": "Many hospitals are short of nurses.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Die Pflegekraft kommt jeden Morgen zu meiner Oma.",
+        "en": "The care worker comes to my grandma every morning.",
         "lvl": "B1"
       }
     ]
@@ -31021,6 +31201,21 @@
       {
         "de": "Ich lokalisiere die Software.",
         "en": "I'm localising the software.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Solaranlage": {
+    "def": "Panels that turn sunlight into electricity or heat, usually on a roof.",
+    "ex": [
+      {
+        "de": "Auf unserem Dach ist jetzt eine Solaranlage.",
+        "en": "There's a solar power system on our roof now.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Im Sommer produziert die Solaranlage mehr Strom, als wir brauchen.",
+        "en": "In summer the solar system produces more electricity than we need.",
         "lvl": "B1"
       }
     ]
@@ -32949,6 +33144,21 @@
       {
         "de": "Eine kleine Veränderung kann viel bewirken.",
         "en": "A small change can make a big difference.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:die Videokonferenz": {
+    "def": "A meeting held over the internet in which the participants can see each other.",
+    "ex": [
+      {
+        "de": "Die Besprechung findet heute als Videokonferenz statt.",
+        "en": "Today the meeting is taking place as a video conference.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Nach drei Videokonferenzen am Stück brauche ich eine Pause.",
+        "en": "After three video conferences in a row I need a break.",
         "lvl": "B1"
       }
     ]
@@ -44733,6 +44943,21 @@
       {
         "de": "Sie strahlt vor Freude.",
         "en": "She's beaming with joy.",
+        "lvl": "B1"
+      }
+    ]
+  },
+  "voc:B1:streamen": {
+    "def": "To watch or listen to films, music or games over the internet without downloading them.",
+    "ex": [
+      {
+        "de": "Am Wochenende streamen wir oft eine Serie.",
+        "en": "At the weekend we often stream a series.",
+        "lvl": "B1"
+      },
+      {
+        "de": "Er streamt jeden Abend Videospiele.",
+        "en": "He streams video games every evening.",
         "lvl": "B1"
       }
     ]

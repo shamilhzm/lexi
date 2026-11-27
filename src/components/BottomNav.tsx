@@ -22,7 +22,7 @@
 // has always said actions belong. This component holds places and nothing else.
 // See BACKLOG #31.
 import { motion, useReducedMotion } from 'motion/react';
-import { NAV } from './TopBar.tsx';
+import { NAV, doorOf } from './TopBar.tsx';
 import type { View } from '../App.tsx';
 
 export default function BottomNav({ view, onGo }: {
@@ -55,9 +55,9 @@ export default function BottomNav({ view, onGo }: {
       <nav aria-label="Main" data-tour="tabs" className="glass glass-bar rounded-full pointer-events-auto overflow-hidden">
         <div className="flex items-stretch h-[58px]">
           {NAV.map((n) => {
-            const active = view === n.id;
+            const active = doorOf(view) === n.id;
             return (
-              <button key={n.id} onClick={() => onGo(n.id)} aria-current={active ? 'page' : undefined}
+              <button key={n.id} data-nav={n.id} onClick={() => onGo(n.id)} aria-current={active ? 'page' : undefined}
                 className={`relative flex-1 flex flex-col items-center justify-center gap-0.5 h-full min-w-0 px-0.5 transition-colors ${
                   active ? 'text-key-ink' : 'text-dim active:text-txt'}`}>
                 {/* The active tab was signalled by colour and stroke weight alone.

@@ -625,7 +625,10 @@ body {
 /* `short:` — a viewport under 700pt tall *(2026-10-14)*. Width breakpoints cannot
    see the case that broke: a 375pt phone is the same width as a big one with
    Safari's toolbars, but 13 mini Safari leaves ~650pt for the page and an SE ~550.
-   Used only to give padding back to the study card, never to hide anything. */
+   Used to give padding back to the study card and, *(2026-11-27)*, to the feed's
+   welcome and Jetzt slots, which an SE overran by 23px and 140px. Never to hide
+   anything with CSS: Jetzt takes four words there instead of six, chosen in JS at
+   mount, so the count its button says is the count it saves. */
 @custom-variant short (@media (max-height: 700px));
 
 /* ── The key — the one material for things you press *(2026-10-11)* ──────────
@@ -763,6 +766,37 @@ body {
 @keyframes stampin { from { transform: rotate(-16deg) scale(1.7); } 70% { transform: rotate(-6deg) scale(.96); } }
 .stamp-in { animation: stampin .42s cubic-bezier(.3,.7,.2,1.1); }
 @media (prefers-reduced-motion: reduce) { .swash-in, .stamp-in { animation: none; } }
+
+/* **The flight** *(2026-11-27)* — a saved word dropping into Üben (lib/flight.ts).
+   A copy of the highlighted word, in the yellow pen and the display face, fixed at
+   the origin and moved by transform alone. Above the bars (`z-50`): it lands *in*
+   the tab, so it has to pass over it. The shadow is the card's, so it reads as a
+   slip of paper lifted off the page. */
+.flight {
+  position: fixed; left: 0; top: 0; z-index: 60;
+  pointer-events: none; white-space: nowrap; will-change: transform;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; line-height: 1.15;
+  padding: 0.1em 0.4em;
+  border-radius: 0.1em 0.28em 0.16em 0.3em;
+  background: var(--color-mark); color: var(--color-mark-ink);
+  box-shadow: 0 1px 2px rgba(60,52,30,0.06), 0 18px 40px -18px rgba(60,52,30,0.5);
+}
+/* The tab takes it: a 3px dip and back. The transition tier, not micro: at 120ms
+   the dip is over before the eye has followed the word down to the tab. */
+@keyframes tabreceive { 40% { transform: translateY(3px); } }
+.tab-receive { animation: tabreceive .24s cubic-bezier(.32,.72,0,1); }
+@media (prefers-reduced-motion: reduce) { .tab-receive { animation: none; } }
+
+/* **The welcome settling** *(2026-11-27)*: the greeting, its gloss and its word rise
+   on one curve over different distances — depth without a delay, and no fill-mode,
+   so a stalled frame is simply the page at rest (§7). */
+@keyframes greetin { from { transform: translateY(var(--rise, 12px)); } }
+.greet-in { animation: greetin .6s cubic-bezier(.32,.72,0,1); }
+@media (prefers-reduced-motion: reduce) { .greet-in { animation: none; } }
+
+/* **A margin note** *(2026-11-27)* — the teacher's line beside the text, ruled in the
+   margin's red: the Heft's way of saying *watch this one* without a warning icon. */
+.heft-note { border-left: 2px solid var(--color-margin); padding-left: 0.75rem; }
 
 /* Live status dot */
 .live-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); }

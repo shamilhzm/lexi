@@ -29,6 +29,11 @@ const LINK_ONLY: Record<string, string> = {
   'lexi.app': 'a fallback URL written into a calendar file, never fetched',
   'w3.org': 'the SVG namespace',
   'sil.org': 'the font licence text',
+  // 2026-11-27. The engine registry cites model cards and is shown to no one.
+  // A model download would come from a library, which this scan cannot see; the
+  // CSP's connect-src is what stops it, and docs/LOCAL-AI.md says to name the host
+  // here and on the page before any engine is switched on.
+  'huggingface.co': 'model cards cited in lib/engines/registry.ts, never fetched',
 };
 
 /** Requests made by code Lexi loads rather than code it contains. */

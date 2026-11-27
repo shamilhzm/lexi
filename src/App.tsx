@@ -62,21 +62,24 @@ const TextGaps = lazy(() => import('./views/TextGaps.tsx'));
 // The exam room (2026-11-26): its papers are a lazy chunk of their own, so a learner
 // who never sits one never downloads one.
 const Exam = lazy(() => import('./views/Exam.tsx'));
+// The course and its films (2026-11-27: Üben's second half, `#/kurs`). Its own chunk:
+// nothing on the boot path needs a film, and the recap's band prefetches it.
+const Kurs = lazy(() => import('./views/Kurs.tsx'));
 import ErrorBoundary from './components/ErrorBoundary.tsx';
-import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak } from './store.ts';
+import { recordVisit, recordSnapshot, setOnboarded, firstRunIds, buildBriefing, profileName, placementLevel, streak, studyLevel } from './store.ts';
 import { useStore } from './useStore.ts';
 import { startReminderWatch } from './lib/reminder.ts';
 import { parseGateHash } from './lib/tuer.ts';
 import { parseHash, parseWordHash, toHash, hashWrite, knownRoute, type Route, type WordsRoute } from './route.ts';
 import { GROUPS, SECTORS, BY_ID } from './data/index.ts';
 import { ID_MAP } from './data/idmap.ts';
-import type { Target, Word } from './types.ts';
+import type { CEFR, Target, Word } from './types.ts';
 
-export type View = 'feed' | 'session' | 'words' | 'exam' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
+export type View = 'feed' | 'session' | 'kurs' | 'words' | 'exam' | 'progress' | 'placement' | 'interests' | 'profile' | 'settings' | 'text';
 const ALL: Target = { kind: 'all', name: 'All sectors' };
 /** What a scoped session's Back arrow names, by the surface that opened it. */
 const BACK_TO: Partial<Record<View, string>> = {
-  feed: 'Wörter', words: 'Themen', progress: 'Fortschritt', text: 'your text', profile: 'your profile',
+  feed: 'Wörter', words: 'Themen', kurs: 'Kurs', progress: 'Fortschritt', text: 'your text', profile: 'your profile',
 };
 /** The day's queue, rebuilt from the scheduler each time it is asked for. */
 const TODAY = (): Target => ({ kind: 'custom', name: 'Today’s session', ids: buildBriefing().ids });
@@ -108,6 +111,9 @@ export default function App() {
   const [view, setView] = useState<View>(boot.view);
   const [target, setTarget] = useState<Target>(() => boot.target ?? TODAY());
   const [words, setWords] = useState<WordsRoute>(boot.words);
+  // The course level on view. Undefined is the learner's own (`studyLevel`), so a
+  // bare `#/kurs` follows them as they move up.
+  const [course, setCourse] = useState<CEFR | undefined>(boot.course);
   // A standalone run of one word-fact drill, opened by name from Blind spots.
   // Local state rather than a route: it is a scoped exercise set, which is not a
   // linkable thing, and it is always entered from the surface that motivated it.
@@ -279,6 +285,7 @@ export default function App() {
       const r = routeFromHash();
       setView(r.view);
       setWords(r.words);
+      setCourse(r.course);
       setTarget(r.target ?? (r.view === 'session' ? TODAY() : ALL));
     };
     window.addEventListener('hashchange', onHash);
@@ -289,14 +296,14 @@ export default function App() {
     if (fromHash.current) { fromHash.current = false; return; }
     // Which entries replace and which push, and why a word link keeps its hash
     // while its entry is open: `hashWrite` in route.ts, where they are tested.
-    const w = hashWrite(location.hash, toHash(view, target, words), { view, linkOpen: !!link });
+    const w = hashWrite(location.hash, toHash(view, target, words, course), { view, linkOpen: !!link });
     // `replaceState` fires no `hashchange`, so it needs no `selfWrote`.
     if (w.settle) history.replaceState(history.state, '', location.pathname + location.search + w.settle);
     if (!w.hash) return;
     selfWrote.current = true;
     if (w.replace) location.replace(w.hash);
     else location.hash = w.hash;
-  }, [view, target, words, link]);
+  }, [view, target, words, course, link]);
 
   /** Study a specific scope — a deck, a sector, a list of ids from a text. */
   const study = (t: Target) => {
@@ -319,6 +326,8 @@ export default function App() {
     // inside. A destination in a tab bar is a place, not a resume.
     if (v === 'session') setTarget(TODAY());
     if (v === 'words') setWords({ level: 'index' });
+    // The course opens at the learner's own level, as the tab opens Themen at its index.
+    if (v === 'kurs') setCourse(undefined);
     // The tab you are already on, pressed again, goes to the top — the feed
     // otherwise resumes where you were (see `Feed`'s `kept`).
     if (v === 'feed' && view === 'feed') forgetFeedPosition();
@@ -462,7 +471,7 @@ export default function App() {
                   view === 'session' ? ' min-h-full' : ''}`}>
               {/* Keyed on where you are inside Themen too: Back from a broken course page
                   to the deck list kept showing the error (2026-11-20). */}
-              <ErrorBoundary resetKey={`${view}:${words.level}:${words.group ?? ''}:${words.sector ?? ''}:${words.course ?? ''}:${drill ?? ''}`}>
+              <ErrorBoundary resetKey={`${view}:${words.level}:${words.group ?? ''}:${words.sector ?? ''}:${course ?? ''}:${drill ?? ''}`}>
                 {drill
                   ? <Drill mode={drill} onExit={() => setDrill(null)} />
                   : <>
@@ -479,10 +488,16 @@ export default function App() {
                         // a session they just finished.
                         onPlacement={() => { location.replace('#/placement'); setView('placement'); }}
                         onPick={() => go('words')}
+                        onKurs={() => go('kurs')}
                         onBack={origin && BACK_TO[origin] ? () => returnTo(origin) : undefined}
                         backTo={origin ? BACK_TO[origin] : undefined}
                         onProfile={() => go('profile')}
                       />
+                    )}
+                    {view === 'kurs' && (
+                      <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>
+                        <Kurs level={course ?? studyLevel()} onLevel={setCourse} onStudy={study} onToday={() => go('session')} />
+                      </Suspense>
                     )}
                     {view === 'words' && <Words route={words} onNavigate={setWords} onStudy={study} onText={() => go('text')} />}
                     {/* The heatmap is a map *of the corpus*, so its drill-down lands in
@@ -492,7 +507,7 @@ export default function App() {
                     {view === 'progress' && (
                       <Progress onStudy={study} onDrill={setDrill} onPlacement={() => go('placement')}
                         onOpenGroup={(g) => { setWords(g ? { level: 'group', group: g } : { level: 'index' }); setView('words'); }}
-                        onCourse={(l) => { setWords({ level: 'kurs', course: l }); setView('words'); }} />
+                        onCourse={(l) => { setCourse(l); setView('kurs'); }} />
                     )}
                     {view === 'exam' && (
                       <Suspense fallback={<div className="grid place-items-center min-h-[240px] text-dim">Loading…</div>}>

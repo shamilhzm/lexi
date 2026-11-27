@@ -1,0 +1,16 @@
+{
+  "note": "2026-11-27. Three glosses found while curating the feed's Wortbau compounds (src/data/wortbau.ts). der Hafen read «harbour/harbour», the only doubled gloss in the corpus. das Geschoss (A2) taught only «projectile», with the same sentence about a teacher being shot twice, where an A2 learner meets the word as a floor of a building (Erdgeschoss, Obergeschoss and Kellergeschoss are all cards). die Taschenlampe carried a definition in its gloss.",
+  "rows": [
+    { "id": "voc:A2:der Hafen", "expect": { "en": "harbour/harbour" }, "en": "harbour, port" },
+    { "id": "voc:A2:das Geschoss", "expect": { "en": "projectile" }, "en": "floor, storey; projectile" },
+    { "id": "voc:A2:das Geschoss", "expect": { "def": "Something fired from a weapon, such as a bullet." },
+      "def": "One level of a building; also, something fired from a weapon." },
+    { "id": "voc:A2:das Geschoss", "at": 0,
+      "expect": { "de": "Der Lehrer wurde von einem Geschoss getroffen.", "en": "The teacher was hit by a projectile." },
+      "de": "Wir wohnen im dritten Geschoss.", "en": "We live on the third floor." },
+    { "id": "voc:A2:das Geschoss", "at": 1,
+      "expect": { "de": "Die Lehrerin wurde von einem Geschoss getroffen.", "en": "The teacher was hit by a projectile." },
+      "de": "Das Büro liegt im ersten Geschoss.", "en": "The office is on the first floor." },
+    { "id": "voc:C1:die Taschenlampe", "expect": { "en": "A torch, a flashlight: a portable electric light source" }, "en": "torch, flashlight" }
+  ]
+}

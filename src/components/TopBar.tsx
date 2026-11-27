@@ -97,6 +97,11 @@ export const NAV: { id: View; label: string; icon: LucideIcon }[] = [
   { id: 'progress', label: 'Fortschritt', icon: TrendingUp },
 ];
 
+/** The door a surface belongs to, for the tab that lights. The course is the half of
+ *  Üben beside the day's session (2026-11-27), and the text scanner is opened from
+ *  Themen, so each lights the door it lives behind rather than none. */
+export const doorOf = (v: View): View => (v === 'kurs' ? 'session' : v === 'text' ? 'words' : v);
+
 /** The day's goal.
  *
  *  **It stops being a fraction once it is met.** Caught on a real device: nine
@@ -184,13 +189,13 @@ export default function TopBar({ view, onGo, onSearch, onProfile, onSaved, name,
           the thumb is — the bar keeps only identity and the profile. */}
       <nav aria-label="Primary" className="hidden md:flex items-center gap-0.5 ml-1">
         {NAV.map((n) => {
-          const active = view === n.id;
+          const active = doorOf(view) === n.id;
           return (
-            <button key={n.id} onClick={() => onGo(n.id)}
+            <button key={n.id} data-nav={n.id} onClick={() => onGo(n.id)}
               aria-current={active ? 'page' : undefined}
               className={`tap-44 flex items-center gap-1.5 px-3 py-2 rounded-full text-sm transition-colors ${
                 active ? 'bg-key text-key-ink font-semibold' : 'text-dim hover:text-txt hover:bg-panel2/60'}`}>
-              <n.icon size={17} strokeWidth={active ? 2.4 : 1.8} className="flex-shrink-0" />
+              <n.icon size={17} strokeWidth={active ? 2.4 : 1.8} className="tab-icon flex-shrink-0" />
               <span lang="de" translate="no">{n.label}</span>
             </button>
           );

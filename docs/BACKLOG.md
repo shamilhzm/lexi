@@ -23,6 +23,28 @@
 >
 > ---
 >
+> ## Jetzt and the save you can watch — open work *(2026-11-27)*
+>
+> *Built on `redesign/lexi-3` and not deployed (CHANGELOG 2026-11-27).*
+>
+> 1. **Owner: ship or hold.** The branch holds Jetzt, the clock greeting, the save
+>    flight, the *Erledigt* stamp, the frequency band and the *lieb* fix. A push to
+>    `main` deploys, so it waits for your word and the `lexi-deploy` pre-flight.
+> 2. **Jetzt and the welcome at an accessibility text size, and on die Tafel.** They
+>    were measured in light, at the default size, at two phone heights. Look on the
+>    simulator before changing anything. · S · 📱
+> 3. **An SE on the simulator.** The smallest simulator installed is the iPhone 17e
+>    (390pt), so the 375×550 case was measured in the pane. Add an SE simulator and drive
+>    the feed on it. · S · 📱
+> 4. **Regional German in Jetzt.** *Grüß Gott*, *Moin*, *Servus*; *viertel drei* for
+>    2:15 in the south and east; *Jänner* in Austria. Each needs a region setting the app
+>    does not have, and tests like the ones that hold the standard forms. · M
+> 5. **The calendar in Jetzt.** The slot knows the month (Advent, Fasching, Ostern) but
+>    not the day: *Morgen ist Nikolaus*, *Heute ist der Tag der Deutschen Einheit*,
+>    *Silvester*. Every name must be a card, and Easter is computed, not listed. · M
+>
+> ---
+>
 > ## Das Heft, Prüfung and silence — open work *(2026-11-26)*
 >
 > *The redesign is live as `23c4ce0` (2026-11-26). The look before it is the tag

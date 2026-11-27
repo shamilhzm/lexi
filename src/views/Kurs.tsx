@@ -1,24 +1,26 @@
 // Kurs — the course, A1 → C2. A path of units per level; each unit is a
 // situation, its words, and a short film about one idea in German.
 //
-// It lives under Themen (`#/words/kurs/<level>`) because a unit *is* a theme with a
-// direction: Themen answers "what words are there", and the course answers "in
-// what order, and with what explained". Fortschritt links here from the level
-// path, so the page that measures you points at the page that teaches you,
-// rather than doubling as it.
+// It lives in Üben (`#/kurs/<level>`), the half beside the day's session
+// (2026-11-27). It lived under Themen for its first week, on the argument that a unit
+// is a theme with a direction. The argument that moved it is the learning cycle: the
+// film explains, the unit's session practises, and the scheduler brings the words back
+// as reviews. All three are study, and Üben is where study happens. Themen stays the
+// place you browse. Fortschritt links here from the level path, so the page that
+// measures you points at the page that teaches you, rather than doubling as it.
 //
 // Nothing is locked. The marked unit is a suggestion — the first one whose words
 // are not yet mostly known — exactly the rule the old syllabus path kept.
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
-import { ArrowLeft, Check, ChevronRight, GraduationCap, Play } from 'lucide-react';
+import { Check, ChevronRight, GraduationCap, Play } from 'lucide-react';
 import { unitsFor, unitCards, nextUnit, PRELUDES, type Unit } from '../data/course.ts';
 import { FILM_BY_ID } from '../films/films.ts';
 import FilmPlayer from '../components/film/FilmPlayer.tsx';
 import { statusOf, filmsSeen, studyLevel } from '../store.ts';
 import { useStore } from '../useStore.ts';
-import IconButton from '../components/ui/IconButton.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
+import UebenSwitch from '../components/UebenSwitch.tsx';
 import { ALL_LEVELS, type CEFR, type Target } from '../types.ts';
 
 /** What each level is, as a course book would title it. */
@@ -35,10 +37,11 @@ const LEVEL_LINE: Record<CEFR, string> = {
 };
 const STRAND_LABEL = { kern: 'Kern', beruf: 'Beruf', hochschule: 'Hochschule' } as const;
 
-export default function Kurs({ level, onLevel, onBack, onStudy }: {
+export default function Kurs({ level, onLevel, onToday, onStudy }: {
   level: CEFR;
   onLevel: (l: CEFR) => void;
-  onBack: () => void;
+  /** The other half of Üben: the day's session. */
+  onToday: () => void;
   onStudy: (t: Target) => void;
 }) {
   useStore();
@@ -64,15 +67,10 @@ export default function Kurs({ level, onLevel, onBack, onStudy }: {
 
   return (
     <div className="w-full max-w-[760px] mx-auto">
-      <div className="flex items-center gap-1.5 mb-3">
-        <IconButton label="Back to Themen" pull onClick={onBack}><ArrowLeft size={18} /></IconButton>
-        <nav aria-label="Breadcrumb" className="flex items-baseline gap-1.5 min-w-0 ml-1.5">
-          <Kicker className="flex-shrink-0">Themen /</Kicker>
-          <span className="text-base font-semibold truncate">Kurs</span>
-        </nav>
-      </div>
+      {/* No back arrow: the course is a half of a door, not a depth under one. */}
+      <UebenSwitch at="kurs" onGo={(h) => { if (h === 'heute') onToday(); }} className="mt-[9px] mb-4" />
 
-      <Kicker className="block mb-0.5">Course</Kicker>
+      <Kicker className="block mb-0.5">Kurs · {level}</Kicker>
       <h1 lang="de" translate="no" className="display text-3xl sm:text-4xl mb-1">{LEVEL_NAME[level]}</h1>
       <p className="text-dim text-sm mb-4 max-w-[60ch] text-balance">{LEVEL_LINE[level]}</p>
 
@@ -187,10 +185,14 @@ function UnitRow({ n, unit, known, count, seen, next, onFilm, onStudy }: {
   );
 }
 
-/** The course's door on Themen: where you are in your level, one tap from it.
- *  Lazy, like the course — it rides in the course's chunk, so opening it is
- *  instant once the band has shown. */
-export function KursBand({ onOpen }: { onOpen: (l: CEFR) => void }) {
+/** Where you are in your level's course, one tap from it. Üben shows it when the
+ *  day's session is over or empty, which is the moment a learner has time and asks
+ *  what next (2026-11-27). Lazy, like the course: it rides in the course's chunk, so
+ *  the course opens at once after the band has shown.
+ *
+ *  `bleed` runs it edge to edge as a row of the page; without it, it sits between
+ *  hairlines inside a centred column, as the recap's placement offer does. */
+export function KursBand({ onOpen, bleed = true }: { onOpen: (l: CEFR) => void; bleed?: boolean }) {
   useStore();
   const level = studyLevel();
   const main = unitsFor(level);
@@ -201,18 +203,20 @@ export function KursBand({ onOpen }: { onOpen: (l: CEFR) => void }) {
   const next = nextUnit(main, known);
   if (!next) return null;
   const n = main.indexOf(next) + 1;
+  // The film first while it is unwatched; after that the unit is its words.
+  const film = !!next.film && !filmsSeen().has(next.film);
   return (
     <button onClick={() => onOpen(level)} data-tour="kurs"
-      className="-mx-3 sm:-mx-5 w-[calc(100%+1.5rem)] sm:w-[calc(100%+2.5rem)] border-y border-line mb-5
-        flex items-center gap-3.5 px-3 sm:px-5 py-4 text-left hover:bg-panel2 active:bg-panel2 transition-colors">
+      className={`${bleed ? '-mx-3 sm:-mx-5 w-[calc(100%+1.5rem)] sm:w-[calc(100%+2.5rem)] px-3 sm:px-5' : 'w-full px-1'}
+        border-y border-line mb-5 flex items-center gap-3.5 py-4 text-left hover:bg-panel2 active:bg-panel2 transition-colors`}>
       <span className="grid place-items-center w-[44px] h-[44px] rounded-full flex-shrink-0 bg-key text-key-ink border-[1.5px] border-lip">
-        {next.film ? <Play size={18} className="translate-x-[1px]" /> : <GraduationCap size={19} />}
+        {film ? <Play size={18} className="translate-x-[1px]" /> : <GraduationCap size={19} />}
       </span>
       <span className="flex-1 min-w-0">
-        <Kicker className="block">Kurs · {level}</Kicker>
+        <Kicker className="block">Next in your course · {level}</Kicker>
         <span lang="de" translate="no" className="block text-lg font-semibold leading-tight mt-0.5">{next.title}</span>
         <span className="block text-xs text-dim mt-0.5">
-          Unit {n} of {main.length} · <span lang="de" translate="no">{next.focus}</span>
+          Unit {n} of {main.length} · {film ? 'a film, then ' : ''}{unitCards(next).length} words · <span lang="de" translate="no">{next.focus}</span>
         </span>
         {/* One segment a unit: the path at a glance, the way a course book's
             contents page shows where the bookmark is. */}

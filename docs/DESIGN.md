@@ -58,7 +58,8 @@ it is either shipped or superseded by this file.
 | The red pen | corrections | `--color-red` / `--color-red-txt`, a strike-through on a wrong option |
 | Squared paper | the maths Heft — and the exam sheet | `.karo`, a 20px grid in `--color-karo` `#d5dde6`: the paper cover and the runner's sheet in Prüfung |
 | Ruled paper | the writing Heft, with its red margin | `.lined`: 2rem rules, margin `--color-margin` `#e8a4a0` — the letter in a paper |
-| The stamp | the teacher's result | `.stamp`: a rotated double rule, ink speckled by a noise mask, pressed in by `.stamp-in` — quiz and paper verdicts only |
+| The stamp | the teacher's result | `.stamp`: a rotated double rule, ink speckled by a noise mask, pressed in by `.stamp-in` — quiz and paper verdicts, and *Erledigt* with the date on a finished session *(2026-11-27)*: the stamp a teacher puts on homework that was done, which says nothing about how well. Never on a card |
+| The margin note | the teacher's note beside the line | `.heft-note`: a 2px rule in `--color-margin`, text left of it — a trap named beside the text it is about (Jetzt's *halb*) *(2026-11-27)* |
 
 **The type.** **Bricolage Grotesque** (variable, opsz + wght; OFL) for the German and the
 page titles — 700 for a headword, 800 for `.display` — because a grotesque with
@@ -629,6 +630,29 @@ the app, and they keep §7's safety rule literally:
 - **A guess holds the film.** Gender and choice beats disable *Weiter* ("Guess first")
   until answered; nothing is graded.
 
+### The save, made visible *(2026-11-27)*
+
+Saving is the one instruction the feed takes, and it happened in place: the bookmark
+filled, the word went yellow, and where the word went was a sentence nobody read. Now
+the loop is shown as it happens.
+
+- **The word flies to Üben** (`lib/flight.ts`, narrative tier, 560ms). A copy of the
+  highlighted word lifts off the headword and drops into Üben's tab icon, scaling to
+  0.28 on the way. It is a copy (aria-hidden, `pointer-events: none`, removed on
+  landing), so the headword stays put and stays yellow. It is transform-only with no
+  fade, so a stalled frame shows a word in mid-air, never a missing one. A timer removes
+  it if a hidden page holds the animation. Reduced motion skips the trip; the save is
+  the same. *Save these* in Jetzt sends each word 70ms after the last.
+- **The tab takes it** (`.tab-receive`, transition tier, 240ms): a 3px dip and back.
+  At 120ms the dip was over before the eye had followed the word down.
+- **The greeting rises in layers** (`.greet-in`, 600ms). The welcome's three lines rise
+  18, 12 and 6px over the same duration and start together, so the depth comes from
+  distance, not from a stagger that would hold the bottom line back.
+- **A finished session is stamped**, not ticked. The recap's green check entered from
+  `scale(.4)` and `opacity: 0`, which is the entrance the safety rule above forbids,
+  and the motion test carried an exemption for it. It is now *Erledigt* with the date,
+  pressed in by `.stamp-in`, and the exemption is gone.
+
 ## 8. Two moods, one room
 
 > **Rewritten 2026-09-05.** This section was called *Two rooms* and its rule was that
@@ -1113,6 +1137,18 @@ The floor is 260 and not 300 because **the pane reported zero overflow on a layo
 that clipped the grade buttons on a real iPhone**: it has no status bar (~59pt) and no
 Safari toolbar (~50pt). Grade buttons off screen are not survivable — they are the
 primary action of the primary loop.
+
+**A feed slot fits an SE, measured** *(2026-11-27)*. A slot is one snap stop: what
+runs past its box sits under the tab bar, and the snap never lets the learner reach it.
+Measure in the pane at 375×550 (the height Safari leaves on an SE) and at 375×701 (just
+above `short:`): the slot's height less `--bar-t` and `--bar-b`, against its content
+box, at the content's longest. For a slot that changes with the clock, that means the
+minutes that make it longest, with `Date` faked in the page. Word slots measured 0px
+over. Jetzt measured 140px over and the welcome 23px. Jetzt now takes four words on a
+short screen, chosen in JS so its button counts what it shows, and lets the *halb* note
+take the date's place. Its kickers are `block`, because an inline kicker sits in a 24px
+line box. With those changes the least spare room was 12px at 375×550 and 24px at
+375×701.
 
 ### 12·5 Every place opens at its own scroll offset *(2026-11-15)*
 

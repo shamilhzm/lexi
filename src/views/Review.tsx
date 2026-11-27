@@ -9,7 +9,7 @@
 // exercise renderer, the rule panels, the seven rule drills and the "exam
 // conditions" mode that existed to strip the scaffolding off a certificate
 // paper. What is left is a vocabulary player, which is what this app is.
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useReducedMotion, animate } from 'motion/react';
 import { ArrowLeft, Check, X, Undo2, SkipForward, Flag, Share2, ClipboardList } from 'lucide-react';
 import { shareProgress } from '../lib/sharecard.ts';
@@ -45,8 +45,25 @@ import Chip from '../components/ui/Chip.tsx';
 import IconButton from '../components/ui/IconButton.tsx';
 import Kicker from '../components/ui/Kicker.tsx';
 import Tour, { useSwipeDemo, type TourStep } from '../components/Tour.tsx';
+import UebenSwitch from '../components/UebenSwitch.tsx';
+import ErrorBoundary from '../components/ErrorBoundary.tsx';
 import { ALL_LEVELS } from '../types.ts';
 import type { Target, Word, CEFR } from '../types.ts';
+
+// The course's "what next" band, shown when the day is done or empty. It lives in the
+// course's chunk, so showing it fetches the course and the switch then opens at once.
+const KursBand = lazy(() => import('./Kurs.tsx').then((m) => ({ default: m.KursBand })));
+/** The band, or nothing: if the course chunk cannot load (offline after a deploy),
+ *  the recap stays whole. */
+function NextInKurs({ onKurs }: { onKurs: () => void }) {
+  return (
+    <ErrorBoundary resetKey="kurs-band" fallback={null}>
+      <Suspense fallback={<div className="min-h-[106px] mb-5" />}>
+        <KursBand bleed={false} onOpen={() => onKurs()} />
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
 
 /** The caption over a drill. A `Record<Mode, …>` on purpose: a mode with no row
  *  is a build error rather than the word "Drill" over an exercise nobody named. */
@@ -110,12 +127,15 @@ export function showsGermanDefs(placed: CEFR | null): boolean {
   return !!placed && ALL_LEVELS.indexOf(placed) >= ALL_LEVELS.indexOf('B2');
 }
 
-export default function Review({ target, onDone, onPick, onBack, backTo, onProfile, onPlacement, firstRun = false }:
+export default function Review({ target, onDone, onPick, onKurs, onBack, backTo, onProfile, onPlacement, firstRun = false }:
   { target: Target;
     /** Leave the guided chain — the recap's "Got it". */
     onDone: () => void;
     /** Into the lexicon: another deck, or a word to look up. */
     onPick: () => void;
+    /** The other half of Üben, the course. Offered on the day's own queue only: a
+     *  scoped session has a way back instead. */
+    onKurs?: () => void;
     /** Where a scoped session's Back arrow goes, and what it says — the surface
      *  that opened it (App keeps the origin). Absent: Themen, as before. */
     onBack?: () => void; backTo?: string;
@@ -493,11 +513,17 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
       </div>
     );
   }
-  if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} />;
+  // The switch belongs to the day's queue: a scoped session has a back arrow instead,
+  // and the first run is a guided chain the course would only interrupt.
+  const kurs = !scoped && !firstRun ? onKurs : undefined;
+  if (queue.length === 0) return <EmptyState target={target} scoped={scoped} onPick={onPick} onKurs={kurs} />;
   if (!item) return <DoneState done={done} newLearned={newLearned} retrieved={retrieved} retrievedOk={retrievedOk} drills={drills} drillsOk={drillsOk} minedCount={minedCount} comeback={comeback} firstRun={firstRun} met={metWords.current} onPlacement={onPlacement}
     weakest={[...sessionMisses.current.entries()].sort((a, b) => b[1] - a[1])[0]?.[0]}
     composition={composition}
-    onDone={onDone} onPick={onPick} onProfile={onProfile} />;
+    onDone={onDone} onPick={onPick} onProfile={onProfile}
+    // A unit's own session ends on the course too: it is where the learner came from,
+    // and the band shows the unit's ring moving.
+    onKurs={kurs ?? (target.kind === 'custom' && target.course && !firstRun ? onKurs : undefined)} />;
 
   const card = item.word;
   // No memo: familyOf keeps its own reverse index, so this is a Map lookup.
@@ -513,25 +539,7 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
     // `isolate`: the swipe wash sits at `z-index: -1` inside this context — above
     // the page's ground, below every card and key (see `.swipe-wash`, index.css).
     <div className="isolate mx-auto w-full max-w-[640px] flex-1 min-h-0 flex flex-col justify-center">
-      {/* Said once, on the first card. It is news before you start and a strip of
-          lost card height on every card after (2026-10-14, a 13 mini at large text). */}
-      {i === 0 && <ReturnNotice firstRun={firstRun} />}
       <Tour id="session" ready={!!item && item.type === 'flip'} steps={SESSION_TOUR} />
-      {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
-          patch. Offer a graceful stop at a natural break — once, then quiet. */}
-      {breather && (
-        <div role="status"
-          className="pb-3 mb-3 border-b border-line flex items-center gap-3 flex-wrap">
-          <p className="text-xs flex-1 min-w-[200px]">
-            A rough patch. Lexi found the edge of what you know. These come back easier tomorrow.
-          </p>
-          <div className="flex gap-2">
-            <Button variant="quiet" size="sm"
-              onClick={() => { setBreather(false); setI(queue.length); }}>Stop here</Button>
-            <Button size="sm" onClick={() => setBreather(false)}>Keep going</Button>
-          </div>
-        </div>
-      )}
       {/* **Chrome, not a card.** The session's title, position and controls were
           in a bordered box sitting above the card you actually study, which is a
           box drawn around the frame of a box. It also cost about eighty vertical
@@ -559,7 +567,11 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
               day's queue is the app's root and has none — a back arrow on the
               screen the app opens into is an arrow pointing at nothing. */}
           {scoped && <IconButton label={`Back to ${backTo ?? 'Themen'}`} pull onClick={onBack ?? onPick}><ArrowLeft size={16} /></IconButton>}
-          <h1 className="text-base font-semibold truncate flex-1 min-w-0">{target.name}</h1>
+          {/* The day's queue carries Üben's switch where a scoped session carries its
+              name: the name of the root ("Today's session") is what *Heute* says. */}
+          {kurs
+            ? <><h1 className="sr-only">{target.name}</h1><UebenSwitch at="heute" onGo={(h) => { if (h === 'kurs') kurs(); }} /></>
+            : <h1 className="text-base font-semibold truncate flex-1 min-w-0">{target.name}</h1>}
           {/* Position out of a total, not a raw countdown. "92 left" on a first
               session reads as a backlog with no floor; "7 / 92" is the same fact
               as somewhere you are inside something finite, and it moves forward
@@ -586,6 +598,27 @@ export default function Review({ target, onDone, onPick, onBack, backTo, onProfi
             {i > 0 && <span aria-hidden key={ack?.n ?? 0} className={ack?.ok ? 'tip tip-hit' : 'tip'} />}
           </div>
         </div>
+        {/* Said once, on the first card. It is news before you start and a strip of
+            lost card height on every card after (2026-10-14, a 13 mini at large text).
+            Under the header since 2026-11-27: above it, the notice pushed Üben's switch
+            down on the one card it showed, so the control moved under the thumb. */}
+        {i === 0 && <ReturnNotice firstRun={firstRun} />}
+        {/* Circuit breaker (F3): four straight misses isn’t failure, it’s a hard
+            patch. Offer a graceful stop at a natural break — once, then quiet.
+            Under the header, like the notice above, so the header never moves. */}
+        {breather && (
+          <div role="status"
+            className="px-3 sm:px-5 pt-2.5 flex items-center gap-3 flex-wrap">
+            <p className="text-xs flex-1 min-w-[200px]">
+              A rough patch. Lexi found the edge of what you know. These come back easier tomorrow.
+            </p>
+            <div className="flex gap-2">
+              <Button variant="quiet" size="sm"
+                onClick={() => { setBreather(false); setI(queue.length); }}>Stop here</Button>
+              <Button size="sm" onClick={() => setBreather(false)}>Keep going</Button>
+            </div>
+          </div>
+        )}
 
         {/* The acknowledgment used to have its own 20pt row here, reserved even when
             empty. It now rides the caption line under the grade buttons (see
@@ -1112,7 +1145,7 @@ function ReturnNotice({ firstRun }: { firstRun: boolean }) {
   return (
     // A tinted band, not a card. The one card on this screen is the one you
     // study — everything else is page.
-    <div role="status" className="mb-2 pb-2 border-b border-line">
+    <div role="status" className="px-3 sm:px-5 pt-2.5">
       {/* **One line where it can be.** Every line here comes off the height of the
           card below it, and on a 375pt phone at a larger text size two lines of
           notice were what pushed the grade keys under the tab bar. */}
@@ -1197,9 +1230,11 @@ function StatusPip({ id }: { id: string }) {
   );
 }
 
-function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onProfile, onPlacement }:
+function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk, minedCount, comeback, firstRun, weakest, composition, met, onDone, onPick, onKurs, onProfile, onPlacement }:
   { done: number; newLearned: number; retrieved: number; retrievedOk: number; drills: number; drillsOk: number; minedCount: number; comeback: { term: string; lapses: number } | null; firstRun: boolean; weakest?: string;
     composition?: RecapData['composition']; met: Word[]; onDone: () => void; onPick: () => void;
+    /** The course's next unit, offered once the day's work is done. */
+    onKurs?: () => void;
     onProfile: () => void;
     /** Offered from the first recap, once there is something to calibrate. */
     onPlacement?: () => void }) {
@@ -1277,6 +1312,10 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
             briefing; the recap is the better home for them anyway — it is the one
             moment in the app where the learner has just been reminded that they
             have something worth keeping. */}
+        {/* What next, when the day is done: the course's next unit. A suggestion with a
+            reason (it is the first unit whose words are not yet yours), never a
+            countdown or a streak to protect. */}
+        {onKurs && <div className="text-left"><NextInKurs onKurs={onKurs} /></div>}
         {!firstRun && (
           <div className="text-left mb-4">
             <InstallNudge onBackup={onProfile} />
@@ -1287,7 +1326,7 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
           {firstRun
             ? <Button onClick={onDone}>Got it</Button>
             : <>
-              <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
+              <Button variant="secondary" onClick={onPick}>Browse <span lang="de" translate="no">Themen</span></Button>
               {/* *Sag es*, the pronunciation game, was offered here until 2026-11-26.
                   It needed the device's speech recogniser, so it went with every other
                   spoken surface (VISION, refusal *A closed voice*). */}
@@ -1312,12 +1351,16 @@ function DoneState({ done, newLearned, retrieved, retrievedOk, drills, drillsOk,
  *  achievement rather than an absence — "the system holds until tomorrow" is the
  *  true thing to say to somebody who has served every review and spent the whole
  *  new-card budget. */
-function EmptyState({ target, scoped, onPick }: {
-  target: Target; scoped: boolean; onPick: () => void;
+function EmptyState({ target, scoped, onPick, onKurs }: {
+  target: Target; scoped: boolean; onPick: () => void; onKurs?: () => void;
 }) {
   const t = totals();
   return (
-    <div className="grid place-items-center min-h-[440px]">
+    <div className="flex flex-col min-h-[440px]">
+      {/* Where the session header would carry it, so the switch does not move when
+          the day runs out. */}
+      {onKurs && <UebenSwitch at="heute" onGo={(h) => { if (h === 'kurs') onKurs(); }} className="self-start mt-[9px]" />}
+    <div className="grid place-items-center flex-1">
       <div className="text-center px-8 sm:px-10 py-12 max-w-md">
         <span className="grid place-items-center w-[48px] h-[48px] rounded-full mx-auto mb-4" style={{ background: 'var(--color-green-d)' }}>
           <Check size={22} className="text-green" />
@@ -1338,13 +1381,14 @@ function EmptyState({ target, scoped, onPick }: {
             {[t.known > 0 && `${fmt(t.known)} words recognised`, studiedToday() && 'studied today'].filter(Boolean).join(' · ')}
           </Kicker>
         )}
+        {/* The one state where the app knows the learner has time and owes nothing:
+            the honest moment to offer the course, which is study they choose. */}
+        {onKurs && <div className="text-left"><NextInKurs onKurs={onKurs} /></div>}
         <div className="flex flex-wrap gap-2 justify-center">
-          <Button variant="secondary" onClick={onPick}>Browse the lexicon</Button>
-          {/* The game is offered here and only here for now. This is the one state
-              where the app knows the learner has time and owes nothing, which is the
-              honest moment to suggest something that is not studying. */}
+          <Button variant="secondary" onClick={onPick}>Browse <span lang="de" translate="no">Themen</span></Button>
         </div>
       </div>
+    </div>
     </div>
   );
 }

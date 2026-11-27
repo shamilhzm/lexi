@@ -141,14 +141,18 @@ describe('retired hashes still land', () => {
 
 describe('the course', () => {
   it('round-trips a level, and reads a bare course as the learner’s own level', () => {
-    for (const h of ['#/words/kurs/A1', '#/words/kurs/C1', '#/words/kurs']) {
+    for (const h of ['#/kurs/A1', '#/kurs/C1', '#/kurs']) {
       const r = parseHash(h);
-      expect(r.words.level).toBe('kurs');
-      expect(toHash(r.view, r.target, r.words)).toBe(h);
+      expect(r.view).toBe('kurs');
+      expect(toHash(r.view, r.target, r.words, r.course)).toBe(h);
     }
-    expect(parseHash('#/words/kurs/b2').words.course).toBe('B2');
+    expect(parseHash('#/kurs/b2').course).toBe('B2');
     // An unknown level is the learner's own, not a 404.
-    expect(parseHash('#/words/kurs/D7').words).toEqual({ level: 'kurs', course: undefined });
+    expect(parseHash('#/kurs/D7')).toEqual({ view: 'kurs', words: { level: 'index' }, course: undefined });
+  });
+  it('lands a link from when the course lived under Themen in the course, at its level', () => {
+    expect(parseHash('#/words/kurs/B1')).toEqual({ view: 'kurs', words: { level: 'index' }, course: 'B1' });
+    expect(parseHash('#/words/kurs')).toEqual({ view: 'kurs', words: { level: 'index' }, course: undefined });
   });
 });
 
@@ -191,7 +195,7 @@ describe('hostile and stale links', () => {
 
   it('leaves every name the corpus does carry alone', () => {
     for (const h of ['#/words/g/Daily%20Life', '#/words/map/Core%20verbs', '#/session/sector/Core%20verbs',
-      '#/session/group/Daily%20Life', '#/session/all', '#/session', '#/words/kurs/B1', '#/feed']) {
+      '#/session/group/Daily%20Life', '#/session/all', '#/session', '#/kurs/B1', '#/feed']) {
       const r = parseHash(h);
       expect(knownRoute(r, known)).toBe(r);
     }
@@ -234,8 +238,13 @@ describe('what the address bar does (hashWrite)', () => {
   it('pushes a tab, replaces a session and a course chip, and leaves a match alone', () => {
     expect(hashWrite('#/feed', '#/words', { view: 'words', linkOpen: false })).toEqual({ hash: '#/words', replace: false });
     expect(hashWrite('#/feed', '#/session', { view: 'session', linkOpen: false })).toEqual({ hash: '#/session', replace: true });
-    expect(hashWrite('#/words/kurs/A2', '#/words/kurs/B1', { view: 'words', linkOpen: false }))
-      .toEqual({ hash: '#/words/kurs/B1', replace: true });
+    expect(hashWrite('#/kurs/A2', '#/kurs/B1', { view: 'kurs', linkOpen: false }))
+      .toEqual({ hash: '#/kurs/B1', replace: true });
+    // *Heute* → *Kurs* inside Üben is a tab too; arriving from another door pushes.
+    expect(hashWrite('#/session', '#/kurs', { view: 'kurs', linkOpen: false })).toEqual({ hash: '#/kurs', replace: true });
+    expect(hashWrite('#/progress', '#/kurs/A2', { view: 'kurs', linkOpen: false })).toEqual({ hash: '#/kurs/A2', replace: false });
+    // An old link, rewritten to where the course lives now, is one place, not two.
+    expect(hashWrite('#/words/kurs/B1', '#/kurs/B1', { view: 'kurs', linkOpen: false })).toEqual({ hash: '#/kurs/B1', replace: true });
     expect(hashWrite('#/words', '#/words', { view: 'words', linkOpen: false })).toEqual({});
   });
 });

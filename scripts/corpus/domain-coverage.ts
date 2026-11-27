@@ -128,6 +128,62 @@ export const DOMAINS: { name: string; who: string; words: string[] }[] = [
     words: ['Feierabend', 'Kollege', 'Mittagspause', 'Wochenende', 'Kneipe',
       'Ausflug', 'Verabredung', 'quatschen', 'Bescheid geben', 'Termin ausmachen'],
   },
+  // ---- the world as it is (2026-11-27) ---------------------------------------
+  // The seven above are the places a newcomer has to survive. These are the
+  // conversations anybody living in German has to follow at the end of 2026: the
+  // tagesschau, the Kantine, the family chat. Each word is one a reader of the feed's
+  // own stories (lib/news/) meets in a month. Ephemera stay out: a word earns a probe
+  // when it names a thing that will still be argued about in 2030, which is why
+  // *Klimakleber* is absent and *Kipppunkt* is here.
+  {
+    name: 'KI & Technik',
+    who: 'Anyone reading about AI in German, at work or in the news',
+    words: ['Künstliche Intelligenz', 'KI', 'Algorithmus', 'Chatbot', 'Sprachmodell',
+      'Datensatz', 'Rechenzentrum', 'Halbleiter', 'Roboter', 'Automatisierung',
+      'Schnittstelle', 'Quellcode', 'Rechenleistung', 'Verschlüsselung', 'Datenschutz',
+      'Cyberangriff', 'Sicherheitslücke', 'Deepfake', 'Desinformation', 'Urheberrecht'],
+  },
+  {
+    name: 'Digitaler Alltag',
+    who: 'Everyday life through a phone, in German',
+    words: ['Smartphone', 'App', 'Bildschirmzeit', 'Benachrichtigung', 'Akku',
+      'Ladegerät', 'WLAN', 'Abo', 'streamen', 'Podcast', 'Influencer', 'posten',
+      'Videoanruf', 'Homeoffice', 'Lieferdienst', 'Paketstation', 'Hassrede',
+      'Passwort', 'herunterladen', 'hochladen'],
+  },
+  {
+    name: 'Klima & Energie',
+    who: 'The argument every German household is having about heating, cars and weather',
+    words: ['Klimawandel', 'Erderwärmung', 'Klimaschutz', 'Treibhausgas', 'Hitzewelle',
+      'Dürre', 'Hochwasser', 'Starkregen', 'Waldbrand', 'Energiewende', 'Wärmepumpe',
+      'Solaranlage', 'Windkraft', 'Balkonkraftwerk', 'Stromnetz', 'Elektroauto',
+      'Ladesäule', 'Verbrenner', 'klimaneutral', 'Kipppunkt', 'Nachhaltigkeit', 'Mehrwegflasche'],
+  },
+  {
+    name: 'Arbeit & Geld',
+    who: 'A working life in 2026: shortage of hands, four-day weeks, prices',
+    words: ['Fachkräftemangel', 'Teilzeit', 'Mindestlohn', 'Tarifvertrag', 'Gewerkschaft',
+      'Streik', 'Weiterbildung', 'Umschulung', 'Quereinsteiger', 'Bürgergeld', 'Rente',
+      'Inflation', 'Zinsen', 'Lebenshaltungskosten', 'Nebenkosten', 'Kryptowährung',
+      'Aktie', 'Schuldenbremse', 'Sondervermögen', 'Steuererklärung', 'Bargeld'],
+  },
+  {
+    name: 'Gesellschaft & Politik',
+    who: 'Following a Bundestag debate, a demo, or a family argument about either',
+    words: ['Demokratie', 'Koalition', 'Opposition', 'Bundestag', 'Wahlkampf',
+      'Rechtsextremismus', 'Populismus', 'Polarisierung', 'Verschwörungstheorie',
+      'Pressefreiheit', 'Meinungsfreiheit', 'Migration', 'Geflüchtete', 'Einbürgerung',
+      'Gleichberechtigung', 'Diskriminierung', 'Barrierefreiheit', 'Inklusion',
+      'Waffenstillstand', 'Sanktion', 'Aufrüstung', 'Wehrpflicht', 'Bundeswehr'],
+  },
+  {
+    name: 'Gesundheit & Wohnen',
+    who: 'The doctor, the flat hunt and the commute, as they are now',
+    words: ['Pandemie', 'Impfung', 'Krankmeldung', 'Notaufnahme', 'Pflegekraft',
+      'Depression', 'Therapie', 'vegan', 'Wohnungsnot', 'Mietpreisbremse',
+      'Wohngemeinschaft', 'Kaution', 'Sanierung', 'Deutschlandticket', 'Nahverkehr',
+      'Zugausfall', 'Lastenrad', 'Carsharing', 'Tempolimit'],
+  },
 ];
 
 function main() {

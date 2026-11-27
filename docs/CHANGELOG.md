@@ -11,6 +11,164 @@ it is already built.
 
 ---
 
+### 2026-11-27 · Kurs moves into Üben, Wortbau, the modern world, and a seam for open models
+
+**Not deployed.** Built on `redesign/lexi-3`, on top of the Jetzt entry below, from
+`main` at `49bd70f`, which is what production runs. A push to `main` is a deploy and
+waits for the owner's word.
+
+**The board, convened** (BOARD.md). A Standard action with VISION edits, which the owner
+allowed in advance. Seats: the Principal and the six link governors. The Learning
+Scientist checked the feed veto: Wortbau has no `data-word`, records no guess, and
+writes only the bookmark. The Product Designer (veto), Creative Director, Inclusion Lead
+and Lesson Study Lead looked at it on the simulator. The Lexicographer (veto), Head of
+German and Corpus Engineer took the 44 cards and three gloss fixes. The Head of
+Curriculum and Film Director took the course move. The Speech & Listening Teacher,
+Safeguarding & DPO (veto) and Legal & Licensing took the engine seam. The UX Writer,
+Classroom Teacher, Clerk, Lead Engineer and QA Lead also sat. No learner row or setting
+was touched, and no storage key was added.
+
+**Kurs is part of Üben** (`#/kurs/<level>`, `components/UebenSwitch.tsx`). The course
+is structured practice, and Üben is where practice lives, so a unit now sits beside the
+day's session: *Heute | Kurs*. Moving between them is a tab, not a step. Themen is for
+browsing again. `#/words/kurs/<level>` still lands in the course, as a replaced history
+entry, so Back does not return to the page already showing. Üben's empty state and its
+recap carry the next unit (`NextInKurs`), Fortschritt links to the learner's level, and
+the tab bar lights Üben inside the course. "Browse the lexicon" named nothing in the
+app, so it is now *Browse Themen*. `route.test.ts`: 37 pass.
+
+**Wortbau** (`data/wortbau.ts`, `components/WortbauSlot.tsx`). A feed slot at position
+8, then every 12. It shows two cards (*die Hand* + *der Schuh*) and their senses as an
+equation with a blank (*hand + shoe = ___*), with one button, *Put them together*. On
+the tap the halves join, the head's article moves to the front, and the blank fills
+(*glove*). A line says what the join did (*An en joins them*, *Wörter is the plural of
+Wort*). Chips build a related compound next (*More with Zeug*). **It never grades.** It
+has no `data-word`, it records no guess, and its only write is *Save for Üben*.
+
+The 71 compounds are hand-picked. An automatic splitter over 1,105 readings got about 1
+in 6 wrong in a sample of 60, and a wrong reading teaches a wrong word.
+`data/wortbau.test.ts` checks every row against the shipped cards: the segments spell
+the word, each part is a form of its card, each sense is one of that card's own senses,
+and the head gives the article. It also limits the slot's store imports to four.
+
+**The modern world, through the gate.** `corpus:domains` has six new domains for late
+2026: KI & Technik, Digitaler Alltag, Klima & Energie, Arbeit & Geld, Gesellschaft &
+Politik, and Gesundheit & Wohnen.
+- `authoring:new` wrote 44 cards (`batches/modern-world-2026-11-27.json`).
+- 13 facts with no de.wiktionary page cite Wikidata in `verify-rulings.tsv`.
+- Plurals came through `fetch-plurals` and IPA through `compose-ipa`.
+
+The six domains now have 123 of 125 words taught. The whole probe has 209 of 215 taught
+(97.2%), 2 lookup-only and 4 absent: *Paketstation*, *Geflüchtete*,
+*Meldebescheinigung* and *Termin ausmachen*. The corpus holds 11,692 cards: 11,582
+words and 110 grammar.
+
+**Three glosses fixed** (`batches/wortbau-fix-2026-11-27.json`, through `fix-authored`).
+- *der Hafen*: "harbour/harbour" is now "harbour, port".
+- *das Geschoss*: it led with "projectile" and a sentence about a weapon. It is now
+  "floor, storey; projectile", with two sentences about buildings.
+- *die Taschenlampe*: now "torch, flashlight".
+
+Landing passed. `ownership` named the same 10 moves as before, each one an improvement.
+
+**A seam for open models** (`lib/engines/`, `components/OnThisDevice.tsx`,
+`docs/LOCAL-AI.md`). It has five parts:
+- three contracts (voice, ears, tutor), none of which can write a card;
+- the licence policy as a function: open weights, a permissive runtime, no GPL in the
+  bundle, nothing in the cloud;
+- a registry of 9 engines, each with a verdict;
+- a probe that reads WebGPU, WebAssembly and storage without a prompt or a request;
+- a readout in Settings that says what the device could run and that nothing is
+  installed.
+
+`engines.test.ts` (13 tests) keeps `installed()` empty and keeps `speechSynthesis` and
+`SpeechRecognition` out of `src/`. Lexi stays silent. Reopening *A closed voice* is the
+owner's decision, and LOCAL-AI.md sets out the three choices.
+
+**Checks, this session.** Typecheck clean. `npm test`: 117 files, 3,019 tests passed.
+Build passed. `budget.ts` PASS: entry 274.1 of 285 KB, CSS 15.4 of 16 KB, boot set
+724.7 of 860 KB, pack 403.9 of 480 KB. `corpus:validate --strict` exited 0, and
+`devseed` appears in no chunk.
+
+On the iPhone 17 Pro simulator: Wortbau apart and joined (*Jahreszeit*), a related
+compound (*Hochzeit*), and a save (goal 0/5 → 1/5). Not driven: the recap's Kurs band,
+the Settings readout, and *Back to Kurs* from a unit session.
+
+---
+
+### 2026-11-27 · Jetzt: the feed tells the time, and a saved word lands in Üben
+
+**Not deployed.** Built on `redesign/lexi-3` from `main` at `49bd70f`, which is what
+production runs. A push to `main` is a deploy and waits for the owner's word.
+
+**The board, convened** (BOARD.md). A Standard action that changes VISION, which the
+owner allowed in advance: "VISION and DESIGN aren't the bible, if you can justify the
+change to them, make it." Seats: the Principal and the six link governors; the Learning
+Scientist, whose feed veto was checked (no `data-word`, no exposure, a save only
+through the bookmark); the Product Designer (veto), Creative Director, Inclusion Lead
+and Lesson Study Lead, on the simulator; the Head of German, for the German, which 251
+tests now hold; the Lexicographer (veto), for *lieb*, changed through `fix-authored`;
+the UX Writer, Classroom Teacher and Clerk. No learner row or setting was touched, and
+no storage key was added.
+
+**Jetzt** (`components/JetztSlot.tsx`, `data/jetzt.ts`; VISION, *The feed knows what
+time it is*). This is a feed slot placed once per part of the day, after the word the
+learner resumes on. It gives the time as a German says it (*Es ist kurz vor halb
+drei.*) with the English and the formal reading (*vierzehn Uhr siebenundzwanzig*). It
+gives the day as one compound with its last part's article (*der Freitagnachmittag*,
+and at night *die Donnerstagnacht*) and the date with its spoken ordinal (*der
+siebenundzwanzigste*). Last come six words for the hour and season, each a card, with
+one *Save all 6 for Üben*. While the clock says *halb*, a margin note (`.heft-note`)
+says that *halb drei* is 2:30, in place of the date. The words skip what the learner
+knows, prefer what is inside their level filter, and break ties by the easier level, so
+a cold learner gets *die Tasse* and *der Feierabend* rather than *das Nickerchen*. They
+are picked once for the part of the day; the clock keeps time. `data/jetzt.test.ts`
+(251 tests) checks the number and ordinal words, each minute of the day (with every
+boundary of *kurz nach*, *kurz vor* and *fünf vor halb*), the compounds, the seasons in
+both hemispheres, and every term the slot can name against `cards.json`.
+
+**The welcome greets by the clock** (`views/Feed.tsx`). *Guten Morgen*, *Guten Tag*,
+*Guten Abend* or, after midnight, *Noch wach?* opens the welcome, with a literal gloss
+and the greeting's own card as a chip (*der Tag · day*). One paragraph says what Lexi
+is and how the loop works. The three lines rise together over 600ms at different
+distances (`.greet-in`). The feed tour is three steps: the swipe, the save, the five
+doors.
+
+**A saved word lands in Üben** (`lib/flight.ts`; DESIGN §7, *The save, made visible*).
+Saving a feed word, or *Save all* in Jetzt, flies a copy of the highlighted word into
+Üben's tab, and the tab dips as it lands. It is transform-only and aria-hidden, it is
+removed on landing or by a timer, and it is skipped under reduced motion. Both tab bars
+carry `data-nav`, so it finds whichever one is showing.
+
+**How common, said once.** The level line on a word slot adds a frequency band from
+Lexi's own ranks (`lib/freq.ts`): *top 100*, *top 500* or *top 2,000*, and nothing
+beyond that, where a rank stops meaning much (the argument `freqBand` makes).
+
+***Erledigt*** (`components/SessionRecap.tsx`). A finished session is stamped
+*Erledigt* with the date, in place of a green check that entered from `opacity: 0`. The
+motion test's exemption for that check is gone (LESSONS, *An exemption in a guard*).
+
+***lieb* is the adjective again** (`voc:A1:lieb`,
+`scripts/authoring/batches/lieb-fix-2026-11-27.json`). Both examples were *lieben*
+(*Lieb mich!*, *Ich liebe es!*) under the gloss "lovable". The card now reads "kind,
+dear", with *Das ist sehr lieb von dir.* and *Viele liebe Grüße an deine Eltern!*
+`authoring:fix --dry` replaced 3 and refused 0. Then `corpus:split`, `freq`,
+`inflections`, `validate --strict` (PASS) and `ownership` (0 new cards, 0 forms taken).
+
+**Measured at an SE** (DESIGN §12·4). In the pane at 375×550, word slots ran 0px over
+their box, Jetzt 140px and the welcome 23px. Now a short screen gives the slots back
+their spacing and takes four words in Jetzt instead of six. The *halb* note takes the
+date's place on every screen, since at 375×701 it ran 21px over. Kickers are `block`.
+The least spare room is now 12px at 375×550 and 24px at 375×701, across seven times of
+day. On the iPhone 17 Pro simulator: the welcome, the tour, a save landing in Üben,
+Jetzt before and after *Save all*, Üben opening on the saved words, and the stamp.
+
+**Checks, this session.** Typecheck clean. `npm test`: 115 files, 2,887 tests passed.
+Build passed. `budget.ts` PASS: entry 269.1 of 285 KB, CSS 15.3 of 16 KB, boot set
+717.6 of 860 KB, pack 402.0 of 480 KB. `devseed` appears in no chunk.
+
+---
+
 ### 2026-11-26 · Second pass: marks that tell the truth, the goose in the Heft, and pictures of the app as it is
 
 **Deployed** 2026-11-26 by `git push` as `23c4ce0` over `1e40fd3`, together with the entry

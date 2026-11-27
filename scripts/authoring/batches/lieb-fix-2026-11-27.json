@@ -1,0 +1,10 @@
+{
+  "note": "2026-11-27. voc:A1:lieb taught the verb, not the adjective: both examples were lieben (the imperative «Lieb mich!» and «Ich liebe es!»), and the gloss «lovable» is the rarest of its senses. It is often the first word a cold visitor meets (top 500, A1). Replaced with the two uses a learner meets every week: «lieb von dir» and the letter closing «liebe Grüße».",
+  "rows": [
+    { "id": "voc:A1:lieb", "expect": { "en": "lovable" }, "en": "kind, dear" },
+    { "id": "voc:A1:lieb", "at": 0, "expect": { "de": "Lieb mich!", "en": "Love me!" },
+      "de": "Das ist sehr lieb von dir.", "en": "That's very kind of you." },
+    { "id": "voc:A1:lieb", "at": 1, "expect": { "de": "Ich liebe es!", "en": "I love it!" },
+      "de": "Viele liebe Grüße an deine Eltern!", "en": "Warm wishes to your parents!" }
+  ]
+}

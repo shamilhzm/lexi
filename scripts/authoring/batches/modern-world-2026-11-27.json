@@ -1,0 +1,839 @@
+[
+ {
+  "term": "die KI",
+  "en": "AI (artificial intelligence)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "AI & Technology",
+  "gender": "die",
+  "def": "Short for Künstliche Intelligenz: computer systems that do tasks which seem to need human thinking.",
+  "ex": [
+   {
+    "de": "Die KI hat mir eine erste Fassung geschrieben, den Rest habe ich selbst gemacht.",
+    "en": "The AI wrote me a first draft; I did the rest myself."
+   },
+   {
+    "de": "Viele Firmen setzen inzwischen KI im Kundenservice ein.",
+    "en": "Many companies now use AI in customer service."
+   }
+  ]
+ },
+ {
+  "term": "die Halluzination",
+  "en": "hallucination (also: an AI's made-up answer)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "AI & Technology",
+  "gender": "die",
+  "def": "Seeing or hearing things that are not there; also an AI stating invented facts as if they were true.",
+  "ex": [
+   {
+    "de": "Die KI hat eine Quelle erfunden, eine typische Halluzination.",
+    "en": "The AI invented a source, a typical hallucination."
+   },
+   {
+    "de": "Hohes Fieber kann Halluzinationen auslösen.",
+    "en": "A high fever can cause hallucinations."
+   }
+  ]
+ },
+ {
+  "term": "der Sprachassistent",
+  "en": "voice assistant",
+  "pos": "noun",
+  "level": "B2",
+  "field": "AI & Technology",
+  "gender": "der",
+  "def": "A program you control by speaking, on a phone or a smart speaker.",
+  "ex": [
+   {
+    "de": "Ich frage den Sprachassistenten nach dem Wetter.",
+    "en": "I ask the voice assistant about the weather."
+   },
+   {
+    "de": "Der Sprachassistent versteht meinen Dialekt nicht.",
+    "en": "The voice assistant doesn't understand my dialect."
+   }
+  ]
+ },
+ {
+  "term": "die Spracherkennung",
+  "en": "speech recognition",
+  "pos": "noun",
+  "level": "B2",
+  "field": "AI & Technology",
+  "gender": "die",
+  "def": "Technology that turns spoken words into text or commands.",
+  "ex": [
+   {
+    "de": "Die Spracherkennung schreibt mit, während ich rede.",
+    "en": "Speech recognition writes along while I talk."
+   },
+   {
+    "de": "Bei einem starken Akzent macht die Spracherkennung noch Fehler.",
+    "en": "With a strong accent, speech recognition still makes mistakes."
+   }
+  ]
+ },
+ {
+  "term": "die Gesichtserkennung",
+  "en": "facial recognition",
+  "pos": "noun",
+  "level": "B2",
+  "field": "AI & Technology",
+  "gender": "die",
+  "def": "Technology that identifies a person from their face.",
+  "ex": [
+   {
+    "de": "Mein Handy entsperre ich mit Gesichtserkennung.",
+    "en": "I unlock my phone with facial recognition."
+   },
+   {
+    "de": "Gesichtserkennung im öffentlichen Raum ist umstritten.",
+    "en": "Facial recognition in public spaces is controversial."
+   }
+  ]
+ },
+ {
+  "term": "der Cyberangriff",
+  "en": "cyberattack",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Digital World & Technology",
+  "gender": "der",
+  "def": "An attack on computers or networks to steal data or cause damage.",
+  "ex": [
+   {
+    "de": "Nach dem Cyberangriff war die Stadtverwaltung tagelang offline.",
+    "en": "After the cyberattack, the city administration was offline for days."
+   },
+   {
+    "de": "Krankenhäuser müssen sich besser gegen Cyberangriffe schützen.",
+    "en": "Hospitals must protect themselves better against cyberattacks."
+   }
+  ]
+ },
+ {
+  "term": "die Sicherheitslücke",
+  "en": "security hole, vulnerability",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Digital World & Technology",
+  "gender": "die",
+  "def": "A weakness in software or a system that attackers can use.",
+  "ex": [
+   {
+    "de": "Das Update schließt eine gefährliche Sicherheitslücke.",
+    "en": "The update closes a dangerous security hole."
+   },
+   {
+    "de": "Forscher haben eine Sicherheitslücke in der App entdeckt.",
+    "en": "Researchers have found a vulnerability in the app."
+   }
+  ]
+ },
+ {
+  "term": "das Phishing",
+  "en": "phishing",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Digital World & Technology",
+  "gender": "das",
+  "sameAsGerman": true,
+  "def": "Fake messages that try to trick you into giving away passwords or bank details.",
+  "ex": [
+   {
+    "de": "Die E-Mail sah echt aus, war aber Phishing.",
+    "en": "The email looked real, but it was phishing."
+   },
+   {
+    "de": "Die Bank warnt ihre Kunden vor Phishing.",
+    "en": "The bank is warning its customers about phishing."
+   }
+  ]
+ },
+ {
+  "term": "die Datenkrake",
+  "en": "data octopus (a company that hoards personal data)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Digital World & Technology",
+  "gender": "die",
+  "def": "A company or service that collects huge amounts of personal data.",
+  "ex": [
+   {
+    "de": "Kritiker nennen den Konzern eine Datenkrake.",
+    "en": "Critics call the corporation a data octopus."
+   },
+   {
+    "de": "Ich will meine Daten keiner Datenkrake schenken.",
+    "en": "I don't want to hand my data to some data octopus."
+   }
+  ]
+ },
+ {
+  "term": "der Deepfake",
+  "en": "deepfake",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Media Critique",
+  "sameAsGerman": true,
+  "def": "A fake video, image or recording made with AI so that it looks real.",
+  "ex": [
+   {
+    "de": "Das Video war ein Deepfake, der Politiker hat das nie gesagt.",
+    "en": "The video was a deepfake; the politician never said that."
+   },
+   {
+    "de": "Deepfakes sind kaum noch von echten Aufnahmen zu unterscheiden.",
+    "en": "Deepfakes can hardly be told apart from real recordings any more."
+   }
+  ],
+  "gender": "der"
+ },
+ {
+  "term": "die Hassrede",
+  "en": "hate speech",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Media Critique",
+  "gender": "die",
+  "def": "Insulting or threatening language that attacks people for who they are.",
+  "ex": [
+   {
+    "de": "Plattformen müssen Hassrede schneller löschen.",
+    "en": "Platforms have to delete hate speech faster."
+   },
+   {
+    "de": "Hassrede im Netz kann strafbar sein.",
+    "en": "Hate speech online can be a criminal offence."
+   }
+  ]
+ },
+ {
+  "term": "der Faktencheck",
+  "en": "fact check",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Media Critique",
+  "gender": "der",
+  "def": "A check of whether claims made in the news or online are true.",
+  "ex": [
+   {
+    "de": "Der Faktencheck zeigt, dass die Zahl im Video falsch ist.",
+    "en": "The fact check shows that the number in the video is wrong."
+   },
+   {
+    "de": "Viele Redaktionen machen inzwischen regelmäßig Faktenchecks.",
+    "en": "Many newsrooms now run fact checks regularly."
+   }
+  ]
+ },
+ {
+  "term": "die Echokammer",
+  "en": "echo chamber",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Media Critique",
+  "gender": "die",
+  "def": "An online space where people only meet opinions that match their own.",
+  "ex": [
+   {
+    "de": "In sozialen Netzwerken landet man schnell in einer Echokammer.",
+    "en": "On social networks you quickly end up in an echo chamber."
+   },
+   {
+    "de": "Echokammern verstärken extreme Meinungen.",
+    "en": "Echo chambers amplify extreme opinions."
+   }
+  ]
+ },
+ {
+  "term": "die Mediathek",
+  "en": "on-demand library (of a broadcaster)",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Entertainment & Media",
+  "gender": "die",
+  "def": "A broadcaster's website or app where you can watch programmes after they have aired.",
+  "ex": [
+   {
+    "de": "Die Sendung von gestern gibt es noch in der Mediathek.",
+    "en": "Yesterday's programme is still available on demand."
+   },
+   {
+    "de": "Die Mediatheken von ARD und ZDF kosten nichts extra.",
+    "en": "The ARD and ZDF on-demand libraries cost nothing extra."
+   }
+  ]
+ },
+ {
+  "term": "streamen",
+  "en": "to stream",
+  "pos": "verb",
+  "level": "B1",
+  "field": "Entertainment & Media",
+  "def": "To watch or listen to films, music or games over the internet without downloading them.",
+  "ex": [
+   {
+    "de": "Am Wochenende streamen wir oft eine Serie.",
+    "en": "At the weekend we often stream a series."
+   },
+   {
+    "de": "Er streamt jeden Abend Videospiele.",
+    "en": "He streams video games every evening."
+   }
+  ]
+ },
+ {
+  "term": "das Ladegerät",
+  "en": "charger",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Technology & Devices",
+  "gender": "das",
+  "def": "A device that charges the battery of a phone or another device.",
+  "ex": [
+   {
+    "de": "Hast du ein Ladegerät für mein Handy?",
+    "en": "Do you have a charger for my phone?"
+   },
+   {
+    "de": "Ich habe mein Ladegerät im Hotel vergessen.",
+    "en": "I left my charger at the hotel."
+   }
+  ]
+ },
+ {
+  "term": "das WLAN",
+  "en": "Wi-Fi",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Technology & Devices",
+  "gender": "das",
+  "def": "A wireless internet connection at home, in a café or in an office.",
+  "ex": [
+   {
+    "de": "Wie ist das Passwort für das WLAN?",
+    "en": "What's the Wi-Fi password?"
+   },
+   {
+    "de": "Im Zug ist das WLAN leider sehr langsam.",
+    "en": "Unfortunately the Wi-Fi on the train is very slow."
+   }
+  ]
+ },
+ {
+  "term": "der Videoanruf",
+  "en": "video call",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Digital World & Technology",
+  "gender": "der",
+  "def": "A call over the internet in which you can see each other.",
+  "ex": [
+   {
+    "de": "Ich habe jeden Sonntag einen Videoanruf mit meinen Eltern.",
+    "en": "I have a video call with my parents every Sunday."
+   },
+   {
+    "de": "Können wir das kurz per Videoanruf besprechen?",
+    "en": "Can we discuss it briefly on a video call?"
+   }
+  ]
+ },
+ {
+  "term": "die Videokonferenz",
+  "en": "video conference",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Digitalisation & Work",
+  "gender": "die",
+  "def": "A meeting held over the internet in which the participants can see each other.",
+  "ex": [
+   {
+    "de": "Die Besprechung findet heute als Videokonferenz statt.",
+    "en": "Today the meeting is taking place as a video conference."
+   },
+   {
+    "de": "Nach drei Videokonferenzen am Stück brauche ich eine Pause.",
+    "en": "After three video conferences in a row I need a break."
+   }
+  ]
+ },
+ {
+  "term": "die Bildschirmzeit",
+  "en": "screen time",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Digital World & Technology",
+  "gender": "die",
+  "def": "The time you spend looking at a phone, computer or TV screen.",
+  "ex": [
+   {
+    "de": "Meine Bildschirmzeit lag gestern bei sechs Stunden.",
+    "en": "My screen time was six hours yesterday."
+   },
+   {
+    "de": "Wir begrenzen die Bildschirmzeit der Kinder am Abend.",
+    "en": "We limit the children's screen time in the evening."
+   }
+  ]
+ },
+ {
+  "term": "der Onlineshop",
+  "en": "online shop",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Money & shopping",
+  "gender": "der",
+  "def": "A website where you can buy things.",
+  "ex": [
+   {
+    "de": "Ich habe die Schuhe in einem Onlineshop bestellt.",
+    "en": "I ordered the shoes from an online shop."
+   },
+   {
+    "de": "Der Onlineshop liefert innerhalb von zwei Tagen.",
+    "en": "The online shop delivers within two days."
+   }
+  ]
+ },
+ {
+  "term": "das Pfand",
+  "en": "deposit (on bottles and crates)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Money & shopping",
+  "gender": "das",
+  "def": "Money you pay on a bottle or crate and get back when you return it.",
+  "ex": [
+   {
+    "de": "Auf die Flasche sind 25 Cent Pfand.",
+    "en": "There's a 25-cent deposit on the bottle."
+   },
+   {
+    "de": "Ich bringe die leeren Flaschen zurück und bekomme das Pfand.",
+    "en": "I take the empty bottles back and get the deposit."
+   }
+  ]
+ },
+ {
+  "term": "die Mehrwegflasche",
+  "en": "returnable bottle",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Environment",
+  "gender": "die",
+  "def": "A bottle that is returned, cleaned and filled again.",
+  "ex": [
+   {
+    "de": "Mehrwegflaschen bringt man in den Supermarkt zurück.",
+    "en": "You take returnable bottles back to the supermarket."
+   },
+   {
+    "de": "Wir kaufen Wasser nur noch in Mehrwegflaschen.",
+    "en": "We only buy water in returnable bottles now."
+   }
+  ]
+ },
+ {
+  "term": "die Solaranlage",
+  "en": "solar power system",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Energy & Resources",
+  "gender": "die",
+  "def": "Panels that turn sunlight into electricity or heat, usually on a roof.",
+  "ex": [
+   {
+    "de": "Auf unserem Dach ist jetzt eine Solaranlage.",
+    "en": "There's a solar power system on our roof now."
+   },
+   {
+    "de": "Im Sommer produziert die Solaranlage mehr Strom, als wir brauchen.",
+    "en": "In summer the solar system produces more electricity than we need."
+   }
+  ]
+ },
+ {
+  "term": "das Balkonkraftwerk",
+  "en": "plug-in balcony solar panel",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Energy & Resources",
+  "gender": "das",
+  "def": "A small solar panel on a balcony that plugs into an ordinary socket.",
+  "ex": [
+   {
+    "de": "Mit dem Balkonkraftwerk sparen wir ein bisschen Strom.",
+    "en": "With the balcony solar panel we save a bit of electricity."
+   },
+   {
+    "de": "Viele Mieter hängen sich ein Balkonkraftwerk ans Geländer.",
+    "en": "Many tenants hang a balcony solar panel on their railing."
+   }
+  ]
+ },
+ {
+  "term": "der Stromanbieter",
+  "en": "electricity supplier",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Energy & Resources",
+  "gender": "der",
+  "def": "A company that supplies electricity to homes.",
+  "ex": [
+   {
+    "de": "Wir haben den Stromanbieter gewechselt und sparen jetzt Geld.",
+    "en": "We switched electricity supplier and are saving money now."
+   },
+   {
+    "de": "Unser Stromanbieter hat die Preise schon wieder erhöht.",
+    "en": "Our electricity supplier has raised its prices again."
+   }
+  ]
+ },
+ {
+  "term": "der Kipppunkt",
+  "en": "tipping point",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Climate Change",
+  "gender": "der",
+  "def": "A threshold after which a change, for example in the climate, can no longer be stopped.",
+  "ex": [
+   {
+    "de": "Forscher warnen, dass wichtige Kipppunkte bald überschritten werden könnten.",
+    "en": "Researchers warn that important tipping points could soon be crossed."
+   },
+   {
+    "de": "Das Abschmelzen des Grönlandeises gilt als möglicher Kipppunkt.",
+    "en": "The melting of the Greenland ice is seen as a possible tipping point."
+   }
+  ]
+ },
+ {
+  "term": "die Klimaanpassung",
+  "en": "climate adaptation",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Climate Change",
+  "gender": "die",
+  "def": "Measures that help people and places cope with a changing climate.",
+  "ex": [
+   {
+    "de": "Städte investieren in Klimaanpassung, zum Beispiel in mehr Bäume.",
+    "en": "Cities are investing in climate adaptation, for example in more trees."
+   },
+   {
+    "de": "Klimaanpassung ersetzt keinen Klimaschutz.",
+    "en": "Climate adaptation is no substitute for climate protection."
+   }
+  ]
+ },
+ {
+  "term": "das Artensterben",
+  "en": "extinction of species",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Environment",
+  "gender": "das",
+  "def": "The dying out of many kinds of animals and plants.",
+  "ex": [
+   {
+    "de": "Das Artensterben schreitet schneller voran als erwartet.",
+    "en": "The extinction of species is moving faster than expected."
+   },
+   {
+    "de": "Auch das Artensterben ist eine Folge des Klimawandels.",
+    "en": "The loss of species is also a consequence of climate change."
+   }
+  ]
+ },
+ {
+  "term": "der Fleischersatz",
+  "en": "meat substitute",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Food & drink",
+  "gender": "der",
+  "def": "A food made from plants or other ingredients that replaces meat.",
+  "ex": [
+   {
+    "de": "Im Supermarkt gibt es immer mehr Fleischersatz aus Erbsen und Soja.",
+    "en": "Supermarkets sell more and more meat substitutes made from peas and soy."
+   },
+   {
+    "de": "Ich koche die Bolognese mit Fleischersatz.",
+    "en": "I make the bolognese with a meat substitute."
+   }
+  ]
+ },
+ {
+  "term": "die Ladesäule",
+  "en": "charging point (for electric cars)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Transport & Mobility",
+  "gender": "die",
+  "def": "A post where you charge an electric car.",
+  "ex": [
+   {
+    "de": "Vor dem Supermarkt gibt es zwei Ladesäulen.",
+    "en": "There are two charging points in front of the supermarket."
+   },
+   {
+    "de": "An der Ladesäule dauert es etwa eine halbe Stunde.",
+    "en": "At the charging point it takes about half an hour."
+   }
+  ]
+ },
+ {
+  "term": "das E-Auto",
+  "en": "electric car",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "gender": "das",
+  "def": "A car that runs on electricity from a battery.",
+  "ex": [
+   {
+    "de": "Unser nächstes Auto wird ein E-Auto.",
+    "en": "Our next car will be an electric car."
+   },
+   {
+    "de": "E-Autos sind leise, aber noch ziemlich teuer.",
+    "en": "Electric cars are quiet but still fairly expensive."
+   }
+  ]
+ },
+ {
+  "term": "das Lastenrad",
+  "en": "cargo bike",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "gender": "das",
+  "def": "A bicycle with a large box or platform for carrying children or goods.",
+  "ex": [
+   {
+    "de": "Sie bringt die Kinder mit dem Lastenrad in die Kita.",
+    "en": "She takes the children to nursery on the cargo bike."
+   },
+   {
+    "de": "Immer mehr Pakete werden mit Lastenrädern ausgeliefert.",
+    "en": "More and more parcels are delivered by cargo bike."
+   }
+  ]
+ },
+ {
+  "term": "das Deutschlandticket",
+  "en": "Deutschlandticket (monthly pass for local transport)",
+  "pos": "noun",
+  "level": "A2",
+  "field": "Transport & Mobility",
+  "gender": "das",
+  "def": "A monthly ticket for all local buses and trains across Germany.",
+  "ex": [
+   {
+    "de": "Mit dem Deutschlandticket fahre ich jeden Tag zur Arbeit.",
+    "en": "I travel to work every day on the Deutschlandticket."
+   },
+   {
+    "de": "Das Deutschlandticket gilt nicht im ICE.",
+    "en": "The Deutschlandticket isn't valid on the ICE."
+   }
+  ]
+ },
+ {
+  "term": "der Zugausfall",
+  "en": "train cancellation",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "gender": "der",
+  "def": "When a planned train does not run.",
+  "ex": [
+   {
+    "de": "Wegen eines Zugausfalls kam ich zwei Stunden zu spät.",
+    "en": "Because of a train cancellation I was two hours late."
+   },
+   {
+    "de": "Bei einem Zugausfall bekommt man einen Teil des Geldes zurück.",
+    "en": "If your train is cancelled, you get part of the money back."
+   }
+  ]
+ },
+ {
+  "term": "das Tempolimit",
+  "en": "speed limit",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Transport & Mobility",
+  "gender": "das",
+  "def": "The highest speed you are allowed to drive on a road.",
+  "ex": [
+   {
+    "de": "Auf vielen Autobahnen gibt es kein Tempolimit.",
+    "en": "There's no speed limit on many motorways."
+   },
+   {
+    "de": "Die Befürworter sagen, ein Tempolimit würde Leben retten.",
+    "en": "Its supporters say a speed limit would save lives."
+   }
+  ]
+ },
+ {
+  "term": "die Wohnungsnot",
+  "en": "housing shortage",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Housing & Room Search",
+  "gender": "die",
+  "def": "A lack of affordable homes for the people who need them.",
+  "ex": [
+   {
+    "de": "In den Großstädten herrscht Wohnungsnot.",
+    "en": "There's a housing shortage in the big cities."
+   },
+   {
+    "de": "Die Wohnungsnot trifft vor allem Studierende und Familien.",
+    "en": "The housing shortage hits students and families above all."
+   }
+  ]
+ },
+ {
+  "term": "die Pflegekraft",
+  "en": "nurse, care worker",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Healthcare System",
+  "gender": "die",
+  "def": "A trained person who looks after sick or elderly people.",
+  "ex": [
+   {
+    "de": "In vielen Krankenhäusern fehlen Pflegekräfte.",
+    "en": "Many hospitals are short of nurses."
+   },
+   {
+    "de": "Die Pflegekraft kommt jeden Morgen zu meiner Oma.",
+    "en": "The care worker comes to my grandma every morning."
+   }
+  ]
+ },
+ {
+  "term": "der Pflegenotstand",
+  "en": "crisis in care (shortage of care staff)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Healthcare System",
+  "gender": "der",
+  "def": "A serious shortage of nurses and care workers.",
+  "ex": [
+   {
+    "de": "Der Pflegenotstand wird sich in den nächsten Jahren verschärfen.",
+    "en": "The care staff crisis will get worse in the coming years."
+   },
+   {
+    "de": "Gewerkschaften warnen vor einem Pflegenotstand in den Heimen.",
+    "en": "Unions warn of a care staff crisis in care homes."
+   }
+  ]
+ },
+ {
+  "term": "der Tarifvertrag",
+  "en": "collective (pay) agreement",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Working Life",
+  "gender": "der",
+  "def": "An agreement between unions and employers on pay and working conditions.",
+  "ex": [
+   {
+    "de": "Der neue Tarifvertrag bringt fünf Prozent mehr Lohn.",
+    "en": "The new collective agreement brings five percent more pay."
+   },
+   {
+    "de": "Nicht alle Firmen sind an einen Tarifvertrag gebunden.",
+    "en": "Not every company is bound by a collective agreement."
+   }
+  ]
+ },
+ {
+  "term": "die Kurzarbeit",
+  "en": "short-time work (reduced hours with state support)",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Working Life",
+  "gender": "die",
+  "def": "Reduced working hours during a crisis, with the state paying part of the lost wages.",
+  "ex": [
+   {
+    "de": "Während der Krise waren viele Beschäftigte in Kurzarbeit.",
+    "en": "During the crisis many employees were on short-time work."
+   },
+   {
+    "de": "Die Firma hat für drei Monate Kurzarbeit angemeldet.",
+    "en": "The company has registered short-time work for three months."
+   }
+  ]
+ },
+ {
+  "term": "die Bundeswehr",
+  "en": "the German armed forces",
+  "pos": "noun",
+  "level": "B1",
+  "field": "Military concepts",
+  "gender": "die",
+  "def": "Germany's armed forces: army, navy and air force.",
+  "ex": [
+   {
+    "de": "Die Bundeswehr sucht dringend neue Soldaten.",
+    "en": "The armed forces urgently need new soldiers."
+   },
+   {
+    "de": "Mein Bruder arbeitet als Arzt bei der Bundeswehr.",
+    "en": "My brother works as a doctor in the armed forces."
+   }
+  ]
+ },
+ {
+  "term": "die Wehrpflicht",
+  "en": "compulsory military service, conscription",
+  "pos": "noun",
+  "level": "B2",
+  "field": "Military concepts",
+  "gender": "die",
+  "def": "The legal duty to serve in the armed forces for a period.",
+  "ex": [
+   {
+    "de": "In Deutschland wird wieder über die Wehrpflicht diskutiert.",
+    "en": "Conscription is being debated in Germany again."
+   },
+   {
+    "de": "Mein Großvater musste wegen der Wehrpflicht zur Armee.",
+    "en": "My grandfather had to join the army because of conscription."
+   }
+  ]
+ },
+ {
+  "term": "die Zeitenwende",
+  "en": "turning point, watershed (between eras)",
+  "pos": "noun",
+  "level": "C1",
+  "field": "Politics & History",
+  "gender": "die",
+  "def": "A historic turning point; since 2022 especially Germany's change of course in defence policy.",
+  "ex": [
+   {
+    "de": "Der Kanzler sprach von einer Zeitenwende.",
+    "en": "The chancellor spoke of a historic turning point."
+   },
+   {
+    "de": "Für viele war der Krieg in der Ukraine eine Zeitenwende.",
+    "en": "For many people, the war in Ukraine was a turning point."
+   }
+  ]
+ }
+]

@@ -21,6 +21,7 @@ import NewsTopicsSettings from '../components/reader/NewsTopicsSettings.tsx';
 import { storiesAvailable } from '../lib/platform.ts';
 import { resetTours } from '../lib/hints.ts';
 import OfflinePack from '../components/OfflinePack.tsx';
+import OnThisDevice from '../components/OnThisDevice.tsx';
 
 /** The one segmented-control style, shared by every toggle group on this page.
  *  Previously each group re-typed it with a slightly different "off" hover. */
@@ -183,6 +184,9 @@ export default function Settings({ onExit }: { onExit: () => void }) {
       {storiesAvailable() && <AiSettings />}
 
       <OfflinePack />
+
+      {/* Where Lexi is going: open models, on this device (lib/engines). */}
+      <OnThisDevice />
 
       {/* Your data — backup & restore (local-first insurance) */}
       <Card as="section" className="mt-4">

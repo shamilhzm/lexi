@@ -29,8 +29,9 @@ import { ALL_LEVELS, type CEFR, type Target } from './types.ts';
 import type { View } from './App.tsx';
 
 /** Where you are inside Words. The index is the deck list; `group` filters it;
- *  `map` is the sector's word map, one level deeper; `kurs` is the course. */
-export type WordsLevel = 'index' | 'group' | 'map' | 'kurs';
+ *  `map` is the sector's word map, one level deeper. (The course lived here as
+ *  `kurs` until 2026-11-27; it is part of Üben now, at `#/kurs`.) */
+export type WordsLevel = 'index' | 'group' | 'map';
 
 export interface WordsRoute {
   level: WordsLevel;
@@ -38,8 +39,6 @@ export interface WordsRoute {
   group?: string;
   /** Sector the word map is showing. */
   sector?: string;
-  /** Level the course is showing; absent means the learner's study level. */
-  course?: CEFR;
 }
 
 export interface Route {
@@ -47,12 +46,21 @@ export interface Route {
   words: WordsRoute;
   /** Present only for scoped sessions (all / group / sector). */
   target?: Target;
+  /** The level the course shows (`#/kurs/<level>`); absent means the learner's
+   *  study level. */
+  course?: CEFR;
 }
 
 // Three of these are nav destinations; the rest are places you open from one of
 // them. All are linkable, and none of the last four is a fourth thing competing
 // for the bottom bar.
-const VIEWS: View[] = ['feed', 'session', 'words', 'exam', 'progress', 'placement', 'interests', 'profile', 'settings', 'text'];
+const VIEWS: View[] = ['feed', 'session', 'kurs', 'words', 'exam', 'progress', 'placement', 'interests', 'profile', 'settings', 'text'];
+
+/** A level named in a hash, or the learner's own when it names none we teach. */
+function levelIn(s: string | undefined): CEFR | undefined {
+  const l = s?.toUpperCase() as CEFR | undefined;
+  return l && ALL_LEVELS.includes(l) ? l : undefined;
+}
 
 /** Hashes that used to name a destination, and where they land now.
  *
@@ -97,12 +105,14 @@ export function parseHash(hash = location.hash): Route {
     const rest = parts.slice(2).join('/');
     if (parts[1] === 'map' && rest) return { view, words: { level: 'map', sector: rest } };
     if (parts[1] === 'g' && rest) return { view, words: { level: 'group', group: rest } };
-    if (parts[1] === 'kurs') {
-      const l = parts[2]?.toUpperCase() as CEFR | undefined;
-      return { view, words: { level: 'kurs', course: l && ALL_LEVELS.includes(l) ? l : undefined } };
-    }
+    // The course's address from 2026-11-19 to 2026-11-27, when it moved into Üben.
+    if (parts[1] === 'kurs') return { view: 'kurs', words: INDEX, course: levelIn(parts[2]) };
     return { view, words: INDEX };
   }
+
+  // The course: a part of Üben, beside the day's session (VISION, *The course
+  // moves into Üben*).
+  if (view === 'kurs') return { view, words: INDEX, course: levelIn(parts[1]) };
 
   if (view === 'progress') {
     // The retired depth. `#/progress/decks/<group>` and `#/progress/map/<sector>`
@@ -153,7 +163,8 @@ export const wordHash = (id: string) => `#/w/${encodeURIComponent(id)}`;
  *
  *  The session replaces rather than pushes: Back from the card leaves the app once
  *  instead of walking a trail of identical entries. So does a level chip inside the
- *  course: switching A2 → B1 is a tab, not a step. */
+ *  course, and the switch between the day's session and the course: switching
+ *  A2 → B1, or *Heute* → *Kurs*, is a tab, not a step. */
 export function hashWrite(current: string, next: string, o: { view: View; linkOpen: boolean }):
   { settle?: string; hash?: string; replace?: boolean } {
   let settle: string | undefined;
@@ -162,7 +173,13 @@ export function hashWrite(current: string, next: string, o: { view: View; linkOp
     settle = current = toHash('feed', undefined, INDEX);
   }
   if (current === next) return settle ? { settle } : {};
-  const replace = o.view === 'session' || (next.startsWith('#/words/kurs') && current.startsWith('#/words/kurs'));
+  const inUeben = (h: string) => h.startsWith('#/kurs') || h.startsWith('#/session');
+  // An alias rewritten to its canonical spelling (`#/words/kurs/B1` → `#/kurs/B1`, an
+  // empty hash → `#/feed`) is the same place. Pushing it left a Back entry that led
+  // to the page already showing (2026-11-27).
+  const r = parseHash(current);
+  const alias = toHash(r.view, r.target, r.words, r.course) === next;
+  const replace = o.view === 'session' || alias || (next.startsWith('#/kurs') && inUeben(current));
   return { settle, hash: next, replace };
 }
 
@@ -194,11 +211,11 @@ export function knownRoute(r: Route, k: KnownNames): Route {
 }
 
 /** Serialise a route to a hash. */
-export function toHash(view: View, target: Target | undefined, words: WordsRoute): string {
+export function toHash(view: View, target: Target | undefined, words: WordsRoute, course?: CEFR): string {
+  if (view === 'kurs') return course ? `#/kurs/${course}` : '#/kurs';
   if (view === 'words') {
     if (words.level === 'map' && words.sector) return `#/words/map/${encodeURIComponent(words.sector)}`;
     if (words.level === 'group' && words.group) return `#/words/g/${encodeURIComponent(words.group)}`;
-    if (words.level === 'kurs') return words.course ? `#/words/kurs/${words.course}` : '#/words/kurs';
     return '#/words';
   }
   if (view === 'session') {
