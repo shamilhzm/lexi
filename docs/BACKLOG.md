@@ -23,13 +23,49 @@
 >
 > ---
 >
+> ## Kurs in Üben, Wortbau, the modern world, open models — open work *(2026-11-27)*
+>
+> *Committed on `redesign/lexi-3` as `f07e2ee`, with the Jetzt pass below. Not pushed
+> or deployed (CHANGELOG 2026-11-27).*
+>
+> 1. **Owner: ship or hold.** One branch holds both passes. A push to `main` deploys,
+>    so it waits for your word and the `lexi-deploy` pre-flight.
+> 2. **Not yet driven on the simulator:** the recap's Kurs band, the Settings readout,
+>    and *Back to Kurs* after a unit's session. · S · 📱
+> 3. **The three local-model decisions** (LOCAL-AI.md, each Reserved): clips rendered
+>    by Piper in the CC0 Thorsten voice; Whisper on the device; a learner's own model
+>    server as the tutor. Each reopens *A closed voice*, changes the CSP, or changes
+>    what leaves the device.
+> 4. **Composed IPA has no glottal stop.** `compose-ipa.ts` joins its segments without
+>    the ʔ that a vowel-initial part takes. *Videoanruf* reads ˈviːdeoˌanʁuːf, and so do
+>    *Stromanbieter* and *Klimaanpassung*, while 644 of the corpus's 11,558 IPA fields
+>    write it (*Mittagessen* ˈmɪtaːkˌʔɛsn̩). · S
+> 5. **Four probe words absent** (`corpus:domains`): *Paketstation* (no source found);
+>    *der/die Geflüchtete*, an adjectival noun, in the shape *der/die Erwachsene*
+>    already uses; *Meldebescheinigung*; *Termin ausmachen*. · S
+> 6. ***Die Taschenlampe* is filed at C1 and is an A2 word.** A relevel is a schedule
+>    migration (`idmap.ts`), for the Registrar. · XS
+> 7. **Everyday compounds that are not cards yet, though both their parts are:**
+>    *Kinderwagen, Mülleimer, Turnschuh, Hausschuh, Wasserhahn, Schneemann,
+>    Sonnenblume, Suchmaschine, Faultier, Waschbär, Ohrwurm, Schadenfreude, Fernweh,
+>    Lieblingsessen*. Each goes through `authoring:new`, then gets a Wortbau row.
+>    *Rolltreppe* also needs *rollen*. Four are cards already, but one part is not:
+>    *Schildkröte* (*Kröte*), *Eisenbahn* (*Eisen*), *Bleistift* (*Blei*), *Feuerwehr*
+>    (*Wehr*). · M
+> 8. **Glosses to repair through `fix-authored`:** *stecken* ("causative of stecken
+>    when intransitive, to stick"); *der Zettel* ("a small or loose piece of paper,
+>    slip", a definition); *die Hochschule*, which says "university" twice; *das Werk*
+>    ("plant, works"), which lacks "work"; *die Marke* ("brand"), which lacks "stamp,
+>    token". Read each card's examples before choosing the sense. · S
+>
+> ---
+>
 > ## Jetzt and the save you can watch — open work *(2026-11-27)*
 >
 > *Built on `redesign/lexi-3` and not deployed (CHANGELOG 2026-11-27).*
 >
-> 1. **Owner: ship or hold.** The branch holds Jetzt, the clock greeting, the save
->    flight, the *Erledigt* stamp, the frequency band and the *lieb* fix. A push to
->    `main` deploys, so it waits for your word and the `lexi-deploy` pre-flight.
+> 1. **Owner: ship or hold.** Now one decision with the pass above: both are on
+>    `redesign/lexi-3` (`f07e2ee`).
 > 2. **Jetzt and the welcome at an accessibility text size, and on die Tafel.** They
 >    were measured in light, at the default size, at two phone heights. Look on the
 >    simulator before changing anything. · S · 📱
@@ -257,10 +293,9 @@
 > 3. **Separable or not — *um*fahren and um*fahren*.** Asked about twice. Which reading
 >    a prefix verb has is a fact about that verb; 146 verb cards are gated as
 >    unreliable for exactly this and nothing teaches the difference.
-> 4. **Guess-before-reveal on compounds.** *Handschuh* is *Hand* + *Schuh*; the chat's
->    own answer to "what would make Lexi hold attention" was to open the gap before
->    closing it. Track E #6 refused composition for *prefix verbs*; noun compounds
->    whose parts are both cards were filed, not decided.
+> 4. ✅ ~~**Guess-before-reveal on compounds.**~~ Shipped 2026-11-27 as **Wortbau**
+>    (CHANGELOG; VISION, *Wortbau*): noun compounds whose parts are both cards,
+>    hand-picked and tested against them. Prefix verbs stay refused (Track E #6).
 > 5. **Connectors as a set** (*obwohl, als ob, weder … noch, dadurch dass*). 38
 >    conjunction cards exist; the learner asked a chat for "the B2 connectors" and got
 >    a list. A deck is an afternoon.
@@ -509,7 +544,8 @@
 > - **The compound splitter's wrong answers are marked but not fixed.**
 >   *Schadenfreude* still resolves to *die Freude* — now flagged `viaCompound` so
 >   nothing claims it as known or offers it as an unlock, but a lexicalised-compound
->   list would be better than a flag.
+>   list would be better than a flag. *(2026-11-27: `data/wortbau.ts` is a first such
+>   list, used for display only; the splitter still relies on the flag.)*
 > - **Phase 0's shards are 18.4 MB in the repo.** Fine for a CDN and for git today; if
 >   it becomes a problem, dropping `pos: name` entries or moving the shards to a
 >   release asset are the two levers.

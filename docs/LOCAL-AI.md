@@ -111,3 +111,8 @@ learner's machine. Their text never leaves the device.
   opens without a tap.
 - **Send audio anywhere.** Rule 4 above. A model that needs a server is the learner's
   server, or it is not an engine.
+- **Reach a host nobody has named.** A model download is a new network destination.
+  Before an engine is switched on, name its host in the CSP's `connect-src` and on
+  `public/legal.html`, and take `huggingface.co` out of `LINK_ONLY` in
+  `lib/legal-page.test.ts`. It is listed there today only because the registry cites
+  model cards.

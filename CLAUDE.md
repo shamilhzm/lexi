@@ -43,7 +43,7 @@ Plex Mono for data. **Tailwind v4 drops a theme variable it never sees spelled o
 build no `var(--color-${x})` at runtime; use a literal map (`LEVEL_INK`, `markColor`).
 The look before it is the tag `classic-2026-11-26`.
 
-**Two layers, one search box** *(2026-09-05)*. Lexi **teaches** 11,220 cards *(2026-11-14)* and
+**Two layers, one search box** *(2026-09-05)*. Lexi **teaches** 11,582 cards *(2026-11-27)* and
 **answers** 93,046 dictionary headwords. They are different things and must never
 wear the same chrome: a card is machine-verified and studiable, an entry is an
 unverified Wiktionary gloss with one action — *note this word*. See
@@ -69,6 +69,20 @@ feed: tap any word → a **card** (save with provenance / practise / entry) or a
 `data-word`. An optional bring-your-own-key tutor (`lib/ai.ts`) explains sentences and
 corrects write-backs; it never scores and never writes a card field. See VISION,
 *Stories join the feed* and *An optional tutor*.
+
+**Jetzt and Wortbau** *(2026-11-27)*. Two more feed slots that never grade. **Jetzt**
+(`components/JetztSlot.tsx`, `data/jetzt.ts`) tells the time as a German says it, once
+per part of the day. **Wortbau** (`components/WortbauSlot.tsx`, `data/wortbau.ts`) joins
+two cards into a compound after the learner guesses. Neither carries `data-word`, and
+each writes only the bookmark. Wortbau's rows are hand-picked and `wortbau.test.ts` holds
+each to the cards: never feed it the compound splitter's output, which was about one in
+six wrong (LESSONS, *A generator is sampled before it is shown*).
+
+**Built for open models** *(2026-11-27)*. `src/lib/engines/` is the seam for a local
+voice, ears and tutor, and `docs/LOCAL-AI.md` is its policy: open weights, a permissive
+runtime, no GPL in the bundle, nothing in the cloud. Nothing is installed. Switching an
+engine on is a Reserved matter, and its download host is named in the CSP and on the
+legal page first.
 
 **The web is the product** *(2026-11-21)*. A native shell (`docs/STORES.md`) only wraps
 the web build and never forks it: any door it adds (a widget, the gate) grades through

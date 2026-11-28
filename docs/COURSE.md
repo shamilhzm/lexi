@@ -7,10 +7,12 @@ animated explanation of one idea about German that the situation needs. You watc
 film, then *Learn the words*, which opens an ordinary Üben session over the unit's
 cards.
 
-It lives under Themen (`#/words/kurs/<level>`), because a unit *is* a theme with a
-direction. Themen opens with a band pointing at your next unit; Fortschritt's level card
-links to your level's course. The why — and what it reversed — is in
-[VISION.md](VISION.md), Settled decisions, *The course returns, as films*.
+It lives in Üben (`#/kurs/<level>`), beside the day's session: *Heute | Kurs*. A unit is
+study with a direction, and study is Üben's question. It lived under Themen from
+2026-11-19 to 2026-11-27, and `#/words/kurs/<level>` still lands. Üben's empty state and
+the session recap show a band pointing at your next unit; Fortschritt's level card links
+to your level's course. The why is in [VISION.md](VISION.md), Settled decisions, *The
+course returns, as films* and *The course moves into Üben*.
 
 ## The principles it is built on
 

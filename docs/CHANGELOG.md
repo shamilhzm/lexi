@@ -69,7 +69,9 @@ words and 110 grammar.
   "floor, storey; projectile", with two sentences about buildings.
 - *die Taschenlampe*: now "torch, flashlight".
 
-Landing passed. `ownership` named the same 10 moves as before, each one an improvement.
+Landing passed. `ownership` against `49bd70f` counted 44 new cards and 10 forms taken
+from an old card. Each was the compound's own sentence leaving its head (*Tempolimit*
+from *das Limit*, *Stromanbieter* from *der Anbieter*), so each move is right.
 
 **A seam for open models** (`lib/engines/`, `components/OnThisDevice.tsx`,
 `docs/LOCAL-AI.md`). It has five parts:

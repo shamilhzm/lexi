@@ -397,8 +397,9 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   wait shrinks. Hosting pre-rendered clips is the next step (BACKLOG).
 - **The course returns, as films** *(2026-11-19, at the owner's direction: "you are free
   to override VISION … while remaining true to pedagogic first principles")*. A course of
-  **52 units**, A1 → C2 — eight a level, twelve at C1 — under Themen
-  (`#/words/kurs/<level>`, `data/course.ts`, [COURSE.md](COURSE.md)). Each unit is a
+  **52 units**, A1 → C2 — eight a level, twelve at C1 — under Themen until 2026-11-27
+  and in Üben since (`#/kurs/<level>`, `data/course.ts`, [COURSE.md](COURSE.md); see *The
+  course moves into Üben*, below). Each unit is a
   situation (*Beim Arzt*, *Besprechung und Protokoll*) and its words; **29** of them have
   a **film**: a learner-paced, animated explainer of one idea about German — the article,
   the plural, the verb in position 2, *weil* sending the verb to the end, *-ung* being
@@ -598,6 +599,108 @@ Recorded so they are not re-litigated by drift. Date is when the call was made.
   bookmark. *Leaves open:* regional German (*Grüß Gott*, *Moin*, *Servus*, *viertel
   drei* for 2:15 in the south and east, *Jänner* in Austria), which needs a region
   setting the app does not have (BACKLOG).
+- **The course moves into Üben** *(2026-11-27, at the owner's direction: "Verify that
+  the Kurs lives in the right place instead of within Uben as part of their structured
+  learning/practice")*. **What it settles.** The course is the second half of Üben, at
+  `#/kurs/<level>` (`views/Kurs.tsx`, `components/UebenSwitch.tsx`). *Heute* is the
+  session the scheduler builds, and *Kurs* is the path a learner walks on purpose. A
+  switch, *Heute | Kurs*, moves between them. It replaces the history entry instead of
+  pushing one, so changing halves is a tab, not a step. Üben's empty state and the
+  session recap show the next unit, Fortschritt's level card opens the learner's level,
+  and the tab bar lights Üben inside the course. Themen is for browsing again: decks,
+  the word map and the scanner. `#/words/kurs/<level>`, the address from 2026-11-19,
+  still lands.
+
+  *Why.* Each door answers one question (DESIGN §8a). Themen's is *what words are
+  there?*, and it asks nothing of the learner. A unit asks for work: a film, then *Learn
+  the words*, which was always an Üben session. Under Themen, a unit started in one door
+  and finished in another. A learner who finished the day's reviews and asked *what
+  next?* was standing in Üben, one door away from the answer. The 2026-11-19 placement
+  argued that a unit is a theme with a direction. The direction is what makes it study,
+  and study is Üben's question. *Heute* stays first, because the scheduler's day is still
+  the core of the loop, and a unit is chosen, never due.
+
+  *The rules it keeps.* The films never grade, and only the unit's session writes FSRS,
+  as before. No storage key moved and no learner row was touched. Old links land,
+  because a link in somebody's notes is a promise. The switch is a control, not a swipe:
+  a second horizontal axis inside Üben would break the gesture grammar.
+
+  *Forbids:* a swipe between *Heute* and *Kurs*; a unit that falls due, nags or counts
+  down; ranking units by an exam date; a sixth door for the course. *Leaves open:* when a
+  new learner first meets the course. The switch is hidden during the first-run session
+  and appears after it.
+- **Wortbau: the feed builds a word** *(2026-11-27, at the owner's direction: make
+  learning "unforgettable, dynamic, incredible, fascinating, addictive in the most
+  positive way that learning can be")*. **What it settles.** A feed slot, **Wortbau**
+  (`components/WortbauSlot.tsx`, `data/wortbau.ts`), at position 8 and every 12 after.
+  It shows two cards and their senses as an equation with a blank (*die Hand* + *der
+  Schuh*, *hand + shoe = ___*), with one button, *Put them together*. The halves join,
+  the first part's article fades, the last part's article moves to the front, and the
+  blank fills: *der Handschuh*, *glove*. One line says what the join did (a linking
+  *en*, a plural, a dropped *e*, a verb's stem) and that the last part picks the article.
+  Chips offer a related compound next, one that shares a part (*More with Zeug*).
+
+  *Why.* German builds words out of words, and English hides the seams. Seeing
+  *Handschuh* as *hand + shoe* gives an arbitrary string a reason, and memory keeps
+  reasons. The guess comes first because an attempt before the answer, even a wrong one,
+  makes the answer stick (Kornell, Hays & Bjork 2009). The films hold the learner on a
+  guess for the same reason. The first learner's own chats asked for exactly this
+  (BACKLOG, 2026-11-14, item 4). It stays inside the ruling: it shows a property of
+  words, how they are made and which article they take, and it tests nothing. Track E #6
+  refused composition for prefix verbs; this settles noun compounds whose parts are both
+  cards.
+
+  *Why it is hand-picked.* An automatic splitter was measured first: of 60 readings
+  sampled from the 1,105 it produced, about one in six was wrong (*Angelpunkt* as
+  fishing rod + dot, *Netzwerk* as net + plant). A wrong equation teaches a wrong word,
+  in the form a learner is most likely to remember. So the 71 rows are chosen, and
+  `data/wortbau.test.ts` holds each one to the shipped cards: the segments spell the
+  word, each part is a form of its card, each sense is one of that card's own senses,
+  and the head is a noun with the whole's gender. A row whose card is gone is dropped,
+  not shown wrong.
+
+  *The rules it keeps.* **It never grades and records nothing.** It has no `data-word`,
+  so the dwell observer cannot see it. The guess is made in the learner's head; it is
+  never typed or stored. Its one write is the bookmark, *Save for Üben*, and the test
+  limits its store imports to four. Its order reads status for two things only: to skip
+  a compound the learner knows, and to put first the ones whose halves they have met.
+  The order changes once a day. Under reduced motion the parts join without travelling.
+
+  *Forbids:* a typed or scored guess; a row from the splitter that no test holds; a
+  sense that is not on the part's own card; prefix verbs (Track E #6 stands).
+  *Leaves open:* everyday compounds whose parts are cards but whose whole is not yet one
+  (*Kinderwagen*, *Mülleimer*, *Schneemann*). Each goes through the authoring gate
+  first (BACKLOG).
+- **Built for open models, with none switched on** *(2026-11-27, at the owner's
+  direction: "make sure Lexi is built to grow into that open-source and local-run
+  future")*. **What it settles.** A seam, `src/lib/engines/`, with three contracts: a
+  voice (text → audio), ears (audio → transcript) and a tutor (text → text). None of
+  them takes a card, a schedule or a grade. `admissible()` turns the licence rules into
+  a function, and a registry lists every engine looked at, each with its verdict. A
+  probe reads what the device could run (WebGPU, WebAssembly, free storage) without a
+  prompt, a download or a request, and Settings shows the result
+  (`components/OnThisDevice.tsx`). Nothing is installed. [LOCAL-AI.md](LOCAL-AI.md)
+  has the detail.
+
+  *Why.* Lexi went silent the day before, to wait for an open voice (refusal *A closed
+  voice*). Open German voices, recognisers and small instruction models are arriving,
+  and they run in a browser tab. When one is good enough, adding it should be an
+  implementation, not a rewrite. The licence question should already be answered in
+  code, not argued again in a hurry.
+
+  *The rules it keeps.* Open weights or nothing: weights that forbid commercial use or
+  derivatives, or restrict how they are used, are refused, because an MIT app cannot
+  pass them on. The runtime has a permissive licence, and no GPL code goes in the bundle
+  or its downloads; a GPL program may render clips on a maintainer's machine. Nothing
+  runs in the cloud. An engine never writes FSRS: ears produce a transcript, and a drill
+  grades it. No model downloads before the learner asks, and no microphone opens
+  without a tap. A test keeps the device's own speech synthesis and recognition out.
+
+  *Forbids:* switching an engine on without the owner's yes, since each is a Reserved
+  matter; a download from a host that the CSP and the legal page do not name; a cloud
+  engine; non-commercial or use-restricted weights. *Leaves open:* the three decisions
+  in LOCAL-AI.md: clips rendered by Piper in the CC0 Thorsten voice, Whisper on the
+  device, and a learner's own local model server as the tutor.
 
 ---
 

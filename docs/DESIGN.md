@@ -813,6 +813,17 @@ The rules the feed does own:
 
 ## 8a. Five destinations, and the first one is a feed
 
+> **Changed 2026-11-27.** Still five doors, and two of them changed shape. **Üben has two
+> halves**: *Heute*, the session the scheduler builds, and *Kurs*, the course
+> (`#/kurs/<level>`). Üben now answers two questions: *test me on what I've met* and
+> *take me through my level*. A tab control (`UebenSwitch`) moves between the halves and
+> replaces the history entry instead of pushing one. It is a control, not a swipe,
+> because a second horizontal axis would break the gesture grammar. It sits at the same
+> height on both halves, and the tab bar lights Üben inside the course. **Themen is for
+> browsing** again: decks, the word map and the scanner. **The feed has a Wortbau slot**
+> (position 8, then every 12): two cards joined into a compound after the learner
+> guesses. It never grades (VISION, *Wortbau*).
+
 > **Changed 2026-11-26.** **Prüfung** joins as the fifth: *what does my level look like on
 > paper?* It is a room the learner chooses to enter, like the four, and it grades nothing
 > the scheduler reads — so it does not compete with Üben for the day's twenty minutes, it

@@ -55,7 +55,8 @@ made re-derivable, one of them disagreed with itself — the participle check ex
 reflexive verb — so the instrument is also how you find out the finding was wrong.)*
 
 **…state a number.** Get it from a script or a query, this session. Do not carry a
-number forward from a doc. *(Four counts in the README were stale by up to 6×.)*
+number forward from a doc. *(Four counts in the README were stale by up to 6×. A count
+carried through a conversation summary is a number from a doc: see* A summary is a doc*.)*
 
 **…write up an open question, or close an item that opened as a complaint.** Measure the
 premise first, and re-run the *complaint* rather than the done-when. Three of six Track E
@@ -2666,3 +2667,132 @@ rule. **True:** it filtered out the recap's check badge, which entered from `opa
 0` and `scale(.4)`, the exact case the rule exists for. **Rule:** an exemption in a
 guard says why its case is safe. One that cannot say why is a defect: fix it and delete
 the exemption.
+
+## A summary is a doc *(added 2026-11-28)*
+
+**Believed:** Wortbau has 72 rows. The conversation summary written at a context limit
+said so, and the docs pass was briefed to use "only the numbers listed" there.
+**True:** `WORTBAU.length` is 71. The summary was written from memory of the work, not
+from a run. **Rule:** a number that crossed a context summary is a number from a doc.
+Re-run it before it goes into a doc. Checked that way, every other count in the pass's
+CHANGELOG entry held, and one sentence needed rewording.
+
+## A generator is sampled before it is shown *(added 2026-11-28)*
+
+**Believed:** the compound splitter's readings could feed Wortbau directly, since they
+already decide which nouns are compounds elsewhere in the app. **True:** of 60 readings
+sampled by hand from 1,105, about one in six was wrong (*Angelpunkt* as fishing rod +
+dot, *Netzwerk* as net + plant). For a flag that only withholds an unlock, that rate is
+tolerable. For an equation shown to a learner, it teaches one wrong word in six.
+**Rule:** before a generated reading is displayed as fact, sample it by hand and write
+the rate down. If the rate is not near zero, curate, and let the generator propose
+rather than decide.
+
+## Curating is an audit *(added 2026-11-28)*
+
+**Believed:** picking 71 compounds was selection, and the cards under them were right.
+**True:** reading their parts one at a time found three defects the validators pass.
+*Der Hafen* was glossed "harbour/harbour". *Das Geschoss* led with "projectile" over a
+sentence about a weapon, where the compound needs "floor". *Die Taschenlampe* was glossed
+with a definition, and is filed at C1. The glosses went through `fix-authored`; the
+level waits for a schedule migration. **Rule:** any pass that reads cards one at a time
+will find defects. Budget time for the fixes, run them through the gate, and file what
+the pass cannot fix.
+
+## Two analyses that spell the same word *(added 2026-11-28)*
+
+**Believed:** a linking letter explains *Kinder* in *Kindergarten*: *Kind* + *er*.
+**True:** *Kinder* is the plural, and the card says so. `joinOf` tried linking letters
+before plurals, so the join note would have taught a linker where German has a plural.
+A reveal had the same blind spot: *Zeitgeist*'s first English sense is "Zeitgeist", so
+the equation answered the question with itself. **Rule:** when two analyses produce the
+same string, prefer the one the learner can check on a card. A reveal must say something
+new, so an English sense equal to the headword is skipped.
+
+## A label is a claim about everything under it *(added 2026-11-28)*
+
+**Believed:** Wortbau's "More with …" chips could list compounds that share either part.
+**True:** the first version mixed parts, so *Handwerk* offered *Werkzeug* under "More
+with *Hand*". The second kept to one part but looked for it in one position only, so
+"More with *Zeit*" showed *Hochzeit* alone on the simulator while *Zeitschrift* and
+*Zeitgeist* existed. **Rule:** a label names a property, and the test asserts that
+property of every item under it, for every row. `wortbau.test.ts` now does.
+
+## An animation id is an identity *(added 2026-11-28)*
+
+**Believed:** `layoutId`s scoped to the slot (`wb${k}-art`) were unique enough.
+**True:** a chip swaps the compound inside the same slot, and motion would have flown
+the old word's article into the new word's tile. **Rule:** a shared-layout id includes
+the identity of the thing it names (`wb${k}-${whole}-art`), not only where it is drawn.
+
+## A guard that greps source must match code *(added 2026-11-28)*
+
+**Believed:** `not.toMatch(/data-word/)` kept the attribute out of `WortbauSlot.tsx`.
+**True:** it failed on the file's header comment, which explains that the slot has no
+`data-word`. A guard that matches prose either fails on documentation or teaches people
+to stop writing it. **Rule:** match the syntax (`/data-word\s*=/`), and prove the guard
+fires by adding the defect to a copy.
+
+## A URL in `src/` is a promise to the legal page *(added 2026-11-28)*
+
+**Believed:** URLs that only cite model cards in `lib/engines/registry.ts` were inert.
+**True:** `legal-page.test.ts` reads every `https://` host in `src/`, and it failed on
+`huggingface.co`, which `legal.html` does not name. The test was right to fire. It
+cannot tell a citation from a fetch, and a model download from that host would be a real
+request. **Rule:** a host in `src/` is either named on the legal page or listed in
+`LINK_ONLY` with its reason, and the reason says what would change it (LOCAL-AI.md: name
+the host before an engine is switched on).
+
+## A control on two pages is measured on both *(added 2026-11-28)*
+
+**Believed:** the *Heute | Kurs* switch sat in the same place on both halves, because
+both render the same component. **True:** it sat 5px lower on Kurs, and on a returning
+learner's day the return notice above Üben's header pushed it further down. Switching
+halves made the control jump under the thumb. **Rule:** a control that appears on two
+surfaces is measured on both (`getBoundingClientRect().top`), with every notice that can
+appear above it showing.
+
+## An alias is the same place *(added 2026-11-28)*
+
+**Believed:** rewriting `#/words/kurs/B1` to `#/kurs/B1` was a navigation like any
+other. **True:** it pushed a history entry, so Back from the course led to the page
+already showing. **Rule:** an old address rewritten to its canonical spelling replaces
+the entry. `hashWrite` now compares the current route's own canonical hash with the next
+one.
+
+## A button names a door *(added 2026-11-28)*
+
+**Believed:** "Browse the lexicon" told a learner where the button went. **True:**
+nothing in the app is called the lexicon; the door is *Themen*. **Rule:** a button that
+leaves for another surface uses that surface's name as the tab bar shows it.
+
+## New words are where the dictionary has not reached *(added 2026-11-28)*
+
+**Believed:** a batch of late-2026 vocabulary would pass the gate like any other.
+**True:** eight of the cards had facts the gate could not verify from de.wiktionary, so
+they needed 13 cited Wikidata rulings. *Paketstation* had no source at all and was
+dropped. After the write, `validate --strict` still failed on missing plurals and IPA,
+which `fetch-plurals`, `compose-ipa` and an `ipa-absent` row filled. **Rule:** for words
+the world has just made, check what the sources hold before drafting. `authoring:new`
+passing is half of landing.
+
+## A probe word is a word *(added 2026-11-28)*
+
+**Believed:** *Mehrweg* was a fair word to probe the corpus with. **True:** it lives as
+the first part of compounds (*Mehrwegflasche*, *Mehrwegbecher*) far more than as a word
+of its own, so the probe asked for something no card should be. **Rule:** a coverage
+probe's words pass the same lookup a card would before the probe's count means anything.
+The probe now asks for *Mehrwegflasche*.
+
+## Copy that restates a table drifts from it *(added 2026-11-28)*
+
+**Believed:** the Settings readout could describe the engine registry in its own words.
+**True:** it contradicted the registry twice in one pass, as verdicts changed underneath
+it. **Rule:** a sentence that summarises data is built from the data, or a test holds it
+to the data. The readout now reads `readiness()`.
+
+## The simulator's arrow keys belong to Safari *(added 2026-11-28)*
+
+**Believed:** arrow keys would step the feed on the simulator, as they do in a desktop
+browser. **True:** they scrolled Safari, and the feed did not move. **Rule:** drive the
+feed on the simulator with swipes that start more than 4pt from an edge.
